@@ -18,6 +18,14 @@
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps/tutorial-list
+    - name: On-premises app provisioning
+      items:
+      - name: Provisioning to On-premises SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
+      - name: Provisioning to SQL based apps
+        href: on-premises-sql-connector-configure.md
+      - name: Provisioning to LDAP based apps
+        href: on-premises-ldap-connector-configure.md
   - name: Concepts
     expanded: true
     items: 
@@ -60,10 +68,6 @@
         href: export-import-provisioning-configuration.md  
       - name: Provisioning reports
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: Automate configuration using MS Graph
-      href: application-provisioning-configuration-api.md
-    - name: Enable accidental deletions prevention
-      href: accidental-deletions.md
     - name: Troubleshoot application provisioning
       items:
       - name: Known issues
@@ -80,16 +84,6 @@
         href: on-premises-ecma-troubleshoot.md
       - name: Provisioning logs
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
-    - name: On-premises app provisioning
-      items:
-      - name: Provisioning to On-premises SCIM-enabled apps
-        href: on-premises-scim-provisioning.md
-      - name: Provisioning to SQL based apps
-        href: on-premises-sql-connector-configure.md
-      - name: Provisioning to LDAP based apps
-        href: on-premises-ldap-connector-configure.md
-      - name: Migrate connector from MIM Sync
-        href: on-premises-migrate-microsoft-identity-manager.md
     - name: Troubleshoot HR provisioning
       items:
       - name: Attribute retrieval issues
@@ -102,14 +96,18 @@
         href: hr-manager-update-issues.md
       - name: HR writeback issues
         href: hr-writeback-issues.md
+    - name: Enable accidental deletions prevention
+      href: accidental-deletions.md
+    - name: Automate configuration using MS Graph
+      href: application-provisioning-configuration-api.md
   - name: Reference
     items:
+    - name: Function reference for writing expressions for attribute mappings
+      href: functions-for-customizing-application-data.md
     - name: SCIM 2.0 protocol compliance
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: SCIM and Graph scenarios
       href: scim-graph-scenarios.md
-    - name: Function reference for writing expressions for attribute mappings
-      href: functions-for-customizing-application-data.md
     - name: Cloud HR provisioning
       items:
       - name: SuccessFactors attribute reference
@@ -118,6 +116,8 @@
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
+      - name: Migrate connector from MIM Sync
+        href: on-premises-migrate-microsoft-identity-manager.md
   - name: Resources
     items:
     - name: Support and help options for developers
