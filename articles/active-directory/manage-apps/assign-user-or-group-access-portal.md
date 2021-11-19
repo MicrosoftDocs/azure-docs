@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/23/2021
+ms.date: 10/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
 ---
 
-# Assign users and groups to an application in Azure Active Directory
+# Assign users and groups to an application
 
 This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's My Apps portal for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
@@ -108,12 +108,32 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     Remove-AzureADServiceAppRoleAssignment -ObjectId $spo.ObjectId -AppRoleAssignmentId $assignments[assignment #].ObjectId
     ```
 
-## Related articles
+## Remove all users who are assigned to the application
 
-- [Assign, or unassign, a user or group using the Azure portal](add-application-portal-assign-users.md)
-- [Assign or unassign users, and groups, for an app using the Graph API](/graph/api/resources/approleassignment)
-- [Manage access to apps](what-is-access-management.md)
+   ```powershell
+
+   #Retrieve the service principal object ID.
+   $app_name = "<Your App's display name>"
+   $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+   $sp.ObjectId
+
+# Get Service Principal using objectId
+$sp = Get-AzureADServicePrincipal -ObjectId "<ServicePrincipal objectID>"
+
+# Get Azure AD App role assignments using objectId of the Service Principal
+$assignments = Get-AzureADServiceAppRoleAssignment -ObjectId $sp.ObjectId -All $true
+
+# Remove all users and groups assigned to the application
+$assignments | ForEach-Object {
+    if ($_.PrincipalType -eq "User") {
+        Remove-AzureADUserAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    } elseif ($_.PrincipalType -eq "Group") {
+        Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
+    }
+}
+```
 
 ## Next steps
 
-- [Hide an app from a user](hide-application-from-user-portal.md)
+- [Create and assign a user account from the Azure portal](add-application-portal-assign-users.md)
+- [Manage access to apps](what-is-access-management.md).

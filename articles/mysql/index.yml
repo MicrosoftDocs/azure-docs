@@ -1,8 +1,8 @@
 ### YamlMime:Landing
 title:  Azure Database for MySQL documentation
-summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition.You can use either Single Server or Flexible Server (Preview) to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
+summary: "Azure Database for MySQL is a relational database service powered by the MySQL community edition.You can use either Single Server or Flexible Server to host a MySQL database in Azure. It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability."
 metadata:
-  description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server (Preview) to deploy your MySQL database in Azure."
+  description: "Azure Database for MySQL are a relational database service in the Microsoft cloud that is built for developers and powered by the MySQL community edition. You can choose either Single server or Flexible Server to deploy your MySQL database in Azure."
   author: savjani
   ms.author: pariks
   ms.date: 09/10/2021
@@ -35,7 +35,9 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Single Server?
-            url: single-server-overview.md  
+            url: single-server-overview.md
+          - text: What's new in Single Server?
+            url: single-server-whats-new.md
           - text: View all Single server documentation
             url: single-server/index.yml
       - linkListType: whats-new
@@ -59,7 +61,7 @@ landingContent:
 
 
  # Card 3
-  - title: Flexible Server (Preview)
+  - title: Flexible Server
     linkLists:
       - linkListType: overview
         links:
@@ -139,7 +141,7 @@ landingContent:
         links:
           - text: Manage Single Server using Azure portal
             url: howto-create-manage-server-portal.md
-          - text: Manage Flexible Server (Preview) using Azure portal
+          - text: Manage Flexible Server using Azure portal
             url: flexible-server/how-to-manage-server-portal.md
           - text: Migrate using dump and restore
             url: concepts-migrate-dump-restore.md
@@ -171,8 +173,10 @@ landingContent:
         links:
           - text: Design a Database on Single Server
             url: tutorial-design-database-using-portal.md
-          - text: Create a Web Ap with Flexible server in VNET
+          - text: Create a Web App with Flexible server in VNET
             url: flexible-server/tutorial-webapp-server-vnet.md
+          - text: Deploy Spring Boot app on AKS with Flexible Server
+            url: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
           - text: Build a PHP (Laravel) web app with Flexible server
             url: flexible-server/tutorial-php-database-app.md
           - text: Build a PHP (Laravel) web app with Single Server

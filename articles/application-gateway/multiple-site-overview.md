@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple site hosting enables you to configure more than one web application on the same port of application gateways using public-facing listeners. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
 You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](#wildcard-host-names-in-listener-preview).
 
@@ -29,7 +29,7 @@ Similarly, you can host multiple subdomains of the same parent domain on the sam
 While using multi-site listeners, to ensure that the client traffic is routed to the accurate backend, it is important to have the request routing rules be present in the correct order.
 For example, if you have 2 listeners with associated Host name as `*.contoso.com` and `shop.contoso.com` respectively, the listener with the `shop.contoso.com` Host name would have to be processed before the listener with `*.contoso.com`. If the listener with `*.contoso.com` is processed first, then no client traffic would be received by the more specific `shop.contoso.com` listener.
 
-This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request.
+This ordering can be established by providing a 'Priority' field value to the request routing rules associated with the listeners. You can specify an integer value from 1 to 20000 with 1 being the highest priority and 20000 being the lowest priority. In case the incoming client traffic matches with multiple listeners, the request routing rule with highest priority will be used for serving the request. Each request routing rule needs to have a unique priority value.
 
 The priority field only impacts the order of evaluation of a request routing rule, this will not change the order of evaluation of path based rules within a `PathBasedRouting` request routing rule.
 
@@ -66,6 +66,8 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * `*` - can match with multiple characters in the allowed range
 * `?` - can match with a single character in the allowed range
 
+<!-- docutune:disable -->
+
 ### Conditions for using wildcard characters and multiple host names in a listener
 
 * You can only mention up to 5 host names in a single listener
@@ -73,6 +75,8 @@ In the Azure portal, under the multi-site listener, you must chose the **Multipl
 * There can only be up to two asterisks `*` in a host name. For example, `*.contoso.*` is valid and `*.contoso.*.*.com` is invalid.
 * There can only be a maximum of 4 wildcard characters in a host name. For example, `????.contoso.com`, `w??.contoso*.edu.*` are valid, but `????.contoso.*` is invalid.
 * Using asterisk `*` and question mark `?` together in a component of a host name (`*?` or `?*` or `**`) is invalid. For example, `*?.contoso.com` and `**.contoso.com` are invalid.
+
+<!-- docutune:enable -->
 
 ### Considerations and limitations of using wildcard or multiple host names in a listener
 

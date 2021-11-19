@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/19/2021
+ms.date: 10/28/2021
 ms.author: jasteppe
 ---
 # Open-source projects
@@ -16,7 +16,7 @@ Check out our open-source projects on GitHub that provide source code and instru
 
 #### FHIR integration
 
-* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R7&#174;](https://https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
+* [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): Open-source version of the Azure Healthcare APIs IoT connector managed service. Can be used with any Fast Healthcare Interoperability Resources (FHIR&#174;) service that supports [FHIR R7&#174;](https://www.hl7.org/implement/standards/product_brief.cfm?product_id=491)
 
 #### Device and FHIR destination mappings
 
@@ -34,9 +34,13 @@ HealthKit
 
 * [microsoft/healthkit-to-fhir](https://github.com/microsoft/healthkit-to-fhir): Provides a simple way to create FHIR Resources from HKObjects
 
+Google Fit on FHIR
+
+* [microsoft/googlefit-on-fhir](https://github.com/microsoft/googlefit-on-fhir): Bring Google Fit&#174; data to a FHIR service.
+
 Health Data Sync
 
-* [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift library that simplifies and automates the export of HealthKit data to an external store.
+* [microsoft/health-data-sync](https://github.com/microsoft/health-data-sync): A Swift&#174; library that simplifies and automates the export of HealthKit data to an external store.
 
 ## Next steps
 Learn how to deploy IoT connector in the Azure portal

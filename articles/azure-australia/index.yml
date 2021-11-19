@@ -1,11 +1,11 @@
-﻿### YamlMime:Landing
+### YamlMime:Landing
 
 title: Azure Australia documentation
 summary: Microsoft Azure Australia is a cloud platform that is certified by the Australian Cyber Security Center (ACSC) and included on the Certified Cloud Services List (CCSL).
 
 metadata:
   title: Azure Australia documentation
-  description: Microsoft Azure Australia is a cloud platform that is certified by the Australian Cyber Security Center (ACSC) and included on the Certified Cloud Services List (CCSL).
+  description: Microsoft Azure Australia is a cloud platform certified by the Australian Cyber Security Center (ACSC) and included on the Certified Cloud Services List (CCSL).
   ms.service: azure-australia
   ms.topic: landing-page
   author: emilyre

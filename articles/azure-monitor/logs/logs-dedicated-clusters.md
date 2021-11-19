@@ -4,7 +4,7 @@ description: Customers meeting the minimum commitment tier could use dedicated c
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 07/29/2021 
+ms.date: 07/29/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -19,7 +19,7 @@ Capabilities that require dedicated clusters:
 - **[Customer-managed Keys](../logs/customer-managed-keys.md)** - Encrypt the cluster data using keys that are provided and controlled by the customer.
 - **[Lockbox](../logs/customer-managed-keys.md#customer-lockbox-preview)** - Control Microsoft support engineers access requests to your data.
 - **[Double encryption](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption)** - Protects against a scenario where one of the encryption algorithms or keys may be compromised. In this case, the additional layer of encryption continues to protect your data.
-- **[Availability Zones](./availability-zones.md)** - Protect your data from datacenter failures with Availability Zones on dedicated cluster. Availability zones are datacenters in separate physical locations and equipped with independent power, cooling, and networking. This independent infrastructure and physical separation of zones makes an incident far less likely since the workspace can rely on the resources from any of the zones.
+- **[Availability Zones](../../availability-zones/az-overview.md)** - Protect your data from datacenter failures with zones being separated physically by locations and equipped with independent power, cooling, and networking. The physical separation in zones and independent infrastructure makes an incident far less likely since the workspace can rely on the resources from any of the zones. Dedicated clusters are created with availability zones enabled for data resiliency in regions that [Azure has availability zones](../../availability-zones/az-overview.md#azure-regions-with-availability-zones). Availability zones configuration in cluster can’t be altered once created and settings can be verified in cluster’s property `isAvailabilityZonesEnabled`. [Azure Monitor availability zones](./availability-zones.md) covers broader parts of the service and when available in your region, extends your Azure Monitor resiliency automatically.
 - **[Multi-workspace](../logs/cross-workspace-query.md)** - If a customer is using more than one workspace for production it might make sense to use dedicated cluster. Cross-workspace queries will run faster if all workspaces are on the same cluster. It might also be more cost effective to use dedicated cluster as the assigned commitment tier takes into account all cluster ingestion and applies to all its workspaces, even if some of them are small and not eligible for commitment tier discount.
 
 
@@ -42,9 +42,9 @@ There are two modes of billing for usage on a cluster. These can be specified by
 
 1. **Cluster (default)**: Billing for ingested data is done at the cluster level. The ingested data quantities from each workspace associated to a cluster are aggregated to calculate the daily bill for the cluster. 
 
-2. **Workspaces**: The Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Azure Security Center](../../security-center/index.yml) for each workspace.) This full details of this pricing model are explained [here](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
+2. **Workspaces**: The Commitment Tier costs for your Cluster are attributed proportionately to the workspaces in the cluster, by each workspace's data ingestion volume (after accounting for per-node allocations from [Microsoft Defender for Cloud](../../security-center/index.yml) for each workspace.) This full details of this pricing model are explained [here](./manage-cost-storage.md#log-analytics-dedicated-clusters). 
 
-If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Azure Security Center will continue to be applied.
+If your workspace is using legacy Per Node pricing tier, when it is linked to a cluster it will be billed based on data ingested against the cluster's Commitment Tier, and no longer Per Node. Per-node data allocations from Microsoft Defender for Cloud will continue to be applied.
 
 Complete details are billing for Log Analytics dedicated clusters are available [here](./manage-cost-storage.md#log-analytics-dedicated-clusters).
 
@@ -539,13 +539,13 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 ## Delete cluster
 
-It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, any linked workspaces automatically be unlinked from the cluster and data ingested to these workspaces is stored in Log Analytics cluster without any downtime.
+It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, you are losing access to all data ingested to the cluster from linked workspaces and from workspaces that were linked previously. This operation is not reversible. If you delete your cluster when workspaces are linked, these get unlinked automatically and new data get ingested to Log Analytics storage instead.
 
-Deletion of a cluster deletes data related to any workspace that was linked to the cluster and you should consider this action carefully. A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and it's name can be used to create another cluster.
+A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and it's name can be used.
 
 > [!WARNING] 
-> The recovery of clusters in soft-delete isn't supported currently.
-> There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
+> - The recovery of soft-deleted clusters isn't supported and it can't be recovered once deleted.
+> - There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
 Use the following commands to delete a cluster:
 

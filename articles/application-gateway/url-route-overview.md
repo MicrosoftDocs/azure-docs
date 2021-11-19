@@ -4,7 +4,7 @@ description: This article provides an overview of the Azure Application Gateway 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 09/10/2019
+ms.date: 11/18/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -22,7 +22,9 @@ In the following example, Application Gateway is serving traffic for contoso.com
 Requests for http\://contoso.com/video/* are routed to VideoServerPool, and http\://contoso.com/images/* are routed to ImageServerPool. DefaultServerPool is selected if none of the path patterns match.
 
 > [!IMPORTANT]
-> For both the v1 and v2 SKUs, rules are processed in the order they are listed in the portal. If a basic listener is listed first and matches an incoming request, it gets processed by that listener. However, it is highly recommended to configure multi-site listeners first prior to configuring a basic listener. This ensures that traffic gets routed to the right back end.
+> For both the v1 and v2 SKUs, rules are processed in the order they are listed in the portal. The best practice when you create path rules is to have the least specific path (the ones with wildcards) at the end. If wildcards are on the top, then they take priority even if there is more specific match in subsequent path rules.
+>
+> If a basic listener is listed first and matches an incoming request, it gets processed by that listener. However, it is highly recommended to configure multi-site listeners first prior to configuring a basic listener. This ensures that traffic gets routed to the right back end.
 
 ## UrlPathMap configuration element
 

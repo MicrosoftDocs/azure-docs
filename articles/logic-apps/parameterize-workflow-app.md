@@ -160,10 +160,10 @@ The following example shows a parameterized **connections.json** file that uses 
    "managedApiConnections": {
       "azureblob": {
          "api": {
-            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/providers/Microsoft.Web/locations/@appsetting('WORKFLOWS_LOCATION_NAME')/managedApis/azureblob"
+            "id": "/subscriptions/@{appsetting('WORKFLOWS_SUBSCRIPTION_ID')}/providers/Microsoft.Web/locations/@{appsetting('WORKFLOWS_LOCATION_NAME')}/managedApis/azureblob"
          },
          "connection": {
-            "id": "/subscriptions/@appsetting('WORKFLOWS_SUBSCRIPTION_ID')/resourceGroups/@appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')/providers/Microsoft.Web/connections/azureblob"
+            "id": "/subscriptions/@{appsetting('WORKFLOWS_SUBSCRIPTION_ID')}/resourceGroups/@{appsetting('WORKFLOWS_RESOURCE_GROUP_NAME')}/providers/Microsoft.Web/connections/azureblob"
          },
          "connectionRuntimeUrl": "@appsetting('BLOB_CONNECTION_RUNTIMEURL')",
          "authentication": "@parameters('blob_auth')"
@@ -171,6 +171,17 @@ The following example shows a parameterized **connections.json** file that uses 
    }
 }
 ```
+
+> [!NOTE]
+> When you have an expression that's inline with plain text, make sure to use the interpolated 
+> format for that expression by enclosing that expression with curly braces ({}). This format helps 
+> avoid parsing problems.
+>
+> For example, if you have `"<text>/@<function-name>('<parameter-name>')/<text>"`, 
+> use the following version instead: `"<text>/@{<function-name>('<parameter-name>')}/<text>"`. 
+>
+> For more information, review [Considerations for using functions](workflow-definition-language-functions-reference.md#function-considerations).
+     
 
 ## Manage parameters files
 

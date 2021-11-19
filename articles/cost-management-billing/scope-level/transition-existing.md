@@ -1,6 +1,6 @@
 ---
-title: Transition to scope-level management of Azure Hybrid Benefit
-description: This article describes the changes and several transition scenarios to illustrate transitioning to scope-level management of Azure Hybrid Benefit.
+title: Transition to centrally managed Azure Hybrid Benefit
+description: This article describes the changes and several transition scenarios to illustrate transitioning to centrally managed Azure Hybrid Benefit.
 keywords:
 author: bandersmsft
 ms.author: banders
@@ -10,9 +10,9 @@ ms.service: cost-management-billing
 ms.subservice: ahb
 ---
 
-# Transition to scope-level management of Azure Hybrid Benefit
+# Transition to centrally managed Azure Hybrid Benefit
 
-When you transition to scope-level management of Azure Hybrid Benefit, it removes the need to configure the benefit at the resource level. This article describes the changes and several transition scenarios to illustrate the result. For a better understanding about how the new scope-level license management experience applies licenses and discounts to your resources, see [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
+When you transition to centrally managed Azure Hybrid Benefit, it removes the need to configure the benefit at the resource level. This article describes the changes and several transition scenarios to illustrate the result. For a better understanding about how the new scope-level license management experience applies licenses and discounts to your resources, see [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
 
 ## Changes to individual resource configuration
 
@@ -32,7 +32,7 @@ When you enroll in the scope-level management of Azure Hybrid Benefit experience
 
 ## HADR benefit for SQL Server VMs
 
-The new Azure portal experience fully supports the high-availability and disaster recovery (HADR) benefit for SQL Server VMs. If your SQL Server VM is configured as an HADR replica, no other actions are required. For more information about how the SQL Server VM HADR benefit works, see [SQL Server HADR and scope-level Azure Hybrid Benefit coexistence](sql-server-hadr-licenses.md).
+The new Azure portal experience fully supports the high-availability and disaster recovery (HADR) benefit for SQL Server VMs. If your SQL Server VM is configured as an HADR replica, no other actions are required. For more information about how the SQL Server VM HADR benefit works, see [SQL Server HADR and centrally managed Azure Hybrid Benefit coexistence](sql-server-hadr-licenses.md).
 
 ## Transition scenario examples
 
@@ -49,7 +49,7 @@ Review the following transition scenario examples that most closely match your s
 > [!NOTE] 
 > Azure Hybrid Benefit allows the licenses assigned to Azure to continue to also be used on-premises for up to 180 days, as the workloads are migrated, tested, and deployed.
 
-### Simplify license management by transitioning to scope-level management of Azure Hybrid Benefit
+### Simplify license management by transitioning to centralized scope-level management of Azure Hybrid Benefit
 
 - **SQL Server resources running -** One 64-core Azure SQL Database Business Critical is running, with Azure Hybrid Benefit selected.
 - **Licenses available to assign to Azure –** Your procurement team confirms there are more than 64 SQL Server Enterprise edition core licenses with Software Assurance that aren't in use on-premises.
@@ -65,13 +65,13 @@ Review the following transition scenario examples that most closely match your s
 
 ### Restore compliance when excessive Azure Hybrid Benefit usage is found
 
-- **SQL Server resources running -** Three 8-core SQL database General Purpose and one 16-core SQL Server VM Enterprise are running, with Azure Hybrid Benefit selected on all. The number of Azure Hybrid Benefit licenses required to cover that is 24 Standard edition cores + 16 SQL Server Enterprise cores. Or, 88 SQL Server Standard edition (+ 0 SQL Server Enterprise edition) -Or- 22 SQL Server Enterprise (+ 0 SQL Server Standard edition) could cover it, too. That's because one SQL Server Enterprise edition core license and four SQL Server Standard edition core licenses can cover the same Azure Hybrid Benefit usage across all Azure SQL resource types. Review the Azure Hybrid Benefit rules on the [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article to learn more about this flexibility.
+- **SQL Server resources running -** Three 8-core SQL database General Purpose and one 16-core SQL Server VM Enterprise are running, with Azure Hybrid Benefit selected on all. The number of Azure Hybrid Benefit licenses required to cover that is 24 Standard edition cores + 16 SQL Server Enterprise cores. Or, 88 SQL Server Standard edition (+ 0 SQL Server Enterprise edition) -Or- 22 SQL Server Enterprise (+ 0 SQL Server Standard edition) could cover it, too. That's because one SQL Server Enterprise edition core license and four SQL Server Standard edition core licenses can cover the same Azure Hybrid Benefit usage across all Azure SQL resource types. Review the Azure Hybrid Benefit rules in the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article to learn more about this flexibility.
 - **Licenses available to assign to Azure -** According to your procurement team, 64 SQL Server Standard edition core licenses with Software Assurance aren't in use on-premises or in Azure. That's less than the required amount of 22 SQL Server Enterprise or 88 SQL Server Standard edition core licenses.
 - **Recommended Action -** To restore compliance, identify 6 SQL Server Enterprise or 24 SQL Server Standard edition core licenses with Software Assurance and assign them and the already-confirmed 64 SQL Server Standard core licenses to Azure using the scope-level management of Azure Hybrid Benefit experience.
 - **Result -** Non-compliance is eliminated and Azure Hybrid Benefit is used optimally to minimize costs.
 - **Alternative Action -** Assign only the available 64 SQL Server Standard edition core licenses to Azure. You'll be compliant, but because those licenses are insufficient to cover all Azure SQL usage, you'll experience some pay-as-you-go charges.
 ## Next steps
 
-- Follow the [Manage and optimize Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
+- Follow the [Optimize centrally managed Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
 - Move to scope-level license management by [creating SQL Server license assignments](create-sql-license-assignments.md).
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).

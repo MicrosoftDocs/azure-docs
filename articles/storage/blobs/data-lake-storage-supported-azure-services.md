@@ -42,7 +42,7 @@ This table lists the Azure services that you can use with Azure Data Lake Storag
 |Azure SQL Database|Not yet supported|Not applicable|Not applicable|[What is Azure SQL Database?](../../azure-sql/database/sql-database-paas-overview.md)|
 
 > [!TIP]
-> To see how services organized into categories such as ingest, download, process, and visualize, see [Ingest, process, and analyze](data-lake-storage-data-scenarios.md#ingest-process-and-analyze).
+> To see how services organized into categories such as ingest, download, process, and visualize, see [Ingest, process, and analyze](./data-lake-storage-best-practices.md#ingest-process-and-analyze).
 
 ## See also
 

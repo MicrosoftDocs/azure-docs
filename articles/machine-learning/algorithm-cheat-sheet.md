@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.date: 07/20/2021
+ms.date: 10/21/2021
 adobe-target: true
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
@@ -34,7 +34,7 @@ The suggestions offered in this algorithm cheat sheet are approximate rules-of-t
 
 Every machine learning algorithm has its own style or inductive bias. For a specific problem, several algorithms may be appropriate, and one algorithm may be a better fit than others. But it's not always possible to know beforehand, which is the best fit. In cases like these, several algorithms are listed together in the cheat sheet. An appropriate strategy would be to try one algorithm, and if the results are not yet satisfactory, try the others. 
 
-To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and module reference](algorithm-module-reference/module-reference.md).
+To learn more about the algorithms in Azure Machine Learning designer, go to the [Algorithm and component reference](component-reference/component-reference.md).
 
 ## Kinds of machine learning
 

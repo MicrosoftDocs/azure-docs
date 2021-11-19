@@ -2,12 +2,12 @@
 title: Azure CDN from Verizon Premium rules engine features
 description: Reference documentation for Azure CDN from Verizon Premium rules engine features.
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 06/02/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 

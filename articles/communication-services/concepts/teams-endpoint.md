@@ -25,7 +25,7 @@ You can use the Azure Communication Services Identity SDK to exchange Azure Acti
 
 Voice, video, and screen-sharing capabilities are provided via Azure Communication Services Calling SDKs. The following diagram shows an overview of the process you'll follow as you integrate your calling experiences with custom Teams endpoints.
 
-![Diagram of the process of enabling the calling feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-calling-overview.png)
+![Diagram of the process of enabling the calling feature for a custom Teams endpoint experience.](./media/teams-identities/teams-identity-calling-overview.svg)
 
 ## Chat
 

@@ -195,7 +195,7 @@ StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated".
 You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
 
 ```kusto
-resources 
+StorageBlobLogs 
 | where type =~ 'microsoft.storage/storageAccounts'
 | extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
 | extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
