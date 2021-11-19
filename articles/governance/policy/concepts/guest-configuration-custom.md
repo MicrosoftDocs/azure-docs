@@ -285,14 +285,11 @@ the `$global:DSCMachineStatus` isn't available. Configurations aren't able to re
 ## Known compatibility issues with supported modules
 
 The `PsDscResources` module in the PowerShell Gallery and the `PSDesiredStateConfiguration`
-module that ships with Windows are supported by Microsoft and have been a commonly used
-set of resources for DSC. Until the `PSDscResources` module is updated for DSCv3, be aware of the
-following known compatibility issues.
-
-- Don't use resources from the `PSDesiredStateConfiguration` module that ships with Windows. Instead,
-  switch to `PSDscResources`.
-- Don't use the `WindowsFeature` and `WindowsFeatureSet` resources in `PsDscResources`. Instead,
-  switch to the `WindowsOptionalFeature` and `WindowsOptionalFeatureSet` resources.
+module that ships with Windows are supported by Microsoft for previous versions of DSC, and have
+been a commonly used set of resources. The resources in `PSDesiredStateConfiguration` that
+shipped in Windows are not compatible with guest configuration. The existing version
+of the `PsDscResources` will require changes to be supported with guest configuration.
+Until the module is updated, it is required to author custom resources.
   
 The "nx" resources for Linux that were included in the
 [DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers)
