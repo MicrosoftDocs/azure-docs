@@ -15,7 +15,7 @@ ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
-# Quickstart: Enable single sign-on for an enterprise application in Azure Active Directory
+# Quickstart: Enable single sign-on for an enterprise application
 
 In this quickstart, you use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. 
 

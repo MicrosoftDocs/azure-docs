@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/17/2021
 ms.custom: template-tutorial, ignite-fall-2021
 ---
 
@@ -17,7 +17,6 @@ Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register preview feature.
 > * Create virtual network.
 > * Create network security group.
 > * Create a gateway load balancer.
@@ -36,24 +35,6 @@ In this tutorial, you learn how to:
 - Azure PowerShell installed locally or Azure Cloud Shell
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
-
-## Register preview feature
-
-As part of the public preview of gateway load balancer, the provider must be registered in your Azure subscription.
-
-Use [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) to register the **AllowGatewayLoadBalancer** provider feature:
-
-```azurepowershell-interactive
-Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowGatewayLoadBalancer
-
-```
-
-Use [Register-AzResourceProvider](/powershell/module/az.resources/register-azresourceprovider) to register the **Microsoft.Network** resource provider:
-
-```azurepowershell-interactive
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-
-```
 
 ## Create a resource group
 
@@ -318,7 +299,7 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 * Network security group
 
-* Gateway load balancer
+* Gateway Load Balancer
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]

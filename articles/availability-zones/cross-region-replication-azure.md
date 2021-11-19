@@ -61,7 +61,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
-| Korea |Korea Central |Korea South |
+| Korea |Korea Central |Korea South\* |
 | North America |East US |West US |
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |

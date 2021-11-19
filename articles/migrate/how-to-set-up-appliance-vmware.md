@@ -59,7 +59,7 @@ Before you deploy the OVA file, verify that the file is secure:
    
     Example: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. Verify the latest hash value by comparing the outcome of above command to the value documented [here](/azure/migrate/tutorial-discover-vmware#verify-security).
+1. Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-vmware.md#verify-security).
 
 #### Create the appliance server
 

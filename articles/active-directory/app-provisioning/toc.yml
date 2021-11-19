@@ -17,7 +17,7 @@
     - name: Customize attribute mappings
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
-      href: /azure/active-directory/saas-apps
+      href: /azure/active-directory/saas-apps/tutorial-list
     - name: Provisioning to SQL based apps
       href: tutorial-ecma-sql-connector.md
   - name: Concepts
@@ -129,7 +129,7 @@
     - name: Microsoft Q&A question page
       href: /answers/topics/azure-active-directory.html
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/active-directory
+      href: https://azure.microsoft.com/pricing/details/active-directory/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=active-directory
     - name: Stack Overflow
