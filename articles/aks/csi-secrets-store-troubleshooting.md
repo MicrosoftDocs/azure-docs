@@ -53,10 +53,6 @@ Error message in logs/events:
 E1029 17:37:42.461313       1 server.go:54] failed to process mount request, error: keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 -- Original Error: context deadline exceeded
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 49cb622d465041b17932527dc9841174845599e4
 Description: The provider pod is unable to access the key vault instance for either of the following reasons:
 - A firewall rule is blocking egress traffic from the provider.
 - Network policies that are configured in the AKS cluster are blocking egress traffic.
@@ -103,8 +99,7 @@ You can test the connectivity to your Azure key vault from the pod that's runnin
     ```bash
     curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
     ```
-<<<<<<< HEAD
-=======
+
 It means the provider pod is unable to access the AKV instance because:
 
 - There is a firewall rule blocking egress traffic from the provider.
@@ -152,9 +147,6 @@ You can test Key Vault connectivity from pod running on host network as follows:
   ```bash
   curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-version=7.2' -H "Authorization: Bearer <ACCESS_TOKEN_ACQUIRED_ABOVE>"
   ```
->>>>>>> b90873b7593e0a387bf1a446e73da21779059895
-=======
->>>>>>> 49cb622d465041b17932527dc9841174845599e4
 
 <!-- LINKS EXTERNAL -->
 [aad-troubleshooting]: https://azure.github.io/aad-pod-identity/docs/troubleshooting/
