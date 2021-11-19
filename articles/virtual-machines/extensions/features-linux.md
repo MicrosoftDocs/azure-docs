@@ -39,7 +39,7 @@ The Azure Linux Agent manages interactions between an Azure VM and the Azure fab
 
 The Azure Linux Agent is preinstalled on Azure Marketplace images. It can also be installed manually on supported operating systems.
 
-The agent runs on multiple operating systems. However, the extensions framework has a [limit for the operating systems that extensions use](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems). Some extensions are not supported across all operating systems and might emit "Unsupported OS" (error code 51). Check the individual extension documentation for supportability.
+The agent runs on multiple operating systems. However, the extensions framework has a [limit for the operating systems that extensions use](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems). Some extensions are not supported across all operating systems and might emit error code 51 ("Unsupported OS"). Check the individual extension documentation for supportability.
 
 ### Network access
 
@@ -248,9 +248,7 @@ Python: 3.6.0
 Goal state agent: 2.2.18
 ```
 
-In the preceding example output, the parent (or package deployed version) is `WALinuxAgent-2.2.17`.
-
-The `Goal state agent` value is the auto-update version.
+In the preceding example output, the parent (or package deployed version) is `WALinuxAgent-2.2.17`. The `Goal state agent` value is the auto-update version.
 
 We highly recommend that you always enable automatic update for the agent: [AutoUpdate.Enabled=y](./update-linux-agent.md). If you don't enable automatic update, you'll need to keep manually updating the agent, and you won't get bug and security fixes.
 
@@ -341,7 +339,7 @@ The following troubleshooting actions apply to all VM extensions:
 
 ### Common reasons for extension failures
 
-- Extensions have 20 minutes to run. (Exceptions are Custom Script, Chef, and DSC, which have 90 minutes.) If your deployment exceeds this time, it's marked as a timeout. The cause of this can be low resource VMs, or other VM configurations or startup tasks are consuming large amounts of resources while the extension is trying to provision.
+- Extensions have 20 minutes to run. (Exceptions are Custom Script, Chef, and DSC, which have 90 minutes.) If your deployment exceeds this time, it's marked as a timeout. The cause of this can be low-resource VMs, or other VM configurations or startup tasks are consuming large amounts of resources while the extension is trying to provision.
 
 - Minimum prerequisites aren't met. Some extensions have dependencies on VM SKUs, such as HPC images. Extensions might have certain networking access requirements, such as communicating with Azure Storage or public services. Other examples might be access to package repositories, running out of disk space, or security restrictions.
 
