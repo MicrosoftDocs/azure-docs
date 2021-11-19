@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 11/18/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -112,7 +112,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
       To see how to add an XML file to a container, go to [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-a-export-job.png)
+      ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-c-export-job.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
