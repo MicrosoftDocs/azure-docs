@@ -1,39 +1,47 @@
 ---
-title: 'How to scan Azure Synapse Analytics workspaces'
-description: Learn how to scan an Azure Synapse workspace in your Azure Purview data catalog. 
+title: Connect to and manage Azure Synapse Analytics workspaces
+description: This guide describes how to connect to Azure Synapse Analytics workspaces in Azure Purview, and use Purview's features to scan and manage your Azure Synapse Analytics workspace source.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/18/2021
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Register and scan Azure Synapse Analytics workspaces
+# Connect to and manage Azure Synapse Analytics workspaces in Azure Purview
 
-This article outlines how to register an Azure Synapse Analytics workspace in Azure Purview and set up a scan on it.
+This article outlines how to register Azure Synapse Analytics workspaces and how to authenticate and interact with Azure Synapse Analytics workspaces in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
-Azure Synapse Analytics workspace scans support capturing metadata and schema for the dedicated and serverless SQL databases within them. The workspace scans also classify the data automatically, based on system and custom classification rules.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
+
+
+<!-- 4. Prerequisites
+Required. Add any relevant/source-specific prerequisites for connecting with this source. Authentication/Registration should be covered by the sections below and does not need to be covered here.
+-->
 
 ## Prerequisites
 
-- Before you register your data sources, create an Azure Purview account. For more information, see [Quickstart: Create an Azure Purview account](create-catalog-portal.md).
-- You must be an Azure Purview data source administrator.
-- Set up authentication as described in the following sections.
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Register and scan an Azure Synapse workspace
+* An active [Purview resource](create-catalog-portal.md).
 
-> [!IMPORTANT]
-> To scan your workspace successfully, follow the steps and apply the permissions exactly as they're outlined in the next sections.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-### **Step 1**: Register your source
+## Register
 
-> [!NOTE]
-> Only users with at least a *Reader* role on the Azure Synapse workspace who are also *data source administrators* in Azure Purview can perform this step.
+This section describes how to register Azure Synapse Analytics workspaces in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
 
-To register a new Azure Synapse Source in your data catalog, do the following:
+### Authentication for registration
+
+Only users with at least a *Reader* role on the Azure Synapse workspace who is also *data source administrators* in Azure Purview can register an Azure Synapse workspace.
+
+### Steps to register
 
 1. Go to your Azure Purview account.
 1. On the left pane, select **Sources**.
@@ -51,28 +59,33 @@ To register a new Azure Synapse Source in your data catalog, do the following:
     d. In the endpoints dropdown lists, the SQL endpoints are automatically filled in based on your workspace selection.  
     e. In the **Select a collection** dropdown list, choose the collection you're working with or, optionally, create a new one.  
     f. Select **Register** to finish registering the data source.
-    
+
     :::image type="content" source="media/register-scan-synapse-workspace/register-synapse-source-details.png" alt-text="Screenshot of the 'Register sources (Azure Synapse Analytics)' page for entering details about the Azure Synapse source.":::
 
+## Scan
 
-### **Step 2**: Apply permissions to enumerate the contents of the Azure Synapse workspace
+Follow the steps below to scan Azure Synapse Analytics workspaces to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-#### Set up authentication for enumerating dedicated SQL database resources
+You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Purview to enumerate your workspace assets and perform scoped scans.
+
+Then, you will need to [apply permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
+
+### Authentication for enumerating dedicated SQL database resources
 
 1. In the Azure portal, go to the Azure Synapse workspace resource.  
-1. On the left pane, select **Access Control (IAM)**. 
+1. On the left pane, select **Access Control (IAM)**.
 
    > [!NOTE]
    > You must be an *owner* or *user access administrator* to add a role on the resource.
-   
-1. Select the **Add** button.   
+
+1. Select the **Add** button.
 1. Set the **Reader** role and enter your Azure Purview account name, which represents its managed service identity (MSI).
 1. Select **Save** to finish assigning the role.
 
 > [!NOTE]
-> If you're planning to register and scan multiple Azure Synapse workspaces in your Azure Purview account, you can also assign the role from a higher level, such as a resource group or a subscription. 
+> If you're planning to register and scan multiple Azure Synapse workspaces in your Azure Purview account, you can also assign the role from a higher level, such as a resource group or a subscription.
 
-#### Set up authentication for enumerating serverless SQL database resources
+### Authentication for enumerating serverless SQL database resources
 
 There are three places you will need to set authentication to allow Purview to enumerate your serverless SQL database resources: the Synapse workspace, the associated storage, and on the Serverless databases. The steps below will set permissions for all three.
 
@@ -102,12 +115,15 @@ There are three places you will need to set authentication to allow Purview to e
     CREATE LOGIN [PurviewAccountName] FROM EXTERNAL PROVIDER;
     ```
 
-### **Step 3**: Apply permissions to scan the contents of the workspace
+### Apply permissions to scan the contents of the workspace
 
 You can set up authentication for an Azure Synapse source in either of two ways:
 
 - Use a managed identity
 - Use a service principal
+
+> [!IMPORTANT]
+> These steps for serverless databases **do not** apply to replicated databases. Currently in Synapse, serverless databases that are replicated from Spark databases are read-only. For more information, go [here](../synapse-analytics/sql/resources-self-help-sql-on-demand.md#operation-is-not-allowed-for-a-replicated-database).
 
 > [!NOTE]
 > You must set up authentication on each dedicated SQL database in your Azure Synapse workspace that you intend to register and scan. The permissions that are mentioned in the following sections for serverless SQL database apply to all databases within your workspace. That is, you'll have to set up authentication only once.
@@ -130,6 +146,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [PurviewAccountName]
     GO
     ```
+
 #### Use a managed identity for serverless SQL databases
 
 1. Go to your Azure Synapse workspace.
@@ -140,6 +157,14 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     CREATE USER [PurviewAccountName] FOR LOGIN [PurviewAccountName];
     ALTER ROLE db_datareader ADD MEMBER [PurviewAccountName]; 
     ```
+
+#### Grant permission to use credentials for external tables
+
+If the Azure Synapse workspace has any external tables, the Azure Purview managed identity must be given References permission on the external table scoped credentials. With the References permission, Azure Purview can read data from external tables.
+
+```sql
+GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::[scoped_credential] TO [PurviewAccountName];
+```
 
 #### Use a service principal for dedicated SQL databases
 
@@ -158,6 +183,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     EXEC sp_addrolemember 'db_datareader', [ServicePrincipalID]
     GO
     ```
+
 > [!NOTE]
 > Repeat the previous step for all dedicated SQL databases in your Synapse workspace. 
 
@@ -177,7 +203,7 @@ You can set up authentication for an Azure Synapse source in either of two ways:
     ALTER ROLE db_datareader ADD MEMBER [ServicePrincipalID]; 
     ```
 
-### **Step 4**: Set up Azure Synapse workspace firewall access
+### Set up Azure Synapse workspace firewall access
 
 1. In the Azure portal, go to the Azure Synapse workspace. 
 
@@ -187,11 +213,11 @@ You can set up authentication for an Azure Synapse source in either of two ways:
 
 1. Select **Save**.
 
-### **Step 5**: Set up a scan on the workspace
+### Create and run scan
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in Purview Studio.
+1. Select the **Data Map** tab on the left pane in [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the data source that you registered.
 
@@ -212,36 +238,14 @@ To create and run a new scan, do the following:
 
 1. Choose your scan trigger. You can schedule it to run **weekly/monthly** or **once**.
 
-1. Review your scan, and then select **Save** to complete the setup.   
+1. Review your scan, and then select **Save** to complete the setup.  
 
-#### View your scans and scan runs
-
-1. View source details by selecting **view details** on the tile under the sources section. 
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-source-details.png" alt-text="Screenshot of the Azure Synapse Analytics source details page."::: 
-
-1. View scan run details by going to the **scan details** page.
-
-    * The **status bar** displays a brief summary of the running status of the child resources. The status is displayed on the workspace level scan.  
-    * Green indicates a successful scan run, red indicates a failed scan run, and gray indicates that the scan run is still in progress.  
-    * You can view more granular information about the scan runs by clicking into them.
-
-      :::image type="content" source="media/register-scan-synapse-workspace/synapse-scan-details.png" alt-text="Screenshot of the Azure Synapse Analytics scan details page." lightbox="media/register-scan-synapse-workspace/synapse-scan-details.png"::: 
-
-    * You can view a summary of recent failed scan runs at the bottom of the **source details** page. Again, you can view more granular information about the scan runs by clicking into them.
-
-#### Manage your scans
-
-To edit, delete, or cancel a scan, do the following:
-
-1. Go to the management center. In the **Sources and scanning** section, select **Data sources**, and then select the data source you want to manage.
-
-1. Select the scan you want to manage, and then select **Edit**.
-
-   - To delete your scan, select **Delete**.
-   - If a scan is currently running, you can cancel it.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
-- [Browse the Azure Purview Data Catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)   
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

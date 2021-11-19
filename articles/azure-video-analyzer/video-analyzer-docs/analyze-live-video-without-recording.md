@@ -2,10 +2,11 @@
 title: Analyzing live video without recording - Azure
 description: A pipeline topology can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
 ms.topic: conceptual
-ms.date: 03/27/2021
-
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 # Analyzing live videos without recording
+
 
 ## Suggested pre-reading 
 
@@ -16,6 +17,9 @@ ms.date: 03/27/2021
 ## Overview  
 
 You can use a pipeline topology to analyze live video, without recording any portions of the video to a file or an asset. The pipeline topologies shown below are similar to the ones in the article on [Event-based video recording](event-based-video-recording-concept.md), but without a video sink node or file sink node.
+
+> [!NOTE]
+> Analyzing live videos is currently available only for edge module and not for cloud.
 
 ### Motion detection
 

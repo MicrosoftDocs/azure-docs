@@ -17,9 +17,11 @@ landingContent:
         links:
           - text: What is App Service?
             url: overview.md
+          - text: What is an App Service plan?
+            url: overview-hosting-plans.md
           - text: App Service Environments
             url: environment/intro.md
-          - text: Compare hosting options
+          - text: Compare Azure hosting options for web apps
             url: /azure/architecture/guide/technology-choices/compute-decision-tree
       - linkListType: whats-new
         links:
@@ -53,8 +55,6 @@ landingContent:
             url: configure-ssl-bindings.md
           - text: Run app in staged environments
             url: deploy-staging-slots.md
-          - text: Securely access storage and Microsoft Graph
-            url: scenario-secure-app-overview.md
       - linkListType: how-to-guide
         links:
           - text: Connect to Linux container via SSH
@@ -101,18 +101,33 @@ landingContent:
           - text: Ruby (Rails) app with PostgreSQL
             url: tutorial-ruby-postgres-app.md
 
+  - title: Secure
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Security in Azure App Service
+            url: overview-security.md
+      - linkListType: tutorial
+        links:
+          - text: Secretless SQL Database access with managed identities
+            url: tutorial-connect-msi-sql-database.md
+          - text: Secretless access of storage and Microsoft Graph with managed identities
+            url: scenario-secure-app-overview.md
+          - text: Connect securely to services with Key Vault secrets
+            url: tutorial-connect-msi-key-vault.md
+          - text: Isolate network traffic for back-end connectivity
+            url: tutorial-networking-isolate-vnet.md
+          - text: Authenticate users
+            url: tutorial-auth-aad.md
+
   - title: Manage and integrate
     linkLists:
       - linkListType: concept
         links:
           - text: Manage App Service plans
-            url: overview-hosting-plans.md
+            url: app-service-plan-manage.md
       - linkListType: tutorial
         links:
-          - text: Secure resource access with managed identities
-            url: app-service-web-tutorial-connect-msi.md
-          - text: Authenticate users
-            url: tutorial-auth-aad.md
           - text: Host RESTful API with CORS
             url: app-service-web-tutorial-rest-api.md
           - text: Add a CDN to your application
@@ -120,7 +135,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Integrate with a Virtual Network
-            url: web-sites-integrate-with-vnet.md
+            url: ./overview-vnet-integration.md
           - text: Create hybrid connections to on-prem
             url: app-service-hybrid-connections.md
           - text: Load balance with Traffic Manager
@@ -149,13 +164,13 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: App Service Integration with Azure Monitor (preview)
+          - text: App Service Integration with Azure Monitor
             url: https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html
-          - text: Log Types for Azure Monitor Integration (preview)
+          - text: Log Types for Azure Monitor Integration
             url: https://azure.github.io/AppService/2020/06/25/New-Logs-Available-for-Azure-Monitor-Integration.html
       - linkListType: tutorial
         links:
-          - text: Troubleshoot errors with Azure Monitor (preview)
+          - text: Troubleshoot errors with Azure Monitor
             url: tutorial-troubleshoot-monitor.md
       - linkListType: how-to-guide
         links:
@@ -208,5 +223,5 @@ landingContent:
             url: quickstart-arc.md            
       - linkListType: tutorial
         links:            
-          - text: Set up an Azure Arc enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
+          - text: Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
             url: manage-create-arc-environment.md

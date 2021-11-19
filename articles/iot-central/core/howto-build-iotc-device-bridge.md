@@ -89,13 +89,13 @@ Each key in the `measurements` object must match the name of a telemetry type in
 
 You can include a `timestamp` field in the body to specify the UTC date and time of the message. This field must be in ISO 8601 format. For example, `2020-06-08T20:16:54.602Z`. If you don't include a timestamp, the current date and time is used.
 
-You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.md#how-do-i-get-information-about-my-application).
+You can include a `modelId` field in the body. Use this field to associate the device with a device template during provisioning. This functionality is only supported by [V3 applications](howto-faq.yml#how-do-i-get-information-about-my-application-).
 
 The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
 
 If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassociated device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
-In [V2 applications](howto-faq.md#how-do-i-get-information-about-my-application), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
+In [V2 applications](howto-faq.yml#how-do-i-get-information-about-my-application-), the new device appears on the **Device Explorer > Unassociated devices** page. Select **Associate** and choose a device template to start receiving incoming telemetry from the device.
 
 > [!NOTE]
 > Until the device is associated to a template, all HTTP calls to the function return a 403 error status.
@@ -266,12 +266,16 @@ function Decoder(bytes, port) {
 After you define the integration, add the following code before the call to `handleMessage` in line 21 of the *IoTCIntegration/index.js* file of your function app. This code translates the body of your HTTP integration to the expected format.
 
 ```javascript
-device: {
-    deviceId: req.body.hardware_serial.toLowerCase()
-},
-measurements: req.body.payload_fields
+req.body = {
+  device: {
+    deviceId: req.body.end_device_ids.device_id.toLowerCase()
+  },
+  measurements: req.body.uplink_message.decoded_payload
 };
 ```
+
+> [!NOTE]
+> The previous snippet uses the human-friendly device ID. The Things Network message also includes a technical ID that you can access using `req.body.dev_eui.toLowerCase()`. To learn more, see [The Things Network - Data Formats](https://www.thethingsindustries.com/docs/reference/data-formats/).
 
 ## Limitations
 

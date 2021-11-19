@@ -27,7 +27,7 @@ To learn more about using Azure AD to authorize access to table data, see [Autho
 
 ## Assign an Azure role
 
-You can use PowerShell or Azure CLI to assign a role for data access.
+You can use PowerShell, Azure CLI, or an Azure Resource Manager template to assign a role for data access.
 
 # [PowerShell](#tab/powershell)
 
@@ -69,6 +69,10 @@ az role assignment create \
 ```
 
 For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+
+# [Template](#tab/template)
+
+To learn how to use an Azure Resource Manager template to assign an Azure role, see [Assign Azure roles using Azure Resource Manager templates](../../role-based-access-control/role-assignments-template.md).
 
 ---
 

@@ -78,11 +78,11 @@ The following methods can be used to run an extension against an existing VM.
 Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
@@ -206,9 +206,9 @@ Moving the **command to execute** property to the **protected** configuration se
 
 ### How do agents and extensions get updated?
 
-The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
+Agents and extensions share the same automatic update mechanism.
 
-When an update is available, it is only installed on the VM when there is a change to extensions, and other VM Model changes such as:
+When an update is available and automatic updates are enabled, the update is installed on the VM only after there is a change to an extension or after other VM model changes, such as:
 
 - Data disks
 - Extensions
@@ -217,7 +217,13 @@ When an update is available, it is only installed on the VM when there is a chan
 - VM size
 - Network profile
 
+> [!IMPORTANT]
+> The update is installed only after there is a change to the VM model.
+
 Publishers make updates available to regions at different times, so it is possible you can have VMs in different regions on different versions.
+
+> [!NOTE]
+> Some updates might require additional firewall rules. See [Network access](#network-access).
 
 #### Agent updates
 
@@ -253,7 +259,9 @@ It is highly recommended that you always have auto update for the agent, [AutoUp
 
 #### Extension updates
 
-When an extension update is available, the Linux Agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *autoUpgradeMinorVersion": true,'*:
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Linux Agent downloads and upgrades the extension.
+
+Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extension *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -268,6 +276,8 @@ When an extension update is available, the Linux Agent downloads and upgrades th
 ```
 
 To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
+
+If you disable extension automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) and specify the target version.
 
 ### How to identify extension updates
 

@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 09/28/2021
 ms.author: tisande
 ---
 
@@ -57,11 +57,11 @@ This article describes how to provision a dedicated gateway, configure the integ
 > [!NOTE]
 > If you are using the latest .NET or Java SDK version, the default connection mode is direct mode. In order to use the integrated cache, you must override this default.
 
-If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
+If you're using the Java SDK, you must also manually set [contentResponseOnWriteEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.contentresponseonwriteenabled?view=azure-java-stable&preserve-view=true) to `true` within the `CosmosClientBuilder`. If you're using any other SDK, this value already defaults to `true`, so you don't need to make any changes.
 
 ## Adjust request consistency
 
-You must adjust the request consistency to eventual. If not, the request will always bypass the integrated cache. The easiest way to configure eventual consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
+You must adjust the request consistency to session or eventual. If not, the request will always bypass the integrated cache. The easiest way to configure a specific consistency for all read operations is to [set it at the account-level](consistency-levels.md#configure-the-default-consistency-level). You can also configure consistency at the [request-level](how-to-manage-consistency.md#override-the-default-consistency-level), which is recommended if you only want a subset of your reads to utilize the integrated cache.
 
 > [!NOTE]
 > If you are using the Python SDK, you **must** explicitly set the consistency level for each request. The default account-level setting will not automatically apply.
@@ -95,7 +95,7 @@ For a read request (point read or query) to utilize the integrated cache, **all*
 
 -	Your client connects to the dedicated gateway endpoint
 -  Your client uses gateway mode (Python and Node.js SDK's always use gateway mode)
--	The consistency for the request must be set to eventual.
+-	The consistency for the request must be set to session or eventual
 
 > [!NOTE]
 > Do you have any feedback about the integrated cache? We want to hear it! Feel free to share feedback directly with the Azure Cosmos DB engineering team:

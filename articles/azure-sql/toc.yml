@@ -69,7 +69,7 @@
         href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
-      - name: Azure Defender for SQL
+      - name: Microsoft Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
@@ -104,8 +104,10 @@
           href: database/authentication-aad-service-principal.md
         - name: Directory Readers role
           href: database/authentication-aad-directory-readers-role.md
-        - name: Azure AD-only Authentication
+        - name: Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication.md
+        - name: Azure Policy for Azure AD-only authentication
+          href: database/authentication-azure-ad-only-authentication-policy.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -158,8 +160,6 @@
 
   - name: Shared how-to's
     items:
-    - name: Request quota increases
-      href: database/quota-increase-request.md
     - name: Job automation with elastic jobs
       href: database/job-automation-overview.md
     - name: Job automation with SQL Agent 
@@ -201,6 +201,8 @@
           href: database/authentication-aad-directory-readers-role-tutorial.md
         - name: Enable Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-tutorial.md
+        - name: Enforce Azure AD-only authentication using Azure Policy
+          href: database/authentication-azure-ad-only-authentication-policy-how-to.md
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
@@ -217,6 +219,8 @@
       items: 
       - name: Identify query performance issues
         href: identify-query-performance-issues.md
+      - name: Troubleshoot performance issues
+        href: database/intelligent-insights-troubleshoot-performance.md
       - name: Batching for performance
         href: performance-improve-use-batching.md
       - name: Load data with BCP
@@ -288,7 +292,7 @@
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+      href: database/doc-changes-updates-release-notes-whats-new.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
@@ -307,7 +311,7 @@
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Hyperscale replicas
-        href: database/service-tier-hyperscale-replicas.md        
+        href: database/service-tier-hyperscale-replicas.md
       - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
       - name: vCore
@@ -499,10 +503,14 @@
             href: database/ledger-limits.md
         - name: Network access controls
           href: database/network-access-controls-overview.md
+        - name: Outbound firewall rules
+          href: database/outbound-firewall-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
           href: database/vnet-service-endpoint-rule-overview.md
+        - name: Server roles
+          href: database/security-server-roles.md
 
     - name: Database sharding
       items:
@@ -779,17 +787,19 @@
       href: database/arm-templates-content-guide.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
+    - name: Azure Resource Graph queries
+      href: database/resource-graph-samples.md
 
 - name: SQL Managed Instance (SQL MI)
   items:
   - name: Documentation
-    href: managed-instance/index.yml  
+    href: managed-instance/index.yml
   - name: Overview
     items:
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+      href: managed-instance/doc-changes-updates-release-notes-whats-new.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
@@ -876,6 +886,9 @@
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
+    - name: Link feature for SQL MI
+      href: managed-instance/link-feature.md
+
 
     - name: Management operations
       items:
@@ -1013,7 +1026,7 @@
           - name: Convert R code for SQL Server
             href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Create a stored procedure using sqlrutils 
-            href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
+            href: /sql/machine-learning/r/reference/sqlrutils/how-to-create-stored-procedure-from-r
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -1086,20 +1099,24 @@
         href: managed-instance/timezones-overview.md 
       - name: Configure connection types
         href: managed-instance/connection-types-overview.md
-      - name: Create alerts on managed instance
+      - name: Create alerts on SQL MI
         href: managed-instance/alerts-create.md
       - name: Configure threat detection
         href: managed-instance/threat-detection-configure.md
 
     - name: Configure networking
       items: 
-      - name: Determine size of managed instance subnet
+      - name: Determine size of SQL MI subnet
         href: managed-instance/vnet-subnet-determine-size.md
-      - name: Create new VNet and subnet for managed instance
+      - name: Create new VNet and subnet for SQL MI
         href: managed-instance/virtual-network-subnet-create-arm-template.md
-      - name: Configure existing VNet and subnet for managed instance
+      - name: Configure existing VNet and subnet for SQL MI
         href: managed-instance/vnet-existing-add-subnet.md
-      - name: Delete subnet after deleting managed instance
+      - name: Configure service endpoint policies for SQL MI
+        href: managed-instance/service-endpoint-policies-configure.md
+      - name: Move SQL MI to another subnet
+        href: managed-instance/vnet-subnet-move-instance.md
+      - name: Delete subnet after deleting SQL MI
         href: managed-instance/virtual-cluster-delete.md
       - name: Configure custom DNS
         href: managed-instance/custom-dns-configure.md
@@ -1114,8 +1131,8 @@
     
     - name: Migrate
       items: 
-      - name: Migrate to SQL Managed Instance
-        href: managed-instance/migrate-to-instance-from-sql-server.md
+      - name: Migrate SQL Server to SQL MI Guide
+        href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
       - name: Migrate TDE cert 
@@ -1144,14 +1161,14 @@
   items:
   - name: Documentation
     href: virtual-machines/index.yml
+  - name: What's new?
+    href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
   - name: Windows
     items: 
     - name: Overview
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1231,20 +1248,21 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Automated Patching
           href: virtual-machines/windows/automated-patching.md
+        - name: SQL Assessment
+          href: virtual-machines/windows/sql-assessment-for-sql-vm.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
           href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-        - name: Install SQL IaaS Agent extension
+        - name: SQL IaaS Agent extension
           displayName: resource provider, registration, sql vm rp
           items:
           - name: Automatic registration
             href: virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms.md
-          - name: Single VM
+          - name: Register single VM
             href: virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md
           - name: Bulk register multiple VMs
             href: virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md
-
       - name: Migrate
         items:
         - name: SQL Server database to VM
@@ -1262,39 +1280,56 @@
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Availability group (AG)
+          displayName: Always On, alwayson, availability group
           items:
-          - name: Create AG 
+          - name: Configure AG (multi-subnet)
+            displayName: Always On, alwayson, availability group
+            items: 
+            - name: Prerequisites
+              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md
+              displayName: Always On, alwayson, availability group
+            - name: Create availability group
+              href: virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md
+              displayName: Always On, alwayson, availability group
+          - name: Configure AG (single subnet)
+            displayName: Always On, alwayson, availability group
             items: 
             - name: Azure portal
               href: virtual-machines/windows/availability-group-azure-portal-configure.md
+              displayName: Always On, alwayson, availability group
             - name: PowerShell or Az CLI
               href: virtual-machines/windows/availability-group-az-commandline-configure.md
+              displayName: Always On, alwayson, availability group
             - name: Azure Quickstart templates
               href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+              displayName: Always On, alwayson, availability group
             - name: Multiple regions
               href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+              displayName: Always On, alwayson, availability group
             - name: Domain-independent (workgroup)
               href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-            - name: Configure manually
-              items:
+              displayName: Always On, alwayson, availability group
+            - name: Manually
+              items: 
               - name: Prerequisites
-                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-              - name: Tutorial
-                href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet.md
+                displayName: Always On, alwayson, availability group
+              - name: Create availability group
+                href: virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet.md
               - name: Load balancer - Azure portal
                 href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
               - name: Load balancer - Azure PowerShell
                 href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-          - name: Configure connectivity
-            items:  
-            - name: VNN listener
-              displayName: virtual network name
-              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
-            - name: DNN listener
-              displayName: distributed network name
-              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
-            - name: DNN interoperability
-              href: virtual-machines/windows/availability-group-dnn-interoperability.md
+            - name: Configure connectivity
+              items:  
+              - name: VNN listener
+                displayName: virtual network name
+                href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+              - name: DNN listener
+                displayName: distributed network name
+                href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+              - name: DNN interoperability
+                href: virtual-machines/windows/availability-group-dnn-interoperability.md
 
         - name: Failover cluster instance (FCI)
           items:
@@ -1308,7 +1343,7 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Configure connectivity
+          - name: Configure connectivity (Single subnet)
             items: 
             - name: Virtual network name (VNN)
               href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
@@ -1364,6 +1399,15 @@
       items:
       - name: Create SQL VM - Portal
         href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+
+    - name: Concepts
+      items: 
+      - name: SQL IaaS agent extension 
+        href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+    - name: "How-to guides"
+      items: 
+      - name: Register with SQL IaaS extension 
+        href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH
@@ -1479,14 +1523,22 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
+    - name: Known issues with SQL Managed Instance 
+      href: managed-instance/doc-changes-updates-known-issues.md
+    - name: Capacity errors during deployment
+      href: capacity-errors-troubleshoot.md
     - name: Connectivity errors
       href: database/troubleshoot-common-errors-issues.md
     - name: Common connection issues
       href: database/troubleshoot-common-connectivity-issues.md
+    - name: Troubleshoot out of memory errors
+      href: database/troubleshoot-memory-errors-issues.md
     - name: Import/Export service hangs
       href: database/database-import-export-hang.md
     - name: Transaction log errors
       href: database/troubleshoot-transaction-log-errors-issues.md
+    - name: Request quota increases
+      href: database/quota-increase-request.md
   - name: Service updates
     items:
     - name: SSL root certificate expiring

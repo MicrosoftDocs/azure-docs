@@ -1,15 +1,15 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
 ---
 
-### List all Azure Arc enabled Kubernetes clusters with Azure Monitor extension
+### List all Azure Arc-enabled Kubernetes clusters with Azure Monitor extension
 
-Returns the connected cluster ID of each Azure Arc enabled Kubernetes cluster that has the Azure Monitor extension installed.
+Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that has the Azure Monitor extension installed.
 
 ```kusto
 KubernetesConfigurationResources
@@ -41,9 +41,9 @@ Search-AzGraph -Query "KubernetesConfigurationResources | where type == 'microso
 
 ---
 
-### List all Azure Arc enabled Kubernetes clusters without Azure Monitor extension
+### List all Azure Arc-enabled Kubernetes clusters without Azure Monitor extension
 
-Returns the connected cluster ID of each Azure Arc enabled Kubernetes cluster that is missing the Azure Monitor extension.
+Returns the connected cluster ID of each Azure Arc-enabled Kubernetes cluster that is missing the Azure Monitor extension.
 
 ```kusto
 Resources

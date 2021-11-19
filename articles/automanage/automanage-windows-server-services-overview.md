@@ -1,6 +1,6 @@
 ---
-title: Automanage for Windows Server Services (preview)
-description: Overview of Automanage for Windows Server Services and capabilities with Windows Server Azure Edition 
+title: Automanage for Windows Server 
+description: Overview of Azure Automanage for Windows Server capabilities with Windows Server Azure Edition 
 author: nwashburn-ms
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -10,21 +10,20 @@ ms.date: 07/09/2021
 ms.author: niwashbu 
 ---
 
-# Automanage for Windows Server Services (preview)
+# Azure Automanage for Windows Server
 
-Automanage for Windows Server Services brings new capabilities specifically to _Windows Server Azure Edition_.  These capabilities include:
-- Hotpatch
+Azure Automanage for Windows Server brings new capabilities specifically to _Windows Server Azure Edition_.  These capabilities include:
+- Hotpatch (preview)
 - SMB over QUIC
-- Extended Network
+- Extended network for Azure
 
 > [!IMPORTANT]
-> Automanage for Windows Server Services is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Hotpatch is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
+> This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Automanage for Windows Server capabilities can be found in one or more of these _Windows Server Azure Edition_ images: 
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Desktop Experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
@@ -32,11 +31,10 @@ Capabilities vary by image, see [getting started](#getting-started-with-windows-
 
 ## Automanage for Windows Server capabilities
 
-### Hotpatch
+### Hotpatch (preview)
 
 Hotpatch is available in public preview on the following images:
 
-- Windows Server 2019 Datacenter: Azure Edition (Core)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
 Hotpatch gives you the ability to apply security updates on your VM without rebooting.  Additionally, Automanage for Windows Server automates the onboarding, configuration, and orchestration of Hotpatching.  To learn more, see [Hotpatch](automanage-hotpatch.md).  
@@ -48,16 +46,21 @@ SMB over QUIC is available in public preview on the following images:
 - Windows Server 2022 Datacenter: Azure Edition (Desktop experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-SMB over QUIC enables users to access files when working remotely without a VPN, by tunneling SMB traffic over the QUIC protocol.  To learn more, see [SMB over QUIC](https://aka.ms/smboverquic).  
+SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and branch offices, providing secure, reliable connectivity to edge file servers over untrusted networks like the Internet. [QUIC](https://datatracker.ietf.org/doc/rfc9000/) is an IETF-standardized protocol used in HTTP/3, designed for maximum data protection with TLS 1.3 and requires encryption that cannot be disabled. SMB behaves normally within the QUIC tunnel, meaning the user experience doesn't change. SMB features like multichannel, signing, compression, continuous availability, and directory leasing work normally. 
 
-### Azure Extended Network
+SMB over QUIC is also integrated with [Automanage machine best practices for Windows Server](automanage-windows-server.md) to help make SMB over QUIC management easier. QUIC uses certificates to provide its encryption and organizations often struggle to maintain complex public key infrastructures. Automanage machine best practices ensure that certificates do not expire without warning and that SMB over QUIC stays enabled for maximum continuity of service.
 
-Azure Extended Network is available in public preview on the following images:
+To learn more, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic) and [SMB over QUIC management with Automanage machine best practices](automanage-smb-over-quic.md).
+ 
+
+### Extended network for Azure
+
+Extended Network for Azure is available on the following images:
 
 - Windows Server 2022 Datacenter: Azure Edition (Desktop experience)
 - Windows Server 2022 Datacenter: Azure Edition (Core)
 
-Azure Extended Network enables you to stretch an on-premises subnet into Azure to let on-premises virtual machines keep their original on-premises private IP addresses when migrating to Azure. To learn more, see [Azure Extended Network](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-extended-network).  
+Azure Extended Network enables you to stretch an on-premises subnet into Azure to let on-premises virtual machines keep their original on-premises private IP addresses when migrating to Azure. To learn more, see [Azure Extended Network](/windows-server/manage/windows-admin-center/azure/azure-extended-network).  
 
 
 ## Getting started with Windows Server Azure Edition
@@ -68,13 +71,15 @@ It's important to consider up front, which Automanage for Windows Server capabil
 
 |Image|Capabilities|
 |--|--|
-| Windows Server 2019 Datacenter: Azure Edition (Core) | Hotpatch | 
-|Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended Network | 
-| Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended Network | 
+|Windows Server 2022  Datacenter: Azure Edition (Desktop experience) | SMB over QUIC, Extended network for Azure | 
+| Windows Server 2022 Datacenter: Azure Edition (Core) | Hotpatch, SMB over QUIC, Extended network for Azure | 
 
 ### Creating a VM
 
-To start using Automanage for Windows Server capabilities on a new VM, use your preferred method to create an Azure VM, and select the _Windows Server Azure Edition_ image that corresponds to the set of [capabilities](#getting-started-with-windows-server-azure-edition) that you would like to use.  Configuration of those capabilities may be needed during VM creation. You can learn more about VM configuration in the individual capability topics (such as [Hotpatch](automanage-hotpatch.md)).
+To start using Automanage for Windows Server capabilities on a new VM, use your preferred method to create an Azure VM, and select the _Windows Server Azure Edition_ image that corresponds to the set of [capabilities](#getting-started-with-windows-server-azure-edition) that you would like to use.  
+
+> [!IMPORTANT]
+> Some capabilities have specific configuration steps to perform during VM creation, and some capabilities that are in preview have specific opt-in and portal viewing requirements.  See the individual capability topics above to learn more about using that capability with your VM.
 
 ## Next steps
 

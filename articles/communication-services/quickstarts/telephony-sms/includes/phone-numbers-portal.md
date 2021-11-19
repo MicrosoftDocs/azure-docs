@@ -29,9 +29,9 @@ Configuring your phone number is broken down into two steps:
 1. The selection of the [number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
 2. The selection of the [number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services)
 
-You can select from two phone number types: **Geographic**, and **Toll-free**. When you've selected a number type, you can then choose the feature.
+You can select from two phone number types: **Local**, and **Toll-free**. When you've selected a number type, you can then choose the feature.
 
-In our example, we've selected a **Toll-free** number type with the **Outbound calling** and **Inbound and Outbound SMS** features.
+In our example, we've selected a **Toll-free** number type with **Make calls** and **Send and receive SMS** features.
 
 :::image type="content" source="../../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select features view.":::
 
@@ -44,7 +44,7 @@ On the **Numbers** page, you will customize the phone number(s) which you'd like
 :::image type="content" source="../../media/manage-phone-azure-portal-select-numbers-start.png" alt-text="Screenshot showing the Numbers selection page.":::
 
 > [!NOTE]
-> This quickstart is showing the **Toll-free** Number type customization flow. The experience may be slightly different if you have chosen the **Geographic** Number type, but the end-result will be the same.
+> This quickstart is showing the **Toll-free** Number type customization flow. The experience may be slightly different if you have chosen the **Local** Number type, but the end-result will be the same.
 
 Choose the **Area code** from the list of available Area codes and enter the quantity which you'd like to provision, then click **Search** to find numbers which meet your selected requirements. The phone numbers which meet your needs will be shown along with their monthly cost.
 
@@ -69,7 +69,7 @@ Finally, click **Place order** at the bottom of the page to confirm.
 
 ## Find your phone numbers on the Azure portal
 
-Navigate to your Azure Communication Resource on the [Azure portal](https://portal.azure.com):
+Navigate to your Azure Communication Services resource on the [Azure portal](https://portal.azure.com):
 
 :::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services Resource's main page.":::
 
@@ -83,11 +83,11 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 
 ### Update Phone Number Capabilities
 
-On the **Numbers** page, you can select a phone number to configure it.
+On the **Phone Numbers** page, you can select a phone number to configure it.
 
 :::image type="content" source="../../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update features page.":::
 
-Select the features from the available options, then click **Confirm** to apply your selection.
+Select the features from the available options, then click **Save** to apply your selection.
 
 ### Release Phone Number
 

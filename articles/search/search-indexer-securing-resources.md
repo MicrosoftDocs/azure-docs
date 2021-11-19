@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 11/12/2021
 ---
 
 # Indexer access to content protected by Azure network security features
@@ -42,7 +42,7 @@ Customers can secure these resources via several network isolation mechanisms of
 | --- | --- | ---- |
 | Azure Storage (blobs, tables, ADLS Gen 2) | Supported only if the storage account and search service are in different regions | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
-| Azure Cosmos DB - Cassandra, Mongo, and Gremlin API | Supported | Unsupported |
+| Azure Cosmos DB - MongoDB and Gremlin API | Supported | Unsupported |
 | Azure SQL Database | Supported | Supported |
 | SQL Server on Azure virtual machines | Supported | N/A |
 | SQL Managed Instance | Supported | N/A |
@@ -59,20 +59,25 @@ When choosing a secure access mechanism, consider the following constraints:
 
 ## Indexer execution environment
 
-Azure Cognitive Search indexers are capable of efficiently extracting content from data sources, adding enrichments to the extracted content, optionally generating projections before writing the results to the search index. Depending on the number of responsibilities assigned to an indexer, it can run in one of two environments:
+Azure Cognitive Search indexers are capable of efficiently extracting content from data sources, adding enrichments to the extracted content, optionally generating projections before writing the results to the search index.
+
+For optimum processing, a search service will determine an internal execution environment to set up the operation. You cannot control or configure the environment, but it's important to know they exist so that you can account for them when setting up IP firewall rules.
+
+Depending on the number and types of tasks assigned, the indexer will run in one of two environments:
 
 - An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer-initiated indexing or querying workloads). Typically, only indexers that perform text-based indexing (for example, do not use a skillset) run in this environment.
 
 - A multi-tenant environment hosting indexers that are resource intensive, such as those with skillsets. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost to the customer.
 
-For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you are using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both.
+For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you are using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both, as discussed in the next section.
 
 ## Granting access to indexer IP ranges
 
-If the resource that your indexer is trying to access is restricted to only a certain set of IP ranges, then you need to expand the set to include the possible IP ranges from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of **both** environments for indexer access to work.
+If the resource that your indexer pulls data from exists behind a firewall, make sure that the IP ranges in inbound rules include all of the IPs from which an indexer request can originate. As stated above, there are two possible environments in which indexers run and from which access requests can originate. You will need to add the IP addresses of **both** environments for indexer access to work.
 
-- To obtain the IP address of the search service specific private environment, `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. For example, the FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
-- The IP addresses of the multi-tenant environments are available via the `AzureCognitiveSearch` service tag. [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service - this is available via a [discovery API (preview)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region - you can pick only the IP ranges assigned for the region in which your search service is provisioned.
+- To obtain the IP address of the search service specific private environment, use `nslookup` (or `ping`) the fully qualified domain name (FQDN) of your search service. For example, the FQDN of a search service in the public cloud would be `<service-name>.search.windows.net`. This information is available on the Azure portal.
+
+- To obtain the IP addresses of the multi-tenant environments within which an indexer might run, use the `AzureCognitiveSearch` service tag. [Azure service tags](../virtual-network/service-tags-overview.md) have a published range of IP addresses for each service. You can find these IPs using the [discovery API](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) or a [downloadable JSON file](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). In either case, IP ranges are broken down by region. You should specify only those IP ranges assigned to the region in which your search service is provisioned.
 
 For certain data sources, the service tag itself can be used directly instead of enumerating the list of IP ranges (the IP address of the search service still needs to be used explicitly). These data sources restrict access by means of setting up a [Network Security Group rule](../virtual-network/network-security-groups-overview.md), which natively support adding a service tag, unlike IP rules such as the ones offered by Azure Storage, Cosmos DB, Azure SQL, and so forth. The data sources that support the ability to utilize the `AzureCognitiveSearch` service tag directly in addition to search service IP address are:
 
@@ -84,9 +89,9 @@ For more information about this connectivity option, see [Indexer connections th
 
 ## Granting access via private endpoints
 
-Indexers can utilize [private endpoints](../private-link/private-endpoint-overview.md) to access resources, access to which are locked down either to select virtual networks or do not have any public access enabled.
+Indexers can use [private endpoints](../private-link/private-endpoint-overview.md) on connections to resources that are locked down (running on a protected virtual network, or just not available over a public connection).
 
-This functionality is only available in billable search services, with limits on the number of private endpoints that be created. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
+This functionality is only available in billable search services (Basic and above), subject to tier limits on the number of private endpoints that can be created for text-based and skill-based indexing. For more information, see the["Shared private link resource limits" section](search-limits-quotas-capacity.md#shared-private-link-resource-limits)in the service limits documentation.
 
 ### Step 1: Create a private endpoint to the secure resource
 
@@ -125,16 +130,6 @@ To enable indexers to access resources via private endpoint connections, it is m
 
 These steps are described in greater detail in [Indexer connections through a private endpoint](search-indexer-howto-access-private.md).
 Once you have an approved private endpoint to a resource, indexers that are set to be *private* attempt to obtain access via the private endpoint connection.
-
-### Limits
-
-To ensure optimal performance and stability of the search service, restrictions are imposed (by search service tier) on the following dimensions:
-
-- The kinds of indexers that can be set to be *private*.
-- The number of shared private link resources that can be created.
-- The number of distinct resource types for which shared private link resources can be created.
-
-These limits are documented in [service limits](search-limits-quotas-capacity.md).
 
 ## Next steps
 

@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
 # Set up local development for Azure Static Web Apps
 
-When published to the cloud, an Azure Static Web Apps site has many services that work together as if they're the same application. These services include:
+When published to the cloud, an Azure Static Web Apps site links together many services that work together as if they're the same application. These services include:
 
 - The static web app
 - Azure Functions API
@@ -58,6 +58,7 @@ The following chart shows how requests are handled locally.
 - **Existing Azure Static Web Apps site**: If you don't have one, begin with the [vanilla-api](https://github.com/staticwebdev/vanilla-api/generate?return_to=/staticwebdev/vanilla-api/generate) starter app.
 - **[Node.js](https://nodejs.org) with npm**: Run the [Node.js LTS](https://nodejs.org) version, which includes access to [npm](https://www.npmjs.com/).
 - **[Visual Studio Code](https://code.visualstudio.com/)**: Used for debugging the API application, but not required for the CLI.
+- **[Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)**: Required to run the API locally.
 
 ## Get started
 
@@ -65,7 +66,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Install the CLI.
 
-    `npm install -g @azure/static-web-apps-cli`
+    ```console
+    npm install -g @azure/static-web-apps-cli
+    ```
 
 1. Build your app if required by your application.
 
@@ -75,7 +78,9 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 
 1. Start the CLI.
 
-    `swa start`
+    ```console
+    swa start
+    ```
 
 1. Navigate to `http://localhost:4280` to view the app in the browser.
 
@@ -85,8 +90,8 @@ Open a terminal to the root folder of your existing Azure Static Web Apps site.
 |--- | --- |
 | Serve a specific folder | `swa start ./output-folder` |
 | Use a running framework development server | `swa start http://localhost:3000` |
-| Start a Functions app in a folder | `swa start ./output-folder --api ./api` |
-| Use a running Functions app | `swa start ./output-folder --api http://localhost:7071` |
+| Start a Functions app in a folder | `swa start ./output-folder --api-location ./api` |
+| Use a running Functions app | `swa start ./output-folder --api-location http://localhost:7071` |
 
 ## Authorization and authentication emulation
 
@@ -123,9 +128,14 @@ The following steps show you a common scenario that uses development servers for
 
 1. Open the API application folder in Visual Studio Code and start a debugging session.
 
-1. Pass the addresses for the static server and API server to the `swa start` command by listing them in order.
+1. Start the Static Web Apps CLI using the following command.
 
-    `swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api=http://localhost:7071`
+
+    ```console
+    swa start http://localhost:<DEV-SERVER-PORT-NUMBER> --api-location http://localhost:7071
+    ```
+
+    Replace `<DEV-SERVER-PORT-NUMBER>` with the development server's port number.
 
 The following screenshots show the terminals for a typical debugging scenario:
 

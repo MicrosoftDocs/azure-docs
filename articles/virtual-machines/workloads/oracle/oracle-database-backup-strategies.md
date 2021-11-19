@@ -14,6 +14,8 @@ ms.reviewer: dbakevlar
 
 # Oracle Database in Azure Linux VM backup strategies
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 Database backups protect the database against data loss due to storage component failure and data center failure. They can also be a means of recovery from human error and a way to clone a database for development or testing purposes. 
 
 In Azure, as all storage is highly redundant and the loss of one or more disks will not lead to a database outage, backups are most often used to protect against human error, for cloning operations or data preservation for regulatory purposes. They are also a means to protect against regional outage where a disaster recovery technology like DataGuard is not in use. In this case, the backups must be stored in different Azure regions using geo-redundant replication, so as to be available outside of the primary database region.
@@ -54,11 +56,11 @@ Azure cloud storage provides five levels of [redundancy](../../../storage/common
 
 #### Blob storage and file storage
 
-When using Azure Files with either SMB or NFS 4.1 (Preview) protocols to mount as backup storage, note that Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS). 
+When using Azure Files with either SMB or NFS 4.1 protocols to mount as backup storage, note that Azure Files does not support read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS). 
 
 Additionally, if the backup storage requirement is greater than 5 TiB Azure Files requires [Large File Shares feature](../../../storage/files/storage-files-planning.md) enabled which does not support GRS or GZRS redundancy - only LRS is supported. 
 
-Azure Blob mounted using NFS 3.0 (Preview) protocol currently only supports LRS and ZRS redundancy.  
+Azure Blob mounted using NFS 3.0 protocol currently only supports LRS and ZRS redundancy.  
 
 Azure Blob configured with any redundancy option can be mounted using Blobfuse.
 
@@ -79,14 +81,9 @@ Azure Blob storage is a highly cost effective, durable, and secure cloud-based s
 
 While ubiquitous across all Azure regions, and works with all storage account types including general purpose v1/v2 and Azure Data Lake Store Gen2, performance offered by Blobfuse has shown to be less than alternative protocols such as SMB or NFS. For suitability as the database backup media, we would recommend using SMB or [NFS](../../../storage/blobs/storage-how-to-mount-container-linux.md) protocols to mount Azure Blob storage. 
 
-#### Azure Blob NFS v3.0 (Preview)
+#### Azure Blob NFS v3.0
 
-Azure support for the Network File System (NFS) v3.0 protocol is now in preview. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) support enables Windows and Linux clients to mount a Blob storage container to an Azure VM. 
-
-NFS 3.0 public preview supports GPV2 storage accounts with standard tier performance in the following regions: 
-- Australia East
-- Korea Central
-- South Central US. 
+Azure support for the Network File System (NFS) v3.0 protocol is now available. [NFS](../../../storage/blobs/network-file-system-protocol-support.md) support enables Windows and Linux clients to mount a Blob storage container to an Azure VM. 
 
 To ensure network security, the storage account used for NFS mounting must be contained within a VNet. Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them.
 
@@ -94,22 +91,15 @@ To ensure network security, the storage account used for NFS mounting must be co
 
 [Azure Files](../../../storage/files/storage-files-introduction.md) is a cloud-based, fully managed distributed file system that can be mounted to on premise or cloud-based Windows, Linux or macOS clients.
 
-Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol and Network File System (NFS) protocol (preview). Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. We recommend determining which protocol best suits your needs before creating Azure file shares.
+Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol and Network File System (NFS) protocol. Azure Files does not currently support multi-protocol access, so a share can only be either an NFS share, or an SMB share. We recommend determining which protocol best suits your needs before creating Azure file shares.
 
 Azure File shares can also be protected through Azure Backup to Recovery services vault, providing an additional layer of protection to the Oracle RMAN backups.
 
-#### Azure Files NFS v4.1 (Preview)
+#### Azure Files NFS v4.1
 
-Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. While in Preview there are a number of limitations to supported features, which are documented [here](../../../storage/files/storage-files-how-to-mount-nfs-shares.md). 
+Azure file shares can be mounted in Linux distributions using the Network File System (NFS) v4.1 protocol. There are a number of limitations to supported features. For more information, see [Support for Azure Storage features](../../../storage/files/files-nfs-protocol.md#support-for-azure-storage-features). 
 
-While in preview Azure Files NFS v4.1 is also restricted to the following [regions](../../../storage/files/storage-files-how-to-mount-nfs-shares.md):
-- East US (LRS and ZRS)
-- East US 2
-- West US 2
-- West Europe
-- Southeast Asia
-- UK South
-- Australia East
+[!INCLUDE [files-nfs-regional-availability](../../../../includes/files-nfs-regional-availability.md)]
 
 #### Azure Files SMB 3.0
 
@@ -117,7 +107,7 @@ Azure file shares can be mounted in Linux distributions using the SMB kernel cli
 
 Azure Files SMB is generally available in all Azure regions, and shows the same performance characteristics as NFS v3.0 and v4.1 protocols, and so is currently the recommended method to provide backup storage media to Azure Linux VMs.  
 
-There are two supported versions of SMB available, SMB 2.1 and SMB 3.0, with the latter recommended as it supports encryption in transit. However, different Linux kernels versions have differing support for SMB 2.1 and 3.0 and you should check the table [here](../../../storage/files/storage-how-to-use-files-linux.md) to ensure your application supports SMB 3.0. 
+There are two supported versions of SMB available, SMB 2.1 and SMB 3.0, with the latter recommended as it supports encryption in transit. However, different Linux kernels versions have differing support for SMB 2.1 and 3.0. For more information, see [Mount SMB Azure file share on Linux](../../../storage/files/storage-how-to-use-files-linux.md) to ensure your application supports SMB 3.0. 
 
 Because Azure Files is designed to be a multi-user file share service, there are certain characteristics you should tune to make it more suitable as a backup storage media. Turning off caching and setting the user and group IDs for files created are recommended.
 
@@ -150,5 +140,3 @@ Azure Backup is now providing an [enhanced pre-script and post-script framework]
 - [Create Oracle Database quickstart](oracle-database-quick-create.md)
 - [Back up Oracle Database to Azure Files](oracle-database-backup-azure-storage.md)
 - [Back up Oracle Database using Azure Backup service](oracle-database-backup-azure-backup.md)
-
-

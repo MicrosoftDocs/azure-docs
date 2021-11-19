@@ -118,12 +118,12 @@ To configure Azure AD single sign-on with Flatter Files, perform the following s
     ![Screenshot that shows "DASHBOARD" selected in the "Flatter Files" app.](./media/flatter-files-tutorial/tutorial_flatter_files_05.png)  
 
 3. Click **Settings**, and then perform the following steps on the **Company** tab: 
-   
+
     ![Screenshot that shows the "Company" tab with "Use S A M L 2.0 for Authentication" checked and the "Configure S A M L" button selected.](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
+
+    1. Select **Use SAML 2.0 for Authentication**.
     
-	a. Select **Use SAML 2.0 for Authentication**.
-    
-	b. Click **Configure SAML**.
+    1. Click **Configure SAML**.
 
 4. On the **SAML Configuration** dialog, perform the following steps: 
    
@@ -222,7 +222,7 @@ The objective of this section is to create a user called Britta Simon in Flatter
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Flatter Files tile in the Access Panel, you should be automatically signed in to the Flatter Files for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the Flatter Files tile in the Access Panel, you should be automatically signed in to the Flatter Files for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional Resources
 

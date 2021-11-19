@@ -1,37 +1,36 @@
 ---
 title: What is agentless solution architecture
-description: Learn about Azure Defender for IoT agentless architecture and information flow.
+description: Learn about Microsoft Defender for IoT agentless architecture and information flow.
 ms.topic: overview
-ms.date: 1/25/2021
-ms.author: shhazam
+ms.date: 11/09/2021
 ---
 
-# Azure Defender for IoT architecture
+# Microsoft Defender for IoT architecture
 
-This article describes the functional system architecture of the Defender for IoT agentless solution. Azure Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
+This article describes the functional system architecture of the Defender for IoT agentless solution. Microsoft Defender for IoT offers two sets of capabilities to fit your environment's needs, agentless solution for organizations, and agent-based solution for device builders.
 
-## Agentless solution for organizations
+## Agentless solution architecture for organizations
 ### Defender for IoT components
 
 Defender for IoT connects both to the Azure cloud and to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
-Azure Defender for IoT includes the following components: 
+Microsoft Defender for IoT includes the following components: 
 
 **Cloud connected deployments**
 
-- Azure Defender for IoT sensor VM or appliance
-- Azure portal for cloud management and integration to Azure Sentinel
+- Microsoft Defender for IoT sensor VM or appliance
+- Azure portal for cloud management and integration to Microsoft Sentinel
 - On-premises management console for local-site management
 - An embedded security agent (optional)
 
 **Air-gapped (Offline) deployments**
 
-- Azure Defender for IoT sensor VM or appliance
+- Microsoft Defender for IoT sensor VM or appliance
 - On-premises management console for local site management
 
 :::image type="content" source="./media/architecture/defender-iot-security-architecture-v3.png" alt-text="The architecture for Defender for IoT.":::
 
-### Azure Defender for IoT sensors
+### Microsoft Defender for IoT sensors
 
 The Defender for IoT sensors discover, and continuously monitor network devices. Sensors collect ICS network traffic using passive (agentless) monitoring on IoT and OT devices. 
  
@@ -61,7 +60,7 @@ The anomaly detection engine detects unusual machine-to-machine (M2M) communicat
 The operational incident detection detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
 ### Management consoles
-Managing Azure Defender for IoT across hybrid environments is accomplished via two management portals: 
+Managing Microsoft Defender for IoT across hybrid environments is accomplished via two management portals: 
 - Sensor console
 - The on-premises management console
 - The Azure portal
@@ -92,7 +91,7 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 ### Azure portal
 
-The Defender for IoT portal in Azure is used to help you:
+Defender for IoT in the Azure portal in Azure is used to help you:
 
 - Purchase solution appliances
 

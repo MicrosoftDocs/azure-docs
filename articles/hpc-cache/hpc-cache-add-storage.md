@@ -1,12 +1,12 @@
 ---
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 09/22/2021
 ms.custom: subject-rbac-steps
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Add storage targets
@@ -50,7 +50,7 @@ Read [Set cache capacity](hpc-cache-create.md#set-cache-capacity) to learn more 
 
 You can select from three storage target types: **NFS**, **Blob**, and **ADLS-NFS**. Choose the type that matches the kind of storage system you will use to store your files during this HPC Cache project.
 
-* **NFS** - Create an NFS storage target to access data on an on-premises NAS system.
+* **NFS** - Create an NFS storage target to access data on a network-attached storage (NAS) system. This can be an on-premises storage system or another storage type that's accessible with NFS.
 
   * Requirements: [NFS storage requirements](hpc-cache-prerequisites.md#nfs-storage-requirements)
   * Instructions: [Add a new NFS storage target](#add-a-new-nfs-storage-target)
@@ -363,7 +363,9 @@ ADLS-NFS storage targets have some similarities with Blob storage targets and so
 
   You can pre-load data in an ADLS-NFS container, then add it to an HPC Cache as a storage target, and then access the data later from outside of an HPC Cache. When you use a standard blob container as an HPC Cache storage target, the data is written in a proprietary format and can only be accessed from other Azure HPC Cache-compatible products.
 
-Before you can create an ADLS-NFS storage target, you must create an NFS-enabled storage account. Follow the tips in [Prerequisites for Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements) and the instructions in [Mount Blob storage by using NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). After your storage account is set up you can create a new container when you create the storage target.
+Before you can create an ADLS-NFS storage target, you must create an NFS-enabled storage account. Follow the steps in [Prerequisites for Azure HPC Cache](hpc-cache-prerequisites.md#nfs-mounted-blob-adls-nfs-storage-requirements) and the instructions in [Mount Blob storage by using NFS](../storage/blobs/network-file-system-protocol-support-how-to.md). If you don't use the same virtual network for the cache and the storage account, make sure that the cache's vnet can access the storage account's vnet.
+
+After your storage account is set up you can create a new container when you create the storage target.
 
 Read [Use NFS-mounted blob storage with Azure HPC Cache](nfs-blob-considerations.md) to learn more about this configuration.
 
@@ -395,7 +397,7 @@ From the Azure portal, open your cache instance and click **Storage targets**, w
 
 Click on a storage target's name to open its details page.
 
-Read [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
+Read [View and manage storage targets](manage-storage-targets.md) and [Edit storage targets](hpc-cache-edit-storage.md) to learn more.
 
 ### [Azure CLI](#tab/azure-cli)
 

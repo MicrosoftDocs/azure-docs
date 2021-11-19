@@ -3,14 +3,15 @@ title: Publish on-premises apps with Azure Active Directory Application Proxy
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
+ms.custom: has-adal-ref
 ---
 
 # Using Azure AD Application Proxy to publish on-premises apps for remote users
@@ -71,7 +72,7 @@ Application Proxy is an Azure AD service you configure in the Azure portal. It e
 
 Components of this feature include the Application Proxy service, which runs in the cloud, the Application Proxy connector, which is a lightweight agent that runs on an on-premises server, and Azure AD, which is the identity provider. All three components work together to provide the user with a single sign-on experience to access on-premises web applications.
 
-After signing in, external users can access on-premises web applications by using a familiar URL or [My Apps](../user-help/my-apps-portal-end-user-access.md) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
+After signing in, external users can access on-premises web applications by using a familiar URL or [My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510) from their desktop or iOS/MAC devices. For example, App Proxy can provide remote access and single sign-on to Remote Desktop, SharePoint sites, Tableau, Qlik, Outlook on the web, and line-of-business (LOB) applications.
 
 ![Azure AD Application Proxy architecture](media/what-is-application-proxy/azure-ad-application-proxy-architecture.png)
 
@@ -86,7 +87,7 @@ There are several ways to configure an application for single sign-on and the me
 
 App Proxy works with apps that use the following native authentication protocol:
 
-* **[Integrated Windows Authentication (IWA)](./application-proxy-configure-single-sign-on-with-kcd.md).** For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
+* [**Integrated Windows authentication (IWA)**](./application-proxy-configure-single-sign-on-with-kcd.md). For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
 
 App Proxy also supports the following authentication protocols with third-party integration or in specific configuration scenarios:
 
@@ -101,7 +102,7 @@ For more information on supported methods, see [Choosing a single sign-on method
 The remote access solution offered by Application Proxy and Azure AD support several security benefits customers may take advantage of, including:
 
 * **Authenticated access**. Application Proxy is best suited to publish applications with [pre-authentication](./application-proxy-security.md#authenticated-access) to ensure that only authenticated connections hit your network. For applications published with pre-authentication, no traffic is allowed to pass through the App Proxy service to your on-premises environment, without a valid token. Pre-authentication, by its very nature, blocks a significant number of targeted attacks, as only authenticated identities can access the backend application.
-* **Conditional Access**. Richer policy controls can be applied before connections to your network are established. With Conditional Access, you can define restrictions on the traffic that you allow to hit your backend application. You create policies that restrict sign-ins based on location, strength of authentication, and user risk profile. As Conditional Access evolves, more controls are being added to provide additional security such as integration with Microsoft Cloud App Security (MCAS). MCAS integration enables you to configure an on-premises application for [real-time monitoring](./application-proxy-integrate-with-microsoft-cloud-application-security.md) by leveraging Conditional Access to monitor and control sessions in real-time based on Conditional Access policies.
+* **Conditional Access**. Richer policy controls can be applied before connections to your network are established. With Conditional Access, you can define restrictions on the traffic that you allow to hit your backend application. You create policies that restrict sign-ins based on location, strength of authentication, and user risk profile. As Conditional Access evolves, more controls are being added to provide additional security such as integration with Microsoft Defender for Cloud Apps. Defender for Cloud Apps integration enables you to configure an on-premises application for [real-time monitoring](./application-proxy-integrate-with-microsoft-cloud-application-security.md) by leveraging Conditional Access to monitor and control sessions in real-time based on Conditional Access policies.
 * **Traffic termination**. All traffic to the backend application is terminated at the Application Proxy service in the cloud while the session is re-established with the backend server. This connection strategy means that your backend servers are not exposed to direct HTTP traffic. They are better protected against targeted DoS (denial-of-service) attacks because your firewall isn't under attack.
 * **All access is outbound**. The Application Proxy connectors only use outbound connections to the Application Proxy service in the cloud over ports 80 and 443. With no inbound connections, there's no need to open firewall ports for incoming connections or components in the DMZ. All connections are outbound and over a secure channel.
 * **Security Analytics and Machine Learning (ML) based intelligence**. Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) (requires [Premium P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)). Azure AD Identity Protection combines machine-learning security intelligence with data feeds from Microsoft's [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html) and [Microsoft Security Response Center](https://www.microsoft.com/msrc) to proactively identify compromised accounts. Identity Protection offers real-time protection from high-risk sign-ins. It takes into consideration factors like accesses from infected devices, through anonymizing networks, or from atypical and unlikely locations to increase the risk profile of a session. This risk profile is used for real-time protection. Many of these reports and events are already available through an API for integration with your SIEM systems.

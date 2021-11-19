@@ -119,4 +119,4 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 * View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * View the article [How to configure server parameters in Azure Database for MySQL by using the Azure portal](../mysql/howto-server-parameters.md).
 * View the article [Overview of prerequisites for using Azure Database Migration Service](./pre-reqs.md).
-* See the [FAQ about using Azure Database Migration Service](./faq.md).
+* See the [FAQ about using Azure Database Migration Service](./faq.yml).

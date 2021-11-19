@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 07/26/2021
 ms.author: yushwang
 ---
 # VPN Gateway FAQ
@@ -55,7 +55,7 @@ You can configure your virtual network to use both Site-to-Site and Point-to-Sit
 
 ## <a name="privacy"></a>Privacy
 
-### Does the VPN service store customer data?
+### Does the VPN service store or process customer data?
 
 No.
 
@@ -180,6 +180,10 @@ This is expected behavior for policy-based (also known as static routing) VPN ga
 We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site-to-Site cross-premises configuration.
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
+
+### Can i connect to Azure Gateway via Point-to-Site when located at a Site that has an active Site-to-Site connection?
+
+Yes, but the Public IP address(es) of the Point-to-Site client need to be different than the Public IP address(es) used by the Site-to-Site VPN device, else the Point-to-Site connection will not work. Point-to-Site connections with IKEv2 cannot be initiated from the same Public IP address(es) where a Site-to-Site VPN connection is configured on the Same Azure VPN Gateway. 
 
 ## <a name="P2S"></a>Point-to-Site - Certificate authentication
 

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: inhenkel
-ms.custom: "has-adal-ref, devx-track-csharp"
+ms.custom: "devx-track-csharp"
 ---
 # Connect to Media Services v3 API - .NET
 

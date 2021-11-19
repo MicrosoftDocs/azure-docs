@@ -93,6 +93,9 @@ The following core requirements apply:
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD Password Protection functionality|
 
+> [!NOTE]
+> Some endpoints, such as the CRL endpoint, are not addressed in this article. For a list of all supported endpoints, see [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online).
+
 ### Azure AD Password Protection DC agent
 
 The following requirements apply to the Azure AD Password Protection DC agent:
@@ -185,6 +188,9 @@ To install the Azure AD Password Protection proxy service, complete the followin
     ```powershell
     Import-Module AzureADPasswordProtection
     ```
+    
+    > [!WARNING]
+    > The 64 bit version of PowerShell must be used. Certain cmdlets may not work with PowerShell (x86).
 
 1. To check that the Azure AD Password Protection proxy service is running, use the following PowerShell command:
 
@@ -337,7 +343,7 @@ The proxy service doesn't support the use of specific credentials for connecting
 
 The Azure AD Password Protection DC agent software uses RPC over TCP to communicate with the proxy service. By default, the Azure AD Password Protection proxy service listens on any available dynamic RPC endpoint. You can configure the service to listen on a specific TCP port, if necessary due to networking topology or firewall requirements in your environment. When you configure a static port, you must open port 135 and the static port of your choice.
 
-<a id="static" /></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet as follows:
+<a id="static"></a>To configure the service to run under a static port, use the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet as follows:
 
 ```powershell
 Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>

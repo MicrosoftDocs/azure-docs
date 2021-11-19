@@ -10,7 +10,7 @@ ms.date: 07/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jocastel
 
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy prior to registering security information in Azure AD Multi-Factor Authentication (MFA).
 - Require employees to accept your terms of use policy prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
-- Present specific terms of use policies based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
+- Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
 - Present specific terms of use policies when accessing high business impact applications, like Salesforce.
 - Present terms of use policies in different languages.
 - List who has or hasn't accepted to your terms of use policies.
@@ -302,7 +302,7 @@ If the user's device is not joined, they will receive a message that they need t
 
 ### Join a Windows 10 device
 
-If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
+If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973#to-join-an-already-configured-windows-10-device).
 
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 

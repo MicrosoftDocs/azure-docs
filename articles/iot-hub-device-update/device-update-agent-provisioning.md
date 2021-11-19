@@ -82,7 +82,7 @@ Follow all or any of the below sections to add the Device update agent based on 
 
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](../iot-edge/index.yml).
 
-1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11).
+1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
 
 1. Install the Device Update image update agent.
 
@@ -180,7 +180,7 @@ The Device Update agent can also be configured without the IoT Identity service 
        
     1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
+    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
 	
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

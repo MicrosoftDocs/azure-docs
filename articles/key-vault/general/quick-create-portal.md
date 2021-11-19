@@ -48,7 +48,7 @@ Take note of the two properties listed below:
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
-![Output after Key Vault creation completes](../media/quick-create-portal/vault-properties.png)
+:::image type="content" source="../media/quick-create-portal/vault-properties.png" alt-text="Output after Key Vault creation completes":::
 
 ## Clean up resources
 

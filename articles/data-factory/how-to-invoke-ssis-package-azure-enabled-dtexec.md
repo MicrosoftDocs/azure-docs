@@ -2,8 +2,9 @@
 title: Execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility
 description: Learn how to execute SQL Server Integration Services (SSIS) packages with the Azure-enabled dtexec utility. 
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2020
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ---
@@ -28,11 +29,11 @@ To use AzureDTExec, download and install the latest version of SSMS, which is ve
 ## Configure the AzureDTExec utility
 Installing SSMS on your local machine also installs AzureDTExec. To configure its settings, start SSMS with the **Run as administrator** option. Then select **Tools** > **Migrate to Azure** > **Configure Azure-enabled DTExec**.
 
-![Configure Azure-enabled dtexec menu](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png" alt-text="Configure Azure-enabled dtexec menu":::
 
 This action opens a **AzureDTExecConfig** window that needs to be opened with administrative privileges for it to write into the *AzureDTExec.settings* file. If you haven't run SSMS as an administrator, a User Account Control (UAC) window opens. Enter your admin password to elevate your privileges.
 
-![Configure Azure-enabled dtexec settings](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png)
+:::image type="content" source="media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png" alt-text="Configure Azure-enabled dtexec settings":::
 
 In the **AzureDTExecConfig** window, enter your configuration settings as follows:
 

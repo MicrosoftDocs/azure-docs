@@ -49,7 +49,7 @@ Use the following commands to sign in the subscription where you have your IoT C
 
 ```azurecli
 az login
-az set account --subscription <your-subscription-id>
+az account set --subscription <your-subscription-id>
 ```
 
 To monitor the telemetry your device is sending, use the following command:
@@ -155,6 +155,18 @@ If you are seeing issues related to your authentication flow:
 | 412 | The `ETag` in the request doesn't match the `ETag` of the existing resource, as per RFC7232. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#iot-hub-device-provisioning-service-limits). | Reduce message frequency, split responsibilities among more devices. |
 | 500 | An internal error occurred. | [File a ticket with customer support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to see if they can help you further. |
+
+### Detailed authorization error codes
+
+| Error | Sub error code | Notes |
+| - | - | - |
+| 401 Unauthorized | 401002 | The device is using invalid or expired credentials. This error is reported by DPS. |
+| 401 Unauthorized | 400209 | The device is either waiting for approval by an operator or has been blocked by an operator. |
+| 401 IoTHubUnauthorized |  | The device is using expired security token. This error is reported by IoT Hub. |
+| 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Re-provision the device. |
+| 401 IoTHubUnauthorized | DEVICE_BLOCKED | An operator has blocked this device. |
+
+
 
 ### File upload error codes
 

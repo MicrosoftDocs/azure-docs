@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
-description: In this quickstart, learn how to install, and authenticate the Defender Micro Agent.
-ms.date: 06/27/2021
+description: In this quickstart, learn how to install, and authenticate the Defender for IoT micro agent.
+ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 
 # Quickstart: Install Defender for IoT micro agent (Preview)
 
-This article provides an explanation of how to install, and authenticate the Defender micro agent.
+This article provides an explanation of how to install, and authenticate the Defender for IoT micro agent.
 
 ## Prerequisites
 
-Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Install the package
 
@@ -43,33 +43,34 @@ Before you install the Defender for IoT module, you must create a module identit
     sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
     ```
 
-1. Update the list of packages from the repository that you added with the following command:
+1. Install the Microsoft GPG public key:
 
     ```bash
-    sudo apt-get update
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-To install the Defender micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
+To install the Defender for IoT micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
 ```
 
-## Micro agent authentication methods 
+## Micro agent authentication methods
 
-The two options used to authenticate the Defender for IoT micro agent are: 
+The two options used to authenticate the Defender for IoT micro agent are:
 
-- Module identity connection string. 
+- Module identity connection string.
 
 - Certificate.
 
 ### Authenticate using a module identity connection string
 
-Ensure the [Prerequisites](#prerequisites) for this article are met, and that you create a module identity before starting these steps. 
+Ensure the [Prerequisites](#prerequisites) for this article are met, and that you create a module identity before starting these steps.
 
 #### Get the module identity connection string
 
-To get the module identity connection string from the IoT Hub: 
+To get the module identity connection string from the IoT Hub:
 
 1. Navigate to the IoT Hub, and select your hub.
 
@@ -93,7 +94,7 @@ To get the module identity connection string from the IoT Hub:
 
 To configure the agent to authenticate using a module identity connection string:
 
-1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the defender agent directory `/var/defender_iot_micro_agent` path by entering the following command:
+1. Place a file named `connection_string.txt` containing the connection string encoded in utf-8 in the Defender for Cloud agent directory `/var/defender_iot_micro_agent` path by entering the following command:
 
     ```bash
     sudo bash -c 'echo "<connection string>" > /var/defender_iot_micro_agent/connection_string.txt'
@@ -113,13 +114,13 @@ To authenticate using a certificate:
 
 1. Procure a certificate by following [these instructions](../../iot-hub/tutorial-x509-scripts.md).
 
-1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`. 
+1. Place the PEM-encoded public part of the certificate, and the private key, in to the Defender for Cloud Agent Directory in to the file called `certificate_public.pem`, and `certificate_private.pem`.
 
-1. Place the appropriate connection string in to the `connection_string.txt` file. the connection string should look like this: 
+1. Place the appropriate connection string in to the `connection_string.txt` file. the connection string should look like this:
 
-    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true` 
+    `HostName=<the host name of the iot hub>;DeviceId=<the id of the device>;ModuleId=<the id of the module>;x509=true`
 
-    This string alerts the defender agent, to expect a certificate be provided for authentication. 
+    This string alerts the Defender for Cloud agent, to expect a certificate be provided for authentication.
 
 1. Restart the service using the following command:  
 
@@ -140,10 +141,10 @@ To validate your installation:
 1. Ensure that the service is stable by making sure it is `active` and that the uptime of the process is appropriate
 
     :::image type="content" source="media/quickstart-standalone-agent-binary-installation/active-running.png" alt-text="Check to make sure your service is stable and active.":::
- 
-## Testing the system end-to-end 
 
-You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation. 
+## Testing the system end-to-end
+
+You can test the system from end to end by creating a trigger file on the device. The trigger file will cause the baseline scan in the agent to detect the file as a baseline violation.
 
 Create a file on the file system with the following command:
 
@@ -151,15 +152,15 @@ Create a file on the file system with the following command:
 sudo touch /tmp/DefenderForIoTOSBaselineTrigger.txt 
 ```
 
-A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0: 
+A baseline validation failure recommendation will occur in the hub, with a `CceId` of CIS-debian-9-DEFENDER_FOR_IOT_TEST_CHECKS-0.0:
 
 :::image type="content" source="media/quickstart-standalone-agent-binary-installation/validation-failure.png" alt-text="The baseline validation failure recommendation that occurs in the hub." lightbox="media/quickstart-standalone-agent-binary-installation/validation-failure-expanded.png":::
 
-Allow up to one hour for the recommendation to appear in the hub. 
+Allow up to one hour for the recommendation to appear in the hub.
 
-## Micro agent versioning 
+## Micro agent versioning
 
-To install a specific version of the Defender IoT micro agent, run the following command: 
+To install a specific version of the Defender for IoT micro agent, run the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -168,4 +169,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Building the Defender micro agent from source code](quickstart-building-the-defender-micro-agent-from-source.md)
+> [Quickstart: Create a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)

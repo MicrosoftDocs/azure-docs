@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Manage Phone Numbers using Azure Communication Services
+title: Quickstart - Get and manage phone numbers using Azure Communication Services
 description: Learn how to manage phone numbers using Azure Communication Services
 author: prakulka
 manager: nmurav
@@ -9,10 +9,12 @@ ms.author: prakulka
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: pstn
 ms.custom: references_regions
 zone_pivot_groups: acs-azp-java-net-python-csharp-js
 ---
-# Quickstart: Manage Phone Numbers
+
+# Quickstart: Get and manage phone numbers
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -41,10 +43,6 @@ zone_pivot_groups: acs-azp-java-net-python-csharp-js
 ## Troubleshooting
 
 Common Questions and Issues:
-
-- Purchasing phone is supported in the US only. To purchase phone numbers, ensure that:
-  - The associated Azure subscription billing address is located in the United States. You cannot move a resource to another subscription at this time.
-  - Your Communication Services resource is provisioned in the United States data location. You cannot move a resource to another data location at this time.
 
 - When a phone number is released, the phone number will not be released or able to be repurchased until the end of the billing cycle.
 

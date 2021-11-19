@@ -18,8 +18,10 @@ ms.date: 01/25/2021
 
 This article explains architecture of various components that direct network traffic to a server in Azure SQL Database or Azure Synapse Analytics. It also explains different connection policies and how it impacts clients connecting from within Azure and clients connecting from outside of Azure.
 
-> [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
+This article does *not* apply to **Azure SQL Managed Instance**. Refer to [Connectivity architecture for a managed instance](../managed-instance/connectivity-architecture-overview.md).
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Connectivity architecture
 
@@ -85,7 +87,7 @@ Periodically, we will retire Gateways using old hardware and migrate the traffic
 | China East 2         | 40.73.82.1 | 52.130.120.88/29 | 
 | China North          | 139.219.15.17      | 52.130.128.88/29 |
 | China North 2        | 40.73.50.0         | 52.130.40.64/29 |
-| East Asia            | 52.175.33.150, 13.75.32.4, 13.75.32.14 | 13.75.32.192/29, 13.75.33.192/29 |
+| East Asia            | 52.175.33.150, 13.75.32.4, 13.75.32.14, 20.205.77.200, 20.205.83.224  | 13.75.32.192/29, 13.75.33.192/29 |
 | East US              | 40.121.158.30, 40.79.153.12, 40.78.225.32 | 20.42.65.64/29, 20.42.73.0/29, 52.168.116.64/29 |
 | East US 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3,  40.70.144.193 | 104.208.150.192/29, 40.70.144.192/29, 52.167.104.192/29 |
 | France Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 | 40.79.136.32/29, 40.79.144.32/29 |

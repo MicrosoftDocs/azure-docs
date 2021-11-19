@@ -55,7 +55,7 @@ The following script demonstrates how to:
    ```azurecli
    az login --identity
    
-   spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
+   $spID=$(az resource list -n <VM-NAME> --query [*].identity.principalId --out tsv)
    echo The managed identity for Azure resources service principal ID is $spID
    ```
 

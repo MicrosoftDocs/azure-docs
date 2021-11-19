@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 08/11/2021
 ms.author: justinha
 
 ---
@@ -59,7 +59,7 @@ All users, regardless of how they're created, have the following account lockout
 
 * **Account lockout duration:** 30
 * **Number of failed logon attempts allowed:** 5
-* **Reset failed logon attempts count after:** 30 minutes
+* **Reset failed logon attempts count after:** 2 minutes
 * **Maximum password age (lifetime):** 90 days
 
 With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
@@ -101,10 +101,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 
     Set the precedence for your custom password policy to override the default, such as *1*.
 
-1. Edit other password policy settings as desired. Remember the following key points:
-
-    * Settings like password complexity, age, or expiration time only to users manually created in a managed domain.
-    * Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
+1. Edit other password policy settings as desired. Account lockout settings apply to all users, but only take effect within the managed domain and not in Azure AD itself.
 
     ![Create a custom fine-grained password policy](./media/password-policy/custom-fgpp.png)
 

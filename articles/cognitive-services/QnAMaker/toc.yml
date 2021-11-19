@@ -12,6 +12,8 @@
     href: whats-new.md
   - name: Custom question answering (preview)
     href: custom-question-answering.md
+  - name: Migrate to custom question answering
+    href: ../language-service/question-answering/how-to/migrate-qnamaker.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Quickstarts
   items:
   - name: Create and Query Knowledgebase
@@ -21,7 +23,7 @@
     - name: Client libraries or REST API
       href: Quickstarts/quickstart-sdk.md
 - name: Samples
-  href: https://docs.microsoft.com/samples/browse/?products=azure&term=face&terms=qna-maker
+  href: /samples/browse/?products=azure&term=face&terms=qna-maker
 - name: Responsible use of AI
   items:
   - name: Transparency notes
@@ -64,9 +66,6 @@
       href: How-To/edit-knowledge-base.md
     - name: Add metadata tags 
       href: Quickstarts/add-question-metadata-portal.md
-    - name: Add follow-up prompts
-      href: How-To/multiturn-conversation.md
-      displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Change default answer
       href: How-To/change-default-answer.md
   - name: Query knowledge base
@@ -81,6 +80,8 @@
   - name: Use Prebuilt API to query over text
     href: How-to/using-prebuilt-api.md
     displayName: prebuilt, query, answer, text, prebuilt api, ingest, no storage, call, response
+  - name: Multi-turn conversations
+    href: how-to/multi-turn.md
   - name: Get suggested alternate questions via active learning
     href: How-to/improve-knowledge-base.md
     displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount
@@ -104,8 +105,6 @@
     href: Concepts/data-sources-and-content.md
   - name: Azure role-based access control (Azure RBAC)
     href: Concepts/role-based-access-control.md
-  - name: Precise answering
-    href: reference-precise-answering.md
   - name: Turn on active learning
     href: How-To/use-active-learning.md
   - name: Ranker Process
@@ -128,15 +127,15 @@
   - name: Customize your FAQ bot
     items:
     - name: Create guided conversations with multi-turn prompts
-      href: Tutorials/guided-conversations.md
+      href: ../language-service/question-answering/tutorials/guided-conversations.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add multiple domains to bot
-      href: Tutorials/create-faq-bot-for-multiple-domains.md
+      href: ../language-service/question-answering/tutorials/multiple-domains.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Enhance knowledge bases with active learning
-      href: Tutorials/active-learning.md
-    - name: Add knowledge bases in multiple languages
-      href: Tutorials/multiple-languages.md
+      href: ../language-service/question-answering/tutorials/active-learning.md?context=/azure/cognitive-services/qnamaker/context/context
     - name: Add synonyms to improve relevance
-      href: Tutorials/adding-synonyms.md
+      href: ../language-service/question-answering/tutorials/adding-synonyms.md?context=/azure/cognitive-services/qnamaker/context/context
+    - name: Add knowledge bases in multiple languages
+      href: ../language-service/question-answering/tutorials/multiple-languages.md?context=/azure/cognitive-services/qnamaker/context/context
 - name: Reference
   items:
   - name: REST API

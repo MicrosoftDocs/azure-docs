@@ -1,0 +1,71 @@
+### YamlMime:FAQ
+metadata:
+  title: Virtual Network NAT frequently asked questions
+  description: Answers to common questions about using Azure Virtual Network NAT.
+
+title: Frequently asked questions for Azure Virtual Network NAT
+summary: |
+  Here are some answers to common questions about using Azure Virtual Network NAT.
+
+sections:
+  - name: Single section - ignored
+    questions:
+      - question: Is the Virtual Network NAT public IP address static?  
+        answer: |
+          Yes. When Virtual Network NAT is configured on a subnet, all outbound connectivity uses your specified static public IP address(es).  
+
+      - question: What is the maximum number of public IP addresses that can be used by Virtual Network NAT?
+        answer: |
+          The Virtual Network NAT gateway resource can use up to 16 public IP addresses. The Virtual Network NAT can use any combination of public IP addresses and public IP address prefixes totaling to 16 addresses. The maximum prefix size that can be used by Virtual Network NAT is /28 (16 addresses).  
+
+      - question: Can IPs of existing Virtual Network NAT be changed? 
+        answer: |
+          No, an existing IP attached to the Virtual Network NAT can't be changed. A different IP can be attached to Virtual Network NAT by creating a new public IP address.  Associate the new public IP address with the NAT gateway resource.  Disassociate the old IP address.
+
+      - question: If multiple public IP addresses are assigned to a NAT gateway resource, is there a disruption of traffic if one of the IP addresses is removed?
+        answer: |
+          No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
+
+      - question: Can Virtual Network NAT be attached to multiple virtual networks?  
+        answer: |
+          No. Virtual Network NAT cannot be attached to multiple virtual networks.  
+
+      - question: Can Virtual Network NAT be attached to multiple subnets? 
+        answer: |
+          Yes. Virtual Network NAT can be associated with multiple subnets within a virtual network. It isn't required to be associated with all subnets within a virtual network. Each subnet within a virtual network can be configured with its own Virtual Network NAT. 
+
+      - question: Can Virtual Network NAT be associated with a gateway subnet? 
+        answer: |
+          No. Virtual Network NAT can't be associated with a [gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) subnet.
+
+      - question: How does Virtual Network NAT work with Availability zones?   
+        answer: |
+          Virtual Network NAT can be non-zonal or zonal only.  
+
+          A non-zonal Virtual Network NAT is one that hasn't been associated to a specific zone. A non-zonal Virtual Network NAT is still assigned to one zone within the virtual network. In this instance, Azure decides which zone to choose for the Virtual Network NAT. 
+
+          A zonal Virtual Network NAT is associated to a specific zone by the user when the Virtual Network NAT is created. 
+
+      - question: How can I obtain logs for my Virtual Network NAT resource?  
+        answer: |
+          Network security groups (NSG) can be configured to outbound traffic sent from a resource in a subnet/virtual network through a virtual network NAT gateway resource. 
+
+          Network security group flow logs can be used to monitor outbound traffic through a Virtual Network NAT gateway resource.  
+
+          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable network security group flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+      
+      - question: How do I delete a Virtual Network NAT gateway resource?
+        answer: |
+          To delete a Virtual Network NAT gateway resource, the resource must first be disassociated from the subnet. Once the NAT gateway resource is disassociated from all subnets, it can be deleted.
+      
+      - question: Can I use the Virtual Network NAT gateway resource with Azure App Services? 
+        answer: |
+          Yes. For more information about Virtual Network NAT integration with Azure App Services, see [Virtual Network NAT gateway integration](https://docs.microsoft.com/azure/app-service/networking/nat-gateway-integration).
+      
+      - question: Can I use the Virtual Network NAT gateway resource with Azure Kubernetes Service? 
+        answer: |
+          Yes. For more information about Virtual Network NAT integration with Azure Kubernetes Service, see [Managed NAT Gateway (preview)](https://docs.microsoft.com/azure/aks/nat-gateway).
+
+additionalContent: |
+  ## Next steps
+  If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.

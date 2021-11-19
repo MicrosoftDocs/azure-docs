@@ -134,8 +134,8 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| previousState | string | The state of the job before the event. |
-| state | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished" .|
+| `previousState` | string | The state of the job before the event. |
+| `state` | string | The new state of the job being notified in this event. For example, "Scheduled: The job is ready to start" or "Finished: The job is finished" .|
 
 Where the Job state can be one of the values: *Queued*, *Scheduled*, *Processing*, *Finished*, *Error*, *Canceled*, *Canceling*
 
@@ -204,7 +204,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| outputs | Array | Gets the Job outputs.|
+| `outputs` | Array | Gets the Job outputs.|
 
 ### JobOutputStateChange
 
@@ -320,11 +320,11 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
-| ingestUrl | string | Ingest URL provided by the live event. |  
-| encoderIp | string | IP of the encoder. |
-| encoderPort | string | Port of the encoder from where this stream is coming. |
-| resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
+| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
+| `ingestUrl` | string | Ingest URL provided by the live event. |  
+| `encoderIp` | string | IP of the encoder. |
+| `encoderPort` | string | Port of the encoder from where this stream is coming. |
+| `resultCode` | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
 You can find the error result codes in [live Event error codes](../live-event-error-codes-reference.md).
 
@@ -356,10 +356,10 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identifier of the stream or connection. Encoder or customer is responsible for providing this ID in the ingest URL. |
-| ingestUrl | string | Ingest URL provided by the live event. |
-| encoderIp | string | IP of the encoder. |
-| encoderPort | string | Port of the encoder from where this stream is coming. |
+| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible for providing this ID in the ingest URL. |
+| `ingestUrl` | string | Ingest URL provided by the live event. |
+| `encoderIp` | string | IP of the encoder. |
+| `encoderPort` | string | Port of the encoder from where this stream is coming. |
 
 ### LiveEventEncoderDisconnected
 
@@ -390,11 +390,11 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| streamId | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
-| ingestUrl | string | Ingest URL provided by the live event. |  
-| encoderIp | string | IP of the encoder. |
-| encoderPort | string | Port of the encoder from where this stream is coming. |
-| resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
+| `streamId` | string | Identifier of the stream or connection. Encoder or customer is responsible to add this ID in the ingest URL. |  
+| `ingestUrl` | string | Ingest URL provided by the live event. |  
+| `encoderIp` | string | IP of the encoder. |
+| `encoderPort` | string | Port of the encoder from where this stream is coming. |
+| `resultCode` | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
 You can find the error result codes in [live Event error codes](../live-event-error-codes-reference.md).
 
@@ -440,12 +440,12 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Type of the track (Audio / Video). |
-| trackName | string | Name of the track. |
-| bitrate | integer | Bitrate of the track. |
-| timestamp | string | Timestamp of the data chunk dropped. |
-| timescale | string | Timescale of the timestamp. |
-| resultCode | string | Reason of the data chunk drop. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
+| `trackType` | string | Type of the track (Audio / Video). |
+| `trackName` | string | Name of the track. |
+| `bitrate` | integer | Bitrate of the track. |
+| `timestamp` | string | Timestamp of the data chunk dropped. |
+| `timescale` | string | Timescale of the timestamp. |
+| `resultCode` | string | Reason of the data chunk drop. **FragmentDrop_OverlapTimestamp** or **FragmentDrop_NonIncreasingTimestamp**. |
 
 ### LiveEventIncomingStreamReceived
 
@@ -480,14 +480,14 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Type of the track (Audio / Video). |
-| trackName | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
-| bitrate | integer | Bitrate of the track. |
-| ingestUrl | string | Ingest URL provided by the live event. |
-| encoderIp | string  | IP of the encoder. |
-| encoderPort | string | Port of the encoder from where this stream is coming. |
-| timestamp | string | First timestamp of the data chunk received. |
-| timescale | string | Timescale in which timestamp is represented. |
+| `trackType` | string | Type of the track (Audio / Video). |
+| `trackName` | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
+| `bitrate` | integer | Bitrate of the track. |
+| `ingestUrl` | string | Ingest URL provided by the live event. |
+| `encoderIp` | string  | IP of the encoder. |
+| `encoderPort` | string | Port of the encoder from where this stream is coming. |
+| `timestamp` | string | First timestamp of the data chunk received. |
+| `timescale` | string | Timescale in which timestamp is represented. |
 
 ### LiveEventIncomingStreamsOutOfSync
 
@@ -519,12 +519,12 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| minLastTimestamp | string | Minimum of last timestamps among all the tracks (audio or video). |
-| typeOfTrackWithMinLastTimestamp | string | Type of the track (audio or video) with minimum last timestamp. |
-| maxLastTimestamp | string | Maximum of all the timestamps among all the tracks (audio or video). |
-| typeOfTrackWithMaxLastTimestamp | string | Type of the track (audio or video) with maximum last timestamp. |
-| timescaleOfMinLastTimestamp| string | Gets the timescale in which "MinLastTimestamp" is represented.|
-| timescaleOfMaxLastTimestamp| string | Gets the timescale in which "MaxLastTimestamp" is represented.|
+| `minLastTimestamp` | string | Minimum of last timestamps among all the tracks (audio or video). |
+| `typeOfTrackWithMinLastTimestamp` | string | Type of the track (audio or video) with minimum last timestamp. |
+| `maxLastTimestamp` | string | Maximum of all the timestamps among all the tracks (audio or video). |
+| `typeOfTrackWithMaxLastTimestamp` | string | Type of the track (audio or video) with maximum last timestamp. |
+| `timescaleOfMinLastTimestamp`| string | Gets the timescale in which "MinLastTimestamp" is represented.|
+| `timescaleOfMaxLastTimestamp`| string | Gets the timescale in which "MaxLastTimestamp" is represented.|
 
 ### LiveEventIncomingVideoStreamsOutOfSync
 
@@ -555,11 +555,11 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| firstTimestamp | string | Timestamp received for one of the tracks/quality levels of type video. |
-| firstDuration | string | Duration of the data chunk with first timestamp. |
-| secondTimestamp | string  | Timestamp received for some other track/quality level of the type video. |
-| secondDuration | string | Duration of the data chunk with second timestamp. |
-| timescale | string | Timescale of timestamps and duration.|
+| `firstTimestamp` | string | Timestamp received for one of the tracks/quality levels of type video. |
+| `firstDuration` | string | Duration of the data chunk with first timestamp. |
+| `secondTimestamp` | string  | Timestamp received for some other track/quality level of the type video. |
+| `secondDuration` | string | Duration of the data chunk with second timestamp. |
+| `timescale` | string | Timescale of timestamps and duration.|
 
 ### LiveEventIngestHeartbeat
 
@@ -601,22 +601,22 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Type of the track (Audio / Video). |
-| trackName | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
-| bitrate | integer | Bitrate of the track. |
-| incomingBitrate | integer | Calculated bitrate based on data chunks coming from encoder. |
-| lastTimestamp | string | Latest timestamp received for a track in last 20 seconds. |
-| timescale | string | Timescale in which timestamps are expressed. |
-| overlapCount | integer | Number of data chunks had overlapped timestamps in last 20 seconds. |
-| discontinuityCount | integer | Number of discontinuities observed in last 20 seconds. |
-| nonIncreasingCount | integer | Number of data chunks with timestamps in the past were received in last 20 seconds. |
-| unexpectedBitrate | bool | If expected and actual bitrates differ by more than allowed limit in last 20 seconds. It's true if and only if, incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
-| state | string | State of the live event. |
-| healthy | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
-| lastFragmentArrivalTime | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
-| ingestDriftValue | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. Please note, this value is unrelated to the presence or absence of missing data in the last minute. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period.  This would be reported as 2 seconds of drift. If the encoder is able to catch up and send all 60 seconds of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
-| transcriptionState | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
-| transcriptionLanguage | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
+| `trackType` | string | Type of the track (Audio / Video). |
+| `trackName` | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
+| `bitrate` | integer | Bitrate of the track. |
+| `incomingBitrate` | integer | Calculated bitrate based on data chunks coming from encoder. |
+| `lastTimestamp` | string | Latest timestamp received for a track in last 20 seconds. |
+| `timescale` | string | Timescale in which timestamps are expressed. |
+| `overlapCount` | integer | Number of data chunks had overlapped timestamps in last 20 seconds. |
+| `discontinuityCount` | integer | Number of discontinuities observed in last 20 seconds. |
+| `nonIncreasingCount` | integer | Number of data chunks with timestamps in the past were received in last 20 seconds. |
+| `unexpectedBitrate` | bool | If expected and actual bitrates differ by more than allowed limit in last 20 seconds. It's true if and only if, incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
+| `state` | string | State of the live event. |
+| `healthy` | bool | Indicates whether ingest is healthy based on the counts and flags. Healthy is true if overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
+| `lastFragmentArrivalTime` | string |The last time stamp in UTC that a fragment arrived at the ingest endpoint. Example date format is "2020-11-11 12:12:12:888999" |
+| `ingestDriftValue` | string | Indicates the speed of delay, in seconds-per-minute, of the incoming audio or video data during the last minute. The value is greater than zero if data is arriving to the live event slower than expected in the last minute; zero if data arrived with no delay; and "n/a" if no audio or video data was received. For example, if you have a contribution encoder sending in live content, and it is slowing down due to processing issues, or network latency, it may be only able to deliver a total of 58 seconds of audio or video in a one minute period. This would be reported as 2 seconds-per-minute of drift. If the encoder is able to catch up and send all 60 seconds or more of data every minute you will see this value reported as 0. If there was a disconnection, or discontinuity from the encoder, this value may still display as 0, as it does not account for breaks in the data - only data that is delayed in timestamps.|
+| `transcriptionState` | string | This value is "On" for audio track heartbeats if live transcription is turned on, otherwise you will see an empty string. This state is only applicable to tracktype of "audio" for Live transcription. All other tracks will have an empty value.|
+| `transcriptionLanguage` | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
 
 
 ### LiveEventTrackDiscontinuityDetected
@@ -650,13 +650,13 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| trackType | string | Type of the track (Audio / Video). |
-| trackName | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
-| bitrate | integer | Bitrate of the track. |
-| previousTimestamp | string | Timestamp of the previous fragment. |
-| newTimestamp | string | Timestamp of the current fragment. |
-| discontinuityGap | string | Gap between above two timestamps. |
-| timescale | string | Timescale in which both timestamp and discontinuity gap are represented. |
+| `trackType` | string | Type of the track (Audio / Video). |
+| `trackName` | string | Name of the track (either provided by the encoder or, in case of RTMP, server generates in *TrackType_Bitrate* format). |
+| `bitrate` | integer | Bitrate of the track. |
+| `previousTimestamp` | string | Timestamp of the previous fragment. |
+| `newTimestamp` | string | Timestamp of the current fragment. |
+| `discontinuityGap` | string | Gap between above two timestamps. |
+| `timescale` | string | Timescale in which both timestamp and discontinuity gap are represented. |
 
 ### Common event properties
 
@@ -664,14 +664,14 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| topic | string | The EventGrid topic. This property has the resource ID for the Media Services account. |
-| subject | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
-| eventType | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
-| eventTime | string | The time the event is generated based on the provider's UTC time. |
-| id | string | Unique identifier for the event. |
-| data | object | Media Services event data. |
-| dataVersion | string | The schema version of the data object. The publisher defines the schema version. |
-| metadataVersion | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+| `topic` | string | The EventGrid topic. This property has the resource ID for the Media Services account. |
+| `subject` | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
+| `eventType` | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Media Services event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 ## Next steps
 

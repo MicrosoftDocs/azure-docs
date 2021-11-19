@@ -3,12 +3,11 @@ title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
 description: Learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 07/13/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Configure Bastion and connect to a Windows VM
@@ -26,7 +25,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-* A virtual network.
+* A [virtual network](../virtual-network/quick-create-portal.md).
 * A Windows virtual machine in the virtual network. If you don't have a VM, create one using [Quickstart: Create a VM](../virtual-machines/windows/quick-create-portal.md).
 * The following required roles for your resources:
    * Required VM roles:
@@ -61,7 +60,7 @@ You can use the following example values when creating this configuration, or yo
 | --- | --- |
 | Name | VNet1-bastion |
 | + Subnet Name | AzureBastionSubnet |
-| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /27 or larger.<br> For example, 10.1.1.0/26.  |
+| AzureBastionSubnet addresses | A subnet within your VNet address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
 | Tier/SKU | Standard |
 | Instance count (host scaling)| 3 or greater |
 | Public IP address |  Create new |
@@ -69,22 +68,17 @@ You can use the following example values when creating this configuration, or yo
 | Public IP address SKU |  Standard  |
 | Assignment  | Static |
 
-## Sign in to the Azure portal
-
-[!INCLUDE [Azure Bastion preview portal](../../includes/bastion-preview-portal-note.md)]
-
-Sign in to the Azure portal.
-
 ## <a name="createhost"></a>Create a bastion host
 
 This section helps you create the bastion object in your VNet. This is required in order to create a secure connection to a VM in the VNet.
 
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 1. Type **Bastion** into the search.
 1. Under services, click **Bastions**.
 1. On the Bastions page, click **+ Create** to open the **Create a Bastion** page.
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create.png":::
 
 ### Project details
 
@@ -96,9 +90,9 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Name**: The name of the new Bastion resource.
 
-* **Region**: The Azure public region in which the resource will be created.
+* **Region**: The Azure public region in which the resource will be created. Choose the region in which your virtual network resides.
 
-* **Tier:** The tier is also known as the **SKU**. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus). The Standard SKU is in Preview.
+* **Tier:** The tier is also known as the **SKU**. For this tutorial, we select the **Standard** SKU from the dropdown. Selecting the Standard SKU lets you configure the instance count for host scaling. The Basic SKU doesn't support host scaling. For more information, see [Configuration settings - SKU](configuration-settings.md#skus).
 
 * **Instance count:** This is the setting for **host scaling** and configured in scale unit increments. Use the slider to configure the instance count. If you specified the Basic tier SKU, you cannot configure this setting. For more information, see [Configuration settings - host scaling](configuration-settings.md#instance). In this tutorial, you can select the instance count you'd prefer, keeping in mind any scale unit [pricing](https://azure.microsoft.com/pricing/details/azure-bastion) considerations.
 
@@ -106,9 +100,9 @@ This section helps you create the bastion object in your VNet. This is required 
 
 * **Virtual network**: The virtual network in which the Bastion resource will be created. You can create a new virtual network in the portal during this process, or use an existing virtual network. If you are using an existing virtual network, make sure the existing virtual network has enough free address space to accommodate the Bastion subnet requirements. If you don't see your virtual network from the dropdown, make sure you have selected the correct Resource Group.
 
-* **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in which your Bastion instances will be deployed. 
+* **Subnet**: Once you create or select a virtual network, the subnet field appears on the page. This is the subnet in which your Bastion instances will be deployed. The name must be **AzureBastionSubnet**. See the following steps to add the subnet.
 
-#### Add the AzureBastionSubnet
+#### Manage subnet configuration
 
 In most cases, you will not already have an AzureBastionSubnet configured. To configure the bastion subnet: 
 
@@ -120,7 +114,7 @@ In most cases, you will not already have an AzureBastionSubnet configured. To co
 1. Create a subnet using the following guidelines:
 
    * The subnet must be named **AzureBastionSubnet**.
-   * The subnet must be at least /27 or larger. For the Standard SKU, we recommend /26 or larger to accommodate future additional host scaling instances.
+   * The subnet must be at least /26 or larger. For the Standard SKU, we recommend /26 or larger to accommodate future additional host scaling instances.
 
    :::image type="content" source="./media/tutorial-create-host-portal/bastion-subnet.png" alt-text="Screenshot of the AzureBastionSubnet subnet.":::
 

@@ -3,7 +3,7 @@ title: Provision a Windows virtual machine with the Azure portal
 description: This guide covers options available for using the Azure portal to provision SQL Server on a Windows virtual machine.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
@@ -13,8 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 ---
 # How to use the Azure portal to provision a Windows virtual machine with SQL Server

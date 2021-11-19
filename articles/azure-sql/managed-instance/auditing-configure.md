@@ -52,7 +52,7 @@ The following section describes the configuration of auditing on your managed in
       ![Create blob container configuration](./media/auditing-configure/3_create_container_config.png)
 
     > [!IMPORTANT]
-    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
+    > Customers wishing to configure an immutable log store for their server- or database-level audit events should follow the [instructions provided by Azure Storage](../../storage/blobs/immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes). (Please ensure you have selected **Allow additional appends** when you configure the immutable blob storage.)
   
 3. After you create the container for the audit logs, there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
@@ -232,9 +232,9 @@ Azure Monitor logs gives you real-time operational insights using integrated sea
 The key differences between auditing in databases in Azure SQL Managed Instance and databases in SQL Server are:
 
 - With Azure SQL Managed Instance, auditing works at the server level and stores `.xel` log files in Azure Blob storage.
-- In SQL Server, audit works at the server level, but stores events on files system/windows event logs.
+- In SQL Server, audit works at the server level, but stores events in the file system and Windows event logs.
 
-XEvent auditing in managed instances supports Azure Blob storage targets. File and windows logs are **not supported**.
+XEvent auditing in managed instances supports Azure Blob storage targets. File and Windows logs are **not supported**.
 
 The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob storage are:
 

@@ -6,19 +6,21 @@
   - name: Machine Learning Studio (classic)
     displayName: overview
     href: studio-classic-overview.md
-- name: Quickstarts
+  - name: Migrate to Azure Machine Learning
+    href: ../migrate-overview.md
+- name: Tutorials
   items:
   - name: Create your first experiment
     displayName: quickstart
     href: create-experiment.md
-- name: Tutorials
-  items:
-  - name: '1: Create predictive experiment'
-    href: tutorial-part1-credit-risk.md 
-  - name: '2: Train & evaluate solution'
-    href: tutorial-part2-credit-risk-train.md
-  - name: '3: Deploy web service'
-    href: tutorial-part3-credit-risk-deploy.md
+  - name: Train & deploy a predictive model
+    items: 
+    - name: '1: Create predictive experiment'
+      href: tutorial-part1-credit-risk.md 
+    - name: '2: Train & evaluate solution'
+      href: tutorial-part2-credit-risk-train.md
+    - name: '3: Deploy web service'
+      href: tutorial-part3-credit-risk-deploy.md
 - name: Samples
   items:
   - name: Available datasets
@@ -27,18 +29,8 @@
     href: gallery-how-to-use-contribute-publish.md
 - name: Concepts
   items:
-  - name: Data Science for Beginners
-    items:
-    - name: 1 - Five questions
-      href: data-science-for-beginners-the-5-questions-data-science-answers.md
-    - name: 2 - Is your data ready?
-      href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-    - name: 3 - Ask the right question
-      href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-    - name: 4 - Predict an answer
-      href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-    - name: 5 - Copy other people's work
-      href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+  - name: 'Retired: Data Science for Beginners'
+    href: retired-data-science-for-beginners-videos.md
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
@@ -137,21 +129,7 @@
       href: export-delete-personal-data-dsr.md
     - name: Gallery data
       displayName: export
-      href: ai-gallery-control-personal-data-dsr.md 
-  - name: Migrate to Azure Machine Learning
-    items:
-    - name: Migration overview
-      href: migrate-overview.md
-    - name: Migrate datasets
-      href: migrate-register-dataset.md
-    - name: Rebuild experiments
-      href: migrate-rebuild-experiment.md
-    - name: Rebuild web services
-      href: migrate-rebuild-web-service.md
-    - name: Migrate client applications
-      href: migrate-rebuild-integrate-with-client-app.md
-    - name: Rebuild Execute R Script modules
-      href: migrate-execute-r-script.md      
+      href: ai-gallery-control-personal-data-dsr.md  
 - name: Reference
   items:
   - name: Algorithm & module reference
@@ -164,12 +142,8 @@
     href: /rest/api/machinelearning
 - name: Resources
   items:
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=machine-learning-studio
   - name: Get support
     href: support-aml-studio.md
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/    
   - name: Pricing

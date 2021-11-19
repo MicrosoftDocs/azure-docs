@@ -1,26 +1,28 @@
 items:
-- name: Azure Communication Services Documentation
+- name: Azure Communication Services documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Azure Communication Services?
     href: overview.md
-  - name: Support and Help Options
+  - name: Help and support options
     href: support.md
 - name: Quickstarts
   expanded: true
   items:
   - name: Create a Communication Services resource
     href: quickstarts/create-communication-resource.md
-  - name: Identity and Access
+  - name: Identity and access
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
-      - name: Use Service Principals
+      - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
-      - name: Set up Service Principals from CLI
+      - name: Authenticate with Azure AD (Azure CLI)
         href: quickstarts/identity/service-principal-from-cli.md
+      - name: Quick-create identities for testing
+        href: quickstarts/identity/quick-create-identity.md
   - name: Chat
     items:
       - name: Add chat to your app
@@ -29,11 +31,11 @@ items:
         href: quickstarts/chat/meeting-interop.md
   - name: Telephony and SMS
     items:
-      - name: Get a telephone number
+      - name: Get and manage phone numbers
         href: quickstarts/telephony-sms/get-phone-number.md
-      - name: Port a telephone number into Azure
+      - name: Port a phone number into Azure
         href: quickstarts/telephony-sms/port-phone-number.md
-      - name: Add telephone calling to your app
+      - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
@@ -47,22 +49,20 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
-    - name: Use the Calling SDK
-      href: quickstarts/voice-video-calling/calling-client-samples.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
-    - name: Join a service to a call
+    - name: Use the call automation APIs
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
-      - name: Get started with Composites
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
-      - name: Get started with Stateful Client
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-      - name: Get started with UI Components
-        href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+    - name: Get started with Composites
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
+    - name: Get started with Stateful Client
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
+    - name: Get started with UI Components
+      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -76,7 +76,7 @@ items:
     href: tutorials/building-app-start.md
   - name: Sign an HTTP request with an HMAC signature using C#
     href: tutorials/hmac-header-tutorial.md
-  - name: Sign and make requests to ACS' SMS API with Postman
+  - name: Sign and make requests to the SMS API with Postman
     href: tutorials/postman-tutorial.md
 - name: Concepts
   expanded: false
@@ -87,6 +87,39 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
+  - name: Monitoring and analytics
+    items:
+      - name: Enable logging in Diagnostic Settings
+        href: concepts/analytics/enable-logging.md
+      - name: Call Summary and Call Diagnostic logs
+        href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Log Analytics
+        href: concepts/analytics/log-analytics.md
+      - name: Insights
+        href: concepts/analytics/insights.md
+  - name: Service Events (EventGrid)
+    items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Chat Events
+        href: ../event-grid/communication-services-chat-events.md
+        maintainContext: true
+      - name: Telephony and SMS Events
+        href: ../event-grid/communication-services-telephony-sms-events.md
+        maintainContext: true
+      - name: Voice and video calling Events
+        href: ../event-grid/communication-services-voice-video-events.md
+        maintainContext: true
+      - name: Presence Events
+        href: ../event-grid/communication-services-presence-events.md
+        maintainContext: true
+  - name: Teams interoperability
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Telephony and SMS
     items:
       - name: SMS SDK overview
@@ -98,7 +131,7 @@ items:
       - name: Phone number types
         href: concepts/telephony-sms/plan-solution.md
       - name: Azure direct routing infrastructure requirements
-        href: concepts/telephony-sms/sip-interface-infrastructure.md
+        href: concepts/telephony-sms/direct-routing-infrastructure.md
       - name: Azure direct routing certified Session Border Controllers
         href: concepts/telephony-sms/certified-session-border-controllers.md
       - name: Pair the Session Border Controller and configure voice routing
@@ -107,6 +140,12 @@ items:
         href: concepts/telephony-sms/sms-faq.md
       - name: Messaging policy
         href: concepts/telephony-sms/messaging-policy.md
+  - name: UI Library
+    items:
+      - name: UI Library overview
+        href: concepts/ui-library/ui-library-overview.md
+      - name: UI Library use cases
+        href: concepts/ui-library/ui-library-use-cases.md
   - name: Voice and video calling
     items:
       - name: Calling SDK overview
@@ -123,16 +162,12 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
+      - name: User-facing diagnostics
+        href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
         href: concepts/known-issues.md
-  - name: UI Library
-    items:
-      - name: UI Library overview
-        href: concepts/ui-library/ui-library-overview.md
-      - name: UI Library use cases
-        href: concepts/ui-library/ui-library-use-cases.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
@@ -141,23 +176,44 @@ items:
     href: concepts/identity-model.md
   - name: Authentication
     href: concepts/authentication.md
+  - name: Network Traversal
+    href: concepts/network-traversal.md    
   - name: Privacy
     href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
   - name: Push notifications
     href: concepts/notifications.md
-  - name: Teams interoperability
-    href: concepts/teams-interop.md
-  - name: Service Events (EventGrid)
-    href: ../event-grid/event-schema-communication-services.md
-    maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics
     href: concepts/metrics.md
+  - name: Azure Advisor
+    href: concepts/advisor-overview.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
+- name: How-to guides
+  items:
+  - name: Using the Calling SDK
+    items:
+      - name: Manage calls
+        href: how-tos/calling-sdk/manage-calls.md
+      - name: Manage video
+        href: how-tos/calling-sdk/manage-video.md
+      - name: Record calls
+        href: how-tos/calling-sdk/record-calls.md
+      - name: Enable push notifications
+        href: how-tos/calling-sdk/push-notifications.md
+      - name: Show transcription state
+        href: how-tos/calling-sdk/call-transcription.md
+      - name: Show active speakers
+        href: how-tos/calling-sdk/dominant-speaker.md
+      - name: Transfer calls
+        href: how-tos/calling-sdk/transfer-calls.md
+      - name: Join a Teams meeting
+        href: how-tos/calling-sdk/teams-interoperability.md
+      - name: Subscribe to SDK events
+        href: how-tos/calling-sdk/events.md
 - name: Samples
   items:
   - name: Overview

@@ -38,8 +38,6 @@ This app will showcase below scenarios:
 
 ## Deploy the Spatial Analysis container
 
-Fill out the [request application](https://aka.ms/csgate) to get access to run the container. 
-
 Follow [the Host Computer Setup](./spatial-analysis-container.md) to configure the host computer and connect an IoT Edge device to Azure IoT Hub. 
 
 ### Deploy an Azure IoT Hub service in your subscription
@@ -75,7 +73,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

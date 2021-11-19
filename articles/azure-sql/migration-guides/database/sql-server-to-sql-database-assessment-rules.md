@@ -1,9 +1,9 @@
 ---
 title: "Assessment rules for SQL Server to Azure SQL Database migration"
-description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database. 
+description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
-ms.custom: 
+ms.custom: ignite-fall-2021
 ms.devlang: 
 ms.topic: how-to
 author: rajeshsetlem
@@ -58,21 +58,6 @@ GROUP BY SalesOrderID, UnitPrice, UnitPriceDiscount WITH ROLLUP;
 ```
 
 More information: [Discontinued Database Engine functionality in SQL Server ](/previous-versions/sql/2014/database-engine/discontinued-database-engine-functionality-in-sql-server-2016#Denali)
-
-## Change data capture (CDC)<a id="CDC"></a>
-
-**Title: Change Data Capture (CDC) is not supported in Azure SQL Database**   
-**Category**: Issue   
-
-
-**Description**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead.  Alternatively, migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machines. 
-
-
-**Recommendation**   
-Change Data Capture (CDC) is not supported in Azure SQL Database. Evaluate if Change Tracking can be used instead or consider migrating to Azure SQL Managed Instance.
-
-More information: [Enable Azure SQL change tracking](https://social.technet.microsoft.com/wiki/contents/articles/2976.azure-sql-how-to-enable-change-tracking.aspx)
 
 ## CLR assemblies<a id="ClrAssemblies"></a>
 
@@ -142,9 +127,6 @@ This server uses the Database Mail feature, which is not supported in Azure SQL 
 
 **Recommendation**   
 Consider migrating to Azure SQL Managed Instance that supports Database Mail.  Alternatively, consider using Azure functions and Sendgrid to accomplish mail functionality on Azure SQL Database.
-
-More information: [Send email from Azure SQL Database using Azure Functions script](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
-
 
 ## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
@@ -229,7 +211,7 @@ Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION an
 **Recommendation**   
 Review impacted objects section in Azure Migrate to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## OPENROWSET (bulk)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>
@@ -327,7 +309,7 @@ Server Audits is not supported in Azure SQL Database.
 
 
 **Recommendation**   
-Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL supports audit and the features are richer than SQL Server. Azure SQL database can audit various database actions and events, including: Access to data, Schema changes (DDL), Data changes (DML), Accounts, roles, and permissions (DCL, Security exceptions. Azure SQL Database Auditing increases an organization's ability to gain deep insight into events and changes that occur within their database, including updates and queries against the data. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
+Consider Azure SQL Database audit features to replace Server Audits.  Azure SQL supports audit and the features are richer than SQL Server. Azure SQL Database can audit various database actions and events, including: Access to data, Schema changes (DDL), Data changes (DML), Accounts, roles, and permissions (DCL, Security exceptions. Azure SQL Database Auditing increases an organization's ability to gain deep insight into events and changes that occur within their database, including updates and queries against the data. Alternatively migrate to Azure SQL Managed Instance or SQL Server on Azure Virtual Machine.
 
 More information: [Auditing for Azure SQL Database ](../../database/auditing-overview.md)
 
@@ -420,7 +402,7 @@ More information: [Discontinued Database Engine functionality in SQL Server](/pr
 **Category**: Warning   
 
 **Description**   
-Following unsupported system and extended stored procedures cannot be used in Azure SQL database - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
+Following unsupported system and extended stored procedures cannot be used in Azure SQL Database - `sp_dboption`, `sp_addserver`, `sp_dropalias`,`sp_activedirectory_obj`, `sp_activedirectory_scp`, `sp_activedirectory_start`.
 
 
 **Recommendation**    

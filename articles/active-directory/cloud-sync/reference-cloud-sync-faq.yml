@@ -8,7 +8,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference
-  ms.date: 06/25/2020
+  ms.date: 10/18/2021
   ms.subservice: hybrid
   ms.author: billmath
   ms.collection: M365-identity-device-management
@@ -113,8 +113,11 @@ sections:
       - question: |
           Does Azure AD Connect cloud sync support large groups?
         answer: |
-          Yes. Today we support up to 50K group members synchronized using the OU scope filtering. At the same time, when you use the group scope filtering, we recommend that you keep your group size to less than 1500 members. The reason for this is that even though you can sync a large group as part of group scoping filter, when you add members to that group by batches of greater than 1500, the delta synchronization will fail. 
-
+          Yes. Today we support up to 50K group members synchronized using the OU scope filtering. 
+      - question: |
+          Does the cloud provisioning agent load balance if I have multiple agents installed?
+        answer: |
+          No. Only one agent is ever active. 
 additionalContent: |
 
   ## Next steps 

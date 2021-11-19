@@ -21,6 +21,9 @@
       - name: Conditional Access
         tocHref: /azure/active-directory/conditional-access/
         topicHref: /azure/active-directory/conditional-access/
+      - name: Cloud sync
+        tocHref: /azure/active-directory/cloud-sync/
+        topicHref: /azure/active-directory/cloud-sync/
       - name: Authentication
         tocHref: /azure/active-directory/authentication/
         topicHref: /azure/active-directory/authentication/
@@ -91,14 +94,14 @@
     topicHref: /azure/applied-ai-services/
     items:
     - name: Immersive Reader
-      tocHref: /azure/cognitive-services/immersive-reader/
-      topicHref: /azure/cognitive-services/immersive-reader/
+      tocHref: /azure/applied-ai-services/immersive-reader/
+      topicHref: /azure/applied-ai-services/immersive-reader/
     - name: Metrics Advisor
-      tocHref: /azure/cognitive-services/metrics-advisor/
-      topicHref: /azure/cognitive-services/metrics-advisor/
+      tocHref: /azure/applied-ai-services/metrics-advisor/
+      topicHref: /azure/applied-ai-services/metrics-advisor/
     - name: Form Recognizer
-      tocHref: /azure/cognitive-services/form-recognizer/
-      topicHref: /azure/cognitive-services/form-recognizer/
+      tocHref: /azure/applied-ai-services/form-recognizer/
+      topicHref: /azure/applied-ai-services/form-recognizer/
   - name: Avere vFXT for Azure
     tocHref: /azure/avere-vfxt/
     topicHref: /azure/avere-vfxt/
@@ -119,8 +122,8 @@
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
     - name: Mobile Apps
-      tocHref: /azure/app-service-mobile/
-      topicHref: /azure/app-service-mobile/
+      tocHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
+      topicHref: /azure/developer/mobile-apps/azure-mobile-apps/overview
   - name: Azure Automanage
     tocHref: https://azure.microsoft.com/services/azure-automanage/
     topicHref: https://azure.microsoft.com/services/azure-automanage/
@@ -140,10 +143,10 @@
     tocHref: /azure/azure-arc/
     topicHref: /azure/azure-arc/
     items:
-      - name: Arc enabled Kubernetes
+      - name: Arc-enabled Kubernetes
         tocHref: /azure/azure-arc/kubernetes/
         topicHref: /azure/azure-arc/kubernetes/
-      - name: Arc enabled servers
+      - name: Arc-enabled servers
         tocHref: /azure/azure-arc/servers/
         topicHref: /azure/azure-arc/servers/
   - name: Automation
@@ -174,6 +177,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure Fluid Relay
+    tocHref: /azure/azure-fluid-relay/
+    topicHref: /azure/azure-fluid-relay/
   - name: Azure HPC Cache
     tocHref: /azure/hpc-cache/
     topicHref: /azure/hpc-cache/
@@ -193,9 +199,6 @@
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/   
-  - name: Azure Object Understanding
-    tocHref: /azure/object-understanding/
-    topicHref: /azure/object-understanding/
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
@@ -240,6 +243,9 @@
       - name: Azure Percept
         tocHref: /azure/azure-percept/
         topicHref: /azure/azure-percept/
+      - name: Device Development
+        tocHref: /azure/iot-develop/
+        topicHref: /azure/iot-develop/
       - name: Device Update for IoT Hub
         tocHref: /azure/iot-hub-device-update/
         topicHref: /azure/iot-hub-device-update/            
@@ -252,15 +258,9 @@
       - name: IoT Edge
         tocHref: /azure/iot-edge/
         topicHref: /azure/iot-edge/
-      - name: IoT Plug and Play
-        tocHref: /azure/iot-pnp/
-        topicHref: /azure/iot-pnp/
       - name: Azure Digital Twins
         tocHref: /azure/digital-twins/
         topicHref: /azure/digital-twins/
-      - name: IoT Solution Accelerators
-        tocHref: /azure/iot-accelerators/
-        topicHref: /azure/iot-accelerators/
       - name: IoT Hub Device Provisioning Service
         tocHref: /azure/iot-dps/
         topicHref: /azure/iot-dps/
@@ -273,6 +273,9 @@
       - name: Azure Certified Device
         tocHref: /azure/certification/
         topicHref: /azure/certification/
+      - name: Industrial IoT
+        tocHref: /azure/industrial-iot/
+        topicHref: /azure/industrial-iot/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -286,6 +289,9 @@
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
+      - name: Troubleshooting
+        tocHref: /azure/azure-resource-manager/troubleshooting/
+        topicHref: /azure/azure-resource-manager/troubleshooting/
       - name: Managed Applications
         tocHref: /azure/azure-resource-manager/managed-applications/
         topicHref: /azure/azure-resource-manager/managed-applications/
@@ -305,6 +311,9 @@
       - name: Elastic
         tocHref: /azure/partner-solutions/elastic/
         topicHref: /azure/partner-solutions/elastic/overview
+      - name: Logz.io
+        tocHref: /azure/partner-solutions/logzio/
+        topicHref: /azure/partner-solutions/logzio/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -497,8 +506,20 @@
     topicHref: /azure/cosmos-db/
     items:
     - name: MongoDB API
-      tocHref: /azure/cosmos-db/mongodb-introduction
-      topicHref: /azure/cosmos-db/mongodb-introduction
+      tocHref: /azure/cosmos-db/mongodb
+      topicHref: /azure/cosmos-db/mongodb
+    - name: Table API
+      tocHref: /azure/cosmos-db/table/
+      topicHref: /azure/cosmos-db/table/
+    - name: Cassandra API
+      tocHref: /azure/cosmos-db/cassandra/
+      topicHref: /azure/cosmos-db/cassandra/
+    - name: Gremlin API
+      tocHref: /azure/cosmos-db/graph/
+      topicHref: /azure/cosmos-db/graph/
+    - name: SQL API
+      tocHref: /azure/cosmos-db/sql/
+      topicHref: /azure/cosmos-db/sql/
   - name: Managed Instance for Apache Cassandra
     tocHref: /azure/managed-instance-apache-cassandra/
     topicHref: /azure/managed-instance-apache-cassandra/
@@ -527,7 +548,7 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Labs
+  - name: Azure DevTest Labs
     tocHref: /azure/devtest-labs/
     topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
@@ -583,9 +604,25 @@
       - name: Storm
         tocHref: /azure/hdinsight/storm
         topicHref: /azure/hdinsight/storm/apache-storm-overview
+  - name: Healthcare APIs
+    tocHref: /azure/healthcare-apis/
+    topicHref: /azure/healthcare-apis/
+    items:
+    - name: FHIR service
+      tocHref: /azure/healthcare-apis/fhir/
+      topicHref: /azure/healthcare-apis/fhir/index
+    - name: DICOM service
+      tocHref: /azure/healthcare-apis/dicom/
+      topicHref: /azure/healthcare-apis/dicom/index
+    - name: Data Transformation
+      tocHref: /azure/healthcare-apis/data-transformation/
+      topicHref: /azure/healthcare-apis/data-transformation/index
+    - name: IoT Connector
+      tocHref: /azure/healthcare-apis/iot/
+      topicHref: /azure/healthcare-apis/iot/index
   - name: Azure API for FHIR
-    tocHref: /azure/healthcare-apis
-    topicHref: /azure/healthcare-apis
+    tocHref: /azure/healthcare-apis/azure-api-for-fhir/
+    topicHref: /azure/healthcare-apis/azure-api-for-fhir/index
   - name: Azure for Industry
     tocHref: /azure/industry
     topicHref: /azure/industry
@@ -609,9 +646,6 @@
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
-#    - name: IoT solution accelerators
-#     tocHref: /azure/iot-accelerators/
-#      topicHref: /azure/iot-accelerators/
 #    - name: IoT Central
 #      tocHref: /azure/iot-central/
 #      topicHref: /azure/iot-central/
@@ -757,7 +791,7 @@
       - name: Peering Service
         tocHref: /azure/peering-service/
         topicHref: /azure/peering-service/
-      - name: Route Server (Preview)
+      - name: Route Server
         tocHref: /azure/route-server/
         topicHref: /azure/route-server/
       - name: Traffic Manager
@@ -770,6 +804,9 @@
           - name: NAT gateway
             tocHref: /azure/virtual-network/nat-gateway
             topicHref: /azure/virtual-network/nat-gateway
+          - name: IP services
+            tocHref: /azure/virtual-network/ip-services
+            topicHref: /azure/virtual-network/ip-services
       - name: Virtual WAN
         tocHref: /azure/virtual-wan/
         topicHref: /azure/virtual-wan/
@@ -817,7 +854,7 @@
     topicHref: /azure/remoteapp/
   - name: Resiliency
     tocHref: /azure/resiliency/
-    topicHref: /azure/architecture/framework/resiliency/overview
+    topicHref: /azure/architecture/framework/resiliency/app-design
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -862,13 +899,13 @@
           - name: Managed HSM
             tocHref: /azure/key-vault/managed-hsm/
             topicHref: /azure/key-vault/managed-hsm/
-      - name: Security Center
-        tocHref: /azure/security-center/
-        topicHref: /azure/security-center/
-      - name: Azure Sentinel
+      - name: Microsoft Defender for Cloud
+        tocHref: /azure/defender-for-cloud/
+        topicHref: /azure/defender-for-cloud/
+      - name: Microsoft Sentinel
         tocHref: /azure/sentinel/
         topicHref: /azure/sentinel/
-      - name: Defender for IoT
+      - name: Microsoft Defender for IoT
         tocHref: /azure/defender-for-iot/
         topicHref: /azure/defender-for-iot/
       - name: Attestation
@@ -1011,6 +1048,9 @@
     - name: Microsoft Customer Agreement
       tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
+    - name: Centrally managed Azure Hybrid Benefit
+      tocHref: /azure/cost-management-billing/scope-level
+      topicHref: /azure/cost-management-billing/scope-level
   - name: Purview
     tocHref: /azure/purview/
     topicHref: /azure/purview/
@@ -1024,3 +1064,9 @@
     - name: Video Analyzer for Media
       tocHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
       topicHref: /azure/azure-video-analyzer/video-analyzer-for-media-docs/
+  - name: 'Azure DevTest offer (Visual Studio subscriber benefit)'
+    tocHref: /azure/devtest/offer/
+    topicHref: /azure/devtest/offer/overview-what-is-devtest-offer-visual-studio
+  - name: Service Connector
+    tocHref: /azure/service-connector/
+    topicHref: /azure/service-connector/

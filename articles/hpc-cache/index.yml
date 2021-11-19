@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: v-erkel
-  ms.date: 11/07/2019
+  ms.date: 07/08/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure HPC Cache?
             url: hpc-cache-overview.md
+          - text: Is HPC Cache a good solution for my workflow?
+            url: usage-scenarios.md
 
   # Card (optional)
   - title: Get started
@@ -55,11 +57,11 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Open a support ticket
+          - text: Contact support
             url: hpc-cache-support-ticket.md
           - text: Edit a storage target
             url: hpc-cache-edit-storage.md
-          - text: Manage storage targets
+          - text: View and manage storage targets
             url: manage-storage-targets.md
           - text: Work around firewall settings to create Blob storage targets
             url: hpc-cache-blob-firewall-fix.md

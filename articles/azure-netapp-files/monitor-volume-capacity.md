@@ -68,4 +68,4 @@ The REST API specification and example code for Azure NetApp Files are available
 * [Understand volume quota](volume-quota-introduction.md)
 * [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 * [Resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [Capacity management FAQs](faq-capacity-management.md)

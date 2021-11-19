@@ -1,42 +1,34 @@
 ---
-title: Azure Sentinel Authentication normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel Authentication normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel Authentication normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel Authentication normalization schema.
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Authentication normalization schema reference (Public preview)
+# Microsoft Sentinel Authentication normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Authentication information model is used to describe events related to user authentication, sign-in, and sign-out. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events.
 
-For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Azure Sentinel tables and are normalized using a KQL function, which also filters only the relevant authentication events.
+For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Microsoft Sentinel tables and are normalized using a KQL function, which also filters only the relevant authentication events.
 
 Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
-> The Authentication normalization schema is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The Authentication normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
+>
+> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific authentication event parsers: 
+Microsoft Sentinel provides the following built-in, product-specific authentication event parsers: 
 
 - **Windows sign-ins** reported as Security Events (4624, 4625, 4634, and 4647), collected using the Log Analytics Agent or Azure Monitor Agent.
 - **Windows sign-ins** reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
@@ -44,27 +36,29 @@ Azure Sentinel provides the following built-in, product-specific authentication 
 - **AWS sign-ins**, collected using the AWS CloudTrail connector.
 - **Okta authentication**, collected using the Okta connector.
 
-To use the source-agnostic parser that unify all of listed parsers and ensure that you analyze across all the configured sources, use **imAuthentication** as the table name in your query.
+To use the source-agnostic parser, which unifies all of listed parsers, ensuring that you analyze data across all the configured sources, use **imAuthentication** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization.md#parsers) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
 
 
 ## Normalized content
 
-Support for the Authentication normalization schema also includes support for the following built-in analytics rules with normalized authentication parsers:
+Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
-- User Login from Different Countries within 3 hours (Uses Authentication Normalization)
-- Potential Password Spray Attack (Uses Authentication Normalization)
-- Brute force attack against user credentials (Uses Authentication Normalization)
+- [Potential Password Spray Attack (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
+ - [Brute force attack against user credentials (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
+ - [User login from different countries within 3 hours (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthSigninsMultipleCountries.yaml)
+ - [Sign-ins from IPs that attempt sign-ins to disabled accounts (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
-Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this threat.
+
+Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Microsoft Sentinel will now detect this threat.
 
 ## Schema details
 
 The Authentication information model is aligned with the [OSSEM logon entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/logon.md).
 
-In the following tables, *Type* refers to a logical type. For more information, see [Logical types](normalization.md#logical-types).
+In the following tables, *Type* refers to a logical type. For more information, see [Logical types](normalization-about-schemas.md#logical-types).
 
 ### Log Analytics Fields
 
@@ -74,10 +68,11 @@ The following fields are generated by Log Analytics for each record, and you can
 |---------|---------|---------|
 |<a name ="timegenerated"></a>**TimeGenerated**     |  datetime       |The time the event was generated by the reporting device.         |
 |**_ResourceId**     | guid        |  The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF, or WEF.       |
+| **Type** | String | The original table from which the record was fetched. This field is useful when the same event can be received through multiple channels to different tables, and have the same EventVendor and EventProduct values.<br><br>For example, a Sysmon event can be collected either to the Event table or to the WindowsEvent table. |
 |     |         |         |
 
 > [!NOTE]
-> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](/azure/azure-monitor/logs/log-standard-columns).
+> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](../azure-monitor/logs/log-standard-columns.md).
 >
 
 ### Event Fields
@@ -87,8 +82,8 @@ Event fields are common to all schemas and describe the activity itself and the 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
 | **EventMessage**        | Optional    | String     |     A general message or description, either included in or generated from the record.   |
-| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`. <br><br>**Note**: This field is included for the sake of consistency, but it's not usually used for authentication events.  |
-| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field.<br><br>**Note**: This field is included for the sake of consistency, but it's not usually used for authentication events.  |
+| **EventCount**          | Mandatory   | Integer    |     The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>For other sources, set to `1`. <br><br>**Note**: This field is included for the sake of consistency, but it's not typically used for authentication events.  |
+| **EventStartTime**      | Mandatory   | Date/time  |      If the source supports aggregation and the record represents multiple events, this field specifies the time that the first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field.<br><br>**Note**: This field is included for the sake of consistency, but it's not typically used for authentication events.  |
 | **EventEndTime**        | Mandatory   | Alias      |      Alias to the [TimeGenerated](#timegenerated) field.    |
 | **EventType**           | Mandatory   | Enumerated |    Describes the operation reported by the record. <br><br>For Authentication records, supported values include: <br>- `Logon` <br>- `Logoff`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [EventOriginalType](#eventoriginaltype) field.|
 | <a name ="eventoriginaltype"></a>**EventOriginalType**           | Optional   | String |    The event type, or ID, as provided in the source record. <br><br>Example: `4625`|
@@ -132,43 +127,43 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 |---------------|--------------|------------|-----------------|
 |**LogonMethod** |Optional |String |The method used to perform authentication. <br><br>Example: `Username & Password` |
 |**LogonProtocol** |Optional |String |The protocol used to perform authentication. <br><br>Example: `NTLM` |
-| <a name="actoruserid"></a>**ActorUserId**    | Optional  | UserId     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
-| **ActorUserIdType**| Optional  | UserIdType     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization.md#the-user-entity).         |
-| <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization.md#the-user-entity).<br><br>Example: `AlbertE`     |
-| **ActorUsernameType**              | Optional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization.md#the-user-entity). <br><br>Example: `Windows`       |
+| <a name="actoruserid"></a>**ActorUserId**    | Optional  | UserId     |   A machine-readable, alphanumeric, unique representation of the Actor. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-12-1-4141952679-1282074057-627758481-2916039507`    |
+| **ActorUserIdType**| Optional  | UserIdType     |  The type of the ID stored in the [ActorUserId](#actoruserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).         |
+| <a name="actorusername"></a>**ActorUsername**  | Optional    | Username     | The Actor’s username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE`     |
+| **ActorUsernameType**              | Optional    | UsernameType |   Specifies the type of the user name stored in the [ActorUsername](#actorusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity). <br><br>Example: `Windows`       |
 | **ActorUserType** | Optional | String | The type of the Actor. <br><br>For example: `Guest` |
 | **ActorSessionId** | Optional     | String     |   The unique ID of the sign-in session of the Actor.  <br><br>Example: `102pTUgC3p8RIqHvzxLCHnFlg`  |
 | **ActingAppId** | Optional | String | The ID of the application authorizing on behalf of the Actor, including a process, browser, or service. <br><br>For example: `0x12ae8` |
 | **ActiveAppName** | Optional | String | The name of the application authorizing on behalf of the Actor, including a process, browser, or service. <br><br>For example: `C:\Windows\System32\svchost.exe` |
 | **ActingAppType** | Optional | Enumerated | The type of acting application. Supported values include: <br> <br>- `Process` <br>- `Browser` <br>- `Resource` <br>- `Other` |
 | **HttpUserAgent** |	Optional	| String |	When authentication is performed over HTTP or HTTPS, this field's value is the user_agent HTTP header provided by the acting application when performing the authentication.<br><br>For example: `Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1` |
-|<a name="targetuserid"></a> **TargetUserId**   | Optional | UserId     | A machine-readable, alphanumeric, unique representation of the target user. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example: `00urjk4znu3BcncfY0h7`    |
-| **TargetUserIdType**               | Optional | UserIdType     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization.md#the-user-entity).            <br><br> Example:  `SID`  |
-| <a name="targetusername"></a>**TargetUsername** | Optional | Username     | The target user username, including domain information when available. For more information, see [The User entity](normalization.md#the-user-entity).  <br><br>Example:   `MarieC`      |
-| **TargetUsernameType**             |Optional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization.md#the-user-entity).          |
+|<a name="targetuserid"></a> **TargetUserId**   | Optional | UserId     | A machine-readable, alphanumeric, unique representation of the target user. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example: `00urjk4znu3BcncfY0h7`    |
+| **TargetUserIdType**               | Optional | UserIdType     | The type of the user ID stored in the [TargetUserId](#targetuserid) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).            <br><br> Example:  `SID`  |
+| <a name="targetusername"></a>**TargetUsername** | Optional | Username     | The target user username, including domain information when available. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example:   `MarieC`      |
+| **TargetUsernameType**             |Optional  | UsernameType | Specifies the type of the username stored in the [TargetUsername](#targetusername) field. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).          |
 | **TargetUserType** | Optional | String | The type of the Target user. <br><br>For example: `Member` |
 | **TargetSessionId** | Optional | String | The sign-in session identifier of the TargetUser on the source device. |
 | **User**           | Alias        |     String       | Alias to the [TargetUsername](#targetusername) or to the [TargetUserId](#targetuserid) if [TargetUsername](#targetusername) is not defined. <br><br>Example: `CONTOSO\dadmin`     |
 |**SrcDvcId** |Optional |String |The ID of the source device as reported in the record. <br><br>For example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| <a name="srcdvchostname"></a>**SrcDvcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity). <br><br>Example: `Constoso\DESKTOP-1282V4D`|
-| **SrcDvcHostnameType**|Optional |HostnameType |The type of [SrcDvcHostname](#srcdvchostname), if known. For more information, see [The Device entity](normalization.md#the-device-entity). |
+| <a name="srcdvchostname"></a>**SrcDvcHostname** |Optional | Hostname| The source device hostname, including domain information when available. For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). <br><br>Example: `Constoso\DESKTOP-1282V4D`|
+| **SrcDvcHostnameType**|Optional |HostnameType |The type of [SrcDvcHostname](#srcdvchostname), if known. For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
 |**SrcDvcType** |Optional |Enumerated |The type of the source device. Possible values include: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
 |**SrcDvcIpAddr**|Recommended |IP Address |The IP address of the source device. <br><br>Example: `185.175.35.214` |
 | **SrcDvcOs**|Optional |String |The OS of the source device. <br><br>Example: `Windows 10` |
 |**SrcIsp** | Optional|String |The Internet Service Provider (ISP) used by the source device to connect to the internet. <br><br>Example: `corpconnect` |
-| **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
-| **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
-|**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
-| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization.md#logical-types).|
-| **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization.md#logical-types). |
+| **SrcGeoCountry**|Optional |Country |Example: `Canada` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
+| **SrcGeoCity**|Optional |City |Example: `Montreal` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
+|**SrcGeoRegion** | Optional|Region | Example: `Quebec` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLongtitude**|Optional |Longitude  | Example: `-73.614830` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types).|
+| **SrcGeoLatitude**|Optional |Latitude |Example: `45.505918` <br><br>For more information, see [Logical types](normalization-about-schemas.md#logical-types). |
 |**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
 | **TargetAppType**|Optional |String |The type of the application authorizing on behalf of the Actor. Supported values include:  <br><br>- `Process` <br>- `Service` <br>- `Resource` <br>- `URL` <br>- `SaaS application` <br>- `Other`|
 |**TargetUrl** |Optional |String |The URL associated with the target application. <br><br>Example: `https://console.aws.amazon.com/console/home?fromtb=true&hashArgs=%23&isauthcode=true&nc2=h_ct&src=header-signin&state=hashArgsFromTB_us-east-1_7596bc16c83d260b` |
 |**LogonTarget**| Alias| |Alias to either [TargetAppName](#targetappname), *URL*, or [TargetDvcHostname](#targetdvchostname), whichever field best describes the authentication target. |
 |**TargetDvcId** |Optional | String|The ID of the target device as reported in the record. <br><br> Example: `2739` |
-|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recommended| String|The target device hostname, including domain information when available. For more information, see [The Device entity](normalization.md#the-device-entity). |
-| **TargetDvcHostnameType**|Recommended | String|The type of [TargetDvcHostname](#targetdvchostname). For more information, see [The Device entity](normalization.md#the-device-entity). |
+|<a name="targetdvchostname"></a>**TargetDvcHostname** | Recommended| String|The target device hostname, including domain information when available. For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
+| **TargetDvcHostnameType**|Recommended | String|The type of [TargetDvcHostname](#targetdvchostname). For more information, see [The Device entity](normalization-about-schemas.md#the-device-entity). |
 |**TargetDvcType** |Optional | Enumerated|The type of the target device. Supported values include: <br><br>- `Computer`<br>- `Mobile Device` <br>- `IOT Device` <br>- `Other` |
 |<a name="targetdvcipaddr"></a>**TargetDvcIpAddr** |Optional | IP Address|The IP address of the target device. <br><br>Example: `2.2.2.2` |
 |**TargetDvc** |Alias | |	A unique identifier of the target device. <br><br>Select to alias the most appropriate value for the specific source: [TargetDvcHostname](#targetdvchostname),  [TargetDvcIpAddr](#targetdvcipaddr),  or a different ID if more appropriate. |
@@ -183,7 +178,8 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
