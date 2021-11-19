@@ -61,18 +61,6 @@ This section explains how to create a Kubernetes cluster on Azure Kubernetes ser
    az aks get-credentials --resource-group <resource_group_name> --name <cluster_name>
    ```
 
-1. Verify `azure-arc` namespace pods are created
-
-   Before you proceed to the next step, make sure that all of the `azure-arc-` namespace pods are created. Run the following command.
-
-   ```console
-   kubectl get pods -n azure-arc
-   ```
-
-   :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/verify-azure-arc-pods.png" alt-text="All containers return a status of running.":::
-
-   When all containers return a status of running, you can connect the cluster to Azure. 
-
 ## Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 
 To connect your kubernetes cluster to Azure, use Azure CLI `az` with the following extensions or Helm.
@@ -183,6 +171,18 @@ Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 
 
 A more thorough walk-through of this task is available at [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
+
+### Verify `azure-arc` namespace pods are created
+
+   Before you proceed to the next step, make sure that all of the `azure-arc-` namespace pods are created. Run the following command.
+
+   ```console
+   kubectl get pods -n azure-arc
+   ```
+
+   :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/verify-azure-arc-pods.png" alt-text="All containers return a status of running.":::
+
+   When all containers return a status of running, you can connect the cluster to Azure. 
 
 ## Optionally, keep the Log Analytics workspace ID and Shared access key ready
 

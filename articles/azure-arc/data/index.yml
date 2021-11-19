@@ -39,12 +39,12 @@ landingContent:
         links:
           - text: Plan your deployment
             url: plan-azure-arc-data-services.md
+          - text: Install client tools
+            url: install-client-tools.md
           - text: Complete prerequisites
             url: create-data-controller-direct-prerequisites.md
           - text: Create data controller
             url: create-data-controller-direct-cli.md
-          - text: Install client tools
-            url: install-client-tools.md
 
   # Card (optional)
   - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
