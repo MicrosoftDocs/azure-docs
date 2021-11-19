@@ -51,7 +51,25 @@ Run the following command to get the credentials:
    az aks get-credentials --resource-group <resource_group_name> --name <cluster_name>
    ```
 
-Next steps
+## Verify cluster
+
+To confirm the cluster is running and that you have the current connection context, run
+
+```console
+kubectl get nodes
+```
+
+The command will return a list of nodes. For example:
+
+```output
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-34164736-vmss000000   Ready    agent   4h28m   v1.20.9
+aks-nodepool1-34164736-vmss000001   Ready    agent   4h28m   v1.20.9
+aks-nodepool1-34164736-vmss000002   Ready    agent   4h28m   v1.20.9
+aks-nodepool1-34164736-vmss000003   Ready    agent   4h28m   v1.20.9
+```
+
+## Next steps
 
 * Create a data controller. Your next step depends on if you are creating a data controller in direct connectivity mode or in indirect connectivity mode:
    * Complete the [prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md)
