@@ -288,7 +288,15 @@ items:
     - name: Add a line layer
       href: add-line-layer-to-map-ios.md
     - name: Add a polygon layer
-      href: add-polygon-layer-map-ios.md        
+      href: add-polygon-layer-map-ios.md  
+    - name: Change the style of a map
+      href: set-map-style-ios-sdk.md
+    - name: Add controls to a map
+      href: add-controls-to-map-ios.md
+    - name: Create a data source
+      href: create-data-source-ios-sdk.md
+    - name: Add a symbol layer
+      href: add-symbol-layer-ios.md
     - name: Add a polygon extrusion layer
       href: add-polygon-extrusion-layer-map-ios.md
     - name: Add heat map layer
