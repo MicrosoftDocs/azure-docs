@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 11/18/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
@@ -19,10 +19,9 @@ ms.date: 11/30/2021
 - Earthquake causes a power outage and temporary disables a data center or an availability zone.
 - Database patching required to fix a bug or security issue.
 
-Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide additional fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
+Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide additional fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.
 
 The table below illustrates the features that Flexible server offers.
-
 
 | **Feature** | **Description** | **Considerations** |
 | ---------- | ----------- | ------------ |
@@ -33,6 +32,7 @@ The table below illustrates the features that Flexible server offers.
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
 
 ## Planned downtime events
+
 Below are some planned maintenance scenarios. These events typically incur up to few minutes of downtime, and without data loss.
 
 | **Scenario** | **Process**|
@@ -42,7 +42,7 @@ Below are some planned maintenance scenarios. These events typically incur up to
 | <b>New software deployment (Azure-initiated) | New features rollout or bug fixes automatically happen as part of service’s planned maintenance, and you can schedule when those activities to happen. For more information, check your [portal](https://aka.ms/servicehealthpm). | 
 | <b>Minor version upgrades (Azure-initiated) | Azure Database for PostgreSQL automatically patches database servers to the minor version determined by Azure. It happens as part of service's planned maintenance. The database server is automatically restarted with the new minor version. For more information, see [documentation](../concepts-monitoring.md#planned-maintenance-notification). You can also check your [portal](https://aka.ms/servicehealthpm).| 
 
- When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
+When the flexible server is configured with **zone redundant high availability**, the flexible server performs the scaling and the maintenance operations on the standby server first. For more information, see [Concepts - High availability](./concepts-high-availability.md).
 
 ##  Unplanned downtime mitigation
 
