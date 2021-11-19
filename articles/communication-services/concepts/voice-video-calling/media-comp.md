@@ -12,24 +12,31 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: calling
 ---
-# Media Composition
+# Media Streaming and Composition
 
-Azure Communication Services Media Composition enables you to build more sophisticated voice and video calling experiences. In a common video calling scenario, each participant is uploading several media streams captured from:
+Azure Communication Services Media Streaming and Composition functionality enables you to build sophisticated voice and video calling experiences at very large scales, suitable for interactive streaming, virtual events, and broadcast scenarios. In a common video calling scenario, each participant is uploading several media streams captured from:
 
 1. Cameras
 2. Microphones
 3. Applications (screen sharing)
 
-These media streams are typically arrayed in a grid. With Media Composition, you can use REST APIs (and open-source SDKs) to command the Azure service to cloud compose more complex media experiences. You can output these composed media experiences to client devices, or connect them to external services such as [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/concepts-overview) or YouTube Live using standardized real-time media protocol interfaces (RTMP). 
+These media streams are typically arrayed in a grid and broadcast to call participants through a client app that implements the Calling SDK. Media Streaming and Composition allows you:
 
-For example, a **presenter layout** can be used to compose a speaker and a translator together in a classic picture-in-picture style. Media Composition allows for all clients and services connected to the media data plane to enjoy a particular dynamic layout without additional local processing or application complexity. In the diagram below, three users are participating actively in a group call. Two users, one of which is using Microsoft Teams, are composed using a *presenter layout:*
+1. Connect devices and services using streaming protocols such as [RTMP](https://datatracker.ietf.org/doc/html/rfc7016) or [SRT](https://datatracker.ietf.org/doc/html/draft-sharabayko-srt)
+2. Compose media streams into complex scenes
+
+RTMP & SRT connectivity can be used for both input and output. Using RTMP/SRT input, a videography studio that emits RTMP/SRT can join an Azure Communication Services call. RTMP/SRT output allows you to stream media from Azure Communication Services into [Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/concepts-overview), YouTube Live, and many other broadcasting channels. The ability to attach specialized RTMP/SRT emitters and to output content to RTMP/SRT subscribers for broadcasting transforms a small group call into a virtual event that reaches millions of people in real-time.
+
+Media Composition REST APIs (and open-source SDKs) allow you to command the Azure service to cloud compose these media streams. For example, a **presenter layout** can be used to compose a speaker and a translator together in a classic picture-in-picture style. Media Composition allows for all clients and services connected to the media data plane to enjoy a particular dynamic layout without additional local processing or application complexity.
+
+ In the diagram below, three endpoints are participating actively in a group call and inputting media. Two users, one of which is using Microsoft Teams, are composed using a *presenter layout.* The third endpoint is a television studio that emits RTMP into the call. The Calling SDK and Teams clients will receive the composed media stream. Additionally, Azure Media Services is shown here subscribing to the call's RTMP channel and broadcasting content to potentially millions of people.
 
 :::image type="content" source="../media/media-comp.svg" alt-text="Diagram showing how media input is processed by the Azure Communication Services Media Composition services":::
 
 This functionality is activated through REST APIs and open-source SDKs. Below is an example of the JSON encoded configuration of a presenter layout for the above scenario:
 
 ```
-{  
+{
   layout: {
     type: ‘presenter’,
     presenter: {
@@ -38,7 +45,7 @@ This functionality is activated through REST APIs and open-source SDKs. Below is
     }
   },
   sources: [
-    { id: ‘1’ }, { id: ‘2’ }  
+    { id: ‘1’ }, { id: ‘2’ }
   ]
 }
 
