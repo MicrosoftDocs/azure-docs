@@ -43,9 +43,6 @@ landingContent:
             url: install-client-tools.md
           - text: Complete prerequisites
             url: create-data-controller-direct-prerequisites.md
-          - text: Create data controller
-            url: create-data-controller-direct-cli.md
-
   # Card (optional)
   - title: Azure Arc-enabled PostgreSQL Hyperscale (preview)
     linkLists:

@@ -53,8 +53,6 @@ items:
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
-            href: create-data-controller-direct-cli.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)

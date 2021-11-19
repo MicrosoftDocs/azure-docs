@@ -26,7 +26,7 @@ In order to experience Azure Arc-enabled data services, you will need to complet
 
    For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed in this article under [Overview: Create an Azure Arc-enabled data controller](#overview-create-an-azure-arc-enabled-data-controller).
 
-1. Create the data controller [Create Azure Arc data controller in Direct connectivity mode using CLI](create-data-controller-direct-cli.md)
+1. Create the data controller  [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md)
 
    For other ways to create a data controller see the links under [Next steps](#next-steps).
 
