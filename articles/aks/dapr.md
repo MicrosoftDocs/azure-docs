@@ -86,6 +86,9 @@ az extension update --name k8s-extension
 
 ## Create the extension and install Dapr on your AKS cluster
 
+> [!NOTE]
+> It is important that you use the flag `--cluster-type managedClusters` when installing the Dapr extension on your AKS cluster. Using `--cluster-type connectedClusters` is not supported and will break your cluster.
+
 Once your subscription is registered to use Kubernetes extensions, you can create the Dapr extension, which installs Dapr on your AKS cluster. For example:
 
 ```azure-cli-interactive
