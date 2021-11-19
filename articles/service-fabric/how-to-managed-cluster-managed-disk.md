@@ -25,7 +25,7 @@ Azure Service Fabric manged clusters support the following managed disk types:
 
 ## Specifying a Service Fabric managed cluster disk type
 
-To specify a Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition.
+To specify a Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition. Once you configure and deploy a node type managed disk you can not modify the `DiskType` or size in place. You are able to to create new node types with different managed disk type and size configurations within a given cluster and migrate workloads as needed. 
 
 * The value **dataDiskType** property, which specifies what managed disk type to use for your nodes.
 
