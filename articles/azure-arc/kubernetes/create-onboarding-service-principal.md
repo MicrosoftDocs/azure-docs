@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Create an Azure Arc-enabled onboarding service principal "
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
@@ -23,8 +21,8 @@ Walk through the following steps to learn how to use service principals for conn
 
 Create a new service principal with an informative name that is unique for your Azure Active Directory tenant.
 
-```console
-az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
+```azurecli
+az ad sp create-for-RBAC --name "https://azure-arc-for-k8s-onboarding"
 ```
 
 **Output:**
@@ -52,7 +50,7 @@ You can limit permissions further by passing in the appropriate `--scope` argume
 | Subscription | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Service principal can register cluster in  any resource group under that subscription. |
 | Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Service principal can __only__ register clusters in the resource group `myGroup`. |
 
-```console
+```azurecli
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP

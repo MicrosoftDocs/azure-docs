@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -135,7 +135,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id
+                        BasePolicy = $Policy.BasePolicy.Id 
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -164,12 +164,18 @@ function TransformPolicyToPremium {
 
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
-    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
+    $networkModule = Get-InstalledModule -Name "Az.Network" -MinimumVersion 4.5 -ErrorAction SilentlyContinue
+    if ($null -eq $networkModule) {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
+    $resourceModule = Get-InstalledModule -Name "Az.Resources" -MinimumVersion 4.2 -ErrorAction SilentlyContinue
+    if ($null -eq $resourceModule) {
+        Write-Host "Please install Az.Resources module version 4.2.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
     Import-Module Az.Network -MinimumVersion 4.5.0
+    Import-Module Az.Resources -MinimumVersion 4.2.0
 }
 
 ValidateAzNetworkModuleExists
@@ -182,6 +188,9 @@ TransformPolicyToPremium -Policy $policy
 ## Migrate Azure Firewall using stop/start
 
 If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
+
+The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
+
  
 ### Migrate a VNET Hub Firewall
 
@@ -205,7 +214,6 @@ If you use Azure Firewall Standard SKU with Firewall Policy, you can use the All
 
 ### Migrate a Secure Hub Firewall
 
-The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
 - Deallocate the Standard Firewall
 

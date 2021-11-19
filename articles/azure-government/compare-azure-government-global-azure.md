@@ -6,7 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
-ms.date: 10/25/2021
+ms.date: 11/17/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -45,68 +45,67 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
-|**AI + Machine Learning**|Azure Bot Service|\*.botframework.com|\*.botframework.azure.us||
-||Azure Form Recognizer|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||Computer Vision|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||Custom Vision|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
-||Content Moderator|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||Face API|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||Language Understanding|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
-||Personalizer|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||QnA Maker|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
+|**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
+||Azure Form Recognizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
+||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
+||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Speech service|See [STT API docs](../cognitive-services/speech-service/rest-speech-to-text.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../cognitive-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|\*.cognitiveservices.azure.com|\*.cognitiveservices.azure.us||
-||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|\*.cognitiveservices.azure.us||
-|**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Translator|See [Translator API docs](../cognitive-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+|**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
+||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
-|**Compute**|Batch|\*.batch.azure.com|\*.batch.usgovcloudapi.net||
-||Cloud Services|\*.cloudapp.net|\*.usgovcloudapp.net||
-||Azure Functions|\*.azurewebsites.net|\*.azurewebsites.us||
-||Service Fabric|\*.cloudapp.azure.com|\*.cloudapp.usgovcloudapi.net||
-|**Containers**|Container Registry Suffix|\*.azurecr.io|\*.azurecr.us||
-|**Databases**|Azure Cache for Redis|\*.redis.cache.windows.net|\*.redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
-||Azure Cosmos DB|\*.documents.azure.com|\*.documents.azure.us||
-||Azure Database for MariaDB|\*.mariadb.database.azure.com|\*.mariadb.database.usgovcloudapi.net||
-||Azure Database for MySQL|\*.mysql.database.azure.com|\*.mysql.database.usgovcloudapi.net||
-||Azure Database for PostgreSQL|\*.postgres.database.azure.com|\*.postgres.database.usgovcloudapi.net||
-||Azure SQL Database|\*.database.windows.net|\*.database.usgovcloudapi.net||
-|**Integration**|Service Bus|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
-|**Internet of Things**|Azure Event Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
-||Azure IoT Hub|\*.azure-devices.net|\*.azure-devices.us||    
+|**Compute**|Batch|batch.azure.com|batch.usgovcloudapi.net||
+||Cloud Services|cloudapp.net|usgovcloudapp.net||
+|**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
+||Container Registry|azurecr.io|azurecr.us||
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+||Azure Cosmos DB|documents.azure.com|documents.azure.us||
+||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
+||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
+||Azure Database for PostgreSQL|postgres.database.azure.com|postgres.database.usgovcloudapi.net||
+||Azure SQL Database|database.windows.net|database.usgovcloudapi.net||
+|**Identity**|Azure AD|login.microsoftonline.com|login.microsoftonline.us||
+|**Integration**|Service Bus|servicebus.windows.net|servicebus.usgovcloudapi.net||
+|**Internet of Things**|Azure IoT Hub|azure-devices.net|azure-devices.us||
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
-||Notification Hubs|\*.servicebus.windows.net|\*.servicebus.usgovcloudapi.net||
-|**Management and Governance**|Azure Monitor logs|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||*workspaceId*.ods.opinsights.azure.com|*workspaceId*.ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
-|||\*.ods.opinsights.azure.com|\*.ods.opinsights.azure.us||
-|||\*.oms.opinsights.azure.com|\*.oms.opinsights.azure.us||
+||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
+|**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
+||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
+|||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
 |||docs.loganalytics.io|docs.loganalytics.us||
-||Azure Automation|\*.azure-automation.net|\*.azure-automation.us||
-||Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
-|||\*.manage.microsoft.com|\*.manage.microsoft.us|Enterprise enrollment|
-||Portal and Cloud Shell|https:\//portal.azure.com|https:\//portal.azure.us||
-||Gallery URL|https:\//gallery.azure.com/|https:\//gallery.azure.us/||
-|**Migration**|Azure Site Recovery|\*.hypervrecoverymanager.windowsazure.com|\*.hypervrecoverymanager.windowsazure.us|Site Recovery service|
-|||\*.backup.windowsazure.com/|\*.backup.windowsazure.us/|Protection service|
-|||\*.blob.core.windows.net/|\*.blob.core.usgovcloudapi.net/|Storing VM snapshots|
-|**Networking**|Traffic Manager|\*.trafficmanager.net|\*.usgovtrafficmanager.net||
-|**Security**|Azure Active Directory|https:\//login.microsoftonline.com|https:\//login.microsoftonline.us||
-||Key Vault|\*.vault.azure.net|\*.vault.usgovcloudapi.net|Endpoint|
-|||cfa8b339-82a2-471a-a3c9-0fc0be7a4093|7e7c393b-45d0-48b1-a35e-2905ddf8183c|Service Principal ID|
-|||Azure Key Vault|Azure Key Vault|Service Principal Name|
-|**Storage**|Blob|\*.blob.core.windows.net|\*.blob.core.usgovcloudapi.net||
-||Queue|\*.queue.core.windows.net|\*.queue.core.usgovcloudapi.net||
-||Table|\*.table.core.windows.net|\*.table.core.usgovcloudapi.net||
-||File|\*.file.core.windows.net|\*.file.core.usgovcloudapi.net||
+||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
+||Gallery URL|gallery.azure.com|gallery.azure.us||
+||Microsoft Azure Portal|portal.azure.com|portal.azure.us||
+||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+|||manage.microsoft.com|\manage.microsoft.us|Enterprise enrollment|
+|**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
+|||backup.windowsazure.com|backup.windowsazure.us|Protection service|
+|||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
+|**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
+|**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
+|**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
+||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
+||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
+||Table|table.core.windows.net|table.core.usgovcloudapi.net||
+||File|file.core.windows.net|file.core.usgovcloudapi.net||
+|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
 |**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
-||API Management Gateway|\*.azure-api.net|\*.azure-api.us||
-||API Management Portal|\*.portal.azure-api.net|\*.portal.azure-api.us||
-||API Management management|\*.management.azure-api.net|\*.management.azure-api.us||
-||App Configuration|\*.azconfig.io|\*.azconfig.azure.us|Endpoint|
-||App Service|\*.azurewebsites.net|\*.azurewebsites.us|Endpoint|
-|||abfa0a7c-a6b6-4736-8310-5855508787cd|6a02c803-dafd-4136-b4c3-5a6f318b4714|Service Principal ID|
-||Azure Cognitive Search|\*.search.windows.net|\*.search.windows.us||
+||API Management Gateway|azure-api.net|azure-api.us||
+||API Management management|management.azure-api.net|management.azure-api.us||
+||API Management Portal|portal.azure-api.net|portal.azure-api.us||
+||App Configuration|azconfig.io|azconfig.azure.us||
+||App Service|azurewebsites.net|azurewebsites.us||
+||Azure Cognitive Search|search.windows.net|search.windows.us||
+||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
 
@@ -124,11 +123,11 @@ The following Azure Bot Service **features are not currently available** in Azur
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
-    - Teams Channel
-    - Direct Line Speech Channel
-    - Telephony Channel (Preview)
-    - Microsoft Search Channel (Preview)
-    - Kik Channel (deprecated)
+  - Teams Channel
+  - Direct Line Speech Channel
+  - Telephony Channel (Preview)
+  - Microsoft Search Channel (Preview)
+  - Kik Channel (deprecated)
 
 For more information, see [How do I create a bot that uses US Government data center](/azure/bot-service/bot-service-resources-faq-ecosystem#how-do-i-create-a-bot-that-uses-the-us-government-data-center).
 
@@ -160,7 +159,6 @@ The following Translator **features are not currently available** in Azure Gover
 - Custom Translator
 - Translator Hub
 
-
 ## Analytics
 
 This section outlines variations and considerations when using Analytics services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share,power-bi-embedded,analysis-services,event-hubs,data-lake-analytics,storage,data-catalog,data-factory,synapse-analytics,stream-analytics,databricks,hdinsight&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
@@ -187,7 +185,6 @@ For usage guidance, feature variations, and limitations, see [Power BI for US go
 
 To learn how to embed analytical content within your business process application, see [Tutorial: Embed a Power BI content into your application for national clouds](/power-bi/developer/embedded/embed-sample-for-customers-national-clouds).
 
-
 ## Databases
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
@@ -204,15 +201,14 @@ The following Azure Database for PostgreSQL **features are not currently availab
 
 - Hyperscale (Citus) and Flexible server deployment options
 - The following features of the Single server deployment option
-   - Advanced Threat Protection
-   - Backup with long-term retention
+  - Advanced Threat Protection
+  - Backup with long-term retention
 
 ### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
 
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 
 - Long-term retention
-
 
 ## Identity
 
@@ -223,17 +219,16 @@ This section outlines variations and considerations when using Identity services
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
-    - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Limitations of Azure AD B2B collaboration](../active-directory/external-identities/current-limitations.md#azure-us-government-clouds).
-    - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
-    - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
+  - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Limitations of Azure AD B2B collaboration](../active-directory/external-identities/current-limitations.md#azure-us-government-clouds).
+  - B2B collaboration via Power BI is not supported. When you invite a guest user from within Power BI, the B2B flow is not used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
+  - Microsoft 365 Groups are not supported for B2B users and can't be enabled.
 
 - Limitations with multifactor authentication:
-    - Hardware OATH tokens are not available in Azure Government.
-    - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
+  - Hardware OATH tokens are not available in Azure Government.
+  - Trusted IPs are not supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address.
 
 - Limitations with Azure AD join:
-    - Enterprise state roaming for Windows 10 devices is not available
-
+  - Enterprise state roaming for Windows 10 devices is not available
 
 ## Management and governance
 
@@ -242,25 +237,79 @@ This section outlines variations and considerations when using Management and Go
 > [!NOTE]
 >This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install Azure PowerShell**](/powershell/azure/install-az-ps).
 
+### [Automation](../automation/overview.md)
+
+The following Automation **features are not currently available** in Azure Government:
+
+- Automation analytics solution
+
 ### [Azure Advisor](../advisor/advisor-overview.md)
 
 The following Azure Advisor recommendation **features are not currently available** in Azure Government:
 
-- High Availability
-    - Configure your VPN gateway to active-active for connection resilience
-    - Create Azure Service Health alerts to be notified when Azure issues affect you
-    - Configure Traffic Manager endpoints for resiliency
-    - Use soft delete for your Azure Storage Account
-- Performance
-    - Improve App Service performance and reliability
-    - Reduce DNS time to live on your Traffic Manager profile to fail over to healthy endpoints faster
-    - Improve Azure Synapse Analytics performance
-    - Use Premium Storage
-    - Migrate your Storage Account to Azure Resource Manager
 - Cost
-    - Buy reserved virtual machines instances to save money over pay-as-you-go costs
-    - Eliminate unprovisioned ExpressRoute circuits
-    - Delete or reconfigure idle virtual network gateways
+  - (Preview) Consider App Service stamp fee reserved capacity to save over your on-demand costs.
+  - (Preview) Consider Azure Data Explorer reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Azure Synapse Analytics (formerly SQL DW) reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Blob storage reserved capacity to save on Blob v2 and and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Blob storage reserved instance to save on Blob v2 and and Data Lake Storage Gen2 costs.
+  - (Preview) Consider Cache for Redis reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Cosmos DB reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Database for MariaDB reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Database for MySQL reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider Database for PostgreSQL reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider SQL DB reserved capacity to save over your pay-as-you-go costs.
+  - (Preview) Consider SQL PaaS DB reserved capacity to save over your pay-as-you-go costs.
+  - Consider App Service stamp fee reserved instance to save over your on-demand costs.
+  - Consider Azure Synapse Analytics (formerly SQL DW) reserved instance to save over your pay-as-you-go costs.
+  - Consider Cache for Redis reserved instance to save over your pay-as-you-go costs.
+  - Consider Cosmos DB reserved instance to save over your pay-as-you-go costs.
+  - Consider Database for MariaDB reserved instance to save over your pay-as-you-go costs.
+  - Consider Database for MySQL reserved instance to save over your pay-as-you-go costs.
+  - Consider Database for PostgreSQL reserved instance to save over your pay-as-you-go costs.
+  - Consider SQL PaaS DB reserved instance to save over your pay-as-you-go costs.
+- Operational
+  - Add Azure Monitor to your virtual machine (VM) labeled as production.
+  - Delete and recreate your pool using a VM size that will soon be retired.
+  - Enable Traffic Analytics to view insights into traffic patterns across Azure resources.
+  - Enforce 'Add or replace a tag on resources' using Azure Policy.
+  - Enforce 'Allowed locations' using Azure Policy.
+  - Enforce 'Allowed virtual machine SKUs' using Azure Policy.
+  - Enforce 'Audit VMs that do not use managed disks' using Azure Policy.
+  - Enforce 'Inherit a tag from the resource group' using Azure Policy.
+  - Update Azure Spring Cloud API Version.
+  - Update your outdated Azure Spring Cloud SDK to the latest version.
+  - Upgrade to the latest version of the Immersive Reader SDK.
+- Performance
+  - Accelerated Networking may require stopping and starting the VM.
+  - Arista Networks vEOS Router may experience high CPU utilization, reduced throughput and high latency.
+  - Barracuda Networks NextGen Firewall may experience high CPU utilization, reduced throughput and high latency.
+  - Cisco Cloud Services Router 1000V may experience high CPU utilization, reduced throughput and high latency.
+  - Consider increasing the size of your NVA to address persistent high CPU.
+  - Distribute data in server group to distribute workload among nodes.
+  - More than 75% of your queries are full scan queries.
+  - NetApp Cloud Volumes ONTAP may experience high CPU utilization, reduced throughput and high latency.
+  - Palo Alto Networks VM-Series Firewall may experience high CPU utilization, reduced throughput and high latency.
+  - Reads happen on most recent data.
+  - Rebalance data in Hyperscale (Citus) server group to distribute workload among worker nodes more evenly.
+  - Update Attestation API Version.
+  - Update Key Vault SDK Version.
+  - Update to the latest version of your Arista VEOS product for Accelerated Networking support.
+  - Update to the latest version of your Barracuda NG Firewall product for Accelerated Networking support.
+  - Update to the latest version of your Check Point product for Accelerated Networking support.
+  - Update to the latest version of your Cisco Cloud Services Router 1000V product for Accelerated Networking support.
+  - Update to the latest version of your F5 BigIp product for Accelerated Networking support.
+  - Update to the latest version of your NetApp product for Accelerated Networking support.
+  - Update to the latest version of your Palo Alto Firewall product for Accelerated Networking support.
+  - Upgrade your ExpressRoute circuit bandwidth to accommodate your bandwidth needs.
+  - Use SSD Disks for your production workloads.
+  - vSAN capacity utilization has crossed critical threshold.
+- Reliability
+  - Avoid hostname override to ensure site integrity.
+  - Check Point Virtual Machine may lose Network Connectivity.
+  - Drop and recreate your HDInsight clusters to apply critical updates.
+  - Upgrade device client SDK to a supported version for IotHub.
+  - Upgrade to the latest version of the Azure Connected Machine agent.
 
 The calculation for recommending that you should right-size or shut down underutilized virtual machines in Azure Government is as follows:
 
@@ -285,39 +334,26 @@ The following Azure Lighthouse **features are not currently available** in Azure
 
 ### [Azure Monitor](../azure-monitor/overview.md)
 
-The following Azure Monitor **features are not currently available** in Azure Government:
-
-- Solutions that are in preview in Microsoft Azure, including:
-    - Windows 10 Upgrade Analytics solution
-    - Application Insights solution
-    - Azure Networking Security Group Analytics solution
-    - Azure Automation Analytics solution
-    - Key Vault Analytics solution
-- Solutions and features that require updates to on-premises software, including:
-    - Surface Hub solution
-- Features that are in preview in global Azure, including:
-    - Export of data to Power BI
-- Azure metrics and Azure diagnostics
-
 The following Azure Monitor **features behave differently** in Azure Government:
 
 - To connect your System Center Operations Manager management group to Azure Monitor logs, you need to download and import updated management packs.
-    - System Center Operations Manager 2016
-        1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
-        1. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
-    - System Center Operations Manager 2012 R2 UR3 (or later) / Operations Manager 2012 SP1 UR7 (or later)
-        1. Download and save the [updated management packs](https://go.microsoft.com/fwlink/?LinkId=828749).
-        1. Unzip the file that you downloaded.
-        1. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-        1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+  - System Center Operations Manager 2016
+    1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
+    1. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
+    1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+  - System Center Operations Manager 2012 R2 UR3 (or later) / Operations Manager 2012 SP1 UR7 (or later)
+    1. Download and save the [updated management packs](https://go.microsoft.com/fwlink/?LinkId=828749).
+    1. Unzip the file that you downloaded.
+    1. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
+    1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
 - For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/logs/collect-sccm.md).
 
 **Frequently asked questions**
+
 - Can I migrate data from Azure Monitor logs in Azure to Azure Government?
-    - No. It is not possible to move data or your workspace from Azure to Azure Government.
+  - No. It is not possible to move data or your workspace from Azure to Azure Government.
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
-    - No. The portals for Azure and Azure Government are separate and do not share information.
+  - No. The portals for Azure and Azure Government are separate and do not share information.
 
 #### [Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -338,7 +374,6 @@ You need to open some **outgoing ports** in your server's firewall to allow the 
 |-------|---|----------|-----|
 |Telemetry|dc.applicationinsights.us|23.97.4.113|443|
 
-
 ## Media
 
 This section outlines variations and considerations when using Media services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=cdn,media-services&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
@@ -346,7 +381,6 @@ This section outlines variations and considerations when using Media services in
 ### [Media Services](../media-services/previous/index.yml)
 
 For Azure Media Services v3 feature variations in Azure Government, see [Azure Media Services v3 clouds and regions availability](../media-services/latest/azure-clouds-regions.md#us-government-cloud).
-
 
 ## Migration
 
@@ -364,7 +398,6 @@ The following Azure Migrate **features are not currently available** in Azure Go
 
 For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#supported-geographies-azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
-
 ## Networking
 
 This section outlines variations and considerations when using Networking services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-bastion,frontdoor,virtual-wan,dns,ddos-protection,cdn,azure-firewall,network-watcher,load-balancer,vpn-gateway,expressroute,application-gateway,virtual-network&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
@@ -381,26 +414,25 @@ For Private Link services availability, see [Azure Private Link availability](..
 
 Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
-
 ## Security
 
 This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [Azure Defender for IoT](../defender-for-iot/index.yml)
+### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot).
 
 ### [Azure Information Protection](/azure/information-protection/what-is-information-protection)
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Azure Security Center](../security-center/security-center-introduction.md)
+### [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-security-center).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 
-### [Azure Sentinel](../sentinel/overview.md)
+### [Microsoft Sentinel](../sentinel/overview.md)
 
-For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
+For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-sentinel).
 
 ## Storage
 
@@ -420,13 +452,11 @@ The following Azure managed disks **features are not currently available** in Az
 
 ### [Azure NetApp Files](../azure-netapp-files/index.yml)
 
-For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
-see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government, see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md).
 
 ### [Azure Import/Export](../import-export/storage-import-export-service.md)
 
 With Import/Export jobs for US Gov Arizona or US Gov Texas, the mailing address is for US Gov Virginia. The data is loaded into selected storage accounts from the US Gov Virginia region. For all jobs, we recommend that you rotate your storage account keys after the job is complete to remove any access granted during the process. For more information, see [Manage storage account access keys](../storage/common/storage-account-keys-manage.md).
-
 
 ## Web
 
@@ -449,7 +479,7 @@ The following App Service **resources are not currently available** in Azure Gov
 The following App Service **features are not currently available** in Azure Government:
 
 - Deployment
-    - Deployment options: only Local Git Repository and External Repository are available
+  - Deployment options: only Local Git Repository and External Repository are available
 
 ### [Azure Functions](../azure-functions/index.yml)
 
@@ -458,7 +488,6 @@ The following Functions **features are not currently available** in Azure Govern
 - Running .NET 5 apps
 
 When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
-
 
 ## Next steps
 

@@ -6,7 +6,7 @@ metadata:
   ms.author: rosouz
   ms.service: cosmos-db
   ms.topic: conceptual
-  ms.date: 11/30/2020
+  ms.date: 11/02/2021
   ms.custom: synapse-cosmos-db
   
     
@@ -130,7 +130,7 @@ sections:
       - question: |
           Can I partition the data in analytical store differently from transactional store?
         answer: |
-          The data in analytical store is partitioned based on the horizontal partitioning of shards in the transactional store. Currently, you cannot choose a different partitioning strategy for the analytical store.
+          By default, analytical store is not partitioned. If your analytical queries have frequently used filters, you have the option to partition based on these fields for better query performance. To learn more, see the [introduction to custom partitioning](custom-partitioning-analytical-store.md) and [how to configure custom partitioning](configure-custom-partitioning.md) articles.  
 
       - question: |
           Can I customize or override the way transactional data is transformed into columnar format in the analytical store?

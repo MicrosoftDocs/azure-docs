@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/28/2021
+ms.date: 11/09/2021
 ms.author: victorh
 ---
 
@@ -48,7 +48,9 @@ Here's an example policy:
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
 |ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
 
-The rule processing will be in the following order: DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2
+The rule processing will be in the following order: DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2.
+
+For more information about Firewall Policy rule sets, see [Azure Firewall Policy rule sets](policy-rule-sets.md).
 
 ### Threat Intelligence
 
