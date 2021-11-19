@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/22/2021
-ms.author: robinsh
+ms.author: lizross
 ---
 
 # IoT Hub high availability and disaster recovery
