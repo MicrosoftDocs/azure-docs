@@ -141,7 +141,7 @@ html
       // A polyfill for Promise is needed for IE11 support.
       script(src='https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js')
 
-      script(src='https://ircdndev.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
+      script(src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js')
       script(src='https://code.jquery.com/jquery-3.3.1.min.js')
 
       style(type="text/css").

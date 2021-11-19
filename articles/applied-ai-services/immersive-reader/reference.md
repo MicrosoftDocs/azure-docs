@@ -20,7 +20,7 @@ The Immersive Reader SDK contains a JavaScript library that allows you to integr
 You may use `npm`, `yarn` or a `<script>` `HTML` element to include the library of the latest stable build in your web application:
 
 ```html
-<script type='text/javascript' src='https://ircdndev.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
+<script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
 ```
 
 ```bash
