@@ -98,28 +98,36 @@ For example, only specific 7 system and custom classifications have been selecte
 * Create custom classification(s), only if the available system classifications do not meet your needs.
 * For the **name** of custom classification, it's a good practice to use a namespace convention, i.e.,**\<company name>.\<business unit>.\<custom classification name>**. 
 As an example, for the custom EMPLOYEE_ID classification for a company named Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID, the friendly name is stored in the system as HR.EMPLOYEE ID.
- 
+
     :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
 
 * While creating and configuring the classification rule for a custom classification:
+
     * Select the appropriate classification **name** for which the classification **rule** is to be created
+
     * Purview supports two methods for custom classification rule – Regular Expression and Dictionary 
+
     * Select appropriate method for the classification rule:
-        * Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
-        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
+
+        1. Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
+        2. Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
  
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
+            :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
 
 * **For regex method**:
 
     * Configure the regex pattern for the data to be classified. Ensure that the regex pattern is generic enough to cater for the data being classified.
+
     * Purview also provides feature to generate a suggested regex pattern. After uploading a sample data file, select one of the suggested patterns and select Add to Patterns to use the suggested data and column patterns. You can tweak the suggested patterns, or you may also type your own patterns without uploading a file.
+
     * You may also configure the column name pattern additionally, for the column to be classified to minimize false positives.
+
     * Also configure the “Minimum match threshold” parameter acceptable for your data matching the data pattern to apply classification. The threshold values can be between 1% and 100%. It is typically suggested to use at least 60% as the threshold to avoid false positives. However, you may configure as necessary for the specific classification scenarios (for example, it may be as low as 1% as well if you want to detect and apply classification for any value in data if it matches the pattern). Note: if you add multiple patterns for data, the minimum match threshold scale will disappear and defaulted to 60%.
   
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png" alt-text="Screen shot showing regex method of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png" alt-text="Screen shot showing regex method of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png":::
 
     * The option to set Minimum match rule is automatically disabled, if more than one data pattern is added to the classification rule.
+
     * Use the “**Test classification rule**” and test with a sample data to verify if the classification rule is working as expected. 
     > [!NOTE]
     >Please ensure in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
@@ -129,6 +137,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 * **For Dictionary method**:
 
     * The dictionary method is good to fit enumeration data or if the dictionary (list of possible values) is available.
+
     * It supports .csv or .tsv file, with the file size limit as 30MB.
 
 #### Custom Classification Scenarios / Examples
@@ -137,41 +146,42 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
     * Consider below sample source data for example, where there are 5 columns and custom classification rule would be applied be columns named as ‘Sample_col1, Sample_col2, Sample_col3’ for the data pattern “N{Digit}{Digit}{Digit}AN”
     
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png" alt-text="Screen shot showing example source data." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png" alt-text="Screen shot showing example source data." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png":::
 
     * The custom classification is named as ‘NDDDAN’
+
     * The classification rule (regex for data pattern) is: ^N[0-9]{3}AN$
      
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-ndddan-10.png" alt-text="Screen shot showing a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-ndddan-10.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-ndddan-10.png" alt-text="Screen shot showing a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-ndddan-10.png":::
 
     * The threshold would be computed as below for the “N[0-9]{3}AN” pattern:
      
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png" alt-text="Screen shot showing threshold of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png" alt-text="Screen shot showing threshold of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png":::
 
     * If you keep the threshold as 55% only Sample_col1 and Sample_col2 will be classified. Sample_col3 does not meet 55% threshold criteria as shown above.
       
-    :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing test classification rule." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing test classification rule." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
 2.	**How to use both data and column patterns?**
 
-Suppose for the given sample data, where column B and Column C both have similar data patterns, and you would like to classify on column B based on the data pattern “P[0-9]{3}[A-Z]{2}”. Use the column pattern along with data pattern to ensure only “Product ID” column is classified.
+    Suppose for the given sample data, where column B and Column C both have similar data patterns, and you would like to classify on column B based on the data pattern “P[0-9]{3}[A-Z]{2}”. Use the column pattern along with data pattern to ensure only “Product ID” column is classified.
        
-:::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screen shot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screen shot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
        
-:::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-14.png" alt-text="Screen shot showing classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-14.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-14.png" alt-text="Screen shot showing classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-14.png":::
 
-> [!NOTE]
-> The column pattern is verified as an “AND” condition with data pattern.
+    > [!NOTE]
+    > The column pattern is verified as an “AND” condition with data pattern.
         
-:::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screen shot showing column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screen shot showing column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
 
 3.	**How to use multiple column patterns?**
 
-If there are multiple column patterns to be classified for same classification rule, use pipe separated column names. For example, for columns Product ID, Product_ID, ProductID, etc. use below:
+    If there are multiple column patterns to be classified for same classification rule, use pipe separated column names. For example, for columns Product ID, Product_ID, ProductID, etc. use below:
         
-:::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png" alt-text="Screen shot showing multiple column patterns." lightbox="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png" alt-text="Screen shot showing multiple column patterns." lightbox="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png":::
 
-Refer to [regex alternation construct](../docs/standard/base-types/regular-expression-language-quick-reference.md) for more details.
+    Refer to [regex alternation construct](../docs/standard/base-types/regular-expression-language-quick-reference.md) for more details.
 
 #### Manually applying/editing classification from Purview Studio:
 
