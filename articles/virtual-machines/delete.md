@@ -1,25 +1,20 @@
 ---
-title: Delete a VM and attached resources (preview)
+title: Delete a VM and attached resources
 description: Learn how to delete a VM and the resources attached to the VM.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: 
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/16/2021
+ms.date: 11/19/2021
 ms.author: cynthn
 ms.custom: template-how-to 
 
 ---
 
-# Delete a VM and attached resources (preview)
+# Delete a VM and attached resources
 
 By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
-
-> [!IMPORTANT]
-> This feature is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Set delete options when creating a VM
