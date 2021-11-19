@@ -18,7 +18,7 @@
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps/tutorial-list
-    - name: On-premises app provisioning
+    - name: On-prem app provisioning tutorials
       items:
       - name: Provisioning to On-premises SCIM-enabled apps
         href: on-premises-scim-provisioning.md
