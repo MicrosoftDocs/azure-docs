@@ -1,5 +1,5 @@
 ---
-title: About confidential virtual machines (preview)
+title: About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
 description: Azure confidential computing offers confidential virtual machines (confidential VMs) for tenants with high security and confidentiality requirements.
 services: virtual-machines
 author: edendcohen
@@ -11,7 +11,7 @@ ms.author: edcohen
  
 ---
 
-# About confidential virtual machines (preview)
+# About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
 
 > [!IMPORTANT]
 > Confidential virtual machines (confidential VMs) in Azure confidential computing is currently in PREVIEW.
@@ -89,11 +89,8 @@ Confidential VMs support the following OS options:
 
 ### Regions
 
-Confidential VMs run on specialized hardware available in specific [VM regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines):
-
-- West US
-- North Europe
-
+Confidential VMs run on specialized hardware available in specific [VM regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
+ 
 ### Pricing
 
 Pricing depends on your confidential VM size. For more information, see the [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
