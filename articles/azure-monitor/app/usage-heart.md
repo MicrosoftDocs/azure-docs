@@ -33,7 +33,7 @@ These dimensions are measured independently, but they interact with each other a
 
 
 ## Get Started
- Users can set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm. (Note: This step is mandatory to use the workbook). 
+ Users can set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm. (Note: This step is mandatory to use the workbook). 
 
  
 
@@ -72,10 +72,10 @@ A brief description of the tabs can be seen below:
 Happiness is a user-reported dimension that measures how users feel about the product offered to them. 
 
 #### Measuring Happiness
-A common approach to measure this dimension is to ask users a Customer Satisfaction (CSAT) question such as “How satisfied are you with this product?”. Users' responses on a 3 or a 5-point scale (for example, no, maybe and yes) are aggregated to create a product-level score ranging from 1-5 (with 5 being the highest). As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
+A common approach to measure this dimension is to ask users a Customer Satisfaction (CSAT) question like “How satisfied are you with this product?”. Users' responses on a three or a five-point scale (for example, no, maybe and yes) are aggregated to create a product-level score ranging from 1-5. As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
 #### User Sentiment Data
-Refer to the [Azure Monitor documentation regarding custom sources](https://docs.microsoft.com/en-us/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data to calculate happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", etc.
+Refer to the [Azure Monitor documentation for custom sources](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data for calculating happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", and so on.
 
 
 
@@ -86,10 +86,10 @@ HEART Framework measures engagement using the concept of activity (intentional u
 2. **Activity Breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of five features in June 2021.
 3. **Activity Depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with two features on every launch.
 
-Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. Whereas for a product like a 'Paycheck Portal', measurement would make more sense at a monthly or weekly level.  
+Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a 'Paycheck Portal', measurement would make more sense at a monthly or weekly level.  
 
 #### Defining Active Users	
-Any user who performs an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A user who does an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
 
 
 
@@ -105,7 +105,7 @@ c. Marketing campaigns
 
 ### Retention
 #### Defining Retention
-A Retained User is an active user who was active both this reporting period and the previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A Retained User is an active user who was active both this reporting period and the previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -120,9 +120,9 @@ A Retained User is an active user who was active both this reporting period and 
 Many products include structures designed to funnel users through completing a task. Some examples include: 
 * *Adding items to a cart* -> *purchasing items from the cart*
 * *Searching a keyword* -> *clicking on a result*
-* *Initiating a new account* -> *completing account registration* 
+* *Starting a new account* -> *completing account registration* 
 
-Task Success tracks whether users can perform a task efficiently and effectively using the capabilities provided by the product. 
+Task Success tracks whether users can do a task efficiently and effectively using the product's features.
 
 #### Measuring Task Success
 A successful task meets three requirements:
@@ -130,14 +130,14 @@ A successful task meets three requirements:
 2.	High Performance – the intended functionality of the feature was accomplished in a reasonable amount of time
 3.	High Reliability – the intended functionality of the feature was accomplished without failure
 
-A task is considered unsuccessful if any of the above requirements is not met. **Task Success metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A task is considered unsuccessful if any of the above requirements isn't met. **Task Success metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
 
 #### Creating a task
 Set up a custom task using the below parameters.
 
 | Parameter         | Description                                                                                                                                                                                                                         |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| First Step           | The feature that initiates the task. Using the cart/purchase example above, "adding items to a cart" would be the First Step.                                                                                                          |
+| First Step           | The feature that starts the task. Using the cart/purchase example above, "adding items to a cart" would be the First Step.                                                                                                          |
 | Expected Task Duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint is considered a failure. Not all tasks necessarily have a time constraint: for such tasks, select "No Time Expectation". |
 | Last Step        | The feature that completes the task. Using the cart/purchase example above, "purchasing items from the cart" would be the Last Step.                                                                                               |
 
@@ -157,7 +157,7 @@ You can click on the 'Date Grain' filter to change the grain (As shown below)
 
 ![grainfaq](./media/usage-overview/monthlygrainfaq.png)  
 
-### How do I access insights from my application that are not available on the HEART workbooks?
+### How do I access insights from my application that aren't available on the HEART workbooks?
 
 You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this task, navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
 
@@ -168,14 +168,14 @@ You can dig into the data that feeds the HEART workbook if the visuals don't ans
 
 Yes, when you click on the public template of the workbook, you can navigate to the top-left corner, click edit, and make your changes.
 
-![workbookedit1](./media/usage-overview/workbookeditfaq2.png) 
+![workbookeditfaq](./media/usage-overview/workbookeditfaq2.png) 
 
 After making your changes, click 'Done Editing' and then the 'Save' icon.
 
 
 ![workbookeditfaq2](./media/usage-overview/workbookeditfaq2.5.png)  
 
-To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You will see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
+To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You'll see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
 
 ![workbookeditfaq3](./media/usage-overview/workbookeditfaq3.png)  
  
@@ -183,7 +183,7 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
  
 
 ## Next Steps
-- How to set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm
+- How to set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm
 
  
 
