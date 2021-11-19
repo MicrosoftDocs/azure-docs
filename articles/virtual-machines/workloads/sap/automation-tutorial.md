@@ -573,7 +573,7 @@ Deploy the SAP system.
 
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
@@ -678,7 +678,7 @@ Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then,
 ```bash
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
