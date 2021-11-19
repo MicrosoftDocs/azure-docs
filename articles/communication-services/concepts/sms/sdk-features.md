@@ -43,6 +43,6 @@ The following list presents the set of features which are currently available in
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with general [SMS concepts](../telephony-sms/concepts.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
+- Familiarize yourself with general [SMS concepts](../sms/concepts.md)
+- Get an SMS capable [phone number](../../quickstarts/sms/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)

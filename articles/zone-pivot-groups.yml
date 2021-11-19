@@ -1469,9 +1469,9 @@ groups:
   title: Number Type
   prompt: Choose a Number Type
   pivots:
-  - id: TollFree
+  - id: tollfree
     title: Toll-Free
-  - id: Shortcode
+  - id: shortcode
     title: Short Code
 # Owner: timlt
 - id: iot-develop-nxp-toolset

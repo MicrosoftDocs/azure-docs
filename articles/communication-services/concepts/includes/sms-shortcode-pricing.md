@@ -46,7 +46,7 @@ The following prices include required communications taxes and fees:
 |Send messages (per message segment*) |$0.0075 |
 |Receive messages (per message segment*) |$0.0075 |
 
-*Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
+*Please see [here](concepts/sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
 Additional flat carrier surcharge of $0.0025/sent msg segment would be applicable. Carrier surcharge is subject to change. Click <Link-To-be-added> for details.
