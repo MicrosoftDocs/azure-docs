@@ -1,6 +1,56 @@
 - name: Azure Stack Edge Documentation 
   href: ./index.yml
   expanded: true
+- name: Azure Stack Edge Pro 2
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro 2?
+      href: azure-stack-edge-pro2-overview.md
+  - name: Quickstarts
+    items:
+    - name: Get started
+      href: azure-stack-edge-placeholder.md
+  - name: Tutorials
+    items:
+    - name: 0 - Get checklist
+      href: azure-stack-edge-pro2-deploy-checklist.md  
+    - name: 1 - Order, prepare 
+      href: azure-stack-edge-gpu-deploy-prep.md
+      displayName: Azure CLI, az databoxedge device, az databoxedge order
+    - name: 2 - Install
+      href: azure-stack-edge-pro2-deploy-install.md
+    - name: 3 - Connect
+      href: azure-stack-edge-pro2-deploy-connect.md
+    - name: 4 - Configure network
+      href: azure-stack-edge-pro2-deploy-configure-network-compute-web-proxy.md
+    - name: 5 - Configure device 
+      href: azure-stack-edge-pro2-deploy-set-up-device-update-time.md
+    - name: 6 - Configure certificates
+      href: azure-stack-edge-pro2-deploy-configure-certificates.md
+    - name: 7 - Activate
+      href: azure-stack-edge-pro2-deploy-activate.md 
+    - name: 8 - Configure compute
+      href: azure-stack-edge-pro2-deploy-configure-compute.md 
+      
+  - name: Concepts
+    items:
+    - name: Review requirements
+      items:
+      - name: For Azure Stack Edge
+        href: azure-stack-edge-pro2-system-requirements.md
+      - name: For Azure Stack Edge Blob storage
+        href: azure-stack-edge-pro2-system-requirements-rest.md
+    - name: Understand limits
+      href: azure-stack-edge-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-security.md
+    - name: Review specifications
+      items:
+      - name: Device specifications
+        href: azure-stack-edge-pro2-technical-specifications-compliance.md
+      - name: Power cord specifications
+        href: azure-stack-edge-pro2-technical-specifications-power-cords-regional.md
 - name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
