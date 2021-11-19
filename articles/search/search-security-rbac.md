@@ -1,5 +1,5 @@
 ---
-title: Role-based authorization
+title: Use Azure RBAC
 titleSuffix: Azure Cognitive Search
 description: Use Azure role-based access control (Azure RBAC) for granular permissions on service administration and content tasks.
 
@@ -7,13 +7,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/04/2021
+ms.topic: how-to
+ms.date: 11/19/2021
+ms.custom: subject-rbac-steps
 ---
 
-# Use role-based authorization in Azure Cognitive Search
+# Use Azure role-based access control (Azure RBAC) in Azure Cognitive Search
 
-Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can use roles in the following ways:
+Azure provides a global [role-based access control (RBAC) authorization system](../role-based-access-control/role-assignments-portal.md) for all services running on the platform. In Cognitive Search, you can:
 
 + Use generally available roles for service administration.
 
@@ -54,14 +55,14 @@ There are no regional, tier, or pricing restrictions for using RBAC on Azure Cog
 
 **Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
 
-Skip this step if you are using generally available roles (Owner, Contributor, Reader) or just the service-level actions of Search Service Contributor.
+Skip this step if you are using generally available roles (Owner, Contributor, Reader) or if you want just the service-level actions of Search Service Contributor.
 
-New built-in preview roles provide a granular set of permissions over content on the search service. Although built-in roles are always visible in the Azure portal, service enrollment is required to make them operational.
+New built-in preview roles provide permissions over content on the search service. Although built-in roles are always visible in the Azure portal, preview registration is required to make them operational.
 
 To add your subscription to the preview:
 
-1. Navigate to your search service in the [Azure portal](https://portal.azure.com/).
-1. On the left-hand side of the page, select **Keys**.
+1. Open [Azure portal](https://portal.azure.com/) and find your search service
+1. On the left-nav pane, select **Keys**.
 1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
 ![screenshot of how to sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
@@ -69,7 +70,7 @@ To add your subscription to the preview:
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
 > [!NOTE]
-> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as shown in the next step.
+> Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as described in a later section.
 
 ## Step 2: Preview configuration
 
@@ -94,8 +95,6 @@ In this step, configure your search service to recognize an **authorization** he
    | API Key | Generally available (default) | Requires an [admin or query API keys](search-security-api-keys.md) on the request header for authorization. No roles are used. |
    | Role-based access control | Preview | Requires membership in a role assignment to complete the task, described in the next step. It also requires an authorization header. Choosing this option limits you to clients that support the 2021-04-30-preview REST API. |
    | Both | Preview | Requests are valid using either an API key or an authorization token. |
-
-If you don't see the options, check the portal URL.
 
 If you can't save your selection, or if you get "API access control failed to update for search service `<name>`. DisableLocalAuth is preview and not enabled for this subscription", your subscription enrollment hasn't been initiated or it hasn't been processed.
 
@@ -150,9 +149,11 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
 
 1. Select **Access Control (IAM)** in the left navigation pane.
 
-1. On the right side, under **Grant access to this resource**, select **Add role assignment**.
+1. Select **+ Add** > **Add role assignment**.
 
-1. Find an applicable role and then assign an Azure Active Directory user or group identity:
+   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. Select an applicable role:
 
    + Owner
    + Contributor
@@ -160,6 +161,10 @@ You must be an **Owner** or have [Microsoft.Authorization/roleAssignments/write]
    + Search Service Contributor
    + Search Index Data Contributor (preview)
    + Search Index Data Reader (preview)
+
+1. On the **Members** tab, select the Azure AD user or group identity.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ### [**PowerShell**](#tab/roles-powershell)
 
@@ -292,15 +297,22 @@ To re-enable key authentication, rerun the last request, setting "disableLocalAu
 
 ## Conditional Access
 
-[Conditional Access](../active-directory/conditional-access/overview.md) is the tool used by Azure Active Directory to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
+[Conditional Access](../active-directory/conditional-access/overview.md) is a tool in Azure Active Directory used to enforce organizational policies. By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure. When accessing an Azure Cognitive Search service using role-based access control, Conditional Access can enforce organizational policies.
 
 To enable a Conditional Access policy for Azure Cognitive Search, follow the below steps:
+
 1. [Sign in](https://portal.azure.com) to the Azure portal.
+
 1. Search for **Azure AD Conditional Access**.
+
 1. Select **Policies**.
+
 1. Select **+ New policy**.
+
 1. In the **Cloud apps or actions** section of the policy, add **Azure Cognitive Search** as a cloud app depending on how you want to set up your policy.
+
 1. Update the remaining parameters of the policy. For example, specify which users and groups this policy applies to. 
+
 1. Save the policy.
 
 > [!IMPORTANT]
