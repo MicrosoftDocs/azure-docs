@@ -8,7 +8,7 @@ Welcome to the open-source [documentation](https://docs.microsoft.com/azure) of 
 Contributing to open source is more than just providing updates, it's also about letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
 ### Prerequisites
- 
+
 You've decided to contribute, that's great! To contribute to the documentation, you need a few tools.
 
 Contributing to the documentation requires a GitHub account. If you don't have an account, follow the instructions for the [GitHub account setup](https://docs.microsoft.com/contribute/get-started-setup-github) from our contributor guide.
