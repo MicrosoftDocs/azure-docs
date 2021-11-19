@@ -99,7 +99,7 @@ For example, only specific 7 system and custom classifications have been selecte
 * For the **name** of custom classification, it's a good practice to use a namespace convention, i.e.,**\<company name>.\<business unit>.\<custom classification name>**. 
 As an example, for the custom EMPLOYEE_ID classification for a company named Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID, the friendly name is stored in the system as HR.EMPLOYEE ID.
 
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a EMPLOYEE_ID custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
 
 * While creating and configuring the classification rule for a custom classification:
 
@@ -112,7 +112,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
         1. Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
         2. Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
  
-            :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
+            :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing setting of regular expression and dictionary." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
 
 * **For regex method**:
 
@@ -132,7 +132,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
     > [!NOTE]
     >Please ensure in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
    
-    :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screen shot showing test classification rule." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screen shot showing classification when test classification is successful." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
 
 * **For Dictionary method**:
 
@@ -160,7 +160,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
     * If you keep the threshold as 55% only Sample_col1 and Sample_col2 will be classified. Sample_col3 does not meet 55% threshold criteria as shown above.
       
-        :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing test classification rule." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing result of high threshold criteria" lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
 2.	**How to use both data and column patterns?**
 
@@ -181,7 +181,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
         
     :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png" alt-text="Screen shot showing multiple column patterns." lightbox="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png":::
 
-    Refer to [regex alternation construct](../docs/standard/base-types/regular-expression-language-quick-reference.md) for more details.
+    Refer to [regex alternation construct](./docs/docs/standard/base-types/regular-expression-language-quick-reference.md) for more details.
 
 #### Manually applying/editing classification from Purview Studio:
 
