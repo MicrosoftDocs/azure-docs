@@ -209,6 +209,8 @@ You can apply [inbound](#inbound-filtering) filtering from Active Directory to t
 ### Inbound filtering
 Inbound filtering uses the default configuration, where objects going to Azure AD must have the metaverse attribute cloudFiltered not set to a value to be synchronized. If this attribute's value is set to **True**, then the object isn't synchronized. It shouldn't be set to **False**, by design. To make sure other rules have the ability to contribute a value, this attribute is only supposed to have the values **True** or **NULL** (absent).
 
+Note that Azure AD Connect is designed to clean up the objects it was responsible to provision in Azure AD. If the system hasn't provisioned the object in Azure AD in the past, but it gets the Azure AD object during an import step, it correctly assumes that this object was created in Azure AD by some other system. Azure AD Connect doesn't clean up these types of Azure AD objects, even when the metaverse attribute `cloudFiltered` is set to **True**.
+
 In inbound filtering, you use the power of **scope** to determine which objects to synchronize or not synchronize. This is where you make adjustments to fit your own organization's requirements. The scope module has a **group** and a **clause** to determine when a sync rule is in scope. A group contains one or many clauses. There is a logical "AND" between multiple clauses, and a logical "OR" between multiple groups.
 
 Let us look at an example:  

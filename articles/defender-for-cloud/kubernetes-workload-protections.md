@@ -37,7 +37,7 @@ Defender for Cloud offers more container security features if you enable Microso
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
 | Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
@@ -262,4 +262,3 @@ For other related material, see the following pages:
 
 - [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
 - [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
-- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

@@ -10,7 +10,7 @@ ms.date: 11/08/2021
 
 # Azure Web PubSub service client library for Python
 
-[Azure Web PubSub Service](https://aka.ms/awps/doc) is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests can also use Azure Web PubSub service.
+[Azure Web PubSub Service](./index.yml) is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests can also use Azure Web PubSub service.
 
 You can use this library in your app server side to manage the WebSocket client connections, as shown in below diagram:
 
@@ -190,7 +190,7 @@ see the Code of Conduct FAQ or contact opencode@microsoft.com with any
 additional questions or comments.
 
 <!-- LINKS -->
-[webpubsubservice_docs]: https://aka.ms/awps/doc
+[webpubsubservice_docs]: ./index.yml
 [azure_cli]: /cli/azure
 [azure_sub]: https://azure.microsoft.com/free/
 [package]: https://pypi.org/project/azure-messaging-webpubsubservice/

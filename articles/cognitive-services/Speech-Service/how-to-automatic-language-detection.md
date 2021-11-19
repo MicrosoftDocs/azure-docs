@@ -337,7 +337,7 @@ speechRecognizer.recognizeOnceAsync((result: SpeechSDK.SpeechRecognitionResult) 
 ::: zone-end
 
 
-## Use a custom model for language identification
+## Use language detection with a custom Speech-to-Text model
 
 In addition to language identification using Speech service base models, you can also specify a custom model for enhanced recognition. If a custom model isn't provided, the service will use the default language model.
 
