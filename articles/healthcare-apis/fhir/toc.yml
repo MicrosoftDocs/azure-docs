@@ -77,7 +77,9 @@ items:
 - name: Concepts
   expanded: true
   items:
-  - name: FHIR REST API capabilities
+  - name: FHIR service autoscale
+    href: fhir-service-autoscale.md
+  - name: FHIR Rest API capabilities
     href: fhir-rest-api-capabilities.md
 - name: Resources
   expanded: true
