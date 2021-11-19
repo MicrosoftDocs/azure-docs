@@ -26,6 +26,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 The API server Authorized IP ranges feature has the following limitations:
 - On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
 - When using this feature with clusters that use [Public IP per Node](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools), those node pools with public IP per node enabled must use public IP prefixes and those prefixes must be added as authorized ranges.
+- When using NVA as the gateway to the internet you must add the egress IP of the NVA's to the list of authorized ips to ensure the successful connection from the deployed pool nodes to the API server. When authorized IPs are used, but the egress IP is not specified, the pool nodes will be continiously recreated with a timed out API call during AKS creation. 
 
 ## Overview of API server authorized IP ranges
 
