@@ -303,7 +303,7 @@ Use these commands to create the resource:
    New-AzDataShareInvitation -ResourceGroupName <String> -AccountName <String> -ShareName <String> -Name <String> -TargetEmail <String>
    ```
 
-1. Use the [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting) command to set a synchronization recurrance for your share. This can be daily, hourly, or at a particular time.
+1. Use the [New-AzDataShareSynchronizationSetting](/powershell/module/az.datashare/new-azdatasharesynchronizationsetting) command to set a synchronization recurrence for your share. This can be daily, hourly, or at a particular time.
 
    ```azurepowershell
    New-AzDataShareSynchronizationSetting -ResourceGroupName <String> -AccountName <String> -ShareName <String> -Name <String> -RecurrenceInterval <String> -SynchronizationTime <DateTime>
