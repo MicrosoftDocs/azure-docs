@@ -20,7 +20,7 @@ After you provide tracking details, the job status changes to Shipping, and the 
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-To complete the tracking information for your job in the Preview portal, do these steps:
+To complete the tracking information for a job that you created in the Preview portal, do these steps:
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. On the **Overview** pane, scroll down to **Tracking information** and complete the entries: 
@@ -38,7 +38,7 @@ You can track the job progress on the **Overview** pane. For a description of ea
 
 ### [Portal (Classic)](#tab/azure-portal-classic)
 
-To complete the tracking information for your job in the Classic portal, do these steps.
+To complete the tracking information for a job that you created in the Classic portal, do these steps.
  
 1. Open the job in the [Azure portal/](https://portal.azure.com/).
 1. At the top of the ****For job to progress, provide the tracking information** to open the **Update status** pane. Then complete the entries: 

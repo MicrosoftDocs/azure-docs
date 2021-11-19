@@ -43,7 +43,7 @@ You must:
 
 # [Portal (Preview)](#tab/azure-portal-preview)
 
-Perform the following steps to order an import job in Azure Import/Export via the Preview portal.
+Perform the following steps to order an import job in Azure Import/Export via the Preview portal. The Azure Import/Export service in preview will create a job of the type "Data Box."
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
@@ -159,7 +159,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
 # [Portal (Classic)](#tab/azure-portal-classic)
 
-Perform the following steps to create an export job in the Azure portal.
+Perform the following steps to create an export job in the Azure portal using the classic Azure Import/Export service.
 
 1. Log on to <https://portal.azure.com/>.
 2. Search for **import/export jobs**.
