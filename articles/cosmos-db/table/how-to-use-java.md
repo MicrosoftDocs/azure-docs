@@ -554,5 +554,5 @@ For more information, visit [Azure for Java developers](/java/azure).
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
 [Azure Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
-[Azure Tables REST API]: /azure/storage/tables/table-storage-overview
+[Azure Tables REST API]: ../../storage/tables/table-storage-overview.md
 [Azure Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/

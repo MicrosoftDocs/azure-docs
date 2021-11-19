@@ -3,7 +3,7 @@ title: Microsoft Defender for Cloud features for supported Azure PaaS resources.
 description: This page shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/09/2021
 ms.author: memildin

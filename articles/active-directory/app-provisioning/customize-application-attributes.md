@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/07/2021
+ms.date: 11/15/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -253,6 +253,7 @@ The request format in the PATCH and POST differ. To ensure that POST and PATCH a
   - **Things to consider**
     - All roles will be provisioned as primary = false.
     - The POST contains the role type. The PATCH request does not contain type. We are working on sending the type in both POST and PATCH requests.
+    - AppRoleAssignmentsComplex is not compatible with setting scope to "Sync All users and groups." 
     
   - **Example output** 
   

@@ -58,7 +58,7 @@ The initial number of nodes will be the minimum. This value defines the initial 
 
 Optionally, you can enable dynamic allocation of executors in scenarios where the executor requirements are vastly different across stages of a Spark Job or the volume of data processed fluctuates with time. By enabling Dynamic Allocation of Executors, we can utilize capacity as required.
 
-On enabling Dynamic Allocation of Executors while creation a Spark pool, minimum and maximum number of nodes can be set subject to the limits of available nodes. These values are defaulted to every new session that is created within the pool.
+On enabling dynamic allocation, it allows the job to scale the number of executors within min and max number of executors specified.
 
 Apache Spark enables configuration of Dynamic Allocation of Executors through code as below:
 

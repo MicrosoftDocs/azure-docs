@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: overview
 ms.workload: identity
-ms.date: 05/13/2021
+ms.date: 11/16/2021
 ms.author: rolyon
 
 #Customer intent: As a dev, devops, or it admin, I want to learn how to constrain access within a role assignment by using conditions.
@@ -49,6 +49,7 @@ There are several scenarios where you might want to add a condition to your role
 - Read access to blobs in containers named blobs-example-container with a path of readonly
 - Write access to blobs in containers named Contosocorp with a path of uploads/contoso
 - Read access to blobs with the tag Program=Alpine and a path of logs
+- Read access to blobs with the tag Project=Baker and the user has a matching attribute Project=Baker
 
 For more information about how to create these examples, see [Examples of Azure role assignment conditions](../storage/common/storage-auth-abac-examples.md).
 
@@ -93,7 +94,7 @@ Here is what the condition looks like in code:
     (
         !(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'}
         AND
-        @Request[subOperation] ForAnyOfAnyValues:StringEqualsIgnoreCase {'Blob.Read.WithTagConditions'})
+        SubOperationMatches{'Blob.Read.WithTagConditions'})
     )
     OR
     (
@@ -103,6 +104,17 @@ Here is what the condition looks like in code:
 ```
 
 For more information about the format of conditions, see [Azure role assignment condition format and syntax](conditions-format.md).
+
+## Features of conditions
+
+Here's a list of the some of the primary features of conditions:
+
+| Feature | Status | Date |
+| --- | --- | --- |
+| Add conditions to Storage Blob Data role assignments | Preview | May 2021 |
+| Use attributes on a resource in a condition | Preview | May 2021 |
+| Use attributes that are part of the action request in a condition | Preview | May 2021 |
+| Use custom security attributes on a principal in a condition | Preview | November 2021 |
 
 ## Conditions and Privileged Identity Management (PIM)
 
@@ -119,6 +131,13 @@ To better understand Azure RBAC and Azure ABAC, you can refer back to the follow
 | role assignment condition | An additional check that you can optionally add to your role assignment to provide more fine-grained access control. |
 | attribute | In this context, a key-value pair such as Project=Blue, where Project is the attribute key and Blue is the attribute value. Attributes and tags are synonymous for access control purposes. |
 | expression | A statement in a condition that evaluates to true or false. An expression has the format of &lt;attribute&gt; &lt;operator&gt; &lt;value&gt;. |
+
+
+## Known issues
+
+Here are the known issues with conditions:
+
+- If you are using Azure AD Privileged Identity Management (PIM) and [custom security attributes](../active-directory/fundamentals/custom-security-attributes-overview.md), **Principal** does not appear in **Attribute source** when adding a condition.
 
 ## Next steps
 

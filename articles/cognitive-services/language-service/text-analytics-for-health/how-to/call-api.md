@@ -87,11 +87,13 @@ When using this feature asynchronously, the API results are available for 24 hou
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximum size of entire request | 1 MB |
 | Max Documents Per Request | 10 for the web-based API, 1000 for the container. |
 
 If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+
+When you send a document larger than 5,120 characters, it will be split by Text Analytics for health into chunks of 5,120 characters. If two entities are present on either side of a split that are related, the model will not be able to detect the relation. To prevent potential relations from being undetected, consider splitting your text into documents of 5,120 characters or less, consisting only of full sentences.
 
 ### Rate limits
 

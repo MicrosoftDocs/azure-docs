@@ -51,11 +51,11 @@ Low RPO (Recovery Point Objective) is a key requirement for Azure Files that con
 
 Using Azure Backup you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
 
-For more information, see [how to configure multiple backups per day via backup policy](/azure/backup/manage-afs-backup#create-a-new-policy).
+For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
 ## Azure Backup metrics and metrics alerts (in preview)
 
-Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
+Azure Backup now provides a set of built-in metrics via [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
 
 Azure Backup offers the following key capabilities:
  
