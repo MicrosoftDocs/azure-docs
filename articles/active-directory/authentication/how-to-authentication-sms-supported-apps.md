@@ -32,7 +32,6 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
-| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_SMS sign-in isn't available for office applications, such as Word, Excel, etc., when accessed directly on the web, but is available when accessed through the [Office 365 web app](https://www.office.com)_
