@@ -1,0 +1,76 @@
+---
+title: Deploy a Java application with Azure Database for PostgreSQL server Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
+recommendations: false
+description: Deploy a Java application with Azure Database for PostgreSQL server Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
+author: zhengchang907
+ms.author: zhengchang
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 11/19/2021
+keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
+---
+
+# Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
+
+This article demonstrates how to:  
+* **Fill in step abstraction**  
+
+The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps. 
+
+For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+* This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* If running the commands in this guide locally (instead of Azure Cloud Shell):
+  * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
+  * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
+  * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
+  * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+
+## Create IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service using our offer
+### step guide to use the offer
+### save the server.xml and deployment.yaml
+
+## Create an Azure Database for PostgreSQL server
+
+### Create a resource group
+
+An Azure resource group is a logical group in which Azure resources are deployed and managed.  
+
+Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
+
+```azurecli-interactive
+RESOURCE_GROUP_NAME=java-liberty-project-postgresql
+az group create --name $RESOURCE_GROUP_NAME --location eastus
+```
+
+### Create the PostgreSQL server
+
+Use the [az postgres server create](cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates an DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
+
+```azurecli-interactive
+export DB_NAME=youruniquedbname
+export DB_ADMIN_USERNAME=myadmin
+export DB_ADMIN_PASSWORD=<server_admin_password>
+az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2
+```
+
+## Prepare your application with PostgreSQL DB connection
+### Build project
+### dockerfile with JDBC driver
+### Build image
+### Upload image to ACR
+
+## Prepare deployment files
+### server.sml
+### deployment yaml file
+
+## Apply the changes
+
+## Verify the results
+
+## Clean up resources
