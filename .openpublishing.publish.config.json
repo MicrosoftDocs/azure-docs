@@ -24,22 +24,6 @@
       "build_entry_point": "docs",
       "template_folder": "_themes",
       "version": 0
-    },
-    {
-      "docset_name": "DCOM",
-      "build_source_folder": ".",
-      "build_output_subfolder": "DCOM",
-      "locale": "en-us",
-      "monikers": [],
-      "moniker_ranges": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "base_path": "azure/communication-services",
-      "site_name": "Docs"
     }
   ],
   "notification_subscribers": [
