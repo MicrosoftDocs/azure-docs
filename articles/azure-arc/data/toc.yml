@@ -15,6 +15,8 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
+    - name: Create AKS cluster
+      href: create-aks-cluster-for-data-controller.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
