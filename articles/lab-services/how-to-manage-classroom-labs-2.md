@@ -78,7 +78,9 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
     1. **Stop** the VM.  
     1. Enter a **description** for the template
 
-## Publish a template VM
+## Publish a VM
+
+The following steps apply for publishing a template VM or a non-customized VM.
 
 1. On the **Template** page, select **Publish** on the toolbar.
 
@@ -89,28 +91,13 @@ To set up a classroom lab in a lab plan, you must be a member of the **Lab Creat
 1. On the **Publish template** page, enter the number of virtual machines you want to create in the lab, and then select **Publish**.
 
     ![Publish template - number of VMs](./media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
-1. You see the **status of publishing** the template on page. This process can take up to an hour. 
+1. You see the **status of publishing** the VM on the page.
 
     ![Publish template - progress](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
 
-## Publish a non-customized VM
-
-From the Lab page, choose the **Publish** button.
-
 ## VM sizes  
 
-The following table shows the VM size that you can choose when creating the lab.
-
-| Size | Cores | RAM | Description |
-| ---- | ----- | --- | ----------- |
-| Small | 2 | 3.5 GB | This size is best suited for command line, opening web browser, low traffic web servers, small to medium databases. |
-| Medium | 4 | 7 GB | This size is best suited for relational databases, in-memory caching, and analytics | 
-| Medium (Nested virtualization) | 4 | 16 GB | This size is best suited for relational databases, in-memory caching, and analytics. This size also supports nested virtualization. <p>This size can be used in scenarios where each student needs multiple VMs. Educators can use nested virtualization to set up a few small-size nested virtual machines inside the virtual machine. </p> |
-| Small GPU (Compute) | 6 | 56 GB | <p>This size is best suited for compute-intensive and network-intensive applications like artificial intelligence and deep learning applications.</p><p>Azure Lab Services automatically installs and configures the necessary GPU drivers for you when you create a lab with GPU images. </p> | 
-| Small GPU (Visualization) | 6 | 56 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
-| Large | 8 | 16 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Large (Nested virtualization) | 8 | 32 GB | This size is best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size also supports nested virtualization. |  
-| Medium GPU (Visualization) | 12 | 112 GB | This size is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX. | 
+For information on VM sizes and their cost, see the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
 
 > [!NOTE]
 > You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.

@@ -2,18 +2,18 @@
 title: What's New in Azure Lab Services | Microsoft Docs
 description: Learn what's new in the Azure Lab Services November 2021 Updates. 
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 11/19/2021
 ---
 
 # What's new in Azure Lab Services November 2021 Updates
 
 We've made fundamental backend improvements for the service to boost performance, reliability, and scalability. In this article, we describe all the great changes and new features that are available!
 
-[Lab Plans replace Lab Accounts](#lab-plans-replace-lab-accounts). The lab account concept is being replaced with a new concept called a Lab plan. Although similar in functionality, there are some fundamental differences. The Lab Plan serves as a collection of configurations and settings that apply to the labs created from it. Labs are now an Azure resource in their own right and a sibling resource to Lab Plans.
+[Lab Plans replace Lab Accounts](#lab-plans-replace-lab-accounts). The lab account concept is being replaced with a new concept called a Lab plan. Although similar in functionality, there are some fundamental differences. The lab plan serves as a collection of configurations and settings that apply to the labs created from it. Labs are now an Azure resource in their own right and a sibling resource to Lab Plans.
 
 **Improved performance**. From lab and virtual machine creation to lab publish, you’ll notice drastic improvements.  
 
-**New SKUs**. We’ve been working hard to add new VM sizes with options for larger OS disk sizes. All lab virtual machines use solid-state disks (SSD) and you have a choice between Standard SSD and Premium SSD.  
+[New SKUs](how-to-manage-classroom-labs-2.md#vm-sizes). We’ve been working hard to add new VM sizes with options for larger OS disk sizes. All lab virtual machines use solid-state disks (SSD) and you have a choice between Standard SSD and Premium SSD.  
 
 **Per Customer Assigned Capacity**. No more sharing capacity with others. If your organization has requested more quota, we’ll save it just for you.
 
@@ -43,7 +43,7 @@ In this release, there remain a few known issues:
 
 - When using VNet Injection, use caution in making changes to the virtual network and subnet because it can cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience, but for now make sure to delete labs before deleting networks.
 
-## Lab Plans replace Lab Accounts
+## Lab plans replace lab accounts
 
 For the new version of Lab Services, the lab account concept is being replaced with a new concept called a lab plan. Although similar in functionality, there are some fundamental differences between the old Lab account and the new Lab plan: 
 

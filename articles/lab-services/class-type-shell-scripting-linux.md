@@ -11,6 +11,10 @@ This article shows you how to set up a lab to teach shell scripting on Linux. Sc
 Students taking these scripting classes get a Linux virtual machine to learn the basics of Linux, and also get familiar with the bash shell scripting. The Linux virtual machine comes with remote desktop access enabled and with [gedit](https://help.gnome.org/users/gedit/stable/) and [Visual Studio Code](https://code.visualstudio.com/) text editors installed.
 
 ## Lab configuration
+
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you have an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing lab account. See the following tutorial for creating a new lab account: [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).
 
 After you create the lab account, enable following settings in the lab account: 
@@ -79,12 +83,8 @@ This article walked you through the steps to create a lab for scripting classes.
 ## Next steps
 Next steps are common to setting up any lab:
 
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users). 
-
-
-
-
-
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

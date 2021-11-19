@@ -19,11 +19,15 @@ Quota hours are counted when the student starts the lab VM themselves.  If an ed
 
 Schedules are the time slots that an educator can create for the class so the student VMs are available for class time.  Schedules can be one-time or recurring.  Quota hours aren't used when a schedule is running.
 
+Scheduled time is commonly used when all the students have their own VMs and are following the professor's directions at a set time during the day (like class hours). The downside is that all the student VMs are started and are accruing costs, even if a student doesn't log in to a VM.
+
+A lab can use either quota time or scheduled time, or a combination of both. If a class doesn't need scheduled time, then use only quota time for the most effective use of the VMs. 
+
 There are three types of schedules: Standard, Start only and Stop only.
 
 - **Standard**.  This schedule will start all student VMs at the specified start time and shutdown all student VMs at the specified stop time.
 - **Start only**.   This schedule will start all student VMs at the specified  time.  Student VMs won't be stop until a student stops the their VM through the Azure Lab Services portal or a stop only schedule occurs.
-- **Stop only**.  This schedule will stop all student VMs at the specified time.  
+- **Stop only**.  This schedule will stop all student VMs at the specified time. 
 
 ## Template virtual machine
 
