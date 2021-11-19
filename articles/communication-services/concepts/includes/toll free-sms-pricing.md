@@ -13,8 +13,6 @@ ms.custom: include file
 ms.author: prakulka
 ---
 
-# SMS Pricing 
-
 SMS service is priced on a per-message basis. SMS pricing is determined by the number type, destination carrier, and location of the number you're using as well as the destination of your SMS messages. 
 
 ## Toll Free Pricing
