@@ -25,7 +25,7 @@
   - name: Tutorials
     items:
     - name: List of app integration tutorials
-      href: /azure/active-directory/saas-apps/
+      href: /azure/active-directory/saas-apps/tutorial-list
   - name: Samples
     items: 
     - name: Overview of App Management samples
@@ -201,7 +201,7 @@
         - name: Microsoft Q&A question page
           href: /answers/topics/azure-active-directory.html
         - name: Pricing
-          href: https://azure.microsoft.com/pricing/details/active-directory
+          href: https://azure.microsoft.com/pricing/details/active-directory/
         - name: Service updates
           href: https://azure.microsoft.com/updates/?product=active-directory
         - name: Stack Overflow
