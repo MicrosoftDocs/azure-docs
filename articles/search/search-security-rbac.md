@@ -23,7 +23,7 @@ Azure provides a global [role-based access control (RBAC) authorization system](
 > [!NOTE]
 > Search Service Contributor is a "generally available" role that has "preview" capabilities. It's the only role that supports a true hybrid of service and content management tasks, allowing all operations on a given search service. To get the preview capabilities of content management on this role, [**sign up for the preview**](#step-1-preview-sign-up).
 
-A few RBAC scenarios are **not** supported, or not covered in this article:
+A few Azure RBAC scenarios are **not** supported, or not covered in this article:
 
 + Outbound indexer connections are documented in ["Set up an indexer connection to a data source using a managed identity"](search-howto-managed-identities-data-sources.md). For a search service that has a managed identity assigned to it, you can create roles assignments that allow external data services, such as Azure Blob Storage, read-access on blobs by your trusted search service.
 
@@ -35,9 +35,9 @@ In Cognitive Search, built-in roles include generally available and preview role
 
 Role assignments are cumulative and pervasive across all tools and client libraries used to create or manage a search service. These clients include the Azure portal, Management REST API, Azure PowerShell, Azure CLI, and the management client library of Azure SDKs.
 
-Roles apply to the search service as a whole and must be assigned by an Owner. You cannot assign roles to specific indexes or other top-level objects.
+Using the portal, roles are defined for the search service as a whole, and not specific indexes or other top-level objects. Use PowerShell or the Azure CLI to [grant access on specific indexes](search-howto-aad.md#rbac-single-index).
 
-There are no regional, tier, or pricing restrictions for using RBAC on Azure Cognitive Search, but your search service must be in the Azure public cloud.
+There are no regional, tier, or pricing restrictions for using Azure RBAC on Azure Cognitive Search, but your search service must be in the Azure public cloud.
 
 | Role | Applies to | Description |
 | ---- | ---------- | ----------- |
@@ -62,10 +62,12 @@ New built-in preview roles provide permissions over content on the search servic
 To add your subscription to the preview:
 
 1. Open [Azure portal](https://portal.azure.com/) and find your search service
+
 1. On the left-nav pane, select **Keys**.
+
 1. In the blue banner that mentions the preview, select **Register** to add the feature to your subscription.
 
-![screenshot of how to sign up for the rbac preview in the portal](media/search-howto-aad/rbac-signup-portal.png)
+   :::image type="content" source="media/search-howto-aad/rbac-signup-portal.png" alt-text="screenshot of how to sign up for the rbac preview in the portal" border="true" :::
 
 You can also sign up for the preview using Azure Feature Exposure Control (AFEC) and searching for *Role Based Access Control for Search Service (Preview)*. For more information on adding preview features, see [Set up preview features in Azure subscription](../azure-resource-manager/management/preview-features.md?tabs=azure-portal).
 
@@ -104,7 +106,7 @@ Use the Management REST API version 2021-04-01-Preview, [Create or Update Servic
 
 If you are using Postman or another web testing tool, see the Tip below for help on setting up the request.
 
-1. Set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
+1. Under "properties", set ["AuthOptions"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions) to "aadOrApiKey".
 
    Optionally, set ["AadAuthFailureMode"](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#aadauthfailuremode) to specify whether 401 is returned instead of 403 when authentication fails. The default of "disableLocalAuth" is false so you don't need to set it, but it's listed below to emphasize that it must be false whenever authOptions are set.
 
