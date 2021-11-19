@@ -56,7 +56,7 @@ Install-Module -Name Az.Network -AllowPrerelease
     
     [System.Collections.Generic.List[String]]$access = @()  
     $access.Add("Connectivity");  
-    $access.Add("Security"); 
+    $access.Add("SecurityAdmin"); 
  
     $scope = New-AzNetworkManagerScope -Subscription $subGroup  -ManagementGroup $mgGroup
     ```
@@ -67,7 +67,7 @@ Install-Module -Name Az.Network -AllowPrerelease
     $avnm = @{
         Name = 'myAVNM'
         ResourceGroupName = 'myAVNMResourceGroup'
-        NetworkManagerScope = $scope.id
+        NetworkManagerScope = $scope
         NetworkManagerScopeAccess = $access
         Location = 'West US'
     }
