@@ -105,6 +105,15 @@ def run(Inputs, GlobalParameters):
         return error
 ```
 
+> [!TIP]
+> The return value from the script can be any Python object that is serializable to JSON. For example, if your model returns a Pandas dataframe that contains multiple columns, you might use an output decorator similar to the following code:
+> 
+> ```python
+> output_sample = pd.DataFrame(data=[{"a1": 5, "a2": 6}])
+> @output_schema(PandasParameterType(output_sample))
+> result = model.predict(data)
+> return result
+> ```
 
 ## <a id="binary-data"></a> Binary (i.e. image) data
 
