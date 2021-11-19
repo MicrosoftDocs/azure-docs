@@ -163,14 +163,9 @@ sections:
       - question: |
           Is CentOS supported for Speech containers?
         answer: |
-          CentOS 7 is not supported by Python SDK yet, also Ubuntu 19.04 is not supported.
+          Speech containers should run on most Operating Systems, but the speech SDK is required for the container to operate.
           
-          The Python Speech SDK package is available for these operating systems:
-          - **Windows** - x64 and x86
-          - **Mac** - macOS X version 10.12 or later
-          - **Linux** - Ubuntu 16.04 (until September), Ubuntu 18.04, Debian 9 on x64
-          
-          For more information on environment setup, see [Python platform setup](quickstarts/setup-platform.md?pivots=programming-language-python). For now, Ubuntu 18.04 is the recommended version.
+          For more information on supported environments, see [Get Speech SDK](speech-sdk?tabs=linux%2Cubuntu%2Cios-xcode%2Cmac-xcode%2Candroid-studio#get-the-speech-sdk).
           
       - question: |
           Why am I getting errors when attempting to call LUIS prediction endpoints?
