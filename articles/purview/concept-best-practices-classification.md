@@ -96,7 +96,7 @@ For example, only specific 7 system and custom classifications have been selecte
 #### Custom classification:
 
 * Create custom classification(s), only if the available system classifications do not meet your needs.
-* For the **name** of custom classification, it's a good practice to use a namespace convention, i.e.,**<company name>.<business unit>.<custom classification name>**. 
+* For the **name** of custom classification, it's a good practice to use a namespace convention, i.e.,**\<company name>.\<business unit>.\<custom classification name>**. 
 As an example, for the custom EMPLOYEE_ID classification for a company named Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID, the friendly name is stored in the system as HR.EMPLOYEE ID.
  
     :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
