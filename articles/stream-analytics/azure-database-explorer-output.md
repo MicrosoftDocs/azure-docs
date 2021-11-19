@@ -20,7 +20,7 @@ To learn more about how to create an Azure Data Explorer and cluster by using th
 
 
 > [!NOTE] 
-> Test connection is currently not supported om multi-tenant clusters.
+> Test connection is currently not supported on multi-tenant clusters.
 
 ## Output configuration
 
