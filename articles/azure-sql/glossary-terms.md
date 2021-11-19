@@ -14,7 +14,7 @@ ms.reviewer:
 ms.date: 5/18/2021
 ---
 # Azure SQL glossary of terms
-[!INCLUDE[appliesto-sqldb-sqlmi](./includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-asf](./includes/appliesto-asf.md)] 
 
 ## Azure SQL Database
 
