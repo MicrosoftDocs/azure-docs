@@ -36,8 +36,8 @@ ms.date: 5/18/2021
 ||Serverless compute| The [serverless compute tier](database/serverless-tier-overview.md) autoscales compute resources based on workload activity and bills for the amount of compute used per second. SQL Database serverless is currently available in the vCore purchasing model's  General Purpose service tier with Generation 5 hardware.|
 |Hardware generation| Available hardware configurations | The vCore-based purchasing model allows you to select the appropriate hardware generation for your workload. [Hardware configuration options](database/service-tiers-sql-database-vcore.md#hardware-generations) include Gen5, M-series, Fsv2-series, and DC-series.|
 |Compute size (service objective) ||Compute size (service objective) is the maximum amount of CPU, memory, and storage resources available for a single database or elastic pool.
-||vCore-based sizing options|For sizing options and resource limits in the vCore-based purchasing model, see [vCore single databases](database/resource-limits-vcore-single-databases.md), and [vCore elastic pools](database/resource-limits-vcore-elastic-pools.md).|
-||DTU-based sizing options|For sizing options and resource limits in the DTU-based purchasing model, see [DTU single databases](database/resource-limits-dtu-single-databases.md) and [DTU elastic pools](database/resource-limits-dtu-elastic-pools.md).
+||vCore-based sizing options| Configure the compute size for your database or elastic pool by selecting the appropriate service tier, compute tier, and hardware generation for your workload. For sizing options and resource limits in the vCore-based purchasing model, see [vCore single databases](database/resource-limits-vcore-single-databases.md), and [vCore elastic pools](database/resource-limits-vcore-elastic-pools.md).|
+||DTU-based sizing options| Configure the compute size for your database or elastic pool by selecting the appropriate service tier and selecting the maximum data size and number of DTUs. When using an elastic pool, configure the reserved eDTUs for the pool, and optionally configure per-database settings. For sizing options and resource limits in the DTU-based purchasing model, see [DTU single databases](database/resource-limits-dtu-single-databases.md) and [DTU elastic pools](database/resource-limits-dtu-elastic-pools.md).
 
 ## Azure SQL Managed Instance
 
@@ -52,4 +52,16 @@ ms.date: 5/18/2021
 |Service tier| vCore-based service tiers| Azure SQL Managed Instance offers two service tiers. Both service tiers guarantee 99.99% availability and enable you to independently select storage size and compute capacity. Select either the [General Purpose or Business Critical service tier](managed-instance/sql-managed-instance-paas-overview.md#service-tiers) for a managed instance based upon your performance and latency requirements.|
 |Compute tier|Provisioned compute| Azure SQL managed instances run under the [provisioned compute](managed-instance/service-tiers-managed-instance-vcore.md#compute-tiers) tier. SQL Managed Instance provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour. |
 |Hardware generation|Available hardware configurations| Azure SQL Managed Instance [hardware generations](managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations) include standard-series (Gen5), premium-series, and memory optimized premium-series hardware generations. |
-|Compute size | vCore-based sizing options | Configure the compute size for your managed instance by selecting the appropriate service tier and hardware generation for your workload. Learn about [resource limits for managed instances](managed-instance/resource-limits.md). |
+|Compute size | vCore-based sizing options | Compute size (service objective) is the maximum amount of CPU, memory, and storage resources available for a single managed instance or instance pool. Configure the compute size for your managed instance by selecting the appropriate service tier and hardware generation for your workload. Learn about [resource limits for managed instances](managed-instance/resource-limits.md). |
+
+## SQL Server on Azure VM
+|Context|Term|More information|
+|:---|:---|:---|
+|Azure service|SQL Server on Azure VM| [SQL Server on Azure VM](virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server virtual machines (VMs) simplify licensing costs when you pay as you go. You can take advantage of [automated backups](virtual-machines/windows/automated-backup.md).|
+| Server entity | | |
+| Deployment option | | |
+| Purchasing model | | |
+| Service tier | | |
+| Compute tier | | |
+| Hardware generation | | |
+| Compute size | | |
