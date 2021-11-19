@@ -270,7 +270,7 @@ automl_classifier = AutoMLConfig(
                                 )
 ```
 
-To alter the default ensemble behavior, there are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object. See the SDK reference documentation for a list of the available `kwargs`.
+To alter the default ensemble behavior, there are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object. See the [SDK reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) for a list of the available `kwargs`.
 
 <a name="exit"></a> 
 
