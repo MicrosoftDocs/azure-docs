@@ -1,5 +1,5 @@
 ---
-title: Create an AMD-based confidential VM with ARM template (preview)
+title: Create Azure AMD-based confidential VM with ARM template (preview) 
 description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) using an ARM template. Deploy the confidential VM from the Azure portal or the Azure CLI.
 author: RunCai
 ms.service: virtual-machines
@@ -190,7 +190,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 }
 ```
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a confidential VM on AMD in the Azure portal](quick-create-confidential-vm-portal-amd.md)
