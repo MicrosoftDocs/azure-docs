@@ -177,13 +177,13 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window.
+7. Add a remote to your clone that references the Git repository for the web app in App Service. For \<Git clone URL\>, use the URL returned in the previous step. Run the following command in your command window. Make sure that you're in the sample directory, *web-apps-code-iot-hub-data-visualization*, then run the following command in your command window.
 
    ```cmd
    git remote add webapp <Git clone URL>
    ```
 
-8. To deploy the code to App Service, enter the following command in your command window. Make sure that you are in whatever directory you previously cloned into. Typically this will be **web-apps-code-iot-hub-data-visualization**. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Make sure that you push to the master branch of the App Service remote.
+8. To deploy the code to App Service, enter the following command in your command window. Make sure that you are in the sample directory *web-apps-code-iot-hub-data-visualization*. If you are prompted for credentials, enter the user-level deployment credentials that you created in step 5. Push to the master branch of the App Service remote.
 
     ```cmd
     git push webapp master:master
