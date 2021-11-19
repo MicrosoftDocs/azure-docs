@@ -17,53 +17,12 @@ This article describes how to prepare to deploy a data controller for Azure Arc-
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 
-1. Have access to your Kubernetes cluster. If you do not have a Kubernetes cluster, you can create a test/demonstration cluster on Azure Kubernetes Service (AKS). Follow the instructions under [Create cluster on AKS](#create-cluster-on-aks).
+1. Have access to your Kubernetes cluster. If you do not have a Kubernetes cluster, you can create a test/demonstration cluster on Azure Kubernetes Service (AKS). Follow the instructions under [Create AKS cluster for Azure Arc-enabled data services](create-aks-cluster-for-data-controller.md).
 1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
-2. Create Azure Arc-enabled data services data controller. This step involves creating
-    - Azure Arc data services extension
-    - Custom location
-    - Azure Arc data controller
-3. If automatic upload of logs to Azure Log Analytics is desired, then the Log Analytics Workspace ID and the Shared Access key are needed as part of deployment.
-
-## Create cluster on AKS
-
-This section explains how to create a Kubernetes cluster on Azure Kubernetes service. If you already have a cluster, proceed to the next section.
-
-1. Create the resource group.
-
-   ```azurecli
-   az group create --name <resource_group_name> --location <location>
-   ```
-
-   To learn more about resource groups, see [What is Azure Resource Manager](../../azure-resource-manager/management/overview.md).
-
-1. Create Kubernetes cluster
-
-   Create the cluster in the resource group that you created previously.
-
-   The following example creates a 4 node cluster, with monitoring enabled, and generates public and private key files if missing. 
-
-   ```azurecli
-   az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 4 --enable-addons monitoring --generate-ssh-keys
-   ```
-
-   For command details, see [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create).
-
-   For a complete demonstration see [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/kubernetes-walkthrough.md).
-
-1. Get credentials
-
-   Set your current client to connect to your cluster.
-
-   If you created the cluster on AKS, run the following command:
-
-   ```azurecli
-   az aks get-credentials --resource-group <resource_group_name> --name <cluster_name>
-   ```
 
 ## Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 
-To connect your kubernetes cluster to Azure, use Azure CLI `az` with the following extensions or Helm.
+To connect your Kubernetes cluster to Azure, use Azure CLI `az` with the following extensions or Helm.
 
 ### Install tools
 

@@ -46,9 +46,9 @@ The environment variables include passwords for log and metric services. The pas
 ## variables for Azure location, extension and namespace
 export subscription=<Your subscription ID>
 export resourceGroup=<Your resource group>
-export clusterName=<name of your connected kubernetes cluster>
+export clusterName=<Name of your connected Kubernetes cluster>
 export location=<Azure location>
-export adsExtensionName="ads-ext" 
+export adsExtensionName="<Name of data controller extension>" 
 export namespace="arcds"
 
 ## variables for Metrics and Monitoring dashboard credentials
@@ -66,10 +66,10 @@ Windows PowerShell
 ## variables for Azure location, extension and namespace
 $ENV:subscription="<Your subscription ID>"
 $ENV:resourceGroup="<Your resource group>"
-$ENV:clusterName="<name of your connected kubernetes cluster>"
+$ENV:clusterName="<Name of your connected Kubernetes cluster>"
 $ENV:location="<Azure location>"
-$ENV:adsExtensionName="<name of Data controller extension" 
-$ENV:namespace="namespace where extension and data controller will be deployed"
+$ENV:adsExtensionName="<Name of data controller extension>" 
+$ENV:namespace="Namespace where extension and data controller will be deployed"
 
 ## variables for Metrics and Monitoring dashboard credentials
 $ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
@@ -136,14 +136,14 @@ You can verify the status of the deployment of Azure Arc-enabled data services e
 1. Run the below command and ensure the (1) namespace mentioned above is created and (2) the `bootstrapper` pod is in 'running' state before proceeding to the next step.
 
 ``` console
-kubectl get pods --name <name of namespace used in the json template file above>
+kubectl get pods --namespace <name of namespace used in the json template file above>
 ```
 
 For example, the following example gets the pods from `arc` namespace.
 
 ```console
 #Example:
-kubectl get pods --name arc
+kubectl get pods --namespace arc
 ```
 
 ## Retrieve the managed identity and grant roles
