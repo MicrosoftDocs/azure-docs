@@ -55,7 +55,7 @@ IoT Edge devices and their assigned child devices can function indefinitely offl
 
 ## Set up parent and child devices
 
-Parent devices can have multiple child devices, but a child device only has one parent.
+By default, a parent device can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the edgeHub module. A child device only has one parent.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

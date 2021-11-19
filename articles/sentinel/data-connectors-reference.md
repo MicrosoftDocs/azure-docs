@@ -1,10 +1,7 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-services: sentinel
-documentationcenter: na
 author: batamig
-ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
@@ -182,12 +179,21 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 
     Once you've created a new Syslog alert, check that the logs are correctly gathered on your server in a separate file. For example, to check your logs, you can use the *Test the configuration* button in the Syslog alert configuration in AFAD. If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
 
-## Amazon Web Services - CloudTrail
+## Amazon Web Services
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect AWS CloudTrail to Microsoft Sentinel](connect-aws.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=ct)** (Top connector article) |
 | **Log Analytics table(s)** | AWSCloudTrail |
+| **Supported by** | Microsoft |
+| | |
+
+## Amazon Web Services S3
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=s3)** (Top connector article) |
+| **Log Analytics table(s)** | AWSCloudTrail<br>AWSGuardDuty<br>AWSVPCFlow |
 | **Supported by** | Microsoft |
 | | |
 
@@ -328,7 +334,7 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-azure-security-center.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityAlert |
 | **Supported by** | Microsoft |
 | | |

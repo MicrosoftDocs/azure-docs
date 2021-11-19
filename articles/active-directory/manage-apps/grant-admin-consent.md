@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to grant tenant-wide admin consent to an application in Azure AD.
 ---
 
-# Grant tenant-wide admin consent to an application in Azure Active Directory
+# Grant tenant-wide admin consent to an application
 
   In this article, you'll learn how to grant tenant-wide admin consent to an application in Azure Active Directory (Azure AD).
 

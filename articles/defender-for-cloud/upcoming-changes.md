@@ -3,9 +3,9 @@ title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: overview
-ms.date: 11/10/2021
+ms.date: 11/19/2021
 ms.author: memildin
 
 ---
@@ -137,12 +137,13 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** December 2021
 
-Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans:
+Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans: [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Microsoft Defender for container registries](defender-for-container-registries-introduction.md).
 
-- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+With this change:
 
-With this change, these two plans will be deprecated and the new, combined plan will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
+- These two plans will be deprecated.
+- The two existing recommendations to enable the current plans will also be deprecated: **Azure Defender for Kubernetes should be enabled** and **Azure Defender for container registries should be enabled**.
+- A new, combined plan, **Microsoft Defender for Containers**, will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
 
 There'll be no change to subscriptions that already have Defender for Kubernetes or Defender for container registries enabled. You'll have the option to upgrade your existing subscriptions to Microsoft Defender for Containers.
 
