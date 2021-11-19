@@ -25,8 +25,8 @@ This article outlines how to register Snowflake, and how to authenticate and int
 
 When scanning Snowflake, Purview supports:
 
-- Extract metadata including Snowflake servers, databases, schemas, tables, views, stored procedures, functions, pipes, stages, streams, tasks, sequences, and table/view/stream columns.
-- Fetch static lineage on assets relationships among tables, views and streams.
+- Extract metadata including Snowflake server, databases, schemas, tables, views, stored procedures, functions, pipes, stages, streams, tasks, sequences, and table/view/stream columns.
+- Fetch static lineage on assets relationships among tables, views, and streams.
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ On the **Register sources (Snowflake)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **server** URL used to connect to the Snowflake account, e.g. `xy12345.east-us-2.azure.snowflakecomputing.com`.
+1. Enter the **server** URL used to connect to the Snowflake account, for example, `xy12345.east-us-2.azure.snowflakecomputing.com`.
 
 1. Select a collection or create a new one (Optional)
 
@@ -115,7 +115,7 @@ To create and run a new scan, do the following:
 
         Usage of NOT and special characters are not acceptable.
 
-    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Snowflake source to be scanned.
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. It's dependent on the size of Snowflake source to be scanned.
 
         > [!Note]
         > As a thumb rule, please provide 1GB memory for every 1000 tables
