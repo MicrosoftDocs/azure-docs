@@ -62,3 +62,5 @@
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs
