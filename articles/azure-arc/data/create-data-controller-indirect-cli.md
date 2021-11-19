@@ -115,7 +115,7 @@ az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespac
 #az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on AKS on Azure Stack HCI
 
@@ -140,7 +140,7 @@ az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace <namespac
 #az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on Azure Red Hat OpenShift (ARO)
 
@@ -163,7 +163,7 @@ az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace <
 #az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on Red Hat OpenShift Container Platform (OCP)
 
@@ -223,7 +223,7 @@ az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --na
 #az arcdata dc create --path ./custom  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on open source, upstream Kubernetes (kubeadm)
 
@@ -270,7 +270,7 @@ az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --na
 #az arcdata dc create --path ./custom - --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on AWS Elastic Kubernetes Service (EKS)
 
@@ -285,7 +285,7 @@ az arcdata dc create --profile-name azure-arc-eks  --k8s-namespace <namespace> -
 #az arcdata dc create --profile-name azure-arc-eks  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Create on Google Cloud Kubernetes Engine Service (GKE)
 
@@ -300,7 +300,7 @@ az arcdata dc create --profile-name azure-arc-gke --k8s-namespace <namespace> --
 #az arcdata dc create --profile-name azure-arc-gke --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
 ## Monitor the creation status
 
