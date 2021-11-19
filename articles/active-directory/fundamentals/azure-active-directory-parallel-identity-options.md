@@ -96,7 +96,7 @@ Table details
 
 Use the following decision tree to help you decide which scenario would work best for your organization.
 
-![decision tree](media/azure-active-directory-parallel-identity-options/identity-decision-tree.png)
+![decision tree](media/azure-active-directory-parallel-identity-options/identity-decision-tree.png#lightbox)
 
 The rest of this document, will outline four scenarios A-D with various options supporting them.
 
