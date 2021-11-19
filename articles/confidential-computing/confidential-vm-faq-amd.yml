@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Confidential virtual machines FAQ (preview)
+  title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ (preview)
   description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
   author: edendcohen
   ms.topic: troubleshooting
@@ -10,7 +10,7 @@ metadata:
   ms.date: 11/15/2021
   ms.author: edcohen
     
-title: Confidential virtual machines FAQ (preview)
+title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ (preview)
 summary: |
   > [!IMPORTANT]
   > Confidential virtual machines (confidential VMs) in Azure Confidential Computing is currently in PREVIEW.
@@ -84,11 +84,11 @@ sections:
       - question: |
           What does this error mean? "Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota"
         answer: |
-          You might receive the error **Operation could not be completed as it results in exceeding approved standard DCasV5/ECasv5 Family Cores Quota**.
+          You might receive the error **Operation could not be completed as it results in exceeding approved standard DCasv5/ECasv5 Family Cores Quota**.
           This Azure Resource Manager template (ARM template) error means the deployment failed because of a lack of Azure compute cores. Azure free trial subscriptions don't have a large enough core quota for confidential VMs. [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md).  
           
       - question: |
-          What's the difference between DCasv5-Series and ECasv5-series VMs?
+          What's the difference between DCasv5-series and ECasv5-series VMs?
         answer: |
           ECasv5-series are memory-optimized VM sizes, which offer a higher memory-to-CPU ratio. These sizes are especially well-suited for relational database servers, medium to large caches, and in-memory analytics. There are no other material differences.
           
