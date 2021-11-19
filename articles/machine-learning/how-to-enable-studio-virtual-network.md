@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 11/10/2021
+ms.date: 11/19/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
 ---
@@ -67,11 +67,16 @@ In this article, you learn how to:
 
 ### Azure Storage Account
 
-There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This problem occurs when users bring an existing file store to set as the default file store during workspace creation.
+* There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This problem occurs when users bring an existing file store to set as the default file store during workspace creation.
 
-To avoid this issue, you have two options: 1) Use the default file store, which is automatically created for you doing workspace creation. 2) To bring your own file store, make sure the file store is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
+    To avoid this issue, you have two options: 1) Use the default file store, which is automatically created for you doing workspace creation. 2) To bring your own file store, make sure the file store is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
 
-To resolve this issue, remove the file store account from the virtual network then add it back to the virtual network.
+    To resolve this issue, remove the file store account from the virtual network then add it back to the virtual network.
+
+* When the storage account is in the VNet, there are extra validation requirements when using studio:
+
+    * If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
+    * If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ### Designer sample pipeline
 
