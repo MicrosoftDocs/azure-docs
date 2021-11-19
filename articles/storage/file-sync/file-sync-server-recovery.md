@@ -4,7 +4,7 @@ description: Learn how to recover an Azure File Sync equipped server from a serv
 author: mtalasila
 ms.service: storage
 ms.topic: how-to
-ms.date: 6/01/2021
+ms.date: 11/19/2021
 ms.author: mtalasila
 ms.subservice: files
 ---
@@ -15,15 +15,13 @@ If the server hosting your Azure file share fails but, your data disk is still i
 
 First, on either a new on-premises Windows Server, or an Azure VM, create a new data disk that is the same size as the original data disk. Creating a new data disk reduces the potential for hardware failure from the original data disk.
 
-Install the latest Azure File Sync agent on the new server. Register the new server to the same Storage Sync Service as the original server.
+[Install the latest Azure File Sync agent](file-sync-deployment-guide.md#install-the-azure-file-sync-agent) on the new server, then [register the new server](file-sync-deployment-guide.md#register-windows-server-with-storage-sync-service) to the same Storage Sync Service as the original server.
 
 ## Create a new server endpoint
 
-Now that your server itself is configured, you must create and configure a new server endpoint.
+Now that your server itself is configured, [create and configure a new server endpoint](file-sync-deployment-guide.md#create-a-server-endpoint). For recovery purposes, there are a few things you should consider before configuring your new server endpoint:
 
-For recovering your data, there are a few things you should know when configuring your new server endpoint.
-
-If you choose to enable cloud tiering, leave **Initial Download Mode** at its default setting. This allows for a faster disaster recovery since only the namespace is downloaded, creating tiered files. If instead you choose to keep cloud tiering disabled, the only option for **Initial Download Mode** is to fully download all files.
+If you want to enable cloud tiering, leave **Initial Download Mode** at its default setting. This allows for a faster disaster recovery since only the namespace is downloaded, creating tiered files. If instead you want to keep cloud tiering disabled, the only option for **Initial Download Mode** is to fully download all files.
 
 While the namespace is being synced, don't copy data manually, since that will increase the download time. When the sync completes, additional data will download in the background. While this background recall occurs, feel free to continue working as normal, you don't need to wait for it to complete.
 
