@@ -20,7 +20,7 @@ SMS service is priced on a per-message basis. SMS pricing is determined by the n
 ## Toll Free Pricing
 
 ### Leasing Fee
-Fees for phone number leasing are charged upfront and then recur on a month-to-month basis:
+Fees for toll-free leasing are charged upfront and then recur on a month-to-month basis:
 
 |Number type   |Monthly fee   |
 |--------------|-----------|
@@ -28,12 +28,13 @@ Fees for phone number leasing are charged upfront and then recur on a month-to-m
 
 
 ### Usage Fee
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Carriers charge additional surcharges per message. Please refer to [this](./sms-pricing.md#ccarrier-surcharge) section for carrier surcharges per number type.
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States.
 
 The following prices include required communications taxes and fees:
 
-|Number Type   |Send messages (per message segment*)|Receive messages (per message segment*)|
-|-----------|------------|------------|
-|Toll-free (United States)    |$0.0075 | $0.0075 |
+|Operation   |Usage Fee |
+|-----------|------------|
+|Send messages (per message segment*) |$0.0075 |
+|Receive messages (per message segment*) |$0.0075 |
 
 *Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
