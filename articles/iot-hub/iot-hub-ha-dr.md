@@ -1,11 +1,11 @@
 ---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/22/2021
 ms.author: robinsh
 ---
 
@@ -40,16 +40,16 @@ IoT Hub supports [Availability Zones](../availability-zones/az-overview.md) in [
 
 Availability Zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones):
 
-- West Us 2
-- Central US
-- North Europe
-- UK South
-- France Central
 - Australia East
-- Southeast Asia
-- Japan East
-- Canada Central
 - Brazil South
+- Canada Central
+- Central US
+- France Central
+- West Us 2
+- Japan East
+- North Europe
+- Southeast Asia
+- UK South
 
 ## Cross region DR
 

@@ -1,9 +1,9 @@
 ---
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
-author: anastasia-ms
+author: wesmc7777
 ms.author: v-stharr
-ms.date: 11/10/2021
+ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -124,8 +124,13 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md) in 
 
 Availability Zone support for DPS is enabled automatically for DPS resources in the following [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones):
 
-* West Europe
+* Australia East
 * Brazil South
+* Canada Central
+* Japan East
+* North Europe
+* West Europe
+* UK South
 
 ## Quotas and Limits
 
