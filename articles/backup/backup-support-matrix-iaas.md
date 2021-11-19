@@ -52,7 +52,7 @@ The following table summarizes the supported operating systems when backing up W
 
 **Scenario** | **OS support**
 --- | ---
-Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
+Back up with Azure VM agent extension | - Windows 10 Client (64 bit only) <br/><br/>- Windows Server 2022 (Datacenter/Datacenter Core/Standard)   <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2012 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM and SP1 Standard)  <br/><br/> - Windows Server 2008 (64 bit only)
 Back up with MARS agent | [Supported](backup-support-matrix-mars-agent.md#supported-operating-systems) operating systems.
 Back up with DPM/MABS | Supported operating systems for backup with [MABS](backup-mabs-protection-matrix.md) and [DPM](/system-center/dpm/dpm-protection-matrix).
 

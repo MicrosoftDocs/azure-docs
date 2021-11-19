@@ -48,7 +48,7 @@ For more information, see [proxy considerations](how-to-collect-and-transport-me
 
 ### Update Moby-engine
 
-On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-install-iot-edge.md#install-a-container-engine).
+On Linux hosts, ensure you're using a recent version of the container engine. We recommend updating to the latest version by following the [installation instructions](how-to-provision-single-device-linux-symmetric.md#install-iot-edge).
 
 ## How do I collect logs along with metrics?
 

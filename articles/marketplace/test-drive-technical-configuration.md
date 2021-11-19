@@ -4,7 +4,7 @@ description: Learn about test drives. Test drives allow new customers to test dr
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 10/26/2021
 author: trkeya
 ms.author: trkeya
 ---
@@ -14,6 +14,9 @@ ms.author: trkeya
 The test drive option in the Microsoft commercial marketplace lets you configure a hands-on, self-guided tour of your product's key features. With a test drive, new customers can try your offer before committing to purchase it. For more information, see [What is Test Drive?](what-is-test-drive.md)
 
 If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and clear the **Enable test drive** check box. Not all offer types have a test drive available.
+
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Azure Resource Manager test drive
 

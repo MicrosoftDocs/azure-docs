@@ -70,10 +70,10 @@ items:
     href: choose-pricing-tier.md
   - name: Creator for Indoor maps
     items:
-    - name: Creator service geographic scope
-      href: creator-geographic-scope.md
     - name: Indoor map concepts
       href: creator-indoor-maps.md
+    - name: Creator service geographic scope
+      href: creator-geographic-scope.md
     - name: Drawing conversion errors and warnings
       href: drawing-conversion-error-codes.md  
   - name: Encryption of data at rest
@@ -289,6 +289,14 @@ items:
       href: add-line-layer-to-map-ios.md
     - name: Add a polygon layer
       href: add-polygon-layer-map-ios.md        
+    - name: Add a polygon extrusion layer
+      href: add-polygon-extrusion-layer-map-ios.md
+    - name: Add heat map layer
+      href: add-heat-map-layer-ios.md
+    - name: Add an image layer
+      href: add-image-layer-to-map-ios.md
+    - name: Add a tile layer
+      href: add-tile-layer-to-map-ios.md       
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started
@@ -393,6 +401,8 @@ items:
   items:
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/azure-maps/toc.json&bc=/azure/azure-maps/breadcrumb/toc.json
+  - name: Azure Maps QPS Rate Limits
+    href: azure-maps-qps-rate-limits.md
   - name: Azure IoT services
     items:
     - name: IoT Hub

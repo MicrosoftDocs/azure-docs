@@ -43,7 +43,7 @@ Depending on which services you use with your Batch solution, you may incur addi
 
 ## View cost analysis and create budgets
 
-[Azure Cost Management](/azure/cost-management-billing/cost-management-billing-overview) lets you plan, analyze and reduce your spending to maximize your cloud investment. The usage costs for all Azure services are available, including Azure Batch. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) lets you plan, analyze and reduce your spending to maximize your cloud investment. The usage costs for all Azure services are available, including Azure Batch. You can view and filter Batch costs to be viewed and filtered, forecast future costs, and set spending limits with alerts when those limits are reached.
 
 In the Azure portal, you can create budgets and spending alerts for your Batch pools or Batch accounts. Budgets and alerts are useful for notifying stakeholders of any risks of overspending, although it's possible for there to be a delay in spending alerts and to slightly exceed a budget.
 
@@ -146,5 +146,5 @@ It is important to note that reservation discount is "use-it-or-lose-it."  If th
 
 ## Next steps
 
-- Learn more about [Azure Cost Management + Billing](/azure/cost-management-billing/cost-management-billing-overview).
+- Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
 - Learn about [using low-priority VMs with Batch](batch-low-pri-vms.md).

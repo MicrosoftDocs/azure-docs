@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuration"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---

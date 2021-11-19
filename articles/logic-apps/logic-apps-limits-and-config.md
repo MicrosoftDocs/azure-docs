@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, rarayudu, azla
 ms.topic: reference
-ms.date: 09/16/2021
+ms.date: 11/16/2021
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -530,7 +530,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 >
 > The following connectors make inbound webhook callbacks to the Logic Apps service:
 >
-> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Azure Sentinel, Business Central, Calendly, 
+> Adobe Creative Cloud, Adobe Sign, Adobe Sign Demo, Adobe Sign Preview, Adobe Sign Stage, Microsoft Sentinel, Business Central, Calendly, 
 > Common Data Service, DocuSign, DocuSign Demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP*, 
 > Shifts for Microsoft Teams, Teamwork Projects, Typeform
 >
@@ -561,6 +561,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | Germany West Central | 51.116.168.222, 51.116.171.209, 51.116.233.40, 51.116.175.0 |
 | Japan East | 13.71.146.140, 13.78.84.187, 13.78.62.130, 13.78.43.164 |
 | Japan West | 40.74.140.173, 40.74.81.13, 40.74.85.215, 40.74.68.85 |
+| Jio India West | 20.193.206.48,20.193.206.49,20.193.206.50,20.193.206.51 |
 | Korea Central | 52.231.14.182, 52.231.103.142, 52.231.39.29, 52.231.14.42 |
 | Korea South | 52.231.166.168, 52.231.163.55, 52.231.163.150, 52.231.192.64 |
 | North Central US | 168.62.249.81, 157.56.12.202, 65.52.211.164, 65.52.9.64 |
@@ -582,6 +583,7 @@ This section lists the inbound IP addresses for the Azure Logic Apps service onl
 | West India | 104.211.164.112, 104.211.165.81, 104.211.164.25, 104.211.157.237 |
 | West US | 52.160.90.237, 138.91.188.137, 13.91.252.184, 157.56.160.212 |
 | West US 2 | 13.66.224.169, 52.183.30.10, 52.183.39.67, 13.66.128.68 |
+| West US 3| 20.150.172.240, 20.150.172.242, 20.150.172.243, 20.150.172.241 |
 |||
 
 <a name="azure-government-inbound"></a>
@@ -634,6 +636,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service. I
 | Germany West Central | 51.116.233.35, 51.116.171.49, 51.116.233.33, 51.116.233.22, 51.116.168.104, 51.116.175.17, 51.116.233.87, 51.116.175.51 |
 | Japan East | 13.71.158.3, 13.73.4.207, 13.71.158.120, 13.78.18.168, 13.78.35.229, 13.78.42.223, 13.78.21.155, 13.78.20.232 |
 | Japan West | 40.74.140.4, 104.214.137.243, 138.91.26.45, 40.74.64.207, 40.74.76.213, 40.74.77.205, 40.74.74.21, 40.74.68.85 |
+| Jio India West | 20.193.206.128, 20.193.206.129, 20.193.206.130, 20.193.206.131, 20.193.206.132, 20.193.206.133, 20.193.206.134, 20.193.206.135 |
 | Korea Central | 52.231.14.11, 52.231.14.219, 52.231.15.6, 52.231.10.111, 52.231.14.223, 52.231.77.107, 52.231.8.175, 52.231.9.39 |
 | Korea South | 52.231.204.74, 52.231.188.115, 52.231.189.221, 52.231.203.118, 52.231.166.28, 52.231.153.89, 52.231.155.206, 52.231.164.23 |
 | North Central US | 168.62.248.37, 157.55.210.61, 157.55.212.238, 52.162.208.216, 52.162.213.231, 65.52.10.183, 65.52.9.96, 65.52.8.225 |
@@ -641,7 +644,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service. I
 | Norway East | 51.120.88.52, 51.120.88.51, 51.13.65.206, 51.13.66.248, 51.13.65.90, 51.13.65.63, 51.13.68.140, 51.120.91.248 |
 | South Africa North | 102.133.231.188, 102.133.231.117, 102.133.230.4, 102.133.227.103, 102.133.228.6, 102.133.230.82, 102.133.231.9, 102.133.231.51 |
 | South Africa West | 102.133.72.98, 102.133.72.113, 102.133.75.169, 102.133.72.179, 102.133.72.37, 102.133.72.183, 102.133.72.132, 102.133.75.191 |
-| South Central US | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225, 13.73.244.160 - 13.73.244.191 |
+| South Central US | 104.210.144.48, 13.65.82.17, 13.66.52.232, 23.100.124.84, 70.37.54.122, 70.37.50.6, 23.100.127.172, 23.101.183.225 |
 | South India | 52.172.50.24, 52.172.55.231, 52.172.52.0, 104.211.229.115, 104.211.230.129, 104.211.230.126, 104.211.231.39, 104.211.227.229 |
 | Southeast Asia | 13.76.133.155, 52.163.228.93, 52.163.230.166, 13.76.4.194, 13.67.110.109, 13.67.91.135, 13.76.5.96, 13.67.107.128 |
 | Switzerland North | 51.103.137.79, 51.103.135.51, 51.103.139.122, 51.103.134.69, 51.103.138.96, 51.103.138.28, 51.103.136.37, 51.103.136.210 |
@@ -655,6 +658,7 @@ This section lists the outbound IP addresses for the Azure Logic Apps service. I
 | West India | 104.211.164.80, 104.211.162.205, 104.211.164.136, 104.211.158.127, 104.211.156.153, 104.211.158.123, 104.211.154.59, 104.211.154.7 |
 | West US | 52.160.92.112, 40.118.244.241, 40.118.241.243, 157.56.162.53, 157.56.167.147, 104.42.49.145, 40.83.164.80, 104.42.38.32, 13.86.223.0, 13.86.223.1, 13.86.223.2, 13.86.223.3, 13.86.223.4, 13.86.223.5 |
 | West US 2 | 13.66.210.167, 52.183.30.169, 52.183.29.132, 13.66.210.167, 13.66.201.169, 13.77.149.159, 52.175.198.132, 13.66.246.219 |
+| West US 3 | 20.150.181.32, 20.150.181.33, 20.150.181.34, 20.150.181.35, 20.150.181.36, 20.150.181.37, 20.150.181.38, 20.150.173.192 |
 |||
 
 <a name="azure-government-outbound"></a>

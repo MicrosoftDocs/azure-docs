@@ -45,7 +45,7 @@ page.
 * Learn how to [enable and manage private
   access](howto-hyperscale-private-access.md) (preview)
 * Learn about [private
-  endpoints](/azure/private-link/private-endpoint-overview)
+  endpoints](../private-link/private-endpoint-overview.md)
 * Learn about [virtual
-  networks](/azure/virtual-network/concepts-and-best-practices)
-* Learn about [private DNS zones](/azure/dns/private-dns-overview)
+  networks](../virtual-network/concepts-and-best-practices.md)
+* Learn about [private DNS zones](../dns/private-dns-overview.md)

@@ -7,9 +7,7 @@ ms.author: duau
 ms.date: 09/01/2020
 ms.topic: quickstart
 ms.service: traffic-manager
-ms.custom: devx-track-azurepowershell
-  - subject-armqs
-  - mode-arm
+ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Traffic Manager profile using an ARM template

@@ -175,6 +175,9 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Comparison expressions
 
+> [!NOTE]
+> The API for MongoDB does not support comparison expressions with an array literal in the query.
+
 | Command | Supported |
 |---------|---------|
 | $cmp | Yes |

@@ -5,11 +5,10 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 10/26/2021
 ---
 
 # Limits in Azure Database for PostgreSQL - Flexible Server
-
 
 
 The following sections describe capacity and functional limits in the database service. If you'd like to learn about resource (compute, memory, storage) tiers, see the [compute and storage](concepts-compute-storage.md) article.
@@ -77,10 +76,7 @@ A PostgreSQL connection, even idle, can occupy about 10 MB of memory. Also, crea
 
 ### High availability (HA)
 
-- Zone-Redundant HA is currently not supported for Burstable servers.
-- The database server IP address changes when your server fails over to the HA standby. Ensure you use the DNS record instead of the server IP address.
-- If logical replication is configured with a HA configured flexible server, in the event of a failover to the standby server, the logical replication slots are not copied over to the standby server. 
-- For more details on zone-redundant HA including the limitations, please see the [concepts - HA documentation](concepts-high-availability.md) page.
+- Please see [Zone Redundant HA Limitations documentation](concepts-high-availability.md#zone-redundant-high-availability---limitations) page.
 
 ### Availability zones
 
