@@ -140,8 +140,6 @@ For more details on quota limits, see [Azure Subscription Service Limits](../azu
 
 [!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
-<<<<<<< HEAD
-=======
 ## Billable service operations and pricing
 
 Each API call on DPS is billable as one *operation*. This includes all the service APIs and the device registration API.
@@ -186,7 +184,6 @@ The tables below show the current billable status for each DPS service API opera
 |  IoT DPS Resource API| [List Valid SKUs](/api/iot-dps/iot-dps-resource/list-valid-skus) |No  |
 |  IoT DPS Resource API| [Update](/api/iot-dps/iot-dps-resource/update) |  No|
 
->>>>>>> 302d377486fa94feaae5cc62784f52cdbb33b57c
 ## Related Azure components
 
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
