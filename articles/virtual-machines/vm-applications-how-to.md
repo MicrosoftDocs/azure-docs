@@ -59,7 +59,7 @@ Choose an option below for creating your VM application definition and version:
 
 1. Go to the [Azure portal](https://portal.azure.com), then search for and select **Azure Compute Gallery**.
 1. Select the gallery you want to use from the list.
-1. On the page for your gallery, select **Add** from the top of the page and then select **VM image definition** from the drop-down. The **Create a VM application definition** page will open.
+1. On the page for your gallery, select **Add** from the top of the page and then select **VM application definition** from the drop-down. The **Create a VM application definition** page will open.
 1. In the **Basics** tab, enter a name for your application and choose whether the application is for VMs running Linux or Windows.
 1. Select the **Publishing options** tab if you want to specify any of the following optional settings for your VM application definition:
     - A description of the VM application definition.
