@@ -46,7 +46,7 @@ These dimensions are measured independently, but they interact with each other a
   | customEvents    | itemType             | category of customEvents record            |
   | customEvents    | timestamp            | datetime of event                          |
   | customEvents    | operation_Id         | correlate telemetry events                 |
-  | customEvents    | user_Id         	 | unique user identifier                 	  |
+  | customEvents    | user_Id         	    | unique user identifier                  	  |
   | customEvents*   | parentId             | name of feature                            |
   | customEvents*   | pageName             | name of page                               |
   | customEvents*   | actionType           | category of Click Analytics record         |
@@ -55,14 +55,14 @@ These dimensions are measured independently, but they interact with each other a
   | pageViews       | appName              | unique Application Insights app identifier |
   | pageViews       | timestamp            | datetime of event                          |
   | pageViews       | operation_Id         | correlate telemetry events                 |
-  | pageViews       | user_Id         	 | unique user identifier                     |
+  | pageViews       | user_Id            	 | unique user identifier                     |
 
 *Instrument the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates' (shown below). The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**.
 
-![Heart Funnel](./media/usage-overview/gallery.png)
+![Heart gallery](./media/usage-overview/gallery.png)
 
 Users will notice that there are seven workbooks in this section (Below image).  
 
