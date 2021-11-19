@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
@@ -21,8 +21,6 @@ ms.date: 11/18/2021
 
 Flexible server provides features that protect data and mitigates downtime for your mission critical databases in the event of planned and unplanned downtime events. Built on top of the Azure infrastructure that already offers robust resiliency and availability, flexible server has business continuity features that provide additional fault-protection, address recovery time requirements, and reduce data loss exposure. As you architect your applications, you should consider the downtime tolerance - which is the recovery time objective (RTO) and data loss exposure - which is the recovery point objective (RPO). For example, your business-critical database requires much stricter uptime requirements compared to a test database.  
 
-
-
 The table below illustrates the features that Flexible server offers.
 
 
@@ -33,7 +31,6 @@ The table below illustrates the features that Flexible server offers.
 | **Premium-managed disks** | Database files are stored in a highly durable and reliable premium-managed storage. This provides data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. For more information, see [Managed disks documentation](../../virtual-machines/managed-disks-overview.md). | Data stored within an availability zone. |
 | **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region. During a zone-level failure where your server is provisioned, and if your server is not configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
 | **Geo redundant backup** | Flexible server backups are copied to a remote region. that helps with disaster recovery situation in the event of the primary server region is down. | This feature is currently enabled in selected regions. It takes a longer RTO and a higher RPO depending on the size of the data to restore and amount of recovery to perform.  |
-
 
 ## Planned downtime events
 Below are some planned maintenance scenarios. These events typically incur up to few minutes of downtime, and without data loss.
@@ -52,6 +49,7 @@ Below are some planned maintenance scenarios. These events typically incur up to
 Unplanned downtimes can occur as a result of unforeseen disruptions such as underlying hardware fault, networking issues, and software bugs. If the database server configured with high availability goes down unexpectedly, then the standby replica is activated and the clients can resume their operations. If not configured with high availability (HA), then if the restart attempt fails, a new database server is automatically provisioned. While an unplanned downtime cannot be avoided, flexible server helps mitigating the downtime by automatically performing recovery operations without requiring human intervention. 
    
 ### Unplanned downtime: failure scenarios and service recovery
+
 Below are some unplanned failure scenarios and the recovery process. 
 
 | **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA] | **Recovery process** <br> [Servers configured with Zone-redundant HA] |
@@ -60,16 +58,10 @@ Below are some unplanned failure scenarios and the recovery process.
 | <B>Storage failure | Applications do not see any impact for any storage-related issues such as a disk failure or a physical block corruption. As the data is stored in three copies, the copy of the data is served by the surviving storage. The corrupted data block is automatically repaired and a new copy of the data is automatically created. | For any rare and non-recoverable errors such as the entire storage is inaccessible, the flexible server is failed over to the standby replica to reduce the downtime. For more information, see [HA concepts page](./concepts-high-availability.md). |
 | <b> Logical/user errors | To recover from user errors, such as accidentally dropped tables or incorrectly updated data, you have to perform a [point-in-time recovery](../concepts-backup.md) (PITR). While performing the restore operation, you specify the custom restore point, which is the time right before the error occurred.<br> <br>  If you want to restore only a subset of databases or specific tables rather than all databases in the database server, you can restore the database server in a new instance, export the table(s) via [pg_dump](https://www.postgresql.org/docs/11/app-pgdump.html), and then use [pg_restore](https://www.postgresql.org/docs/11/app-pgrestore.html) to restore those tables into your database. | These user errors are not protected with high availability as all changes are replicated to the standby replica synchronously. You have to perform point-in-time restore to recover from such errors. |
 | <b> Availability zone failure | To recover from a zone-level failure, you can perform point-in-time restore using the backup and choosing a custom restore point with the latest time to restore the latest data. A new flexible server will be deployed in another non-impacted zone. The time taken to restore depends on the previous backup and the volume of transaction logs to recover. | Flexible server is automatically failed over to the standby server within 60-120s with zero data loss. For more information, see [HA concepts page](./concepts-high-availability.md). | 
-<<<<<<< HEAD
-| <b> Region failure | Cross-region  read replica and geo-restore of backup features are not yet supported in Azure Database for PostgreSQL - Flexible Server . | |
-=======
 | <b> Region failure | If your server is configured with geo-redundant backup, you can perform geo-restore in the paired region. A new server will be provisioned and recovered to the last available data that was copied to this region. | Same process. |
->>>>>>> cb9737542f9bfe9214f30ced63dd856bd2582ac7
-
 
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
-
 
 ## Next steps
 
