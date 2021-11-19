@@ -20,7 +20,7 @@ The UI library will render a full communication experience right into your appli
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
 ::: zone pivot="platform-web"
-[!INCLUDE [UI Library with Web](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents)]
+[!INCLUDE [UI Library with Web](./includes/get-started-call/web.md)]
 ::: zone-end
 
 ::: zone pivot="platform-android"
