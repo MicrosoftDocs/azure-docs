@@ -1,7 +1,7 @@
 ---
 title: "How to: Use Language Service features asynchronously"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to start using Text Summarization.
+description: Learn how to send Language Service API requests asynchronously, as a batch.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -57,10 +57,10 @@ First, make sure you have the client library installed for your language of choi
 
 Afterwards, use the client object to send asynchronous calls to the API. The method calls to use will vary depending on your language. Use the available samples and reference documentation to help you get started.
 
-* [C#](/dotnet/api/overview/azure/ai.textanalytics-readme?view=azure-dotnet#async-examples)
+* [C#](/dotnet/api/overview/azure/ai.textanalytics-readme?preserve-view=true&view=azure-dotnet#async-examples)
 * [Java](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-preview#analyze-multiple-actions)
 * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?preserve-view=true&view=azure-node-preview#analyze-actions)
-* [Python](/python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview#multiple-analysis)
+* [Python](/python/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-python-preview#multiple-analysis)
 
 ## Result availability 
 
@@ -69,5 +69,5 @@ When using this feature asynchronously, the API results are available for 24 hou
 ## See also
 
 * [Azure Cognitive Service for Language overview](../overview.md)
-* [Multilingual and emoji support](../concepts/multi-lingual-emoji-support.md)
+* [Multilingual and emoji support](../concepts/multilingual-emoji-support.md)
 * [What's new](../whats-new.md)
