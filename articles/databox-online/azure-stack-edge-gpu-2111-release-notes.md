@@ -1,60 +1,46 @@
 ---
-title: Azure Stack Edge 2110 release notes
-description: Describes critical open issues and resolutions for the Azure Stack Edge running 2110 release.
+title: Azure Stack Edge 2111 release notes
+description: Describes critical open issues and resolutions for the Azure Stack Edge running 2111 release.
 services: databox
 author: alkohli
  
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 11/18/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge 2110 release notes
+# Azure Stack Edge 2111 release notes
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-The following release notes identify the critical open issues and the resolved issues for the 2110 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2111 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
-This article applies to the **Azure Stack Edge 2110** release, which maps to software version number **2.2.1758.4034**. This software can be applied to your device if you are running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
+This article applies to the **Azure Stack Edge 2111** release, which maps to software version number **2.2.1777.4088**. This software can be applied to your device if you are running at least Azure Stack Edge 2106 (2.2.1636.3457) software.
 
 ## What's new
 
-The following new features are available in the Azure Stack Edge 2110 release. 
-
-- **Windows updates and security fixes** - The [latest cumulative update (LCU) for Windows and September security fixes](https://support.microsoft.com/topic/september-14-2021-kb5005623-monthly-rollup-bcdb6598-517e-4d53-aa7c-dd7fcfdca204) were rolled into the updates package for Azure Stack Edge.
-- **Remote support** - In this release, you can enable remote support on your Azure Stack Edge device to allow Microsoft Support to diagnose and remediate issues by accessing your device remotely. When you enable this feature, you provide consent for the level of access and the duration of access. For more information, see [Enable remote support and diagnostics for Azure Stack Edge](azure-stack-edge-gpu-remote-support-diagnostics-repair.md).
-- **High-performance network virtual machines** - Beginning this release, high-performance network virtual machines can be deployed on your Azure Stack Edge device. For more information, see [Deploy high-performance network virtual machines on Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md).
-- **Certificates for Edge container registry and Kubernetes dashboard** - Certificates for Edge container registry and Kubernetes dashboard are now supported. You can create and upload certificates via the local UI. For more information, see [Kubernetes certificates](azure-stack-edge-gpu-certificates-overview.md#kubernetes-certificates) and [Upload Kubernetes certificates](azure-stack-edge-gpu-manage-certificates.md#upload-kubernetes-certificates).
-- **Metallb in BGP mode** - Starting this release, you can configure load balancing on your Azure Stack Edge device using MetalLB via Border Gateway Protocol (BGP). Configuration is done by connecting to the PowerShell interface of the device and then running specific cmdlets. For more information, see [Configure load balancing with MetalLB on your Azure Stack Edge device](azure-stack-edge-gpu-configure-metallb-bgp-mode.md).
+The Azure Stack Edge 2111 release has bug fixes for Multi-Access Edge Compute (MEC) deployments.
 
 
-
-## Issues fixed in 2110 release
+## Issues fixed in 2111 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
 | No. | Feature | Issue | 
 | --- | --- | --- |
-|**1.**|Azure Arc enabled Kubernetes |For the GA release, Azure Arc enabled Kubernetes is updated from version 0.1.18 to 0.2.9. As the Azure Arc enabled Kubernetes update is not supported on Azure Stack Edge device, you will need to redeploy Azure Arc enabled Kubernetes.|
-|**2.**|Azure Arc enabled Kubernetes|Azure Arc deployments are not supported if web proxy is configured on your Azure Stack Edge Pro device.|
-|**3.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | 
-|**4.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |
-|**5.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | 
-|**6.**|VMs |Static IP duplication check is added for VM management NIC during VNF deployment. Explicit error message is returned. | 
-|**7.**|VMs |IP reservation check was removed for first four IP addresses in address space.  | 
-|**8.**|Multi-Access Edge Compute |Fixed local Azure Resource Manager token expiration issue during VNF deployment. In earlier releases, when VHD download took a long time, the VNF deployment would fail as the Azure Resource Manager token would expire.  | 
-|**9.**|Multi-Access Edge Compute |A timeout was added for Azure Resource Manager calls during VNF deployment. In earlier releases, VNF deployment took a long time, if Azure Resource Manager calls were not successful.   | 
-|**10.**|Multi-Access Edge Compute |Multi-Access Edge Compute cleans up Azure Resource Manager template deployments after VHD download completes. In earlier releases, the user would hit deployment quota exceeded error after many VNF deployments. Default quota was 800 deployments per resource group.  | 
+|**1.**|Multi-Access Edge Compute | In  previous releases, the Azure Stack Edge device did not send VNF operation results back to the Azure Network Function Manager, owing to the MEC Operation Manager (a component of MEC agent) being reset.  |
+|**2.**|Multi-Access Edge Compute |On Mellanox ConnectX-4 Lx Ethernet Adapter, the maximum number of virtual functions was set to 8 in the earlier releases. Beginning 2111, the default number of virtual functions per port is increased to 32. |
+|**3.**|Multi-Access Edge Compute |If Azure Stack Edge is running 2106, and a Network Function Device resource is created, the device is then updated to 2110. If you deploy the Network Functions, the deployment will fail. The virtual network is not created after the device is updated to 2110. The failure does not occur if there is an existing Network Functions deployment on Azure Stack Edge. |
+|**4.**|Multi-Access Edge Compute |Azure Stack Edge was updated to version 2110 while the Network Functions VMs were running. In these instances, the update may fail with the following error in the event log: *The network interface "Mellanox ConnectX-4 Lx Ethernet Adapter" has begun resetting. There will be a momentary disruption in network connectivity while the hardware resets. Reason: The network driver did not respond to an OID request in a timely fashion. This network interface has reset 3 time(s) since it was last initialized.* | 
 
 
+## Known issues in 2111 release
 
-## Known issues in 2110 release
-
-The following table provides a summary of known issues in the 2110 release.
+The following table provides a summary of known issues in the 2111 release.
 
 | No. | Feature | Issue | Workaround/comments |
 | --- | --- | --- | --- |
@@ -92,10 +78,8 @@ The following table provides a summary of known issues carried over from the pre
 |**22.**|Custom script VM extension |There is a known issue in the Windows VMs that were created in an earlier release and the device was updated to 2103. <br> If you add a custom script extension on these VMs, the Windows VM Guest Agent (Version 2.7.41491.901 only) gets stuck in the update causing the extension deployment to time out. | To work around this issue: <ol><li> Connect to the Windows VM using remote desktop protocol (RDP). </li><li> Make sure that the `waappagent.exe` is running on the machine: `Get-Process WaAppAgent`. </li><li> If the `waappagent.exe` is not running, restart the `rdagent` service: `Get-Service RdAgent` \| `Restart-Service`. Wait for 5 minutes.</li><li> While the `waappagent.exe` is running, kill the `WindowsAzureGuest.exe` process. </li><li>After you kill the process, the process starts running again with the newer version.</li><li>Verify that the Windows VM Guest Agent version is 2.7.41491.971 using this command: `Get-Process WindowsAzureGuestAgent` \| `fl ProductVersion`.</li><li>[Set up custom script extension on Windows VM](azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md). </li><ol> |
 |**23.**|GPU VMs |Prior to this release, GPU VM lifecycle was not managed in the update flow. Hence, when updating to 2103 release, GPU VMs are not stopped automatically during the update. You will need to manually stop the GPU VMs using a `stop-stayProvisioned` flag before you update your device. For more information, see [Suspend or shut down the VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#suspend-or-shut-down-the-vm).<br> All the GPU VMs that are kept running before the update, are started after the update. In these instances, the workloads running on the VMs aren't terminated gracefully. And the VMs could potentially end up in an undesirable state after the update. <br>All the GPU VMs that are stopped via the `stop-stayProvisioned` before the update, are automatically started after the update. <br>If you stop the GPU VMs via the Azure portal, you'll need to manually start the VM after the device update.| If running GPU VMs with Kubernetes, stop the GPU VMs right before the update. <br>When the GPU VMs are stopped, Kubernetes will take over the GPUs that were used originally by VMs. <br>The longer the GPU VMs are in stopped state, higher the chances that Kubernetes will take over the GPUs. |
 |**24.**|Multi-Process Service (MPS) |When the device software and the Kubernetes cluster are updated, the MPS setting is not retained for the workloads.   |[Re-enable MPS](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface) and redeploy the workloads that were using MPS. |
-|**25.**|Multi-Access Edge Compute (MEC) |If Azure Stack Edge is running 2106, and a Network Function Device resource is created and the Azure Stack Edge is then updated to 2110, when you deploy the Network Function, the deployment will fail. The virtual network is not being created after the device is updated to 2110. The failure does not occur if there is an existing Network Function deployment on Azure Stack Edge. | To work around this issue, re-register the same device resource using the `Invoke-MecRegister` cmdlet on your Azure Stack Edge and use the activation key from the Azure Stack Edge resource. Alternatively, you can create virtual switches via the following commands: <ul><li> `Add-HcsExternalVirtualSwitch -InterfaceAlias  Port5 -WaitForSwitchCreation $true -switchName mec-vswitch-LAN  -SupportsAcceleratedNetworking $true` </li><li> `Add-HcsExternalVirtualSwitch -InterfaceAlias  Port6 -WaitForSwitchCreation $true -switchName mec-vswitch-WAN -SupportsAcceleratedNetworking $true` </li></ul>  |
-|**26.**|Multi-Access Edge Compute (MEC) |Azure Stack Edge was updated to version 2110 while the Network Functions VMs were running. In these instances, the update may fail when trying to stop the virtual machines that are connected to the Mellanox Ethernet adapter. The following error is seen in the event log: *The network interface "Mellanox ConnectX-4 Lx Ethernet Adapter" has begun resetting. There will be a momentary disruption in network connectivity while the hardware resets. Reason: The network driver did not respond to an OID request in a timely fashion. This network interface has reset 3 time(s) since it was last initialized.*  |To work around this issue, reboot your Azure Stack Edge and retry updating the device. |
 
+
+## Next steps
 
 - [Update your device](azure-stack-edge-gpu-install-update.md)
-
- 
