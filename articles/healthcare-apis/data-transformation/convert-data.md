@@ -162,7 +162,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 
 Select **Networking** of the Azure storage account from the portal.
 
-   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Container registry.":::
+![configure ACR firewall](media/convert-data/networking-container-registry.png)
 
 Select **Selected networks**. 
 
@@ -203,7 +203,7 @@ For a private network access (i.e. private link), you can also disable the publi
 * Select `Disabled`.
 * Select Firewall exception : Allow trusted Microsoft services to access this container registry.
 
-   :::image type="content" source="media/convert-data/configure-private-network-container-registry.png" alt-text="private network container registry.":::
+![private link for ACR](media/convert-data/configure-private-network-container-registry.png)
 
 ### Verify
 
