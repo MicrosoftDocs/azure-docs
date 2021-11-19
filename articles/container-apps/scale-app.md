@@ -198,6 +198,53 @@ The following example shows how to create a memory scaling rule.
 - In this example, the container app scales when memory usage exceeds 50%.
 - At a minimum, a single replica remains in memory for apps that scale based on memory utilization.
 
+## Azure Pipelines
+
+Azure Pipelines scaling allows your container agent to scale in or out depending on how long the queue of waiting jobs in an Azure DevOps agent pool is. Azure Pipelines scaling allows your container app to scale to 0 but you need to be aware of one problem to solve, which is [explained on KEDA's blog post](https://keda.sh/blog/2021-05-27-azure-pipelines-scaler/). For more information regarding this scaler, see [KEDA Azure Pipelines scaler](https://keda.sh/docs/2.4/scalers/azure-pipelines/).
+
+The following example shows how to create a memory scaling rule.
+
+```json
+{
+  ...
+  "resources": {
+    ...
+    "properties": {
+      ...
+      "template": {
+        ...
+        "scale": {
+          "minReplicas": "0",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "azdo-agent-scaler",
+            "custom": {
+              "type": "azure-pipelines",
+              "metadata": {
+                  "poolID": "<pool id>",
+                  "targetPipelinesQueueLength": "1"
+              },
+              "auth": [
+                  {
+                      "secretRef": "<secret reference pat>",
+                      "triggerParameter": "personalAccessToken"
+                  },
+                  {
+                      "secretRef": "<secret reference Azure DevOps url>",
+                      "triggerParameter": "organizationURL"
+                  }
+              ]
+          }
+          }]
+        }
+      }
+    }
+  }
+}
+```
+
+- In this example, the container app scales when at least one job is waiting in the pool queue.
+- On how to set up a full example with Azure Container apps and Azure Pipelines is [explained in this blog post](https://www.razorspoint.com/2021/11/19/scalable-container-based-azure-pipelines-pools-with-azure-container-apps/).
 
 ## Considerations
 
