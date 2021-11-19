@@ -19,11 +19,15 @@ ms.author: helohr
 
 In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). An Azure AD user can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-This article describes how to configure Azure Files stored FSLogix user profiles for authentication using Azure AD.
+This article describes how to:
+
+- Configure an Azure Files storage account for authentication using Azure AD
+- Configure the permissions on an Azure Files share
+- Configure your session hosts to store FSLogix user profiles on Azure Files
 
 ## Prerequisites
 
-The Azure AD Kerberos functionality is only available on the following OSes:
+The Azure AD Kerberos functionality is only available on the following Operating Systems:
 
   - Windows 11 ENT single or multi session.
   - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
@@ -33,20 +37,19 @@ The user accounts must be [hybrid user identities](../active-directory/hybrid/wh
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, the group must also be created in Active Directory and synced to Azure AD.
 
-
 > [!IMPORTANT]
 > This feature is currently only supported in the Azure Public cloud.
 
-## Set up Azure Files
+## Configure your Azure storage account
 
 Start by [creating an Azure Storage account](../storage/files/storage-how-to-create-file-share.md#create-a-storage-account) if you don't already have one.
 
 > [!NOTE]
 > Your Azure Storage account can't authenticate with both Azure AD and a second method like Active Directory Domain Services (AD DS) or Azure AD DS. You can only use one authentication method.
 
-Follow the instructions in the following sections to set up Azure Files. To set up Azure Files, you'll need to configure your Azure Storage account to authenticate with Azure AD, create a file share for the FSLogix profiles, and configure access permissions.
+Follow the instructions in the following sections to configure Azure AD authentication, configure the Azure AD service principal, and set the API permission for your storage account.
 
-### Configure your Azure Storage account
+### Configure Azure AD authentication on your Azure Storage account
 
 - Install the Azure Storage PowerShell module. This module provides management cmdlets for Azure Storage resources. It's required to create storage accounts, enable Azure AD authentication on the storage account, and retrieve the storage account’s Kerberos keys. To install the module, open PowerShell and run the following command:
 
@@ -190,25 +193,127 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 11. Select **Add permissions** at the bottom of the page.
 12. Select **Grant admin consent for "DirectoryName"**.
 
-### Create a file share and configure share-level permissions
+## Configure your Azure Files share
 
-Your FSLogix profiles will be stored in a file share under your storage account. This section explains how to create the file share and configure its permissions to provide the right level of access to users.
+Start by [creating a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles.
 
-1. Start by [creating a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account.
+Follow the instructions in the following sections to configure the share level and directory level permissions on your Azure Files share to provide the right level of access to users.
+
+### Assign share-level permissions
     
-2. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
+You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md).
 
-    > [!IMPORTANT]
-    > Azure Virtual Desktop currently only supports assigning specific permissions to hybrid users and user groups. Users and user groups must be managed in Active Directory and synced to Azure AD using Azure AD Connect.
+All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
+
+> [!IMPORTANT]
+> Azure Virtual Desktop currently only supports assigning specific permissions to hybrid users and user groups. Users and user groups must be managed in Active Directory and synced to Azure AD using Azure AD Connect.
 
 ### Assign directory level access permissions
 
-To prevent users from accessing the user profile of other users, you must also assign directory and file-level permissions. This section provides the steps to configure the permissions. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
+To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section provides the steps to configure the permissions. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
 
 > [!IMPORTANT]
 > Without proper directory level permissions in place, a user could delete the user profile or access the personal information of a different user.
 
-To configure the permissions on the file share, sign-in to a PC or VM joined to the same Azure AD tenant as the storage account running one of the supported OSes defined in the [Prerequisites](#prerequisites) section. Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below before restarting the system:
+You can set permissions (ACLs) for files and directories using either the icacls command-line utility or Windows Explorer. The system you use to configure the permissions must meet the following requirements:
+
+- Azure AD-Joined or Hybrid Azure AD-joined to the same Azure AD tenant as the storage account.
+- Have line-of-sight to the domain controller.
+- Domain joined to your Active Directory (Windows Explorer method only).
+- The version of Windows meets the supported OS requirements defined in the [Prerequisites](#prerequisites) section.
+
+During the public preview, configuring permissions using Windows Explorer also requires storage account configuration. This can be skipped when using icacls. Configure your storage account following the steps below:
+
+1. On a device that is domain joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if not already installed.
+2. Set the storage account's ActiveDirectoryProperties needed to support the shell experience. Because Azure AD does not currently support configuring ACLs in Shell, it must instead rely on Active Directory. Copy the function below to PowerShell.
+    ```powershell
+    function Set-StorageAccountAadKerberosADProperties {
+        [CmdletBinding()]
+        param(
+            [Parameter(Mandatory=$true, Position=0)]
+            [string]$ResourceGroupName,
+
+            [Parameter(Mandatory=$true, Position=1)]
+            [string]$StorageAccountName,
+
+            [Parameter(Mandatory=$false, Position=2)]
+            [string]$Domain
+        )  
+
+        $AzContext = Get-AzContext;
+        if ($null -eq $AzContext) {
+            Write-Error "No Azure context found.  Please run Connect-AzAccount and then retry." -ErrorAction Stop;
+        }
+	
+        $AdModule = Get-Module ActiveDirectory;
+	    if ($null -eq $AdModule) {
+            Write-Error "Please install and/or import the ActiveDirectory PowerShell module." -ErrorAction Stop;
+        }	
+	
+        if ([System.String]::IsNullOrEmpty($Domain)) {
+            $domainInformation = Get-ADDomain
+            $Domain = $domainInformation.DnsRoot
+        } else {
+            $domainInformation = Get-ADDomain -Server $Domain
+        }
+
+        $domainGuid = $domainInformation.ObjectGUID.ToString()
+        $domainName = $domainInformation.DnsRoot
+        $domainSid = $domainInformation.DomainSID.Value
+        $forestName = $domainInformation.Forest
+        $netBiosDomainName = $domainInformation.DnsRoot
+        $azureStorageSid = $domainSid + "-123454321";
+
+        Write-Verbose "Setting AD properties on $StorageAccountName in $ResourceGroupName : `
+            EnableActiveDirectoryDomainServicesForFile=$true, ActiveDirectoryDomainName=$domainName, `
+            ActiveDirectoryNetBiosDomainName=$netBiosDomainName, ActiveDirectoryForestName=$($domainInformation.Forest) `
+            ActiveDirectoryDomainGuid=$domainGuid, ActiveDirectoryDomainSid=$domainSid, `
+            ActiveDirectoryAzureStorageSid=$azureStorageSid"
+
+        $Subscription =  $AzContext.Subscription.Id;
+        $ApiVersion = '2021-04-01'
+
+        $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' `
+            -f $Subscription, $ResourceGroupName, $StorageAccountName, $ApiVersion);
+    
+        $json=
+            @{
+                properties=
+                    @{azureFilesIdentityBasedAuthentication=
+                        @{directoryServiceOptions="AADKERB";
+                            activeDirectoryProperties=@{domainName="$($domainName)";
+                                                        netBiosDomainName="$($netBiosDomainName)";
+                                                        forestName="$($forestName)";
+                                                        domainGuid="$($domainGuid)";
+                                                        domainSid="$($domainSid)";
+                                                        azureStorageSid="$($azureStorageSid)"}
+                                                        }
+                        }
+            };  
+
+        $json = $json | ConvertTo-Json -Depth 99
+
+        $token = $(Get-AzAccessToken).Token
+        $headers = @{ Authorization="Bearer $token" }
+
+        try {
+            Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method PATCH -Headers $Headers -Body $json
+        } catch {
+            Write-Host $_.Exception.ToString()
+            Write-Host "Error setting Storage Account AD properties.  StatusCode:" $_.Exception.Response.StatusCode.value__ 
+            Write-Host "Error setting Storage Account AD properties.  StatusDescription:" $_.Exception.Response.StatusDescription
+            Write-Error -Message "Caught exception setting Storage Account AD properties: $_" -ErrorAction Stop
+        }
+    }
+    ```
+3. Call the function by running the following PowerShell cmdlets:
+
+    ```powershell
+    Connect-AzAccount
+    Set-StorageAccountAadKerberosADProperties -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>"
+    ```
+
+Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below and restart the system:
 
 Group policy:
 
@@ -222,37 +327,27 @@ Registry value:
 reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
 ```
 
-After the restart, confirm that Azure Files has been configured properly using the steps below:
-
-1. ADFGLHADFLgKLHDFGHADFKLgHKL
+After the restart, confirm that Azure Files has been configured properly by mounting the network share:
 
 ```
 net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
 ```
-You can configure the directory level permissions using Windows Explorer if your device has line-of-sight to the domain controller. Otherwise, you can configure the permissions using the ICACL tool.
 
-To configure the permissions using Windows Explorer:
-
-1. Step 1
-
-To configure the permissions using ICACL:
-
-1. Step 1
-
-3. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored.
-
+Refer to the steps to [configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to complete configuring the permissions using icacls or Windows Explorer.
 
 ## Configure the session hosts
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. By default, session hosts can't retrieve Kerberos tickets from Azure AD unless you enable this feature on the VMs through a group policy or registry value. The policy to enable is:
+1. Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below. The system must be restarted for the change to take effect.
+
+    Group policy:
 
     ```
     Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon
     ```
 
-    You can also set the following registry value to enable the feature:
+    Registry value:
 
     ```
     reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
