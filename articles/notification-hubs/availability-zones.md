@@ -15,14 +15,14 @@ Azure Notification Hubs now supports [availability zones](/azure/availability-zo
 
 ## Feature availability
 
-Availability zones support will be included as part of an Azure Notification Hubs Premium SKU set to be released in 2022. It will only be available in [Azure regions](/azure/availability-zones/az-region) where availability zones are present.
+Availability zones support will be included as part of an upcoming Azure Notification Hubs Premium SKU. It will only be available in [Azure regions](/azure/availability-zones/az-region) where availability zones are present.
 
 > [!NOTE]
 > Until Azure Notification Hubs Premium is released, availability zones is by invitation only. If you are interested in using this feature, contact your customer success manager at Microsoft, or create an Azure support ticket which will be triaged by the support team.
 
 ## Enable availability zones
 
-At this time you can only enable availability zones on new namespaces. Notification Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+At this time, you can only enable availability zones on new namespaces. Notification Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 
 ## Next steps
 
