@@ -1,5 +1,5 @@
 ---
-title: Create an AMD-based confidential VM in the Azure portal (preview)
+title: Create an Azure AMD-based confidential VM in the Azure portal (preview)
 description: Learn how to quickly create an AMD-based confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
 ms.service: virtual-machines
@@ -110,7 +110,7 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 1. On your confidential VM's overview page, copy the **Public IP address**.
 
-For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
 
 1. Open your SSH client, such as PuTTY.
 
