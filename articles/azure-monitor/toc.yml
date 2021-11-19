@@ -165,8 +165,6 @@
         href: best-practices-analysis.md
       - name: Alerts and automated actions
         href: best-practices-alerts.md
-    - name: Monitor Azure resource
-      href: essentials/monitor-azure-resource.md
     - name: Monitor virtual machines
       items:
       - name: Overview
@@ -653,7 +651,7 @@
       href: app/app-insights-overview.md
     - name: FAQ
 
-      href: /azure/azure-monitor/faq#application-insights
+      href: ./faq.yml
     - name: Application Insights SDKs
       items:
       - name: .NET
@@ -1182,6 +1180,8 @@
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
       href: insights/data-explorer.md
+    - name: Azure Service Bus
+      href: insights/service-bus-insights.md
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks

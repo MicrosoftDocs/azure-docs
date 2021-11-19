@@ -156,6 +156,56 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create.md",
+            "redirect_url": "/azure/marketplace/azure-vm-offer-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-certification-faq.yml",
+            "redirect_url": "/azure/marketplace/azure-vm-certification-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-faq.yml",
+            "redirect_url": "/azure/marketplace/azure-vm-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-listing.md",
+            "redirect_url": "/azure/marketplace/azure-vm-offer-listing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-plans.md",
+            "redirect_url": "/azure/marketplace/azure-vm-plan-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-preview.md",
+            "redirect_url": "/azure/marketplace/azure-vm-preview-audience",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-properties.md",
+            "redirect_url": "/azure/marketplace/azure-vm-properties",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-resell-csp.md",
+            "redirect_url": "/azure/marketplace/azure-vm-resell-csp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-using-approved-base.md",
+            "redirect_url": "/azure/marketplace/azure-vm-use-approved-base",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/marketplace/azure-vm-create-using-own-image.md",
+            "redirect_url": "/azure/marketplace/azure-vm-use-own-image",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/marketplace/become-publisher.md",
             "redirect_url": "/azure/marketplace/partner-center-portal/create-account",
             "redirect_document_id": false

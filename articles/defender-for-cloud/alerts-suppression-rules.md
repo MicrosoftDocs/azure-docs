@@ -6,7 +6,7 @@ manager: rkarlin
 services: security-center
 ms.author: memildin
 ms.date: 11/09/2021
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: how-to
 ---
 # Suppress alerts from Microsoft Defender for Cloud
@@ -22,7 +22,7 @@ This page explains how you can use alerts suppression rules to suppress false po
 |Release state:|General availability (GA)|
 |Pricing:|Free<br>(Most security alerts are only available with [enhanced security features](enable-enhanced-security.md))|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
 

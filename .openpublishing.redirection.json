@@ -464,6 +464,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-route-issues.md",
+      "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/front-door-troubleshoot-routing.md",
+      "redirect_url": "/azure/frontdoor/troubleshoot-issues",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
       "redirect_document_id": true
@@ -3440,22 +3450,17 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-app-service-environments-readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/intro.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-environment/readme.md",
-      "redirect_url": "/azure/app-service/environment/intro",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/app-service/environment/index.md",
-      "redirect_url": "/azure/app-service/environment/intro",
+      "redirect_url": "/azure/app-service/environment/overview",
       "redirect_document_id": false
     },
     {
@@ -9838,7 +9843,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/low-priority-quota",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
       "redirect_document_id": true
     },
     {
@@ -9870,6 +9875,11 @@
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
       "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
@@ -26367,6 +26377,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/watchlist-with-rest-api.md",
+      "redirect_url": "/rest/api/securityinsights/watchlists",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-bus/index.md",
       "redirect_url": "/azure/service-bus-messaging/index",
       "redirect_document_id": false
@@ -26714,6 +26729,11 @@
     {
       "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/expose-apps-gateway-azure-firewall.md",
+      "redirect_url": "/azure/spring-cloud/expose-apps-gateway",
       "redirect_document_id": false
     },
     {
@@ -44752,6 +44772,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/vm/monitor-vm-azure.md",
+      "redirect_url": "/azure/virtual-machines/monitor-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46312,6 +46337,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-azure-security-center.md",
+      "redirect_url": "/azure/sentinel/connect-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/entities-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/azure-sentinel-billing.md",
+      "redirect_url": "/azure/sentinel/billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/automation-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/automation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true
@@ -47273,7 +47318,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
+      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
       "redirect_document_id": false
     },
     {

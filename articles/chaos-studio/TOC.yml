@@ -14,6 +14,8 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
+  - name: Schedule an experiment
+    href: tutorial-schedule.md
 - name: Samples
   items:
   - name: Azure REST API 
@@ -69,9 +71,9 @@
   - name: Service limits
     href: chaos-studio-service-limits.md
   - name: REST API documentation
-    href: https://docs.microsoft.com/rest/api/chaosstudio
+    href: /rest/api/chaosstudio
   - name: Python SDK
-    href: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+    href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - name: Resources
   items:
   - name: Azure roadmap

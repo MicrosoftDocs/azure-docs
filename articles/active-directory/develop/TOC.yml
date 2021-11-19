@@ -590,7 +590,7 @@
     - name: Publish to Azure AD App Gallery
       href: v2-howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/add-in-submission-guide
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service
@@ -681,7 +681,7 @@
   - name: Azure CLI
     href: /cli/azure/identity
   - name: Azure PowerShell
-    href: /powershell/module/az.managedserviceidentity
+    href: /powershell/module/az.managedserviceidentity/
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -739,7 +739,7 @@
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Try Sign in with Microsoft
-    href: https://azure.microsoft.com/develop/identity/signin/
+    href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
   - name: Managed identities for Azure resources
     href: ../managed-identities-azure-resources/overview.md
   - name: Getting help

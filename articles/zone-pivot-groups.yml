@@ -1184,14 +1184,6 @@ groups:
     title: In the Azure portal
   - id: rest-api
     title: With the REST APIs
-- id: connect-aws-accounts
-  title: Connect AWS account to Azure subscription
-  prompt: How will you connect your AWS account?
-  pivots:
-  - id: env-settings
-    title: Environment settings page
-  - id: classic-connector
-    title: Classic cloud connector
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console
@@ -1472,7 +1464,16 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
-# Owner: dmwendia
+# Owner: timlt
+- id: iot-develop-nxp-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM 
+    # Owner: dmwendia
 - id: microsoft-identity-platform-dev-languages
   title: Programming languages
   prompt: Choose a development language for your application

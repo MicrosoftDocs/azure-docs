@@ -3,7 +3,7 @@ title: Upload and index videos with Azure Video Analyzer for Media (formerly Vid
 description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
 ms.service: azure-video-analyzer
 ms.topic: article
-ms.date: 05/12/2021
+ms.date: 11/15/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -312,15 +312,15 @@ public class AccountContractSlim
 
 ### [ARM Account](#tab/with-arm-account-account/)
 
-After copying this c# project into your development platform you'll need to run the following: 
-1. Go to Program.cs and populate ```SubscriptionId``` with your subscription id.
+After copying this C# project into your development platform you'll need to run the following: 
+1. Go to Program.cs and populate ```SubscriptionId``` with your subscription ID.
 2. Go to Program.cs and populate ```ResourceGroup``` with your resource group.
 3. Go to Program.cs and populate ```AccountName``` with your account name.
-4. Go to Program.cs and populate ```VideoUrl``` with your video url.
-5. Make sure dotnet 6.0 is installed. if not, click [here](https://dotnet.microsoft.com/download/dotnet/6.0) to install.
-6. Make sure Azure CLI is installed. If not, click [here](/cli/azure/install-azure-cli) to install.
+4. Go to Program.cs and populate ```VideoUrl``` with your video URL.
+5. Make sure dotnet 6.0 is installed. If not, [install it](https://dotnet.microsoft.com/download/dotnet/6.0).
+6. Make sure Azure CLI is installed. If not, [install it](/cli/azure/install-azure-cli).
 7. Open your terminal and navigate to VideoIndexerArm folder.
-8. Login to azure: ```az login --use-device```
+8. Log in to Azure: ```az login --use-device```
 9. Build the project: ```dotnet build```
 10. Run the project: ```dotnet run```
 
