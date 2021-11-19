@@ -1,4 +1,4 @@
-git o---
+---
 title: Azure Data Explorer output for Azure Stream Analytics (Preview)
 description: This article describes using Azure Database Explorer as an output for Azure Stream Analytics.
 author: enkrumah
