@@ -10,7 +10,7 @@ ms.date: 11/15/2021
 ms.custom: references_regions, ignite-fall-2021
 ---
 
-# Dataset provisioning by data owner for Azure Storage
+# Dataset provisioning by data owner for Azure Storage (preview)
 
 ## Supported capabilities
 This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
