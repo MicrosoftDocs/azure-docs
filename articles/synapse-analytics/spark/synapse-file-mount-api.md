@@ -14,19 +14,19 @@ ms.custom: subject-rbac-steps
 
 # How to play with file mount/unmount API in Synapse 
 
-Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2, Azure File Share) to a synapse spark pool in all nodes (**driver node and worker nodes**), after that, you can access data in storage as if they were one the local file system with local file API. 
+File mount/unmount are two APIs provided in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2, Azure File Share) to a synapse spark pool in all nodes (**driver node and worker nodes**), after that, you can access data in storage as if they were one the local file system with local file API. 
 
 The document will show you how to play with mount/unmount API in your workspace, mainly includes below sections: 
 
 + How to mount ADLS Gen2 Storage or Azure Blob Storage to spark pool 
-+ How to mount Azure File share to spark pool 
-+ How to access file under mount point using local file API 
-+ How to access file under mount point using mssparkutils fs API 
-+ How to access file under mount point using Spark Read API 
-+ How to unmount the existed mount point 
++ How to mount Azure File shares to a spark pool 
++ How to access files under mount point via local file system API 
++ How to access files under mount point using mssparktuils fs API 
++ How to access files under mount point using Spark Read API 
++ How to unmount the mount point 
 
 
-## How to mount Gen2/blob Storage to a spark pool 
+## How to mount ADLS Gen2 Storage or Azure Blob Storage to spark pool 
 
 Here we will illustrate how to mount gen2 storage account step by step as an example, mounting blob storage works similar.  
 
@@ -52,7 +52,7 @@ You can create linked service for ADLS gen2 or blob storage. Currently, two auth
 
 > [!NOTE]
 > + If you create linked service using managed identity as authentication method, please make sure that the workspace MSI has the Storage Blob Data Contributor role of the mounted container. 
-> + Please always check the linked service connection to guarantee that the linked service created successfully. 
+> + Please always check the linked service connection to guarantee that the linked service was created successfully. 
 
 After you create linked service successfully, you can easily mount the container to your spark pool with below code. 
 
@@ -79,6 +79,8 @@ mssparkutils.fs.mount(
 In addition to mount with linked Service, mssparkutils also support explicitly passing account key or [SAS (shared access signature)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as parameter to mount the target. 
 
 If you want to use account key or SAS token directly to mount container. A more secure way is to store account key or SAS token in Azure Key Vaults (as the below example figure shows), then retrieving them with `mssparkutil.credentials.getSecret` API. 
+
+
 ![Screenshot of key vaults](./media/synapse-file-mount-api/key-vaults.png)
  
 Here is the sample code. 
@@ -120,11 +122,11 @@ In the above example, we pre-defined the schema format of source URL for the fil
 
    
 
-## How to access data via local file system API after mount 
+## How to access files under mount point via local file system API
 
 Once the mount run successfully, you can access data via local file system API, while currently we limit the mount point always be created under **/synfs** folder of node and it was scoped to job/session level. 
 
-So, for example if you want to mount **mycontainer**, the created local mount point is /synfs/{jobid}/, that means, after a successful mount, if you want to access mount point via local fs APIs, the local path used should be `/synfs/{jobid}/` 
+So, for example if you want to mount **mycontainer**, the created local mount point is /synfs/{jobid}/, that means if you want to access mount point via local fs APIs after a successful mount, the local path used should be `/synfs/{jobid}/` 
 
 Below is an example to show how it works. 
 
@@ -135,7 +137,7 @@ f.write("Hello world.")
 f.close() 
 ``` 
 
-## How to access files in mount point using mssparktuils fs API 
+## How to access files under mount point using mssparktuils fs API 
 
 The main purpose of the mount operation is to let customer access the data stored in remote storage account using local file system API, you can also access data using mssparkutils fs API with mounted path as a parameter. While the path format used here is a little different. 
 
@@ -223,14 +225,14 @@ Notice that if you mounted a blob storage account then want to access it using *
     df.show()
     ```
 
-### How to unmount the mount point 
+## How to unmount the mount point 
 
 Just call: 
 ```python 
 mssparkutils.fs.unmount("/your_mount_point") 
 ``` 
 
-## Known limitations: 
+## Known limitations
 
 + The mssparkutils fs help function hasn’t added the description about mount/unmount part yet. 
 
