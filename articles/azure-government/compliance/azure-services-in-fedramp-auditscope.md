@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 11/17/2021
+ms.date: 11/19/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -49,7 +49,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: September 2021*
+*Last updated: November 2021*
 
 ### Terminology used
 
@@ -243,7 +243,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: September 2021*
+*Last updated: November 2021*
 
 ### Terminology used
 
@@ -282,6 +282,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack)| &#x2705; | &#x2705; | | | |
 | [Azure Data Box](https://azure.microsoft.com/services/databox/) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Data Share](https://azure.microsoft.com/services/data-share/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -330,6 +331,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | | | |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -346,6 +348,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | | | |
 | [Cognitive Services: Face API](https://azure.microsoft.com/services/cognitive-services/face/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -365,8 +368,10 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Customer Voice](/dynamics365/customer-voice/about) (formerly Forms Pro) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Field Service](/dynamics365/field-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/) | &#x2705; | &#x2705; | | | |
 | [Dynamics 365 Project Service Automation](/dynamics365/project-operations/psa/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Dynamics 365 Supply Chain Management](https://dynamics.microsoft.com/supply-chain-management/overview/) | &#x2705; | &#x2705; | | | |
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | | | |
@@ -392,6 +397,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-control-portal.md) | &#x2705; | &#x2705; | | | |
+| [Power AI Builder](https://docs.microsoft.com/ai-builder/overview) | &#x2705; | &#x2705; | | | |
 | [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
