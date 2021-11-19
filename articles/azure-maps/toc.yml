@@ -289,6 +289,15 @@ items:
       href: data-driven-style-expressions-ios-sdk.md
     - name: React to events
       href: interact-with-map-ios-sdk.md         
+      href: how-to-use-ios-map-control-library.md   
+    - name: Change the style of a map
+      href: set-map-style-ios-sdk.md
+    - name: Add controls to a map
+      href: add-controls-to-map-ios.md
+    - name: Create a data source
+      href: create-data-source-ios-sdk.md
+    - name: Add a symbol layer
+      href: add-symbol-layer-ios.md
     - name: Add a polygon extrusion layer
       href: add-polygon-extrusion-layer-map-ios.md
     - name: Add heat map layer
