@@ -245,7 +245,5 @@ items:
       href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io
