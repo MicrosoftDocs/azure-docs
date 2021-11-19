@@ -85,7 +85,7 @@ Modify the values in the `msalConfig` section:
 - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 
    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
+- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud).
 - `Enter_the_Tenant_info_here` is one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 
@@ -170,4 +170,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code.md)
+> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code)

@@ -20,13 +20,13 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 # Quickstart: Sign in users in single-page apps (SPA) using the auth code flow
 
 ::: zone pivot="programming-language-angular"
-[!INCLUDE [angular](./includes/single-page-app/quickstart-javascript-auth-code-angular.md)]
+[!INCLUDE [angular](./includes/single-page-app/quickstart-angular.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [javascript](./includes/single-page-app/quickstart-javascript-auth-code.md)]
+[!INCLUDE [javascript](./includes/single-page-app/quickstart-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-react"
-[!INCLUDE [react](./includes/single-page-app/quickstart-javascript-auth-code-react.md)]
+[!INCLUDE [react](./includes/single-page-app/quickstart-react.md)]
 ::: zone-end
