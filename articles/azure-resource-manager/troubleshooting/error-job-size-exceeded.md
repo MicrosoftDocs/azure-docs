@@ -7,7 +7,7 @@ ms.date: 11/19/2021
 
 # Resolve errors for job size exceeded
 
-This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors might occur when you deploy an Azure Resource Manager template (ARM template) or Bicep file.
+This article describes how to resolve the `JobSizeExceededException` and `DeploymentJobSizeExceededException` errors. The errors are possible when you deploy an Azure Resource Manager template (ARM template) or Bicep file.
 
 ## Symptom
 
@@ -31,7 +31,9 @@ Other template limits are:
 
 # [Bicep](#tab/bicep)
 
-Bicep uses `for` [loops](../bicep/loops.md) to iterate values in a collection. Bicep [dependencies](../bicep/resource-declaration.md#dependencies) are implicit or explicit. An implicit dependency is created when a resource references another resource by its symbolic name. In most situations, it's not necessary create an explicit dependency with `dependsOn` in a Bicep file.
+Bicep uses `for` [loops](../bicep/loops.md) to iterate values in a collection. During deployment, resources might have [dependencies](../bicep/resource-declaration.md#dependencies) on other resources.
+
+An [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) is created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
 
 # [JSON](#tab/json)
 
@@ -55,7 +57,7 @@ dependsOn: [
 
 # [Bicep](#tab/bicep)
 
-In Bicep, you can use [modules](../bicep/modules.md) to deploy several resources. A module is a Bicep file that's deployed from another Bicep file. When the Bicep file builds, it creates an ARM template with nested templates. To get output, see [Outputs from modules](../bicep/outputs.md#outputs-from-modules).
+In Bicep, you use [modules](../bicep/modules.md) to deploy resources. A module is a Bicep file that's deployed from another Bicep file. When the Bicep file builds, it creates an ARM template with nested templates. To get output, see [Outputs from modules](../bicep/outputs.md#outputs-from-modules).
 
 # [JSON](#tab/json)
 
