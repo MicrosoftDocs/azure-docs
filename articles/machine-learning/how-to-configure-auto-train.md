@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/21/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
 ---
@@ -175,11 +175,7 @@ Automated machine learning tries different models and algorithms during the auto
 
 The three different `task` parameter values determine the list of algorithms, or models, to apply. Use the `allowed_models` or `blocked_models` parameters to further modify iterations with the available models to include or exclude. 
 
-See the following reference documentation for a summarization of the supported models by task type. 
-
-* [Supported models for classification tasks](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.classification)
-* [Supported models for regression tasks](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.regression)
-* [Supported models for forecasting tasks](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels.forecasting)
+See the [SupportedModels reference documentation](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) for a summarization of the supported models by task type. 
 
 ### Primary metric
 
@@ -274,7 +270,7 @@ automl_classifier = AutoMLConfig(
                                 )
 ```
 
-To alter the default ensemble behavior, there are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object.
+To alter the default ensemble behavior, there are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object. See the SDK reference documentation for a list of the available `kwargs`.
 
 <a name="exit"></a> 
 
