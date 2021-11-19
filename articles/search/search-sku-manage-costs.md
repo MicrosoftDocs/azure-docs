@@ -31,7 +31,7 @@ When you create or use Search resources, you're charged for the following meters
 
 + You're charged an hourly rate based on the [pricing tier](search-sku-tier.md) of your search service, prorated to the hour.
 
-+ The charge is applied per the number of search units (SU) allocated to the service. Search units are [units of capacity](search-capacity-planning.md) and are the product of replicas and partitions (R x P = SU) allocated to your service.
++ The charge is applied per the number of search units (SU) allocated to the service. Search units are [units of capacity](search-capacity-planning.md). Total SU is the product of replicas and partitions (R x P = SU) used by your service.
 
 Billing is based on capacity (SUs) and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic search](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md). Meters associated with premium features are listed in the following table.
 
@@ -45,7 +45,7 @@ Billing is based on capacity (SUs) and the costs of running premium features, su
 | Semantic Search <sup>1</sup> | Number of queries of "queryType=semantic", billed at a progressive rate. See the [pricing page](https://azure.microsoft.com/pricing/details/search/#pricing). |
 | Private Endpoints <sup>1</sup> | Billed as long as the endpoint exists, and billed for bandwidth. |
 
-<sup1</sup> Applies only if you use or enable the feature.
+<sup>1</sup> Applies only if you use or enable the feature.
 
 <sup>2</sup> In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), "imageAction" is the parameter that triggers image extraction. If "imageAction" is set to "none" (the default), you won't be charged for image extraction. 
 
