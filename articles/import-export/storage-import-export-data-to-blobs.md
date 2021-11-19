@@ -113,7 +113,7 @@ Perform the following steps to prepare the drives.
 
 # [Portal (Classic)](#tab/azure-portal)
 
-Perform the following steps to create an import job in the Azure portal.
+Perform the following steps to create an import job in the Azure portal using the classic Azure Import/Export service.
 
 1. Log on to https://portal.azure.com/.
 2. Search for **import/export jobs**.
