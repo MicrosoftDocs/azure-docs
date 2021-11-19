@@ -37,6 +37,7 @@ These dimensions are measured independently, but they interact with each other a
 - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 - Instrument the below attributes to calculate HEART metrics:
+
   | Source          | Attribute            | Description                                |
   |-----------------|----------------------|--------------------------------------------|
   | customEvents    | user_AuthenticatedId | unique authenticated user identifier       |
