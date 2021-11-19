@@ -81,9 +81,9 @@ The IoT Edge for Linux on Windows VM has a TPM feature that can be enabled or di
 
 # [Physical TPM](#tab/physical-tpm)
 
-To provision your device, you need to gather information from your TPM chip and provide it to your instance of the device provisioning service so that the service can recognize your device when it tries to connect.
+To provision your device, you need an **Endorsement key** for your TPM chip and **Registration ID** for your device. You provide this information to your instance of the device provisioning service so that the service can recognize your device when it tries to connect.
 
-First, you need to determine the endorsement key, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. Then, you need to provide a registration ID for your device. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+The endorsement key is unique to each TPM chip. It is obtained from the TPM chip manufacturer associated with it. You can derive a unique registration ID for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
 IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this information from your TPM. To use the script, follow these steps on your device:
 
@@ -128,7 +128,7 @@ Simulated TPM samples:
 1. Provision your device by using the **Scope ID** that you collected from your instance of the device provisioning service.
 
    ```powershell
-   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "<scope id>"
+   Provision-EflowVM -provisioningType "DpsTpm" -scopeId "SCOPE_ID_HERE"
    ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
@@ -146,7 +146,7 @@ Simulated TPM samples:
 
 ---
 
-## Verify successful configuration
+## Verify successful installation
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 

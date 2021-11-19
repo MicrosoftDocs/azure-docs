@@ -102,7 +102,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a device
+## Run the device sample
 
 In this section, you configure your local environment, install the Azure IoT Java device SDK, and run a sample that creates a temperature controller.
 

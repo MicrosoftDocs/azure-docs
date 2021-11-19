@@ -84,7 +84,7 @@ You can use either PowerShell or Windows Admin Center to provision your IoT Edge
 For PowerShell, run the following command with the placeholder values updated with your own values:
 
 ```powershell
-Provision-EflowVm -provisioningType DpsX509 -​scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -identityCertPath PASTE_ABSOLUTE_PATH_TO_IDENTITY_CERTIFICATE_HERE -identityPrivateKey PASTE_ABSOLUTE_PATH_TO_IDENTITY_PRIVATE_KEY_HERE
+Provision-EflowVm -provisioningType DpsX509 -scopeId PASTE_YOUR_ID_SCOPE_HERE -registrationId PASTE_YOUR_REGISTRATION_ID_HERE -identityCertPath PASTE_ABSOLUTE_PATH_TO_IDENTITY_CERTIFICATE_HERE -identityPrivateKey PASTE_ABSOLUTE_PATH_TO_IDENTITY_PRIVATE_KEY_HERE
 ```
 
 # [Windows Admin Center](#tab/windowsadmincenter)
@@ -103,7 +103,7 @@ For Windows Admin Center, use the following steps:
 
 ---
 
-## Verify successful configuration
+## Verify successful installation
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 

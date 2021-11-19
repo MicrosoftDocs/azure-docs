@@ -12,22 +12,21 @@ ms.date: 09/27/2021
 
 Azure Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Azure Purview account.
 
-> [!NOTE]
-> At this time, this information only applies for Purview accounts created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
->
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
-
 ## Collections
 
 A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Purview's resources are managed from collections in the Purview account itself.
 
+> [!NOTE]
+> As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
+>
+>
 ## Roles
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
-- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data source admins** - a role that allows a user to manage data sources and scans. A user in the Data source admin role doesn't have access to Azure Purview studio. Combining this role with the Data reader or Data curator roles at any collection scope provides Azure Purview studio access.
 
 ## Who should be assigned to what role?
@@ -37,8 +36,9 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I just need to find assets, I don't want to edit anything|Data Reader|
 |I need to edit information about assets, assign classifications, associate them with glossary entries, and so on.|Data Curator|
 |I need to edit the glossary or set up new classification definitions|Data Curator|
+|I need to view Insights to understand the governance posture of my data estate|Data Curator|
 |My application's Service Principal needs to push data to Azure Purview|Data Curator|
-|I need to set up scans via the Purview Studio|Data Source Admin, plus at least Data Reader **or** Data Curator on the collection where the source is registered.|
+|I need to set up scans via the Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
 
@@ -56,9 +56,20 @@ All other users can only access information within the Azure Purview account if 
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
+You can assign Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
+
 ## Assign permissions to your users
 
 After creating an Azure Purview account, the first thing to do is create collections and assign users to roles within those collections.
+
+> [!NOTE]
+> If you created your Azure Purview account using a service principal, to be able to access the Purview Studio and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
+> You can use [this Azure CLI command](/cli/azure/purview/account#az_purview_account_add_root_collection_admin):
+>
+>   ```azurecli
+>   az purview account add-root-collection-admin --account-name --resource-group [--object-id]
+>   ```
+>
 
 ### Create collections
 
@@ -88,74 +99,6 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
-
-## Legacy permission guide
-
-> [!NOTE]
-> This legacy collection guide is only for Purview accounts created before August 18, 2021. Instances created after that time should follow the guide above.
-
-This article describes how Role-Based Access Control (RBAC) is implemented in Azure Purview's [Data Plane](../azure-resource-manager/management/control-plane-and-data-plane.md#data-plane) for Purview resources created before August 18th.
-
-> [!IMPORTANT]
-> The principal who created a Purview account is automatically given all data plane permissions regardless of what data plane roles they may or may not be in. For any other user to do anything in Azure Purview they have to be in at least one of the pre-defined Data Plane roles.
-
-### Azure Purview's pre-defined legacy Data Plane roles
-
-Azure Purview defines a set of pre-defined Data Plane roles that can be used to control who can access what in Azure Purview. These roles are:
-
-* **Purview Data Reader Role** - Has access to the Purview portal and can read all content in Azure Purview except for scan bindings
-* **Purview Data Curator Role** - Has access to the Purview portal and can read all content in Azure Purview except for scan bindings, can edit information about assets, can edit classification definitions and glossary terms, and can apply classifications and glossary terms to assets.
-* **Purview Data Source Administrator Role** - Does not have access to the Purview Portal (the user needs to also be in the Data Reader or Data Curator roles) and can manage all aspects of scanning data into Azure Purview but does not have read or write access to content in Azure Purview beyond those related to scanning.
-
-### Understand how to use Azure Purview's legacy Data Plane roles
-
-When an Azure Purview Account is created, the creator will be treated as if they are in both the Purview Data Curator and Purview Data Source Administrator Roles. But the account creator is not assigned to these roles in the role store. Azure Purview recognizes that the principal is the creator of the account and extends these capabilities to them based on their identity.
-
-All other users can only use the Azure Purview Account if they are placed in at least one of these roles. This means that when an Azure Purview Account is created, no one but the creator can access the account or use its APIs until they are put in one or more of the previous defined roles.
-
-Please note that the Purview Data Source Administrator role has two supported scenarios. The first scenario is for users who are already Purview Data Readers or Purview Data Curators that also need to be able to create scans. Those users need to be in two roles, at least one of Purview Data Reader or Purview Data Curator as well as being placed in the Purview Data Source Administrator Role.
-
-The other scenario for Purview Data Source Administrator is for programmatic processes, such as service principals, that need to be able to set up and monitor scans but should not have access to any of the catalog's data.
-
-This scenario can be implemented by putting the service principal in the Purview Data Source Administrator Role without being placed in any of the other two roles. The principal won't have access to the Purview Portal but that is o.k. because it's a programmatic principal and only communicates via APIs.
-
-### Putting users into legacy roles
-
-So the first order of business after creating an Azure Purview account is to assign people into these roles.
-
-The role assignment is managed via [Azure's RBAC](../role-based-access-control/overview.md).
-
-Only two built-in control plane roles in Azure can assign users roles, those are either Owners or User Access Administrators. So to put people into these roles for Azure Purview one must either find someone who is an Owner or User Access Administrator or become one oneself.
-
-#### An example of assigning someone to a legacy role
-
-1. Go to https://portal.azure.com and navigate to your Azure Purview Account
-1. On the left-hand side, select **Access control (IAM)**
-1. Then follow the general instructions given [here](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group)
-
-### Legacy role definitions and actions
-
-A role is defined as a collection of actions. See [here](../role-based-access-control/role-definitions.md) for more information on how roles are defined. And see [here](../role-based-access-control/built-in-roles.md) for the Role Definitions for Azure Purview's roles.
-
-### Getting added to a legacy Data Plane Role in an Azure Purview account
-
-If you want to be given access to an Azure Purview Account so you can use its studio or call its APIs you need to be added into an Azure Purview Data Plane Role. The only people who can do this are those who are Owners or User Access Administrators on the Azure Purview Account. For most users the next step is to find a local administrator who can help you find the right people who can give you access.
-
-For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, select its **Access control (IAM)** tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
-
-### Legacy - who should be assigned to what role?
-
-|User Scenario|Appropriate Role(s)|
-|-------------|-----------------|
-|I just need to find assets, I don't want to edit anything|Purview Data Reader Role|
-|I need to edit information about assets, put classifications on them, associate them with glossary entries, etc.|Purview Data Curator Role|
-|I need to edit the glossary or set up new classification definitions|Purview Data Curator Role|
-|My application's Service Principal needs to push data to Azure Purview|Purview Data Curator Role|
-|I need to set up scans via the Purview Studio|Purview Data Source Administrator Role plus at least one of Purview Data Reader Role or Purview Data Curator Role|
-|I need to enable a Service Principal or other programmatic identity to set up and monitor scans in Azure Purview without allowing the programmatic identity to access the catalog's information |Purview Data Source Administrator Role|
-|I need to put users into roles in Azure Purview | Owner or User Access Administrator |
-
-:::image type="content" source="./media/catalog-permissions/collection-permissions-roles-legacy.png" alt-text="Chart showing Purview legacy roles" lightbox="./media/catalog-permissions/collection-permissions-roles-legacy.png":::
 
 ## Next steps
 

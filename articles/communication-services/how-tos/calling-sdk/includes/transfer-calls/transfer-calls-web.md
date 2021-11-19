@@ -2,7 +2,7 @@
 author: probableprime
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
@@ -13,7 +13,7 @@ ms.author: rifox
 Call transfer is an extended feature of the core `Call` API. You first need to get the transfer feature API object:
 
 ```js
-const callTransferApi = call.api(Features.Transfer);
+const callTransferApi = call.feature(Features.Transfer);
 ```
 
 Call transfers involve three parties:
@@ -22,7 +22,7 @@ Call transfers involve three parties:
 - *Transferee*: The person who is being transferred.
 - *Transfer target*: The person who is being transferred to.
 
-Transfers follow these steps:
+### Transfer to participant:
 
 1. There's already a connected call between the *transferor* and the *transferee*. The *transferor* decides to transfer the call from the *transferee* to the *transfer target*.
 1. The *transferor* calls the `transfer` API.
@@ -42,6 +42,27 @@ const id = { communicationUserId: <ACS_USER_ID> };
 ```js
 // call transfer API
 const transfer = callTransferApi.transfer({targetParticipant: id});
+```
+
+### Transfer to call:
+
+1. There's already a connected call between the *transferor* and the *transferee*. 
+2. There's already a connected call between the *transferor* and the *transfer target*.
+3. The *transferor* decides to transfer the call with the *transferee* to the call with *transfer target*.
+4. The *transferor* calls the `transfer` API.
+5. The *transferee* decides whether to `accept` or `reject` the transfer request to the *transfer target* by using a `transferRequested` event.
+6. The *transfer target* receives an incoming call only if the *transferee* accepts the transfer request.
+
+To transfer a current call, you can use the `transfer` API.
+
+```js
+// transfer to the target call specifying the call id
+const id = { targetCallId: <CALL_ID> };
+```
+
+```js
+// call transfer API
+const transfer = callTransferApi.transfer({ targetCallId: <CALL_ID> });
 ```
 
 The `transfer` API allows you to subscribe to `transferStateChanged` and `transferRequested` events. A `transferRequested` event comes from a `call` instance; a `transferStateChanged` event and transfer `state` and `error` come from a `transfer` instance.
@@ -77,3 +98,4 @@ transfer.on('stateChanged', () => {
    }
 });
 ```
+

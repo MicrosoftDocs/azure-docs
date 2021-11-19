@@ -3,7 +3,7 @@ title: Analyze live video using OpenVINO™ Model Server – AI Extension from I
 description: In this tutorial, you will use an AI model server with pre-trained models provided by Intel to analyze the live video feed from a (simulated) IP camera.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 titleSuffix: Azure
 ms.custom: ignite-fall-2021
 ---
@@ -67,7 +67,7 @@ In this tutorial, you will:
 
 ### Review the sample video
 
-When you set up the Azure resources, a short [video of a parking lot](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
+When you set up the Azure resources, a short [video of a parking lot](https://avamedia.blob.core.windows.net/public/lots_015.mkv) is copied to the Linux VM in Azure that you're using as the IoT Edge device. This quickstart uses the video file to simulate a live stream.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4LUbN]
 

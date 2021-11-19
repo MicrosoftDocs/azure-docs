@@ -19,7 +19,7 @@ Learn how to use an online endpoint (preview) to deploy your model, so you don't
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -59,7 +59,7 @@ To set your endpoint name, choose one of the following commands, depending on yo
 
 For Unix, run this command:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
 > We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
@@ -71,7 +71,7 @@ For Unix, run this command:
 
 The following snippet shows the *endpoints/online/managed/sample/endpoint.yml* file: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml":::
 
 > [!NOTE]
 > For a full description of the YAML, see [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md).
@@ -94,7 +94,7 @@ The example contains all the files needed to deploy a model on an online endpoin
 
 The following snippet shows the *endpoints/online/managed/sample/blue-deployment.yml* file, with all the required inputs: 
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml":::
 
 The table describes the attributes of a `deployment`:
 
@@ -106,14 +106,14 @@ The table describes the attributes of a `deployment`:
 | `code_configuration.scoring_script` | The Python file that's in the `code_configuration.code.local_path` scoring directory. This Python code must have an `init()` function and a `run()` function. The function `init()` will be called after the model is created or updated (you can use it to cache the model in memory, for example). The `run()` function is called at every invocation of the endpoint to do the actual scoring and prediction. |
 | `environment` | Contains the details of the environment to host the model and code. In this example, we have inline definitions that include the`path`. We'll use `environment.docker.image` for the image. The `conda_file` dependencies will be installed on top of the image. For more information, see the tip in the next section. |
 | `instance_type` | The VM SKU that will host your deployment instances. For more information, see [Managed online endpoints supported VM SKUs](reference-managed-online-endpoints-vm-sku-list.md). |
-| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `scale_settings.instance_count` to at least `3`. |
+| `instance_count` | The number of instances in the deployment. Base the value on the workload you expect. For high availability, we recommend that you set `instance_count` to at least `3`. |
 
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
 > 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
@@ -150,18 +150,18 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 > [!IMPORTANT]
 > The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
-> - Local endpoints do *not* support traffic rules, authentication, scale settings, or probe settings. 
+> - Local endpoints do *not* support traffic rules, authentication, or probe settings. 
 > - Local endpoints support only one deployment per endpoint. 
 
 ### Deploy the model locally
 
 First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
 
 Now, create a deployment named `blue` under the endpoint.
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_deployment":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="create_deployment":::
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
@@ -172,7 +172,7 @@ The `--local` flag directs the CLI to deploy the endpoint in the Docker environm
 
 Check the status to see whether the model was deployed without error:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_status":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_status":::
 
 The output should appear similar to the following JSON. Note that the `provisioning_state` is `Succeeded`.
 
@@ -193,7 +193,7 @@ The output should appear similar to the following JSON. Note that the `provision
 
 Invoke the endpoint to score the model by using the convenience command `invoke` and passing query parameters that are stored in a JSON file:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
 
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
 
@@ -201,7 +201,7 @@ If you want to use a REST client (like curl), you must have the scoring URI. To 
 
 In the example *score.py* file, the `run()` method logs some output to the console. You can view this output by using the `get-logs` command again:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_logs":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
 
 ##  Deploy your managed online endpoint to Azure
 
@@ -211,11 +211,11 @@ Next, deploy your managed online endpoint to Azure.
 
 To create the endpoint in the cloud, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_endpoint" :::
 
 To create the deployment named `blue` under the endpoint, run the following code:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="create_deployment" :::
 
 This deployment might take up to 15 minutes, depending on whether the underlying environment or image is being built for the first time. Subsequent deployments that use the same environment will finish processing more quickly.
 
@@ -232,7 +232,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 
 The `show` command contains information in `provisioning_status` for endpoint and deployment:
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_status" :::
 
 You can list all the endpoints in the workspace in a table format by using the `list` command:
 
@@ -244,7 +244,7 @@ az ml online-endpoint list --output table
 
 Check the logs to see whether the model was deployed without error:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 By default, logs are pulled from inference-server. To see the logs from storage-initializer (it mounts assets like model and code to the container), add the `--container storage-initializer` flag.
 
@@ -252,15 +252,15 @@ By default, logs are pulled from inference-server. To see the logs from storage-
 
 You can use either the `invoke` command or a REST client of your choice to invoke the endpoint and score some data: 
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
 The following example shows how to get the key used to authenticate to the endpoint:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
 
 Next, use curl to score data.
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
 Notice we use `show` and `get-credentials` commands to get the authentication credentials. Also notice that we're using the `--query` flag to filter attributes to only what we need. To learn more about `--query`, see [Query Azure CLI command output](/cli/azure/query-azure-cli).
 
@@ -268,7 +268,7 @@ To see the invocation logs, run `get-logs` again.
 
 ### (Optional) Update the deployment
 
-If you want to update the code, model, environment, or your scale settings, update the YAML file, and then run the `az ml online-endpoint update` command. 
+If you want to update the code, model, or environment, update the YAML file, and then run the `az ml online-endpoint update` command. 
 
 > [!Note]
 > If you update instance count and along with other model settings (code, model, or environment) in a single `update` command: first the scaling operation will be performed, then the other updates will be applied. In production environment is a good practice to perform these operations separately.
@@ -289,7 +289,7 @@ To understand how `update` works:
     
 1. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
+    :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 The `update` command also works with local deployments. Use the same `az ml online-deployment update` command with the `--local` flag.
 
@@ -332,7 +332,7 @@ The logs might take up to an hour to connect. After an hour, send some scoring r
 
 If you aren't going use the deployment, you should delete it by running the following code (it deletes the endpoint and all the underlying deployments):
 
-::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Track sensor activity
 description: The event timeline presents a timeline of activity detected on your network, including alerts and alert management actions, network events, and user operations such as user sign-in and user deletion.
-ms.date: 12/10/2020
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

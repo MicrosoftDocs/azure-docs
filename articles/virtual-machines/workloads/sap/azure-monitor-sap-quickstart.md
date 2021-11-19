@@ -7,8 +7,7 @@ ms.topic: how-to
 ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
-
----    
+---
 
 # Deploy Azure Monitor for SAP Solutions by using the Azure portal
 
@@ -83,7 +82,7 @@ $sapcntrluri = "https://" + $SAPHostName + ":5" + $InstanceNumber + "14/?wsdl"
 $sapcntrl = New-WebServiceProxy -uri $sapcntrluri -namespace WebServiceProxy -class sapcntrl
 $FunctionObject = New-Object ($sapcntrl.GetType().NameSpace + ".$Function")
 $sapcntrl.$Function($FunctionObject)
-
+```
 11. **Repeat Steps 3-10 for each instance profile **.
 
 >[!Important] 
@@ -172,7 +171,7 @@ To install the NetWeaver provider on the Azure portal:
    ALTER ROLE [db_datareader] ADD MEMBER [AMS]
    ALTER ROLE [db_denydatawriter] ADD MEMBER [AMS]
    GO
-   ``` 
+   ```
 
 1. Select **Add provider**, and then:
 

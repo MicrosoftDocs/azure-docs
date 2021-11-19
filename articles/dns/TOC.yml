@@ -44,6 +44,12 @@
       href: tutorial-alias-pip.md
     - name: Alias records for zone records
       href: tutorial-alias-rr.md
+- name: Samples
+  items:
+  - name: Azure PowerShell
+    items:
+    - name: Find unhealthy DNS records
+      href: ./scripts/find-unhealthy-dns-records.md
 - name: Concepts
   items:
   - name: Security

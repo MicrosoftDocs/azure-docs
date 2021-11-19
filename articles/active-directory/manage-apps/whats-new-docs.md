@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 10/05/2021
+ms.date: 11/04/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,6 +15,23 @@ reviewer: napuri
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## October 2021
+
+### Updated articles
+
+- [Manage consent to applications and evaluate consent requests in Azure Active Directory](manage-consent-requests.md)
+- [What is application management in Azure Active Directory?](what-is-application-management.md)
+- [Configure how end-users consent to applications using Azure Active Directory](configure-user-consent.md)
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+- [Assign enterprise application owners](assign-app-owners.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+- [Secure hybrid access: Secure legacy apps with Azure Active Directory](secure-hybrid-access.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Tutorial: Migrate Okta sign on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md)
+
 
 ## September 2021
 

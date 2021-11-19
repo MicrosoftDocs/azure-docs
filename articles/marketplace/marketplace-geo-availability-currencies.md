@@ -193,7 +193,7 @@ For details on how to enter prices for specific offer types, refer to these arti
 
 - [Create an Azure application offer](azure-app-offer-setup.md)
 - [Create an Azure container offer](azure-container-offer-setup.md)
-- [Create an Azure virtual machine offer](azure-vm-create.md)
+- [Create an Azure virtual machine offer](azure-vm-offer-setup.md)
 - [Create a consulting service offer](./create-consulting-service-offer.md)
 - [Create a Dynamics 365 for Customer Engagement & Power Apps offer](dynamics-365-customer-engage-offer-setup.md)
 - [Create a Dynamics 365 for Operations offer](dynamics-365-operations-offer-setup.md)

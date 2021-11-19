@@ -66,7 +66,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+* Reader Role on the Virtual Network of the target virtual machine (in the case that the Bastion is in a peered Virtual Network).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
@@ -91,7 +91,7 @@ Azure Bastion currently supports the following keyboard layouts inside the VM:
 * sv-se-qwerty
 * tr-tr-qwerty
 
-The default keyboard layout in the target VM will match your local language, which can be changed in your local computer settings.
+To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
@@ -161,3 +161,6 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### What is the maximum screen resolution supported via Bastion?  
+Currently, 1920x1080 (1080p) is the maximum supported resolution. 

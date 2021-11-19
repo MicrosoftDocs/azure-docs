@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/12/2021
 ms.author: rolyon
 ms.custom: seohack1, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ This article answers some common questions about Azure role-based access control
 Azure supports up to **2000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
-> The **2000** role assignments limit per subscription is fixed and cannot be increased.
+> Starting November 2021, the role assignments limit for a subscription is being increased from **2000** to **4000** over the next several months. Subscriptions that are near the limit will be prioritized first. The limit for the remaining subscriptions will be increased over time.
 
 If you are getting close to this limit, here are some ways that you can reduce the number of role assignments:
 

@@ -11,7 +11,7 @@ ms.custom: ignite-fall-2021
 
 # What is Azure Managed Instance for Apache Cassandra?
 
-The Azure Managed Instance for Apache Cassandra service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance. It will have deep integration and data movement capabilities with [Azure Cosmos DB Cassandra API](../cosmos-db/cassandra-introduction.md) upon its general release.
+The Azure Managed Instance for Apache Cassandra service provides automated deployment and scaling operations for managed open-source Apache Cassandra datacenters. This service helps you accelerate hybrid scenarios and reduce ongoing maintenance.
 
 :::image type="content" source="./media/introduction/icon.gif" alt-text="Azure Managed Instance for Apache Cassandra is a managed service for Apache Cassandra." border="false":::
 
@@ -19,10 +19,10 @@ The Azure Managed Instance for Apache Cassandra service provides automated deplo
 
 ### Hybrid deployments
 
-You can use this service to easily place managed instances of Apache Cassandra datacenters, which are deployed automatically as virtual machine scale sets, into a new or existing Azure Virtual Network. These data centers can be added to your existing Apache Cassandra ring running on-premises via [Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) in Azure, or another cloud environment.
+You can use this service to easily place managed instances of Apache Cassandra datacenters, which are deployed automatically as virtual machine scale sets, into a new or existing Azure Virtual Network. These data centers can be added to your existing Apache Cassandra ring running on-premises via [Azure ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) in Azure, or another cloud environment. This is achieved through [hybrid configuration](configure-hybrid-cluster.md).
 
 - **Simplified deployment:** After the hybrid connectivity is established deployment is easy through the gossip protocol.
-- **Hosted metrics:** The metrics are hosted in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster.
+- **Hosted metrics:** The metrics are hosted in [Prometheus](https://prometheus.io/docs/introduction/overview/) to monitor activity across your cluster. The service is also integrated with [Azure Monitor for metrics and diagnostic logging](monitor-clusters.md).
 
 ### Simplified scaling
 
@@ -36,11 +36,10 @@ The service provides management operations for the following common Apache Cassa
 - Provision a datacenter
 - Scale a datacenter
 - Delete a datacenter
-- Start a repair action on a keyspace
 - Change configuration of a datacenter
 - Setup backups
 
-The pricing model is flexible, on-demand, instance-based, and has no licensing fees. This pricing model allows you to adjust to your specific workload needs. You choose how many cores, which VM SKU, what memory size, and the disk space size you need.
+The pricing model is flexible, on-demand, instance-based, and has no licensing fees. This pricing model allows you to adjust to your specific workload needs. You choose how many cores, which VM SKU, what memory size, and the number of P30 disks per node.
 
 ## Next steps
 

@@ -209,6 +209,8 @@
           href: concept-data-ingestion.md
         - name: Data processing
           href: concept-optimize-data-processing.md
+        - name: Studio network data access
+          href: concept-network-data-access.md
     - name: Security
       items:
         - name: Enterprise security overview
@@ -297,6 +299,8 @@
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
             items:
               - name: Compute instance
@@ -459,25 +463,20 @@
             href: how-to-migrate-from-estimators-to-scriptrunconfig.md
           - name: Reinforcement learning
             href: how-to-use-reinforcement-learning.md
-          - name: Work with MLflow
+          - name: Train experiments with MLflow Projects
+            displayName: log, monitor, metrics, model registry, register
+            href: how-to-train-mlflow-projects.md
+          - name: Track & monitor training
             items:
+              - name: Track, monitor, and analyze runs
+                displayName: cancel, fail, status, child run
+                href: how-to-track-monitor-analyze-runs.md
               - name: Track experiments with MLflow
                 displayName: log, monitor, metrics, model registry, register
                 href: how-to-use-mlflow.md
               - name: Track Azure Databricks runs with MLflow
                 displayName: log, monitor, deploy, metrics, databricks
                 href: how-to-use-mlflow-azure-databricks.md
-              - name: Train experiments with MLflow Projects
-                displayName: log, monitor, metrics, model registry, register
-                href: how-to-train-mlflow-projects.md
-              - name: Deploy MLflow models
-                displayName: log, monitor, deploy, metrics, databricks, aci, aks
-                href: how-to-deploy-mlflow-models.md
-          - name: Track & monitor training
-            items:
-              - name: Track, monitor, and analyze runs
-                displayName: cancel, fail, status, child run
-                href: how-to-track-monitor-analyze-runs.md
               - name: Log & view metrics and log files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
@@ -547,6 +546,9 @@
       - name: Where and how to deploy
         displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
         href: how-to-deploy-and-where.md
+      - name: Deploy MLflow models
+        displayName: log, monitor, deploy, metrics, databricks, aci, aks
+        href: how-to-deploy-mlflow-models.md
       - name: Deploy with endpoints
         items:
           - name: Real-time
@@ -563,7 +565,7 @@
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
-            - name: Access storage with managed online endpoint and managed identity
+            - name: Access Azure resources from managed online endpoint
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md

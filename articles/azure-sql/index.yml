@@ -30,6 +30,8 @@ landingContent:
         links:
           - text: What's new? 
             url: database/doc-changes-updates-release-notes-whats-new.md
+          - text: Survey to improve Azure SQL!
+            url: https://aka.ms/AzureSQLSurveyNov2021
       - linkListType: overview
         links:
           - text: What is SQL Database?
