@@ -110,7 +110,7 @@ When you send or accept a transfer you agree to terms and conditions. The follow
 
 When you send a transfer request, must select the **Send transfer request** option. By making the selection you also agree to the following terms and conditions:
 
-_By sending this transfer request, you acknowledge and agree that the selected items will transfer to your account as of the Transition Date (date when the transfer completed successfully). You will be responsible to Microsoft for all ongoing, scheduled billings related to the transfer items as of the Transition Date; provided that Microsoft will move any prepaid subscriptions (including reserved instances). You agree that you may not cancel any prepaid subscriptions transferred to your account._
+_By sending this transfer request, you acknowledge and agree that the selected items will transfer to your account as of the Transition Date (date when the transfer completed successfully). You will be responsible to Microsoft for all ongoing, scheduled billings related to the transfer items as of the Transition Date; provided that Microsoft will move any prepaid subscriptions (including reserved instances) to your account. You agree that you may not cancel any prepaid subscriptions transferred to your account._
 
 #### Transfer acceptance
 
