@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 
-zone_pivot_groups: acs-plat-android
+
 ---
 
 # Raw Media Access
@@ -114,7 +114,7 @@ for (VideoDeviceInfo videoDeviceInfo : m_deviceManager.getCameras())
 }
 ```
 
-7.  In a non-UI thread or loop in the app, cast the `MediaFrameSender` to the appropriated type defined by the `MediaFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrame` and then call the `send` method according to the number of planes defined by the MediaFormat.
+7.  In a non-UI thread or loop in the app, cast the `MediaFrameSender` to the appropriate type defined by the `MediaFrameKind` property of `VideoFormat`. For example, cast it to `SoftwareBasedVideoFrame` and then call the `send` method according to the number of planes defined by the MediaFormat.
 After that, create the ByteBuffer backing the video frame if needed. Then, update the content of the video frame. Finally, send the video frame to other participants with the `sendFrame` API.
 
 ```java
