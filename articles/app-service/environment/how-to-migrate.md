@@ -36,12 +36,22 @@ ASE_RG=<Your-Resource-Group>
 ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --query id --output tsv)
 ```
 
+### Delegate your App Service Environment subnet
+
+App Service Environment v3 requires the subnet it's in to have a single delegation of "Microsoft.Web/hostingEnvironments". Previous versions didn't require this delegation. You will need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or navigating to the subnet in the portal.
+
+```azurecli
+az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
+```
+
+![subnet-delegation](./media/migration/subnet_delegation.jpg)
+
 ### Validate migration is possible
 
 The following command will check whether your App Service Environment is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-tool-limitations) or you want to migrate to App Service Environment v3 manually, see [migration alternatives](migration-alternatives.md).
 
 ```azurecli
-az rest --method post --uri ${ASE_ID}/migrate?api-version=2021-02-01&phase=validation
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=validation"
 ```
 
 If there are no errors, your migration is supported and you can continue to the next step.
@@ -51,7 +61,7 @@ If there are no errors, your migration is supported and you can continue to the 
 Pre-migration refers to [Step 1 of the migration process](migrate.md#overview-of-migration-process). Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
-az rest --method post --uri ${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration"
 ```
 
 The response from this command will include a location that you can poll to check the status of this step.
@@ -63,7 +73,7 @@ The response from this command will include a location that you can poll to chec
 Once you get a status of "Succeeded", run the following command to get your new IPs.
 
 ```azurecli
-az rest --method get --uri ${ASE_ID}/configurations/networking
+az rest --method get --uri "${ASE_ID}/configurations/networking"
 ```
 
 > [!IMPORTANT]
@@ -75,7 +85,7 @@ az rest --method get --uri ${ASE_ID}/configurations/networking
 Full migration refers to [Step 2 of the migration process](migrate.md#overview-of-migration-process). Be sure to read the details of this step and understand what running the following command will do to your apps and your App Service Environment. Only start this step once you've completed all pre-migration actions and understand the implications of moving on. There will be about one hour of downtime during this step. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
-az rest --method post --uri ${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration"
 ```
 
 The response from this command will include a location that you can poll to check the status of this step.
