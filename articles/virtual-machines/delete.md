@@ -279,3 +279,5 @@ A: By default, disks, NICs, and Public IPs associated with a VM are persisted wh
 
 
 ## Next steps
+
+To learn more about basic VM management, see [Tutorial: Create and Manage Linux VMs with the Azure CLI](linux/tutorial-manage-vm.md).
