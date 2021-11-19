@@ -22,9 +22,10 @@ Fees for short code provisioning are charged upfront during provisioning period:
 
 |Fee type   | Description|Fee|
 |--------------|------|-----|
-|Provisioning Fee |Charged at the time the Short Code is delivered |$650 |
-|Random Short Code Fee |Charged prior to short code delivery. Waived for a limited period|$1000/mo |
-|Vanity Short Code Fee |Charged prior to short code delivery. Waived for a limited period|$1500/mo |
+|Setup Fee |Charged at the time the Short Code is delivered |$650 |
+|Random Short Code Fee |Charged prior to short code delivery. Waived for a limited period|$1000/mo*|
+
+*$500/mo extra would be charged for Vanity short codes
 
 
 ### Leasing Fee
@@ -32,8 +33,8 @@ Fees for short code leasing are charged after provisioning is complete and then 
 
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Random Short Code |$1000/mo |
-|Vanity Short Code |$1500/mo |
+|Random Short Code |$1000/mo*|
+*$500/mo extra would be charged for Vanity short codes
 
 
 ### Usage Fee
@@ -41,7 +42,7 @@ SMS offers pay-as-you-go pricing. The price is a per-message segment charge base
 
 The following prices include required communications taxes and fees:
 
-|Operation   |Usage Fee |
+|Message Type   |Usage Fee |
 |-----------|------------|
 |Send messages (per message segment*) |$0.0075 |
 |Receive messages (per message segment*) |$0.0075 |
