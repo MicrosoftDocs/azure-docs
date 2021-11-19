@@ -226,7 +226,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
 
-    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
+    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-16-mod.png)
 
 
 ## Next steps
