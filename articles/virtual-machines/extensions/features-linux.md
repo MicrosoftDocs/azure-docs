@@ -256,7 +256,7 @@ We highly recommend that you always enable automatic update for the agent: [Auto
 
 #### Extension updates
 
-When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Azure Linux Agent downloads and upgrades the extension.
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-agents-and-extensions-are-updated) occurs, the Azure Linux Agent downloads and upgrades the extension.
 
 Automatic extension updates are either *minor* or *hotfix*. You can opt in or opt out of minor updates when you provision the extension. The following example shows how to automatically upgrade minor versions in an ARM template by using `"autoUpgradeMinorVersion": true,`:
 

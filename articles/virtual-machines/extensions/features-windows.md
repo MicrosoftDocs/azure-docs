@@ -282,7 +282,7 @@ To check what version you're running, see [Detect the VM Agent](agent-windows.md
 
 #### Extension updates
 
-When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Azure VM Agent downloads and upgrades the extension.
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-agents-and-extensions-are-updated) occurs, the Azure VM Agent downloads and upgrades the extension.
 
 Automatic extension updates are either *minor* or *hotfix*. You can opt in or opt out of minor updates when you provision the extension. The following example shows how to automatically upgrade minor versions in an ARM template by using `"autoUpgradeMinorVersion": true,`:
 
