@@ -33,11 +33,36 @@ These dimensions are measured independently, but they interact with each other a
 
 
 ## Get Started
- Users can set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm. (Note: This step is mandatory to use the workbook). 
+### Prerequisites
+- Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+- Instrument the below attributes to calculate HEART metrics:
 
+| Source          | Attribute            | Description                                |
+|-----------------|----------------------|--------------------------------------------|
+| customEvents    | user_AuthenticatedId | unique authenticated user identifier       |
+| customEvents    | session_Id           | unique session identifier                  |
+| customEvents    | appName              | unique Application Insights app identifier |
+| customEvents    | itemType             | category of customEvents record            |
+| customEvents    | timestamp            | datetime of event                          |
+| customEvents    | operation_Id         | correlate telemetry events                 |
+| customEvents    | user_Id         	 | unique user identifier                 	  |
+| customEvents*   | parentId             | name of feature                            |
+| customEvents*   | pageName             | name of page                               |
+| customEvents*   | actionType           | category of Click Analytics record         |
+| pageViews       | user_AuthenticatedId | unique authenticated user identifier       |
+| pageViews       | session_Id           | unique session identifier                  |
+| pageViews       | appName              | unique Application Insights app identifier |
+| pageViews       | timestamp            | datetime of event                          |
+| pageViews       | operation_Id         | correlate telemetry events                 |
+| pageViews       | user_Id         	 | unique user identifier                     |
+
+*Instrument the [Click Analytics Auto-collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
+### Open the Workbook
+The workbook can be found in the gallery under 'public templates' (shown below). The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**.
 
-Once the plugin is configured, the next step is to open the workbook in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**. 
+![Heart Funnel](./media/usage-overview/gallery.png)
 
 Users will notice that there are seven workbooks in this section (Below image).  
 
@@ -183,7 +208,11 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
  
 
 ## Next Steps
-- How to set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm
+- Learn more about [Google's HEART framework](https://storage.googleapis.com/pub-tools-public-publication-data/pdf/36299.pdf).
+- Set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm.
+- Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto-Collection Plugin.
+- Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
+- Find click data under content field within customDimensions attribute in CustomEvents table in [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query). See [Sample App](https://go.microsoft.com/fwlink/?linkid=2152871) for additional guidance.
 
  
 
