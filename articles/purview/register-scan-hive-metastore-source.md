@@ -136,12 +136,12 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
 
        > [!NOTE]
        > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail.
+       > To this URL, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
+       > Remember to change the Windows path separator character from "\" to "/". For example: If your MariaDB JAR file is "C:\mariadb-jdbc.jar" you should convert it to "C:/mariadb-jdbc.jar". Same applies to the Metastore JDBC URL "sslCA" parameter.  Change it from "D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem" to "D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem"
 
-       To this URL, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
+       The **Metastore JDBC URL** will finally look like:
 
-       The metastore JDBC URL will be:
-
-       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
     1. **Metastore database name**: Provide the Hive Metastore Database name.
 
