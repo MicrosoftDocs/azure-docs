@@ -24,7 +24,7 @@ The minimum recommended Kubernetes version is based on the [rolling Kubernetes v
 
 ## Features
 
-- Mounts secrets, keys, and certifications to a pod by using a CSI volume
+- Mounts secrets, keys, and certificates to a pod by using a CSI volume
 - Supports CSI inline volumes
 - Supports mounting multiple secrets store objects as a single volume
 - Supports pod portability with the `SecretProviderClass` CRD
