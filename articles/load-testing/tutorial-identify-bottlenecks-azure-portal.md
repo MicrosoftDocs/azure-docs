@@ -145,11 +145,11 @@ In the next section, you'll create a load test in the Load Testing resource for 
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/basics.png" alt-text="Screenshot that shows the basics tab when creating a new test." :::
 
-1. In the **Test plan** tab, select the **JMeter script** test method and select the *SampleApp.jmx* test script from the cloned sample application directory. Select **Upload** to upload the file to Azure and configure the load test.
+1. In the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
-    Optionally, you can select and upload more Apache JMeter configuration files.
+    Optionally, you can select and upload additional Apache JMeter configuration files.
 
 1. In the **Load** tab, configure the following details. You can leave the default values for this tutorial:
 
