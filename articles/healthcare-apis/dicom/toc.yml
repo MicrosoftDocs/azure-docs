@@ -6,13 +6,11 @@ items:
   items:
     - name: About DICOM service
       href: dicom-services-overview.md
-
 - name: Quickstarts
   expanded: true
   items:
     - name: Deploy DICOM Services using the Azure portal
       href: deploy-dicom-services-in-azure.md
-
 - name: Tutorials
   expanded: true
   items:
@@ -22,7 +20,6 @@ items:
       href: dicomweb-standard-apis-curl.md
     - name: Using DICOMweb Standard APIs with Python
       href: dicomweb-standard-apis-python.md
-
 - name: How-to guides
   expanded: true
   items:
@@ -37,7 +34,6 @@ items:
       href: dicom-register-public-application.md
     - name: Register a confidential client application
       href: dicom-register-confidential-client-application.md
-
   - name: Configure settings
     expanded: true
     items:
@@ -45,19 +41,16 @@ items:
       href: dicom-configure-azure-rbac.md
     - name: Enable Diagnostic Logging in the DICOM service
       href: enable-diagnostic-logging.md
-
   - name: Operations
     expanded: true
     items:
     - name: Pull DICOM changes using the Change Feed
       href: pull-dicom-changes-from-change-feed.md
-
   - name: Using Azure Active Directory (Azure AD) for DICOM service
     expanded: true
     items:
     - name: Get access token for the DICOM service using Azure CLI
       href: dicom-get-access-token-azure-cli.md
-
 - name: Concepts
   expanded: true
   items:
@@ -65,7 +58,8 @@ items:
       href: dicomweb-standard-apis-with-dicom-services.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
-
+    - name: Enable Diagnostic Logging in the DICOM service
+      href: enable-diagnostic-logging.md
 - name: Resources
   expanded: true
   items:

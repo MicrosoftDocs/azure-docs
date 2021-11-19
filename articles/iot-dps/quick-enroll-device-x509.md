@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation 
 description: This quickstart shows you how to programmatically enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -636,6 +636,6 @@ In this quickstart, you created an enrollment group for an X.509 intermediate or
 :::zone pivot="programming-language-nodejs"
 
 > [!div class="nextstepaction"]
->[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+>[Node.js device provisioning sample](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples).
 
 :::zone-end

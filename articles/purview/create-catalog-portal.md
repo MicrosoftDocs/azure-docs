@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Purview account in the Azure portal'
 description: This Quickstart describes how to create an Azure Purview account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
-ms.date: 09/27/2021
+ms.date: 11/15/2021
 ms.topic: quickstart
 ms.service: purview
 ms.custom: mode-portal
@@ -67,8 +67,14 @@ After your Azure Purview account is created, you'll use the Purview Studio to ac
 
 In this quickstart, you learned how to create an Azure Purview account and how to access it through the Purview Studio.
 
-Follow these next articles to learn how to navigate the Purview Studio, create a collection, and grant access to Purview.
+Next, you can create a user-assigned managed identity (UAMI) that will enable your new Azure Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
+
+To create a UAMI follow our [guide to create a user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity).
+
+Follow these next articles to learn how to navigate the Purview Studio, create a collection, and grant access to Purview:
 
 * [Using the Purview Studio](use-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
 * [Add users to your Azure Purview account](catalog-permissions.md)
+
+

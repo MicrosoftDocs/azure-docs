@@ -262,4 +262,3 @@ For other related material, see the following pages:
 
 - [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
 - [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
-- [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

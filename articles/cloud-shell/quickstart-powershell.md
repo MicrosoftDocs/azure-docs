@@ -240,7 +240,7 @@ Type `exit` to terminate the session.
 
 [bashqs]: quickstart.md
 [gallery]: https://www.powershellgallery.com/
-[customex]: /azure/virtual-machines/extensions/custom-script-windows
+[customex]: ../virtual-machines/extensions/custom-script-windows.md
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

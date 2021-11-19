@@ -335,7 +335,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 
 ## Create a workspace using customer-managed encryption keys
 
-By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [additional set of resources](/azure/machine-learning/concept-data-encryption#azure-cosmos-db) in your Azure subscription to store your data.
+By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an [additional set of resources](./concept-data-encryption.md#azure-cosmos-db) in your Azure subscription to store your data.
 
 To create a workspaces that uses your keys for encryption, you need to meet the following prerequisites:
 
