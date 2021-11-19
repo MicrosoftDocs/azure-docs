@@ -574,9 +574,9 @@ export region_code="NOEU"
 
 cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh           \
-  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"         \
-  --type sap_system                                           \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system                                      \
   --auto-approve
 ```
   
@@ -668,11 +668,13 @@ Before you begin, log in to your Azure account. Then, check that you're in the c
 Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
   
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+export region_code="NOEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-X00.tfvars           \
-      --type sap_system
+cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system
 ```
 
 ### Remove SAP workload zone
@@ -680,10 +682,13 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
 Navigate to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, execute the following command.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
+
+export region_code="NOEU"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars           \
+      --parameterfile DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars           \
       --type sap_landscape
 ```
 
@@ -701,7 +706,6 @@ Export the following two environment variables.
 
 ```bash
 export DEPLOYMENT_REPO_PATH="~/Azure_SAP_Automated_Deployment/sap-automation"
-
 export ARM_SUBSCRIPTION_ID="<subscriptionID>"
 ```
 
@@ -710,16 +714,12 @@ Run the following command.
 ```bash
 export region_code="NOEU"
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-export ARM_SUBSCRIPTION_ID="${subscriptionID}"
-
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                                          \
     --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      
 ```
 
-Verify that all resources are now cleaned up.
-
+Verify that all resources are cleaned up.
 
 ## Next steps
 
