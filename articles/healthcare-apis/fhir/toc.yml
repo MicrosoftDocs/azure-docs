@@ -80,6 +80,8 @@ items:
 
 - name: Concepts
   items:
+  - name: FHIR service autoscale
+    href: fhir-service-autoscale.md
   - name: FHIR Rest API capabilities
     href: fhir-rest-api-capabilities.md
 

@@ -435,13 +435,14 @@ In the `kv_name parameter`, enter the name of the deployer resource group key va
 
 bom_base_name:                 S41909SPS03_v0006ms
 kv_name:                       MGMTNOEUDEP00user99F 
+check_storage_account:         true
 
 ```
     
-Execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu. Run the validator test menu script.
+Execute the Ansible playbooks. One way you can execute the playbooks is to use the Downloader menu. Run the download_menu script.
   
 ```bash
-~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
 ```
   
 Select which playbooks to execute.
@@ -495,7 +496,7 @@ Copy the sample configuration files from the repository.
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
-cp -Rp ./sap-automation/training_materials/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 ## Deploy the Workload Zone
@@ -572,11 +573,11 @@ Deploy the SAP system.
 
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh           \
-  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"         \
-  --type sap_system                                           \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system                                      \
   --auto-approve
 ```
   
@@ -605,9 +606,16 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 
 Make sure you have the following files in the current folder: `sap-parameters.yaml` and `SID_host.yaml`.
 
-For a standalone SAP S/4HANA system, there are eight playbooks to execute in sequence. You can trigger the following playbooks from using a menu system. 
+For a standalone SAP S/4HANA system, there are eight playbooks to execute in sequence. One way you can execute the playbooks is to use the Configuration menu. 
 
-Trigger the playbooks to execute.
+Run the configuration_menu script.
+  
+```bash
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
+```
+
+
+Choose the playbooks to execute.
 
 ### Playbook: OS Config
 
@@ -668,11 +676,13 @@ Before you begin, log in to your Azure account. Then, check that you're in the c
 Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
   
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+export region_code="NOEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-X00.tfvars           \
-      --type sap_system
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
+  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+  --type sap_system
 ```
 
 ### Remove SAP workload zone
@@ -680,10 +690,13 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
 Navigate to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE` folder. Then, execute the following command.
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-NOEU-SAP01-INFRASTRUCTURE
+
+export region_code="NOEU"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameter_file DEV-NOEU-SAP01-INFRASTRUCTURE.tfvars           \
+      --parameterfile DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars           \
       --type sap_landscape
 ```
 
@@ -701,7 +714,6 @@ Export the following two environment variables.
 
 ```bash
 export DEPLOYMENT_REPO_PATH="~/Azure_SAP_Automated_Deployment/sap-automation"
-
 export ARM_SUBSCRIPTION_ID="<subscriptionID>"
 ```
 
@@ -710,16 +722,12 @@ Run the following command.
 ```bash
 export region_code="NOEU"
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
-export ARM_SUBSCRIPTION_ID="${subscriptionID}"
-
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                                          \
     --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
-    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      \
+    --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                      
 ```
 
-Verify that all resources are now cleaned up.
-
+Verify that all resources are cleaned up.
 
 ## Next steps
 

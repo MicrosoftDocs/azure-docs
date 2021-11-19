@@ -109,7 +109,7 @@ Create RBAC Service Principal
 1. Create a service principal using Azure CLI per the following example
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth
+    az ad sp create-for-rbac --role Contributor --sdk-auth
     ```
 
     1. This should generate an output like the following example:
