@@ -23,7 +23,7 @@ This article applies to the **Azure Stack Edge 2111** release, which maps to sof
 
 ## What's new
 
-The Azure Stack Edge 2111 release is primarily a bug-fix build.
+The Azure Stack Edge 2111 release has bug fixes for Multi-Access Edge Compute (MEC) deployments.
 
 
 ## Issues fixed in 2111 release
