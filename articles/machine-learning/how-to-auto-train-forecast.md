@@ -37,65 +37,14 @@ For this article you need,
 
     [!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
 
-## Preparing data
+## Training and validation data
 
-The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
-
-Consider the following snapshot of a file `sample.csv`.
-This data set is of daily sales data for a company that has two different stores, A, and B. 
-
-Additionally, there are features for
-
- *  `week_of_year`: allows the model to detect weekly seasonality.
-* `day_datetime`: represents a clean time series with daily frequency.
-* `sales_quantity`: the target column for running predictions. 
-
-```output
-day_datetime,store,sales_quantity,week_of_year
-9/3/2018,A,2000,36
-9/3/2018,B,600,36
-9/4/2018,A,2300,36
-9/4/2018,B,550,36
-9/5/2018,A,2100,36
-9/5/2018,B,650,36
-9/6/2018,A,2400,36
-9/6/2018,B,700,36
-9/7/2018,A,2450,36
-9/7/2018,B,650,36
-```
-
-Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
-
-```python
-import pandas as pd
-data = pd.read_csv("sample.csv")
-data["day_datetime"] = pd.to_datetime(data["day_datetime"])
-```
-
-In this case, the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. 
-
-The following code, 
-* Assumes the data contains 1,000 records, and makes a deterministic split in the data to create training and test data sets. 
-* Identifies the label column as `sales_quantity`.
-* Separates the label field from `test_data` to form the `test_target` set.
-
-```python
-train_data = data.iloc[:950]
-test_data = data.iloc[-50:]
-
-label =  "sales_quantity"
- 
-test_labels = test_data.pop(label).values
-```
+The most important difference between a forecasting regression task type and regression task type within automated ML is including a feature in your training data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. 
 
 > [!IMPORTANT]
 > When training a model for forecasting future values, ensure all the features used in training can be used when running predictions for your intended horizon. <br> <br>For example, when creating a demand forecast, including a feature for current stock price could massively increase training accuracy. However, if you intend to forecast with a long horizon, you may not be able to accurately predict future stock values corresponding to future time-series points, and model accuracy could suffer.
 
-<a name="config"></a>
-
-## Training and validation data
-
-You can specify separate train and validation sets directly in the `AutoMLConfig` object.   Learn more about the [AutoMLConfig](#configure-experiment).
+You can specify separate [training data and validation data](concept-automated-ml.md#training-validation-and-test-data) directly in the `AutoMLConfig` object. Learn more about the [AutoMLConfig](#configure-experiment).
 
 For time series forecasting, only **Rolling Origin Cross Validation (ROCV)** is  used for validation by default. Pass the training and validation data together, and set the number of cross validation folds with the `n_cross_validations` parameter in your `AutoMLConfig`. ROCV divides the series into training and validation data using an origin time point. Sliding the origin in time generates the cross-validation folds. This strategy preserves the time series data integrity and eliminates the risk of data leakage
 
@@ -106,6 +55,7 @@ You can also bring your own validation data, learn more in [Configure data split
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
+                             training_data= training_data,
                              n_cross_validations=3,
                              ...
                              **time_series_settings)
@@ -118,16 +68,12 @@ Learn more about how AutoML applies cross validation to [prevent over-fitting mo
 The [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) object defines the settings and data necessary for an automated machine learning task. Configuration for a forecasting model is similar to the setup of a standard regression model, but certain models, configuration options, and featurization steps exist specifically for time-series data. 
 
 ### Supported models
-Automated machine learning automatically tries different models and algorithms as part of the model creation and tuning process. As a user, there is no need for you to specify the algorithm. For forecasting experiments, both native time-series and deep learning models are part of the recommendation system. The following table summarizes this subset of models. 
+
+Automated machine learning automatically tries different models and algorithms as part of the model creation and tuning process. As a user, there is no need for you to specify the algorithm. For forecasting experiments, both native time-series and deep learning models are part of the recommendation system. 
 
 >[!Tip]
-> Traditional regression models are also tested as part of the recommendation system for forecasting experiments. See the [supported model table](how-to-configure-auto-train.md#supported-models) for the full list of models. 
+> Traditional regression models are also tested as part of the recommendation system for forecasting experiments. See a complete list of the [supported models](/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) in the SDK reference documentation.
 
-Models| Description | Benefits
-----|----|---
-Prophet (Preview)|Prophet works best with time series that have strong seasonal effects and several seasons of historical data. To leverage this model, install it locally using `pip install fbprophet`. | Accurate & fast, robust to outliers, missing data, and dramatic changes in your time series.
-Auto-ARIMA (Preview)|Auto-Regressive Integrated Moving Average (ARIMA) performs best, when the data is stationary. This means that its statistical properties like the mean and variance are constant over the entire set. For example, if you flip a coin, then the probability of you getting heads is 50%, regardless if you flip today, tomorrow, or next year.| Great for univariate series, since the past values are used to predict the future values.
-ForecastTCN (Preview)| ForecastTCN is a neural network model designed to tackle the most demanding forecasting tasks. It captures nonlinear local and global trends in your data and relationships between time series.|Capable of leveraging complex trends in your data and readily scales to the largest of datasets.
 
 ### Configuration settings
 
@@ -141,21 +87,17 @@ Similar to a regression problem, you define standard training parameters like ta
 The following code, 
 * Leverages the [`ForecastingParameters`](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters) class to define the forecasting parameters for your experiment training
 * Sets the `time_column_name` to the `day_datetime` field in the data set. 
-* Defines the `time_series_id_column_names` parameter to `"store"`. This ensures that **two separate time-series groups** are created for the data; one for store A and B.
+* Defines the `time_series_id_column_names` parameter to `auto`. 
 * Sets the `forecast_horizon` to 50 in order to predict for the entire test set. 
-* Sets a forecast window to 10 periods with `target_rolling_window_size`
-* Specifies a single lag on the target values for two periods ahead with the `target_lags` parameter. 
-* Sets `target_lags` to the recommended "auto" setting, which will automatically detect this value for you.
+
 
 ```python
 from azureml.automl.core.forecasting_parameters import ForecastingParameters
 
 forecasting_parameters = ForecastingParameters(time_column_name='day_datetime', 
                                                forecast_horizon=50,
-                                               time_series_id_column_names=["store"],
-                                               freq='W',
-                                               target_lags='auto',
-                                               target_rolling_window_size=10)
+                                               time_series_id_column_names='auto',
+                                               freq='W')
                                               
 ```
 
@@ -252,18 +194,9 @@ Leverage the frequency, `freq`, parameter to help avoid failures caused by irreg
 
 For highly irregular data or for varying business needs, users can optionally set their desired forecast frequency, `freq`, and specify the `target_aggregation_function` to aggregate the target column of the time series. Leverage these two settings in your `AutoMLConfig` object can help save some time on data preparation. 
 
-When the `target_aggregation_function` parameter is used,
-* The target column values are aggregated based on the specified operation. Typically, `sum` is appropriate for most scenarios.
-
-* Numerical predictor columns in your data are aggregated by sum, mean, minimum value, and maximum value. As a result, automated ML generates new columns suffixed with the aggregation function name and applies the selected aggregate operation. 
-
-* For categorical predictor columns, the data is aggregated by mode, the most prominent category in the window.
-
-* Date predictor columns are aggregated by minimum value, maximum value and mode. 
-
 Supported aggregation operations for target column values include:
 
-|Function | description
+|Function | Description
 |---|---
 |`sum`| Sum of target values
 |`mean`| Mean or average of target values
@@ -293,11 +226,12 @@ automl_config = AutoMLConfig(task='forecasting',
 > [!Warning]
 > When you enable DNN for experiments created with the SDK, [best model explanations](how-to-machine-learning-interpretability-automl.md) are disabled.
 
-To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+To enable DNN for an AutoML experiment created in the Azure Machine Learning studio, see the [task type settings in the studio UI how-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 View the [Beverage Production Forecasting notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) for a detailed code example using DNNs.
 
 ### Target rolling window aggregation
+
 Often the best information a forecaster can have is the recent value of the target.  Target rolling window aggregations allow you to add a rolling aggregation of data values as features. Generating and using these features as extra contextual data helps with the accuracy of the train model.
 
 For example, say you want to predict energy demand. You might want to add a rolling window feature of three days to account for thermal changes of heated spaces. In this example, create this window by setting `target_rolling_window_size= 3` in the `AutoMLConfig` constructor. 
@@ -310,7 +244,7 @@ View a Python code example applying the [target rolling window aggregate feature
 
 ### Short series handling
 
-Automated ML considers a time series a **short series** if there are not enough data points to conduct the train and validation phases of model development. The number of data points varies for each experiment, and depends on  the max_horizon, the number of cross validation splits, and the length of the model lookback, that is the maximum of history that's needed to construct the time-series features. For the exact calculation, see the [short_series_handling_configuration reference documentation](/python/api/azureml-automl-core/azureml.automl.core.forecasting_parameters.forecastingparameters#short-series-handling-configuration).
+Automated ML considers a time series a **short series** if there are not enough data points to conduct the train and validation phases of model development. The number of data points varies for each experiment, and depends on  the max_horizon, the number of cross validation splits, and the length of the model lookback, that is the maximum of history that's needed to construct the time-series features.
 
 Automated ML offers short series handling by default with the `short_series_handling_configuration` parameter in the `ForecastingParameters` object. 
 
