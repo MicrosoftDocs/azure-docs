@@ -35,7 +35,7 @@ In Cognitive Search, built-in roles include generally available and preview role
 
 Role assignments are cumulative and pervasive across all tools and client libraries used to create or manage a search service. These clients include the Azure portal, Management REST API, Azure PowerShell, Azure CLI, and the management client library of Azure SDKs.
 
-Using the portal, roles are defined for the search service as a whole, and not specific indexes or other top-level objects. Use PowerShell or the Azure CLI to [grant access on specific indexes](search-howto-aad.md#rbac-single-index).
+Role assignments can be scoped to the search service or to individual top-level resources, like an index. Using the portal, roles can only be defined for the service, but not specific top-level resources. Use PowerShell or the Azure CLI for [granular access to specific objects](#rbac-single-index).
 
 There are no regional, tier, or pricing restrictions for using Azure RBAC on Azure Cognitive Search, but your search service must be in the Azure public cloud.
 
@@ -247,6 +247,65 @@ Additional details on using [AAD authentication with the Azure SDK for .NET](htt
 > If you get a 403 error, verify that your search service is enrolled in the preview program and that your service is configured for preview role assignments.
 
 ---
+
+## Grant access to a single index
+
+In some scenarios, you may want to scope down an application's access to a single resource, such as an index. 
+
+The portal doesn't currently support granting access to just a single index, but it can be done with [PowerShell](../role-based-access-control/role-assignments-powershell.md) or the [Azure CLI](../role-based-access-control/role-assignments-cli.md).
+
+In PowerShell, you would use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
+
+Before you start, make sure you load the Azure and AzureAD modules and connect to your Azure account:
+
+```powershell
+Import-Module -Name Az
+Import-Module -Name AzureAD
+Connect-AzAccount
+```
+
+To add a role assignment scoped to an individual index, you would then run the following command:
+
+```powershell
+New-AzRoleAssignment -ObjectId <objectId> `
+    -RoleDefinitionName "Search Index Data Contributor" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
+```
+
+## Create a custom role
+
+You can create custom roles using [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), or the [REST API](../role-based-access-control/custom-roles-rest.md).
+
+
+
+In addition to using [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search), you can also create a [custom role](../role-based-access-control/custom-roles.md) to define exactly what you'd like your application to be able to do.
+
+The JSON above shows the syntax for creating a custom role with PowerShell.
+
+For example, if you want a role that has the ability to fully manage indexes including the ability to create indexes and read data from them you could define the role shown below:
+
+```json
+{
+  "Name": "Search Index Manager",
+  "Id": "88888888-8888-8888-8888-888888888888",
+  "IsCustom": true,
+  "Description": "Can manage search indexes and read or write to them",
+  "Actions": [
+    "Microsoft.Search/searchServices/indexes/*",
+    
+  ],
+  "NotActions": [],
+  "DataActions": [
+      "Microsoft.Search/searchServices/indexes/documents/*"
+  ],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/{subscriptionId1}"
+  ]
+}
+```
+
+For the full list of operations available, see [Microsoft.Search resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftsearch).
 
 ## Disable API key authentication
 

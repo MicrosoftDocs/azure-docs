@@ -7,7 +7,7 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 11/19/2021
 ms.custom: subject-rbac-steps
 ---
 
@@ -95,7 +95,7 @@ The application will also need a client secret or certificate to prove its ident
 
 Make sure to save the value of the secret in a secure location as you won't be able to access the value again. 
 
-## Grant your application permissions to Azure Cognitive Search
+## Assign a role to the application
 
 Next, you need to grant your Azure AD application access to your search service. Azure Cognitive Search has various [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search) that can be used depending on the access required by your application.
 
@@ -122,66 +122,11 @@ To assign a role to your app registration:
    + Search Index Data Contributor (preview)
    + Search Index Data Reader (preview)
 
-1. On the **Members** tab, select the Azure AD user or group identity.
+1. On the **Members** tab, select the Azure AD user or group identity under which your application runs.
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=config-svc-rest%2croles-powershell%2ctest-rest#step-3-assign-roles).
-
-## Create a custom role
-
-In addition to using [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search), you can also create a [custom role](../role-based-access-control/custom-roles.md) to define exactly what you'd like your application to be able to do.
-
-For example, if you want a role that has the ability to fully manage indexes including the ability to create indexes and read data from them you could define the role shown below:
-
-```json
-{
-  "Name": "Search Index Manager",
-  "Id": "88888888-8888-8888-8888-888888888888",
-  "IsCustom": true,
-  "Description": "Can manage search indexes and read or write to them",
-  "Actions": [
-    "Microsoft.Search/searchServices/indexes/*",
-    
-  ],
-  "NotActions": [],
-  "DataActions": [
-      "Microsoft.Search/searchServices/indexes/documents/*"
-  ],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/{subscriptionId1}"
-  ]
-}
-```
-
-You can create custom roles using [Azure portal](../role-based-access-control/custom-roles-portal.md), [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), or the [REST API](../role-based-access-control/custom-roles-rest.md). The JSON above shows the syntax for creating a custom role with PowerShell.
-
-For the full list of operations available, see [Microsoft.Search resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftsearch).
-
-## Grant access to only a single index
-
-In some scenarios, you may want to scope down an application's access to a single resource, such as an index. 
-
-The portal doesn't currently support granting access to just a single index, but it can be done with [PowerShell](../role-based-access-control/role-assignments-powershell.md) or the [Azure CLI](../role-based-access-control/role-assignments-cli.md).
-
-In PowerShell, you would use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment), providing the Azure user or group name, and the scope of the assignment.
-
-Before you start, make sure you load the Azure and AzureAD modules and connect to your Azure account:
-
-```powershell
-Import-Module -Name Az
-Import-Module -Name AzureAD
-Connect-AzAccount
-```
-
-To add a role assignment scoped to an individual index, you would then run the following command:
-
-```powershell
-New-AzRoleAssignment -ObjectId <objectId> `
-    -RoleDefinitionName "Search Index Data Contributor" `
-    -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Search/searchServices/<search-service>/indexes/<index-name>"
-```
 
 ## Set up Azure AD authentication in your client
 
