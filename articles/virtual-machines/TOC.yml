@@ -601,9 +601,21 @@
     - name: How-to
       displayName: dedicated adh 
       href: dedicated-hosts-how-to.md
-    - name: VM Packing
-      displayName: dedicated, packing, dedicated host
-      href: dedicated-host-packing.md
+    - name: General Purpose SKUs
+      displayName: dedicated, packing, dedicated host, general purpose
+      href: dedicated-host-general-purpose-skus.md
+    - name: Compute Optimized SKUs
+      displayName: dedicated, packing, dedicated host, compute optimized
+      href: dedicated-host-compute-optimized-skus.md
+    - name: Memory Optimized SKUs
+      displayName: dedicated, packing, dedicated host, memory optimized
+      href: dedicated-host-memory-optimized-skus.md
+    - name: Storage Optimized SKUs
+      displayName: dedicated, packing, dedicated host, storage optimized
+      href: dedicated-host-storage-optimized-skus.md
+    - name: GPU Optimized SKUs
+      displayName: dedicated, packing, dedicated host, GPU optimized
+      href: dedicated-host-gpu-optimized-skus.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview
