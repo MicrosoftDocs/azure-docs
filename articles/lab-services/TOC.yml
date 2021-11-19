@@ -113,6 +113,8 @@
       href: manage-labs-2.md
     - name: Configure auto-shutdown of VMs for a lab plan
       href: how-to-configure-lab-plan.md
+    - name: Add a lab creator
+      href: add-lab-creator.md
     - name: Connect to a virtual network
       href: how-to-connect-vnet-injection.md
     - name: Use shared image gallery for custom images
@@ -127,8 +129,6 @@
       href: manage-labs.md
     - name: Configure auto-shutdown of VMs for a lab account
       href: how-to-configure-lab-accounts.md
-    - name: Add a lab creator
-      href: add-lab-creator.md
     - name: Allow lab creator to pick lab location
       href: allow-lab-creator-pick-lab-location.md
     - name: Connect to a peer virtual network
