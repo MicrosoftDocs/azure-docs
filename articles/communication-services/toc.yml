@@ -55,6 +55,8 @@ items:
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
+    - name: Raw media access
+      href: quickstarts/voice-video-calling/get-started-with-raw-media-access.md
   - name: UI Library
     items:
     - name: Get started with Composites
