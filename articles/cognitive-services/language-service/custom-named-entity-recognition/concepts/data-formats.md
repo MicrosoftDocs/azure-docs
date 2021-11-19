@@ -24,48 +24,76 @@ When you tag entities, the tags are saved as in the following JSON format. If yo
 
 ```json
 {
-    //List of entity names. Their index within this array is used as an ID. 
-    "entityNames": [
-        "entity_name1",
-        "entity_name2"
-    ],
-    "documents": "path_to_document", //Relative file path to get the text.
-    "culture": "en-US", //Standard culture strings supported by CultureInfo.
-    "entities": [
+    "extractors": [
         {
-            "regionStart": 0,
-            "regionLength": 69,
-            "labels": [
+            "name": "Entity1"
+        },
+        {
+            "name": "Entity2"
+        }
+    ],
+    "documents": [
+        {
+            "location": "file1.txt",
+            "language": "en-us",
+            "extractors": [
                 {
-                    "entity": 0, // Index of the entity in the "entityNames" array. Positions are relative to the original text (not bounding box)
-                    "start": 4,
-                    "length": 10
-                },
+                    "regionOffset": 0,
+                    "regionLength": 5129,
+                    "labels": [
+                        {
+                            "extractorName": "Entity1",
+                            "offset": 77,
+                            "length": 10
+                        },
+                        {
+                            "extractorName": "Entity2",
+                            "offset": 3062,
+                            "length": 8
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "location": "file2.txt",
+            "language": "en-us",
+            "extractors": [
                 {
-                    "entity": 1,
-                    "start": 18,
-                    "length": 11
+                    "regionOffset": 0,
+                    "regionLength": 6873,
+                    "labels": [
+                        {
+                            "extractorName": "Entity2",
+                            "offset": 60,
+                            "length": 7
+                        },
+                        {
+                            "extractorName": "Entity1",
+                            "offset": 2805,
+                            "length": 10
+                        }
+                    ]
                 }
             ]
         }
-    ]    
+    ]
 }
 ```
 
-The following list describes the various JSON properties of the sample above.
+### Data description
 
-* `entityNames`: An array of entity names. Index of the entity within the array is used as its ID.
+* `extractors`: An array of extractors for your data. Each extractor represents one of the entities you want to extract from your data.
 * `documents`: An array of tagged documents.
-  * `location`: The path of the document relative to the JSON file. For example, docs on the same level as the tags file `file.txt`, for docs inside one directory level `dir1/file.txt`.
-  * `culture`: culture/language of the document. <!-- See [language support](../language-support.md) for more information. -->
-  * `entities`: Specifies the entity recognition tags.
-    * `regionStart`: The inclusive character position of the start of the text.
-    * `regionLength`: The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region, so if this is a tagged file, set the `regionStart` to 0 and the `regionLength` to the last index of last character in the file. You can also set this region if you want to introduce a negative sample to the training, by defining the region as a portion of the file with no tags.
-
-    * `labels`: All tags occurring within the bounding box.
-      * `entity`: The index of the entity in the `entityNames` array.
-      * `start`: The inclusive character position of the start of the tag in the document text. This is not relative to the bounding box.
-      * `length`: The length of the tag in terms of UTF16 characters.
+  * `location`: The path of the file. The file has to be in root of the storage container.
+  * `language`: Language of the file. Use one of the [supported culture locales](../language-support.md).
+  * `extractors`: Array of extractor objects to be extracted from teh file.
+    * `regionOffset`: The inclusive character position of the start of the text.
+    * `regionLength`: The length of the bounding box in terms of UTF16 characters. Training only considers the data in this region.
+    * `labels`: Array of all the tagged entities within the specified region.
+      * `extractorName`: Type of the entity to be extracted.
+      * `offset`: The inclusive character position of the start of the entity. This is not relative to the bounding box.
+      * `length`: The length of the entity in terms of UTF16 characters.
 
 ## Next steps
 
