@@ -47,11 +47,14 @@ The size of VM that you need to use for your lab depends on the types of project
 ## Template virtual machine configuration
 
 ### Creative Cloud deployment package
+
 Installing Creative Cloud requires the use of a deployment package. Typically, the deployment package is created by your IT department using Adobe’s Admin Console.  When IT creates the deployment package, they also have the option to enable self-service.  There are a few ways to enable self-service for the deployment package:
--    Create a self-service package.
--    Create a managed package with self-service elevated privileges turned on.
+
+- Create a self-service package.
+- Create a managed package with self-service elevated privileges turned on.
 
 With self-service enabled, you don’t install the entire Creative Cloud collection of apps.  Instead, students can install apps themselves using the Creative Cloud desktop app.  Here are some key benefits with this approach:
+
 - The entire Creative Cloud install is about 25 GB.  If students install only the apps they need on-demand, this helps optimize disk space. Lab VMs have a disk size of 128 GB.
 - You can choose to install a subset of the apps on the template VM before publishing.  This way the student VMs will have some apps installed by default and students can add more apps on their own as needed.
 - You can avoid republishing the template VM because students can install additional apps on their VM at any point during the lifetime of the lab.  Otherwise, either IT or the teacher would need to install additional apps on the template VM and republish.  Republishing causes the students’ VMs to be reset and any work that isn’t saved externally is lost.
@@ -63,6 +66,7 @@ Read [Adobe’s steps to create a package](https://helpx.adobe.com/enterprise/ad
 ### Install Creative Cloud
 
 After the template machine is created, follow the steps below to set up your lab’s template virtual machine (VM) with Creative Cloud.
+
 1. Start the template VM and connect using RDP.
 1. To install Creative Cloud, download the deployment package given to you by IT or directly from [Adobe’s Admin Console](https://adminconsole.adobe.com/).
 1. Run the deployment package file.  Depending on whether self-service is enabled or disabled, this will install Creative Cloud desktop app and\or the specified Creative Cloud apps.
@@ -72,12 +76,14 @@ Read [Adobe’s deployment steps](https://helpx.adobe.com/enterprise/admin-guide
 ### Storage
 
 As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your students need additional storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
--    [Using external file storage in Lab Services](how-to-attach-external-storage.md)
--    [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive)
+
+- [Using external file storage in Lab Services](how-to-attach-external-storage.md)
+- [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive)
 
 ### Save template VM image
 
 Consider saving your template VM for future use.  To save the template VM, see [save an image to Shared Image Gallery](./how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery).
+
 - When self-service is *enabled*, the template VM’s image will have Creative Cloud desktop installed.  Teachers can then reuse this image to create labs and to choose which Creative Cloud apps to install.  This helps reduce IT overhead since teachers can independently set up labs and have full control over installing the Creative Cloud apps required for their classes.
 - When self-service is *disabled*, the template VM’s image will already have the specified Creative Cloud apps installed.  Teachers can reuse this image to create labs; however, they won’t be able to install additional Creative Cloud apps.
 

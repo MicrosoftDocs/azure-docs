@@ -15,7 +15,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 **New SKUs**. We’ve been working hard to add new VM sizes with options for larger OS disk sizes. All lab virtual machines use solid-state disks (SSD) and you have a choice between Standard SSD and Premium SSD.  
 
-**Per Customer Assigned Capacity**. No more sharing capacity with others. If your organization has requested more quota, we’ll save it just for you. 
+**Per Customer Assigned Capacity**. No more sharing capacity with others. If your organization has requested more quota, we’ll save it just for you.
 
 [Canvas Integration](how-to-get-started-create-lab-within-canvas.md). Use Canvas to organize everything for your classes—even virtual labs. Now, instructors don’t have to leave Canvas to create their labs. Students can connect to a virtual machine from inside their course.
 
@@ -27,9 +27,9 @@ We've made fundamental backend improvements for the service to boost performance
 
 **Improved cost tracking in Cost Management**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
 
-**Updates to lab owner experience**. Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
+[Updates to lab owner experience](how-to-manage-classroom-labs-2.md). Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
 
-**Updates to student experience**. Student can now redeploy their VM without losing data.  If the lab is set up to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
+[Updates to student experience](how-to-get-started-create-lab-within-canvas.md#troubleshoot-by-redeploying-the-vm). Student can now redeploy their VM without losing data.  If the lab is set up to use AAD group sync, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
 
 **SDKs**. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the next monthly update of the Az module. Also, check out the C# SDK.
 
