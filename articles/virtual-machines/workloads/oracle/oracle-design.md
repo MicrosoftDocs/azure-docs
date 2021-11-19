@@ -49,7 +49,7 @@ It's a good idea to consider the following requirements before you start your mi
 
 ## Configuration options
 
-There are four potential areas that you can tune to improve performance in an Azure environment:
+It's a good idea to generate an AWR report and obtain some metrics from it that help you make decisions about configuration. Then, there are four potential areas that you can tune to improve performance in an Azure environment:
 
 - Virtual machine size
 - Network throughput
@@ -102,11 +102,11 @@ You can obtain the following metrics from the AWR report:
 
 ### Virtual machine size
 
-#### 1. Estimate VM size based on CPU, memory, and I/O usage from the AWR report
+Here are some steps you can take to configure virtual machine size for optimal performance.
 
-One thing you might look at is the top five timed foreground events that indicate where the system bottlenecks are.
+#### Estimate VM size based on CPU, memory, and I/O usage from the AWR report
 
-For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the LGWR writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
+Look at the top five timed foreground events that indicate where the system bottlenecks are. For example, in the following diagram, the log file sync is at the top. It indicates the number of waits that are required before the log writer writes the log buffer to the redo log file. These results indicate that better performing storage or disks are required. In addition, the diagram also shows the number of CPU (cores) and the amount of memory.
 
 ![Screenshot that shows the log file sync at the top of the table.](./media/oracle-design/cpu_memory_info.png)
 
@@ -114,73 +114,74 @@ The following diagram shows the total I/O of read and write. There were 59 GB re
 
 ![Screenshot that shows the total I/O of read and write.](./media/oracle-design/io_info.png)
 
-#### 2. Choose a VM
+#### Choose a VM
 
-Based on the information that you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in the article [Memory optimized](../../sizes-memory.md).
+Based on the information that you collected from the AWR report, the next step is to choose a VM of a similar size that meets your requirements. You can find a list of available VMs in [Memory optimized](../../sizes-memory.md).
 
-#### 3. Fine-tune the VM sizing with a similar VM series based on the ACU
+#### Fine-tune the VM sizing with a similar VM series based on the ACU
 
-After you've chosen the VM, pay attention to the ACU for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](../../acu.md).
+After you've chosen the VM, pay attention to the Azure compute unit (ACU) for the VM. You might choose a different VM based on the ACU value that better suits your requirements. For more information, see [Azure compute unit](../../acu.md).
 
-![Screenshot of the ACU units page](./media/oracle-design/acu_units.png)
+![Screenshot of the ACU units page.](./media/oracle-design/acu_units.png)
 
 ### Network throughput
 
 The following diagram shows the relation between throughput and IOPS:
 
-![Screenshot of throughput](./media/oracle-design/throughput.png)
+![Diagram that shows the relationship between throughput and IOPS.](./media/oracle-design/throughput.png)
 
 The total network throughput is estimated based on the following information:
+
 - SQL*Net traffic
-- MBps x number of servers (outbound stream such as Oracle Data Guard)
+- MBps x the number of servers (outbound stream, such as Oracle Data Guard)
 - Other factors, such as application replication
 
-![Screenshot of the SQL*Net throughput](./media/oracle-design/sqlnet_info.png)
+![Screenshot of the SQL*Net throughput.](./media/oracle-design/sqlnet_info.png)
 
 Based on your network bandwidth requirements, there are various gateway types for you to choose from. These include basic, VpnGw, and Azure ExpressRoute. For more information, see the [VPN gateway pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
-**Recommendations**
+#### Recommendations
 
 - Network latency is higher compared to an on-premises deployment. Reducing network round trips can greatly improve performance.
 - To reduce round-trips, consolidate applications that have high transactions or “chatty” apps on the same virtual machine.
-- Use Virtual Machines with [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for better network performance.
+- Use virtual machines with [accelerated networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for better network performance.
 - For certain Linux distributions, consider enabling [TRIM/UNMAP support](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
-- Install [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) on a separate Virtual Machine.
-- Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. For more information, see [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Install [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) on a separate virtual machine.
+- Huge pages are not enabled on Linux by default. Consider enabling huge pages, and set `use_large_pages = ONLY` on the Oracle DB. This might help increase performance. For more information, see [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### Disk types and configurations
 
-- *Default OS disks*: These disk types offer persistent data and caching. They are optimized for OS access at startup, and aren't designed for either transactional or data warehouse (analytical) workloads.
+Here are some tips for you as you consider disks.
 
-- *Managed disks*: Azure manages the storage accounts that you use for your VM disks. You specify the disk type (Most often premium SSD for Oracle workloads) and the size of the disk that you need. Azure creates and manages the disk for you.  Premium SSD managed disk is only available for memory-optimized and specifically designed VM series. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
+- **Default OS disks:** These disk types offer persistent data and caching. They're optimized for operating system access at startup, and aren't designed for either transactional or data warehouse (analytical) workloads.
 
-![Screenshot of the managed disk page](./media/oracle-design/premium_disk01.png)
+- **Managed disks:** Azure manages the storage accounts that you use for your VM disks. You specify the disk type (most often, this is premium SSD for Oracle workloads), and the size of the disk that you need. Azure creates and manages the disk for you. A premium SSD managed disk is only available for memory-optimized and specifically designed VM series. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
 
-After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets.
+  ![Screenshot of the managed disk page.](./media/oracle-design/premium_disk01.png)
 
-There are a number of tools for application load testing, such as Oracle Orion, Sysbench, SLOB and Fio.
+After you configure your storage on a VM, you might want to load test the disks before creating a database. Knowing the I/O rate in terms of both latency and throughput can help you determine if the VMs support the expected throughput with latency targets. There are a number of tools for application load testing, such as Oracle Orion, Sysbench, SLOB, and Fio.
 
-Run the load test again after you've deployed an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment.  Be realistic in the workload test-  it doesn't make sense to run a workload that is nothing like what you will run on the VM in reality.
+Run the load test again after you've deployed an Oracle database. Start your regular and peak workloads, and the results show you the baseline of your environment. Be realistic in the workload test. It doesn't make sense to run a workload that is nothing like what you will run on the VM in reality.
 
-As Oracle is an IO intensive database for many, it's quite important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
+Because Oracle can be an I/O intensive database, it's quite important to size the storage based on the IOPS rate rather than the storage size. For example, if the required IOPS is 5,000, but you only need 200 GB, you might still get the P30 class premium disk even though it comes with more than 200 GB of storage.
 
-The IOPS rate can be obtained from the AWR report. It's determined by the redo log, physical reads, and writes rate.  Always verify the VM series chosen has the ability to handle the IO demand of the workload, too.  If the VM has a lower IO limit than the storage, the limit max will be set by the VM.
+You can get the IOPS rate from the AWR report. It's determined by the redo log, physical reads, and writes rate. Always verify that the VM series you choose has the ability to handle the I/O demand of the workload, too. If the VM has a lower I/O limit than the storage, the limit maximum will be set by the VM.
 
-![Screenshot of the AWR report page](./media/oracle-design/awr_report.png)
+![Screenshot of the AWR report page.](./media/oracle-design/awr_report.png)
 
 For example, the redo size is 12,200,000 bytes per second, which is equal to 11.63 MBPs.
 The IOPS is 12,200,000 / 2,358 = 5,174.
 
 After you have a clear picture of the I/O requirements, you can choose a combination of drives that are best suited to meet those requirements.
 
-**Recommendations**
+#### Recommendations
 
 - For data tablespace, spread the I/O workload across a number of disks by using managed storage or Oracle ASM.
-- Use Oracle advanced Compression to reduce I/O (for both data and indexes).
-- Separate redo logs, Temp and Undo tablespaces on separate data disks.
-- Don't put any application files on default OS disks (/dev/sda). These disks aren't optimized for fast VM boot times, and they might not provide good performance for your application.
-- When using M-Series VMs on Premium storage, enable [Write Accelerator](../../how-to-enable-write-accelerator.md) on redo logs disk.
-- Consider moving redo logs with high latency to ultra disk.
+- Use Oracle advanced compression to reduce I/O (for both data and indexes).
+- Separate redo logs, temp, and undo tablespaces on separate data disks.
+- Don't put any application files on default operating system disks. These disks aren't optimized for fast VM boot times, and they might not provide good performance for your application.
+- When you're using M-Series VMs on premium storage, enable [write accelerator](../../how-to-enable-write-accelerator.md) on the redo logs disk.
+- Consider moving redo logs with high latency to the ultra disk.
 
 ### Disk cache settings
 
