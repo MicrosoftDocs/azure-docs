@@ -313,16 +313,34 @@ During the public preview, configuring permissions using Windows Explorer also r
     Set-StorageAccountAadKerberosADProperties -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>"
     ```
 
-Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below and restart the system:
+Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below:
 
 - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
-After the restart, confirm that Azure Files has been configured properly by mounting the network share:
+Verify that you can retrieve a Kerberos Ticket Granting Ticket (TGT) by running the following steps:
 
-```
-net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
-```
+1. Open a command window.
+2. Run: 
+
+    ```
+    dsregcmd /RefreshPrt
+    ```
+
+3. Lock and then unlock your device using the same user account.
+4. In the command window, run the following commands:
+
+    ```
+    klist purge
+    klist get krbtgt
+    ```
+
+5. Confirm you have a TGT by looking for an item with a Server property of krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM
+6. Verify you can mount the network share by running the following in your command window:
+
+    ```
+    net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
+    ```
 
 Refer to the steps to [configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to complete configuring the permissions using icacls or Windows Explorer.
 
