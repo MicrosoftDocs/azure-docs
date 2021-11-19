@@ -1,9 +1,10 @@
 ---
-title: Data-driven style Expressions in iOS maps | Microsoft Azure Maps
+title: Data-driven style expressions in iOS maps
+titleSuffix: Microsoft Azure Maps
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps iOS SDK to adjust styles in maps.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -359,19 +360,19 @@ expression.
 
 The following variables are defined by this SDK for use with layer options.
 
-#### Feature Identifier
+#### Feature identifier
 
-A feature's id. This variable corresponds to the `NSExpression.featureIdentifierAZMVariable` property.
+A feature's ID. This variable corresponds to the `NSExpression.featureIdentifierAZMVariable` property.
 
 _Format string syntax_: `$featureIdentifier`
 
-#### Feature Properties
+#### Feature properties
 
 A feature's properties object. This variable corresponds to the `NSExpression.featurePropertiesAZMVariable` property.
 
 _Format string syntax_: `$featureAttributes`
 
-#### Feature Accumulated
+#### Feature accumulated
 
 The value of a cluster property accumulated so far.
 This can only be used in the `clusterProperties` option of a clustered `DataSource` source.
@@ -379,7 +380,7 @@ This variable corresponds to the `NSExpression.featureAccumulatedAZMVariable` pr
 
 _Format string syntax_: `$featureAccumulated`
 
-#### Geometry Type
+#### Geometry type
 
 The type of geometry represented by the feature. A feature’s type is one of the following strings:
 
@@ -433,7 +434,7 @@ let layer = HeatMapLayer(
 )
 ```
 
-#### HeatMap Density
+#### HeatMap density
 
 The [kernel density estimation](https://en.wikipedia.org/wiki/Kernel_density_estimation)
 of a screen point in a heatmap layer; in other words, a relative measure
@@ -448,7 +449,7 @@ _Format string syntax_: `$heatmapDensity`
 > [!TIP]
 > The color at index 0, in an interpolation expression or the default color of a step color, defines the color of the area where there's no data. The color at index 0 can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black.
 
-##### HeatMap Density example
+##### HeatMap density example
 
 This example uses a liner interpolation expression to create a smooth color gradient for rendering the heat map.
 
@@ -498,7 +499,7 @@ let layer = HeatMapLayer(
 
 For more information, see the [Add a heat map layer](add-heat-map-layer-ios.md) documentation.
 
-#### Line Progress
+#### Line progress
 
 A number that indicates the relative distance along a line at a given point along the line.
 This variable evaluates to 0 at the beginning of the line and 1 at the end of the line.
@@ -510,7 +511,7 @@ _Format string syntax_: `$lineProgress`
 > [!NOTE]
 > The `strokeGradient` option of the line layer requires the `lineMetrics` option of the data source to be set to `true`.
 
-##### Line Progress example
+##### Line progress example
 
 This example uses the `NSExpression.lineProgressAZMVariable` expression to apply a color gradient to the stroke of a line.
 

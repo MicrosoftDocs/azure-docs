@@ -287,7 +287,7 @@ items:
       href: clustering-point-data-in-the-ios-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-ios-sdk.md
-    - name: Reacting to events
+    - name: React to events
       href: interact-with-map-ios-sdk.md         
     - name: Add a polygon extrusion layer
       href: add-polygon-extrusion-layer-map-ios.md

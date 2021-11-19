@@ -1,9 +1,10 @@
 ---
-title: Clustering point data in the iOS SDK | Microsoft Azure Maps
+title: Clustering point data in the iOS SDK
+titleSuffix: Microsoft Azure Maps
 description: Learn how to cluster point data on maps. See how to use the Azure Maps iOS SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -160,7 +161,7 @@ map.layers.addLayer(
 
 The following image shows the above code display clustered point features in a bubble layer, scaled and colored based on the number of points in the cluster. Unclustered points are rendered using a symbol layer.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-bubble-layer.gif" alt-text="Map clustered locations breaking apart while zooming the map in.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-bubble-layer.gif" alt-text="Map clustered locations breaking apart while zooming the map in.":::
 
 ## Display clusters using a symbol layer
 
@@ -171,7 +172,7 @@ Use clustering to show the data points density while keeping a clean user interf
 ```swift
 // Load all the custom image icons into the map resources.
 map.images.add(UIImage(named: "earthquake_icon")!, withID: "earthquake_icon")
-map.images.add(UIImage(named: "warning_triangle_icon")!, withID: "warning_triangle_icon")
+map.images.add(UIImage(named: "warning-triangle-icon")!, withID: "warning-triangle-icon")
 
 // Create a data source and add it to the map.
 let source = DataSource(options: [
@@ -204,7 +205,7 @@ map.layers.addLayer(
     SymbolLayer(
         source: source,
         options: [
-            .iconImage("warning_triangle_icon"),
+            .iconImage("warning-triangle-icon"),
             .textField(from: NSExpression(forKeyPath: "point_count")),
             .textOffset(CGVector(dx: 0, dy: -0.4)),
 
@@ -217,13 +218,13 @@ map.layers.addLayer(
 
 For this sample, the following images is loaded into the assets folder of the app.
 
-| ![Earthquake icon image](./media/ios-sdk/clustering-point-data-in-ios/earthquake_icon.png) | ![Weather icon image of rain showers](./media/ios-sdk/clustering-point-data-in-ios/warning_triangle_icon.png) |
+| ![Earthquake icon image](./media/ios-sdk/cluster-point-data-ios-sdk/earthquake-icon.png) | ![Weather icon image of rain showers](./media/ios-sdk/cluster-point-data-ios-sdk/warning-triangle-icon.png) |
 |:-----------------------:|:--------------------------:|
-| earthquake_icon.png     | warning_triangle_icon.png  |
+| earthquake-icon.png     | warning-triangle-icon.png  |
 
 The following image shows the above code rendering clustered and unclustered point features using custom icons.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-symbol-layer.gif" alt-text="Map of clustered points rendered using a symbol layer.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-symbol-layer.gif" alt-text="Map of clustered points rendered using a symbol layer.":::
 
 ## Clustering and the heat map layer
 
@@ -264,7 +265,7 @@ map.layers.insertLayer(
 
 The following image shows the above code display a heat map that is optimized by using clustered point features and the cluster count as the weight in the heat map.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-heat-map.gif" alt-text="Map of a heatmap optimized using clustered points as a weight.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-heat-map.gif" alt-text="Map of a heatmap optimized using clustered points as a weight.":::
 
 ## Tap events on clustered data points
 
@@ -412,7 +413,7 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 
 The following image shows the above code display clustered points on a map that when tapped, zoom into the next zoom level that a cluster starts to break apart and expand.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-expansion.gif" alt-text="Map of clustered features zooming in and breaking apart when tapped.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-expansion.gif" alt-text="Map of clustered features zooming in and breaking apart when tapped.":::
 
 ## Display cluster area
 
@@ -519,7 +520,7 @@ func azureMap(_ map: AzureMap, didTapOn features: [Feature]) {
 
 The following image shows the above code display the area of all points within a tapped cluster.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-leaves-convex-hull.gif" alt-text="Map showing convex hull polygon of all points within a tapped cluster.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-leaves-convex-hull.gif" alt-text="Map showing convex hull polygon of all points within a tapped cluster.":::
 
 ## Aggregating data in clusters
 
@@ -688,7 +689,7 @@ The popup follows the steps outlined in the [display a popup](Display-feature-in
 
 The following image shows the above code display a popup with aggregated counts of each entity value type for all points in the tapped clustered point.
 
-:::image type="content" source="./media/ios-sdk/clustering-point-data-in-ios/ios-cluster-aggregates.gif" alt-text="Map showing popup of aggregated counts of entity types of all points in a cluster.":::
+:::image type="content" source="./media/ios-sdk/cluster-point-data-ios-sdk/ios-cluster-aggregates.gif" alt-text="Map showing popup of aggregated counts of entity types of all points in a cluster.":::
 
 ## Additional information
 

@@ -1,9 +1,10 @@
 ---
-title: Show traffic data on iOS maps | Microsoft Azure Maps
+title: Show traffic data on iOS maps
+titleSuffix: Microsoft Azure Maps
 description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps iOS SDK.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -43,7 +44,7 @@ map.setTrafficOptions([
 
 The following screenshot shows the above code rendering real-time traffic information on the map.
 
-:::image type="content" source="./media/ios-sdk/show-traffic-data-on-the-map-ios/ios-show-traffic.png" alt-text="Map showing real-time traffic information.":::
+:::image type="content" source="./media/ios-sdk/show-traffic-data-map-ios/ios-show-traffic.png" alt-text="Map showing real-time traffic information.":::
 
 ## Get traffic incident details
 
@@ -94,7 +95,7 @@ extension ShowDetailedTrafficViewController: AzureMapDelegate {
 
 The following screenshot shows the above code rendering real-time traffic information on the map with an alert displaying the incident details.
 
-:::image type="content" source="./media/ios-sdk/show-traffic-data-on-the-map-ios/ios-traffic-details.png" alt-text="Map showing real-time traffic information with a toast message displaying incident details.":::
+:::image type="content" source="./media/ios-sdk/show-traffic-data-map-ios/ios-traffic-details.png" alt-text="Map showing real-time traffic information with a toast message displaying incident details.":::
 
 ## Filter traffic incidents
 
@@ -140,7 +141,7 @@ map.setTrafficOptions([
 
 The following screenshot shows a map of moderate traffic jams and incidents with dangerous conditions.
 
-:::image type="content" source="./media/ios-sdk/show-traffic-data-on-the-map-ios/ios-traffic-incident-filters.png" alt-text="Map of moderate traffic jams and incidents with dangerous conditions.":::
+:::image type="content" source="./media/ios-sdk/show-traffic-data-map-ios/ios-traffic-incident-filters.png" alt-text="Map of moderate traffic jams and incidents with dangerous conditions.":::
 
 > [!NOTE]
 > Some traffic incidents may have multiple categories assigned to them. If an incident has any category that matches any option passed into `incidentCategoryFilter`, it will be displayed. The primary incident category may be different from the categories specified in the filter and thus display a different icon.
