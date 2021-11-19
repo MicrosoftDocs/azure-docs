@@ -8,7 +8,7 @@ ms.author: jorgegarc
 ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-plat-ios-android-web
+zone_pivot_groups: acs-plat-web-ios-android
 ---
 
 # Quickstart: Get started with calling composite 
@@ -19,16 +19,16 @@ The UI library will render a full communication experience right into your appli
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
+::: zone pivot="platform-web"
+[!INCLUDE [UI Library with Web](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents)]
+::: zone-end
+
 ::: zone pivot="platform-android"
 [!INCLUDE [UI Library with Android](./includes/get-started-call/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
 [!INCLUDE [UI Library with iOS](./includes/get-started-call/ios.md)]
-::: zone-end
-
-::: zone pivot="platform-web"
-[!INCLUDE [UI Library with Web](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)]
 ::: zone-end
 
 ## Add notifications into your mobile app
