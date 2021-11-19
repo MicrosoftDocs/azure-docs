@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory security operations for privileged accounts
-description: Learn to set baselines, and then monitor and alert of potential security issues with privileged accounts in Azure Active directory.
+description: Learn to set baselines, and then monitor and alert on potential security issues with privileged accounts in Azure Active directory.
 services: active-directory
 author: BarbaraSelden
 manager: martinco
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) uses identity and access management (IAM) as t
 You're entirely responsible for all layers of security for your on-premises IT environment. When you use Azure services, prevention and response are the joint responsibilities of Microsoft as the cloud service provider and you as the customer.
 
 * For more information on the shared responsibility model, see [Shared responsibility in the cloud](../../security/fundamentals/shared-responsibility.md).
-* For more information on securing access for privileged users, see [Securing Privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
+* For more information on securing access for privileged users, see [Securing privileged access for hybrid and cloud deployments in Azure AD](../roles/security-planning.md).
 * For a wide range of videos, how-to guides, and content of key concepts for privileged identity, see [Privileged Identity Management documentation](../privileged-identity-management/index.yml).
 
 ## Where to look
@@ -55,7 +55,7 @@ Although we discourage the practice, privileged accounts can have standing admin
 * Are protected with multifactor authentication (MFA) at a minimum.
 * Are run from privileged access workstation (PAW) or secure admin workstation (SAW) devices.
 
-The remainder of this article describes what we recommend you monitor and alert on. The article is organized by the type of threat. Where there are specific prebuilt solutions, we link to them following the table. Otherwise, you can build alerts by using the preceding tools.
+The rest of this article describes what we recommend you monitor and alert on. The article is organized by the type of threat. Where there are specific prebuilt solutions, we link to them following the table. Otherwise, you can build alerts by using the preceding tools.
 
 Specifically, this article provides details on setting baselines and auditing sign-in and usage of privileged accounts. It also discusses tools and resources you can use to help maintain the integrity of your privileged accounts. The content is organized into the following subjects:
 
@@ -120,10 +120,10 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 | MFA fraud alert or block | High | Azure AD Audit log log/Azure Log Analytics | Activity type = Fraud reported - User is blocked for MFA or fraud reported - No action taken (based on tenant-level settings for fraud report) | Privileged user has indicated they haven't instigated the MFA prompt, which could indicate an attacker has the password for the account. |
 | Privileged account sign-ins outside of expected controls |  | Azure AD Sign-ins log | Status = Failure<br>UserPricipalName = \<Admin account\><br>Location = \<unapproved location\><br>IP address = \<unapproved IP\><br>Device info = \<unapproved Browser, Operating System\> | Monitor and alert on any entries that you've defined as unapproved. |
 | Outside of normal sign-in times | High | Azure AD Sign-ins log | Status = Success<br>-and-<br>Location =<br>-and-<br>Time = Outside of working hours | Monitor and alert if sign-ins occur outside of expected times. It's important to find the normal working pattern for each privileged account and to alert if there are unplanned changes outside of normal working times. Sign-ins outside of normal working hours could indicate compromise or possible insider threats. |
-| Identity protection risk | High | Identity Protection logs | Risk state = At risk<br>-and-<br>Risk level = Low, medium, high<br>-and-<br>Activity = Unfamiliar sign-in/TOR, etc. | This event indicates there's some abnormality detected with the sign-in for the account and should be alerted on. |
+| Identity protection risk | High | Identity Protection logs | Risk state = At risk<br>-and-<br>Risk level = Low, medium, high<br>-and-<br>Activity = Unfamiliar sign-in/TOR, and so on | This event indicates there's some abnormality detected with the sign-in for the account and should be alerted on. |
 | Password change | High | Azure AD Audit logs | Activity actor = Admin/self-service<br>-and-<br>Target = User<br>-and-<br>Status = Success or failure | Alert on any admin account password changes, especially for global admins, user admins, subscription admins, and emergency access accounts. Write a query targeted at all privileged accounts. |
-| Change in legacy authentication protocol | High | Azure AD Sign-ins log | Client App = Other client, IMAP, POP3, MAPI, SMTP, etc.<br>-and-<br>Username = UPN<br>-and-<br>Application = Exchange (example) | Many attacks use legacy authentication, so if there's a change in auth protocol for the user, it could be an indication of an attack. |
-| New device or location | High | Azure AD Sign-ins log | Device info = Device ID<br>-and-<br>Browser<br>-and-<br>OS<br>-and-<br>Compliant/Managed<br>-and-<br>Target = User<br>-and-<br>Location | Most admin activity should be from [privileged access devices](/security/compass/privileged-access-devices), from a limited number of locations. Therefore, alert on new devices or locations. |
+| Change in legacy authentication protocol | High | Azure AD Sign-ins log | Client App = Other client, IMAP, POP3, MAPI, SMTP, and so on<br>-and-<br>Username = UPN<br>-and-<br>Application = Exchange (example) | Many attacks use legacy authentication, so if there's a change in auth protocol for the user, it could be an indication of an attack. |
+| New device or location | High | Azure AD Sign-ins log | Device info = Device ID<br>-and-<br>Browser<br>-and-<br>OS<br>-and-<br>Compliant/Managed<br>-and-<br>Target = User<br>-and-<br>Location | Most admin activity should be from [privileged access devices](/security/compass/privileged-access-devices), from a limited number of locations. For this reason, alert on new devices or locations. |
 | Audit alert setting is changed | High | Azure AD Audit logs | Service = PIM<br>-and-<br>Category = Role management<br>-and-<br>Activity = Disable PIM alert<br>-and-<br>Status = Success | Changes to a core alert should be alerted if unexpected. |
 
 ## Changes by privileged accounts
@@ -153,7 +153,7 @@ Investigate changes to privileged accounts' authentication rules and privileges,
 | Changes to authentication methods| High| Azure AD Audit logs| Service = Authentication Method<br>-and-<br>Activity type = User registered security information<br>-and-<br>Category = User management| This change could be an indication of an attacker adding an auth method to the account so they can have continued access. |
 | Alert on changes to privileged account permissions| High| Azure AD Audit logs| Category = Role management<br>-and-<br>Activity type = Add eligible member (permanent)<br>-and-<br>Activity type = Add eligible member (eligible)<br>-and-<br>Status = Success or failure<br>-and-<br>Modified properties = Role.DisplayName| This alert is especially for accounts being assigned roles that aren't known or are outside of their normal responsibilities. |
 | Unused privileged accounts| Medium| Azure AD Access Reviews| | Perform a monthly review for inactive privileged user accounts. |
-| Accounts exempt from Conditional Access| High| Azure Monitor Logs<br>-or-<br>Access Reviews| Conditional Access = Insights and reporting| Any account exempt from Conditional Access is most likely bypassing security controls and  is more vulnerable to compromise. Break-glass accounts are exempt. See information on how to monitor break-glass accounts in a subsequent section of this article.|
+| Accounts exempt from Conditional Access| High| Azure Monitor Logs<br>-or-<br>Access Reviews| Conditional Access = Insights and reporting| Any account exempt from Conditional Access is most likely bypassing security controls and is more vulnerable to compromise. Break-glass accounts are exempt. See information on how to monitor break-glass accounts in a subsequent section of this article.|
 
 For more information on how to monitor for exceptions to Conditional Access policies, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
