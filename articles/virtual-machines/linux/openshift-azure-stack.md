@@ -65,11 +65,9 @@ Some common customization options include, but aren't limited to:
 For the steps to deploy using the Azure CLI, follow the appropriate section in the [OpenShift Container Platform](./openshift-container-platform-3x.md) section or the [OKD](./openshift-okd.md) section.
 ## Deploy OpenShift 4.x On Azure Stack Hub
 
-Red Hat manages the Red Hat Enterprise Linux CoreOS (RHCOS) for OpenShift 4.x. The deployment process gets the image from a Red Hat endpoint. As a result, the user (tenant) doesn't need to get an image from the Azure Stack hub Marketplace.
+Red Hat manages the Red Hat Enterprise Linux CoreOS (RHCOS) image for OpenShift 4.x. The deployment process gets the image from a Red Hat endpoint. As a result, the user (tenant) doesn't need to get an image from the Azure Stack hub Marketplace.
 
-You can follow the steps in the Open Shift documentation at:
-1. [Uploading the RHCOS cluster image and bootstrap Ignition config file](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html#installation-azure-user-infra-uploading-rhcos_installing-azure-stack-hub-user-infra)
-2. [Deploying the RHCOS cluster image for the Azure Stack Hub infrastructure](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html#installation-azure-user-infra-deploying-rhcos_installing-azure-stack-hub-user-infra)
+You can follow the steps in the Open Shift documentation at [Installing a cluster on Azure Stack Hub using ARM templates](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html).
 
 ## Next steps
 
