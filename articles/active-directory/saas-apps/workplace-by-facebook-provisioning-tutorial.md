@@ -199,8 +199,11 @@ _POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchroniza
 
 	![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
 
-8. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”.
-9. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and turn re-enable provisioning. 
+8. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
+
+9. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
+
+10. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
 ## Change log
 
