@@ -31,7 +31,7 @@ When you create or use Search resources, you're charged for the following meters
 
 + The charge is applied to a *search unit* (SU) allocated to the service. Search units are the product of replicas and partitions (R x P = SU), which allows you to scale using flexible combinations of replicas and partitions, varying capacity depending on whether you need more query or indexing power.
 
-Billing is based on capacity and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic search](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md). There is no meter on the number of queries, query responses, or documents ingested, although [service limits](search\search-limits-quotas-capacity.md) do apply at each tier.
+Billing is based on capacity and the costs of running premium features, such as [AI enrichment](cognitive-search-concept-intro.md), [Semantic search](semantic-search-overview.md), and [Private endpoints](service-create-private-endpoint.md).
 
 | Meter | Unit |
 |-------|------|
@@ -47,17 +47,18 @@ Billing is based on capacity and the costs of running premium features, such as 
 
 <sup>2</sup> Applies only if you enable the feature.
 
+There is no meter on the number of queries, query responses, or documents ingested, although [service limits](search\search-limits-quotas-capacity.md) do apply at each tier.
+
 Data traffic might also incur networking costs. See the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 Several premium features ([Knowledge store](knowledge-store-concept-intro.md), [Debug Sessions](cognitive-search-debug-session.md), [Enrichment cache (preview)](cognitive-search-incremental-indexing-conceptual.md)) have a dependency on Azure Storage. The meters for Azure Storage apply in this case, and the associated storage costs of using those features will be included in the Azure Storage bill.
 
 [Customer-managed keys](search-security-manage-encryption-keys.md) provide double encryption of sensitive content. This feature requires a billable [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)).
 
-[Private endpoints](service-create-private-endpoint.md) is used for a no-internet data access model. This feature requires a billable [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/)). 
+Skillsets can include [billable built-in skills](cognitive-search-predefined-skills.md), non-billable built-in utility skills, and custom skills. 
 
-Skillsets can use billable built-in skills, non-billable built-in skills, and custom skills. Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact when using them, no Cognitive Services key requirement, and no 20 document limit. 
-
-A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Cognitive Services key requirement and no 20 document limit on custom skills.
++ Non-billable utility skills include Conditional, Shaper, Text Merge, Text Split. There is no billing impact when using them, no Cognitive Services key requirement, and no 20 document limit. 
++ A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services.  There is no Cognitive Services key requirement and no 20 document limit on custom skills.
 
 <!-- 
 
