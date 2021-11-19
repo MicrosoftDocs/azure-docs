@@ -5,7 +5,7 @@ ms.service: postgresql
 author: mksuni
 ms.author: sumuth
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 

@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Scale operations in Flexible Server

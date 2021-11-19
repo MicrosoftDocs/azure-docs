@@ -6,8 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2021
-
+ms.date: 11/30/2021
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server

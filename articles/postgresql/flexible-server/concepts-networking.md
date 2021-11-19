@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 11/30/2021
 ---
 
 # Networking overview for Azure Database for PostgreSQL - Flexible Server 

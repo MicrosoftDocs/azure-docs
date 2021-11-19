@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 9/22/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 

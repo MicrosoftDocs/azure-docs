@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 11/30/2021
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal

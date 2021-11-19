@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Audit logging in Azure Database for PostgreSQL - Flexible server

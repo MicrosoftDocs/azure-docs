@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc, devx-track-azurecli
 ms.topic: quickstart
-ms.date: 03/06/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server

@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Configure and Access Logs in Azure Database for PostgreSQL - Flexible Server

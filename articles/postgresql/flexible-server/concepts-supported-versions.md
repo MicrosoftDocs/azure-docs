@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/23/2021
+ms.date: 11/30/2021
 ---
 
 # Supported PostgreSQL major versions in Azure Database for PostgreSQL - Flexible Server

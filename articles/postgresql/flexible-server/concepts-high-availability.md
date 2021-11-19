@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/30/2021
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server

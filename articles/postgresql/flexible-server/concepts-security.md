@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 10/01/2021
+ms.date: 11/30/2021
 ---
 
 

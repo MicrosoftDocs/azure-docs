@@ -6,7 +6,7 @@ ms.custom: seodec18, devx-track-azurecli
 ms.author: sumuth
 author: mksuni
 ms.service: postgresql
-ms.date: 08/09/2021
+ms.date: 11/30/2021
 ---
 
 # Azure Pipelines task for Azure Database for PostgreSQL Flexible Server

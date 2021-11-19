@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/07/2021
+ms.date: 11/30/2021
 ---
 
 # Manage zone redundant high availability in Flexible Server

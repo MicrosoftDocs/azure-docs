@@ -5,7 +5,7 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Manage scheduled maintenance settings for Azure Database for PostgreSQL – Flexible server
