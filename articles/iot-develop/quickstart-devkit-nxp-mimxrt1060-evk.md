@@ -284,7 +284,7 @@ SNTP Time Sync successfully.
 Start Provisioning Client...
 [INFO] IoTProvisioning client connect pending
 Registered Device Successfully.
-IoTHub Host Name: iotc-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azure-devices.net; Device ID: mydevice.
+IoTHub Host Name: iotc-********-****-****-****-************.azure-devices.net; Device ID: mydevice.
 Connected to IoTHub.
 Sent properties request.
 Telemetry message send: {"temperature":22}.

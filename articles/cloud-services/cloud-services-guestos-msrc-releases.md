@@ -41,7 +41,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-10 OOB |  [4578013]  |  Standalone Security Update  | 4.95 | Aug 19, 2020 |
 |  Rel 21-10 |  [5005698]  |  Servicing Stack update  | 5.60 | Sep 14, 2021 |
 |  Rel 21-10 |  [5006749]  |  Servicing Stack update  | 2.115 | July 13, 2021 |
-|  Rel 21-10 |  [5005701]  |  Servicing Stack update  | 6.36 | Aug 10, 2021 |
 |  Rel 21-10 |  [4494175]  |  Microcode  | 5.60 | Sep 1, 2020 |
 |  Rel 21-10 |  [4494174]  |  Microcode  | 6.36 | Sep 1, 2020 |
 
@@ -64,7 +63,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4578013]: https://support.microsoft.com/kb/4578013
 [5005698]: https://support.microsoft.com/kb/5005698
 [5006749]: https://support.microsoft.com/kb/5006749
-[5005701]: https://support.microsoft.com/kb/5005701
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
 
@@ -93,7 +91,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 21-09 OOB |  [4578013]  |  Standalone Security Update  | [4.94] | Aug 19, 2020 |
 |  Rel 21-09 |  [5005698]  |  Servicing Stack update  | [5.59] | Sep 14, 2021 |
 |  Rel 21-09 |  [5004378]  |  Servicing Stack update  | [2.114] | July 13, 2021 |
-|  Rel 21-09 |  5005701  |  Servicing Stack update  | [6.35] | Aug 10, 2021 |
 |  Rel 21-09 |  [4494175]  |  Microcode  | [5.59] | Sep 1, 2020 |
 |  Rel 21-09 |  [4494174]  |  Microcode  | [6.35] | Sep 1, 2020 |
 

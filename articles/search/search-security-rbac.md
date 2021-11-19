@@ -217,7 +217,7 @@ Recall that you can only scope access to top-level resources, such as indexes, s
 
 For more information on how to acquire a token for a specific environment, see [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md).
 
-### [**.NET SDK**](#tab/test-dotnet)
+### [**.NET SDK**](#tab/test-csharp)
 
 The Azure SDK for .NET supports an authorization header in the [NuGet Gallery | Azure.Search.Documents 11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) package.
 
