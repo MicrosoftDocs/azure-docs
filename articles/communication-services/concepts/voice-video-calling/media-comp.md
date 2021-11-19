@@ -2,8 +2,8 @@
 title: Media Composition
 titleSuffix: An Azure Communication Services concept document
 description: Introduces the Media Composition feature
-author: chpalm
-manager: chpalm
+author: tophpalmer
+manager: tophpalmer
 services: azure-communication-services
 
 ms.author: chpalm
