@@ -60,8 +60,7 @@ You can control the authentication methods available in your tenant. For example
 
 | Authentication method    | Manage from | Scoping |
 |-----------------------|-------------|---------|
-| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or
-Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
+| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
 | FIDO2 security key | Authentication methods policy | Can be scoped to users and groups |
 | Software or Hardware OATH tokens | MFA settings |     |
 | SMS verification | MFA settings | Manage SMS sign-in for primary authentication in authentication policy.    SMS sign-in can be scoped to users and groups. |
