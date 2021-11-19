@@ -235,7 +235,7 @@ In this section, you'll analyze the load test results to identify performance bo
 
 In the next section, you'll increase the database provisioned throughput, and then verify if the application performance bottleneck has been resolved.
 
-## Increase the database throughput to improve performance
+## Increase the database throughput
 
 In this section, you'll allocate more resources to the database, to resolve the performance bottleneck. 
 
