@@ -111,6 +111,7 @@ def run(Inputs, GlobalParameters):
 > ```python
 > output_sample = pd.DataFrame(data=[{"a1": 5, "a2": 6}])
 > @output_schema(PandasParameterType(output_sample))
+> ...
 > result = model.predict(data)
 > return result
 > ```
