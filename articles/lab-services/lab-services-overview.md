@@ -10,7 +10,7 @@ ms.date: 11/19/2021
 **Azure Lab Services** lets you create labs whose infrastructure is managed by Azure. Currently, classroom lab is the only type of managed lab that's supported by Azure Lab Services. The service itself handles all the infrastructure management for a managed lab type, from spinning up VMs to handling errors and scaling the infrastructure. After an IT admin creates a lab plan in Azure Lab Services, an instructor can quickly set up a lab for the class, specify the number and type of VMs that are needed for exercises in the class, and add users to the class. Once a user registers to the class, the user can access the VM to do exercises for the class.
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md). The new experience is in preview.
+> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md). The new experience is in preview.
 
 ## Key capabilities
 

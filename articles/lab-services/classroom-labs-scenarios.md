@@ -12,7 +12,7 @@ Azure Labs Services allows educators (teachers, professors, trainers, or teachin
 ![Classroom lab](./media/classroom-labs-scenarios/classroom.png)
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 Labs meets the following requirements that are required to conduct training in any virtual environment: 
 

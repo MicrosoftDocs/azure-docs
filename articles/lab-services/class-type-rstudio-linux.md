@@ -17,7 +17,7 @@ class types setup RStudio differently.  Each article describes how to use the [D
 ## Lab Account configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 

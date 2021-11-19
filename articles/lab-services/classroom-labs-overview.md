@@ -12,7 +12,7 @@ Azure Lab Services enables you to quickly set up a classroom lab environment in 
 The labs are managed lab types that are managed by Azure. The service itself handles all the infrastructure management for a managed lab type, from spinning up virtual machines (VMs) to handling errors, and scaling the infrastructure. You specify what kind of infrastructure you need and install any tools or software that's required for the class.
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md). The new experience is in preview.
+> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md). The new experience is in preview.
 
 ## Automatic management of Azure infrastructure and scale
 

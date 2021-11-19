@@ -14,7 +14,7 @@ This article has two main sections. The first section covers how to create the c
 ## Lab configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account. See the following tutorial for creating a new lab account: [Tutorial to setup a lab account](tutorial-setup-lab-account.md).
 

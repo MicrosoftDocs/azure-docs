@@ -10,7 +10,7 @@ ms.date: 11/19/2021
 This article describes key Lab Services concepts and definitions.
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md). The new experience is in preview.
+> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md). The new experience is in preview.
 
 ## Quota
 

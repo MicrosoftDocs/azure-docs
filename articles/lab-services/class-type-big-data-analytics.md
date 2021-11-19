@@ -24,7 +24,7 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 ### Lab account settings
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 

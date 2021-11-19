@@ -17,7 +17,7 @@ Jupyter Notebooks is an open-source project that lets you easily combine rich te
 ### Lab configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

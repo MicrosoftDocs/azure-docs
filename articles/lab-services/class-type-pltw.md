@@ -50,7 +50,7 @@ For a full list of class software, go to the [PLTW site](https://www.pltw.org/pl
 ## Lab configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md).
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
 
 To begin setting up labs for PLTW, you need an Azure subscription and lab account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
