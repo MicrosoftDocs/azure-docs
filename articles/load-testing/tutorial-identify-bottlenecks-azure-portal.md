@@ -143,11 +143,11 @@ In the next section, you'll create a load test in the Load Testing resource for 
 
 1. In the **Basics** tab, enter the **Test name** and **Test description** information. Optionally, you can check the **Run test after creation** box to automatically start the load test after creating it.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/basics.png" alt-text="Screenshot that shows the basics tab when creating a new test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-basics.png" alt-text="Screenshot that shows the basics tab when creating a new test." :::
 
 1. In the **Test plan** tab, select the **JMeter script** test method, and then select the *SampleApp.jmx* test script from the cloned sample application directory. Next, select **Upload** to upload the file to Azure and configure the load test.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
     Optionally, you can select and upload additional Apache JMeter configuration files.
 
@@ -157,19 +157,19 @@ In the next section, you'll create a load test in the Load Testing resource for 
     |---------|---------|---------|
     |Engine instances     |1         |The number of parallel test engines that execute the Apache JMeter script. |
     
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
 
-1. In the **Monitoring** tab, specify the application components you want to monitor the resource metrics. Select **add/modify** to manage the list of application components.
+1. In the **Monitoring** tab, specify the application components you want to monitor the resource metrics. Select **Add/modify** to manage the list of application components.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/monitoring.png" alt-text="Screenshot that shows the Monitoring tab when creating a new test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-monitoring.png" alt-text="Screenshot that shows the Monitoring tab when creating a new test." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-add-resource.png" alt-text="Screenshot that shows how to add Azure resources to monitor during the load test." :::
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/added-resource.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-added-resources.png" alt-text="Screenshot that shows the Monitoring tab with the list of Azure resources to monitor." :::
 
 1. Select **Review + create**, review all settings, and select **Create**.
 
-   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create.png" alt-text="Screenshot that shows the Review + create tab when creating a new test." :::
+   :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-review.png" alt-text="Screenshot that shows the Review + create tab when creating a new test." :::
 
 ## Run the load test in the Azure portal
 
