@@ -19,7 +19,7 @@ You can use this cluster to demonstrate, test, and gain experience with Azure Ar
 
 ## Create the resource group
 
-Create a resource group for the cluster. For location, specify a supported region. For Azure Arc-enabled data services, supported regions are listed in the [Overview](overview.#supported-regions).
+Create a resource group for the cluster. For location, specify a supported region. For Azure Arc-enabled data services, supported regions are listed in the [Overview](overview.md#supported-regions).
 
 ```azurecli
 az group create --name <resource_group_name> --location <location>
