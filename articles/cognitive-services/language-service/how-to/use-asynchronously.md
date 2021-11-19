@@ -32,7 +32,8 @@ Currently, the following features are available to be used asynchronously:
 
 To create an asynchronous API request, review the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Analyze) for the JSON body you'll send in your request.
 1. Add your documents to the `analysisInput` object.  
-1. Include `entityLinkingTasks` within the `tasks` object. You can optionally:
+1. In the `tasks` object, include the operations you want performed on your data. For example, if you wanted to perform sentiment analysis, you would include the `SentimentAnalysisTasks` object.
+1. You can optionally:
     1. Choose a specific version of the model used on your data with the `model-version` value.
     1. Include additional Language Service features in the `tasks` object, to be performed on your data at the same time.   
 
