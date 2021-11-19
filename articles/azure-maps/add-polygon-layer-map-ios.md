@@ -1,5 +1,6 @@
 ---
-title: Add a polygon layer to iOS maps | Microsoft Azure Maps
+title: Add a polygon layer to iOS maps
+titleSuffix: Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps iOS SDK to customize geometric shapes and make them easy to update and maintain.
 author: stevemunk
 ms.author: v-munksteve
@@ -47,7 +48,7 @@ map.layers.insertLayer(
 
 The following screenshot shows the above code rendering the area of a polygon using a polygon layer.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon.png" alt-text="Image showing a polygon using a polygon layer." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon.png":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-map-ios/polygon.png" alt-text="Image showing a polygon using a polygon layer." lightbox="./media/ios-sdk/add-polygon-layer-map-ios/polygon.png":::
 
 ## Use a polygon and line layer together
 
@@ -84,7 +85,7 @@ map.layers.addLayer(LineLayer(source: source, options: [
 
 The following screenshot shows the above code rendering a polygon with its outline rendered using a line layer.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon-and-line.png" alt-text="Image showing a polygon with its outline rendered using a line layer." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon-and-line.png":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-map-ios/polygon-and-line.png" alt-text="Image showing a polygon with its outline rendered using a line layer." lightbox="./media/ios-sdk/add-polygon-layer-map-ios/polygon-and-line.png":::
 
 > [!TIP]
 > When outlining a polygon with a line layer, be sure to close all rings in polygons such that each array of points has the same start and end point. If this is not done, the line layer may not connect the last point of the polygon to the first point.
@@ -121,13 +122,13 @@ map.layers.insertLayer(
 
 For this sample, the following image was loaded into the assets folder of the app.
 
-| :::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/fill-checker-red.png" alt-text="Image showing a polygon with a red checker fill pattern.":::
+| :::image type="content" source="./media/ios-sdk/add-polygon-layer-map-ios/fill-checker-red.png" alt-text="Image showing a polygon with a red checker fill pattern.":::
 |:-----------------------------------------------------------------------:|
 | `fill_checker_red.png`                                                    |
 
 The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/pattern.png" alt-text="Image showing the above code rendering a polygon with a fill pattern on the map." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/pattern.png":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-map-ios/pattern.png" alt-text="Image showing the above code rendering a polygon with a fill pattern on the map." lightbox="./media/ios-sdk/add-polygon-layer-map-ios/pattern.png":::
 
 ## Additional information
 
@@ -137,6 +138,6 @@ See the following articles for more code samples to add to your maps:
 
 > [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
 
-> [Add a line layer](add-line-layer-to-map-ios.md)
+> [Add a line layer](add-line-layer-map-ios.md)
 
 > [Add a polygon extrusion layer](add-polygon-extrusion-layer-map-ios.md)

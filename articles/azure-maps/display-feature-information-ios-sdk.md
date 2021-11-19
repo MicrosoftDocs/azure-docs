@@ -187,8 +187,8 @@ To add more data to your map:
 
 > [Add a symbol layer](add-symbol-layer-ios.md)
 
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+> [Add a bubble layer](add-bubble-layer-map-ios.md)
 
-> [Add a line layer](add-line-layer-to-map-ios.md)
+> [Add a line layer](add-line-layer-map-ios.md)
 
 > [Add a polygon layer](add-polygon-layer-map-ios.md)

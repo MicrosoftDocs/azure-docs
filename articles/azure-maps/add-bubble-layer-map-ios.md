@@ -1,5 +1,6 @@
 ---
-title: Add a bubble layer to iOS maps | Microsoft Azure Maps
+title: Add a bubble layer to iOS maps
+titleSuffix: Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps iOS SDK to add and customize bubble layers for this purpose.
 author: stevemunk
 ms.author: v-munksteve
@@ -53,7 +54,7 @@ map.layers.addLayer(layer)
 
 The following screenshot shows the above code renders points in a bubble layer.
 
-:::image type="content" source="./media/ios-sdk/add-bubble-layer-to-map-ios/5points.png" alt-text="Five points rendered on a bubble layer in a map.":::
+:::image type="content" source="./media/ios-sdk/add-bubble-layer-map-ios/5-points.png" alt-text="Five points rendered on a bubble layer in a map.":::
 
 ## Show labels with a bubble layer
 
@@ -90,7 +91,7 @@ map.layers.addLayer(
 
 The following screenshot shows the above code rendering a point in a bubble layer and a text label for the point with a symbol layer.
 
-:::image type="content" source="./media/ios-sdk/add-bubble-layer-to-map-ios/text.png" alt-text="Add a bubble layer to a map.":::
+:::image type="content" source="./media/ios-sdk/add-bubble-layer-map-ios/text.png" alt-text="Add a bubble layer to a map.":::
 
 ## Additional information
 

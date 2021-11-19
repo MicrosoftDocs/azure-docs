@@ -1,5 +1,6 @@
 ---
-title: Add a line layer to iOS maps | Microsoft Azure Maps
+title: Add a line layer to iOS maps
+titleSuffix: Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps iOS SDK to add line layers to maps and to customize lines with symbols and color gradients.
 author: stevemunk
 ms.author: v-munksteve
@@ -48,7 +49,7 @@ map.layers.addLayer(layer)
 
 The following screenshot shows the above code rendering a line in a line layer.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-to-map-ios/simple.png" alt-text="A simple line displayed on the map in a line layer.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/simple.png" alt-text="A simple line displayed on the map in a line layer.":::
 
 ## Data-driven line style
 
@@ -106,7 +107,7 @@ map.layers.insertLayer(layer, below: "labels")
 
 The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-to-map-ios/data_driven.png" alt-text="Add a line layer to a map.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/data_driven.png" alt-text="Add a line layer to a map.":::
 
 ## Add a stroke gradient to a line
 
@@ -164,7 +165,7 @@ map.layers.addLayer(LineLayer(source: source, options: [
 
 The following screenshot shows the above code displaying a line rendered using a gradient stroke color.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-to-map-ios/gradient.png" alt-text="Add a gradient line layer to a map.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/gradient.png" alt-text="Add a gradient line layer to a map.":::
 
 ## Add symbols along a line
 
@@ -228,13 +229,13 @@ map.layers.addLayer(SymbolLayer(source: source, options: [
 
 For this sample, the following image was loaded into the assets folder of the app.
 
-| ![purple_arrow_right](./media/ios-sdk/add-line-layer-to-map-ios/purple-arrow-right.png) |
+| ![purple_arrow_right](./media/ios-sdk/add-line-layer-map-ios/purple-arrow-right.png) |
 |:-----------------------------------------------------------------------:|
 |                           `purple_arrow_right.png`                       |
 
 The screenshot below shows the above code displaying a line with arrow icons displayed along it.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-to-map-ios/symbol.png" alt-text="A line with purple arrow icons displayed along it pointing to the right.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/symbol.png" alt-text="A line with purple arrow icons displayed along it pointing to the right.":::
 
 ## Additional information
 
