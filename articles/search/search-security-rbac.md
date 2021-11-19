@@ -51,6 +51,18 @@ There are no regional, tier, or pricing restrictions for using Azure RBAC on Azu
 > [!NOTE]
 > Azure resources have the concept of [control plane and data plane](../azure-resource-manager/management/control-plane-and-data-plane.md) categories of operations. In Cognitive Search, "control plane" refers to any operation supported in the [Management REST API](/rest/api/searchmanagement/) or equivalent client libraries. The "data plane" refers to operations against the search service endpoint, such as indexing or queries, or any other operation specified in the [Search REST API](/rest/api/searchservice/) or equivalent client libraries. Most roles apply to just one plane. The exception is Search Service Contributor which supports actions across both.
 
+## Preview limitations
+
++ The Azure RBAC preview is currently only available in Azure public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
+
++ This preview capability is available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and should not be rolled into a production environment.
+
++ If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
+
++ Adoption of Azure RBAC might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
+
++ In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
+
 ## Step 1: Preview sign-up
 
 **Applies to:** Search Index Data Contributor, Search Index Data Reader, Search Service Contributor
@@ -71,18 +83,6 @@ You can also sign up for the preview using Azure Feature Exposure Control (AFEC)
 
 > [!NOTE]
 > Once you add the preview to your subscription, all services in the subscription will be permanently enrolled in the preview. If you don't want RBAC on a given service, you can disable RBAC for data plane operations as described in a later section.
-
-### Preview limitations
-
-+ This preview is currently only available in Azure public cloud regions and isn't available in Azure Government, Azure Germany, or Azure China 21Vianet.
-
-+ This preview capability is available under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) and should not be enabled in a production environment.
-
-+ If a subscription is migrated to a new tenant, the RBAC preview will need to be re-enabled. 
-
-+ Adoption of Azure RBAC might increase the latency of some requests. Each unique combination of service resource (index, indexer, etc.) and service principal used on a request will trigger an authorization check. These authorization checks can add up to 200 milliseconds of latency to a request. 
-
-+ In rare cases where requests originate from a high number of different service principals, all targeting different service resources (indexes, indexers, etc.), it's possible for the authorization checks to result in throttling. Throttling would only happen if hundreds of unique combinations of search service resource and service principal were used within a second.
 
 ## Step 2: Preview configuration
 
