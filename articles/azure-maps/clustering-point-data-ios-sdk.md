@@ -695,8 +695,6 @@ The following image shows the above code display a popup with aggregated counts 
 
 To add more data to your map:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)

@@ -110,12 +110,8 @@ class ShowScopedEventsHandlingViewController: UIViewController, AzureMapDelegate
 
 See the following articles for full code examples:
 
-> [Navigating the map](how-to-use-ios-map-control-library.md)
-
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-
-> [Add a line layer](add-line-layer-to-map-ios.md)
-
-> [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [Navigating the map](how-to-use-ios-map-control-library.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Add a line layer](add-line-layer-to-map-ios.md)
+- [Add a polygon layer](add-polygon-layer-map-ios.md)
