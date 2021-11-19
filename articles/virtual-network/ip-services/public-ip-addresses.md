@@ -55,9 +55,9 @@ Public IP addresses are created with one of the following SKUs:
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
 | Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
-| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Not supported | 
+| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Not supported. | 
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
-| Global tier | Can be used as anycast frontend IPs for [cross-region load balancers](../../load-balancer/cross-region-overview.md) (preview functionality).| 
+| Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
 
 > [!NOTE]
