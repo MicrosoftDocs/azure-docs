@@ -7,7 +7,7 @@
   - name: Migrate to Azure SQL 
     href: migration-guides/index.yml
 
-- name: Shared SQL DB & SQL MI docs 
+- name: Shared SQL DB & SQL MI docs
   items:
   - name: Purchasing models
     items:
@@ -69,7 +69,7 @@
         href: /security/benchmark/azure/baselines/sql-database-security-baseline?toc=/azure/azure-sql/toc.json
       - name: Always Encrypted
         href: database/always-encrypted-landing.yml
-      - name: Azure Defender for SQL
+      - name: Microsoft Defender for SQL
         href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
@@ -129,7 +129,7 @@
           - name: Automated backups
             href: database/automated-backups-overview.md
           - name: Accelerated database recovery
-            href: accelerated-database-recovery.md 
+            href: accelerated-database-recovery.md
           - name: Recovery using backups
             href: database/recovery-using-backups.md
           - name: Long-term backup retention
@@ -206,7 +206,7 @@
         - name: Create server with Azure AD-only authentication enabled
           href: database/authentication-azure-ad-only-authentication-create-server.md
       - name: Configure TDE with BYOK
-        href: database/transparent-data-encryption-byok-configure.md 
+        href: database/transparent-data-encryption-byok-configure.md
       - name: Always Encrypted
         items: 
         - name: Use the Azure key vault
@@ -230,7 +230,7 @@
       - name: Use DMVs to monitor performance
         href: database/monitoring-with-dmvs.md
       - name: Understand and resolve blocking
-        href: database/understand-resolve-blocking.md 
+        href: database/understand-resolve-blocking.md
       - name: Configure the max degree of parallelism (MAXDOP)
         href: database/configure-max-degree-of-parallelism.md
       - name: Log diagnostic telemetry
@@ -271,7 +271,7 @@
       - name: Index with Azure Cognitive Search
         href: ../search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md?toc=%2fazure%2fazure-sql%2ftoc.json
       - name: Server-side CLR/.NET integration
-        href: /sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=%2fazure%2fazure-sql%2ftoc.json
+        href: /sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json
       - name: Java
         items:
         - name: Use Java and JDBC
@@ -346,7 +346,7 @@
       - name: Design database using SSMS
         href: database/design-first-database-tutorial.md
       - name: Design database using .NET
-        href: database/design-first-database-csharp-tutorial.md    
+        href: database/design-first-database-csharp-tutorial.md
     - name: Business continuity
       items: 
         - name: Add db to failover group 
@@ -354,11 +354,11 @@
         - name: Add pool to failover group
           href: database/failover-group-add-elastic-pool-tutorial.md
         - name: Configure security for replicas
-          href: database/active-geo-replication-security-configure.md          
+          href: database/active-geo-replication-security-configure.md
         - name: Geo-distributed application
           href: database/geo-distributed-application-configure-tutorial.md
         - name: Active geo-replication
-          href: database/active-geo-replication-configure-portal.md         
+          href: database/active-geo-replication-configure-portal.md
     - name: Security
       items:
       - name: Always Encrypted with secure enclaves
@@ -374,11 +374,11 @@
     - name: Move data
       items: 
       - name: Migrate using DMS
-        href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json 
+        href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/azure-sql/toc.json
       - name: Set up SQL Data Sync
         href: database/sql-data-sync-sql-server-configure.md
       - name: Migrate SQLite to serverless
-        href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md  
+        href: database/migrate-sqlite-db-to-azure-sql-serverless-offline-tutorial.md
     - name: Scale out
       items: 
       - name: Configure security for named replicas
@@ -445,7 +445,7 @@
     - name: Business continuity
       items: 
       - name: Active geo-replication
-        href: database/active-geo-replication-overview.md  
+        href: database/active-geo-replication-overview.md
       - name: Outage recovery guidance
         href: database/disaster-recovery-guidance.md
       - name: Recovery drills
@@ -503,6 +503,8 @@
             href: database/ledger-limits.md
         - name: Network access controls
           href: database/network-access-controls-overview.md
+        - name: Outbound firewall rules
+          href: database/outbound-firewall-rule-overview.md
         - name: Private Link
           href: database/private-endpoint-overview.md
         - name: VNet endpoints
@@ -538,7 +540,7 @@
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
-          href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
+          href: /sql/azure-data-studio/quickstart-sql-database?toc=/azure/azure-sql/toc.json
         - name: SSMS
           href: database/connect-query-ssms.md
         - name: Azure portal
@@ -569,7 +571,7 @@
       - name: Use Resource Health for connectivity issues
         href: database/resource-health-to-troubleshoot-connectivity.md
       - name: Migrate DTU to vCore
-        href: database/migrate-dtu-to-vcore.md        
+        href: database/migrate-dtu-to-vcore.md
       - name: Scale database resources
         href: database/single-database-scale.md
       - name: Scale pool resources
@@ -577,7 +579,7 @@
       - name: Manage pool resources
         href: database/elastic-pool-manage.md
       - name: Resource management in dense elastic pools
-        href: database/elastic-pool-resource-management.md        
+        href: database/elastic-pool-resource-management.md
       - name: Hyperscale performance diagnostics
         href: database/hyperscale-performance-diagnostics.md
       - name: Block T-SQL CRUD
@@ -587,7 +589,7 @@
       - name: Audit to storage account behind VNet or firewall
         href: database/audit-write-storage-account-behind-vnet-firewall.md
       - name: Configure threat detection
-        href: database/threat-detection-configure.md      
+        href: database/threat-detection-configure.md
       - name: Configure dynamic data masking
         href: database/dynamic-data-masking-configure-portal.md
       - name: IP-based firewall
@@ -630,7 +632,7 @@
       - name: Implement database advisor recommendations
         href: database/database-advisor-implement-performance-recommendations.md
       - name: Stream data with Stream Analytics
-        href: database/stream-data-stream-analytics-integration.md 
+        href: database/stream-data-stream-analytics-integration.md
 
 
     - name: Load and move data 
@@ -688,7 +690,7 @@
     - name: Elastic jobs (preview)
       items:
       - name: Configure jobs
-        href: database/elastic-jobs-overview.md 
+        href: database/elastic-jobs-overview.md
       - name: Create and manage (PowerShell)
         href: database/elastic-jobs-powershell-create.md
       - name: Create and manage (T-SQL)
@@ -699,7 +701,7 @@
     - name: Design data applications
       items:
       - name: Authenticate app
-        href: database/application-authentication-get-client-id-keys.md    
+        href: database/application-authentication-get-client-id-keys.md
       - name: Design for disaster recovery
         href: database/designing-cloud-solutions-for-disaster-recovery.md
       - name: Design for elastic pools
@@ -1020,9 +1022,9 @@
         - name: Deploy
           items:
           - name: Operationalize using stored procedures
-            href: /sql/machine-learning/r/operationalizing-your-r-code?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+            href: /sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?view=azuresqldb-mi-current&preserve-view=true
           - name: Convert R code for SQL Server
-            href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
+            href: /sql/machine-learning/deploy/modify-r-python-code-to-run-in-sql-server?view=azuresqldb-mi-current&preserve-view=true
           - name: Create a stored procedure using sqlrutils 
             href: /sql/machine-learning/r/reference/sqlrutils/how-to-create-stored-procedure-from-r
         - name: Predictions
@@ -1069,11 +1071,11 @@
     - name: Features
       items:
       - name: Linked servers
-        href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=%2fazure%2fazure-sql%2ftoc.json
+        href: /sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/azure-sql/toc.json
       - name: Service Broker
-        href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=%2fazure%2fazure-sql%2ftoc.json
+        href: /sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/azure-sql/toc.json
       - name: Database mail
-        href: /sql/relational-databases/database-mail/database-mail?toc=%2fazure%2fazure-sql%2ftoc.json
+        href: /sql/relational-databases/database-mail/database-mail?toc=/azure/azure-sql/toc.json
     - name: Security
       items:
       - name: Always Encrypted
@@ -1094,7 +1096,7 @@
     - name: Configure settings
       items: 
       - name: Customize time zone
-        href: managed-instance/timezones-overview.md 
+        href: managed-instance/timezones-overview.md
       - name: Configure connection types
         href: managed-instance/connection-types-overview.md
       - name: Create alerts on SQL MI
@@ -1438,13 +1440,13 @@
       - name: From SQL Server
         items: 
         - name: Overview
-          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md 
+          href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
         - name: Migration guide
           href: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
         - name: Availability group (AG)
-          href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md 
+          href: migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md
         - name: Failover cluster instance (FCI)
-          href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md 
+          href: migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md
          
         
 - name: Reference
@@ -1454,7 +1456,7 @@
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-sql
   - name: Azure PowerShell
-    href: /powershell/module/az.sql
+    href: /powershell/module/az.sql/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.sql.models
   - name: Java
@@ -1475,13 +1477,13 @@
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: /sql/tools/sqlpackage?toc=%2fazure%2fazure-sql%2ftoc.json
+    href: /sql/tools/sqlpackage/sqlpackage?toc=/azure/azure-sql/toc.json
   - name: SQL Database Management Library package
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: SQL connection  drivers
     href: /sql/connect/sql-connection-libraries
   - name: SQL Server drivers
-    href: /sql/connect/sql-server-drivers
+    href: /sql/connect/sql-connection-libraries
     items:
     - name: ADO.NET
       href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15&preserve-view=true
@@ -1514,11 +1516,11 @@
   - name: Public data sets
     href: public-data-sets.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
+    href: https://azure.microsoft.com/pricing/details/azure-sql-database/single/
   - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+    href: https://social.msdn.microsoft.com/Forums/en-US/home
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/sql-azure
+    href: https://stackoverflow.com/questions/tagged/azure-sql-database
   - name: Troubleshoot
     items:
     - name: Known issues with SQL Managed Instance 
@@ -1548,7 +1550,7 @@
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
+    href: https://azure.microsoft.com/updates/?product=sql-database
   - name: Architecture center
     href: /azure/architecture/
   - name: Customer stories

@@ -84,7 +84,7 @@ With the information provided by the risk detections report, administrators can 
 - Information about each risk detection including type.
 - Other risks triggered at the same time
 - Sign-in attempt location
-- Link out to more detail from Microsoft Cloud App Security (MCAS).
+- Link out to more detail from Microsoft Defender for Cloud Apps.
 
 Administrators can then choose to return to the user's risk or sign-ins report to take actions based on information gathered.
 

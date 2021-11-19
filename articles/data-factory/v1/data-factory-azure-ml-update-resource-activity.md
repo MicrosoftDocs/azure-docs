@@ -12,6 +12,8 @@ ms.date: 10/22/2021
 
 # Updating ML Studio (classic) models using Update Resource Activity
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md) 
 > * [Pig Activity](data-factory-pig-activity.md)

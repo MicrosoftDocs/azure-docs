@@ -241,6 +241,16 @@ sections:
           
   - name: Other questions
     questions:
+      - question: |
+          How does the container warmup request work?
+        answer: |
+          When Azure App Services starts your container, the warmup request sends an HTTP request to the [/robots933456.txt](configure-custom-container.md?pivots=container-linux#robots933456-in-logs) endpoint of your application. This is simply a dummy endpoint, but your application needs to reply with any non-5XX status code. If your application logic doesn't reply with any HTTP status code to nonexistent endpoints, the warmup request can't receive a response and it perpetually restarts your container.
+
+          The warmup request also might fail due to port misconfiguration. To ensure that the port is correctly configured on Azure App Services, see the question *How do I specify port in my Linux container?*
+      - question: |
+          Is it possible to increase the container warmup request timeout?
+        answer:
+          The warmup request by default fails after waiting 240 seconds for a reply from the container. You may increase the container warmup request timeout by adding the application setting `WEBSITES_CONTAINER_START_TIME_LIMIT` with a value between 240 and 1800 seconds.
       - question: |    
           How do I specify port in my Linux container?
         answer: |

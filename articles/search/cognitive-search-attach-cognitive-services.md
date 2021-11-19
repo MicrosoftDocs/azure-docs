@@ -74,7 +74,7 @@ Content-Type: application/json
 }
 ```
 
-## [**.NET SDK**](#tab/cogkey-dotnet)
+## [**.NET SDK**](#tab/cogkey-csharp)
 
 The following code snippet is from [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs), trimmed for brevity.
 

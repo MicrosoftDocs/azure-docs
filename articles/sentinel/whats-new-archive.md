@@ -1,13 +1,10 @@
 ---
 title: Archive for What's new in Azure Sentinel
 description: A description of what's new and changed in Azure Sentinel from six months ago and earlier.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 11/09/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -15,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The primary [What's new in Azure Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
+The primary [What's new in Sentinel](whats-new.md) release notes page contains updates for the last six months, while this page contains older items.
 
 For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
@@ -91,7 +88,7 @@ Enrich your alerts in two new ways to make them more usable and more informative
 
 Start by taking your entity mapping to the next level. You can now map almost 20 kinds of entities, from users, hosts, and IP addresses, to files and processes, to mailboxes, Azure resources, and IoT devices. You can also use multiple identifiers for each entity, to strengthen their unique identification. This gives you a much richer data set in your incidents, providing for broader correlation and more powerful investigation. [Learn the new way to map entities](map-data-fields-to-entities.md) in your alerts.
 
-[Read more about entities](entities-in-azure-sentinel.md) and see the [full list of available entities and their identifiers](entities-reference.md).
+[Read more about entities](entities.md) and see the [full list of available entities and their identifiers](entities-reference.md).
 
 Give your investigative and response capabilities an even greater boost by customizing your alerts to surface details from your raw events. Bring event content visibility into your incidents, giving you ever greater power and flexibility in responding to and investigating security threats. [Learn how to surface custom details](surface-custom-details-in-alerts.md) in your alerts.
 
