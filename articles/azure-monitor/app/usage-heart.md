@@ -75,7 +75,7 @@ Happiness is a user-reported dimension that measures how users feel about the pr
 A common approach to measure this dimension is to ask users a Customer Satisfaction (CSAT) question like “How satisfied are you with this product?”. Users' responses on a three or a five-point scale (for example, no, maybe and yes) are aggregated to create a product-level score ranging from 1-5. As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
 #### User Sentiment Data
-Refer to the [Azure Monitor documentation for custom sources](https://docs.microsoft.com/azure/azure-monitor/agents/data-sources#custom-sources) to upload user sentiment data for calculating happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", and so on.
+Refer to the [Azure Monitor documentation for custom sources](../agents/data-sources.md#custom-sources) to upload user sentiment data for calculating happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", and so on.
 
 
 
