@@ -88,7 +88,7 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method inside `App.java`:
 
 ```java
-// Your can find your endpoint and access key from your resource in the Azure portal
+// You can find your endpoint and access key from your resource in the Azure portal
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 String accessKey = "SECRET";
 
@@ -108,7 +108,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-If you have an Azure Active Directory(AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with AD.
+If you have an Azure Active Directory(Azure AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with Azure AD.
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
 TokenCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -142,7 +142,7 @@ String token = accessToken.getToken();
 System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresAt + ": " + token);
 ```
 
-## Create an identity and issue token in one go
+## Create an identity and issue token in one request
 
 Alternatively, we can use the 'createUserAndToken' method to to create a new entry in the directory with a unique `Id` and
 issue an access token.

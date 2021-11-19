@@ -49,13 +49,7 @@ The `--save` option lists the library as a dependency in your `package.json` fil
 
 ## Set up the app framework
 
-Within the project directory:
-
-1. Open a new text file in your code editor
-1. Add a `require` call to load the `CommunicationIdentityClient`
-1. Create the structure for the program, including basic exception handling
-
-Use the following code to begin:
+Within the project directory, use the following code to begin:
 
 ```javascript
 const { CommunicationIdentityClient } = require('@azure/communication-identity');
@@ -72,7 +66,7 @@ main().catch((error) => {
 })
 ```
 
-1. Save the new file as `issue-access-token.js` in the project directory.
+Once complete, save the new file as `issue-access-token.js` in the project directory.
 
 ## Authenticate the client
 
@@ -103,7 +97,7 @@ const tokenCredential = new AzureKeyCredential(accessKey);
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you have an Azure Active Directory(AD) Application setup, see [Use service principals](../../identity/service-principal.md), you may also authenticate with AD.
+If you have an Azure Active Directory(Azure AD) Application setup, see [Use service principals](../../identity/service-principal.md), you may also authenticate with Azure AD.
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
 const tokenCredential = new DefaultAzureCredential();

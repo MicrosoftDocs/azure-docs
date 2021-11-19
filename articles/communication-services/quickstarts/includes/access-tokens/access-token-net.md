@@ -79,7 +79,7 @@ namespace AccessTokensQuickstart
 ```
 ## Authenticate the client
 
-Now we'll, initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+Now we'll initialize a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 Add the following code to the `Main` method:
 
@@ -128,7 +128,7 @@ var tokenResponse = await client.GetTokenAsync(identity, scopes: new [] { Commun
 var token =  tokenResponse.Value.Token;
 var expiresOn = tokenResponse.Value.ExpiresOn;
 
-// Writ the token details to the screen
+// Write the token details to the screen
 Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
 Console.WriteLine(token);
 ```
@@ -154,7 +154,7 @@ Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {
 Console.WriteLine(token);
 ```
 
-## Refresh an access tokens
+## Refresh an access token
 
 To refresh an access token, pass an instance of the `CommunicationUserIdentifier` object into `GetTokenAsync`. If you've stored this `Id` and need to create a new `CommunicationUserIdentifier`, you can do so by passing your stored `Id` into the `CommunicationUserIdentifier` constructor as follows:
 

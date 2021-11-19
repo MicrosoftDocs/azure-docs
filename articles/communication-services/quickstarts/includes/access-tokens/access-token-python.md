@@ -69,7 +69,7 @@ connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
 client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
-Alternatively, if you have an Azure Active Directory(AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with AD.
+Alternatively, if you have an Azure Active Directory(Azure AD) application set up, see [Use service principals](../../identity/service-principal.md), you may also authenticate with Azure AD.
 ```python
 endpoint = os.environ["COMMUNICATION_SERVICES_ENDPOINT"]
 client = CommunicationIdentityClient(endpoint, DefaultAzureCredential())
