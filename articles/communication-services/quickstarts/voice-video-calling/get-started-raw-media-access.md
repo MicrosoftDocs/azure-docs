@@ -17,6 +17,8 @@ ms.subservice: calling
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
 
+In this quickstart, you'll learn how implement raw media access using the Azure Communication Services Calling SDK for Android.
+
 ## Outbound virtual video device
 
 The ACS Calling SDK offers APIs allowing apps to generate their own video frames to send to remote participants.
