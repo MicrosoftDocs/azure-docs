@@ -63,7 +63,7 @@
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET
