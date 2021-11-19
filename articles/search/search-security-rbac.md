@@ -292,7 +292,7 @@ For example, you might want to augment a read-only role to include listing the i
 
 The PowerShell example shows the JSON syntax for creating a custom role.
 
-### [**Azure PowerShell***](#tab/custom-role-ps)
+### [**Azure PowerShell**](#tab/custom-role-ps)
 
 1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
 
@@ -327,7 +327,7 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 
 1. See [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
+1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
 
 ### [**REST API**](#tab/custom-role-rest)
 
@@ -335,7 +335,7 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 
 1. See [Create or update Azure custom roles using the REST API](../role-based-access-control/custom-roles-rest.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
+1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
 
 ### [**Azure CLI**](#tab/custom-role-cli)
 
@@ -343,7 +343,7 @@ The PowerShell example shows the JSON syntax for creating a custom role.
 
 1. See [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
+1. Clone or create a role, or use JSON to specify the custom role (see the PowerShell tab for JSON syntax).
 
 ---
 
