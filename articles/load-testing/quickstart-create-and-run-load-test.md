@@ -6,16 +6,20 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/04/2021
+ms.date: 11/19/2021
 ms.custom: template-quickstart
 adobe-target: true
 ---
 
 # Quickstart: Create and run a load test with Azure Load Testing Preview
 
-This quickstart describes how to create an Azure Load Testing resource by using Azure portal. With this resource, you'll create a load test with an Apache JMeter script and run the test against an external website. 
+This quickstart describes how to create an Azure Load Testing Preview resource by using Azure portal. With this resource, you'll create a load test with an Apache JMeter script and run the test against an external website. 
 
 After completing this quickstart, you'll have a resource and load test you can use for other tutorials. 
+
+> [!IMPORTANT]
+> Azure Load Testing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -105,7 +109,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
     This sample Apache JMeter script simulates a load test of five virtual users simultaneously accessing a web endpoint, and takes less than two minutes to complete.
 
-1. In the file, replace the placeholder text *`{your-endpoint-url}`* with your own endpoint URL.
+1. In the file, replace the placeholder text (also replace the curly braces) *`{your-endpoint-url}`* with your own endpoint URL.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the endpoint URL.
@@ -116,7 +120,7 @@ In the next section, you'll create a load test using the Apache JMeter script.
 
 ## <a name="create_test"></a> Create a load test
 
-Azure Load Testing allows you to use an Apache JMeter script to create a load test. This script defines the test plan and contains information about the web endpoint, the number of virtual users, and other test configuration settings.
+With Azure Load Testing you can use an Apache JMeter script to create a load test. This script defines the application test plan. The script contains information about the web endpoint, the number of virtual users, and other test configuration settings.
 
 Next, you'll create a new load test by using an existing Apache JMeter script.
 
@@ -124,19 +128,20 @@ Next, you'll create a new load test by using an existing Apache JMeter script.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test.png" alt-text="Screenshot that shows the Azure Load Testing page and + create new test." :::
     
-1. In the **Basics** tab, fill the **Test name** and **Test description** input fields. Optionally, you can check the **Run test after creation** box.
+1. In the **Basics** tab, enter the **Test name** and **Test description** input fields. Optionally, you can check the **Run test after creation** box.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-basics.png" alt-text="Screenshot that shows the Basics tab when creating a new test." :::
 
-1. In the **Test plan** tab, select the **JMeter script** test method and select your Apache JMeter script. Then, select **Upload** to upload the file to Azure.
+1. In the **Test plan** tab, select your Apache JMeter script, and then select **Upload** to upload the file to Azure.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab when creating a new test." :::
     
-    Optionally, you can select and upload more Apache JMeter configuration files.
+    > [!NOTE]
+    > You can select and upload additional Apache JMeter configuration files.
 
-1. In the **Parameters** tab, you can configure input parameters for your Apache JMeter script. You can skip this tab for now, as you won't be using parameters in this quickstart.
+1. (Optional) In the **Parameters** tab, you can configure input parameters for your Apache JMeter script.
 
-1. In the **Load** tab, configure the following settings. You can leave the default values in this quickstart:
+1. For this quickstart, you can leave the default values in the **Load** tab.
 
     |Field  |Default value  |Description  |
     |---------|---------|---------|
@@ -144,10 +149,10 @@ Next, you'll create a new load test by using an existing Apache JMeter script.
     
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-load.png" alt-text="Screenshot that shows the Load tab when creating a new test." :::
 
-1. In the **Test criteria** tab, you can configure criteria to determine when your load test should fail. You can skip this tab for now.
+1. (Optional) In the **Test criteria** tab, you can configure criteria to determine when your load test should fail.
 
-1. In the **Monitoring** tab, you can specify the Azure application components to monitor for resource metrics. You can skip this tab for now, because we're testing an external website.
-    
+1. (Optional) In the **Monitoring** tab, you can specify the Azure application components to capture server-side metrics for. For this quickstart, you're not testing an Azure-hosted application.
+
 1. Select **Review + create**, review all settings, and then select **Create** to create the load test.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-review.png" alt-text="Screenshot that shows the Review + create tab when creating a new test." :::
@@ -164,9 +169,13 @@ If you checked the **Run test after creation** box when creating the load test, 
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/tests.png" alt-text="Screenshot that shows the list of tests." :::
 
-1. On the load test details screen, select **Run** or **Run test** to start the load test. You'll now see the list of test runs.
+1. On the load test details screen, select **Run** or **Run test**.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test.png" alt-text="Screenshot that shows how to run a load test." :::
+
+1. On the **Run** confirmation page, optionally modify the test details, and then select **Run** to start the load test.
+
+    :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 
     > [!TIP]
     > You can stop a load test at any time from the Azure portal UI.
