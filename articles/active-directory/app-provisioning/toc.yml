@@ -18,8 +18,6 @@
       href: customize-application-attributes.md
     - name: App specific provisioning tutorials
       href: /azure/active-directory/saas-apps/tutorial-list
-    - name: Provisioning to SQL based apps
-      href: tutorial-ecma-sql-connector.md
   - name: Concepts
     expanded: true
     items: 
@@ -84,12 +82,12 @@
         href: ../reports-monitoring/concept-provisioning-logs.md?context=%2fazure%2factive-directory%2fapp-provisioning%2fcontext%2fapp-provisioning-context
     - name: On-premises app provisioning
       items:
+      - name: Provisioning to On-premises SCIM-enabled apps
+        href: on-premises-scim-provisioning.md
       - name: Provisioning to SQL based apps
         href: on-premises-sql-connector-configure.md
-      - name: Generic LDAP Connector configuration
+      - name: Provisioning to LDAP based apps
         href: on-premises-ldap-connector-configure.md
-      - name: On-premises application provisioning to SCIM-enabled apps
-        href: on-premises-scim-provisioning.md
       - name: Migrate connector from MIM Sync
         href: on-premises-migrate-microsoft-identity-manager.md
     - name: Troubleshoot HR provisioning
