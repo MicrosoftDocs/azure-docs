@@ -1472,3 +1472,12 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
+# Owner: prakulka
+id: acs-tollfree-shortcode
+  title: Number Type
+  prompt: Choose a Number Type
+  pivots:
+  - id: TollFree
+    title: Toll-Free
+  - id: Shortcode
+    title: Short Code
