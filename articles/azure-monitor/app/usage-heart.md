@@ -33,7 +33,7 @@ These dimensions are measured independently, but they interact with each other a
 
 
 ## Get Started
- Users can set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm. (Note: This step is mandatory to use the workbook). 
+ Users can set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm. (Note: This step is mandatory to use the workbook). 
 
  
 
@@ -89,7 +89,7 @@ HEART Framework measures engagement using the concept of activity (intentional u
 Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a 'Paycheck Portal', measurement would make more sense at a monthly or weekly level.  
 
 #### Defining Active Users	
-A user who does an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A user who does an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
 
 
 
@@ -105,7 +105,7 @@ c. Marketing campaigns
 
 ### Retention
 #### Defining Retention
-A Retained User is an active user who was active both this reporting period and the previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A Retained User is an active user who was active both this reporting period and the previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -130,7 +130,7 @@ A successful task meets three requirements:
 2.	High Performance – the intended functionality of the feature was accomplished in a reasonable amount of time
 3.	High Reliability – the intended functionality of the feature was accomplished without failure
 
-A task is considered unsuccessful if any of the above requirements isn't met. **Task Success metrics require the [Click Analytics plugin for Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) implemented in the application**.
+A task is considered unsuccessful if any of the above requirements isn't met. **Task Success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
 
 #### Creating a task
 Set up a custom task using the below parameters.
@@ -173,17 +173,17 @@ Yes, when you click on the public template of the workbook, you can navigate to 
 After making your changes, click 'Done Editing' and then the 'Save' icon.
 
 
-![workbookeditfaq2](./media/usage-overview/workbookeditfaq2.5.png)  
+![workbookeditsave](./media/usage-overview/workbookeditfaq2.5.png)  
 
 To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You'll see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
 
-![workbookeditfaq3](./media/usage-overview/workbookeditfaq3.png)  
+![workbookstab](./media/usage-overview/workbookeditfaq3.png)  
  
 
  
 
 ## Next Steps
-- How to set up the [Click Analytics Auto Collection Plugin](https://docs.microsoft.com/azure/azure-monitor/app/javascript-click-analytics-plugin) via npm
+- How to set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm
 
  
 
