@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 09/22/2020 
+ms.date: 11/30/2021
 ms.custom: devx-track-azurecli
 ---
 

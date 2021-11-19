@@ -6,7 +6,7 @@ ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 12/08/2020
+ms.date: 11/30/2021
 ---
 
 # Connect and query overview for Azure database for PostgreSQL- Flexible Server

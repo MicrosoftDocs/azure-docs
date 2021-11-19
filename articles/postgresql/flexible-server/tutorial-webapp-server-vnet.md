@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 06/30/2021
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 

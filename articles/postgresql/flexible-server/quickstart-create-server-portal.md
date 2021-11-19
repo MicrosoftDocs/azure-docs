@@ -6,7 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal

@@ -5,7 +5,7 @@ author: nathan-wisner-ms
 ms.author: nathanwisner
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/04/2021
+ms.date: 11/30/2021
 ---
 
 # Perform intelligent tuning in Azure Database for PostgreSQL - Flexible Server

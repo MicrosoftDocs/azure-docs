@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 11/30/2021
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server

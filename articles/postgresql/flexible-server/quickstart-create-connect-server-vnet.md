@@ -6,7 +6,7 @@ ms.author: sumuth
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 07/29/2021
+ms.date: 11/30/2021
 ---
 
 # Connect Azure Database for PostgreSQL Flexible Server with the private access connectivity method

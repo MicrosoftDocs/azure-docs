@@ -5,7 +5,7 @@ author: shreyaaithal
 ms.author: shaithal
 ms.service: postgresql
 ms.topic: how-to 
-ms.date: 08/23/2021 
+ms.date: 11/30/2021
 ms.custom: template-how-to 
 ---
 
@@ -17,9 +17,6 @@ Azure Database for PostgreSQL - Flexible Server is a managed service that you us
 - **32 GB storage and 32 GB backup storage**.
 
 This article shows you how to create and use a flexible server for free using an [Azure free account](https://azure.microsoft.com/free/). 
-
-
-
 
 ## Prerequisites
 
@@ -153,9 +150,9 @@ You're not charged for Azure Database for PostgreSQL - Flexible Server services 
     - Unlikely to Exceed: You're unlikely to exceed the limit for the meter.
     - Exceeds on \<Date\>: You're likely to exceed the limit for the meter on \<Date\>.
 
-    >[!IMPORTANT]
-    >With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
-    >At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amounts of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit—and eventually your account and services will be disabled.
+    > [!IMPORTANT]
+    > With an Azure free account, you also get $200 in credit to use in 30 days. During this time, any usage beyond the free monthly amounts of services will be deducted from this credit.
+    > At the end of your first 30 days or after you spend your $200 credit (whichever comes first), you'll only pay for what you use beyond the free monthly amounts of services. To keep getting free services after 30 days, move to pay-as-you-go pricing. If you don't move to pay as you go, you can't purchase Azure services beyond your $200 credit—and eventually your account and services will be disabled.
     >For more information, see [**Azure free account FAQ**](https://azure.microsoft.com/free/free-account-faq/).
 
 

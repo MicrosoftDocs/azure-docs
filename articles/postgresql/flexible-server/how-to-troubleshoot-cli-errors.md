@@ -5,7 +5,7 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/24/2021
+ms.date: 11/30/2021
 ---
 
 # Troubleshoot Azure Database for PostgreSQL Flexible Server CLI errors
