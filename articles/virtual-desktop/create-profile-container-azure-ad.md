@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 12/01/2021
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory
@@ -217,10 +217,10 @@ To prevent users from accessing the user profile of other users, you must also a
 
 You can set permissions (ACLs) for files and directories using either the icacls command-line utility or Windows Explorer. The system you use to configure the permissions must meet the following requirements:
 
+- The version of Windows meets the supported OS requirements defined in the [Prerequisites](#prerequisites) section.
 - Azure AD-Joined or Hybrid Azure AD-joined to the same Azure AD tenant as the storage account.
 - Have line-of-sight to the domain controller.
 - Domain joined to your Active Directory (Windows Explorer method only).
-- The version of Windows meets the supported OS requirements defined in the [Prerequisites](#prerequisites) section.
 
 During the public preview, configuring permissions using Windows Explorer also requires storage account configuration. This can be skipped when using icacls. Configure your storage account following the steps below:
 
@@ -315,17 +315,8 @@ During the public preview, configuring permissions using Windows Explorer also r
 
 Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below and restart the system:
 
-Group policy:
-
-```
-Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon
-```
-
-Registry value:
-
-```
-reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
-```
+- Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+- Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 After the restart, confirm that Azure Files has been configured properly by mounting the network share:
 
@@ -341,17 +332,8 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 
 1. Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below. The system must be restarted for the change to take effect.
 
-    Group policy:
-
-    ```
-    Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon
-    ```
-
-    Registry value:
-
-    ```
-    reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
-    ```
+    - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+    - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
 2. When you use Azure AD with a roaming profile solution like FSLogix, the credential keys in Credential Manager must belong to the profile that's currently loading. This will let you load your profile on many different VMs instead of being limited to just one. To enable this setting, create a new registry value by running the following command:
 
