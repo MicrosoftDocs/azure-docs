@@ -18,9 +18,9 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you start, ensure that your version of the Azure CLI is 2.30.0 or later. If it's an earlier version, [install the latest version](/cli/azure/install-azure-cli).
 
-### Supported AKS versions
+### Supported Kubernetes versions
 
-The minimum recommended AKS version is based on the [rolling AKS version support window][kubernetes-version-support]. Ensure that you're running version N-2 or later.
+The minimum recommended Kubernetes version is based on the [rolling Kubernetes version support window][kubernetes-version-support]. Ensure that you're running version N-2 or later.
 
 ## Features
 
@@ -32,7 +32,7 @@ The minimum recommended AKS version is based on the [rolling AKS version support
 - Syncs with Kubernetes secrets
 - Supports auto rotation of mounted contents and synced Kubernetes secrets
 
-## Create an AKS cluster by using Azure Key Vault Provider for Secrets Store CSI Driver support
+## Create an AKS cluster with Azure Key Vault Provider for Secrets Store CSI Driver support
 
 First, create an Azure resource group:
 
