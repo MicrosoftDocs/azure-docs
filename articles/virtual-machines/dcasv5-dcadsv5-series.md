@@ -1,5 +1,5 @@
 ---
-title: DCasv5 and DCadsv5-series confidential virtual machines (preview)
+title: Azure DCasv5 and DCadsv5-series confidential virtual machines (preview)
 description: Specifications for Azure Confidential Computing's DCasv5 and DCadsv5-series confidential virtual machines. 
 author: runcai 
 ms.author: runcai
@@ -102,7 +102,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Confidential virtual machine options on AMD processors](../confidential-computing/virtual-machine-solutions-amd.md)
