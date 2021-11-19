@@ -10,6 +10,9 @@ ms.date: 5/10/2021
 Azure Service Fabric managed clusters use managed disks for all storage needs, including application data, for scenarios such as reliable collections and actors. Azure managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines. Managed disks are like a physical disk in an on-premises server but, virtualized. With managed disks, all you have to do is specify the disk size, the disk type, and provision the disk. Once you provision the disk, Azure handles the rest. For more information about managed disks, see [Introduction to Azure managed disks
 ](../virtual-machines/managed-disks-overview.md).
 
+>[!NOTE] 
+> After node type deployment you can not modify the managed disk type or size in place. You can easily deploy a new node type with with required configuration in your cluster and migrate workloads. 
+
 ## Managed disk types
 
 Azure Service Fabric manged clusters support the following managed disk types:
@@ -25,7 +28,7 @@ Azure Service Fabric manged clusters support the following managed disk types:
 
 ## Specifying a Service Fabric managed cluster disk type
 
-To specify a Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition. Once you configure and deploy a node type managed disk you can not modify the `DiskType` or size in place. You are able to to create new node types with different managed disk type and size configurations within a given cluster and migrate workloads as needed. 
+To specify a Service Fabric managed cluster disk type you must include the following value in the managed cluster resource definition.  
 
 * The value **dataDiskType** property, which specifies what managed disk type to use for your nodes.
 
@@ -33,6 +36,7 @@ Possible values are:
 * "Standard_LRS"
 * "StandardSSD_LRS"
 * "Premium_LRS"
+
 >[!NOTE]
 > Not all managed disk types are available for all vm sizes, for more info see [What disk types are available in Azure?](../virtual-machines/disks-types.md)
 
