@@ -2,14 +2,17 @@
 title: Bicep modules
 description: Describes how to define a module in a Bicep file, and how to use module scopes.
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 11/18/2021
 ---
 
 # Bicep modules
 
 Bicep enables you to organize deployments into modules. A module is just a Bicep file that is deployed from another Bicep file. With modules, you improve the readability of your Bicep files by encapsulating complex details of your deployment. You can also easily reuse modules for different deployments.
 
-To share modules with other people in your organization, [create a private registry](private-module-registry.md). Modules in the registry are only available to users with the correct permissions.
+To share modules with other people in your organization, create a [template spec](../templates/template-specs.md) or [private registry](private-module-registry.md). Template specs and modules in the registry are only available to users with the correct permissions.
+
+> ![TIP]
+> The choice between template specs and private registries is mostly a matter of preference. If you're deploying templates or Bicep files without other project artifacts, template specs are an easier option. If you're deploying project artifacts with the templates or Bicep files, you can integrate the private registry with your development work and then more easily deploy all of it from the registry.
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
@@ -58,7 +61,7 @@ Like resources, modules are deployed in parallel unless they depend on other mod
 
 ## Path to module
 
-The file for the module can be either a local file or an external file in a Bicep module registry. Both options are shown below.
+The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. All fo these options are shown below.
 
 ### Local file
 
@@ -89,6 +92,31 @@ When you reference a module in a registry, the Bicep extension in Visual Studio 
 The full path for a module in a registry can be long. Instead of providing the full path each time you want to use the module, you can [configure aliases in the bicepconfig.json file](bicep-config-modules.md#aliases-for-modules). The aliases make it easier to reference the module. For example, with an alias, you can shorten the path to:
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/alias-definition.bicep" highlight="1" :::
+
+### File in template spec
+
+After creating a [template spec](../templates/template-specs.md), you can link to that template spec in a module. Specify the template spec in the following format:
+
+```bicep
+module <symbolic-name> 'ts:<subscription-id>/<resource-group>/<template-spec-name>:<version>' = {
+```
+
+However, you can simplify your Bicep file by [creating an alias](bicep-config-modules.md) for the resource group that contains your template specs. When using an alias, the syntax becomes:
+
+```bicep
+module <symbolic-name> 'ts/<alias>:<template-spec-name>:<version>' = {
+```
+
+The following module deploys a template spec to create a storage account. The subscription and resource group for the template spec is defined in the alias named **ContosoSpecs**.
+
+```bicep
+module stgModule 'ts/ContosoSpecs:storageSpec:2.0' = {
+  name: 'storageDeploy'
+  params: {
+    storagePrefix: 'examplestg1'
+  }
+}
+```
 
 ## Parameters
 
