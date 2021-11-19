@@ -241,7 +241,7 @@ Perform the following steps to create an export job in the Azure portal.
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following steps to create an export job in the Azure portal.
+Use the following steps to create an export job in the Azure portal. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job."
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
@@ -316,7 +316,7 @@ Use the following steps to create an export job in the Azure portal.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Use the following steps to create an export job in Azure PowerShell.
+Use the following steps to create an export job in Azure PowerShell. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job." 
 
 [!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 
