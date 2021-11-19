@@ -107,7 +107,7 @@ map.layers.insertLayer(layer, below: "labels")
 
 The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/data_driven.png" alt-text="Add a line layer to a map.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/data-driven.png" alt-text="Add a line layer to a map.":::
 
 ## Add a stroke gradient to a line
 
