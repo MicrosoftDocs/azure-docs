@@ -91,7 +91,7 @@ Make sure to save the value of the secret in a secure location as you won't be a
 
 ## Assign a role to the application
 
-Next, you need to grant your Azure AD application access to your search service. Azure Cognitive Search has various [built-in roles](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#built-in-roles-used-in-search) that can be used depending on the access required by your application.
+Next, you need to grant your Azure AD application access to your search service. Azure Cognitive Search has various [built-in roles](search-security-rbac.md#built-in-roles-used-in-search). You can also create a [custom role](search-security-rbac.md#create-a-custom-role).
 
 In general, it's best to give your application only the access required. For example, if your application only needs to be able to query the search index, you could grant it the [Search Index Data Reader (preview)](../role-based-access-control/built-in-roles.md#search-index-data-reader) role. Alternatively, if it needs to be able to read and write to a search index, you could use the [Search Index Data Contributor (preview)](../role-based-access-control/built-in-roles.md#search-index-data-contributor) role.
 
@@ -124,24 +124,26 @@ You can also [assign roles using PowerShell](./search-security-rbac.md?tabs=conf
 
 Once you have an Azure AD application created and you've granted it permissions to access your search service, you're ready you can add code to your application to authenticate a security principal and acquire an OAuth 2.0 token.
 
+Azure AD authentication is also supported in the preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar), [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3).
+
 ### [**.NET SDK**](#tab/aad-dotnet)
 
-The Azure SDKs make it easy to integrate with Azure AD. Version [11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) and newer of the .NET SDK support Azure AD authentication. The following instructions reference an existing C# sample to demonstrate the code changes.
+The Azure SDKs make it easy to integrate with Azure AD. Version [11.4.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.2) and newer of the .NET SDK support Azure AD authentication.
 
-Azure AD authentication is also supported in the preview SDKs for [Java](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.3/jar), [Python](https://pypi.org/project/azure-search-documents/11.3.0b3/), and [JavaScript](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.3).
+The following instructions reference an existing C# sample to demonstrate the code changes.
 
 1. As a starting point, clone the [source code](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v11) for the [C# quickstart](search-get-started-dotnet.md).
 
-  The sample currently uses key-based authentication to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use this: 
+   The sample currently uses key-based authentication to create the `SearchClient` and `SearchIndexClient` but you can make a small change to switch over to role-based authentication. Instead of using `AzureKeyCredential` in the beginning of `Main()` in [Program.cs](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v11/AzureSearchQuickstart-v11/Program.cs), use this: 
 
-  ```csharp
-  AzureKeyCredential credential = new AzureKeyCredential(apiKey);
-    
-  // Create a SearchIndexClient to send create/delete index commands
-  SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, credential);
-  // Create a SearchClient to load and query documents
-  SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
-  ```
+   ```csharp
+   AzureKeyCredential credential = new AzureKeyCredential(apiKey);
+     
+   // Create a SearchIndexClient to send create/delete index commands
+   SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, credential);
+   // Create a SearchClient to load and query documents
+   SearchClient srchclient = new SearchClient(serviceEndpoint, indexName, credential);
+   ```
 
 1. Use `ClientSecretCredential` to authenticate with the search service. First, import the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library to use `ClientSecretCredential`.
 
@@ -151,10 +153,10 @@ Azure AD authentication is also supported in the preview SDKs for [Java](https:/
    + The client (or application) ID. This can be retrieved from the overview page of your app registration.
    + The value of the client secret that you copied in a preview step.
 
-```csharp
-var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
-SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, tokenCredential);
-```
+   ```csharp
+   var tokenCredential =  new ClientSecretCredential(aadTenantId, aadClientId, aadSecret);
+   SearchIndexClient adminClient = new SearchIndexClient(serviceEndpoint, tokenCredential);
+   ```
 
 The Azure.Identity documentation also has additional details on using [Azure AD authentication with the Azure SDK for .NET](/dotnet/api/overview/azure/identity-readme).
 

@@ -246,6 +246,8 @@ Additional details on using [AAD authentication with the Azure SDK for .NET](htt
 
 ---
 
+<a name="rbac-single-index"></a>
+
 ## Grant access to a single index
 
 In some scenarios, you may want to scope down an application's access to a single resource, such as an index. 
@@ -274,13 +276,13 @@ In PowerShell, use [New-AzRoleAssignment](/powershell/module/az.resources/new-az
 
 If [built-in roles](#built-in-roles-used-in-search) don't provide the right combination of permissions, you can create a [custom role](../role-based-access-control/custom-roles.md) to support the operations you require
 
-For example, you might want to augment a read-only role to include the ability to list the indexes on the search service.Reader to include Microsoft.Search/searchServices/listAdminKeys/action to give Reader the ability to view indexes on the search service.
+For example, you might want to augment a read-only role to include listing the indexes on the search service (Microsoft.Search/searchServices/indexes/read), or create a role that can fully manage indexes, including the ability to create indexes and read data. 
 
-For example, if you want a role that has the ability to fully manage indexes including the ability to create indexes and read data from them you could define the role shown below:
+The PowerShell example shows the JSON syntax for creating a custom role.
 
-### [**Azure Powershell***](#tab/custom-role-ps)
+### [**Azure PowerShell***](#tab/custom-role-ps)
 
-1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
 
 1. Set up a PowerShell session to create the custom role. For detailed instructions, see [Azure PowerShell](../role-based-access-control/custom-roles-powershell.md)
 
@@ -309,27 +311,27 @@ For example, if you want a role that has the ability to fully manage indexes inc
 
 ### [**Azure portal**](#tab/custom-role-portal)
 
-1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
 
 1. See [Create or update Azure custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
 
 ### [**REST API**](#tab/custom-role-rest)
 
-1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
 
 1. See [Create or update Azure custom roles using the REST API](../role-based-access-control/custom-roles-rest.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
 
 ### [**Azure CLI**](#tab/custom-role-cli)
 
-1. Review the [list of atomic permissions](/role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
+1. Review the [list of atomic permissions](../role-based-access-control/resource-provider-operations.md#microsoftsearch) to determine which ones you need.
 
 1. See [Create or update Azure custom roles using Azure CLI](../role-based-access-control/custom-roles-cli.md) for steps.
 
-1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for a JSON example).
+1. Clone or create a role, or use JSON to specify the custom role (see the Powershell tab for JSON syntax).
 
 ---
 
