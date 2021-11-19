@@ -2,12 +2,15 @@
 title: Labs concepts - Azure Lab Services | Microsoft Docs
 description: Learn the basic concepts of Lab Services, and how it can make it easy to create and manage labs. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/19/2021
 ---
 
 # Labs concepts
 
-The following list contains key Lab Services concepts and definitions:
+This article describes key Lab Services concepts and definitions.
+
+>[!NOTE]
+> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new-november-2021-update.md). The new experience is in preview.
 
 ## Quota
 
@@ -37,17 +40,17 @@ A template virtual machine in a lab is a base virtual machine image from which a
 
 This article describes different user profiles in Azure Lab Services.
 
-### Lab account owner
+### Lab plan owner
 
-Typically, an IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab account owner and does the following tasks:
+Typically, an IT administrator of organization's cloud resources, who owns the Azure subscription acts as a lab plan owner and does the following tasks:
 
-- Sets up a lab account for your organization.
+- Sets up a lab plan for your organization.
 - Manages and configures policies across all labs.
-- Gives permissions to people in the organization to create a lab under the lab account.
+- Gives permissions to people in the organization to create a lab under the lab plan.
 
 ### Educator
 
-Typically, users such as a teacher or an online trainer creates labs under a lab account. An educator does the following tasks:
+Typically, users such as a teacher or an online trainer creates labs under a lab plan. An educator does the following tasks:
 
 - Creates a classroom lab.
 - Creates virtual machines in the lab.
@@ -64,6 +67,6 @@ A student does the following tasks:
 
 ## Next steps
 
-Get started with setting up a lab account that's required to create a classroom lab using Azure Lab Services:
+Get started with setting up a lab plan that's required to create a classroom lab using Azure Lab Services:
 
-- [Set up a lab account](tutorial-setup-lab-account.md)
+- [Set up a lab plan](tutorial-setup-lab-plan.md)

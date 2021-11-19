@@ -4,6 +4,8 @@
   items:
   - name: About Lab Services
     href: lab-services-overview.md
+  - name: What's New?
+    href: lab-services-whats-new-november-2021-update.md
 - name: Quickstarts
   items:
     - name: Get started
