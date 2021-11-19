@@ -4,7 +4,7 @@ description: Use these best practices to improve your knowledge base and provide
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -20,7 +20,7 @@ In general, FAQ pages should be stand-alone and not combined with other informat
 
 ### Configuring multi-turn
 
-[Create your knowledge base](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
+[Create your knowledge base](../how-to/multi-turn.md#create-a-multi-turn-conversation-from-a-documents-structure) with multi-turn extraction enabled. If your knowledge base does or should support question hierarchy, this hierarchy can be extracted from the document or created after the document is extracted.
 
 ## Creating good questions and answers
 
