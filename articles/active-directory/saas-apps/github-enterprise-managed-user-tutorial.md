@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to integrate GitHub Enterprise Managed User (
 * Manage your accounts in one central location - the Azure portal.
 
     > [!NOTE]
-    > Note [GitHub Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a feature of GitHub Enterprise Cloud which is different from GitHub Enterprise's standard SAML SSO implementation. If you haven't specifically requested EMU instance, you have standard GitHub Enterprise Cloud plan. In that case, please refer to relevant documetnation to configure your non-EMU [organisation](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-tutorial) or [enterprise account](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) to authenticate with Azure Active Directory.
+    > Note [GitHub Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/authentication/managing-your-enterprise-users-with-your-identity-provider/about-enterprise-managed-users) is a feature of GitHub Enterprise Cloud which is different from GitHub Enterprise's standard SAML SSO implementation. If you haven't specifically requested EMU instance, you have standard GitHub Enterprise Cloud plan. In that case, please refer to relevant documentation to configure your non-EMU [organisation](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-tutorial) or [enterprise account](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-cloud-enterprise-account-tutorial) to authenticate with Azure Active Directory.
 
 
 ## Prerequisites
