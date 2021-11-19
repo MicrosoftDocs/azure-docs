@@ -531,8 +531,12 @@ items:
                   href: windows-voice-assistants-faq.yml
 - name: How-to guides
   items:
-    - name: Enable logging
-      href: how-to-use-logging.md
+    - name: Get logs and Session identification
+    items:
+      - name: Enable logging in SDK
+        href: how-to-use-logging.md
+      - name: Get Speech-to-Text Session identification
+        href: how-to-get-stt-session-id.md
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Enable private endpoint
