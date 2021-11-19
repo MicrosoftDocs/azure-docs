@@ -114,7 +114,7 @@ Confidential VMs *don't support*:
 - Live migration
 - Customer-managed keys for OS disk pre-encryption
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy a confidential VM on AMD from the Azure portal](quick-create-confidential-vm-portal-amd.md)
