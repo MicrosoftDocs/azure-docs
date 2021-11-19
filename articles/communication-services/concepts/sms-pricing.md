@@ -18,11 +18,11 @@ zone_pivot_groups: acs-tollfree-shortcode
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
 > For more information, see **[Phone number types](../concepts/telephony-sms/plan-solution.md)**.
 
-::: zone pivot="TollFree"
+::: zone pivot="tollFree"
 [!INCLUDE [Toll-Free](./includes/sms-tollfree-pricing.md)]
 ::: zone-end
 
-::: zone pivot="Shortcode"
+::: zone pivot="shortcode"
 [!INCLUDE [Short Code](./includes/sms-shortcode-pricing.md)]
 ::: zone-end
 
