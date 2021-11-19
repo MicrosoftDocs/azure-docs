@@ -24,28 +24,28 @@ First, configure your deployer key vault secrets. For this example configuration
 
 1. [Sign in to the Azure CLI](/cli/azure/authenticate-azure-cli) with the account you want to use.
 
-    ```azurecli-interactive
-    az login
-    ```
+```azurecli
+az login
+```
 
 1. Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
-    ```azurecli-interactive
-     az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
-    ```
+```azurecli
+az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+```
 
 2. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
 
-```azurecli-interactive
+```azurecli
 az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
 ```
 
 3. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
 
-    ```azurecli-interactive
-    sapbits-access-key
-    sapbits-location-base-path
-    ```
+```text
+sapbits-access-key
+sapbits-location-base-path
+```
 
 ## Download SAP software
 
@@ -55,64 +55,54 @@ Next, [configure your SAP parameters file](#configure-parameters-file) for the d
 
 Configure the SAP parameters file:
 
-1. Navigate to the SAP deployment workspace's directory.
-
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/
-    ```
-
 1. Create a new directory called `BOMS`:
 
-    ```bash
-    mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
-    ```
+```bash
+mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
+```
 
 1. Create the SAP parameters YAML file.
 
-    ```bash
-    cat <<EOF > sap-parameters.yaml
-    ---
-    bom_base_name:               S41909SPS03_v0006ms
-    sapbits_location_base_path:  https://<storage_account_FQDN>/sapbits
-    kv_name: Name of your Management/Control Plane keyvault
-    secret_prefix:
-    ...
-    EOF
-    ```
+```bash
+cat <<EOF > sap-parameters.yaml
+---
+bom_base_name:               S41909SPS03_v0006ms
+kv_name: Name of your Management/Control Plane keyvault
+..
+EOF
+```
 
 1. Open `sap-parameters.yaml` in an editor.
 
-    ```bash
-    vi sap-parameters.yaml
-    ``` 
+```bash
+vi sap-parameters.yaml
+``` 
 
 1. Update the following parameters:
 
     1. Change the value of `bom_base_name` to `S41909SPS03_v0006ms`.
 
-    2. Change the value of `sapbits_location_base_path` to the path to your storage account `sapbits`.
-
-    3. Change the value of `kv_name` to the name of the deployer key vault.
+    1. Change the value of `kv_name` to the name of the deployer key vault.
    
-   4. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example DEV-WEEU-SAP)
+    1. (If needed) Change the value of `secret_prefix` to match the prefix in your environment (for example DEV-WEEU-SAP)
    
 ### Execute Ansible playbooks
 
 Then, execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu:
 
-1. Run the validator test menu script:
+1. Run the download menu script:
 
-    ```bash
-    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
-    ```
+```bash
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
+```
 
 1. Select the playbook to execute. For example:
     
-    ```output
-    1) BoM Downloader
-    2) Quit
-    Please select playbook: 
-    ```
+```text
+1) BoM Downloader
+2) Quit
+Please select playbook: 
+```
 
 
 Another option is to execute the Ansible playbooks using the command `ansible-playbook`. 
