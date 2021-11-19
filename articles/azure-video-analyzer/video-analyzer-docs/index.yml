@@ -115,7 +115,7 @@ landingContent:
           - text: Python repository
             url: https://go.microsoft.com/fwlink/?linkid=2163454
           - text: REST API
-            url: https://docs.microsoft.com/rest/api/videoanalyzer/
+            url: /rest/api/videoanalyzer/
           - text: SDKs
             url: sdk.md
           - text: Direct Methods VS Code

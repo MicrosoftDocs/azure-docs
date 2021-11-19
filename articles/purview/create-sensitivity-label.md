@@ -53,12 +53,12 @@ Sensitivity labels are supported in Azure Purview for the following data sources
 |Data type  |Sources  |
 |---------|---------|
 |Automatic labeling for files     |   - Azure Blob Storage</br>- Azure Files</br>- Azure Data Lake Storage Gen 1 and Gen 2</br>- Amazon S3|
-|Automatic labeling for database columns     |  - SQL server</br>- Azure SQL database</br>- Azure SQL Database Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos Database (SQL API)</br> - Azure database for MySQL</br> - Azure database for PostgreSQL</br> - Azure Data Explorer</br>  |
+|Automatic labeling for schematized data assets    |  - SQL server</br>- Azure SQL database</br>- Azure SQL Database Managed Instance</br>- Azure Synapse Analytics workspaces</br>- Azure Cosmos Database (SQL API)</br> - Azure database for MySQL</br> - Azure database for PostgreSQL</br> - Azure Data Explorer</br>  |
 | | |
 
 ## Labeling for SQL databases
 
-In addition to Purview labeling for database columns, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
+In addition to Purview labeling for schematized data assets, Microsoft also supports labeling for SQL database columns using the SQL data classification in [SQL Server Management Studio (SSMS)](/sql/ssms/sql-server-management-studio-ssms). While Purview uses the global [sensitivity labels](/microsoft-365/compliance/sensitivity-labels), SSMS only uses labels defined locally.
 
 Labeling in Purview and labeling in SSMS are separate processes that do not currently interact with each other. Therefore, **labels applied in SSMS are not shown in Purview, and vice versa**. We recommend Azure Purview for labeling SQL databases, as it uses global MIP labels that can be applied across multiple platforms.
 
