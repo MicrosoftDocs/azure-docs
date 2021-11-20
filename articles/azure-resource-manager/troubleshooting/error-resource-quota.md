@@ -2,14 +2,12 @@
 title: Quota errors
 description: Describes how to resolve resource quota errors when deploying resources with Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/09/2018 
+ms.date: 03/09/2018
 ms.custom: devx-track-azurepowershell
 ---
 # Resolve errors for resource quotas
 
 This article describes quota errors you may encounter when deploying resources.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Symptom
 
