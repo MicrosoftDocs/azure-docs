@@ -122,17 +122,15 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
     * You may also configure the column name pattern additionally, for the column to be classified to minimize false positives.
 
-    * Also configure the “Minimum match threshold” parameter acceptable for your data matching the data pattern to apply classification. The threshold values can be between 1% and 100%. It is typically suggested to use at least 60% as the threshold to avoid false positives. However, you may configure as necessary for the specific classification scenarios (for example, it may be as low as 1% as well if you want to detect and apply classification for any value in data if it matches the pattern). Note: if you add multiple patterns for data, the minimum match threshold scale will disappear and defaulted to 60%.
+    * Also configure the “Minimum match threshold” parameter acceptable for your data matching the data pattern to apply classification. The threshold values can be between 1% and 100%. It is typically suggested to use at least 60% as the threshold to avoid false positives. However, you may configure as necessary for the specific classification scenarios (for example, it may be as low as 1% as well if you want to detect and apply classification for any value in data if it matches the pattern). 
   
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png" alt-text="Screen shot showing regex method of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png":::
 
     * The option to set Minimum match rule is automatically disabled, if more than one data pattern is added to the classification rule.
 
-    * Use the “**Test classification rule**” and test with a sample data to verify if the classification rule is working as expected. 
-    > [!NOTE]
-    >Please ensure in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
+    * Use the “**Test classification rule**” and test with a sample data to verify if the classification rule is working as expected. Please ensure in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
    
-    :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screen shot showing classification when test classification is successful." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screen shot showing classification when test classification is successful." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
 
 * **For Dictionary method**:
 
@@ -164,16 +162,20 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
 2.	**How to use both data and column patterns?**
 
-    Suppose for the given sample data, where column B and Column C both have similar data patterns, and you would like to classify on column B based on the data pattern “P[0-9]{3}[A-Z]{2}”. Use the column pattern along with data pattern to ensure only “Product ID” column is classified.
+    * Suppose for the given sample data, where column B and Column C both have similar data patterns, and you would like to classify on column B based on the data pattern “P[0-9]{3}[A-Z]{2}”. 
        
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screen shot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
-       
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-14.png" alt-text="Screen shot showing classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-14.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screen shot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
 
-    > [!NOTE]
-    > The column pattern is verified as an “AND” condition with data pattern.
-        
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screen shot showing column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
+    * Use the column pattern along with data pattern to ensure only “Product ID” column is classified.
+
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-14.png" alt-text="Screen shot showing classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-14.png":::
+
+        > [!NOTE]
+        > The column pattern is verified as an “AND” condition with data pattern.
+    
+    * Use the “Test classification rule” and test with a sample data to verify if the classification rule is working as expected.
+
+        :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screen shot showing column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
 
 3.	**How to use multiple column patterns?**
 
@@ -181,7 +183,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
         
     :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png" alt-text="Screen shot showing multiple column patterns." lightbox="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png":::
 
-    Refer to [regex alternation construct](/docs/standard/base-types/regular-expression-language-quick-reference) for more details.
+    Refer to [regex alternation construct](/docs/standard/base-types/regular-expression-language-quick-reference.md) for more details.
 
 #### Manually applying/editing classification from Purview Studio:
 
