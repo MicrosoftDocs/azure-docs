@@ -76,7 +76,7 @@ If you’re receiving a Request_BadRequest error, it's because the settings alre
 
 1. Repeat steps 1-4 from [Enable sensitivity label support in PowerShell](#enable-sensitivity-label-support-in-powershell).
 1. Issue a `Get-AzureADDirectorySetting | FL` cmdlet and check the ID. If several ID values are present, use the one where you see the EnableMIPLabels property on the Values settings. You will need the ID in step 4.
-1. Set the EnableMIPLabels property variable as instructed: `$Setting["EnableMIPLabels"] = "True"`
+1. Set the EnableMIPLabels property variable: `$Setting["EnableMIPLabels"] = "True"`
 1. Issue the `Set-AzureADDirectorySetting -DirectorySetting $Setting -ID` cmdlet, using the ID that you retrieved in step 2.
 1. Ensure that the value is now correctly updated by issuing `$Setting.Values` again.
 
