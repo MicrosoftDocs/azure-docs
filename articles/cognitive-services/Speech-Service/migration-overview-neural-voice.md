@@ -19,7 +19,7 @@ We're retiring two features from [Text-to-Speech](index-text-to-speech.yml) capa
 ## Custom voice
 
 > [!IMPORTANT]
-> we are retiring the standard/non-neural training tier of custom voice on **February 29, 2024**. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users/new speech resources should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported.
+> We are retiring the standard/non-neural training tier of custom voice on **February 29, 2024**. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users/new speech resources should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported.
 
 Go to [this article](how-to-migrate-to-custom-neural-voice.md) to learn how to migrate to custom neural voice. 
 
