@@ -258,11 +258,11 @@ You have not optimized mapping data flow.
 * Adjust the partitions at the source and sink accordingly. 
 * Review  [Data Flow Optimizations](concepts-data-flow-performance.md)
 
-### Error Code "Bad Request" when  passing parameters to child pipelines
+### Error Code "BadRequest" when  passing parameters to child pipelines
 
 **Cause**
 
-String is passed in stead of Array to child pipeline. This happens during Execute Pipeline activity. 
+Failure type is user configuration issue. String of parameters, instead of Array, is passed to to child pipeline.
 
 **Resolution**
 
