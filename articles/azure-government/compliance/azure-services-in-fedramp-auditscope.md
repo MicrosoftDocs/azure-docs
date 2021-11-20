@@ -397,7 +397,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-control-portal.md) | &#x2705; | &#x2705; | | | |
-| [Power AI Builder](https://docs.microsoft.com/ai-builder/overview) | &#x2705; | &#x2705; | | | |
+| [Power AI Builder](/ai-builder/overview) | &#x2705; | &#x2705; | | | |
 | [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
