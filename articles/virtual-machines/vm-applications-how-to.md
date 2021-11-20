@@ -70,6 +70,17 @@ Choose an option below for creating your VM application definition and version:
 1. When you are done, select **Review + create**.
 1. When validation completes, select **Create** to have the definition deployed.
 1. Once the deployment is complete, select **Go to resource**.
+1. On the page for the application, select **Create a VM application version**. The **Create a VM Application Version** page will open.
+1. Enter a version number like 1.0.0.
+1. Select the region where you have uploaded your application package.
+1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you are done.
+1. Type in the **Install script**. You can also provide the **Uninstall script** and **Update script**. See the [Overview](vm-applications.md#command-interpreter) for information on how to create the scripts.
+1. If you have a default configuration file uploaded to a storage account, you can select it in **Default configuration**.
+1. Select **Exclude from latest** if you do not want this version to appear as the latest version when you create a VM.
+1. For **End of life date**, choose a date in the future to track when this version should be retired. It is not deleted or removed automatically, it is only for your own tracking.
+1. To replicated this version to other regions, select the **Replication** tab and add more regions and make changes to the number of replicas per region. The original region where your version was created must be in the list and cannot be removed.
+1. When you are done making changes, select **Review + create** at the bottom of the page.
+1. When validation shows as passed, select **Create** to deploy your VM application version.
 
 
 Now you can create a VM and deploy the VM application to it using the portal. Just create the VM as usual, and under the **Advanced** tab, choose **Select a VM application to install**.
