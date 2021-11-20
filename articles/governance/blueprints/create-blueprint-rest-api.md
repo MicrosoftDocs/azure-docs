@@ -4,7 +4,7 @@ description: In this quickstart, you use Azure Blueprints to create, define, and
 ms.date: 08/17/2021
 ms.topic: quickstart
 ---
-# Quickstart: Define and Assign an Azure Blueprint with REST API
+# Quickstart: Define and Assign an Azure Blueprints with REST API
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
@@ -381,7 +381,7 @@ values:
 - `{YourMG}` - Replace with the ID of your management group
 - `{subscriptionId}` - Replace with your subscription ID
 
-1. Provide the Azure Blueprint service principal the **Owner** role on the target subscription. The
+1. Provide the Azure Blueprints service principal the **Owner** role on the target subscription. The
    AppId is static (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), but the service principal ID varies by
    tenant. Details can be requested for your tenant using the following REST API. It uses
    [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist),
