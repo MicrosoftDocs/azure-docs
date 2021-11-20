@@ -24,28 +24,28 @@ First, configure your deployer key vault secrets. For this example configuration
 
 1. [Sign in to the Azure CLI](/cli/azure/authenticate-azure-cli) with the account you want to use.
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
 1. Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
-```azurecli
-az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
-```
+    ```azurecli
+    az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+    ```
 
-2. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
+1. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
 
-```azurecli
-az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
-```
+    ```azurecli
+    az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+    ```
 
-3. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
+1. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
 
-```text
-sapbits-access-key
-sapbits-location-base-path
-```
+    ```text
+    sapbits-access-key
+    sapbits-location-base-path
+    ```
 
 ## Download SAP software
 
@@ -57,26 +57,26 @@ Configure the SAP parameters file:
 
 1. Create a new directory called `BOMS`:
 
-```bash
-mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
-```
+    ```bash
+    mkdir -p ~/Azure_SAP_Automated_Deployment/WORKSPACES/BOMS; cd $_
+    ```
 
 1. Create the SAP parameters YAML file.
 
-```bash
-cat <<EOF > sap-parameters.yaml
----
-bom_base_name:               S41909SPS03_v0006ms
-kv_name: Name of your Management/Control Plane keyvault
-..
-EOF
-```
+    ```bash
+    cat <<EOF > sap-parameters.yaml
+    ---
+    bom_base_name:               S41909SPS03_v0006ms
+    kv_name: Name of your Management/Control Plane keyvault
+    ..
+    EOF
+    ```
 
 1. Open `sap-parameters.yaml` in an editor.
 
-```bash
-vi sap-parameters.yaml
-``` 
+    ```bash
+    vi sap-parameters.yaml
+    ``` 
 
 1. Update the following parameters:
 
@@ -92,29 +92,28 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
 
 1. Run the download menu script:
 
-```bash
-~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
-```
+    ```bash
+    ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
+    ```
 
 1. Select the playbook to execute. For example:
     
-```text
-1) BoM Downloader
-2) Quit
-Please select playbook: 
-```
-
+    ```text
+    1) BoM Downloader
+    2) Quit
+    Please select playbook: 
+    ```
 
 Another option is to execute the Ansible playbooks using the command `ansible-playbook`. 
 
-```bash
-ansible-playbook                                                                                   \
-  --user        azureadm                                                                           \
-  --extra-vars="@sap-parameters.yaml"                                                              \
-  ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
-```
+    ```bash
+    ansible-playbook                                                                                   \
+      --user        azureadm                                                                           \
+      --extra-vars="@sap-parameters.yaml"                                                              \
+      ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+    ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with deploying the automation framework](automation-get-started.md)
+> [Deploy the SAP Infrastructure](automation-deploy-system.md)
