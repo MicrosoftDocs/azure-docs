@@ -304,6 +304,9 @@ Another option is to provide the **batchUri** endpoint. For example:
 | linkedServiceName | The name of the storage linked service that's associated with this Batch linked service. This linked service is used for staging files that are required to run the activity, and to store activity execution logs. | Yes      |
 
 ## ML Studio (classic) linked service
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 You can create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint to a data factory.
 
 ### Example
