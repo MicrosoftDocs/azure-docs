@@ -15,7 +15,7 @@ ms.author: v-baolianzou
 # Migrate from custom voice to custom neural voice
 
 > [!IMPORTANT]
-> The standard/non-neural training tier of custom voice is deprecated. Existing standard tier non-neural models can be used through the end of February 2024. Starting in March 2024 we will only support custom neural voice. 
+> We are retiring the standard/non-neural training tier of custom voice on **February 29, 2024**. During the retiring period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created, but all new users/new speech resources should move to the neural tier/custom neural voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
 
 The custom neural voice lets you build higher-quality voice models while requiring less data. You can develop more realistic, natural, and conversational voices. Your customers and end users will benefit from the latest Text-to-Speech technology, in a responsible way. 
 
@@ -42,7 +42,28 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 3. After the custom neural voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
 4. Update your code in your apps if you have created a new endpoint with a new model. 
 
-### Regional support for custom voices
+## Custom voice details (retired)
+
+Read the following sections for detials on custom voice.
+
+### Language support
+
+Custom voice supports the following languages (locales).
+
+| Language | Locale |
+|--------|----------|
+|Chinese (Mandarin, Simplified)|`zh-CN`|
+|Chinese (Mandarin, Simplified), English bilingual|`zh-CN` bilingual|
+|English (India)|`en-IN`|
+|English (United Kingdom)|`en-GB`|
+|English (United States)|`en-US`|
+|French (France)|`fr-FR`|
+|German (Germany)|`de-DE`|
+|Italian (Italy)|`it-IT`|
+|Portuguese (Brazil)|`pt-BR`|
+|Spanish (Mexico)|`es-MX`|
+
+### Regional support
 
 If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
 
