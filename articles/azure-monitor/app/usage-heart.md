@@ -62,7 +62,7 @@ These dimensions are measured independently, but they interact with each other a
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates' (shown below). The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**.
 
-![gallery](./media/usage-overview/gallery.png)
+![workbookgallery](./media/usage-overview/gallery.png)
 
 Users will notice that there are seven workbooks in this section (Below image).  
 
