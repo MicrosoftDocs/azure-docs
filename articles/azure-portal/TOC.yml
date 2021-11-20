@@ -24,7 +24,7 @@
 - name: How-to guides
   items:
   - name: Manage Azure portal settings and preferences
-    href: set-preferences.md  
+    href: set-preferences.md
   - name: Manage Azure portal settings (older version)
     href: original-preferences.md
   - name: Add, remove, and sort favorites
@@ -92,7 +92,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Azure videos
