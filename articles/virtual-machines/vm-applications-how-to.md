@@ -13,7 +13,7 @@ ms.custom:
 
 # Create and deploy VM Applications (preview)
 
-VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management,sharing and global distribution of applications for your virtual machines.
+VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management, sharing and global distribution of applications for your virtual machines.
 
 
 > [!IMPORTANT]
@@ -48,7 +48,9 @@ if ($remainder -ne 0){
     }
 ```
 
-You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly created a SAS URI if you don't already have one.
+You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](../vs-azure-tools-storage-explorer-blobs.md) to quickly create a SAS URI if you don't already have one.
+
+If you are using PowerShell, you need to be using version 3.11.0 of the Az.Storage module.
 
 ## Create the VM application
 
@@ -70,6 +72,17 @@ Choose an option below for creating your VM application definition and version:
 1. When you are done, select **Review + create**.
 1. When validation completes, select **Create** to have the definition deployed.
 1. Once the deployment is complete, select **Go to resource**.
+1. On the page for the application, select **Create a VM application version**. The **Create a VM Application Version** page will open.
+1. Enter a version number like 1.0.0.
+1. Select the region where you have uploaded your application package.
+1. Under **Source application package**, select **Browse**. Select the storage account, then the container where your package is located. Select the package from the list and then click **Select** when you are done.
+1. Type in the **Install script**. You can also provide the **Uninstall script** and **Update script**. See the [Overview](vm-applications.md#command-interpreter) for information on how to create the scripts.
+1. If you have a default configuration file uploaded to a storage account, you can select it in **Default configuration**.
+1. Select **Exclude from latest** if you do not want this version to appear as the latest version when you create a VM.
+1. For **End of life date**, choose a date in the future to track when this version should be retired. It is not deleted or removed automatically, it is only for your own tracking.
+1. To replicate this version to other regions, select the **Replication** tab and add more regions and make changes to the number of replicas per region. The original region where your version was created must be in the list and cannot be removed.
+1. When you are done making changes, select **Review + create** at the bottom of the page.
+1. When validation shows as passed, select **Create** to deploy your VM application version.
 
 
 Now you can create a VM and deploy the VM application to it using the portal. Just create the VM as usual, and under the **Advanced** tab, choose **Select a VM application to install**.
@@ -84,7 +97,7 @@ If you have more than one VM application to install, you can set the install ord
 
 ### [CLI](#tab/cli)
 
-VM applications requires [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
+VM applications require [Azure CLI](/cli/azure/install-azure-cli) version 2.30.0 or later.
 
 Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
 
