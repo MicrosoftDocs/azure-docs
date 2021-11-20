@@ -149,7 +149,7 @@ After you create the volume, configure the volume access parameters.
 
 This section is based on [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 
-1. [Download the FSLogix agent .zip file](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) while you're still remoted in the session host VM.
+1. [Download the FSLogix agent .zip file](https://aka.ms/fslogix/download) while you're still remoted in the session host VM.
 
 2. Unzip the downloaded file.
 
