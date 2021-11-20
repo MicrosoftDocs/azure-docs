@@ -57,7 +57,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
 ### Custom Images
-If you are using a custom image, and your image supports Accelerated Networking, please make sure to have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Additionally, Accelerated Networking requires network configurations that exempts the configuration of the virtual functions (mlx4_en and mlx5_core drivers). Images with cloud-init >=19.4 will have networking correctly configured during provisioning to support Accelerated Networking.
+If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 
 ### Regions
 Available in all public Azure regions as well as Azure Government Clouds.
