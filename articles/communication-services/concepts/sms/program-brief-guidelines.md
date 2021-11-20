@@ -156,5 +156,14 @@ In this field, you are required to provide sample message for each content type 
   - **User**: 1200
 - **Contoso**: Your reservation has been confirmed for 3rd March 2022 at 12:00 pm. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Apply for a short code](../../quickstarts/sms/apply-for-a-short-code.md)
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+
 
 

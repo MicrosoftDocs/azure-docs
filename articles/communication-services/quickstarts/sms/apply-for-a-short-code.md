@@ -81,7 +81,7 @@ Once completed, review the Program Brief information provided and submit the com
  
 This program brief will now be automatically sent to the Azure Communication Services’ service desk for review. The service desk specifically is looking to ensure that the provided information is in the right format before sending to all US mobile carriers for approval. The carriers will then review the details of the short code program, a process that can typically take between 8-12 weeks. Once carriers approve the program brief, you will be notified via email. You can now start sending and receiving messages on this short code for your messaging programs.
 
-## Find your short code on the Axure Portal
+## Find your short code on the Azure Portal
 Navigate to your Azure Communication Services resource on the [Azure portal](https://portal.azure.com).
 
 :::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
@@ -97,5 +97,12 @@ Common questions and issues:
   - Your Communication Services resource is provisioned in the United States data location. You cannot move a resource to another data location at this time.
 - Short codes release is not supported currently.
 
+## Next steps
 
+> [!div class="nextstepaction"]
+> [Check guidelines for filling a short code program brief application](../../concepts/sms/program-brief-guidelines.md)
+
+The following documents may be interesting to you:
+
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
 
