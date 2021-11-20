@@ -1,4 +1,3 @@
-
 ---
 title: Get the latest restorable timestamp for continuous backup accounts
 description: Learn how to get the latest restorable timestamp for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI.
