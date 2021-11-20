@@ -242,7 +242,7 @@ An Azure Batch job is a logical group of similar tasks. In our scenario, it is "
 These tasks would run in parallel and deployed across multiple nodes, orchestrated by the Azure Batch service.
 
 > [!TIP]
-> You can use the [taskSlotsPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property to specify maximum number of tasks that can run concurrently on a single node.
+> You can use the taskSlotsPerNode property to specify maximum number of tasks that can run concurrently on a single node.
 
 #### Preparation task
 
@@ -254,7 +254,7 @@ The [shell script](https://github.com/shwetams/azure-batchclient-sample-nodejs/b
 You can upload the script on an Azure Storage Account and generate a SAS URI to access the script. This process can also be automated using the Azure Storage JavaScript SDK.
 
 > [!TIP]
-> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) property while adding a pool. You can use the following preparation task definition for reference.
+> A preparation task for a job runs only on the VM nodes where the specific task needs to run. If you want prerequisites to be installed on all nodes irrespective of the tasks that run on it, you can use the startTask property while adding a pool. You can use the following preparation task definition for reference.
 
 A preparation task is specified during the submission of Azure Batch job. Following are the preparation task configuration parameters:
 
