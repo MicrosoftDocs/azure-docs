@@ -5,7 +5,7 @@ ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: mode-api
 ---
-# Quickstart: Define and Assign an Azure Blueprint with PowerShell
+# Quickstart: Define and Assign an Azure Blueprints with PowerShell
 
 Learning how to create and assign blueprints enables the definition of common patterns to develop
 reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
