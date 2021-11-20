@@ -106,13 +106,12 @@ Then, execute the Ansible playbooks. One way you can execute the playbooks is to
 
 Another option is to execute the Ansible playbooks using the command `ansible-playbook`. 
 
-    ```bash
-    ansible-playbook                                                                                   \
-      --user        azureadm                                                                           \
-      --extra-vars="@sap-parameters.yaml"                                                              \
-      ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
-
-    ```
+```bash
+ansible-playbook                                                                                   \
+  --user        azureadm                                                                           \
+  --extra-vars="@sap-parameters.yaml"                                                              \
+  ~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/playbook_bom_downloader.yaml
+```
 
 ## Next steps
 
