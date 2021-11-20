@@ -91,7 +91,7 @@ For example, only specific 7 system and custom classifications have been selecte
  
     :::image type="content" source="./media/concept-best-practices/classification-classification-example-4.png" alt-text="Screen shot showing classifications." lightbox="./media/concept-best-practices/classification-classification-example-4.png":::
 
-    * Create custom classification name, if necessary, first from this blade and then o	move to Data Map>Annotation Management>Classification rules and create the classification rule for the custom classification name created in the previous step
+    * Create custom classification name, if necessary, first from this blade and then o	move to **Data Map>Annotation Management>Classification rules** and create the classification rule for the custom classification name created in the previous step
 
 #### Custom classification:
 
