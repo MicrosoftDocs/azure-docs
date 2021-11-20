@@ -2,14 +2,14 @@
 title: 'Tutorial: Configure Workplace by Facebook for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn the steps you need to do in both Workplace by Facebook and Azure Active Directory (Azure AD) to configure automatic user provisioning.
 services: active-directory
-author: jeevansd
+author: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/22/2021
-ms.author: jeedes
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Workplace by Facebook for automatic user provisioning
@@ -166,6 +166,45 @@ Once you've configured provisioning, use the following resources to monitor your
 To avoid the errors and successfully provision the failed users to Workplace from Facebook, modify the attribute mapping to the Workplace from Facebook email attribute to Coalesce([mail],[userPrincipalName]) or unassign the user from Workplace from Facebook, or provision an email address for the user.  
 *  There is an option in Workplace, which allows the existence of [users without email addresses.](https://www.workplace.com/resources/tech/account-management/email-less#enable) If this setting is toggled on the Workplace side, provisioning on the Azure side must be restarted in order for users without emails to successfully be created in Workplace.  
 
+## Update existing Workplace by Facebook application to use the Workplace by Facebook SCIM 2.0 endpoint
+Prior to November 2021, all Workplace by Facebook applications created were configured to utilize the Workplace by Facebook SCIM 1.0 endpoint. Starting November 2021, all newly created Workplace by Facebook applications are configured to utilize the Workplace by Facebook SCIM 2.0 endpoint. Completing the steps below will update applications configured to use the SCIM 1.0 endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the Workplace by Facebook application, including:
+* Authentication details
+* Scoping filters
+* Custom attribute mappings
+
+Be sure to note any changes that have been made to the settings listed above before completing the steps below. Failure to do so will result in the loss of customized settings. 
+
+1. Sign into the Azure portal at https://portal.azure.com 
+2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
+3. In the Properties section of your new custom app, copy the Object ID.
+
+	![Screenshot of Workplace by Facebook app in the Azure portal](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)
+
+4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
+
+	![Screenshot of Microsoft Graph explorer sign in page](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
+
+5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
+
+	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
+
+	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	
+6. Run the command below to delete the provisioning job:
+
+DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
+
+7. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
+_POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }_           
+
+	![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
+
+8. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
+
+9. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
+![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/credentials.png)
+
+10. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
 ## Change log
 
