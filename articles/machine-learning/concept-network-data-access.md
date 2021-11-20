@@ -66,11 +66,6 @@ When using an Azure Storage Account from Azure Machine Learning studio, you must
 For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
-### Using an existing storage account
-
-If you use an existing storage account as the __default storage__ when creating a workspace, the `azureml-filestore` folder in the file store doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
-
-To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](../storage/common/storage-network-security.md).
 
 ### Azure Storage firewall
 
