@@ -27,7 +27,7 @@ When opening support cases in connection with [Speech-to-text](speech-to-text.md
 1. Enable application logging.
 1. Find the Session ID inside the log.
 
-If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details below (!!!).
+If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details [below](#get-session-id-using-speech-cli).
 
 ### Enable logging in the Speech SDK
 
