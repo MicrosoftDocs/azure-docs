@@ -327,7 +327,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 The code adds multiple tasks to the pool. And each of the tasks is executed on a node in the pool of VMs created. If the number of tasks exceeds the number of VMs in a pool or the taskSlotsPerNode property, the tasks wait until a node is made available. This orchestration is handled by Azure Batch automatically.
 
-The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK. Details are provided in the documentation [link](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+The portal has detailed views on the tasks and job statuses. You can also use the list and get functions in the Azure JavaScript SDK..
 
 ## Next steps
 
