@@ -174,7 +174,11 @@ For the past release history, see [Kubernetes](https://en.wikipedia.org/wiki/Kub
 | 1.23  | Dec 2021 | Jan 2022   | Feb 2022  | 1.26 GA |
 
 > [!NOTE]
-> 1.19 will be deprecated and removed from AKS at the end of January 2022.
+>  AKS and Holiday Season: To ease the burden of upgrade and change during the holiday season, AKS is extending a limited scope of support for all clusters and node pools on 1.19 as a courtesy. Customers with clusters and node pools on 1.19 after the [announced deprecation date of 2021-11-30](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions#aks-kubernetes-release-calendar) will be granted an extension of capabilities outside the [usual scope of support for deprecated versions](https://docs.microsoft.com/azure/aks/supported-kubernetes-versions#kubernetes-version-support-policy).
+ The scope of this limited extension is effective from '2021-12-01 to 2022-01-31' and is limited to the following:
+>  * Creation of new clusters and node pools on 1.19.
+>  * CRUD operations on 1.19 clusters.
+>  * Azure Support of non-Kubernetes related, platform issues. Platform issues include trouble with networking, storage, or compute running on Azure. Any support requests for K8s patching and troubleshooting will be requested to upgrade into a supported version.
 
 ## FAQ
 
