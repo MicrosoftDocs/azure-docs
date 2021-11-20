@@ -266,7 +266,7 @@ Failure type is user configuration issue. String of parameters, instead of Array
 
 **Resolution**
 
-Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters a and b. If you want to pass numbers, use *@createArray(1,2,3*. Use createArray function to force parameters being passed as an array.
+Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*. Use createArray function to force parameters being passed as an array.
 
 
 ## Next steps
