@@ -29,7 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## November 2021
 
-
+- [Incident advanced search now available in GA](#incident-advanced-search-now-available-in-ga)
 - [Amazon Web Services S3 connector now available (Public preview)](#amazon-web-services-s3-connector-now-available-public-preview)
 - [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
 - [Near-real-time (NRT) threat detection rules now available (Public preview)](#near-real-time-nrt-threat-detection-rules-now-available-public-preview)
