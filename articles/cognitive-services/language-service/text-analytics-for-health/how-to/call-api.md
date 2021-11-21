@@ -8,16 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # How to use Text Analytics for health
 
-> [!IMPORTANT] 
-> Text Analytics for health is a capability provided “AS IS” and “WITH ALL FAULTS.” Text Analytics for health is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Text Analytics for health. The customer must separately license any and all source vocabularies it intends to use under the terms set for that [UMLS Metathesaurus License Agreement Appendix](https://www.nlm.nih.gov/research/umls/knowledge_sources/metathesaurus/release/license_agreement_appendix.html) or any future equivalent link. The customer is responsible for ensuring compliance with those license terms, including any geographic or other applicable restrictions.
-
+[!INCLUDE [service notice](../includes/service-notice.md)]
 
 Text Analytics for health can be used to extract and label relevant medical information from unstructured texts, such as: doctor's notes, discharge summaries, clinical documents, and electronic health records.  There are two ways to utilize this service: 
 
@@ -89,11 +87,13 @@ When using this feature asynchronously, the API results are available for 24 hou
 
 | Limit | Value |
 |------------------------|---------------|
-| Maximum size of a single document | 5,120 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
+| Maximum size of a single document | 30,720 characters as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
 | Maximum size of entire request | 1 MB |
 | Max Documents Per Request | 10 for the web-based API, 1000 for the container. |
 
 If a document exceeds the character limit, the API won't process a document that exceeds the maximum size, and will return an invalid document error for it. If an API request has multiple documents, the API will continue processing them if they are within the character limit.
+
+When you send a document larger than 5,120 characters, it will be split by Text Analytics for health into chunks of 5,120 characters. If two entities are present on either side of a split that are related, the model will not be able to detect the relation. To prevent potential relations from being undetected, consider splitting your text into documents of 5,120 characters or less, consisting only of full sentences.
 
 ### Rate limits
 
