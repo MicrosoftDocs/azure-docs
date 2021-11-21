@@ -155,10 +155,12 @@ sqldb_dstore = Datastore.register_azure_sql_database(workspace=ws,
 
 ## Use data in storage
 
-We recommend that you use [Azure Machine Learning datasets](how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning. 
+We recommend that you use [Azure Machine Learning datasets](how-to-create-register-datasets.md) when you interact with your data in storage with Azure Machine Learning.  
+
+> [!IMPORTANT]
+> Datasets using identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
 
 Datasets package your data into a lazily evaluated consumable object for machine learning tasks like training. Also, with datasets you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like Azure Blob Storage and Azure Data Lake Storage to a compute target.
-
 
 To create datasets with identity-based data access, you have the following options. This type of dataset creation uses your Azure Active Directory token for data access authentication. 
 
