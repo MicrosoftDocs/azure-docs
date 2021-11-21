@@ -107,15 +107,15 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-## Register an Enterprise IoT sensor
+## Set up an Enterprise IoT security
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
-**To register an Enterprise IoT sensor**:
+**To set up an Enterprise IoT security**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
-1. Select **Setup EIoT sensor**.
+1. Select **Set up Enterprise IoT Security**.
 
     :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
 
