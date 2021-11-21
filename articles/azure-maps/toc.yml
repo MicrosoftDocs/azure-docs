@@ -280,7 +280,15 @@ items:
   - name: Develop with the iOS SDK
     items:
     - name: Getting started with iOS map control
-      href: how-to-use-ios-map-control-library.md   
+      href: how-to-use-ios-map-control-library.md
+    - name: Add a bubble layer
+      href: add-bubble-layer-to-map-ios.md
+    - name: Display feature information
+      href: display-feature-information-ios-sdk.md
+    - name: Add a line layer
+      href: add-line-layer-to-map-ios.md
+    - name: Add a polygon layer
+      href: add-polygon-layer-map-ios.md  
     - name: Change the style of a map
       href: set-map-style-ios-sdk.md
     - name: Add controls to a map
