@@ -212,6 +212,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - Entity behavior timeline activity customization | Public Preview | Not Available |
 |- [SOC incident audit metrics](../../sentinel/manage-soc-with-incident-metrics.md) | GA | GA |
 | - Incident advanced search |Public Preview |Not Available |
+| - Microsoft Teams integrations |Public Preview |Not Available |
 |- [Bring Your Own ML (BYO-ML)](../../sentinel/bring-your-own-ml.md) | Public Preview | Public Preview |
 | - Watchlist templates for UEBA data) | Public Preview | Not Available |
 | - Windows security events for UEBA | Public Preview | Not Available |
