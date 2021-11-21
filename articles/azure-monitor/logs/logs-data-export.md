@@ -28,12 +28,9 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 
 ## Limitations
 
-- Configuration can currently be performed using CLI or REST requests. Azure portal or PowerShell are not supported yet.
-- The `--export-all-tables` option in CLI and REST isn't supported and will be removed. You should provide the list of tables in export rules explicitly.
-- Supported tables are limited those specified in the [supported tables](#supported-tables) section below. 
-- The existing custom log tables won’t be supported in export. A new custom log version available in March 2022 will be supported.
-- If the data export rule includes an unsupported table, the operation will succeed, but no data will be exported for that table until the table becomes supported. 
-- If the data export rule includes a table that doesn't exist, it will fail with error `Table <tableName> does not exist in the workspace`.
+- You can use Azure portal, CLI or REST requests in data export configuration. PowerShell isn't supported yet.
+- All tables will be supported in export, but support is currently limited to those specified in the [supported tables](#supported-tables) section below. 
+- A new custom log preview is planned for February 2022 and will be supported in export. The existing custom log tables won’t be supported in export. 
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destination must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
@@ -76,20 +73,19 @@ Currently, there are no additional charges for the data export feature. Pricing 
 
 ## Export destinations
 
-Data export destination must be created before creating the export rule in your workspace. The destination does not have to be in the same subscription as your workspace. When using Azure Lighthouse, it is also possible to have data sent to a destination in another Azure Active Directory tenant.
+Data export destination must be created before creating the export rule in your workspace. Destinations don't have to be in the same subscription as your workspace. When using Azure Lighthouse, it is also possible to have data sent to a destinations in another Azure Active Directory tenant.
 
 ### Storage account
 
-You need to have 'write' permissions to both workspace and destination to configure data export rule. Don't use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data and prevent reaching storage ingestion rate limit and throttling. 
+You need to have 'write' permissions to both workspace and destination to configure data export rule. 
+
+Don't use an existing storage account that has other, non-monitoring data stored in it to better control access to the data and prevent reaching storage ingress rate limit, failures and latency. 
 
 To send data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this article including enabling protected append blobs writes.
 
 The storage account must be StorageV1 or above and in the same region as your workspace. If you need to replicate your data to other storage accounts in other regions, you can use any of the [Azure Storage redundancy options](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) including GRS and GZRS.
 
 Data is sent to storage accounts as it reaches Azure Monitor and stored in hourly append blobs. A container is created for each table in the storage account with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to a container named *am-SecurityEvent*.
-
-> [!NOTE]
-> It's recommended to use separate storage account for proper ingress rate allocation and reducing throttling, failures and latency events.
 
 Starting 15-October 2021, blobs are stored in 5-minutes folders in the following path structure: *WorkspaceResourceId=/subscriptions/subscription-id/resourcegroups/\<resource-group\>/providers/microsoft.operationalinsights/workspaces/\<workspace\>/y=\<four-digit numeric year\>/m=\<two-digit numeric month\>/d=\<two-digit numeric day\>/h=\<two-digit 24-hour clock hour\>/m=\<two-digit 60-minute clock minute\>/PT05M.json*. Since append blobs are limited to 50 K writes in storage, the number of exported blobs may extend if the number of appends is high. The naming pattern for blobs in such case would be PT05M_#.json*, where # is the incremental blob count.
 
@@ -101,18 +97,16 @@ The storage account data format is in [JSON lines](../essentials/resource-logs-b
 
 You need to have 'write' permissions to both workspace and destination to configure data export rule. The shared access policy for the event hub namespace defines the permissions that the streaming mechanism has. Streaming to event hub requires Manage, Send, and Listen permissions. To update the export rule, you must have the ListKey permission on that Event Hubs authorization rule.
 
+Don't use an existing event hub that has other, non-monitoring data stored in it to better control access to the data and prevent reaching event hub namespace ingress rate limit, failures and latency. 
+
 The event hub namespace needs to be in the same region as your workspace.
 
 Data is sent to your event hub as it reaches Azure Monitor. An event hub is created for each data type that you export with the name *am-* followed by the name of the table. For example, the table *SecurityEvent* would sent to an event hub named *am-SecurityEvent*. If you want the exported data to reach a specific event hub, or if you have a table with a name that exceeds the 47 character limit, you can provide your own event hub name and export all data for defined tables to it.
 
 > [!NOTE]
-> - 'Basic' event hub tier supports lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and some logs in your workspace might exceed it and be dropped. Use 'Standard', 'Premium' or 'Dedicated' tiers for export destination.
-> - The volume of exported data increases over time and consequence scaling is required for higher ingress rates. Use the **Auto-inflate** feature to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
-> - Use separate event hub namespace for proper ingress rate allocation and reducing throttling, failures and latency events.
+> - 'Basic' event hub tier is limited -- there is lower event size [limit](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers) and no [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) support. Since data volume to your workspace increases over time and consequence event hub scaling is required, use 'Standard', 'Premium' or 'Dedicated' event hub tiers with **Auto-inflate** feature enabled to automatically scale up and increase the number of throughput units to meet usage needs. See [Automatically scale up Azure Event Hubs throughput units](../../event-hubs/event-hubs-auto-inflate.md).
+> - The [number of supported event hubs per 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, either split the tables between several export rules to different event hub namespaces, or provide event hub name in the export rule and export all tables to that event hub.
 > - Data export can't reach event hub resources when virtual networks are enabled. You have to enable the **Allow trusted Microsoft services** to bypass this firewall setting in event hub, to grant access to your Event Hubs resources.
-
-> [!IMPORTANT]
-> The [number of supported event hubs per 'Basic' and 'Standard' namespaces tiers is 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). If you export more than 10 tables, either split the tables between several export rules to different event hub namespaces, or provide event hub name in the export rule and export all tables to that event hub.
 
 ## Enable data export
 The following steps must be performed to enable Log Analytics data export. See the following sections for more details on each.
@@ -142,7 +136,12 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 Data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, more rules can be added, but in 'disable' state. Destinations must be unique across all export rules in workspace.
 
-Data export destinations have limits and should be monitored to minimize export throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+> [!NOTE]
+> - If export rule includes unsupported tables, no data will be exported for that tables until the tables becomes supported.
+> - If export rule includes tables that don't exist in your workspace, it will fail with error `Table <tableName> does not exist in the workspace`.
+
+> [!IMPORTANT]
+> Export destinations have limits and should be monitored to minimize throttling, failures, and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
 
 #### Monitoring storage account
 
