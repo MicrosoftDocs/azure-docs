@@ -8,6 +8,10 @@ ms.date: 11/11/2021
 
 # Alert processing rules (preview)
 
+<a name="configuring-an-action-rule">
+<a name="filter-criteria">
+<a name="suppression-of-alerts">
+
 > [!NOTE]
 > The previous name for alert processing rules was **action rules**.
 
