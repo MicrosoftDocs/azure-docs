@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Microsoft Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/18/2021
+ms.date: 11/21/2021
 ms.custom: template-tutorial
 ---
 
@@ -17,9 +17,9 @@ Defender for IoT has extended the agentless capabilities to go beyond operationa
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Register an Enterprise IoT sensor
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
+> * Register an Enterprise IoT sensor
 > * Install the sensor
 > * Validate your setup
 > * View your enterprise IoT devices in the EIoT device inventory
@@ -41,38 +41,6 @@ The following table describes user access permissions to Azure Defender for IoT 
 | View details and access software, activation files, and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
 | Onboard a sensor |  | ✓ | ✓ | ✓ |
 | Update pricing |  |  | ✓ | ✓ |
-
-## Register an Enterprise IoT sensor
-
-A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
-
-**To register an Enterprise IoT sensor**:
-
-1. Navigate to the [Azure portal](https://portal.azure.com#home).
-
-1. Select **Setup EIoT sensor**.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
-
-1. Enter a name for the sensor.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
-
-1. Select a subscription from the drop-down menu.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
-
-1. Enter a meaningful site name that will assist you in locating where the sensor is located.
-
-1. Enter a display name.
-
-1. Enter a zone name. If no name is entered, the name `default` will be applied.
-
-1. Select **Setup**.
-
-1. Save the command provided to you.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
 
 ## Set up a server or Virtual Machine (VM)
 
@@ -98,7 +66,7 @@ Before you are able to deploy your Enterprise IoT sensor, you will need to confi
 
     * **VM** - Connect a vNIC to a vSwitch in promiscuous mode.
 
-        * Run the following command to enable the network adapter in promiscuous mode.
+        * For a VM, run the following command to enable the network adapter in promiscuous mode.
 
             ```bash
             ifconfig <monitoring port> up promisc
@@ -138,6 +106,36 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
+
+## Register an Enterprise IoT sensor
+
+A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
+
+**To register an Enterprise IoT sensor**:
+
+1. Navigate to the [Azure portal](https://portal.azure.com#home).
+
+1. Select **Setup EIoT sensor**.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
+
+1. Enter a name for the sensor.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+
+1. Select a subscription from the drop-down menu.
+
+1. Enter a meaningful site name that will assist you in locating where the sensor is located.
+
+1. Enter a display name.
+
+1. Enter a zone name. If no name is entered, the name `default` will be applied.
+
+1. Select **Setup**.
+
+1. Save the command provided to you.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
 
 ## Install the sensor
 
