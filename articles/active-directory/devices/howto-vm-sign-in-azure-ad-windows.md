@@ -247,7 +247,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. RDP to the VM using the local administrator account and examine the `CommandExecution.log` file under:
    
-   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\1.0.0.1\`
 
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
