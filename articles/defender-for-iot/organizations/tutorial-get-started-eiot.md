@@ -237,4 +237,4 @@ sudo apt purge -y microsoft-eiot-sensor
 
 ## Next steps
 
-Learn more about the device inventory.
+Learn more about the device inventory. **Insert Link Here.**
