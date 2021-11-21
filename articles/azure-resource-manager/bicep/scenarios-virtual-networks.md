@@ -39,6 +39,8 @@ You often need to refer to a subnet's resource ID. When you use the `subnets` pr
 
 Because this example uses the `existing` keyword to access the subnet resource, instead of defining the complete subnet resource, it doesn't have the risks outlined in the previous section.
 
+You can also combine the `existing` and `scope` keywords to refer to a virtual network or subnet resource in another resource group.
+
 ## Network security groups
 
 Network security groups are frequently used to apply rules controlling the inbound and outbound flow of traffic from a subnet or network interface. It can become cumbersome to define large numbers of rules within a Bicep file, and to share rules across multiple Bicep files. Consider using the [Shared variable file pattern](patterns-shared-variable-file.md) when you work with complex or large network security groups.

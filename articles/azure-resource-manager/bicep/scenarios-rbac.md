@@ -26,6 +26,11 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 ::: code language="bicep" source="code/scenarios-rbac/scope-default.bicep" highlight="4" :::
 
+> [!TIP]
+> Ensure you use the smallest scope required for your requirements.
+>
+> For example, if you need to grant a managed identity access to a single storage account, it's good security practice to create the role assignment at the scope of the storage account, not at the resource group or subscription scope.
+
 ### Name
 
 A role assignment's resource name must be a globally unique identifier (GUID). It's a good practice to create a GUID that uses the scope, principal ID, and role ID together.
@@ -47,7 +52,7 @@ When you create the role assignment resource, you need to specify a fully qualif
 
 ### Principal
 
-The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal.
+The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal. In Azure AD, this is sometimes referred to as the *object ID*.
 
 The `principalType` property specifies whether the principal is a user, a group, or a service principal. Managed identities are a form of service principal.
 
