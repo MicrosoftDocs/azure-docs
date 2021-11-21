@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/18/2021
+ms.date: 11/21/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -40,7 +40,7 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 
 - Performance, and network traffic analysis improvements were made.
 
-- A new [ServiceNow integration API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration) has been added to the on-premise management console.
+- A new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview) has been added to the on-premise management console.
 
 ## October 2021
 

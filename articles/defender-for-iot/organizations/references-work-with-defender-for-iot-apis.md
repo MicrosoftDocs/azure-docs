@@ -1618,7 +1618,7 @@ This section describes on-premises management console APIs for:
 
 ### Version 3
 
-- [ServiceNow Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration) (Preview)
+- [ServiceNow Integration API - “/external/v3/integration/ (Preview)](#servicenow-integration-api---externalv3integration-preview)
 
 ### Alert Exclusions
 
@@ -2364,7 +2364,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 Note that /api/v2/ is needed for the following information:
 
-- sourceDeviceAddress 
+- sourceDeviceAddress
 - destinationDeviceAddress
 - remediationSteps
 - sensorName
