@@ -39,6 +39,8 @@ The redirect URIs to use in a desktop application depend on the flow you want to
 
 Specify the redirect URI for your app by [configuring the platform settings](quickstart-register-app.md#add-a-redirect-uri) for the app in **App registrations** in the Azure portal.
 
+- For apps that use [Web Authentication Manager (WAM)](scenario-desktop-acquire-token-wam.md), redirect URIs need not be configured in MSAL, but they must be configured in the [app registration](scenario-desktop-acquire-token-wam.md#redirect-uri).
+
 - For apps that use interactive authentication:
 
   - Apps that use embedded browsers: `https://login.microsoftonline.com/common/oauth2/nativeclient`

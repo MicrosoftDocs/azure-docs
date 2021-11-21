@@ -1,17 +1,17 @@
 ---
 title: 'Quickstart: Install Defender for IoT micro agent (Preview)'
-description: In this quickstart, learn how to install, and authenticate the Defender for Cloud Micro Agent.
+description: In this quickstart, learn how to install, and authenticate the Defender for IoT micro agent.
 ms.date: 11/09/2021
 ms.topic: quickstart
 ---
 
 # Quickstart: Install Defender for IoT micro agent (Preview)
 
-This article provides an explanation of how to install, and authenticate the Defender for Cloud micro agent.
+This article provides an explanation of how to install, and authenticate the Defender for IoT micro agent.
 
 ## Prerequisites
 
-Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender for Cloud IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+Before you install the Defender for IoT module, you must create a module identity in the IoT Hub. For more information on how to create a module identity, see [Create a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
 
 ## Install the package
 
@@ -50,7 +50,7 @@ Before you install the Defender for IoT module, you must create a module identit
     sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
     ```
 
-To install the Defender for Cloud micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
+To install the Defender for IoT micro agent package on Debian, and Ubuntu based Linux distributions, use the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent 
@@ -160,7 +160,7 @@ Allow up to one hour for the recommendation to appear in the hub.
 
 ## Micro agent versioning
 
-To install a specific version of the Defender for Cloud IoT micro agent, run the following command:
+To install a specific version of the Defender for IoT micro agent, run the following command:
 
 ```bash
 sudo apt-get install defender-iot-micro-agent=<version>
@@ -169,4 +169,4 @@ sudo apt-get install defender-iot-micro-agent=<version>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Defender for Cloud IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)
+> [Quickstart: Create a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md)

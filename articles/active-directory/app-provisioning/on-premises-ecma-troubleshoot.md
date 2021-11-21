@@ -7,16 +7,13 @@ manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 11/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 
 # Troubleshoot on-premises application provisioning
-
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability.
 
 ## Troubleshoot test connection issues
 After you configure the provisioning agent and ECMA host, it's time to test connectivity from the Azure Active Directory (Azure AD) provisioning service to the provisioning agent, the ECMA host, and the application. To perform this end-to-end test, select **Test connection** in the application in the Azure portal. When the test connection fails, try the following troubleshooting steps:

@@ -59,7 +59,7 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Log Analytics workspace](../logs/design-logs-deployment.md) | Metrics are converted to log form. This option may not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.  
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
 | [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
-| [Azure Monitor partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
+| [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
 
 ## Requirements and limitations
 
@@ -86,7 +86,7 @@ Any destinations for the diagnostic setting must be created before creating the 
 | Log Analytics workspace | The workspace does not need to be in the same region as the resource being monitored.|
 | Azure storage account | Do not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to the data. If you are archiving the Activity log and resource logs together though, you may choose to use the same storage account to keep all monitoring data in a central location.<br><br>To send the data to immutable storage, set the immutable policy for the storage account as described in [Set and manage immutability policies for Blob storage](../../storage/blobs/immutable-policy-configure-version-scope.md). You must follow all steps in this linked article including enabling protected append blobs writes.<br><br>The storage account needs to be in the same region as the resource being monitored if the resource is regional.|
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
-| Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](/azure/partner-solutions/overview/) for details.  
+| Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
 
 ### Azure Data Lake Storage Gen2 as a destination
 
@@ -142,11 +142,11 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > Consider setting the retention policy to 0 and either use [Azure Storage Lifecycle Policy](/azure/storage/blobs/lifecycle-management-policy-configure) or delete your data from storage using a scheduled job. These strategies are likely to provide more consistent behavior. 
+        > Consider setting the retention policy to 0 and either use [Azure Storage Lifecycle Policy](../../storage/blobs/lifecycle-management-policy-configure.md) or delete your data from storage using a scheduled job. These strategies are likely to provide more consistent behavior. 
         >
         > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored. For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
 
-     1. **Partner integration** - You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor Partner integrations](/azure/partner-solutions/overview/). 
+     1. **Partner integration** - You must first install a partner integration into your subscription. Configuration options will vary by partner. For more information, see [Azure Monitor Partner integrations](../../partner-solutions/overview.md). 
     
 6. Click **Save**.
 

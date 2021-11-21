@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Back up a VM - Portal
+  - name: Back up a VM - Azure portal
     href: quick-backup-vm-portal.md
   - name: Back up a VM - PowerShell
     href: quick-backup-vm-powershell.md
@@ -20,6 +20,8 @@
   - name: Back up a VM - ARM template
     displayName: Resource Manager
     href: quick-backup-vm-template.md
+  - name: Back up a VM - Bicep template
+    href: quick-backup-vm-bicep-template.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -102,7 +104,7 @@
     href: guidance-best-practices.md
   - name: Glossary of terms
     href: azure-backup-glossary.md
-- name: How to guides
+- name: How-to guides
   items:
   - name: Vaults
     items:
@@ -215,7 +217,7 @@
     - name: With CLI
       items:
       - name: Backup
-        href: backup-postgresql-cli.md    
+        href: backup-postgresql-cli.md
       - name: Restore
         href: restore-postgresql-database-cli.md
     - name: With REST API
@@ -391,7 +393,7 @@
       - name: Back up Hyper-V virtual machines
         href: back-up-hyper-v-virtual-machines-mabs.md
       - name: Back up Azure Stack HCI virtual machines
-        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md  
+        href: back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md
       - name: VMware server
         href: backup-azure-backup-server-vmware.md
       - name: Exchange
@@ -489,7 +491,7 @@
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
-        href: azure-policy-configure-diagnostics.md    
+        href: azure-policy-configure-diagnostics.md
     - name: Use PowerShell
       items:
       - name: Azure VMs
@@ -606,9 +608,9 @@
   - name: Azure Data Protection - CLI
     href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
   - name: Azure PowerShell
-    href: /powershell/module/az.recoveryservices
+    href: /powershell/module/az.recoveryservices/
   - name: Azure Data Protection - PowerShell
-    href: /powershell/module/az.dataprotection/?view=azps-6.1.0&preserve-view=true
+    href: /powershell/module/az.dataprotection/
   - name: PowerShell – Azure Backup agent
     href: /powershell/module/msonlinebackup/?view=msonlinebackup-ps
   - name: REST - Azure Data Protection

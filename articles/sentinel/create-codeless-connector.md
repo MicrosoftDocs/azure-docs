@@ -16,7 +16,7 @@ ms.date: 11/07/2021
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article describes how to create a codeless connector for Microsoft Sentinel using the Codeless Connector Platform (CCP).
+This article describes how to create a codeless connector for Microsoft Sentinel using the Codeless Connector Platform (CCP) via API.
 
 The Codeless Connector Platform (CCP) provides a JSON configuration file that can be used by both customers and partners to create a connector, including both the back-end connection and the user interface displayed in Microsoft Sentinel. Deploy the connector to your own Microsoft Sentinel workspace via an ARM template or an API call, or as a solution to Microsoft Sentinel's solution's gallery.
 
@@ -27,6 +27,24 @@ Connectors created using the CCP are fully SaaS, without any requirements for se
 >
 > - Issues due to authentication errors or the data source's REST API availability are the customers' responsibility. Microsoft Sentinel provides built-in health data, and you can open a support ticket to request detailed health audit records as needed.
 >
+
+## Create and deploy your connector via API
+
+This section describes how to create your data connector and then deploy it to your Microsoft Sentinel workspace.
+
+**To create your codeless connector**:
+
+1. Create a JSON configuration file, defining details for your connector using the syntax described in the following sections.
+
+1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to create your new connector. Provide the credentials and relevant parameters provided by your data source.
+
+    Microsoft Sentinel will attempt to access your data source using the provided credentials and fetch log files. If Microsoft Sentinel succeeds, the API response is `200`, which confirms that Microsoft Sentinel can fetch the log files.
+
+1. In Microsoft Sentinel, go to the **Logs** page and verify that you see the logs from your data source flowing in to your workspace.
+
+### Troubleshooting your connector
+
+TBD
 
 ## Data source authentication
 

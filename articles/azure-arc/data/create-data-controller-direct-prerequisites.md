@@ -30,7 +30,8 @@ To connect your kubernetes cluster to Azure, use Azure CLI `az` with the followi
 
 ### Install tools
 
-- Install or upgrade to the latest version of Azure CLI ([install](/sql/azdata/install/deploy-install-azdata)) 
+- Helm version 3.3+ ([install](https://helm.sh/docs/intro/install/))
+- Install or upgrade to the latest version of Azure CLI ([download](https://aka.ms/installazurecliwindows))
 
 ### Add extensions for Azure CLI
 
