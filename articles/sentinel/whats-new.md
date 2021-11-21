@@ -4,7 +4,7 @@ description: This article describes new features in Microsoft Sentinel from the 
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/21/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -29,6 +29,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## November 2021
 
+
 - [Amazon Web Services S3 connector now available (Public preview)](#amazon-web-services-s3-connector-now-available-public-preview)
 - [Windows Forwarded Events connector now available (Public preview)](#windows-forwarded-events-connector-now-available-public-preview)
 - [Near-real-time (NRT) threat detection rules now available (Public preview)](#near-real-time-nrt-threat-detection-rules-now-available-public-preview)
@@ -42,6 +43,14 @@ If you're looking for items older than six months, you'll find them in the [Arch
 - [Enhanced Notebooks area in Microsoft Sentinel](#enhanced-notebooks-area-in-microsoft-sentinel)
 - [Microsoft Sentinel renaming](#microsoft-sentinel-renaming)
 - [Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel](#deploy-and-monitor-azure-key-vault-honeytokens-with-azure-sentinel)
+
+### Incident advanced search now available in GA
+
+Searching for incidents using the advanced search functionality is now Generally Available.
+
+The advanced incident search provides the ability to search across more data, including alert details, descriptions, entities, tactics, and more.
+
+For more information, see [Search for incidents](investigate-cases.md#search-for-incidents).
 
 ### Amazon Web Services S3 connector now available (Public preview)
 
