@@ -31,13 +31,17 @@ First, configure your deployer key vault secrets. For this example configuration
 1. Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
     ```azurecli
-    az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+    export key_vault=<vaultID>
+    sap_username=<sap-username>
+
+    az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
     ```
 
 1. Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-password>` with your SAP password.
 
     ```azurecli
-    az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+    sap_user_password="<sap-password>
+    az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
     ```
 
 1. There are two other secrets which are needed in this step for the storage account `sapbits`, are automatically setup by the automation framework. However its always good to verify whether these are existed in your deployer keyvault or not.
