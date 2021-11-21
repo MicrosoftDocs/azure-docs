@@ -17,13 +17,13 @@ The expansion into the enterprise network, creates a unique opportunity to apply
 
 ## Microsoft Defender for Endpoint integration
 
-Microsoft Defender for IoT (MDIoT) can now integrate with Microsoft Defender for Endpoint (MDE). This integration combines MDE’s device discovery capabilities, with the agentless monitoring capabilities to secure enterprise IoT devices connected to an IT network (for example, Voice over Internet Protocol (VoIP), printers, and smart TVs). The integration allows organizations to take advantage of a single integrated solution that secures all of their IoT, and OT infrastructure.
+Microsoft Defender for IoT can now integrate with Microsoft Defender for Endpoint. This integration combines Microsoft Defender for Endpoint’s device discovery capabilities, with the agentless monitoring capabilities to secure enterprise IoT devices connected to an IT network (for example, Voice over Internet Protocol (VoIP), printers, and smart TVs). The integration allows organizations to take advantage of a single integrated solution that secures all of their IoT, and OT infrastructure.
 
-Microsoft Defender for IoT's sensors can now be used an additional data source providing visibility in area's of your organizations network where MDE is not deployed and when employees are accessing information remotely. Defender for IoT's sensors provide visibility into the IoT to IoT and the IoT to internet communications.
+Microsoft Defender for IoT's sensors can now be used an additional data source providing visibility in area's of your organizations network where Microsoft Defender for Endpoint is not deployed and when employees are accessing information remotely. Defender for IoT's sensors provide visibility into the IoT to IoT and the IoT to internet communications.
 
-Once this integration has been enabled, any devices discovered on the network by either Defender for Iot, or MDE will be synced automatically across both portals.
+Once this integration has been enabled, any devices discovered on the network by either Defender for Iot, or Microsoft Defender for Endpoint will be synced automatically across both portals.
 
-To learn how to integrate MDE with your Microsoft defender for IoT solution, see **INSERT LINK HERE**.
+To learn how to integrate Microsoft Defender for Endpoint with your Microsoft Defender for IoT solution, see **INSERT LINK HERE**.
 
 ## Automatic 3T discovery for IT, IoT, and OT
 
