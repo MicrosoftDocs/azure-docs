@@ -91,7 +91,7 @@ Update the Azure service principal credentials to allow push and pull access to 
 Get the resource ID of your container registry. Substitute the name of your registry in the following [az acr show][az-acr-show] command:
 
 ```azurecli
-registryId=$(az acr show \
+$registryId=$(az acr show \
   --name <registry-name> \
   --query id --output tsv)
 ```
