@@ -161,7 +161,7 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** February 2022
+**Estimated date for change:** March 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
