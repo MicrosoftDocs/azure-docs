@@ -102,7 +102,7 @@ However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-onlin
 
 ### Autoscaling
 
-Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
+Autoscale automatically runs the right amount of resources to handle the load on your application. Managed endpoints support autoscaling through integration with the [Azure monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview) feature. You can configure metrics-based scaling (for instance, CPU utilization >70%), schedule-based scaling (for example, scaling rules for peak business hours), or a combination.
 
 :::image type="content" source="media/concept-endpoints/concept-autoscale.png" alt-text="Screenshot showing that autoscale flexibly provides between min and max instances, depending on rules":::
 
@@ -114,7 +114,9 @@ Visual Studio Code enables you to interactively debug endpoints.
 
 ## Managed online endpoints vs Kubernetes online endpoints (preview)
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). The following table highlights some of their key differences.
+There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. 
+
+The following table highlights the key differences between managed online endpoints and Kubernetes online endpoints. 
 
 |  | Managed online endpoints | Kubernetes online endpoints |
 |-|-|-|

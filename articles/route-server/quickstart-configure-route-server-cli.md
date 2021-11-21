@@ -79,7 +79,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --name RouteServerSubnet \
         --resource-group myRouteServerRG \
         --vnet-name myVirtualNetwork \
-        --address-prefix 10.0.0.0/24)
+        --address-prefix 10.0.0.0/24
     ``` 
 
 1. Make note of the RouteServerSubnet ID. To obtain and store the resource ID of the *RouteServerSubnet* to the `subnet_id` variable, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show):

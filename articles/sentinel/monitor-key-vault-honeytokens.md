@@ -1,21 +1,10 @@
 ---
 title: Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel
 description: Plant Azure Key Vault honeytoken keys and secrets, and monitor them with Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-
 ---
 
 # Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel (Public preview)
@@ -63,7 +52,7 @@ The following steps describe specific actions required for the **Microsoft Senti
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Screenshot of the prerequisites tab showing the updated curl command.":::
 
-1. Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed.
+1. <a name="secret"></a>Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed.
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens.    For example:
 
@@ -117,7 +106,7 @@ The following steps describe specific actions required for the **Microsoft Senti
     | **KeyVault name**     | Displayed only when you've selected to create a new key vault. <br><br>Enter the name of the key vault you want to use to store your app's secret. This name must be globally unique.     |
     | **KeyVault resource group**     |Displayed only when you've selected to create a new key vault. <br><br> Select the name of the resource group where you want to store the key vault for your application key.      |
     | **Existing key vaults** | Displayed only when you've selected to use an existing key vault. Select the key vault you want to use. |
-    | **KeyVault secret name**     |   Enter the name of the secret used to store the  client secret.      |
+    | **KeyVault secret name**     |  Enter a name for the secret where you want to store your AAD app's secret. You'd created this AAP app back in [step 3](#secret). |
 
     **Honeytoken configuration**: The following fields define settings used for the keys and secrets used in your honeytokens. Use naming conventions that will blend in with your organization's naming requirements so that attackers will not be able to tell the difference.
 
@@ -290,7 +279,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 1. On the ARM template's **Deception Solution Policy Deployment** > **Basics** tab, select your management group value and region. Then, select **Next: Deployment Target >** to continue.
 
-1. On the **Deployment Target** tab, select your management group again, and then select **Nex: Management Workbook >**.
+1. On the **Deployment Target** tab, select your management group again, and then select **Next: Management Workbook >**.
 
 1. On the **Management Workbook** tab, paste the link to your **SOCHTManagement** workbook.
 
