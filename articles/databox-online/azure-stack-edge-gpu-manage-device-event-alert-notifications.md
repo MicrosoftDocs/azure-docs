@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/08/2021
+ms.date: 11/21/2021
 ms.author: alkohli
 ---
 # Use action rules to manage alert notifications on Azure Stack Edge devices
