@@ -12,16 +12,16 @@ ms.date: 05/18/2021
 ms.author: eur
 ---
 
-# Get started with custom neural voice
+# Get started with Custom Neural Voice
 
-[Custom neural voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom Text-to-Speech experience. See the supported [languages](language-support.md#custom-neural-voice) and [regions](regions.md#custom-neural-voices) for custom neural voice.
+[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom Text-to-Speech experience. See the supported [languages](language-support.md#custom-neural-voice) and [regions](regions.md#custom-neural-voices) for Custom Neural Voice.
 
 > [!NOTE]
-> As part of Microsoft's commitment to designing responsible AI, we have limited the use of custom neural voice. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our responsible AI principles. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). 
+> As part of Microsoft's commitment to designing responsible AI, we have limited the use of Custom Neural Voice. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our responsible AI principles. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). 
  
 ## Set up your Azure account
 
-A Speech service subscription is required before you can use custom neural voice. Follow these instructions to create a Speech service subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
+A Speech service subscription is required before you can use Custom Neural Voice. Follow these instructions to create a Speech service subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
 
 Once you've created an Azure account and a Speech service subscription, you'll need to sign in Speech Studio and connect your subscription.
 
@@ -31,13 +31,13 @@ Once you've created an Azure account and a Speech service subscription, you'll n
 4. If you'd like to switch to another Speech subscription, use the cog icon located in the top navigation.
 
 > [!NOTE]
-> You must have a F0 or a S0 Speech service key created in Azure before you can use the service. Custom neural voice only supports the S0 tier. 
+> You must have a F0 or a S0 Speech service key created in Azure before you can use the service. Custom Neural Voice only supports the S0 tier. 
 
 ## Create a project
 
 Content like data, models, tests, and endpoints are organized into **Projects** in Speech Studio. Each project is specific to a country/language and the gender of the voice you want to create. For example, you may create a project for a female voice for your call center's chat bots that use English in the United States ('en-US').
 
-To create your first custom neural project, select the **Text-to-Speech/Custom Voice** tab, then click **Create project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. Use the links provided in [next steps](#next-steps) to learn how to use each tab.
+To create your first project, select the **Text-to-Speech/Custom Voice** tab, then click **Create project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you will see four tabs: **Set up voice talent**, **Prepare training data**, **Train model**, and **Deploy model**. Use the links provided in [next steps](#next-steps) to learn how to use each tab.
 
 ## Tips for creating a custom neural voice
 
@@ -68,6 +68,11 @@ Prepare test scripts for your voice model that cover the different use cases for
 ### Tuning and adjustment
 
 The style and the characteristics of the trained voice model depend on the style and the quality of the recordings from the voice talent used for training. However, several adjustments can be made using [SSML (Speech Synthesis Markup Language)](./speech-synthesis-markup.md?tabs=csharp) when you make the API calls to your voice model to generate synthetic speech. SSML is the markup language used to communicate with the TTS service to convert text into audio. The adjustments include change of pitch, rate, intonation, and pronunciation correction.  If the voice model is built with multiple styles, SSML can also be used to switch the styles.
+
+## Migrate to Custom Neural Voice
+
+If you are using the old version of Custom Voice (to be retired in 2/2024), check the instructions [here](how-to-migrate-to-custom-neural-voice.md) on how to migrate it to Custom Neural Voice.
+
 
 ## Next steps
 
