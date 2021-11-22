@@ -86,7 +86,7 @@ synthesizeSpeech();
 
 ## Select synthesis language and voice
 
-The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+The Azure Text-to-Speech service supports more than 270 voices and more than 110 languages and variants.
 You can get the [full list](../../../language-support.md#prebuilt-neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 Specify the language or voice of [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) to match your input text and use the wanted voice.
 
