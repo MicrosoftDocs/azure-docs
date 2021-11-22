@@ -8,12 +8,6 @@ ms.topic: article
 ---
 # Request an Authorization Token
 
-The Log Analytics API supports three OAuth2 flows:
-- Client credentials grant
-- Authorization code grant
-- Implicit grant
-The Authorization code grant and implicit grant flows both require at least a one time user-interactive login to your application. If you need a totally non-interactive flow, you must use client credentials.
-
 Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require your:
 - your AAD tenant
 - your workspace ID (with [workspace linked to your AAD app](aad-setup.md))

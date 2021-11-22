@@ -8,15 +8,11 @@ ms.topic: article
 ---
 # C\# SDK
 
-## Overview
-
-A C\# SDK is made available for querying a Log Analytics Workspace. It supports the full query language.
+A [C\# SDK](https://www.nuget.org/packages/Microsoft.Azure.OperationalInsights/) is available for querying a Log Analytics Workspace. It supports the full query language.
 
 ## Using the SDK
 
-The SDK is available via NuGet here: <https://www.nuget.org/packages/Microsoft.Azure.OperationalInsights/>
-
-Additionally, you can leverage the [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication/) package for easier authentication with AAD in lieu of providing your own implementation of ServiceClientCredentials.
+You can also use the [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication/) package for easier authentication with AAD instead of your own implementation of ServiceClientCredentials.
 
 ## Sample
 
@@ -63,4 +59,4 @@ Additionally, you can leverage the [Microsoft.Rest.ClientRuntime.Azure.Authentic
 
 ## Notes
 
-Due to the limitations of OpenAPI Specification 2.0, all row values are interpretted as strings. When processing query data, you may need to leverage the column definitions for each column which indicate the type that can be parsed from each row. You can find the list of data types at <https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/operationalinsights/Microsoft.Azure.OperationalInsights/src>
+Due to the limitations of OpenAPI Specification 2.0, all row values are interpreted as strings. When processing query data, you may need to leverage the column definitions for each column, which indicate the type that can be parsed from each row. You can find the list of data types at <https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/operationalinsights/Microsoft.Azure.OperationalInsights/src>

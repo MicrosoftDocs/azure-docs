@@ -8,8 +8,6 @@ ms.topic: article
 ---
 # PowerShell Cmdlets
 
-## Overview & Installation
-
 A cmdlet for querying is available as part of [Azure PowerShell](/powershell/azure/overview?view=azurermps-5.4.0&preserve-view=true). You can follow the instructions for installing them [here](/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0&preserve-view=true). Before attempting to run the query cmdlet, you should login to Azure PowerShell using `Login-AzureRmAccount` or `Add-AzureRmAccount`. See the [Azure PowerShell documentation](/powershell/module/azurerm.operationalinsights/Invoke-AzureRmOperationalInsightsQuery?view=azurermps-5.4.0&preserve-view=true) on this cmdlet for more information.
 
 ## Github
