@@ -407,16 +407,20 @@ materials:
 
 For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name would contain `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
 
-Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
 ```bash
-az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+export key_vault=<vaultID>
+sap_username=<sap-username>
+
+az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
 ```
 
-Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with your deployer key vault name, and `<sap-password>` with your SAP password.
+Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name, and `<sap-password>` with your SAP password.
 
 ```bash
-az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+sap_user_password="<sap-password>
+az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
 ```
 
 Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
@@ -435,13 +439,14 @@ In the `kv_name parameter`, enter the name of the deployer resource group key va
 
 bom_base_name:                 S41909SPS03_v0006ms
 kv_name:                       MGMTNOEUDEP00user99F 
+check_storage_account:         true
 
 ```
     
-Execute the Ansible playbooks. One way you can execute the playbooks is to use the validator test menu. Run the validator test menu script.
+Execute the Ansible playbooks. One way you can execute the playbooks is to use the Downloader menu. Run the download_menu script.
   
 ```bash
-~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/validator_test_menu.sh
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/download_menu.sh
 ```
   
 Select which playbooks to execute.
@@ -495,7 +500,7 @@ Copy the sample configuration files from the repository.
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
 
-cp -Rp ./sap-automation/training_materials/WORKSPACES ./
+cp -Rp ./sap-automation/training-materials/WORKSPACES ./
 ```
 
 ## Deploy the Workload Zone
@@ -533,7 +538,7 @@ export tenant_id="<tenant>"
 export storage_account="<storageaccountName>"
 export statefile_subscription="<subscriptionID>"
 export region_code="NOEU"
-key_vault=<vaultID>
+export key_vault=<vaultID>
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
@@ -572,7 +577,7 @@ Deploy the SAP system.
 
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
@@ -605,9 +610,16 @@ cd ~/Azure_ SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00/
 
 Make sure you have the following files in the current folder: `sap-parameters.yaml` and `SID_host.yaml`.
 
-For a standalone SAP S/4HANA system, there are eight playbooks to execute in sequence. You can trigger the following playbooks from using a menu system. 
+For a standalone SAP S/4HANA system, there are eight playbooks to execute in sequence. One way you can execute the playbooks is to use the Configuration menu. 
 
-Trigger the playbooks to execute.
+Run the configuration_menu script.
+  
+```bash
+~/Azure_SAP_Automated_Deployment/sap-automation/deploy/ansible/configuration_menu.sh
+```
+
+
+Choose the playbooks to execute.
 
 ### Playbook: OS Config
 
@@ -670,7 +682,7 @@ Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then,
 ```bash
 export region_code="NOEU"
 
-cd "~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00"
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
   --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \

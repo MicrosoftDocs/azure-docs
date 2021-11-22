@@ -2,7 +2,7 @@
 title: Programmatically create Azure Dashboards
 description: Use a dashboard in the Azure portal as a template to programmatically create Azure Dashboards. Includes JSON reference.
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 11/18/2021
 ---
 
 # Programmatically create Azure dashboards
@@ -40,6 +40,8 @@ For detailed instructions, see [Share Azure dashboards by using Azure role-based
 Sharing the dashboard only takes a few seconds. When it's done, the next step is to export the JSON using the **Download** command.
 
 :::image type="content" source="media/azure-portal-dashboards-create-programmatically/download-command.png" alt-text="Screenshot of the command to export the JSON representation of a template in the Azure portal.":::
+
+You can also retrieve information about the dashboard resource programmatically by using [REST APIs](/rest/api/resources/Resources/Get) or other methods.
 
 ## Create a template from the JSON
 
@@ -356,7 +358,7 @@ This example is similar to what you'll see if you followed along with this artic
     "id": "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/dashboards/providers/Microsoft.Portal/dashboards/aa9786ae-e159-483f-b05f-1f7f767741a9",
     "name": "aa9786ae-e159-483f-b05f-1f7f767741a9",
     "type": "Microsoft.Portal/dashboards",
-    "location": "eastasia",
+    "location": "westus",
     "tags": {
         "hidden-title": "Created via API"
     }
