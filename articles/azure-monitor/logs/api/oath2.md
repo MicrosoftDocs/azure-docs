@@ -1,22 +1,30 @@
 ---
-title: AAD OAuth2 Flows
+title: Request an authorization token
 description: We support three OAuth2 flows- authorization code grant, implicit grant, and client credentials grant.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+ms.author: abbyweisberg
+ms.date: 11/22/2021
 ms.topic: article
 ---
-# AAD OAuth2 Flows
+# Request an Authorization Token
 
-We support three OAuth2 flows: authorization code grant, implicit grant, and client credentials grant. Note that authorization code an implicit grant both require at least a one time user-interactive login to your application. If you need a totally non-interactive flow, you must use client credentials.
+The Log Analytics API supports three OAuth2 flows:
+- Client credentials grant
+- Authorization code grant
+- Implicit grant
+The Authorization code grant and implicit grant flows both require at least a one time user-interactive login to your application. If you need a totally non-interactive flow, you must use client credentials.
 
-Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests will require your AAD tenant, your workspace ID (with [workspace linked to your AAD app](aad-setup.md)), your client ID for the AAD app, and a client secret for the AAD App (referred to as "keys" in the AAD App menu bar).
+Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require your:
+- your AAD tenant
+- your workspace ID (with [workspace linked to your AAD app](aad-setup.md))
+- your client ID for the AAD app
+- a client secret for the AAD App (referred to as "keys" in the AAD App menu bar).
 
-Line breaks in URLs are for readability only.
 
 ## Client Credentials Flow
 
-In this example we use the token with our ARM endpoint, so the resource we request is <https://management.azure.com/> (with the trailing slash) rather than [https://api.loganalytics.io](https://api.loganalytics.io/). This flow requires a single request to receive a token, using the application permissions provided during the AAD application setup. You may also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/), simply replace the "resource" in the example.
+In the client credentials flow, we use the token with the ARM endpoint. This flow requires a single request to receive a token, using the application permissions provided during the AAD application setup.
+The resource we request is <https://management.azure.com/>. 
+You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/), simply replace the "resource" in the example.
 
 ## Token URL (POST request)
 
@@ -95,7 +103,7 @@ Example Response:
     }
 ```
 
-## OAuth2 Authorization Code Flow
+## Authorization Code Flow
 
 The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Log Analytics API. There are two URLs, one endpoint per request. Their formats are as follows:
 
@@ -177,7 +185,7 @@ Response example:
     }
 ```
 
-## OAuth2 Implicit Code Flow
+## Implicit Code Flow
 
 The Log Analytics API also supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token may be acquired.
 

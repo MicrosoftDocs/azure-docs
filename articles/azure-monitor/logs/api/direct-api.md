@@ -1,31 +1,30 @@
 ---
-title: Azure Log Analytics Search API
+title: Azure Log Analytics API Tutorial
 description: The REST API lets you query the full set of data collected by Log Analytics using the same query language used throughout the service.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+ms.author: abbyweisberg
+ms.date: 11/18/2021
 ms.topic: article
 ---
-# Azure Log Analytics Search API
+# Azure Log Analytics API Tutorial
 
-The [Azure Log Analytics](/azure/log-analytics/log-analytics-overview) REST API lets you query the full set of data collected by Log Analytics using the same query language used throughout the service. To get started, follow these steps. These steps provide a simple way to get started, but a lot more options are available For full details, make sure to review the [Using the API](using-api.md) section, as well as our [reference](https://dev.loganalytics.io/reference).
+This tutorial walks you through the steps to get started using the API. For details, see [Using the API](using-api.md), and the [reference](https://dev.loganalytics.io/reference) section.
 
 ## 1. Set up Azure Active Directory (one-time)
 
-The Azure Log Analytics API uses the Azure Active Directory authentication scheme. While this section will outline a simple way to do set up your AAD instance to work with the Log Analytics API, full details on this, alternative authentication schemes, and other details are available on the [AAD Authentication](authorization.md) page. While this section may seem somewhat long and complicated, in practice, it can be completed in as little as *five minutes* and only has to be performed once.
+The Azure Log Analytics API uses the Azure Active Directory authentication scheme. Alternative authentication schemes, and other details are available on the [AAD Authentication](authorization.md) page.
 
 ### 1.1 Register an Azure Active Directory Application
 
-In this step, we will create an AAD Application, which we will later use to authenticate against our AAD.
-
-First, we will open our Azure Active Directory resource in the Azure Portal. From there, we will click `App registrations`:  
-![The Azure Active Directory overview page. Click "App registrations"](media/arm-api/app-registrations-menu.png)
-
-Next, click "New application registration":  
-![Click "New application registration"](media/arm-api/new-app-registration-menu.png)
-
-Give your application a `name`. Make sure the application type is set to `Web app/API`. Finally, choose a sign-on URL. If you have a forwarding URL, use it here. Otherwise, you can put in a placeholder such as the `http://localhost:3000/login` seen in the screenshot below. Finally press "create".  
-![Fill in the name, application type, and sign-on URL](media/arm-api/app-details.png)
+1. Create an AAD Application, which we will use to authenticate against our AAD. Open the Azure Active Directory resource in the Azure Portal.
+1. Click `App registrations`.
+    ![The Azure Active Directory overview page. Click "App registrations"](media/arm-api/app-registrations-menu.png)
+1. Click "New application registration". 
+    ![Click "New application registration"](media/arm-api/new-app-registration-menu.png)
+1. Give your application a `name`.
+1. Set the application type to `Web app/API`. 
+1. Choose a sign-on URL. If you have a forwarding URL, use it here. Otherwise, you can put in a placeholder such as the `http://localhost:3000/login` seen in the screenshot below. 
+1. Select "create".  
+    ![Fill in the name, application type, and sign-on URL](media/arm-api/app-details.png)
 
 We'll need to modify a few additional settings on the app we just created. Back on the App registrations page, find the app we just created, and click on it to open it's details page:  
 ![Find the just-created app and click on it to open it's details](media/arm-api/app-registrations.png)

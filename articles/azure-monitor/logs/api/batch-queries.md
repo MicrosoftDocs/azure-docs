@@ -1,26 +1,35 @@
 ---
 title: Batch Queries
-description: Batch queries currently require AAD authentication.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+description: The Log Analytics API supports batching.
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.date: 11/22/2021
 ms.topic: article
 ---
 # Batch Queries
 
-The API supports batching queries together, against the endpoint <https://api.loganalytics.io/v1/$batch>. Batch queries currently require AAD authentication.
+The API supports batching queries together. Batch queries currently require AAD authentication.
 
 ## Request Format
+To batch queries, use the API endpoint, adding $batch at the end of the URL: <https://api.loganalytics.io/v1/$batch>.
 
-The batch request itself includes normal headers for other operations:
+If no method is included, batching defaults to the GET method. On GET requests, the API ignores the body parameter of the request object.
+
+The batch request includes regular headers for other operations:
 
 ```
     Content-Type: application/json
     Authorization: Bearer <user token>
 ```
 
-The body of the request is an array of objects, where object contains the following properties: id, headers, body, method, path, and workspace. If no method is included, batch defaults to GET.
-
+The body of the request is an array of objects containing the following properties:
+ - id
+ - headers
+ - body
+ - method
+ - path
+ - workspace
+ 
 Example:
 
 ```
@@ -63,7 +72,12 @@ Example:
 
 ## Response Format
 
-The response format is a similarly shaped array of objects, where each object contains the id, the HTTP status code of the particular query, and the body of the returned response for that query. The body will contain the relevant error messages if a query does not successfully return. This only applies to the individual queries in the batch: the batch itself returns a status code independent of the return values of its members. As long as a well-formed, authenticated, authorized batch is received, the batch itself will return successfully even when the results of its member queries may be a mix of success and failure.
+The response format is a similar array of objects. Each object contains:
+ - the id
+ - the HTTP status code of the particular query
+ - the body of the returned response for that query. 
+ 
+If a query does not return successfully, the body contains the relevant error messages. This only applies to the individual queries in the batch; the batch itself returns a status code independent of the return values of its members. As long as a well-formed, authenticated, authorized batch is received, the batch itself will return successfully even when the results of its member queries may be a mix of success and failure.
 
 Example
 
@@ -109,18 +123,15 @@ Example
 
 ## Behavior and Errors
 
-Batch responses make no guarantees about ordering responses relative to the requests that made them. The order of responses inside the returned object is determined by time to completion of each individual query. One should use IDs to map the contained query response objects to the original requests. One should not iterate over the query responses assuming they are in order.
-
-On GET requests, the API ignores the body parameter of the request object.
+ The order of responses inside the returned object is determined by time to completion of each individual query, and are not related to the order in the request.  Use IDs to map the contained query response objects to the original requests. Do not assume that the query responses are in order.
 
 An entire batch request only fails under specific conditions:
 
-1.  The shape of the outer payload is malformed, e.g. it's not JSON.
-2.  User provides no authentication token, or token is invalid.
+1.  The outer payload is not valid JSON format.
+2.  The user provides no authentication token, or the token is invalid.
 3.  Individual request objects in the batch do not all have the necessary properties, or there are duplicate IDs.
 
-Under these conditions, the shape of the response will be different from the normal container. See below for an example. The objects contained within the batch object may each fail or succeed independently, and the batch will return 200 assuming above conditions are not met.
-
+Under these conditions, the shape of the response will be different from the normal container. The objects contained within the batch object may each fail or succeed independently. See below for an example. 
 ## Example Errors
 
 The following is a non exhaustive list of examples of possible errors and their meanings.

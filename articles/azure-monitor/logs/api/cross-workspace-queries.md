@@ -8,13 +8,13 @@ ms.topic: article
 ---
 # Cross Workspace Queries
 
-The API supports the ability to query across multiple workspaces. There are currently two ways to execute these queries: implicit and explicit, differing in syntax and semantics of query execution. The implicit method performs an automatic union over data in the requested workspace, while the explicit method allows more precision and control over how to access data from each workspace.
+The API allows you to query across multiple workspaces. There are two ways to execute these queries: implicit and explicit. The implicit method performs an automatic union over data in the requested workspace, while the explicit method allows more precision and control over how to access data from each workspace.
 
 The maximum number of resources in any cross-resource query is limited to 10.
 
-## Identifiers
+## Resource Identifiers
 
-For either implicit or explicit cross-workspace queries, you need to specify the resources you will be accessing. There are four types of identifier we accept.
+For either implicit or explicit cross-workspace queries, you need to specify the resources you will be accessing. There are four types of identifiers:
 
 1.  Name - human-readable string \<workspaceName\> of the OMS workspace
 2.  Qualified Name - string with format \<subscriptionName\>/\<resourceGroup\>/\<workspaceName\>

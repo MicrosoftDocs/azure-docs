@@ -311,48 +311,37 @@
         items:
         - name: Overview
           href: logs/api/overview.md
-          items:
-          - name: URL formats
-            href: logs/api/urls.md
-          - name: API version
-            href: logs/api/api-version.md
-        - name: Tutorials
-          href: logs/api/tutorials.md
-          items:
-          - name: Direct API tutorial
-            href: logs/api/direct-api.md
-          - name: ARM API tutorial
-            href: logs/api/arm-api.md
-        - name: Authorization
-          href: logs/api/authorization.md
-          items:
-          - name: AAD setup
-            href: logs/api/aad-setup.md
-          - name: AAD OAuth2 flows
-            href: logs/api/oath2.md
-          - name: API keys
-            href: logs/api/api-keys.md
+        - name: Authentication
+          href: logs/api/authentication.md
         - name: Using the API
           href: logs/api/using-api.md
           items:
+          - name: AAD setup
+            href: logs/api/aad-setup.md
+          - name: Request an authorization token
+            href: logs/api/oath2.md
+          - name: API keys
+            href: logs/api/api-keys.md
+          - name: Accessing the API
+            href: logs/api/api-endpoints.md
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
             href: logs/api/response-format.md
-          - name: "Throttling & limits"
-            href: logs/api/rate-limits.md
-          - name: Batch queries
-            href: logs/api/batch-queries.md
-          - name: Cross-resource queries
-            href: logs/api/cross-workspace-queries.md
-          - name: Azure resource queries
-            href: logs/api/azure-resource-queries.md
-          - name: Response caching
-            href: logs/api/caching.md
-          - name: Server timeouts
-            href: logs/api/timeouts.md
-          - name: Prefer headers
-            href: logs/api/prefer-options.md
+          - name: API options
+            items:
+            - name: Batch queries
+              href: logs/api/batch-queries.md
+            - name: Cross-resource queries
+              href: logs/api/cross-workspace-queries.md
+            - name: Azure resource queries
+              href: logs/api/azure-resource-queries.md
+            - name: Response caching
+              href: logs/api/caching.md
+            - name: Server timeouts
+              href: logs/api/timeouts.md
+            - name: Prefer headers
+              href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
         - name: Tools

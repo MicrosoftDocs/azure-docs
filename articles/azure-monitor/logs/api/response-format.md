@@ -1,20 +1,22 @@
 ---
 title: Response format
 description: The response is JSON that contains an array of table objects.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.date: 11/21/2021
 ms.topic: article
 ---
 # Response format
 
-The response is JSON that contains an array of table objects.
+The response is JSON string that contains an array of table objects.
 
-The `tables` property is an array of tables representing the query result. Each table contains `name`, `columns` and `rows` properties.
+- The `tables` property is an array of tables representing the query result. Each table contains `name`, `columns` and `rows` properties.
 
-The `name` property is the name of the table. The `columns` property is an array of objects describing the schema of each column and the `rows` property is an array of values where each item in the array represents a row in the result set.
+ - The `name` property is the name of the table.
+ - The `columns` property is an array of objects describing the schema of each column.
+ - The `rows` property is an array of values. Each item in the array represents a row in the result set.
 
-In the following example, we can see the result contains two columns, `Category` and `count_`. The first column, `Category`, represents the value of the `Category` column in the `AzureActivity` table, and the second column, `count_` is count of the number of events in the `AzureActivity` table for the given Category value.
+In the following example, we can see the result contains two columns, `Category` and `count_`. The first column, `Category`, represents the value of the `Category` column in the `AzureActivity` table, and the second column, `count_` is count of the number of events in the `AzureActivity` table for the given Category.
 
 ```
     HTTP/1.1 200 OK
@@ -59,6 +61,6 @@ In the following example, we can see the result contains two columns, `Category`
 
 ## Errors
 
-If there are any fatal errors errors during query execution, an error status code will be returned with a [OneAPI](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#errorresponse--object) error object describing the error. See the [reference](https://dev.loganalytics.io/reference/post-query) for a list of error status codes.
+If a fatal error errors during query execution, an error status code is returned with a [OneAPI](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#errorresponse--object) error object describing the error. See the [reference](https://dev.loganalytics.io/reference/post-query) for a list of error status codes.
 
-A non fatal error may occur during query execution. In such cases, the response status code will be `200 OK` and contain query results in the `tables` property as described above. The response will also contain an `error` property which is OneAPI error object with code `PartialError`. Details of the error will be in the `details` property.
+If a non-fatal error occusrs during query execution, the response status code is `200 OK` and contains the query results in the `tables` property as described above. The response will also contain an `error` property which is OneAPI error object with code `PartialError`. Details of the error are included in the `details` property.
