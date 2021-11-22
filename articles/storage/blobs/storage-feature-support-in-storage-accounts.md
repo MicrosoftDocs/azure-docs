@@ -33,7 +33,7 @@ The items that appear in these tables will change over time as support continues
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | [Blob versioning](versioning-overview.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| [Change feed](storage-blob-change-feed.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| [Change feed](storage-blob-change-feed.md) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/yes-icon.png) |
 | [Custom domains](storage-custom-domain-name.md) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 | [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 | [Customer-managed keys (encryption)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -101,7 +101,7 @@ The items that appear in these tables will change over time as support continues
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup> | ![No](../media/icons/no-icon.png)| ![No](../media/icons/no-icon.png) |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer (SFTP) protocol support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup>    Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 <sup>2</sup>    Feature is supported at the preview level.
 
