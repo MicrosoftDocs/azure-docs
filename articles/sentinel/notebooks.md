@@ -79,6 +79,13 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
 
 **To create your workspace**:
 
+Select one of the following tabs, depending on whether you'll be using a public or private endpoint.
+
+- We recommend using a [public endpoint](#tab/public-endpoint) if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
+- If you want to use an Azure ML workspace in a virtual network, use a [private endpoint](#tab/private-endpoint).
+
+# [Public endpoint](#tab/public-endpoint)
+
 1. From the Azure portal, go to **Microsoft Sentinel** > **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
 
 1. Enter the following details, and then select **Next**.
@@ -95,7 +102,9 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
     |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
     | | |
 
-1. On the **Networking** tab, select whether to connect your workspace using a public endpoint, or using a private endpoint that you configure. If your Microsoft Sentinel workspace has a public endpoint, we recommend using a public endpoint for your Azure ML workspace to avoid potential issues in the network communication. When you're done, select **Review + create**.
+1. On the **Networking** tab, select **Public endpoint (all networks)**.
+
+    Define any relevant settings in the **Advanced** or **Tags** tabs, and then select **Review + create**.
 
 1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
 
@@ -109,8 +118,77 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
 
     :::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
 
-> [!NOTE]
-> If you want to use an Azure ML workspace in a virtual network, additional steps are required. For more information, see [below](#use-an-azure-ml-workspace-in-a-virtual-network).
+# [Private endpoint](#tab/windows)
+
+The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
+
+1.	Create a VM jump box within a VNet. Since the VNet restricts access from the public internet, the jump box is used as a way to connect to resources behind the VNet.
+
+1.	Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
+
+1. In Microsoft Sentinel, select **Threat management** > **Notebooks** and then select **Create a new AML workspace**.
+
+1. Enter the following details, and then select **Next**.
+
+    |Field|Description|
+    |--|--|
+    |**Subscription**|Select the Azure subscription that you want to use.|
+    |**Resource group**|Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution.|
+    |**Workspace name**|Enter a unique name that identifies your workspace. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.|
+    |**Region**|Select the location closest to your users and the data resources to create your workspace.|
+    |**Storage account**| A storage account is used as the default datastore for the workspace. You may create a new Azure Storage resource or select an existing one in your subscription.|
+    |**KeyVault**| A key vault is used to store secrets and other sensitive information that is needed by the workspace. You may create a new Azure Key Vault resource or select an existing one in your subscription.|
+    |**Application insights**| The workspace uses Azure Application Insights to store monitoring information about your deployed models. You may create a new Azure Application Insights resource or select an existing one in your subscription.|
+    |**Container registry**| A container registry is used to register docker images used in training and deployments. To minimize costs, a new Azure Container Registry resource is created only after you build your first image. Alternatively, you may choose to create the resource now or select an existing one in your subscription, or select **None** if you don't want to use any container registry.|
+    | | |
+
+1. On the **Networking** tab, select **Private endpoint**. Make sure to use the same VNet as you have in the VM jump box. For example:
+
+    :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
+
+1. Define any relevant settings in the **Advanced** or **Tags** tabs, and then select **Review + create**.
+
+1. On the **Review + create** tab, review the information to verify that it's correct, and then select **Create** to start deploying your workspace. For example:
+
+    :::image type="content" source="media/notebooks/machine-learning-create-last-step.png" alt-text="Review + create your Machine Learning workspace from Microsoft Sentinel.":::
+
+    It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
+
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNet that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](/azure/machine-learning/how-to-create-manage-compute-instance?tabs=python).
+
+1.	Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic).
+
+Continue with one of the following sets of steps:
+
+- **If you have one private link only**: You can now do any of the following:
+
+    - Clone and launch notebooks from Microsoft Sentinel to Azure Machine Learning
+    - Upload notebooks to Azure Machine Learning manually
+    - Clone the [Microsoft Sentinel notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) on the Azure Machine learning terminal
+
+- **If you have another private link, that uses a different VNET**, do the following:
+
+    1. In the Azure portal, go to the resource group of your Azure Machine Learning workspace, and then search for the **Private DNS zone** resources named **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**.  For example:
+
+        :::image type="content" source="media/notebooks/select-private-dns-zone.png" alt-text="Screenshot of a private DNS zone resource selected." lightbox="media/notebooks/select-private-dns-zone.png":::
+
+    1. For each resource, including both **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**, add a virtual network link.
+
+        Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal).
+
+For more information, see:
+
+- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
+
+---
+
+After your deployment is complete, you can go back to the Microsoft Sentinel **Notebooks** and launch notebooks from your new Azure ML workspace.
+
+If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
+
+:::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
+
 
 ## Launch a notebook in your Azure ML workspace
 
@@ -230,7 +308,7 @@ Having Microsoft Sentinel notebooks stored in your Azure ML workspace allows you
     !git clone https://github.com/Azure/Azure-Sentinel-Notebooks.git azure-sentinel-nb
     ```
 
-    A copy of the GitHub repository cotents is created in the **azure-Sentinel-nb** directory on your user folder in your Azure ML workspace.
+    A copy of the GitHub repository contents is created in the **azure-Sentinel-nb** directory on your user folder in your Azure ML workspace.
 
 1. Copy the notebooks you want from this folder to your working directory.
 
@@ -239,49 +317,6 @@ Having Microsoft Sentinel notebooks stored in your Azure ML workspace allows you
     ```python
     !cd azure-sentinel-nb && git pull
     ```
-
-## Use an Azure ML workspace in a virtual network
-
-This procedure describes the steps required to use an Azure ML workspace in a virtual network for your notebooks in Microsoft Sentinel, and references specific articles in the Azure Machine Learning documentation when relevant.
-
-**To use an Azure ML workspace in a virtual network for your notebooks**:
-
-1. Configure your network traffic to access Azure ML from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2Cpublic).
-
-1. Create a VM jump box within a VNet. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
-
-1. Access the jump box, and then go to your Microsoft Sentinel workspace. We recommend using [Azure Bastion](/azure/bastion/bastion-overview) to access the VM.
-
-1. Create an Azure Machine Learning workspace as [described earlier in this article](#create-an-azure-ml-workspace-from-microsoft-sentinel). In the **Networking** tab, make sure to select **Private Endpoint** and use the same VNET as you have in the VM jump box. For example:
-
-    :::image type="content" source="media/notebooks/create-private-endpoint.png" alt-text="Screenshot of the Create private endpoint page in Microsoft Sentinel." lightbox="media/notebooks/create-private-endpoint.png":::
-
-1. In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same VNET that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance.](/azure/machine-learning/how-to-create-manage-compute-instance?tabs=python).
-
-1. Do one of the following:
-
-    - **If you have one private link only**: You can now do any of the following:
-
-        - Clone and launch notebooks from Microsoft Sentinel to Azure Machine Learning
-        - Upload notebooks to Azure Machine Learning manually
-        - Clone the [Microsoft Sentinel notebooks GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) on the Azure Machine learning terminal
-
-    - **If you have another private link, that uses a different VNET**, do the following:
-
-        1. In the Azure portal, go to the resource group of your Azure Machine Learning workspace, and then search for the **Private DNS zone** resources named **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**.  For example:
-
-            :::image type="content" source="media/notebooks/select-private-dns-zone.png" alt-text="Screenshot of a private DNS zone resource selected." lightbox="media/notebooks/select-private-dns-zone.png":::
-
-        1. For each resource, including both **privatelink.api.azureml.ms** and **privatelink.notebooks.azure.ms**, add a virtual network link.
-
-            Select the resource > **Virtual network links** > **Add**. For more information, see [Link the virtual network](/azure/dns/private-dns-getstarted-portal).
-
-You're now ready to start [launching your notebooks from Microsoft Sentinel](#launch-a-notebook-in-your-azure-ml-workspace).
-
-For more information, see:
-
-- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
-- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
 
 ## Troubleshooting
 
