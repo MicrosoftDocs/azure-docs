@@ -47,39 +47,39 @@ The following sections provide guidance on normalizing and using the schema for 
 | Task | Description|
 | --- | --- |
 | **Normalize Netflow events** | To normalize Netflow events, map them to [network session fields](#network-session-fields). Netflow telemetry supports aggregation, and the `EventCount` field value should reflect this, and be set to the Netflow *Flows* value. |
-| **Use Netflow events** | Netflow events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. When creating an aggregative query, make sure that you consider the `EventCount` field value, which may not always be set to `1`. |
+| **Use Netflow events** | Netflow events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. When creating an aggregative query, make sure that you consider the `EventCount` field value, which may not always be set to `1`. |
 | | |
 
 ### Firewall log sources
 
 | Task | Description |
 | --- | --- |
-| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [event](#event-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
-| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [inNetworkNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [common](#common-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
+| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
 | | |
 
 ### Intrusion Prevention Systems (IPS) log sources
 
 | Task | Description |
 | --- | --- |
-| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [event fields](#event-fields), [network session fields](#network-session-fields), and [session inspection fields](#inspection-fields). Make sure to include your source-specific parser in both both the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
-| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [common](#common-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Make sure to include your source-specific parser in both both the [imNetworkSession](#source-agnostic-parsers) and [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
+| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) and [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
 | | |
 
 ### Web servers
 
 | Task | Description |
 | --- | --- |
-| **Normalize Web Servers Events** | To normalize events from a web server, map [Event fields](#event-fields), [Network Session fields](#network-session-fields), and [HTTP Session fields](#http-session-fields). Make sure to set the `EventType` value to `HTTP Session`, and follow the HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure to include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. |
-| **Use Web Server Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. However, to use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser. |
+| **Normalize Web Servers Events** | To normalize events from a web server, map [Common](#common-fields), [Network Session](#network-session-fields), and [HTTP Session](#http-session-fields) fields. Make sure to set the `EventType` value to `HTTP Session`, and follow the HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure to include your source-specific parser in both the [imNetworkSession](#source-agnostic-parsers) and [imWebSession](#source-agnostic-parsers) source-agnostic parsers. |
+| **Use Web Server Events** | Web Server events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. However, to use any HTTP-specific fields, use the [imWebSession](#source-agnostic-parsers) parser. |
 | | |
 
 ### Web security gateways
 
 | Task | Description |
 | --- | --- |
-| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [event fields](#event-fields), [network session fields](#network-session-fields), [HTTP session fields](#http-session-fields), [session inspection fields](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
-| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser.<br>- To analyze detected sessions, use the [inNetworkNotables](#use-parsers) source-agnostic parser. |
+| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [common](#common-fields), [network session](#network-session-fields), [HTTP session](#http-session-fields), [session inspection](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#source-agnostic-parsers) and [imWebSession](#source-agnostic-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
+| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#source-agnostic-parsers) parser.<br>- To analyze detected sessions, use the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
 | | |
 
 
