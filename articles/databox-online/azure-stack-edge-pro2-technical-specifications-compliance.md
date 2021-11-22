@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Technical specifications and compliance for Azure Stack Edge Pro 2 
 
-The hardware components of your Azure Stack Edge Pro 2 adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe hardware, power supply units (PSUs), storage capacity, enclosures, and environmental standards.
+The hardware components of your Azure Stack Edge Pro 2 adhere to the technical specifications and regulatory standards outlined in this article. The technical specifications describe hardware, power supply unit (PSU), storage capacity, enclosures, and environmental standards.
 
 ## Compute and memory specifications
 
@@ -40,7 +40,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro 2 dev
 
 ## Power supply unit specifications
 
-The Azure Stack Edge Pro device has two 100-240 V power supply units (PSUs) with high-performance fans. The two PSUs provide a redundant power configuration. If a PSU fails, the device continues to operate normally on the other PSU until the failed module is replaced. The following table lists the technical specifications of the PSUs.
+This device has one power supply unit (PSU) with high-performance fans. If this PSU fails, the device experiences a down time until the failed module is replaced. The following table lists the technical specifications of the PSU.  
 
 | Specification           | 550 W PSU                  |
 |-------------------------|----------------------------|
@@ -121,7 +121,7 @@ The device package weighs 36 lbs. and requires one person to handle it. The weig
 
 |     Enclosure                                 |     Weight          |
 |-----------------------------------------------|---------------------|
-|    Total weight including the packaging (device, packages bezel, packaged4-post King slide, one power cord, box, and foam)       |    36.0 lbs.          |
+|    Total weight including the packaging <br>(device, packages bezel, packaged4-post King slide, one power cord, box, and foam)       |    36.0 lbs.          |
 |    Weight of the device without bezel and without Wi-Fi                      |    20.5 lbs.          |
 |    Weight of the device with bezel                      |    21.7 lbs.          |
 
