@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman 
 ms.author: dfurman
 ms.reviewer: mathoma, urmilano, wiassaf
-ms.date: 08/24/2021
+ms.date: 11/22/2021
 ---
 # Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -21,7 +21,7 @@ To monitor the performance of a database in Azure SQL Database and Azure SQL Man
 
 | Monitoring solution | SQL Database | SQL Managed Instance | 
 |:--|:--|:--| 
-| [SQL insights](monitoring-sql-database-azure-monitor.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | 
+| [SQL insights (Preview)](monitoring-sql-database-azure-monitor.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | 
 | [Query Performance Insight](#generate-intelligent-assessments-of-performance-issues) | **Yes** | No |
 | [Monitor using DMVs](monitoring-with-dmvs.md) | **Yes** | **Yes** | 
 | [Monitor using query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)  | **Yes** | **Yes** 

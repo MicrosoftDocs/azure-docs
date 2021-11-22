@@ -11,7 +11,7 @@ ms.custom: subject-monitoring
 ms.date: 06/08/2021
 ---
 
-# Monitoring Azure SQL Database with Azure Monitor SQL insights
+# Monitoring Azure SQL Database with Azure Monitor SQL insights (preview)
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. 
 
