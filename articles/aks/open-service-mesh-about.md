@@ -45,10 +45,6 @@ OSM can assist your AKS deployments with the following scenarios:
 
 - Collection and viewing of KPIs from application traffic
 
-## OSM service quotas and limits (preview)
-
-OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](./quotas-skus-regions.md).
-
 <!-- LINKS - internal -->
 
 [kubernetes-service]: concepts-network.md#services

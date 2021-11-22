@@ -117,7 +117,7 @@ The following attributes and objects aren't supported:
    - Groups.
    - Complex anchors (for example, ObjectTypeName+UserName).
    - Binary attributes.
-   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning one-time passwords is supported. Please ensure that you are using the [Redact](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#redact) function to redact the passwords from the logs. The passwords are not exported on the initial call to the application, but rather a second call with set password.   
+   - On-premises applications are sometimes not federated with Azure AD and require local passwords. The on-premises provisioning preview does not support password synchronization. Provisioning initial one-time passwords is supported. Please ensure that you are using the [Redact](https://docs.microsoft.com/azure/active-directory/app-provisioning/functions-for-customizing-application-data#redact) function to redact the passwords from the logs. In the SQL and LDAP connectors, the passwords are not exported on the initial call to the application, but rather a second call with set password.   
 
 #### SSL certificates
    The Azure AD ECMA Connector Host currently requires either an SSL certificate to be trusted by Azure or the provisioning agent to be used. The certificate subject must match the host name the Azure AD ECMA Connector Host is installed on.
@@ -131,6 +131,9 @@ The following attributes and objects aren't supported:
 #### Provisioning agent
 - The agent does not currently support auto update for the on-prem application provisioning scenario. We are actively working to close this gap and ensure that auto update is enabled by default and required for all customers. 
 - The same provisioning agent cannot be used for on-prem app provisioning and cloud sync / HR- driven provisioning. 
+
+#### ECMA Host
+The ECMA host does not support updating the password in the connectivity page of the wizard. Please create a new connector when changing the password. 
 
 ## Next steps
 [How provisioning works](how-provisioning-works.md)

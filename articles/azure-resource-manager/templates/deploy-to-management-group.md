@@ -2,7 +2,7 @@
 title: Deploy resources to management group
 description: Describes how to deploy resources at the management group scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -28,10 +28,14 @@ For Azure Policy, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For Azure role-based access control (Azure RBAC), use:
+For access control, use:
 
+* [privateLinkAssociations](/azure/templates/microsoft.authorization/privatelinkassociations)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 For nested templates that deploy to subscriptions or resource groups, use:
 
@@ -39,6 +43,7 @@ For nested templates that deploy to subscriptions or resource groups, use:
 
 For managing your resources, use:
 
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [tags](/azure/templates/microsoft.resources/tags)
 
 Management groups are tenant-level resources. However, you can create management groups in a management group deployment by setting the scope of the new management group to the tenant. See [Management group](#management-group).
