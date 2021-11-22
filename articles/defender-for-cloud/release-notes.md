@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 11/21/2021
 ms.author: memildin
 ---
 # What's new in Microsoft Defender for Cloud?
@@ -41,6 +41,8 @@ Other changes in November include:
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Auto provisioning of vulnerability assessment solutions released for general availability (GA)](#auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
+- [Inventory display of on-premises machines applies different template for resource name](#inventory-display-of-on-premises-machines-applies-different-template-for-resource-name)
+
 
 ### Azure Security Center and Azure Defender become Microsoft Defender for Cloud
 
@@ -196,6 +198,13 @@ As part of this project, we've added a policy and recommendation (disabled by de
 You can safely ignore the policies and recommendation ("Kubernetes clusters should gate deployment of vulnerable images") and there will be no impact on your environment. 
 
 If you'd like to participate in the private preview, you'll need to be a member of the private preview ring. If you're not already a member, submit a request [here](https://aka.ms/atscale). Members will be notified when the preview begins.
+
+### Inventory display of on-premises machines applies different template for resource name
+
+To improve the presentation of resources in the [Asset inventory](asset-inventory.md), we've removed the "source-computer-IP" element from the template for naming on-premises machines.
+
+- **Previous format:** ``machine-name_source-computer-id_VMUUID``
+- **From this update:** ``machine-name_VMUUID``
 
 ## October 2021
 
