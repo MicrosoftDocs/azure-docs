@@ -15,13 +15,13 @@ ms.custom: devx-track-sql
 # Tutorial: Query Azure Data Lake Storage Gen2 using SQL language in Synapse Analytics
 
 This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled.
-This connection enables you to natively run SQL queries and analytics using SQL language on your data.
+This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure storage.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> - Create a Synapse Analytics workspace (if you don't have one).
 > - Ingest data into a storage account
+> - Create a Synapse Analytics workspace (if you don't have one).
 > - Run analytics on your data in Blob storage
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -83,19 +83,21 @@ In this section, you create an Azure Workspace.
 
 1. Select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Deploy to Azure](../../media/template-deployments/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 2. Enter or update the following values:
 
-   - **Subscription**: Select an Azure subscription.
-   - **Resource group**: Select **Create new** and enter a unique name for the resource group and select **OK**. A new resource group will facilitate resource clean up.
-   - **Region**: Select the region where you placed the your Azure Data Lake storage (for example, **Central US**).
-   - **Name**: Enter a name for your workspace.
+   - **Subscription**: Select the Azure subscription where you have the Azure storage account
+   - **Resource group**: Select the resource group where you placed your Azure Data Lake storage.
+   - **Region**: Select the region where you placed your Azure Data Lake storage (for example, **Central US**).
+   - **Name**: Enter a name for your Synapse workspace.
    - **SQL Administrator login**: Enter the administrator username for the SQL Server.
    - **SQL Administrator password**: Enter the administrator password for the SQL Server.
    - **Tag Values**: Accept the default.
    - **Review and Create**: Select.
    - **Create**: Select.
+
+When the deployment finishes, you will see Azure Synapse Analytics workspace in the list of the deployed resources. You cna follow the link to see mor edetails about the workspace and [Find your Synapse SQL endpoint name](#find-your-synapse-sql-endpoint-name).
 
 ## Find your Synapse SQL endpoint name
 
@@ -107,13 +109,16 @@ The server name for the serverless SQL pool in the following example is: `showde
 
 ![Full server name serverless SQL pool](../../synapse-analytics/sql/media/connect-overview/server-connect-example-sqlod.png)
 
-### Connect ot Synapse SQL endpoint
+### Connect to Synapse SQL endpoint
 
-Synapse SQL endpoint enables you to connnect with any tool that can run T-SQL queries on SQL server or Azure SQL database. 
-The examples are [SQL Server Managemenet Studio](../../synapse-analytics/sql/get-started-ssms,md),
+Synapse SQL endpoint enables you to connect with any tool that can run T-SQL queries on SQL server or Azure SQL database. 
+The examples are [SQL Server Management Studio](../../synapse-analytics/sql/get-started-ssms.md),
 [Azure Data Studio](../../synapse-analytics/sql/get-started-azure-data-studio.md), or [Power BI](../../synapse-analytics/sql/get-started-power-bi-professional.md),
 
-Use a tool that you prefer to use to connect to SQL endpooint, put the serverless SQL serverless endpoint name, and connect with Azure AD authentication to connect.
+Use a tool that you prefer to use to connect to SQL endpoint, put the serverless SQL serverless endpoint name, and connect with Azure AD authentication to connect.
+
+  > [!IMPORTANT]
+  > Do not use SQL authentication with username nad password because this will require additional steps to enable SQL login to access your Azure storage account.
 
 ## Explore data
 
@@ -130,12 +135,14 @@ FROM
     ) AS [result]
 ```
 
+When you execute the query, you will see the content of the file.
 
 ## Clean up resources
 
-When they're no longer needed, delete the resource group and all related resources. To do so, select the resource group for the storage account and select **Delete**.
+When they're no longer needed, delete your Synapse Analytics workspace. Note that the workspace is not charged if you are nto using it, so you will get **no billing even if you keep it**.
+Do not delete the resource group if you have selected the resource group where your Azure strorage is placed.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Extract, transform, and load data using Apache Hive on Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
+> [Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md)
