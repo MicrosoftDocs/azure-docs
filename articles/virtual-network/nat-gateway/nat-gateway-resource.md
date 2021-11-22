@@ -23,15 +23,15 @@ Network Address Translation (NAT) gateway resources provide outbound internet co
 
 NAT provides Source Network Address Translation (SNAT) for a subnet. NAT gateway resources specify which static IP addresses VMs use when they create outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. If a NAT gateway resource uses a public IP prefix resource, all IP addresses of the entire public IP prefix resource are consumed by the NAT gateway resource. A NAT gateway resource can use a maximum of 16 static IP addresses from either type of public IP resource.
 
-<p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for outbound to the internet">
-</p>
+The following figure depicts Virtual Network NAT for flows that are outbound to the internet:
 
-*Figure: Virtual Network NAT for outbound to the internet*
+<p align="center">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
+</p>
 
 ## NAT deployment
 
-You can set up and use a NAT gateway in just a few steps.
+You can set up and begin to use a NAT gateway in a few steps:
 
 1. Set up the NAT gateway resource:
 
@@ -47,7 +47,7 @@ You don't need to create user-defined routes for a NAT gateway.
 
 ## Design guidance
 
-As you begin to design virtual networks to use NAT gateway resources, review the following sections for factors to consider. 
+As you begin to design virtual networks to use NAT gateway resources, review the following sections for factors to consider.
 
 ### Connect to Azure services
 
@@ -57,15 +57,21 @@ Private Link also helps you manage access to your Azure service resources. For e
 
 ### Connect to the internet
 
-We recommend NAT in outbound scenarios for all production workloads that connect to a public endpoint. The following scenarios are examples of how to ensure coexistence of inbound internet when you use a NAT gateway for outbound internet.
+We recommend that you use NAT in outbound scenarios for all production workloads that connect to a public endpoint. The following scenarios are examples of how to ensure coexistence of inbound internet when you use a NAT gateway for outbound internet.
 
-#### NAT and VM with an instance-level public IP
+## NAT and VM scenarios
+
+The following sections describe scenarios you can set up to use NAT and VMs in your subnets.
+
+### Instance-level public IP
+
+The following figure depicts using NAT with a VM that uses an instance-level public IP:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT and VM with instance-level Public IP">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT and VM with an instance-level public IP">
 </p>
 
-*Figure: Virtual Network NAT and VM with an instance-level public IP*
+The following table describes using NAT with a VM that uses an instance-level public IP:
 
 | Direction | Resource |
 |:---:|:---:|
@@ -74,35 +80,39 @@ We recommend NAT in outbound scenarios for all production workloads that connect
 
 The VM uses the NAT gateway for outbound. Inbound originated isn't affected.
 
-#### NAT and VM with a standard public load balancer
+### Standard public load balancer
+
+The following figure depicts using NAT with a VM that uses a standard public load balancer:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction3.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with a public load balancer">
+  <img src="media/nat-overview/flow-direction3.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with a public load balancer." width="350" title="Virtual Network NAT and VM with a standard public load balancer">
 </p>
 
-*Figure: Virtual Network NAT and VM with a public load balancer*
+The following table describes using NAT with a VM that uses a standard public load balancer:
 
 | Direction | Resource |
 |:---:|:---:|
-| Inbound | Public load balancer |
+| Inbound | VM with a public load balancer |
 | Outbound | NAT gateway |
 
 A NAT gateway supersedes any outbound configuration from a load-balancing rule or from outbound rules. Inbound originated isn't affected.
 
-#### NAT and VM with an instance-level public IP and a standard public load balancer
+#### Instance-level public IP and standard public load balancer
+
+The following figure depicts using NAT with a VM that uses an instance-level public IP and a standard public load balancer:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with an instance-level public IP and a public load balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and standard public load balancer">
 </p>
 
-*Figure: Virtual Network NAT and VM with an instance-level public IP and a public load balancer*
+The following table describes using NAT with a VM that uses an instance-level public IP and a standard public load balancer:
 
 | Direction | Resource |
 |:---:|:---:|
 | Inbound | VM with an instance-level public IP and a public load balancer |
 | Outbound | NAT gateway |
 
-A NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules. The VM also uses the NAT gateway for outbound. Inbound originated isn't affected.
+A NAT gateway supersedes any outbound configuration from a load-balancing rule or from outbound rules. The VM also uses the NAT gateway for outbound. Inbound originated isn't affected.
 
 ## Performance
 
@@ -112,13 +122,13 @@ Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outb
 
 ## SNAT
 
-SNAT rewrites the source of a flow so that it originates from a different IP address. NAT gateway resources use a variant of SNAT that's commonly referred to as *port address translation (PAT)*. PAT rewrites the source address and the source port. In SNAT, no fixed relationship exists between the number of private addresses and their translated public addresses. 
+SNAT rewrites the source of a flow so that the flow originates from a different IP address. NAT gateway resources use a variant of SNAT that's commonly referred to as *port address translation (PAT)*. PAT rewrites the source address and the source port. In SNAT, no fixed relationship exists between the number of private addresses and their translated public addresses.
 
 <a id="source-network-address-translation"></a>
 
 ### Fundamentals
 
-Let's look at an example of four flows. In this example, the NAT gateway uses public IP address resource 65.52.1.1 and the VM makes connections to 65.52.0.1.
+Let's look at an example of four flows. The following table illustrates an example in which the NAT gateway uses public IP address resource 65.52.1.1 and the VM makes connections to 65.52.0.1.
 
 | Flow | Source tuple | Destination tuple |
 |:---:|:---:|:---:|
@@ -126,7 +136,7 @@ Let's look at an example of four flows. In this example, the NAT gateway uses pu
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
 
-After PAT, here's what the flows might look like:
+The following table illustrates what the flows might look like after PAT:
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -134,7 +144,7 @@ After PAT, here's what the flows might look like:
 | 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-The destination sees the source of the flow as 65.52.0.1 (source tuple after SNAT), with the assigned port that's shown in the table. PAT as shown in the table is also called *port masquerading SNAT*. Multiple private sources are masqueraded behind an IP and port. 
+The destination sees the source of the flow as 65.52.0.1 (source tuple after SNAT), with the assigned port that's shown in the table. PAT as shown in the table is also called *port masquerading SNAT*. Multiple private sources are masqueraded behind an IP and port.
 
 #### Source (SNAT) port reuse
 
@@ -144,7 +154,7 @@ NAT gateways opportunistically reuse source (SNAT) ports. The following table il
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway likely will translate flow 4 to a port that can also be used for other destinations. For more information about how to correctly size IP address provisioning, see [Scaling](#scaling).
+A NAT gateway likely will translate flow 4 to a port that can also be used for other destinations, as shown in the next table. For more information about how to correctly size IP address provisioning, see [Scaling](#scaling).
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -158,19 +168,19 @@ SNAT that's provided by NAT is different from SNAT that's provided by a [load ba
 
 NAT provides on-demand SNAT ports for new outbound traffic flows. VMs on subnets that are configured to use NAT use all SNAT ports that are available in inventory.
 
+The following diagram depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT:
+
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Diagram that depicts inventory of all available SNAT ports used by any V M on subnets configured with N A T." width="550" title="Virtual Network NAT on-demand for outbound SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with N A T." width="550" title="Virtual Network NAT on-demand for outbound SNAT">
 </p>
 
-*Figure: Virtual Network NAT on-demand for outbound SNAT*
+Any IP configuration of a VM can create outbound flows on-demand as needed. You don't need to consider pre-allocation or per-instance planning, including per-instance worst-case over-provisioning.
 
-Any IP configuration of a VM can create outbound flows on-demand as needed. You don't need to consider pre-allocation or per-instance planning, including per-instance worst-case over-provisioning. 
+The following diagram depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT with an exhaustion threshold:
 
 <p align="center">
   <img src="media/nat-overview/exhaustion-threshold.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with N A T with an exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
 </p>
-
-*Figure: Differences in exhaustion scenarios*
 
 After a SNAT port releases, it's available for use by any VM on subnets that are configured to use NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. If SNAT port inventory is available, SNAT flows succeed. SNAT port hotspots benefit from a larger inventory. SNAT ports aren't left unused for VMs that don't actively need them.
 
@@ -222,6 +232,6 @@ NAT gateway resources have the following limitations:
 
 ## Next steps
 
-- Learn about [virtual network NAT](nat-overview.md).
+- Review [virtual network NAT](nat-overview.md).
 - Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
-- Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
+- Learn how to [troubleshoot NAT gateway resources](troubleshoot-nat.md).
