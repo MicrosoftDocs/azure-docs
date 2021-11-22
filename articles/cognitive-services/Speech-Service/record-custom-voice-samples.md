@@ -48,7 +48,7 @@ Actors with experience in voiceover or voice character work make good custom neu
 
 Your voice talent is the other half of the equation. They must be able to speak with consistent rate, volume level, pitch, and tone. Clear diction is a must. The talent also needs to be able to strictly control their pitch variation, emotional affect, and speech mannerisms. Recording voice samples can be more fatiguing than other kinds of voice work. Most voice talent can record for two or three hours a day. Limit sessions to three or four a week, with a day off in-between if possible.
 
-Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom neural voice. In the process, you'll pinpoint what "neutral" sounds like for that persona. Using the custom neural voice capability, you can train a model that speaks with emotions. Define the "speaking styles" and ask your voice talent to read the script in a way that resonates the styles you want.  
+Work with your voice talent to develop a "persona" that defines the overall sound and emotional tone of the custom neural voice. In the process, you'll pinpoint what "neutral" sounds like for that persona. Using the Custom Neural Voice capability, you can train a model that speaks with emotions. Define the "speaking styles" and ask your voice talent to read the script in a way that resonates the styles you want.  
 
 A persona might have, for example, a naturally upbeat personality. So "their" voice might carry a note of optimism even when they speak neutrally. However, such a personality trait should be subtle and consistent. Listen to readings by existing voices to get an idea of what you're aiming for.
 
