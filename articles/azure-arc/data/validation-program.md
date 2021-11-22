@@ -107,4 +107,6 @@ More tests will be added in future releases of Azure Arc-enabled data services.
 
 ## Next steps
 
-[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)[Create a data controller[Start by creating a Data Controller](create-data-controller-indirect-cli.md)
+- [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
+- [Create a data controller - indirectly connected with the CLI](create-data-controller-indirect-cli.md)
+- To create a directly connected data controller, start with [Prerequisites to deploy the data controller in direct connectivity mode](create-data-controller-direct-prerequisites.md).

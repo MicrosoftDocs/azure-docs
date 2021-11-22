@@ -24,12 +24,12 @@ In order to experience Azure Arc-enabled data services, you will need to complet
 
    The details in this article will guide your plan.
 
-1. Install the [Install client tools](install-client-tools.md)
+1. [Install client tools](install-client-tools.md)
 1. Access a Kubernetes cluster
 
-   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the steps at [Create cluster on AKS](create-aks-cluster-for-data-controller.md).
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the steps at [Create cluster on AKS](create-aks-cluster-data-controller.md).
 
-1. Create the data controller  [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md)
+1. [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md)
 
    For other ways to create a data controller see the links under [Next steps](#next-steps).
 

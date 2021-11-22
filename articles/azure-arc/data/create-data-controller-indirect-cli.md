@@ -46,8 +46,6 @@ export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 
 # [Windows (PowerShell)](#tab/windows)
 
-Windows PowerShell
-
 ```PowerShell
 ## variables for Metrics and Monitoring dashboard credentials
 $ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
@@ -71,11 +69,6 @@ kubectl config current-context
 
 ## Create the Azure Arc data controller
 
-The following sections 
-
-> [!NOTE]
-> You can use a different value for the `--namespace` parameter of the `az arcdata dc create` command in the examples below, but be sure to use that namespace name for the `--namespace` parameter in all other commands below.
-
 The following sections provide instructions for specific types of Kubernetes platforms. Follow the instructions for your platform.
 
 - [Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
@@ -87,7 +80,7 @@ The following sections provide instructions for specific types of Kubernetes pla
 - [Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
 
 > [!TIP]
-> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions under [Create cluster on AKS](create-aks-cluster-for-data-controller.md). 
+> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions under [Create cluster on AKS](create-aks-cluster-data-controller.md). 
 >
 > Then follow the instructions under [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks).
 
