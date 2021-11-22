@@ -42,7 +42,7 @@ dotnet build
 
 ### Initialize a Rooms client
 
-Create a new `RoomsClient` object that will be used to create new `Rooms` and manage their properties and lifecycle. To authenticate the request, you will need the connection string for the `Communications Service` you intend to use. See [this page](../create-communication-resource.md#access-your-connection-strings-and-service-endpoints) for additional details and ways to retrieve the `Communication Services` connection string.  
+Create a new `RoomsClient` object that will be used to create new `Rooms` and manage their properties and lifecycle. The connection string of your `Communications Service` will be used to authenticate the request. For more information on connection strings, see [this page](../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 ```csharp
 // Find your Communication Services resource in the Azure portal
@@ -52,7 +52,7 @@ RoomsClient client = new RoomsClient(connectionString);
 
 ### Create a Room
 
-Create a new `Room` with default properties using default properties using the code snippet below.
+Create a new `Room` with default properties using the code snippet below:
 
 ```csharp
 CreateRoomRequest createRoomRequest = new CreateRoomRequest();
@@ -61,7 +61,7 @@ RoomResult createRoomResult = createRoomResponse.Value;
 string roomId = createRoomResult.Id;
 ```
 
-Because `Rooms` are server-side entities, you will need to keep track of and persist the `roomId` in the storage medium of choice. You will need to reference a `roomId` to view or update the properties of a `Room` object. 
+Since `Rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `Room` object. 
 
 ### Get properties of an existing room
 
@@ -139,6 +139,6 @@ The table below lists the main properties of `Room` objects:
 | Name                  | Description                               |
 |-----------------------|-------------------------------------------|
 | `roomId`              | Unique `Room` identifier.                  |
-| `ValidFrom`           | Earliest point in time when a `Room` can be used. | 
-| `ValidUntil`          | Latest point in time when a `Room` can be used. |
+| `ValidFrom`           | Earliest time a `Room` can be used. | 
+| `ValidUntil`          | Latest time a `Room` can be used. |
 | `Participants`        | List of pre-existing participant IDs.       | 
