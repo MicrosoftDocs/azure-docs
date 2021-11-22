@@ -17,6 +17,6 @@ Support for Unity 2020 was added with ASA SDK 2.9.0. We suggest using the latest
   
 ### [Unity 2019](#tab/unity-2019)
 
-The minimum supported version is ASA SDK 2.7.0. The latest version that provides support for Unity 2019 is ASA SDK 2.8.1.
+The minimum supported version in Unity 2019 is ASA SDK 2.7.0. The latest version that provides support for Unity 2019 is ASA SDK 2.8.1.
 
 
