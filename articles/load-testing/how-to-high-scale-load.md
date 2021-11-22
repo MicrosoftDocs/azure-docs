@@ -67,4 +67,4 @@ In this section, you'll configure the scaling settings of your load test.
 
 - For information about how to compare test results, see [Compare multiple test results](./how-to-compare-multiple-test-runs.md).
 
-- To learn how performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
