@@ -48,7 +48,7 @@ dotnet add package Azure.Communication.Identity --version 1.0.0
 You will also need to install the Azure Monitor Exporter for OpenTelemetry library.
 
 ```console
-dotnet add package Azure.Monitor.OpenTelemetry.Exporter
+dotnet add package Azure.Monitor.OpenTelemetry.Exporter -v 1.0.0-beta.3
 ```
 
 ### Set up the app framework
