@@ -1,59 +1,62 @@
 ---
-title: Map data for your device in IoT Central | Microsoft Docs
-description: IoT devices send complex data that may need to be transformed at ingress for using the device data inside IoT Central or exporting the data to a destination. This article describes how to map device data on the way into IoT Central. 
+title: Transform telemetry at ingress to IoT Central | Microsoft Docs
+description: To use complex telemetry from devices, you can use mapping to transform telemetry as it arrives in your IoT Central application. This article describes how to map device telemetry on ingress to IoT Central. 
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/06/2021
+ms.date: 11/22/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 
-# This topic applies to solution builders.
 ---
 
-# Data mapping in IoT Central
+<!-- Is it just telemetry or properties as well? Check terminology with Sekhar - UI says data, but it only appears to work with telemetry... -->
 
-Data mapping lets you transform complex device data into structured data inside IoT Central. For each of your device, you can map a specific JSONpath in the device data message to an Alias, a friendly name to indicate what the JSONpath is leading to. IoT Central will use the device mapped aliases information to do a data transformation at the way into IoT Central (ingress) and provide mapped data that you can use in creating device templates and device management experiences in IoT Central. By mapping JSONpaths to a common alias across multiple devices, you can normalize the data and use it for device management. Also, you can export the mapped data to a destination outside of IoT Central.
+# Map telemetry on ingress to IoT Central
 
+Data mapping lets you transform complex device telemetry into structured data inside IoT Central. For each of your devices, you can map a specific JSON path in the device telemetry message to an _alias_. An alias is a friendly name for the target you're mapping to. IoT Central uses the aliases to transform telemetry on the way in to IoT Central. Use the transformed data to create device templates and device management experiences in IoT Central. When you map JSON paths on multiple devices to a common alias, you can normalize the telemetry and use it for device management. You can export the mapped telemetry to destinations outside of IoT Central.
 
-:::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Summary of data mapping" border="false":::
+:::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Summary of telemetry mapping" border="false":::
 
+This article shows you how to map telemetry for a device in IoT Central.
 
-This article shows you how to map data for each of your device in IoT Central.
+## Map telemetry for your device
 
-## Map data for your device 
+A mapping uses a [JSONPath](https://goessner.net/articles/JsonPath/) expression to identify the value in an incoming telemetry message to map to an alias:
 
-Using IoT Central portal devices page, you can start from any of the following sections to reach the Map data panel.To map data, you have to provide a JSONpath from your device message and an alias. You can either select a specific JSON path from the device Raw data or manually enter a JSONpath. When manually entering a JSONpath, follow the JSONpath notation to provide a JSONpath from your device message.
+A JSONPath expression begins with the `$` character, which refers to the root element of the message. The `$` is followed by a sequence of child elements separated using square brackets. For example:
 
-**JSONpath Notation**
-A JSONpath expression begins with the dollar sign ($) character, which refers to the root element of the message. The dollar sign is followed by a sequence of child elements, which are separated via the square brackets. Following are few examples of JSONpath notation
-
+```json
 $["messages"]["tmp"]
 
-$["opcua"]["payload][0]["value"]
+$["opcua"]["payload"][0]["value"]
+```
 
+To create a mapping in your IoT Central application, choose one of the following options to navigate to the **Map data** panel:
 
-1. **Manage device**: Navigate to Manage device and then select Map data. Now you will see a Map data panel. On the left hand side of the panel, you will find the latest message from your device. Hover over any part of the data and click + Add Alias. The JSONpath in the message will be copied to your right hand JSONpath. Verify the path and add an Alias. Add as many JSONpath and Alias combinations as required and then click Save. 
+* From any device page, select **Manage device > Map data**.
 
-    > [!TIP]
-    > If there is no data in left side panel then manually enter a JSONpath
+    :::image type="content" source="media/howto-map-data/manage-device.png" alt-text="Manage device" border="false":::
 
-:::image type="content" source="media/howto-map-data/manage-device.png" alt-text="Manage device" border="false":::
+    :::image type="content" source="media/howto-map-data/map-data-panel1.png" alt-text="Map data panel" border="false":::
 
-:::image type="content" source="media/howto-map-data/map-data-panel1.png" alt-text="Map data panel" border="false":::
+* From the **Raw data** view for your device, expand any telemetry message, hover the mouse pointer over a path, and select **Add alias**. The **Map data** panel opens with the JSONPath expression copied to the **JSON path** field.
 
-2. **Raw data view**: From the device Raw data view section, expand any device message and hover over the path of device data that you want add as a JSONpath. Now click +Add alias. This will take you to Map data panel with JSON already copied. Now you can add an alias and click Save.
+    :::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Raw data view" border="false":::
 
-:::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Raw data view" border="false":::
+The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add your **Alias** name. Add as many mappings as you need and then select **Save**.
 
-Once the JSON path and Alias are saved, you can find them the mapped aliases section. To verify that IoT Central is create mapped data, navigate to Raw data view section and verify in the _mappeddata section
+> [!TIP]
+> If there's no data in left hand panel, you can manually enter a JSONPath expression in the **JSON path** field.
 
-    > [!TIP]
-    > For devices assigned to a template, you cannot map data for component and inherited interfaces. In this case, a better way is to map data for your device before you assign it to template
+You view your saved mappings for the device on the **Mapped aliases** page. To verify that IoT Central is mapping the data, navigate to **Raw data** view for your device and check the `_mappeddata` section.
 
+For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can map any data from your device before you assign it to a device template.
 
-## Edit or Delete Mapped aliases
-To edit or delete JSONpath and aliases, navigate to the Mapped aliases section and select a JSON path to alias mapping to edit or delete. You can select multiple mappings and delete them at once.
+## Edit or delete mappings
+
+To edit or delete mappings, navigate to the **Mapped aliases** page and select a mapping to edit or delete it. You can select multiple mappings and delete them at the same time.
 
 ## Next steps
+
 Now that you've learned how to map data for your device, a suggested next step is to learn [How to use analytics to analyze device data](howto-create-analytics.md).
