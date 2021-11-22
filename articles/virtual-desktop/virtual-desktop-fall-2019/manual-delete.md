@@ -36,7 +36,7 @@ Before you begin, make sure you have the following things ready:
     Login-AzAccount
     ```
 
-3. If you have multiple subscriptions, select the one you want to migrate your resources to with this cmdlet:
+3. If you have multiple subscriptions, select the one you want to delete your resources to with this cmdlet:
 
     ```powershell
     Select-AzSubscription -Subscriptionid <subID>
