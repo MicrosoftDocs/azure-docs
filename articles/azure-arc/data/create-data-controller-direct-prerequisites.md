@@ -149,6 +149,8 @@ When you deploy Azure Arc-enabled data controller, you can enable automatic uplo
 
 You can also enable or disable automatic upload of metrics and logs after you deploy the data controller. 
 
+For instructions, see [Create a log analytics workspace](upload-logs.md#create-a-log-analytics-workspace).
+
 ## Create Azure Arc data services
 
 After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).

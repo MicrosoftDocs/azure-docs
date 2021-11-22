@@ -34,7 +34,7 @@ Create the cluster in the resource group that you created previously.
 The following example creates a 3 node cluster, with monitoring enabled, and generates public and private key files if missing.
 
 ```azurecli
-az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 4 --enable-addons monitoring --generate-ssh-keys
+az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size Standard_D8s_v3
 ```
 
 For command details, see [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create).

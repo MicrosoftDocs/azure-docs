@@ -13,6 +13,9 @@ ms.topic: how-to
 
 This article describes how to plan to deploy Azure Arc-enabled data services.
 
+> [!TIP]
+> Review all of the information in this article before you start your deployment. 
+
 ## Deployment steps
 
 In order to experience Azure Arc-enabled data services, you will need to complete the following tasks.
@@ -24,7 +27,7 @@ In order to experience Azure Arc-enabled data services, you will need to complet
 1. Install the [Install client tools](install-client-tools.md)
 1. Access a Kubernetes cluster
 
-   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. In production, deploy one of the other cluster services listed in this article under [Overview: Create an Azure Arc-enabled data controller](#overview-create-an-azure-arc-enabled-data-controller).
+   For demonstration, testing, and validation purposes, you can use an Azure Kubernetes Service cluster. To create a cluster, follow the steps at [Create cluster on AKS](create-aks-cluster-for-data-controller.md).
 
 1. Create the data controller  [Create Azure Arc data controller in direct connectivity mode (prerequisites)](create-data-controller-direct-prerequisites.md)
 
