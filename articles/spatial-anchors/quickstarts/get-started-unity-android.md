@@ -32,7 +32,7 @@ To complete this quickstart, make sure you have:
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
   - Additional device drivers may be required for your computer to communicate with your Android device. For more additional information and instructions, see [here](https://developer.android.com/studio/run/device.html).
 - A Windows or macOS machine.
-  - If running on Windows, you'll also need <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
+  - If running on Windows, you also need <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a> and <a href="https://git-lfs.github.com/">Git LFS</a>.
   - If running on macOS, get Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git` and `brew install git-lfs`.
 - A Unity installation, including the **Android Build Support** with **Android SDK & NDK Tools** and **OpenJDK** modules. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
 
