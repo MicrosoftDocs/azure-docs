@@ -30,7 +30,7 @@ As soon as you create an Azure resource, Azure Monitor is enabled and starts col
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time series database. The metric database is automatically created for each Azure subscription. Use [metrics explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Logs.
 - [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/log-analytics-tutorial.md) to analyze data from Azure Monitor Logs.
 
-### Monitoring data from Azure resources
+### Monitor data from Azure resources
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
 
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:

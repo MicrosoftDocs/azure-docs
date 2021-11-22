@@ -9,7 +9,8 @@ ms.date: 11/10/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
-SQL insights is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
+
+SQL insights (preview) is a comprehensive solution for monitoring any product in the [Azure SQL family](../../azure-sql/index.yml). SQL insights uses [dynamic management views](../../azure-sql/database/monitoring-with-dmvs.md) to expose the data that you need to monitor health, diagnose problems, and tune performance.  
 
 SQL insights performs all monitoring remotely. Monitoring agents on dedicated virtual machines connect to your SQL resources and remotely gather data. The gathered data is stored in [Azure Monitor Logs](../logs/data-platform-logs.md) to enable easy aggregation, filtering, and trend analysis. You can view the collected data from the SQL insights [workbook template](../visualize/workbooks-overview.md), or you can delve directly into the data by using [log queries](../logs/get-started-queries.md).
 
@@ -97,6 +98,8 @@ The tables have the following columns:
 | Schedulers| AzureSQLDBSchedulers | sqlserver_schedulers | sys.dm_os_schedulers | No | Not applicable  |
 
 ### Data for Azure SQL Database elastic pools
+
+
 
 ### Data for Azure SQL Managed Instance 
 

@@ -10,6 +10,8 @@ ms.subservice: performance
 ms.custom: subject-monitoring
 ms.date: 06/08/2021
 ---
+> [!CAUTION]
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
 
 # Monitoring Azure SQL Database data reference
 

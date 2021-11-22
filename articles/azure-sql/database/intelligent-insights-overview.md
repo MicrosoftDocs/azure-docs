@@ -19,7 +19,7 @@ Intelligent Insights in Azure SQL Database and Azure SQL Managed Instance lets y
 
 Intelligent Insights uses built-in intelligence to continuously monitor database usage through artificial intelligence and detect disruptive events that cause poor performance. Once detected, a detailed analysis is performed that generates an Intelligent Insights resource log called SQLInsights (unrelated to [Azure Monitor SQL insights](../../azure-sql/database/monitoring-sql-database-azure-monitor.md)) with an [intelligent assessment of the issues](intelligent-insights-troubleshoot-performance.md). This assessment consists of a root cause analysis of the database performance issue and, where possible, recommendations for performance improvements.
 
-## What can Intelligent Insights do for you
+## What can Intelligent Insights do for you?
 
 Intelligent Insights is a unique capability of Azure built-in intelligence that provides the following value:
 

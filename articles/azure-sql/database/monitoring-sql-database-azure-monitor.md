@@ -1,6 +1,6 @@
 ---
-title: Monitoring Azure SQL Database with Azure Monitor
-description: Start here to learn how to monitor Azure SQL Database with Azure Monitor
+title: Monitoring Azure SQL Database with Azure Monitor SQL insights (preview)
+description: Start here to learn how to monitor Azure SQL Database with Azure Monitor SQL insights (preview)
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: conceptual
@@ -10,8 +10,10 @@ ms.subservice: performance
 ms.custom: subject-monitoring
 ms.date: 06/08/2021
 ---
+> [!CAUTION]
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
 
-# Monitoring Azure SQL Database with Azure Monitor SQL insights (preview)
+# Monitor Azure SQL Database with Azure Monitor SQL insights (preview)
 
 When you have critical applications and business processes relying on Azure resources, you want to monitor those resources for their availability, performance, and operation. 
 

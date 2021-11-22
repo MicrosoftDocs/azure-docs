@@ -1,28 +1,24 @@
 ---
-title: Azure SQL Analytics solution in Azure Monitor | Microsoft Docs
+title: Azure SQL Analytics solution in Azure Monitor (preview)
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
-
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 09/19/2020
-
-ms.reviewer: carlrab 
+ms.date: 11/22/2021
+ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell
 ---
 
-# Monitor Azure SQL Database using Azure SQL Analytics (Preview)
+> [!CAUTION]
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
+
+# Monitor Azure SQL Database using Azure SQL Analytics (preview)
 
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics (preview) is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
 By using these collected metrics, you can create custom monitoring rules and alerts. Azure SQL Analytics helps you to identify issues at each layer of your application stack. It uses Azure Diagnostic metrics along with Azure Monitor views to present data about all your Azure SQL databases in a single Log Analytics workspace. Azure Monitor helps you to collect, correlate, and visualize structured and unstructured data.
-
-For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
-
->[!VIDEO https://www.youtube.com/embed/j-NDkN4GIzg]
->
 
 ## Connected sources
 
@@ -51,7 +47,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 | Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
 | Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
-## Configuration
+## Configuration of Azure SQL Analytics (preview)
 
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
@@ -135,9 +131,9 @@ To use Azure SQL Analytics, users need to be granted a minimum permission of the
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Recognizing that some organizations enforce strict permission controls in Azure, find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
+Recognizing that some organizations enforce strict permission controls in Azure, find the following PowerShell script enabling creation of a custom role "SQL Analytics Monitoring Operator" in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
-Replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
+Replace the "{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
    ```powershell
     Connect-AzAccount
