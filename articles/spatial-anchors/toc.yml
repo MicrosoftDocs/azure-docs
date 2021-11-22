@@ -96,6 +96,10 @@ items:
   items:
   - name: Azure Spatial Anchors samples (GitHub)
     href: https://github.com/Azure/azure-spatial-anchors-samples
+  - name: MROpenXR Azure Spatial Anchors sample (GitHub)
+    href: https://github.com/microsoft/OpenXR-Unity-MixedReality-Samples
+  - name: MRTK Azure Spatial Anchors learning module
+    href: /learn/modules/azure-spatial-anchors-tutorials/
 - name: Concepts
   items:
   - name: Authentication
