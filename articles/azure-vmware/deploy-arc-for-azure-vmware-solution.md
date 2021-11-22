@@ -58,12 +58,12 @@ az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 
 ## How to deploy Azure Arc
 
-While invoking the script, you'll be required to define one of the following operations, **Onboard, or **Offboard**.
+While invoking the script, you'll be required to define one of the following operations: **Onboard**, or **Offboard**.
 
 **Onboard**
 
 1. Download and install the required tools to execute preview software from jump box (Azure CLI tools, Python, etc.). 
-1. Create Azure VMware Solution segment as per details if not present already. Create DNS server and zones if not present already. Fetch vCenter credentials. 
+1. Create Azure VMware Solution segment as per details if not present already. Create Domain Name Server (DNS) and zones if not present already. Fetch vCenter credentials. 
 1. Create template for Arc Appliance and take snapshot from template created. 
 1. Deploy the Arc for Azure VMware Solution appliance VM. 
 1. Create an Azure Resource Manager template (ARM template) resource for the appliance. 
@@ -80,7 +80,7 @@ While invoking the script, you'll be required to define one of the following ope
 1. Delete the Custom Location resource, the Kubernetes extension for Azure VMware operator, the Appliance resource.   
 1. Delete the appliance VM. 
 
-### Onboard in Arc for Azure VMware Solution preview
+### Process to onboard in Arc for Azure VMware Solution preview
 
 Use the steps below to onboard in Arc for Azure VMware Solution preview.
 
@@ -141,27 +141,58 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
 
     Run the following commands to execute the installation script. 
 
-    # [Windows based jump box/VM](#tab/json)
+    # [Windows based jump box/VM](#tab/windows)
     Script isn't signed so we need to bypass Execution Policy in PowerShell. Run the following commands.
 
     ```json
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass; .\run.ps1 -Operation onboard -FilePath {config-json-path}
     ```
-    # [Linux based jump box/VM](#tab/json)
+    # [Linux based jump box/VM](#tab/linux)
     Add execution permission for the script and run it.
     
     ```json
     $ chmod +x run.sh  
-
     $ sudo bash run.sh onboard {config-json-path} 
     ```
+---
 
-1. You'll now see additional (new) Azure Resources being created in your Resource Group.
-    1. Resource bridge
-    1. Custom location
-    1. VMware vCenter
+4. You'll see additional (new) Azure Resources being created in your Resource Group.
+    - Resource bridge
+    - Custom location
+    - VMware vCenter
 
     In this example, we used the same Resource Group. 
  
+## Discover and project your VMware infrastructure resources to Azure
 
-## Discover and projection from Azure VMware Solution Private cloud Blade 
+When Arc appliance is successfully deployed on a customer's private cloud, they can do the following:
+
+- View the status from within the private cloud blade under **Operations > Arc**. 
+- View their Mware infrastructure resources from the private cloud blade under **Private cloud** then select **Azure Arc vCenter resources**.
+- Project their VMware infrastructure resources to Azure using the same browse experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
+- Similar to VMs, customers can enable networks, templates, resource pools and data-stores in Azure.
+
+Once customers enable VMs to be managed from Azure, they can proceed to install guest management. By installing guest management, they can do the following:
+
+- Enable customers to install and use extensions.
+    - To enable guest management, customers will be required to use admin credentials. 
+    - VMtools should already be running on the VM.
+    > [!NOTE] 
+    > Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+
+- Customers can view the list of VM extensions available in public preview.
+    - Change tracking
+    - Log analytics
+    - Update management
+    - Azure policy guest configuration
+
+ **Azure VMware Solution private cloud with Azure Arc**
+
+Click on **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
+
+**Arc enabled VMware resources**
+
+## Create Arc enabled Azure VMware Solution VM
+
+
+
