@@ -55,6 +55,8 @@ items:
     displayName: Azure CLI, az spatial-anchors-account
 - name: How-to
   items:
+  - name: Create an Azure Spatial Anchors account
+    href: how-tos/create-asa-account.md
   - name: Create and locate anchors
     href: create-locate-anchors-overview.md
     items:
