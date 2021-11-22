@@ -162,6 +162,8 @@ items:
       items:
       - name: Authoring
         href: https://aka.ms/clu-authoring-apis
+      - name: runtime API
+        href: https://aka.ms/clu-apis
 - name: Entity linking
   items:
   - name: Overview
