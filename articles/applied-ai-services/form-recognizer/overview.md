@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
@@ -17,6 +17,8 @@ ms.custom: ignite-fall-2021
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
 # What is Azure Form Recognizer?
+
+:::image type="content" source="media/form-recognizer-icon.png" alt-text="Form Recognizer icon from the Azure portal.":::
 
 Azure Form Recognizer is a cloud-based [Azure Applied AI Service](../../applied-ai-services/index.yml) that uses machine learning models to extract and analyze form fields, text, and tables from your documents. Form Recognizer analyzes your forms and documents, extracts text and data, maps field relationships as key-value pairs, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. Use Form Recognizer to automate your data processing in applications and workflows, enhance data-driven strategies, and enrich document search capabilities.
 

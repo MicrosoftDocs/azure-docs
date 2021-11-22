@@ -5,7 +5,7 @@ services: security-center
 author: memildin
 manager: rkarlin
 
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: tutorial
 ms.date: 11/09/2021
 ms.author: memildin

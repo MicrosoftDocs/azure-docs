@@ -22,7 +22,6 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 > * [Spark 3 OLTP connector](create-sql-api-spark.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 [!INCLUDE[Quickstart](~/azure-sdk-for-java-cosmos-db/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/quick-start.md)]
 

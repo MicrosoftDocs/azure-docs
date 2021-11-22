@@ -1,8 +1,8 @@
 ---
 title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal 
 description: How to manage device enrollments for your Device Provisioning Service (DPS) in the Azure portal
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 10/25/2021
 ms.topic: how-to
 ms.service: iot-dps
@@ -219,4 +219,4 @@ To remove an enrollment entry:
 
 7. When prompted to confirm, select **Yes**.
 
-8. Once the action is completed, you'll see that your entry havs been removed from the list of device enrollments.
+8. Once the action is completed, you'll see that your entry has been removed from the list of device enrollments.

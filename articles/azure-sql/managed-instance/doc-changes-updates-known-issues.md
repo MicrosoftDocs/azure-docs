@@ -29,7 +29,6 @@ This article lists the currently known issues with [Azure SQL Managed Instance](
 |[Distributed transactions can be executed after removing managed instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Oct 2020|Has Workaround||
 |[Distributed transactions cannot be executed after managed instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Oct 2020|Resolved|May 2021|
 |[Cannot create SQL Managed Instance with the same name as logical server previously deleted](#cannot-create-sql-managed-instance-with-the-same-name-as-logical-server-previously-deleted)|Aug 2020|Has Workaround||
-|[BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)/[OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in SQL Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
 |[Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Resolved|June 2020|
@@ -128,23 +127,6 @@ SQL Managed Instance scaling operations that include changing service tier or nu
 ### Cannot create SQL Managed Instance with the same name as logical server previously deleted
 
 A DNS record of `<name>.database.windows.com` is created when you create a [logical server in Azure](../database/logical-servers.md) for Azure SQL Database, and when you create a SQL Managed Instance. The DNS record must be unique. As such, if you create a logical server for SQL Database and then delete it, there is a threshold period of 7 days before the name is released from the records. In that period, a SQL Managed Instance cannot be created with the same name as the deleted logical server. As a workaround, use a different name for the SQL Managed Instance, or create a support ticket to release the logical server name.  
-
-
-### BULK INSERT and BACKUP/RESTORE statements should use SAS Key to access Azure storage
-
-Currently, the `DATABASE SCOPED CREDENTIAL` syntax is not supported with Managed Identity to authenticate to Azure Storage. Microsoft recommends using a [shared access signature](../../storage/common/storage-sas-overview.md) for the [database scoped credential](/sql/t-sql/statements/create-credential-transact-sql#d-creating-a-credential-using-a-sas-token), when accessing Azure Storage for bulk insert, `BACKUP` and `RESTORE` statements, or the `OPENROWSET` function. For example:
-
-```sql
-CREATE DATABASE SCOPED CREDENTIAL sas_cred WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
- SECRET = '******srt=sco&sp=rwac&se=2017-02-01T00:55:34Z&st=2016-12-29T16:55:34Z***************';
-GO
-CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
-  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/invoices', CREDENTIAL= sas_cred );
-GO
-BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
-```
-
-For another example of using `BULK INSERT` with an SAS key, see [Shared Access Signature to authenticate to storage](/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage). 
 
 ### Service Principal cannot access Azure AD and AKV
 

@@ -64,10 +64,10 @@ Now continue on to [update AKS cluster with new service principal credentials](#
 
 If you chose to update the existing service principal credentials in the previous section, skip this step. Continue to [update AKS cluster with new service principal credentials](#update-aks-cluster-with-new-service-principal-credentials).
 
-To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command. In the following example, the `--skip-assignment` parameter prevents any additional default assignments being assigned:
+To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
