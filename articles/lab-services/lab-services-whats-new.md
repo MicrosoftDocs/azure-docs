@@ -21,7 +21,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 [VNet Injection](how-to-connect-vnet-injection.md). You asked for more control over the network for lab virtual machines and now you have it. We replaced virtual network peering with virtual network injection. In your own subscription, create a virtual network in the same region as the lab, delegate a subnet to Azure Lab Services and you’re off and running. 
 
-[Improved auto-shutdown](how-to-configure-lab-plan.md). Auto-shutdown settings are now available for ALL operating systems! If we detect a student shut down their VM, we’ll stop billing. 
+[Improved auto-shutdown](how-to-configure-lab-plans.md). Auto-shutdown settings are now available for ALL operating systems! If we detect a student shut down their VM, we’ll stop billing. 
 
 **More built-in roles**. In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules. 
 
