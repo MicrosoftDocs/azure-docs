@@ -8,9 +8,9 @@ manager: celested
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 10/22/2020
+ms.date: 11/22/2021
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.

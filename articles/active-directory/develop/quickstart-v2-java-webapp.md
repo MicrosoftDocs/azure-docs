@@ -8,9 +8,9 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: quickstart
+ms.topic: portal
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: marsma 
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
 ---
