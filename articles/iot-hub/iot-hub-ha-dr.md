@@ -33,9 +33,7 @@ The IoT Hub service provides intra-region HA by implementing redundancies in alm
 
 There is a 99.9% Service Level Agreement for IoT Hub, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
-IoT Hub supports [Availability Zones](../availability-zones/az-overview.md) in [Azure regions with Availability Zone support](../availability-zones/az-region.md#azure-regions-with-availability-zones). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region.
-
-Availability Zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following [Azure regions with Availability Zones](../availability-zones/az-region.md#azure-regions-with-availability-zones):
+IoT Hub supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for IoT Hub is enabled automatically for new IoT Hub resources created in the following Azure regions:
 
 - Australia East
 - Brazil South
