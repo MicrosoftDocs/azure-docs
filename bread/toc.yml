@@ -273,6 +273,9 @@
       - name: Azure Certified Device
         tocHref: /azure/certification/
         topicHref: /azure/certification/
+      - name: Industrial IoT
+        tocHref: /azure/industrial-iot/
+        topicHref: /azure/industrial-iot/index
   - name: Resource Manager
     tocHref: /azure/azure-resource-manager/
     topicHref: /azure/azure-resource-manager/
@@ -286,6 +289,9 @@
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
+      - name: Troubleshooting
+        tocHref: /azure/azure-resource-manager/troubleshooting/
+        topicHref: /azure/azure-resource-manager/troubleshooting/
       - name: Managed Applications
         tocHref: /azure/azure-resource-manager/managed-applications/
         topicHref: /azure/azure-resource-manager/managed-applications/

@@ -23,7 +23,7 @@ This article outlines how to register Salesforce, and how to authenticate and in
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
 
-When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, unique_constraints, etc.
+When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, and unique_constraints.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ When scanning Salesforce, Purview supports extracting metadata including Salesfo
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
-* Ensure [JDK 11](https://www.Salesforce.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -78,6 +78,10 @@ On the **Register sources (Salesforce)** screen, do the following:
 Follow the steps below to scan Salesforce to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
 Azure Purview uses Salesforce REST API version 41.0 to extract metadata, including REST requests like 'Describe Global' URI (/v41.0/sobjects/),'sObject Basic Information' URI (/v41.0/sobjects/sObject/), and 'SOQL Query' URI (/v41.0/query?).
+
+### Authentication for a scan
+
+The supported authentication type for a Salesforce source is **Consumer key authentication**.
 
 ### Create and run scan
 
