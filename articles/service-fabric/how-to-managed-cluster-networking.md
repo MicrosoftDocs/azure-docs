@@ -638,7 +638,7 @@ Configure auxiliary subnets by declaring `auxiliarySubnets` property and require
                 ]              
 ```
 
-See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01/managedclusters) 
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/managedclusters) 
 
 ## Next steps
 [Service Fabric managed cluster configuration options](how-to-managed-cluster-configuration.md)
@@ -650,4 +650,3 @@ See [full list of parameters available](/azure/templates/microsoft.servicefabric
 [sfmc-byolb-example-1]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-1.png
 [sfmc-byolb-example-2]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-2.png
 [sfmc-byolb-example-3]: ./media/how-to-managed-cluster-networking/sfmc-byolb-scenario-3.png
-
