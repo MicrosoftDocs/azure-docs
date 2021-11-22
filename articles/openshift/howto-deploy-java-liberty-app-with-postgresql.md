@@ -1,7 +1,7 @@
 ---
-title: Deploy a Java application with Azure Database for PostgreSQL server Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
+title: Deploy a Java application with Azure Database for PostgreSQL server to Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
 recommendations: false
-description: Deploy a Java application with Azure Database for PostgreSQL server Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
+description: Deploy a Java application with Azure Database for PostgreSQL server to Open Liberty/WebSphere Liberty on an Azure Kubernetes Service(AKS) cluster
 author: zhengchang907
 ms.author: zhengchang
 ms.service: container-service
@@ -60,17 +60,35 @@ az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME 
 ```
 
 ## Prepare your application with PostgreSQL DB connection
+### Assumes your application is:
+* Managed using Maven
+* Using liberty-maven-plugin to configure DB connection
+* 
 ### Build project
 ### dockerfile with JDBC driver
 ### Build image
 ### Upload image to ACR
 
 ## Prepare deployment files
-### server.sml
+### server.xml
 ### deployment yaml file
 
 ## Apply the changes
+### Watch the pods to be restarted
 
 ## Verify the results
+### Test the applications
 
 ## Clean up resources
+To avoid Azure charges, you should clean up unnecessary resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+
+```azurecli-interactive
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
+```
+
+## Next steps
+* [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
+* [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/)
+* [Open Liberty](https://openliberty.io/)
+* [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
+* [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
