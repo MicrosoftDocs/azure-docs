@@ -5,14 +5,6 @@ services: sentinel
 cloud: na
 documentationcenter: na
 author: oshezaf
-manager: rkarlin
-
-ms.assetid:
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
