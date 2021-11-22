@@ -68,4 +68,4 @@ You can change this setting by using GlobalConfiguration in the ARM template as 
    ]
 } 
 ```
-For reference, visit [Azure SDK for .NET](../dotnet/api/microsoft.azure.management.network.models.applicationgatewayglobalconfiguration.md) 
+For reference, visit [Azure SDK for .NET](/dotnet/api/microsoft.azure.management.network.models.applicationgatewayglobalconfiguration)
