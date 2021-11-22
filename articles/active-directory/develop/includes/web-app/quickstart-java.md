@@ -86,14 +86,14 @@ To register your application and manually add the app's registration information
 
  Here's an example:
 
-    ```
-      keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+```
+keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 
-      server.ssl.key-store-type=PKCS12
-      server.ssl.key-store=classpath:keystore.p12
-      server.ssl.key-store-password=password
-      server.ssl.key-alias=testCert
-    ```
+server.ssl.key-store-type=PKCS12
+server.ssl.key-store=classpath:keystore.p12
+server.ssl.key-store-password=password
+server.ssl.key-alias=testCert
+```
 1. Put the generated keystore file in the *resources* folder.
 
 #### Step 4: Run the code sample
@@ -202,7 +202,7 @@ Add a reference to MSAL for Java by adding the following code at the start of th
 import com.microsoft.aad.msal4j.*;
 ```
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 

@@ -40,7 +40,7 @@ For the code sample in this quickstart to work:
 > [Make these changes for me]()
 
 > [!div class="alert alert-info"]
-> ![Already configured](../../media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute
+> ![Already configured](./media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with this attribute
 
 #### Step 2: Download your project
 

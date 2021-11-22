@@ -1488,12 +1488,6 @@ groups:
   title: Programming languages
   prompt: Choose a programming language or framework
   pivots:
-  - id: programming-language-angular
-    title: Angular
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-react
-    title: React
   - id: programming-language-aspnet
     title: ASP.NET
   - id: programming-language-aspnet-core

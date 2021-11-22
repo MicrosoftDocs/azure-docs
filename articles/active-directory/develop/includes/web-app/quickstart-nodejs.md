@@ -106,7 +106,7 @@ $ node app.js | bunyan
 
 You will have a server successfully running on `http://localhost:3000`.
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 Learn more about the web app scenario that the Microsoft identity platform supports:

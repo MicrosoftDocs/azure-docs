@@ -122,7 +122,7 @@ You can add the reference to MSAL Python by adding the following code to the top
 import msal
 ```
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[!INCLUDE [Help and support](../../../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
