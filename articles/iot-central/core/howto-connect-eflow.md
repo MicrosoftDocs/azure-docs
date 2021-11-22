@@ -158,3 +158,7 @@ Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of p
 Go to the **Device Details** page in your IoT Central application and you can see telemetry flowing from your EFLOW device:
 
 :::image type="content" source="media/howto-connect-eflow/telemetry.png" alt-text="Telemetry from the device.":::
+
+## Next Steps
+
+Now that you've learned how to connect Azure IoT Edge for Linux on Windows (EFLOW) with IoT Central, the suggested next step is to learn how to [Connect devices through an IoT Edge transparent gateway](how-to-connect-iot-edge-transparent-gateway.md).
