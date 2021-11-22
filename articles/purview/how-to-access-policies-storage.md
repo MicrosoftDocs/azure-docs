@@ -225,6 +225,8 @@ This section contains a reference of how actions in Azure Purview data policies 
 These are known issues in the current release
 1. In addition to *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
 1. *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
+1. 	Disabling a subscription for Data use governance will disable Data use governance for all assets registered in that subscription.
+1. Policy operations are only supported at root collection level and not child collection level.
 
 ## Next steps
 Check the blog and demo related to the capabilities mentioned in this how-to guide
