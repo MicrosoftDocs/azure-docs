@@ -92,8 +92,8 @@ To use the source-agnostic parsers that unify all of the out-of-the-box parsers,
 | Name | Description | Usage instructions |
 | ---- | --- | --- |
 | **imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **imWebSession** | Aggregative parser that uses *union* to include normalized events from all *web session* sources, i.e. network sessions fields that support [HTTP session fields](#http-session-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **inNetworkNotables** | Aggregative parser that uses *union* to include normalized events from all network session that include detection information and support the [session inspection fields](#inspection-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
+| **imWebSession** | Aggregative parser that uses union to include normalized events from all web session sources, such as network sessions fields that support [HTTP session fields](#http-session-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.||
+| **inNetworkNotables** | Aggregative parser that uses union to include normalized events from all network sessions that include detection information and support the [session inspection fields](#inspection-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
 | **ASimNetworkSession**<br>**ASimWebSession**<br>**ASimNetworkNotables** | Similar to the `im*` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
 | **vimNetworkSession\<vendor\>\<product\><br>vimWebSession\<vendor\>\<product\><br>vimNetworkNotables\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *vimNetworkSessionSysmonLinux*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
 | **ASimNetworkSession\<vendor\>\<product\><br>ASimWebSession\<vendor\>\<product\><br>ASimNetworkNotables\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
@@ -108,10 +108,10 @@ Microsoft Sentinel provides the following built-in, product-specific Network Ses
 
 | **Name** | **Description** |
 | --- | --- |
-| **Microsoft 365 Defender for Endpoint** | - vimNetworkSessionMicrosoft365Defender (parametrized)<br> - ASimNetworkSessionMicrosoft365Defender(regular) | 
-| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - vimNetworkSessionMD4IoT (parametrized)<br> - ASimNetworkSessionMD4IoT (regular) |
-| **Microsoft Sysmon for Linux** | - vimNetworkSessionSysmonLinux (parametrized)<br> - ASimNetworkSessionSysmonLinux (regular) |
-| **Windows Events Firewall** | Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table.<br><br> - vimNetworkSessionMicrosoftWindowsEventFirewall (parametrized)<br> -  ASimNetworkSessionMicrosoftWindowsEventFirewall (regular)
+| **Microsoft 365 Defender for Endpoint** | - Parametrized: vimNetworkSessionMicrosoft365Defender <br> - Regular: ASimNetworkSessionMicrosoft365Defender | 
+| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: vimNetworkSessionMD4IoT <br> - Regular: ASimNetworkSessionMD4IoT  |
+| **Microsoft Sysmon for Linux** | - Parametrized: vimNetworkSessionSysmonLinux<br> - Regular: ASimNetworkSessionSysmonLinux  |
+| **Windows Events Firewall** | Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
 | | |
 
 
@@ -151,7 +151,7 @@ The following filtering parameters are available:
 | **httpuseragent_has_any** | dynamic | Filter only Web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. |  
 | | | |
 
-To filter only Web sessions for a specified list of domain names, use:
+For example, to filter only Web sessions for a specified list of domain names, use:
 
 ```kql
 let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
@@ -221,7 +221,7 @@ The following fields are common to all network session activity logging:
 | **DstInterfaceGuid** | Optional | String | The GUID of the network interface used on the destination device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **DstMacAddr** | Optional | String | The MAC address of the network interface at used for the connection or session by the destination device.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="dstvlanid"></a>**DstVlanId** | Optional | String | The VLAN ID related to the destination device.<br><br>Examples: `130` |
-| **OuterVlanId** | Optional | Alias | Alias to [DstVlanId](#dstvlanid). In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer.
+| **OuterVlanId** | Optional | Alias | Alias to [DstVlanId](#dstvlanid). <br><br>In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer. |
 | **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
 | **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
@@ -253,7 +253,7 @@ The following fields are common to all network session activity logging:
 | **SrcInterfaceGuid** | Optional | String | The GUID of the network interface used on the source device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **SrcMacAddr** | Optional | String | The MAC address of the network interface from which the connection or session originated.<br><br>Example: `06:10:9f:eb:8f:14` |
 | <a name="srcvlanid"></a>**SrcVlanId** | Optional | String | The VLAN ID related to the source device.<br><br>Examples: `130` |
-| **InnerVlanId** | Optional | Alias | Alias to [SrcVlanId](#srcvlanid). In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
+| **InnerVlanId** | Optional | Alias | Alias to [SrcVlanId](#srcvlanid). <br><br>In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
 | **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
