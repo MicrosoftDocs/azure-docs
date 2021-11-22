@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack Edge Pro 2 GPU technical specifications and compliance| Microsoft Docs
+title: Microsoft Azure Stack Edge Pro 2 technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro 2 device
 services: databox
 author: alkohli
@@ -31,7 +31,7 @@ The Azure Stack Edge Pro device has the following specifications for compute and
 
 ## Compute acceleration specifications
 
-A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro device that enables Kubernetes, deep learning, and machine learning scenarios.
+A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro 2 device that enables Kubernetes, deep learning, and machine learning scenarios.
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
