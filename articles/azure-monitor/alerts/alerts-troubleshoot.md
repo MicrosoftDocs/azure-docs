@@ -149,7 +149,7 @@ If you have received a notification for an alert (such as an email or an SMS) mo
 
     In some cases, multiple similar alerts are fired at around the same time. So, it might just seem like the same alert triggered its actions multiple times. For example, an activity log alert rule might be configured to fire both when an event has started, and when it has finished (succeeded or failed), by not filtering on the event status field. 
 
-    To check if these actions or notifications came from different alerts, examine the alert details, such as its timestamp and either the alert id or its correlation id. Alternatively, check the list of fired alerts in the portal. If that is the case, you would need to adapt the alert rule logic or otherwise configure the alert source. 
+    To check if these actions or notifications came from different alerts, examine the alert details, such as its timestamp and either the alert ID or its correlation ID. Alternatively, check the list of fired alerts in the portal. If that is the case, you would need to adapt the alert rule logic or otherwise configure the alert source. 
 
 1. **Does the action repeat in multiple action groups?** 
 
