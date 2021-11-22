@@ -15,7 +15,8 @@ ms.service: azure-communication-services
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
-### Web UI Library quickstarts are hosted on [storybook site](https://azure.github.io/communication-ui-library)
+## Storybook site
+Web UI Library quickstarts are hosted on [storybook site](https://azure.github.io/communication-ui-library)
 
 ### You can access the following quickstarts:
 
