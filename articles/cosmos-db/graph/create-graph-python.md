@@ -35,6 +35,7 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
    ```bash
    pip install gremlinpython
    ```
+
 - [Git](https://git-scm.com/downloads).
 
 > [!NOTE]
