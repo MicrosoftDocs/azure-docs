@@ -32,7 +32,7 @@ Consider the following points when turning off the metadata write access:
 
 * Evaluate and ensure that your applications do not make metadata calls that change the above resources (For example, create collection, update throughput, …) by using the SDK or account keys.
 
-* Currently, the Azure portal uses account keys for metadata operations and hence these operations will be blocked. Alternatively, use the Azure CLI, SDKs, or Resource Manager template deployments to perform such operations.
+* After "disableKeyBasedMetadataWriteAccess" is set to true, the metadata operations issued by SDK will be blocked. Alternatively, please use the Azure Portal, Azure CLI, Azure Powershell, or Azure Resource Manager Template deployments to perform such operations.
 
 ## Enable diagnostic logs for control plane operations
 
