@@ -31,7 +31,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
@@ -87,7 +87,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
 
-    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
    If that was unintentional, you can modify, disable, or delete the alert processing rule.
  
@@ -120,7 +120,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
  
     If that was unintentional, you can modify, disable, or delete the alert processing rule.
 
@@ -202,7 +202,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
     Here is an example of alert processing rule suppressing all action groups: 
  
-     ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
+     ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
     Here is an example of an alert processing rule adding another action group:
 
