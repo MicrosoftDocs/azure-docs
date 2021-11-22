@@ -2,7 +2,7 @@
 title: Job size exceeded error
 description: Describes how to troubleshoot errors when job size or template are too large.
 ms.topic: troubleshooting
-ms.date: 11/19/2021
+ms.date: 11/22/2021
 ---
 
 # Resolve errors for job size exceeded
@@ -29,11 +29,11 @@ Other template limits are:
 - 64 output values
 - 24,576 characters in a template expression
 
+## Solution 1 - use dependencies carefully
+
 # [Bicep](#tab/bicep)
 
-Bicep uses `for` [loops](../bicep/loops.md) to iterate values in a collection. During deployment, resources might have [dependencies](../bicep/resource-declaration.md#dependencies) on other resources.
-
-An [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) is created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
+Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) that's created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
 
 # [JSON](#tab/json)
 
@@ -53,21 +53,24 @@ dependsOn: [
 
 ---
 
-## Solution 1 - Simplify template
+## Solution 2 - simplify template
 
 # [Bicep](#tab/bicep)
 
-In Bicep, you use [modules](../bicep/modules.md) to deploy resources. A module is a Bicep file that's deployed from another Bicep file. When the Bicep file builds, it creates an ARM template with nested templates. To get output, see [Outputs from modules](../bicep/outputs.md#outputs-from-modules).
+Your first option is to simplify the Bicep file. This option works when your file deploys lots of different resource types. Consider dividing the file into [modules](../bicep/modules.md). Divide your resource types into logical groups and add a module for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a module.
+
+You can set other resources as implicit dependencies, and [get values from the output of modules](../bicep/outputs.md#outputs-from-modules).
+
 
 # [JSON](#tab/json)
 
-Your first option is to simplify the template. This option works when your template deploys lots of different resource types. Consider dividing the template into [linked templates](../templates/linked-templates.md). Divide your resource types into logical groups and add a linked template for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a linked template.
+Your first option is to simplify the ARM template. This option works when your template deploys lots of different resource types. Consider dividing the template into [linked templates](../templates/linked-templates.md). Divide your resource types into logical groups and add a linked template for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a linked template.
 
 You can set other resources as dependent on the linked template, and [get values from the output of the linked template](../templates/linked-templates.md#get-values-from-linked-template).
 
 ---
 
-## Solution 2 - Reduce name size
+## Solution 3 - reduce name size
 
 # [Bicep](#tab/bicep)
 
