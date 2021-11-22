@@ -22,8 +22,22 @@ ms.author: stmuelle
 
 ## Introduction
 
-In SAP instances like ASCS/SCS based on WSFC certain naming conventions need to be followed. In this particular scenario this is \\\SAPGLOBALHOST\sapmnt\
-This can at time be quite restrictive. DFS-N allows to create virtual share names which can be assigned to different directory.
+SAP instances like ASCS/SCS based on WSFC require SAP files being installed on a shared drive. SAP supports either a Cluster Shared Disks or a File Share Cluster to host these files.
+
+![SWPM screenshot](media/virtual-machines-shared-sap-high-availability-guide/swpm-01.png)SWPM selection screen for Cluster Share configuration
+
+For installations based on **Azure NetApp Files SMB** or **Azure Files Premium SMB** the option File Share Cluster needs to be selected. In the follow-up screen the File Share Host Name needs to be supplied.
+
+![SWPM screenshot](media/virtual-machines-shared-sap-high-availability-guide/swpm-02.png)SWPM selection screen for Cluster Share Host Name configuration
+
+The Cluster Share Host Name is based on the chosen installation option. For Azure NetApp Files SMB it is the used to join the NetApp account to the Active Directory of the installation. For Azure Files Premium SMB it is the FQDN name of the storage account hosting the share. In SAP terms this is the so called **SAPGLOBALHOST**.
+SWPM internally adds **sapmnt** to the host name resulting in the **\\\SAPGLOBALHOST\sapmnt**  share. Unfortunately **sapmnt** can only be created once per either NetApp account or storage account. This is quite restrictive. DFS-N can be used in this to create virtual share names which can be assigned to differently named shares. Rather than having to use **sapmnt** as the share name as mandated by SWPM, a unique name like **sapmnt-sid** can be used. The same is valid for the global transport directory. Since trans is the expected name of global transport directory, the **SAP DIR_TRANS** profile parameter in the **DEFAULT.PFL** profile needs to be adjusted.
+
+>> [!IMPORTANT]
+>As an example the following shares can be created by using DFS-N:
+**\\\contoso.local\sapmnt\\SC4** pointing to **\\\sapcontsmb3.file.core.windows.net\\sapmnt-sc4**
+**\\\contoso.local\sapmnt\\transsc4** pointing to **\\\sapcontsmb3.file.core.windows.net\\trans-sc4** with DIR_TRANS = \\\contoso.local\sapmnt\transsc4 in the DEFAULT.PFL profile.
+>>
 
 ## Microsoft DFS-N
 
@@ -31,11 +45,24 @@ An introduction and the installation instructions for DFS-N can be found [here](
 
 ## Setting up Folder Targets for Azure NetApp Files SMB
 
-Folder Targets for Azure NetApp Files SMB are volumes technically created the same way as without using DFS-N. However for increasing the throughput of the volume, a large volume size with subsequent sharing via DFS-N might be beneficial. 
+ Folder Targets for Azure NetApp Files SMB are volumes technically created the same way as described [here](./high-availability-guide-windows-netapp-files-smb.md)
+without using DFS-N. However for increasing the throughput of the volume, a large volume size with subsequent sharing via DFS-N might be beneficial. 
 ![anf-volumes-overview](media/virtual-machines-shared-sap-high-availability-guide/anf-volumes.png)Azure portal screenshot with existing ANF volumes.
+
 ## Setting up Folder Targets for Azure Files Premium SMB
 
+Setting up of Folder Targets has to be done as described in [High availability for SAP NetWeaver on Azure VMs on Windows with Azure Files Premium SMB for SAP applications](./high-availability-guide-windows-azure-files-smb.md).
+
+![create file share dialog screenshot](media/virtual-machines-shared-sap-high-availability-guide/afssmb-01.png)Azure Portal screenshot after pushing the + File share link.
+
+![Azure Portal screenshot of create share dialog](media/virtual-machines-shared-sap-high-availability-guide/afssmb-02.png)Overview of created shares.
+
+> [!IMPORTANT]
+> It is very important to follow the follow all the steps, especially creating the SAP users, adding RBAC and initializing the new share's ACL with **net use** described [here](./high-availability-guide-windows-azure-files-smb.md) except creating a new storage account and at the end creating a unique share name und an already existing storage account.
+>
+
 ## Configuring DFS-N for SAPMNT
+
 The following shows the individual steps of initially configuring DFS-N. 
 ![starting DFS console](media/virtual-machines-shared-sap-high-availability-guide/dfs-console-start-01.png)
 
@@ -109,6 +136,23 @@ Confirm your input by clicking the **OK** button.
 ![Add Folders for ANF SMB Step 7](media/virtual-machines-shared-sap-high-availability-guide/dfs-add-folder-07.png)
 
 This screen shows the newly added folder.
+
+## Adding folders to Azure Files Premium SMB based Namespace root
+
+The following sequence shows the key steps for adding folders to the Namespace root and initialize them.
+
+![Determine UNC path for target folder share name](media/virtual-machines-shared-sap-high-availability-guide/afs-prop-01.png)This screen shows the properties and the URL of the share. It needs to be converted to UNC in order to derive the Target Folder name.
+
+![Create folder screen](media/virtual-machines-shared-sap-high-availability-guide/smbdfs-01.png)Create folder screen with Target Folder in UNC notation.
+
+![Assign RBAC roles to SAP users](media/virtual-machines-shared-sap-high-availability-guide/afsra-01.png)RBAC role assignment for SAP users in Azure Portal
+
+![Namespaces for 3 SAP systems](media/virtual-machines-shared-sap-high-availability-guide/smbdfs-02.png)Namespaces for 3 SAP systems
+
+![Net use for ACL initialization](media/virtual-machines-shared-sap-high-availability-guide/afsacl-01.png)Running net use to initialize ACL for the share
+
+![Adding SAP users and granting access on the AD level](media/virtual-machines-shared-sap-high-availability-guide/afsacl-02.png)Adding SAP users and granting access on the AD level
+
 
 ## Adding additional DFS namespace servers to increase resiliency
 
