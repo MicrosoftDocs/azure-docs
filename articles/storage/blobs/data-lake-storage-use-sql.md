@@ -97,7 +97,7 @@ In this section, you create an Azure Workspace.
    - **Review and Create**: Select.
    - **Create**: Select.
 
-When the deployment finishes, you will see Azure Synapse Analytics workspace in the list of the deployed resources. You cna follow the link to see mor edetails about the workspace and [Find your Synapse SQL endpoint name](#find-your-synapse-sql-endpoint-name).
+When the deployment finishes, you will see Azure Synapse Analytics workspace in the list of the deployed resources. You can follow the link to see more details about the workspace and [find your Synapse SQL endpoint name](#find-your-synapse-sql-endpoint-name).
 
 ## Find your Synapse SQL endpoint name
 
@@ -139,8 +139,8 @@ When you execute the query, you will see the content of the file.
 
 ## Clean up resources
 
-When they're no longer needed, delete your Synapse Analytics workspace. Note that the workspace is not charged if you are nto using it, so you will get **no billing even if you keep it**.
-Do not delete the resource group if you have selected the resource group where your Azure strorage is placed.
+When they're no longer needed, delete your Synapse Analytics workspace. The workspace tat do not have some additional dedicated SQL pools or Spark pools is not charged if you are not using it, so you will get **no billing even if you keep it**.
+Do not delete the resource group if you have selected the resource group where you have placed your Azure storage account.
 
 ## Next steps
 
