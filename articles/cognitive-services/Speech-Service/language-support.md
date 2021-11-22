@@ -146,7 +146,7 @@ Both the Microsoft Speech SDK and REST APIs support these neural voices, each of
 > [!IMPORTANT]
 > Pricing varies for Prebuilt Neural Voice (referred as *Neural* on the pricing page) and Custom Neural Voice (referred as *Custom Neural* on the pricing page). Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
 
-### Prebuilt Neural Voice
+### Prebuilt neural voices
 
 Below table lists out the prebuilt neural voices supported in each language. You can [try the demo and hear the voices here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).  
 
@@ -462,9 +462,9 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 > [!TIP]
 > You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)" in your speech synthesis requests.
 
-### Custom Neural Voice
+### Custom neural voice
 
-Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
+Custom neural voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
 
 Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
