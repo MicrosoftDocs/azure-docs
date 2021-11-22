@@ -24,7 +24,7 @@ A multi-service resource references "Cognitive Services" as the offering, rather
 > [!TIP]
 > Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md)
 
-## Add a resource key
+## Set the resource key
 
 You can use the Azure portal, REST API, or an Azure SDK to attach a billable resource to a skillset.
 
