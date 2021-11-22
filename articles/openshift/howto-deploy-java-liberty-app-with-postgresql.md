@@ -5,11 +5,14 @@ description: Deploy a Java application with Azure Database for PostgreSQL server
 author: zhengchang907
 ms.author: zhengchang
 ms.service: container-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/19/2021
 keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty, aks, kubernetes
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
 ---
+
+PENDING: Read this guide for how to write how-to guides.  https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-howto?branch=master .  Make this conform to https://review.docs.microsoft.com/en-us/help/contribute/global-how-to-template?branch=master I suggest saving the existing document aside with a different file name, deleting the contents of this file, pasting in the template, and then copying the content over from the saved aside file.
+
 
 # Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
@@ -59,19 +62,27 @@ export DB_ADMIN_PASSWORD=<server_admin_password>
 az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2
 ```
 
+Alternatively, use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
+
+
+
 ## Prepare your application with PostgreSQL DB connection
 ### Assumes your application is:
 * Managed using Maven
 * Using liberty-maven-plugin to configure DB connection
-* 
+
+edburns: I agree with the use of `liberty-maven-plugin` here.  Given that you are assuming the user uses that plugin, I suggest you have a first step where you use the `liberty:devc` to run and test it locally before even asking the user to deal with any Azure complexity. See the [docs](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).  I added this in below.
+
 ### Build project
 ### dockerfile with JDBC driver
 ### Build image
-### Upload image to ACR
 
+### edburns: run with liberty:devc
 ## Prepare deployment files
 ### server.xml
 ### deployment yaml file
+
+### Upload image to ACR
 
 ## Apply the changes
 ### Watch the pods to be restarted
