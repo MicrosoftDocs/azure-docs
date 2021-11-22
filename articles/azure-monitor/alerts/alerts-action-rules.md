@@ -114,18 +114,18 @@ In the second tab (**Rule settings**), you select which action to apply on the a
 In the third tab(**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
 Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
-![Alert processing rules wizard - scheuling tab - one-off schedule](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
+![Alert processing rules wizard - scheduling tab - one-off schedule](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
 
 Let's see an example of a more complex schedule, covering an "outside of business hours" case. It has a recurring schedule with two recurrences - a daily one from the afternoon until the morning, and a weekly one covering Saturday and Sunday (full days).
 
-![Alert processing rules wizard - scheuling tab - recurring schedule](media/alerts-action-rules/action-rules-wizard-scheduling-tab-recurring.png)
+![Alert processing rules wizard - scheduling tab - recurring schedule](media/alerts-action-rules/action-rules-wizard-scheduling-tab-recurring.png)
 
 In the fourth tab (**Details**), you give this rule a name, pick where it will be stored, and optionally add a description for your reference. In the fifth tab (**Tags**), you optionally add tags to the rule, and finally in the last tab you can review and create the alert processing rule.
 
 ### [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilies under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
+> The Azure CLI is in the process of being updated to leverage the latest preview version of alert processing rules. Until then, you can use existing CLI capabilities under the **action rule** command to create alert processing rules. That CLI does not support some of the newer alert processing rules features.
 
 You can create alert processing rules with the Azure CLI using the [az monitor action-rule create](/cli/azure/monitor/action-rule#az_monitor_action_rule_create) command.  The `az monitor action-rule` reference is just one of many [Azure CLI references for Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
@@ -207,7 +207,7 @@ az monitor action-rule create --resource-group MyResourceGroupName \
 
 You can view and manage your alert processing rules from the list view:
 
-![Action rules list view](media/alerts-action-rules/action-rules-list-view.png)
+![Action rules list view](media/alerts-action-rules/action-rules-new-list-view.png)
 
 From here, you can enable, disable, or delete alert processing rules at scale by selecting the check box next to them. Clicking on an alert processing rule will open it for editing - you can enable or disable the rule in the fourth tab (**Details**).
 
