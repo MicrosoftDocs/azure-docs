@@ -183,7 +183,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
         
     :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png" alt-text="Screen shot showing multiple column patterns." lightbox="./media/concept-best-practices/classification-custom-classification-rule-multiple-column-patterns-16.png":::
 
-    Refer to [regex alternation construct](/dotnet/standard/base-types/regular-expression-language-quick-reference) for more details.
+    Refer to [regex alternation construct](/dotnet/standard/base-types/regular-expression-language-quick-reference#alternation-constructs) for more details.
 
 #### Manually applying/editing classification from Purview Studio:
 
