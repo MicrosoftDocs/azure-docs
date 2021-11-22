@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
 ---
 
@@ -89,7 +89,10 @@ Various template types exist and may be used when building the Device mapping fi
 |[CollectionContentTemplate](./how-to-use-collection-content-mappings.md) |A template used to represent a list of templates that will be used during the normalization.                                                            |                                                           
 |[CalculatedContentTemplate](./how-to-use-calculated-functions-mappings.md)|A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
 |[IotJsonPathContentTemplate](./how-to-use-iot-jsonpath-content-mappings.md)|A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.|
-|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|A template that supports messages sent via the Export Data feature of Azure Iot Central.|  
+|[IotCentralJsonPathContentTemplate](./how-to-use-iot-central-json-content-mappings.md)|A template that supports messages sent via the Export Data feature of Azure Iot Central.| 
+
+> [!TIP]
+> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues. 
 
 ## Next steps
 

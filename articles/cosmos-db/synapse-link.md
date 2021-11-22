@@ -114,15 +114,17 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Synapse Link can be enabled on new containers for both SQL API and MongoDB API accounts, but existing containers are only supported for SQL API.
 
-* Backup and restore of your data in analytical store isn't supported at this time. This limitation is applied to both periodic and continuous backup modes and doesn't impact your Cosmos DB transactional store data.
+* Backup and restore of your data in analytical store isn't supported at this time. This limitation is applied to both periodic and continuous backup modes and doesn't impact your Cosmos DB transactional store data. 
 
-* Synapse Link and periodic backup mode coexistence in the same database account is supported. although backup and restore of your data in analytical store isn't supported.
+* Synapse Link and periodic backup mode coexistence in the same database account is supported. You can make backups of your transactional data normally. If you use `transactional TTL` equal or bigger than your `analytical TTL`, you can restore your transactional data and recreate your analytical store.
 
-* Synapse Link and continuous backup mode coexistence in the same database account isn't supported.
+* Synapse Link and continuous backup mode coexistence in the same database account isn't supported. If you enable continuous backup mode, you can't turn Synapse Link on, and vice versa.
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
 * Azure Synapse Link and periodic backup mode can coexist in the same database account. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval.
+
+* RBAC and Managed Identity are currently not supported.
 
 
 ## Security
@@ -133,7 +135,7 @@ Synapse Link enables you to run near real-time analytics over your mission-criti
 
 * **Data encryption with customer-managed keys** - You can seamlessly encrypt the data across transactional and analytical stores using the same customer-managed keys in an automatic and transparent manner. Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must configure your account's managed identity in your Azure Key Vault access policy before enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. To learn more, see how to [Configure customer-managed keys using Azure Cosmos DB accounts' managed identities](how-to-setup-cmk.md#using-managed-identity) article.
 
-* **Secure key management** - Accessing the data in analytical store from Synapse Spark and Synapse serverless SQL pools requires managing Azure Cosmos DB keys within Synapse Analytics workspaces. Instead of using the Azure Cosmos DB account keys inline in Spark jobs or SQL scripts, Azure Synapse Link provides more secure capabilities.
+* **Secure key management** - Accessing the data in analytical store from Synapse Spark and Synapse serverless SQL pools requires managing Azure Cosmos DB keys within Synapse Analytics workspaces. Instead of using the Azure Cosmos DB account keys inline in Spark jobs or SQL scripts, Azure Synapse Link provides more secure capabilities:
 
   * When using Synapse serverless SQL pools, you can query the Azure Cosmos DB analytical store by pre-creating SQL credentials storing the account keys and referencing these in the `OPENROWSET` function. To learn more, see [Query with a serverless SQL pool in Azure Synapse Link](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) article.
 

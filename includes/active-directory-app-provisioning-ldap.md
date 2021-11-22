@@ -4,10 +4,6 @@ For important details on what this service does, how it works, and frequently as
 
 ## Prerequisites for provisioning users into an LDAP directory
 
->[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Provisioning users into Active Directory Domain Services is not supported through this preview. 
-
-
 ### On-premises prerequisites
 
  - A target system, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not be used to provision users into Azure AD because it may create a loop with Azure AD Connect. 
@@ -122,35 +118,21 @@ Now that we have configured the certificate and granted the network service acco
 
 ## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
- 1. Sign in to the Azure portal.
- 2. Go to **Enterprise applications** > **Add a new application**.
- 3. Search for the **On-premises ECMA app** application, and add it to your tenant.
- 4. Select the **on-premises ECMA app** that was added.
- 5. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
- 6. At the top, from the drop-down, change provisioning to **automatic**.  This action will bring up **on-premises connectivity** below.
- 7. Under **On-Premises Connectivity**, download the agent installer.
- 8. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
- 9. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
-     [![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)](media/active-directory-app-provisioning-sql/install-1.png#lightbox)</br>
- 10. After this operation finishes, the configuration wizard starts. Select **Next**.
-     [![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)](media/active-directory-app-provisioning-sql/install-2.png#lightbox)</br>
- 11. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**.
-     [![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)](media/active-directory-app-provisioning-sql/install-3.png#lightbox)</br>
- 12. Use your global administrator account to sign in to Azure AD.
-     [![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)](media/active-directory-app-provisioning-sql/install-4.png#lightbox)</br>
- 13. On the **Agent configuration** screen, select **Confirm**.
-     [![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)](media/active-directory-app-provisioning-sql/install-5.png#lightbox)</br>
- 14. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
-     [![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)](media/active-directory-app-provisioning-sql/install-6.png#lightbox)</br>
- 15. Go to back to the Azure portal under the **On-premises ECMA app** application, and back to **Edit Provisioning**.
- 16. On the **Provisioning** page, change the mode to **Automatic**.
-     [![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)](.\media\active-directory-app-provisioning-sql\configure-7.png#lightbox)</br>
- 17. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
-     [![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-ldap\assign-1.png)](.\media\active-directory-app-provisioning-ldap\assign-1.png#lightbox)</br>
+1. [Download](https://aka.ms/OnPremProvisioningAgent) the provisioning agent and copy it onto the virtual machine or server that has connectivity to your SQL server.
      >[!NOTE]
-     >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
-     >
-     >Alternatively, you can force the agent registration to complete by restarting the provisioning agent on your server. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+     >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
+ 1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
+ 1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. Hybrid administrator or global administrator is required.
+ 1. Select **Confirm** to confirm the installation was successful.
+ 1. Sign in to the Azure portal.
+ 1. Go to **Enterprise applications** > **Add a new application**.
+ 1. Search for the **On-premises ECMA app** application, and add it to your tenant.
+ 1. Navigate to the provisioning page of your application.
+ 1. Select **Get started**.
+ 1. On the **Provisioning** page, change the mode to **Automatic**.
+     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
+ 1. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
 
  ## Configure the Azure AD ECMA Connector Host certificate
  1. On the desktop, select the ECMA shortcut.
@@ -236,9 +218,11 @@ Now that we have configured the certificate and granted the network service acco
     |Property|Value|
     |-----|-----|
     |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
- 
+
  5. Enter the **Secret Token** value that you defined when you created the connector.
- 6. Select **Test Connection**, and wait one minute.
+     >[!NOTE]
+     >If you just assigned the agent to the application, please wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes. Forcing the agent registration to complete by restarting the provisioning agent on your server can speed up the registration process. Go to your server, search for **services** in the Windows search bar, identify the **Azure AD Connect Provisioning Agent Service**, right-click the service, and restart.
+ 7. Select **Test Connection**, and wait one minute.
      [![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-ldap\test-1.png)](.\media\active-directory-app-provisioning-ldap\test-1.png#lightbox)
  7. After the connection test is successful, select **Save**.</br>
      [![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)](.\media\active-directory-app-provisioning-sql\configure-9.png#lightbox)
