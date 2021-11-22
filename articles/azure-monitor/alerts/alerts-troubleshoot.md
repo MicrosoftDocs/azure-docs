@@ -27,11 +27,11 @@ If you can see a fired alert in the Azure portal, but have an issue with some of
 
 If you can see a fired alert in the Azure portal, but did not receive the email that you have configured about it, follow these steps:
 
-1. **Was the email suppressed by an [action rule](../alerts/alerts-action-rules.md)**?
+1. **Was the email suppressed by an [alert processing rule](../alerts/alerts-action-rules.md)**?
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
@@ -83,13 +83,13 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 If you can see a fired alert in the portal, but did not receive the SMS, voice call or push notification that you have configured about it, follow these steps: 
 
-1. **Was the action suppressed by an [action rule](../alerts/alerts-action-rules.md)?**
+1. **Was the action suppressed by an [alert suppression rule](../alerts/alerts-action-rules.md)?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
 
-    ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
 
-   If that was unintentional, you can modify, disable, or delete the action rule.
+   If that was unintentional, you can modify, disable, or delete the alert processing rule.
  
 1. **SMS / voice:  Is your phone number correct?**
 
@@ -116,13 +116,13 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
    
 If you can see a fired alert in the portal, but its configured action did not trigger, follow these steps:
 
-1. **Was the action suppressed by an action rule?**
+1. **Was the action suppressed by an alert processing rule?**
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
+    ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
  
-    If that was unintentional, you can modify, disable, or delete the action rule.
+    If that was unintentional, you can modify, disable, or delete the alert processing rule.
 
 1. **Did a webhook not trigger?**
 
@@ -155,7 +155,7 @@ If you have received a notification for an alert (such as an email or an SMS) mo
 
     When an alert is fired, each of its action groups is processed independently. So, if an action (such as an email address) appears in multiple triggered action groups, it would be called once per action group. 
 
-    To check which action groups were triggered, check the alert history tab. You would see there both action groups defined in the alert rule, and action groups added to the alert by action rules: 
+    To check which action groups were triggered, check the alert history tab. You would see there both action groups defined in the alert rule, and action groups added to the alert by alert processing rules: 
 
     ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
@@ -180,38 +180,38 @@ If you have received the alert, but believe some of its fields are missing or in
 
     [Activity log alerts](./activity-log-alerts.md) are alerts that are based on events written to the Azure Activity Log, such as events about creating, updating, or deleting Azure resources, service health and resource health events, or findings from Azure Advisor and Azure Policy. If you have received an alert based on the activity log but some fields that you need are missing or incorrect, first check the events in the activity log itself. If the Azure resource did not write the fields you are looking for in its activity log event, those fields will not be included in the corresponding alert. 
 
-## Action rule is not working as expected 
+## Alert processing rule is not working as expected 
 
-If you can see a fired alert in the portal, but a related action rule did not work as expected, follow these steps: 
+If you can see a fired alert in the portal, but a related alert processing rule did not work as expected, follow these steps: 
 
-1. **Is the action rule enabled?** 
+1. **Is the alert processing rule enabled?** 
 
-    Check the action rule status column to verify that the related action role is enabled. 
+    Check the alert processing rule status column to verify that the related action role is enabled. 
 
     ![graphic](media/alerts-troubleshoot/action-rule-status.png) 
 
-    If it is not enabled, you can enable the action rule by selecting it and clicking Enable. 
+    If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
 1. **Is it a service health alert?** 
 
-    Service health alerts (monitor service = "Service Health") are not affected by action rules. 
+    Service health alerts (monitor service = "Service Health") are not affected by alert processing rules. 
 
-1. **Did the action rule act on your alert?** 
+1. **Did the alert processing rule act on your alert?** 
 
-    Check if the action rule has processed your alert by clicking on the fired alert in the portal, and look at the history tab.
+    Check if the alert processing rule has processed your alert by clicking on the fired alert in the portal, and look at the history tab.
 
-    Here is an example of action rule suppressing all action groups: 
+    Here is an example of alert processing rule suppressing all action groups: 
  
-     ![Alert action rule suppression history](media/alerts-troubleshoot/history-action-rule.png)
+     ![Alert history tab with supprssion from alert proccessing rule](media/alerts-troubleshoot/history-action-rule.png)
 
-    Here is an example of an action rule adding another action group:
+    Here is an example of an alert processing rule adding another action group:
 
     ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **Does the action rule scope and filter match the fired alert?** 
+1. **Does the alert processing rule scope and filter match the fired alert?** 
 
-    If you think the action rule should have fired but didn't, or that it shouldn't have fired but it did, carefully examine the action rule scope and filter conditions versus the properties of the fired alert. 
+    If you think the alert processing rule should have fired but didn't, or that it shouldn't have fired but it did, carefully examine the alert processing rule scope and filter conditions versus the properties of the fired alert. 
 
 
 ## How to find the alert ID of a fired alert
@@ -228,17 +228,17 @@ To locate it, follow these steps:
 
     ![find alert ID](media/alerts-troubleshoot/get-alert-id.png)
 
-## Problem creating, updating, or deleting action rules in the Azure portal
+## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
-If you received an error while trying to create, update or delete an [action rule](../alerts/alerts-action-rules.md), follow these steps: 
+If you received an error while trying to create, update or delete an [alert processing rule](../alerts/alerts-action-rules.md), follow these steps: 
 
 1. **Did you receive a permission error?**  
 
-    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to action rules and alerts.
+    You should either have the [Monitoring Contributor built-in role](../../role-based-access-control/built-in-roles.md#monitoring-contributor), or the specific permissions related to alert processing rules and alerts.
 
-1. **Did you verify the action rule parameters?**  
+1. **Did you verify the alert processing rule parameters?**  
 
-    Check the [action rule documentation](../alerts/alerts-action-rules.md), or the [action rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
+    Check the [alert processing rule documentation](../alerts/alerts-action-rules.md), or the [alert processing rule PowerShell Set-AzActionRule](/powershell/module/az.alertsmanagement/set-azactionrule) command. 
 
 
 ## Next steps
