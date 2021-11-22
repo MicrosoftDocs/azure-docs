@@ -26,7 +26,7 @@ NAT provides Source Network Address Translation (SNAT) for a subnet. NAT gateway
 The following figure depicts Virtual Network NAT for flows that are outbound to the internet:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
+  <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
 </p>
 
 ## NAT deployment
@@ -68,7 +68,7 @@ The following sections describe scenarios you can set up to use NAT and VMs in y
 The following figure depicts using NAT with a VM that uses an instance-level public IP:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction2.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP." width="300" title="Virtual Network NAT and VM with an instance-level public IP">
+  <img src="media/nat-overview/flow-direction2.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P." width="300" title="Virtual Network NAT and VM with an instance-level public IP">
 </p>
 
 The following table describes using NAT with a VM that uses an instance-level public IP:
@@ -102,7 +102,7 @@ A NAT gateway supersedes any outbound configuration from a load-balancing rule o
 The following figure depicts using NAT with a VM that uses an instance-level public IP and a standard public load balancer:
 
 <p align="center">
-  <img src="media/nat-overview/flow-direction4.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and standard public load balancer">
+  <img src="media/nat-overview/flow-direction4.svg" alt="Diagram that depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public I P and a public load balancer." width="425" title="Virtual Network NAT and VM with instance-level public IP and standard public load balancer">
 </p>
 
 The following table describes using NAT with a VM that uses an instance-level public IP and a standard public load balancer:
@@ -168,18 +168,18 @@ SNAT that's provided by NAT is different from SNAT that's provided by a [load ba
 
 NAT provides on-demand SNAT ports for new outbound traffic flows. VMs on subnets that are configured to use NAT use all SNAT ports that are available in inventory.
 
-The following diagram depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT:
+The following figure depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT:
 
 <p align="center">
-  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with N A T." width="550" title="Virtual Network NAT on-demand for outbound SNAT">
+  <img src="media/nat-overview/lb-vnnat-chart.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with NAT." width="550" title="Virtual Network NAT on-demand for outbound SNAT">
 </p>
 
 Any IP configuration of a VM can create outbound flows on-demand as needed. You don't need to consider pre-allocation or per-instance planning, including per-instance worst-case over-provisioning.
 
-The following diagram depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT with an exhaustion threshold:
+The following figure depicts the inventory of all available SNAT ports used by any VM on subnets that are configured to use NAT with an exhaustion threshold:
 
 <p align="center">
-  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with N A T with an exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
+  <img src="media/nat-overview/exhaustion-threshold.svg" alt="Diagram that depicts the inventory of all available SNAT ports used by any V M on subnets configured with NAT with an exhaustion threshold." width="550" title="Differences in exhaustion scenarios">
 </p>
 
 After a SNAT port releases, it's available for use by any VM on subnets that are configured to use NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. If SNAT port inventory is available, SNAT flows succeed. SNAT port hotspots benefit from a larger inventory. SNAT ports aren't left unused for VMs that don't actively need them.
