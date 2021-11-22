@@ -18,13 +18,13 @@ ms.author: eur
 
 The tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). It allows you to adjust Text-to-Speech output attributes in real time or batch synthesis, such as voice characters, voice styles, speaking speed, pronunciation, and prosody.
 
-You can have easy access to more than 278 neural voices across 119 different languages as of November, 2021, including the state-of-the-art prebuilt neural voices, and your custom neural voice if you have built one.
+You can have easy access to more than 270 neural voices across 119 different languages as of November, 2021, including the state-of-the-art prebuilt neural voices, and your custom neural voice if you have built one.
 
 See the [video tutorial](https://youtu.be/ygApYuOOG6w) for Audio Content Creation.
 
 ## How to Get Started?
 
-Audio Content Creation is a free tool, but you will pay for the Azure Speech service you consume. To work with the tool, you need to log in with an Azure account and create a speech resource. For each Azure account, you have free monthly speech quotas which include 0.5 million characters for prebuilt neural voices (referred as *Neural* on pricing page). The monthly allotted amount is usually enough for a small content team of around 3-5 people. Here are the steps for how to create an Azure account and get a speech resource.
+Audio Content Creation is a free tool, but you will pay for the Azure Speech service you consume. To work with the tool, you need to log in with an Azure account and create a speech resource. For each Azure account, you have free monthly speech quotas which include 0.5 million characters for prebuilt neural voices (referred as *Neural* on [pricing page](https://aka.ms/speech-pricing)). The monthly allotted amount is usually enough for a small content team of around 3-5 people. Here are the steps for how to create an Azure account and get a speech resource.
 
 ### Step 1 - Create an Azure account
 
