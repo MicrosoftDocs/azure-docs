@@ -17,7 +17,7 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my web app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
-# Quickstart: Sign in users in web apps using the auth code flow
+# Quickstart: Add sign-in with Microsoft to a web app
 
 ::: zone pivot="programming-language-aspnet"
 [!INCLUDE [asp.net](./includes/web-app/quickstart-aspnet.md)]

@@ -16,8 +16,6 @@ ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-
 # Customer intent: As an application developer, I want to see a sample ASP.NET web app that can sign in Azure AD users.
 ---
 
-# Quickstart: ASP.NET web app that signs in Azure AD users
-
 In this quickstart, you download and run a code sample that demonstrates an ASP.NET web application that can sign in users with Azure Active Directory (Azure AD) accounts.
 
 The following diagram shows how the sample app works:
