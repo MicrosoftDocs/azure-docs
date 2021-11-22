@@ -1,16 +1,16 @@
 ---
-title: Find and download logs for your load test
+title: Download load test execution logs for reporting
 titleSuffix: Azure Load Testing
-description: Learn how to find and download logs for your load tests.
+description: Learn how to download the Azure Load Testing execution logs for use in third-party tools.
 services: load-testing
 ms.service: load-testing
-ms.author: jmartens
-author: j-martens
-ms.date: 11/09/2021
+ms.author: nicktrog
+author: ntrogh
+ms.date: 11/30/2021
 ms.topic: how-to
 
 ---
-# Find and download logs for your load test  
+# Download load test execution logs for reporting in 3rd party tools
 
 In this article, you'll learn how to find and download logs for your load test on **Azure portal**.  
 
@@ -20,6 +20,10 @@ In this article you'll learn how to:
 
 > - Locate your log files for your load test runs.  
 > - Download logs of your load test run from the dashboard.  
+
+> [!IMPORTANT]
+> Azure Load Testing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites  
 
