@@ -228,4 +228,4 @@ Now you can copy the webhook URL. Select the **When an HTTP request is received*
 
 - [Auto startup lab virtual machines](devtest-lab-auto-startup-vm.md)
 - [Define lab policies in Azure DevTest Labs](devtest-lab-set-lab-policy.md)
-- [Receive and respond to inbound HTTPS requests in Azure Logic Apps](/azure/connectors/connectors-native-reqres)
+- [Receive and respond to inbound HTTPS requests in Azure Logic Apps](../connectors/connectors-native-reqres.md)

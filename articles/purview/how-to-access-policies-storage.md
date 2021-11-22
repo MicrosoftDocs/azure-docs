@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/15/2021
 ms.custom: references_regions, ignite-fall-2021
 ---
 
@@ -20,10 +20,19 @@ This guide describes how to configure Azure Storage to enforce data access polic
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Best practices
+- We highly encourage you to register all data sources for use governance and manage all associated access policies from a single Azure Purview account.
+- If you want to use multiple Purview accounts, be aware of these valid and invalid configurations. In the diagram below:
+    - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
+    - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are being registered to different Purview accounts. 
+
+:::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
+
+
 ## Important limitations
 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
-2. Register all data sources for use governance and manage all associated access policies in a single Azure Purview account.
-3. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
+2. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
 
 ### Supported regions
 
@@ -86,10 +95,13 @@ Execute this step only if the Storage account you want to manage access to is in
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 #### Configure permissions for policy management actions
--   A user needs to be part of Purview Policy Author role at root collection level to perform policy authoring/management actions.
--   A user needs to be part of Purview data source admin role at the root collection level to publish the policy.
+- User needs to be both *Data source owner* AND *Purview Data source admins* to register a source for Data use governance. However, any of those roles independently can de-register the source for Data use governance.
+- User needs to be part of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
+- User needs to be part of Purview *Data source admin* role at the root collection level to publish the policy.
 
 See the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
+
+In addition to these, see "Known issues" section at the bottom of this document.
 
 #### Register and scan data sources in Purview
 Register and scan each data source with Purview to later define access policies. Follow the Purview registration guides to register your storage account:
@@ -103,7 +115,9 @@ During registration, enable the data source for access policy through the **Data
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
 > [!NOTE]
-> The behavior of the toggle will enforce that all the data sources in a given subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription in the tenant.
+> The behavior of the toggle will enforce that all the data sources in the same subscription can only be registered for data use governance in a single Purview account. That Purview account itself could be in any subscription in the tenant.
+
+
 
 ## Policy authoring
 
@@ -191,23 +205,28 @@ The steps to publish a policy are as follows
 
 This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
 
-| **Purview policy action** | **Data source specific actions**                                                                |
-|---------------------------|-------------------------------------------------------------------------------------------------|
+| **Purview policy action** | **Data source specific actions**                                                        |
+|---------------------------|-----------------------------------------------------------------------------------------|
 |||
-| *Read*                      |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read                        |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/executeQuery                      |
-|                           |<sub>Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/readChangeFeed                    |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
+| *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
 |||
-| *Modify*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                            |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write                           |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete                          |
+| *Modify*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
+|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
 |||
+
+## Known issues
+These are known issues in the current release
+1. In addition to *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
+1. *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
 ## Next steps
-
 Check the blog and demo related to the capabilities mentioned in this how-to guide
 
 * [What's New in Azure Purview at Microsoft Ignite 2021](https://techcommunity.microsoft.com/t5/azure-purview/what-s-new-in-azure-purview-at-microsoft-ignite-2021/ba-p/2915954)

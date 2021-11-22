@@ -44,7 +44,7 @@ To using this call with the container [endpoint](/python/api/azure-cognitiveserv
 
 ```python
 speech_config = speechsdk.SpeechConfig(
-    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
+    host="ws://localhost:5000")
 ```
 
 ---

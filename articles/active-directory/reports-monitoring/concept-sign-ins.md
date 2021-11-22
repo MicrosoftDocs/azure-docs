@@ -162,7 +162,7 @@ The **Location** - The location the connection was initiated from:
 
 
 > [!NOTE]
-> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+> Due to privacy commitments, Azure AD does not populate this field to the home tenant in the case of a cross-tenant scenario.
 
 
 |Name|Modern authentication|Description|

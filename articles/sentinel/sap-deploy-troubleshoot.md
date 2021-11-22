@@ -2,12 +2,10 @@
 title: Microsoft Sentinel SAP solution deployment troubleshooting | Microsoft Docs
 description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel SAP solution deployment.
 author: batamig
-ms.author: bagold
-ms.service: azure-sentinel
+ms.author: bagol
 ms.topic: troubleshooting
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
-ms.subservice: azure-sentinel
 ---
 
 # Troubleshooting your Microsoft Sentinel SAP solution deployment
@@ -243,6 +241,12 @@ For more information, see [Configure your SAP system](sap-deploy-solution.md#con
 ### Network connectivity issues
 
 If you're having network connectivity issues to the SAP environment or to Microsoft Sentinel, check your network connectivity to make sure data is flowing as expected.
+
+Common issues include:
+
+- Firewalls between the docker container and the SAP hosts may be blocking traffic. The SAP host receives communication via the following TCP ports, which must be open: **32xx**, **5xx13**, and **33xx**, where **xx** is the SAP instance number.
+
+- Outbound communication from your SAP host to Microsoft Container Registry or Azure requires proxy configuration. This typically impacts the installation and requires you to configure the `HTTP_PROXY` and `HTTPS_PROXY` environmental variables. You can also ingest environment variables into the docker container when you create the container, by adding the `-e` flag to the docker `create` / `run` command.
 
 ### Other unexpected issues
 
