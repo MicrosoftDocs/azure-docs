@@ -8,8 +8,8 @@ ms.date: 11/11/2021
 
 # Alert processing rules (preview)
 
-<a name="configuring-an-action-rule">
-<a name="suppression-of-alerts">
+<a name="configuring-an-action-rule"></a>
+<a name="suppression-of-alerts"></a>
 
 > [!NOTE]
 > The previous name for alert processing rules was **action rules**.
@@ -48,7 +48,7 @@ For those alert types, you can use alert processing rules to add action groups.
 > Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview.md) alerts.
 
 ## Alert processing rule properties
-<a name="filter-criteria">
+<a name="filter-criteria"></a>
 
 An alert processing rule definition covers several aspects:
 
