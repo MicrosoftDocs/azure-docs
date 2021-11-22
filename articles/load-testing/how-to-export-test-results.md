@@ -10,7 +10,7 @@ ms.date: 11/30/2021
 ms.topic: how-to
 
 ---
-# Export load test results in the Azure portal for use in third-party tools
+# Export test results in Azure Load Testing Preview for use in third-party tools
 
 In this article, you'll learn how to download the test results from Azure Load Testing Preview in the Azure portal. You might use these results for reporting in third-party tools.
 
