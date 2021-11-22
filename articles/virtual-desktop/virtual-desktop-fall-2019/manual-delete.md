@@ -23,7 +23,7 @@ Before you begin, make sure you have the following things ready:
 
 - [Download and import the Azure Virtual Desktop module](https://docs.microsoft.com/en-us/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already
 
-
+# Delete Azure Virtual Desktop (classic)
 1. Sign into Windows Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
@@ -44,18 +44,18 @@ Before you begin, make sure you have the following things ready:
 
 4. Run get commands for locating RDS resources
 ```Get
-* Get-RDSTenant
-* Get-RDSHostPool -TenantName <tenantname>
-* Get-RDSSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>
-* Get-RDSAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname>
-* Get-RDSRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
+Get-RDSTenant
+Get-RDSHostPool -TenantName <tenantname>
+Get-RDSSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>
+Get-RDSAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname>
+Get-RDSRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname>
 ```
 
 5.  The next steps remove the classic version of Azure Virtual Desktop.
 ```Remove
-* Remove-RDSRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -name 'xyz'
-* Remove-RDSAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <appgroupname>
-* Remove-RDSSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <sessionhostname>
-* Remove-RDSHostPool -TenantName <tenantname> -Name <hostpoolname>
-* Remove-RDSTenant -Name <tenantname>
+Remove-RDSRemoteApp -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGroupName <appgroupname> -name 'name'
+Remove-RDSAppGroup -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <appgroupname>
+Remove-RDSSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname> -Name <sessionhostname>
+Remove-RDSHostPool -TenantName <tenantname> -Name <hostpoolname>
+Remove-RDSTenant -Name <tenantname>
 ```
