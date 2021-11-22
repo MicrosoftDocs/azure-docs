@@ -16,8 +16,6 @@ Dapr is incrementally adoptable – the API building blocks can be leveraged as 
 
 :::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## Capabilities and features 
 
 Dapr provides the following set of capabilities to help with your microservice development on AKS:
