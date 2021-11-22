@@ -1490,6 +1490,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palantir Foundry
+        href: palantir-foundry-tutorial.md  
       - name: Palo Alto Networks - Admin UI
         href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
