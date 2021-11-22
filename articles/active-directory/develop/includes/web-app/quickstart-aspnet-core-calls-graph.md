@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: ASP.NET Core web app that signs in users and calls Microsoft Graph | Azure"
+title: "
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how an app leverages Microsoft.Identity.Web to implement Microsoft sign-in in an ASP.NET Core web app using OpenID Connect and calls Microsoft Graph
 services: active-directory

@@ -23,12 +23,8 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 [!INCLUDE [asp.net](./includes/web-app/quickstart-aspnet.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-aspnet-core-1-signusers"
+::: zone pivot="programming-language-aspnet-core"
 [!INCLUDE [asp.net-core](./includes/web-app/quickstart-aspnet-core.md)]
-::: zone-end
- 
-::: zone pivot="programming-language-aspnet-core-2-callgraph"
-[!INCLUDE [asp.net-core](./includes/web-app/quickstart-aspnet-core-calls-graph.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-nodejs-msal"

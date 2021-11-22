@@ -1485,10 +1485,8 @@ groups:
     title: React
   - id: programming-language-aspnet
     title: ASP.NET
-  - id: programming-language-aspnet-core-1-signusers
-    title: ASP.NET Core (sign in users)
-  - id: programming-language-aspnet-core-2-callgraph
-    title: ASP.NET Core (call Microsoft Graph)
+  - id: programming-language-aspnet-core
+    title: ASP.NET Core
   - id: programming-language-nodejs-msal
     title: Node.js - MSAL
   - id: programming-language-nodejs-passport
