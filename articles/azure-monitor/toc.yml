@@ -314,9 +314,8 @@
         - name: Authentication
           href: logs/api/authentication.md
         - name: Using the API
-          href: logs/api/using-api.md
           items:
-          - name: AAD setup
+          - name: Set up AAD for the API
             href: logs/api/aad-setup.md
           - name: Request an authorization token
             href: logs/api/oath2.md

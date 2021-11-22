@@ -12,13 +12,13 @@ To quickly explore the API without needing to use AAD authentication, we provide
 
 To authenticate and run queries against the sample workspace, use `DEMO_WORKSPACE` as the {workspace-id} and pass in the API key `DEMO_KEY`.
 
-The API key `DEMO_KEY` can be passed in three different ways, depending on whether you prefer to use the URL, a header, or Basic authentication.
+The API key `DEMO_KEY` can be passed in three different ways, depending on whether you prefer to use the URL, a header, or basic authentication.
 
 1.  **Custom header**: provide the API key in the custom header `X-Api-Key`
 2.  **Query parameter**: provide the API key in the URL parameter `api_key`
 3.  **Basic authentication**: provide the API key as either username or password. If you provide both, the API key must be in the username.
 
-An example showing the use of the Workspace ID and API key in the header:
+This example uses the Workspace ID and API key in the header:
 
 ```
     POST https://api.loganalytics.io/v1/workspaces/DEMO_WORKSPACE/query

@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # Overview
 
-The **Query API** is a REST API designed to give users API access to the same data and queries as with [Log Analytics](https://azure.microsoft.com/blog/announcing-the-new-and-improved-azure-log-analytics/). You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
+The **Query API** is a REST API that lets you query the full set of data collected by Log Analytics using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
 
 ## Trying the APIs
 

@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.date: 08/18/2021
 ms.topic: article
 ---
-# Registering an AAD Application
+# Set up AAD Authentication for the API
 
 1. In the Azure portal, select the Azure Active Directory resource.
 1. In the **Manage** section on the left, select **App Registrations**.
