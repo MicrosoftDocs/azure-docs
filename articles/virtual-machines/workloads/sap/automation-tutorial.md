@@ -407,16 +407,20 @@ materials:
 
 For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRUCTURE`. The deployer key vault name would contain `MGMTNOEUDEP00user` in the name. You use this information to configure your deployer's key vault secrets.
 
-Add a secret with the username for your SAP user account. Replace `<keyvault-name>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
+Add a secret with the username for your SAP user account. Replace `<vaultID>` with the name of your deployer key vault. Also replace `<sap-username>` with your SAP username.
 
 ```bash
-az keyvault secret set --name "S-Username" --vault-name "<keyvault-name>" --value "<sap-username>";
+export key_vault=<vaultID>
+sap_username=<sap-username>
+
+az keyvault secret set --name "S-Username" --vault-name $key_vault --value "${sap_username}";
 ```
 
-Add a secret with the password for your SAP user account. Replace `<keyvault-name>` with your deployer key vault name, and `<sap-password>` with your SAP password.
+Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name, and `<sap-password>` with your SAP password.
 
 ```bash
-az keyvault secret set --name "S-Password" --vault-name "<keyvault-name>" --value "<sap-password>";
+sap_user_password="<sap-password>
+az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
 ```
 
 Next, configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
@@ -534,7 +538,7 @@ export tenant_id="<tenant>"
 export storage_account="<storageaccountName>"
 export statefile_subscription="<subscriptionID>"
 export region_code="NOEU"
-key_vault=<vaultID>
+export key_vault=<vaultID>
 
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
