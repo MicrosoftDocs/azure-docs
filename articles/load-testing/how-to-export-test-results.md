@@ -27,9 +27,6 @@ The test results contain a comma-separated (CSV) file with details of each appli
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 - An Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
-    > [!IMPORTANT]
-    > A test run needs to be in the **Done**, **Stopped**, or **Failed** status for the results file to be available for download.
-
 ## Access and download load test results
 
 In this section, you'll retrieve and download the Azure Load Testing results file from the Azure portal.
@@ -46,6 +43,8 @@ In this section, you'll retrieve and download the Azure Load Testing results fil
 1. Select **...** on the test run, and then select **Download results file**.
 
     :::image type="content" source="media/how-to-export-test-results/test-run-page-download.png" alt-text="Screenshot that shows how to download the logs of a load test run.":::  
+    > [!NOTE]
+    > A test run needs to be in the **Done**, **Stopped**, or **Failed** status for the results file to be available for download.
 
     The browser should now start downloading the test results as a zipped folder.
 
