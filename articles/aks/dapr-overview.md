@@ -8,11 +8,13 @@ ms.date: 10/15/2021
 ms.custom: devx-track-azurecli
 ---
 
-# Dapr (preview) 
+# Dapr
 
 Distributed Application Runtime (Dapr) offers APIs that simplify microservice development and implementation. Running as a sidecar process in tandem with your applications, Dapr APIs abstract away common complexities developers regularly encounter when building distributed applications, such as service discovery, message broker integration, encryption, observability, and secret management. Whether your inter-application communication is direct service-to-service, or pub/sub messaging, Dapr helps you write simple, portable, resilient, and secured microservices.
 
 Dapr is incrementally adoptable – the API building blocks can be leveraged as the need arises. Use one, several, or all to develop your application faster.
+
+:::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
