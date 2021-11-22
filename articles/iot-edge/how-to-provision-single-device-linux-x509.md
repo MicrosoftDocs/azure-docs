@@ -2,7 +2,6 @@
 title: Create and provision an IoT Edge device on Linux using X.509 certificates - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with X.509 certificates
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual

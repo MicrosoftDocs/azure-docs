@@ -80,9 +80,6 @@ The system deployment consists of the virtual machines that will be running the 
 
 The [SAP deployment automation framework repository](https://github.com/Azure/sap-automation) is available on GitHub.
 
-> [!IMPORTANT]
-> Before you begin, make sure to change from the default branch to **sap-level-up**.
-
 You need an SSH client to connect to the Deployer. Use any SSH client that you feel comfortable with.
 
 #### Review the Azure Subscription Quota

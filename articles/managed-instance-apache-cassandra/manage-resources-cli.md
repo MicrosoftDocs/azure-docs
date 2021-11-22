@@ -225,11 +225,13 @@ az managed-cassandra datacenter update \
 Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). The following YAML settings are supported:
 
 - column_index_size_in_kb
+- allocate_tokens_for_keyspace
 - compaction_throughput_mb_per_sec
 - read_request_timeout_in_ms
 - range_request_timeout_in_ms
 - aggregated_request_timeout_in_ms
 - write_request_timeout_in_ms
+- request_timeout_in_ms
 - internode_compression
 - batchlog_replay_throttle_in_kb
 
