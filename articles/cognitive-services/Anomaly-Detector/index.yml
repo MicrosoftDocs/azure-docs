@@ -29,7 +29,7 @@ landingContent:
           url: whats-new.md
     - linkListType: get-started
       links:
-        - text: Demo web application (univariate)
+        - text: Demo web application (univariate & multivariate)
           url: https://aka.ms/adDemo
     - linkListType: video
       links:

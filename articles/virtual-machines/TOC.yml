@@ -161,6 +161,8 @@
         href: av2-series.md
       - name: B-series burstable
         href: sizes-b-series-burstable.md
+      - name: DCasv5 and DCadsv5-series
+        href: dcasv5-dcadsv5-series.md
       - name: DCsv2-series
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
@@ -181,6 +183,8 @@
         href: ddv5-ddsv5-series.md
       - name: Dasv5 and Dadsv5-series
         href: dasv5-dadsv5-series.md
+      - name: DCasv5 and DCadsv5-series
+        href: dcasv5-dcadsv5-series.md
     - name: Compute optimized
       items:
       - name: Overview
@@ -211,6 +215,8 @@
         href: edv5-edsv5-series.md
       - name: Easv5 and Eadsv5-series
         href: easv5-eadsv5-series.md
+      - name: ECasv5 and ECadsv5-series
+        href: ecasv5-ecadsv5-series.md
       - name: M-series
         href: m-series.md
       - name: Msv2 and Mdsv2 Medium Memory series
@@ -714,6 +720,8 @@
         href: ./windows/ps-template.md
       - name: Secure web server with TLS\SSL
         href: ./windows/tutorial-secure-web-server.md
+  - name: Delete a VM and it's resources
+    item: delete.md
   - name: Connect to Virtual Machines
     items:
     - name: Linux
