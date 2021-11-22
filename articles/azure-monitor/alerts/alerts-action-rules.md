@@ -111,7 +111,7 @@ In the second tab (**Rule settings**), you select which action to apply on the a
 
 ![Alert processing rules wizard - rule settings tab](media/alerts-action-rules/action-rules-wizard-rule-settings-tab.png)
 
-In the third tab(**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
+In the third tab (**Scheduling**), you select an optional schedule for the rule. By default the rule works all the time, as long as it is not disabled. However, you can set it to work **on a specific time**, or **set up a recurring schedule**.  
 Let's see an example of a schedule for a one-off, overnight, planned maintenance. It starts in the evening until the next morning, in a specific timezone:
 
 ![Alert processing rules wizard - scheduling tab - one-off schedule](media/alerts-action-rules/action-rules-wizard-scheduling-tab-once.png)
