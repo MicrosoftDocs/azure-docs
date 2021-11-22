@@ -426,7 +426,7 @@ message associated with error code {errorCode}
 
 **Cause:** This error occurs when Application Gateway can't verify the validity of the certificate.
 
-**Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/man1.0.2/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
+**Solution:** To resolve this issue, verify that the certificate on your server was created properly. For example, you can use [OpenSSL](https://www.openssl.org/docs/manmaster/man1/verify.html) to verify the certificate and its properties and then try reuploading the certificate to the Application Gateway HTTP settings.
 
 ## Backend health status: unknown
 
