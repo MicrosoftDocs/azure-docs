@@ -66,7 +66,7 @@ For more information, see [Configure IP firewall rules for an Azure Event Grid t
 
 #### Find the IP addresses blocked by IP Firewall
 
-Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-a-custom-topic). You'll see the IP address for the connection that's denied.
+Enable diagnostic logs for Event Grid topic/domain [Enable diagnostic logs](enable-diagnostic-logs-topic.md#enable-diagnostic-logs-for-event-grid-topics-and-domains). You'll see the IP address for the connection that's denied.
 
 ```json
 {

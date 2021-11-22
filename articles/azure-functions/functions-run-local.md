@@ -500,7 +500,7 @@ The Azure Functions Core Tools supports three types of deployment:
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
 | Custom container | `func deploy` | Deploys your project to a Linux function app as a custom Docker container.  |
-| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a customer Docker container to a Kubernetes cluster. | 
+| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 ### Before you publish 
 

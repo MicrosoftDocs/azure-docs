@@ -7,7 +7,7 @@ metadata:
   title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
-  ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: defender-for-cloud #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
