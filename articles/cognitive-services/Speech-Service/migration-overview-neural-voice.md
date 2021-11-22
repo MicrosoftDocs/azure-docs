@@ -27,7 +27,7 @@ Custom neural voice is a gated service. You need to create an Azure account and 
 
 Even without an Azure account, you can listen to voice samples in [Speech Studio](https://aka.ms/customvoice) and determine the right voice for your business needs.
 
-Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details. Custom voice (deprecated) is referred as **Custom**, and custom neural voice is referred as **Custom Neural**. 
+Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details. Custom voice (retired) is referred as **Custom**, and custom neural voice is referred as **Custom Neural**. 
 
 ## Prebuilt standard voice
 
@@ -38,7 +38,7 @@ Go to [this article](how-to-migrate-to-prebuilt-neural-voice.md) to learn how to
 
 Prebuilt neural voice is powered by deep neural networks. You need to create an Azure account and Speech service subscription. Then you can use the [Speech SDK](./get-started-text-to-speech.md) or visit the [Speech Studio portal](https://speech.microsoft.com/portal), and select prebuilt neural voices to get started. Listening to the voice sample without creating an Azure account, you can visit [here](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) and determine the right voice for your business needs.
 
-Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details. Prebuilt standard voice (deprecated) is referred as **Standard**, and prebuilt neural voice is referred as **Neural**. 
+Go to the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) and check the pricing details. Prebuilt standard voice (retired) is referred as **Standard**, and prebuilt neural voice is referred as **Neural**. 
 
 ## Next steps
 
