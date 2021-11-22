@@ -1,6 +1,7 @@
 ---
 title: Request an authorization token
 description: We support three OAuth2 flows- authorization code grant, implicit grant, and client credentials grant.
+author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
@@ -26,7 +27,7 @@ In the client credentials flow, we use the token with the ARM endpoint. This flo
 The resource we request is <https://management.azure.com/>. 
 You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/), simply replace the "resource" in the example.
 
-## Token URL (POST request)
+### Client Credentials Token URL (POST request)
 
 ```
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
@@ -107,7 +108,7 @@ Example Response:
 
 The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Log Analytics API. There are two URLs, one endpoint per request. Their formats are as follows:
 
-## Authorize URL (GET request):
+### Authorization Code URL (GET request):
 
 ```
     GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
@@ -125,7 +126,7 @@ When making a request to the Authorize URL, the client\_id is the Application ID
 
 At this point you will have obtained an authorization code, which you need now to request an access token.
 
-## Token URL (POST request)
+### Authorization Code Token URL (POST request)
 
 ```
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
@@ -189,7 +190,7 @@ Response example:
 
 The Log Analytics API also supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token may be acquired.
 
-## Authorize URL
+### Implicit Code Authorize URL
 
 ```
     GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?

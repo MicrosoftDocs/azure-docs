@@ -10,7 +10,7 @@ ms.topic: article
 
 The API comes in stable and experimental versions. Because we might introduce breaking changes to our beta APIs, we recommend that you use the beta version only to test apps that are in development; do not use beta APIs in your production apps. Use a stable version for all production apps.
 
-The API is offered via two [endpoints](urls.md). We generally offer parity of versions between our direct endpoint and our Azure Resource Manager endpoint, but using different syntax and version strings:
+The API is offered via two [endpoints](api-endpoints.md). We generally offer parity of versions between our direct endpoint and our Azure Resource Manager endpoint, but using different syntax and version strings:
 
 Direct: [https://api.loganalytics.io/{api-version}/workspaces/query](https://api.loganalytics.io/%7Bapi-version%7D/workspaces/query)
 

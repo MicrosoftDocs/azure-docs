@@ -56,7 +56,7 @@ Now that our Azure Active Directory resource is configured, an AAD Application i
 ```
 
 And returns the following results:  
-![Results from the sample query shown in the Log Search page](media/arm-api/14.png)
+![Results from the sample query shown in the Log Search page](media/arm-api/sample-query-results.png)
 
 ## 2.1 Preparing to call the API
 

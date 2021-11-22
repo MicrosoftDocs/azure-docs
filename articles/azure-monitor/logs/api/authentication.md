@@ -1,11 +1,12 @@
 ---
 title: Authentication
 description: The Log Analytics API supports using AAD authentication to query your workspace data, or an API key to query sample workspace data.
+author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
 ---
-# Authentication
+# Log Analytics API Authentication
 
 You must authenticate to access the API. 
 - To query your workspaces, you need to use [Azure Active Directory authentication](https://azure.microsoft.com/documentation/articles/active-directory-whatis/).

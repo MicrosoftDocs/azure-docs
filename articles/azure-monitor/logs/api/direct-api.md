@@ -1,6 +1,7 @@
 ---
 title: Azure Log Analytics API Tutorial
 description: The REST API lets you query the full set of data collected by Log Analytics using the same query language used throughout the service.
+author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/18/2021
 ms.topic: article
@@ -11,7 +12,7 @@ This tutorial walks you through the steps to get started using the API. For deta
 
 ## 1. Set up Azure Active Directory (one-time)
 
-The Azure Log Analytics API uses the Azure Active Directory authentication scheme. Alternative authentication schemes, and other details are available on the [AAD Authentication](authorization.md) page.
+The Azure Log Analytics API uses the Azure Active Directory authentication scheme. Alternative authentication schemes, and other details are available on the [AAD Authentication](authentication.md) page.
 
 ### 1.1 Register an Azure Active Directory Application
 
@@ -128,4 +129,4 @@ Using our sample query, the request body will look as follows:
 ```
 
 Here's the call in Fiddler:  
-![A call to run our query in Fiddler](media/arm-api/fiddler.png)
+![A call to run our query in Fiddler](media/direct-api/fiddler.png)
