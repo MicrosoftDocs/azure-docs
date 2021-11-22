@@ -23,6 +23,9 @@ This guide will show you how to get started with the Azure Spatial Anchors SDK i
 
 Before including the Azure Spatial Anchors SDK in your Unity project, be sure to install the [required](#project-requirements) packages through the Unity Package Manager.
 
+### Choose ASA version
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
+
 ### Download ASA packages
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 

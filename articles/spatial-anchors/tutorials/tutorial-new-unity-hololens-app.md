@@ -61,6 +61,8 @@ We need to configure our Unity app with an immersive view, rather than a 2D view
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
 3. In the **Publishing Settings** Configuration section, check **InternetClientServer** and **SpatialPerception**.
+> [!IMPORTANT]
+> If using a network that is configured to be private, then you will also need to enable the **PrivateNetworkClientServer** capability.
 
 **Set up the main virtual camera**
 1. In the **Hierarchy Panel**, select **Main Camera**.
@@ -135,6 +137,9 @@ We can use the Update() loop to check if there is an Action queued. If so, we wi
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## Get the Azure Spatial Anchors SDK
+
+### Choose ASA version
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
 
 ### Download packages
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
