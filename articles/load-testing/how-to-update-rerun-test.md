@@ -23,8 +23,7 @@ Azure Load Testing integrates with Azure Monitor to capture server-side resource
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see [How to create the Load Test Resource](./quickstart-create-and-run-load-test.md).  
-- You must have a valid Azure Load Testing resource with at least one completed test run. If you need to create a load test, see [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
+- An Azure Load Testing resource with at least one completed test run. If you need to create an Azure Load Testing resource, see [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
 
 ## Configure server-side monitoring for a load test
 
@@ -32,13 +31,11 @@ In this section, you'll update an existing load test to configure the Azure appl
 
 1. Navigate to your Azure Load Testing resource in the Azure portal. 
 
-1. Select **Tests** from the left navigation, and then select the test you wish to update.
+1. Select **Tests** from the left navigation, and then select your load test from the list.
 
     :::image type="content" source="media/how-to-update-rerun-test/select-test.png" alt-text="Screenshot that shows how to select a load test.":::  
 
-    After selecting a test, you'll see the list of test runs for that test.
-
-1. Select **Configure**, and then select **App Components** to add or remove Azure resources to monitor during the load test.
+1. On the test runs page, select **Configure**, and then select **App Components** to add or remove Azure resources to monitor during the load test.
 
     :::image type="content" source="media/how-to-update-rerun-test/configure-app-components.png" alt-text="Screenshot that shows how to configure app components for a load test.":::  
 
@@ -48,9 +45,6 @@ In this section, you'll update an existing load test to configure the Azure appl
 
     The Azure Load Testing service will capture resource metrics for the selected Azure components and display them in the test result dashboard.
     
-   > [!NOTE]
-   > All subsequent test runs will use the new configuration settings.
-
 1. Select **Configure**, and then select **Metrics** to select the specific resource metrics to capture during the load test.
 
     :::image type="content" source="media/how-to-update-rerun-test/configure-metrics.png" alt-text="Screenshot that shows how to configure metrics for a load test.":::  
@@ -58,8 +52,6 @@ In this section, you'll update an existing load test to configure the Azure appl
 1. Update the list of metrics you want to capture, and then select **Apply** to save your changes.
 
     :::image type="content" source="media/how-to-update-rerun-test/modify-metrics.png" alt-text="Screenshot that shows how to modify the list of resource metrics.":::  
-
-    The test result dashboard will show a separate chart for each resource metric.
 
     Alternatively, you can also update the app components and metrics from the test result details page.
 
