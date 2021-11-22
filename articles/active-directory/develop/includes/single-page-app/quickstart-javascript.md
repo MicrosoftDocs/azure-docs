@@ -45,7 +45,7 @@ To start your quickstart application, use either of the following options.
 #### Step 1: Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -85,7 +85,7 @@ Modify the values in the `msalConfig` section:
 - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 
    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud).
+- `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](../../authentication-national-cloud.md).
 - `Enter_the_Tenant_info_here` is one of the following:
   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 
@@ -148,7 +148,7 @@ Run the project with a web server by using Node.js.
 
 ### How the sample works
 
-![Diagram showing the authorization code flow for a single-page application.](media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
+![Diagram showing the authorization code flow for a single-page application.](../../media/quickstart-v2-javascript-auth-code/diagram-01-auth-code-flow.png)
 
 ### MSAL.js
 
@@ -170,4 +170,4 @@ npm install @azure/msal-browser
 For a more detailed step-by-step guide on building the application used in this quickstart, see the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial to sign in and call MS Graph](./tutorial-v2-javascript-auth-code)
+> [Tutorial to sign in and call MS Graph](../../tutorial-v2-javascript-auth-code.md)
