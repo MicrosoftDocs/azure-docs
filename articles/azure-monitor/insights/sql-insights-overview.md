@@ -96,6 +96,8 @@ The tables have the following columns:
 | Requests | AzureSQLDBRequests | sqlserver_requests | sys.dm_exec_sessions<br>sys.dm_exec_requests<br>sys.dm_exec_sql_text | No | Not applicable |
 | Schedulers| AzureSQLDBSchedulers | sqlserver_schedulers | sys.dm_os_schedulers | No | Not applicable  |
 
+### Data for Azure SQL Database elastic pools
+
 ### Data for Azure SQL Managed Instance 
 
 | Friendly name | Configuration name | Namespace | DMVs | Enabled by default | Default collection frequency |

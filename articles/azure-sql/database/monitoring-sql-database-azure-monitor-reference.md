@@ -29,41 +29,19 @@ This section lists the types of resource logs you can collect for Azure SQL Data
 
 For reference, see a list of [all resource logs category types supported in Azure Monitor](../../azure-monitor/essentials/resource-logs-schema.md).
 
-For a reference of resource log types collected for Azure SQL Database, see [Streaming expoert of Azure SQL Database Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
+For a reference of resource log types collected for Azure SQL Database, see [Streaming export of Azure SQL Database Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export)
 
 ## Azure Monitor Logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure SQL Database and available for query by Log Analytics. 
+This section refers to all of the Azure Monitor Logs tables relevant to Azure SQL Database and available for query by Log Analytics, which can be queried with KQL.
 
 Tables for all resources types are referenced here, for example, [Azure Monitor tables for SQL Databases](/azure/azure-monitor/reference/tables/tables-resourcetype.md#sql-databases).
 
 |Resource Type | Notes |
 |-------|-----|
 | [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity.md) | Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. |
-| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics.md) | Azure Diagnostics revealing internal operations of specific resources and features for numerous Azure products including SQL databases, SQL managed Instances, and SQL servers. |
+| [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics.md) | Azure Diagnostics revealing internal operations of specific resources and features for numerous Azure products including SQL databases, SQL managed Instances, and SQL servers. For more information, see [Diagnostics metrics]( metrics-diagnostic-telemetry-logging-streaming-export-configure?tabs=azure-portal#basic-metrics).|
 | [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics.md) | Metric data emitted by Azure services that measure their health and performance. Activity from numerous Azure products including SQL databases, SQL managed Instances, and SQL servers.|
-
-### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
-
-<!-- TODO note to configure Diagnostic Setting for the resource?>
-
-Azure SQL Database uses the [Azure Diagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->

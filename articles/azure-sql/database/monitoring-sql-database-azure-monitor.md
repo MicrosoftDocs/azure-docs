@@ -26,7 +26,7 @@ View your Azure Monitor metrics for all connected resources by going to the Azur
 
 ## Azure Monitor SQL insights
 
-Some services in Azure have a special focused pre-built monitoring dashboard in the Azure portal that provides a starting point for monitoring your service. These special dashboards are called "insights". For more information, see the [SQL insights (preview)](../../azure-monitor/insights/sql-insights-overview.md).
+Some services in Azure have a focused, pre-built monitoring dashboard in the Azure portal that can be enabled to provide a starting point for monitoring your service. These special dashboards are called "insights" and are not enabled by default. For more information, see the [SQL insights (preview)](../../azure-monitor/insights/sql-insights-overview.md).
 
 After creating a monitoring profile, you can configure your Azure Monitor SQL insights for SQL-specific metrics for Azure SQL Database and SQL Managed Instance.
 
@@ -128,9 +128,9 @@ AzureMetrics
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../..//azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../..//azure-monitor/alerts/alerts-metric-overview.md), [logs](../../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../../azure-monitor/alerts/activity-log-alerts.md).
 
-If you are creating or running an application which run on <*service*> [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
+If you are creating or running an application in Azure, [Azure Monitor Application Insights](../../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
 
 The following table lists common and recommended alert rules for Azure SQL Database. You may see different options available depending on your purchase model.
 
