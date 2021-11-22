@@ -29,9 +29,6 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
 
 The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
 
-> [!NOTE]
-> Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](../availability-zones/az-overview.md). AZs are currently not supported by the IoT Hub service.
-
 ## Availability Zones
 
 There is a 99.9% Service Level Agreement for IoT Hub, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
