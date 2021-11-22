@@ -11,4 +11,6 @@ ms.topic: how-to
 ms.service: azure-spatial-anchors
 ---
 
+# Create an Azure Spatial Anchors account
+
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
