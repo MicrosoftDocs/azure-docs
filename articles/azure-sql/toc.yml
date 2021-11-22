@@ -237,6 +237,8 @@
         href: database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md
       - name: Azure Monitor for SQL Database
         href: database/monitoring-sql-database-azure-monitor.md 
+      - name: Azure Monitor for SQL Database reference 
+        href: database/monitoring-sql-database-azure-monitor-reference.md        
       - name: In-memory OLTP
         items:
         - name: Configure In-Memory OLTP

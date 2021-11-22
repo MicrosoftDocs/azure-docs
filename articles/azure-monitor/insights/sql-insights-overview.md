@@ -4,7 +4,7 @@ description: Overview of SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.reviewer: mathoma
+ms.reviewer: wiassaf
 ms.date: 11/10/2021
 ---
 
