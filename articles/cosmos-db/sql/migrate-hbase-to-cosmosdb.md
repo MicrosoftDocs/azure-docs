@@ -939,14 +939,14 @@ In Cosmos DB, you can add a Composite Index to sort your data in ascending or de
 
 #### Analytical processing is executed on HBase data with Hive or Spark. How can I modernize them in Cosmos DB?
 
-You can use the Azure Cosmos DB analytical store to automatically synchronize operational data to another column store. The column store format is suitable for large analytic queries that are executed in an optimized way, which improves latency for such queries. Azure Synapse Link allows you to build an ETL-free HTAP solution by linking directly from Azure Synapse Analytics to the Azure Cosmos DB analytical store. This allows you to perform large-scale, near-real-time analysis of operational data. Synapse Analytics supports Apache Spark and serverless SQL pools in the Cosmos DB analytics store. You can take advantage of this feature to migrate your analytical processing. See [Analytical store](https://docs.microsoft.com/en-us/azure/cosmos-db/analytical-store-introduction) for more information.
+You can use the Azure Cosmos DB analytical store to automatically synchronize operational data to another column store. The column store format is suitable for large analytic queries that are executed in an optimized way, which improves latency for such queries. Azure Synapse Link allows you to build an ETL-free HTAP solution by linking directly from Azure Synapse Analytics to the Azure Cosmos DB analytical store. This allows you to perform large-scale, near-real-time analysis of operational data. Synapse Analytics supports Apache Spark and serverless SQL pools in the Cosmos DB analytics store. You can take advantage of this feature to migrate your analytical processing. See [Analytical store](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction) for more information.
 
 #### How can users be using timestamp query in HBase to Cosmos DB?
 
-Cosmos DB doesn't have exactly the same timestamp versioning feature as HBase. But Cosmos DB provides the ability to access the [change feed](https://docs.microsoft.com/en-us/azure/cosmos-db/change-feed) and you can utilize it for versioning.
+Cosmos DB doesn't have exactly the same timestamp versioning feature as HBase. But Cosmos DB provides the ability to access the [change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed) and you can utilize it for versioning.
 -	Store every version/change as a separate item.
 -	Read the change feed to merge/consolidate changes and trigger appropriate actions downstream by filtering with “_ts” field.
-Additionally, for old version of data, you can expire old versions using [TTL](https://docs.microsoft.com/en-us/azure/cosmos-db/time-to-live).
+Additionally, for old version of data, you can expire old versions using [TTL](https://docs.microsoft.com/azure/cosmos-db/time-to-live).
 
 
 
