@@ -1,9 +1,10 @@
 ---
-title: Add a polygon extrusion layer to an iOS map | Microsoft Azure Maps
+title: Add a polygon extrusion layer to an iOS map
+titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps iOS SDK.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/19/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
