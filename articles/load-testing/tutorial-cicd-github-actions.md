@@ -35,7 +35,7 @@ You'll learn how to:
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 * A GitHub account where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).
-* An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).
+* An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
 
 ## Set up your repository
 
@@ -59,8 +59,6 @@ The sample application's source repo includes an Apache JMeter script named *Sam
 
 In this section, you update the Apache JMeter script with the URL of your sample web app.
 
-Before you start, make sure you have the directory of the cloned sample app open in VS Code.
- 
 1. In your sample application repository, open *SampleApp.jmx* for editing.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/edit-jmx.png" alt-text="Screenshot that shows how to edit the JMeter test script.":::
