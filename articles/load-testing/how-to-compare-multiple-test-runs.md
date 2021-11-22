@@ -94,4 +94,4 @@ In this section, you'll use the test run details page and add other test runs to
 
 - For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
 
-- To learn how performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
