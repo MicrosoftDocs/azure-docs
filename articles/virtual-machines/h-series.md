@@ -14,6 +14,9 @@ ms.reviewer: jushiman
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
+> [!NOTE]
+> H-Series VMs will be retired by August 31, 2022. Please see the [H-Series retirement notice](https://docs.microsoft.com/en-us/azure/virtual-machines/h-series-retirement) for additional details.
+
 H-series VMs are optimized for applications driven by high CPU frequencies or large memory per core requirements. H-series VMs feature 8 or 16 Intel Xeon E5 2667 v3 processor cores, up to 14 GB of RAM per CPU core, and no hyperthreading. H-series features 56 Gb/sec Mellanox FDR InfiniBand in a non-blocking fat tree configuration for consistent RDMA performance. H-series VMs are not SR-IOV enabled currently and support Intel MPI 5.x and MS-MPI.
 
 [ACU](acu.md): 290-300<br>
