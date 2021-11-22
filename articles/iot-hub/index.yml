@@ -7,8 +7,8 @@ metadata:
   services: iot-hub
   ms.service: iot-hub
   ms.topic: landing-page
-  author: robinsh
-  ms.author: robinsh
+  author: eross-msft
+  ms.author: lizross
   ms.date: 08/11/2021
 
 landingContent:
@@ -58,6 +58,15 @@ landingContent:
        url: ../iot-fundamentals/howto-use-iot-explorer.md
      - text: Develop using the Azure IoT Tools for VS Code
        url: https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools
+
+ - title: Azure IoT SDKs
+   linkLists:
+   - linkListType: concept
+     links:
+     - text: Choose a device SDK
+       url: ../iot-develop/about-iot-sdks.md
+     - text: Learn about service SDKs
+       url: iot-hub-devguide-sdks.md
 
  -   title: Select your protocol
      linkLists:
