@@ -35,6 +35,14 @@ The following procedures bind an Azure Storage account as a storage resource in 
 
 1. On the Storage page, select **Add storage**, fill out the form on the **Add storage** page and select **Apply**.
 
+   |Setting     |Value                                                                      |
+    |------------|---------------------------------------------------------------------------|
+    |Storage name       |Enter *\<storage-resource-name>*                                                         |
+    |Account name        |Enter *\<Azure-Storage-account-name>*                                                             |
+    |Account key         |Enter *\<Azure-Storage-account-key>*                                                        
+    
+   Then select **Apply**.
+
    ![Add storage resource](./media/spring-cloud-byos/add-storage-resource.png)
 
 1. Go the **Apps** page and select an application to mount the persistent storage.
@@ -48,7 +56,7 @@ The following procedures bind an Azure Storage account as a storage resource in 
 
     |Setting     |Value                                                                      |
     |------------|---------------------------------------------------------------------------|
-    |Storage name       |Enter *\<storage-resource-name>*                                                            |
+    |Storage name       |Enter *\<storage-resource-name>* from Step 2                                                        |
     |Persistent storage type        |Select **AzureFileVolume**                                                               |
     |Share name         |Enter *\<azure-file-share-name>*                                                                   |
     |Mount path    |Enter *\<unique-mount-path>*                                                            |
