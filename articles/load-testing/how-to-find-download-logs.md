@@ -22,7 +22,7 @@ In this article you'll learn how to:
 > - Download logs of your load test run from the dashboard.  
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in PREVIEW.
+> Azure Load Testing is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites  
