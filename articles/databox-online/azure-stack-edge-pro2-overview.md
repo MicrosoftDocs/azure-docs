@@ -66,20 +66,20 @@ Azure Stack Edge Pro 2 has the following capabilities:
 
 The Azure Stack Edge Pro 2 solution comprises of Azure Stack Edge resource, Azure Stack Edge Pro 2 physical device, and a local web UI.
 
-* **Azure Stack Edge Pro 2 physical device** - A 1U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
+* **Azure Stack Edge Pro 2 physical device** - A 2U rack-mounted server supplied by Microsoft that can be configured to send data to Azure.
 
     [!INCLUDE [azure-stack-edge-gateway-edge-hardware-center-overview](../../includes/azure-stack-edge-gateway-edge-hardware-center-overview.md)]    
 
-    For more information, go to [Create an order for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+    For more information, go to [Create an order for your Azure Stack Edge Pro 2 device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
     
 * **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
    
 
-* **Azure Stack Edge Pro GPU local web UI** - A browser-based local user interface on your Azure Stack Edge Pro GPU device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the Azure Stack Edge Pro GPU device, view copy logs, and contact Microsoft Support to file a service request.
+* **Azure Stack Edge Pro 2 local web UI** - A browser-based local user interface on your Azure Stack Edge Pro 2 device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the device, view copy logs, and contact Microsoft Support to file a service request.
 
     [!INCLUDE [azure-stack-edge-gateway-local-web-ui-languages](../../includes/azure-stack-edge-gateway-local-web-ui-languages.md)]
     
-    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge Pro GPU](azure-stack-edge-manage-access-power-connectivity-mode.md).
+    For information about using the web-based UI, go to [Use the web-based UI to administer your Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md).
 
 ## Region availability
 
@@ -87,7 +87,9 @@ Azure Stack Edge Pro GPU physical device, Azure resource, and target storage acc
 
 - **Resource availability** - For this release, the resource is available in East US, West EU, and South East Asia regions.
 
-- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Device availability** - You need to sign up for the preview. The Azure Stack Edge team will then enable your subscription. You should be able to see Azure Stack Edge Pro 2 as one of the available SKUs when placing the order. The countries where the device is available are: United States, Canada, Germany, Italy, Norway, Sweden, Denmark and Japan. 
+
+    For a list of all the countries/regions where the Azure Stack Edge Pro GPU device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro GPU pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro GPU data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
