@@ -5,11 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 11/21/2021
 ms.author: memildin
-
 ---
-
 # Important upcoming changes to Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -28,7 +26,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | November 2021             |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | November 2021             |
-| [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name) | November 2021             |
 | [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)                                                 | November 2021             |
 | [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
@@ -57,15 +54,6 @@ The legacy implementation of ISO 27001 will be removed from Defender for Cloud's
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-
-### Inventory display of on-premises machines will use different template for resource name
-
-**Estimated date for change:** November 2021
-
-To improve the presentation of resources in the [Asset inventory](asset-inventory.md), we'll be removing the "source-computer-IP" element from the template for naming on-premises machines.
-
-- **Current format:** ``machine-name_source-computer-id_VMUUID``
-- **From the update:** ``machine-name_VMUUID``
 
 ### Changes to a security alert from Microsoft Defender for Storage
 
