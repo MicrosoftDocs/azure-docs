@@ -1,7 +1,6 @@
 ---
 title: Deploy Arc for Azure VMware Solution 
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
-ms.author: suzizuber
 ms.topic: how-to 
 ms.date: 12/03/2021
 ---
@@ -31,7 +30,7 @@ The following is needed to ensure you're set up to begin the onboarding process 
 >[!NOTE]
 > Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
 
-For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](https://docs.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist)
+For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](https://docs.microsoft.com/azure/azure-vmware/tutorial-network-checklist)
 
 ### Manual registration to Arc for Azure VMware Solution feature set
 
@@ -84,7 +83,7 @@ While invoking the script, you'll be required to define one of the following ope
 
 Use the steps below to onboard in Arc for Azure VMware Solution preview.
 
-1. Log in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
+1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     Config JSON
@@ -112,10 +111,10 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     
     - subscriptionId, resourceGroup, privateCloud – The subscription ID, Resource Group name, and the Private cloud name respectively.  
     - isStatic and isAVS are always true. 
-    - networkForApplianceVM – Name for the segment for Arc appliance VM. That will be created if not present.  
-    - networkCIDRForApplianceVM – The IP CIDR of the segment for Arc appliance VM. This should be unique and not impact other networks of Azure VMware Solution management IP CIDR. 
+    - networkForApplianceVM – Name for the segment for Arc appliance VM, one will be created if one does not already exist.  
+    - networkCIDRForApplianceVM – The IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
     - GatewayIPAddress – The gateway for the segment for Arc appliance VM. 
-    - applianceControlPlaneIpAddress – The IP address for the Kubernetes API server. This should be part of the segment IP CIDR provided but not a part of the k8s node pool IP range.  
+    - applianceControlPlaneIpAddress – The IP address for the Kubernetes API server which should be part of the segment IP CIDR provided but not a part of the k8s node pool IP range.  
     - k8sNodeIPPoolStart, k8sNodeIPPoolEnd - The starting IP and the ending IP of the pool of IPs to assign to the appliance VM, have to be within the networkCIDRForApplianceVM. 
 
     Sample JSON
@@ -191,8 +190,167 @@ Once customers enable VMs to be managed from Azure, they can proceed to install 
 Click on **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
 
 **Arc enabled VMware resources**
+<!--content has been requested to replace an image for this section -->
+
+### Manage access to VMware resources through Azure Role-Based Access Control (RBAC)
+
+Once your Azure VMware Solution vCenter resources have been enabled for access through Azure, there is one final step in setting up a self-service experience for your teams. You will need to provide your teams with access to the compute, storage and networking, and other vCenter resources used to provision VMs.
+
+This section will demonstrate how to use custom roles to manage granular access to VMware resources through Azure.
+
+#### Arc enabled VMware vSphere custom roles
+
+We provide three custom roles to meet your RBACs. These roles can be applied to a whole subscription, resource group, or a single resource.
+
+- Azure Arc VMware Administrator role
+- Azure Arc VMware private cloud User role
+- Azure Arc VMware VM Contributor role
+
+The first role is for an Administrator and the other two roles apply to anyone who needs to deploy or manage a VM.
+
+**Azure Arc Azure VMware Solution Administrator role**
+
+This custom role provides permission to perform all possible operations for the `Microsoft.ConnectedVMwarevSphere` resource provider. This role should be assigned to users or groups who are administrators that manage Azure Arc enabled Azure VMware Solution deployment.
+
+```json
+{
+  "properties": {
+    "roleName": "Azure Arc VMware Administrator",
+    "description": "Azure Arc VMware Administrator has full permissions to connect new vCenter instances to Azure and decide which resource pools, networks and templates can be used by developers, and also create, update and delete VMs",
+    "assignableScopes": [
+      "/subscriptions/00000000-0000-0000-0000-000000000000"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.ConnectedVMwarevSphere/*",
+          "Microsoft.Insights/AlertRules/*",
+          "Microsoft.Insights/MetricAlerts/*",
+          "Microsoft.Support/*",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+Copy the JSON above into an empty file and save the file as `AzureArcAVSAdministratorRole.json`. Replace the 00000000-0000-0000-0000-000000000000 with your subscription id.
+
+**Azure Arc Azure VMware Solution private cloud User role**
+
+This custom role provides permissions to use the Arc enabled Azure VMware Solutions vSphere resources that have been made accessible through Azure. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+
+We recommend assigning this role at the individual resource pool (host or cluster), virtual network, or template that you want the user to deploy VMs with.
+
+```json
+{
+  "properties": {
+    "roleName": "Azure Arc VMware Private Cloud User",
+    "description": "Azure Arc VMware Private Cloud User has permissions to use the VMware cloud resources to deploy VMs.",
+    "assignableScopes": [
+      "/subscriptions/00000000-0000-0000-0000-000000000000"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Insights/AlertRules/*",
+          "Microsoft.Insights/MetricAlerts/*",
+          "Microsoft.Support/*",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.ConnectedVMwarevSphere/virtualnetworks/join/action",
+          "Microsoft.ConnectedVMwarevSphere/virtualnetworks/Read",
+          "Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/clone/action",
+          "Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/Read",
+          "Microsoft.ConnectedVMwarevSphere/resourcepools/deploy/action",
+          "Microsoft.ConnectedVMwarevSphere/resourcepools/Read",
+          "Microsoft.ExtendedLocation/customLocations/Read",
+          "Microsoft.ExtendedLocation/customLocations/deploy/action"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+Copy the JSON above into an empty file and save the file as `AzureArcAVSPrivateCloudUserRole.json`. Replace the 00000000-0000-0000-0000-000000000000 with your subscription id. 
+
+**Azure Arc Azure VMware Solution VM Contributor role**
+
+This custom role provides permissions to perform all VMware VM operations. This role should be assigned to any users or groups that need to deploy, update, or delete VMs.
+
+We recommend assigning this role at the subscription level or resource group you want the user to deploy VMs with.
+
+```json
+{
+  "properties": {
+    "roleName": "Arc VMware VM Contributor",
+    "description": "Arc VMware VM Contributor has permissions to perform all actions to update ",
+    "assignableScopes": [
+      "/subscriptions/00000000-0000-0000-0000-000000000000"
+    ],
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Insights/AlertRules/*",
+          "Microsoft.Insights/MetricAlerts/*",
+          "Microsoft.Support/*",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.ConnectedVMwarevSphere/virtualmachines/Delete",
+          "Microsoft.ConnectedVMwarevSphere/virtualmachines/Write",
+          "Microsoft.ConnectedVMwarevSphere/virtualmachines/Read"
+        ],
+        "notActions": [],
+        "dataActions": [],
+        "notDataActions": []
+      }
+    ]
+  }
+}
+```
+Copy the JSON above into an empty file and save the file as `AzureArcAVSVMContributorRole.json`. Replace the 00000000-0000-0000-0000-000000000000 with your subscription id. 
+
+**Add custom roles to your subscription**
+
+1. Navigate to the Azure portal.
+1. Locate the subscription page.
+1. Click **Access control (IAM)** in the table of contents located on the left side.
+1. Click **Add** on the **Create a custom role** card.
+1. On the **Basics** page, select *Start from JSON** on the **Baseline permissions** field.
+1. Pick one of the json files you saved from the steps above.
+1. Click **Review+Create**, verify that the assignable scope matches your subscription.
+1. Click **Create**.
+1. Repeat this process for each custom role and subscription.
+
+**Assign the custom roles to users or groups**
+
+1. Navigate to the Azure portal.
+1. Locate the subscription, resource group, or the resource at the scope you want to provide for the custom role.
+1. Find the Arc enabled Azure VMware Solution vCenter resources.
+    1. Navigate to the resource group and select the **Show hidden types** checkbox.
+    1. Search for "Azure VMware Solution".
+1. Click **Access control (IAM)** in the table of contents located on the left side.
+1. Click **Add role assignments** on the **Grant access to this resource** 
+1. Select the custom role you want to assign (Azure Arc VMware Solution: **Administrator**, **private cloud User**, or **Contributor**)
+1. Search for AAD user or group that you want to assign this role to.
+1. Click the AAD user or group name to select. Repeat this for each user or group you want to give permission to.
+1. Repeat the above steps for each scope and role.
 
 ## Create Arc enabled Azure VMware Solution VM
+
 
 
 
