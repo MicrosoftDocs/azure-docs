@@ -5,7 +5,7 @@ description: Learn how to create and configure a Linux VM to sign in using Azure
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/21/2021
+ms.date: 11/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
