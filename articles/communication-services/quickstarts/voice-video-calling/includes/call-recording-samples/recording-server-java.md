@@ -50,11 +50,32 @@ const callRecordingApi = call.api(Features.Recording);
 Subscribe to recording changes:
 
 ```JavaScript
-const isRecordingActiveChangedHandler = () => {
-  console.log(callRecordingApi.isRecordingActive);
+const recordingStateChanged = () => {
+    let recordings = callRecordingApi.recordings;
+
+    let state = SDK.RecordingState.None;
+    if (recordings.length > 0) {
+        state = recordings.some(r => r.state == SDK.RecordingState.Started)
+            ? SDK.RecordingState.Started
+            : SDK.RecordingState.Paused;
+    }
+    
+	console.log(`RecordingState: ${state}`);
+}
+
+const recordingsChangedHandler = (args: { added: SDK.RecordingInfo[], removed: SDK.RecordingInfo[]}) => {
+    args.added?.forEach(a => {
+        a.on('recordingStateChanged', recordingStateChanged);
+    });
+
+    args.removed?.forEach(r => {
+        r.off('recordingStateChanged', recordingStateChanged);
+    });
+
+    recordingStateChanged();
 };
 
-callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
+callRecordingApi.on('recordingsUpdated', recordingsChangedHandler);
 ```
 
 Get server call ID which can be used to start/stop/pause/resume recording sessions:
