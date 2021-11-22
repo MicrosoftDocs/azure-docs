@@ -7,7 +7,7 @@ metadata:
   manager: rkarlin
   ms.service: defender-for-cloud
   ms.topic: conceptual
-  ms.date: 11/09/2021
+  ms.date: 11/21/2021
   ms.author: memildin
   
     
@@ -175,12 +175,11 @@ sections:
       - question: |
           How do I stop the automatic agent installation and workspace creation?
         answer: |
-          You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Defender for Cloud recommendations and alerts. To disable automatic provisioning:
+          You can turn off auto provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Defender for Cloud recommendations and alerts. To disable automatic provisioning for a specific agent or extension:
           
           1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
-          1. If your subscription has [enhanced security features enabled](enable-enhanced-security.md), open **Defender plans** and select **Enhanced security off**.          
-          1. From the **Auto provisioning** page, Select pen  and the turn off auto provisioning in the  **Security policy – Data collection** page.
+          1. From the **Auto provisioning** page, toggle the status of the agent or extension you want to stop being automatically provisioned.
           
               :::image type="content" source="./media/enable-data-collection/agent-toggles.png" alt-text="Enable auto deploy for the Log Analytics agent":::
           
