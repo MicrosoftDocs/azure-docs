@@ -22,7 +22,7 @@ A multi-service resource references "Cognitive Services" as the offering, rather
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
 > [!TIP]
-> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md)
+> Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md).
 
 ## Set the resource key
 
