@@ -4,7 +4,7 @@ description: Describes how anomaly detection works, when notifications are sent 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: saasguide
+ms.date: 1/04/2022
 author: arifgani
 ms.author: argani
 ---
