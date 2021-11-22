@@ -26,7 +26,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS enabled telephone number. [Get a phone number](../telephony-sms/get-phone-number.md).
+- An SMS enabled telephone number. [Get a phone number](../../telephony-sms/get-phone-number.md).
 
 ### Prerequisite check
 
