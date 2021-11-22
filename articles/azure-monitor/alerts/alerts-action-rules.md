@@ -9,7 +9,6 @@ ms.date: 11/11/2021
 # Alert processing rules (preview)
 
 <a name="configuring-an-action-rule">
-<a name="filter-criteria">
 <a name="suppression-of-alerts">
 
 > [!NOTE]
@@ -25,7 +24,11 @@ Some common use cases for alert processing rules include:
 
 Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. Those customers may choose to stop receiving alert notifications for those resources during the maintenance window. Other customers do not need to receive alert notifications at all outside of their business hours.
 
-The above could be achieved sometimes by modifying the alert rules themselves. You could disable the alert rule that fires those alerts at the beginning of the maintenance window. Once the maintenance is over, you will then enable the alert rule back. However, that approach is not practical in many cases. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. Therefore, you will not want to disable the alert rule. You may have many alert rules that cover the resource, so updating them all is time consuming and error prone. Finally, you might have some alerts that are not created by an alert rule at all. In all those cases, an alert processing rule provides an easy way to achieve this goal.
+You could suppress alert notifications by diabling otherwise modifying the alert rule themselves, but this approach has several limitations:
+   * You could disable the relevant alert rule at the beginning of the maintenance window. Once the maintenance is over, you will then enable the alert rule back. However, this  approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintanence. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. So, if you disable the alert rule, you will mis valid alerts on the remaining resources covered by that rule.
+   * You may have many alert rules that cover the resource, so updating them all is time consuming and error prone.
+   * You might have some alerts that are not created by an alert rule at all.
+In all these ases, an alert processing rule provides an easy way to achieve the notification suppression goal
 
 ### Management at scale
 
@@ -43,6 +46,7 @@ For those alert types, you can use alert processing rules to add action groups t
 > Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview.md) alerts.
 
 ## Alert processing rule properties
+<a name="filter-criteria">
 
 An alert processing rule definition covers several aspects:
 
@@ -72,7 +76,7 @@ If you define multiple filters in a rule, all of them apply. For example, if you
 > [!NOTE]
 > Each filter may include up to five values.  
 
-### Which action should this rule apply?
+### What should this rule do?
 
 Choose one of the following actions:
 
