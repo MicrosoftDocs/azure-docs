@@ -27,7 +27,7 @@ The supported IBM DB2 versions are 9.7 to 11.x.
 
 When scanning IBM DB2 source, Purview supports:
 
-- Extracting metadata including DB2 erver, databases, schemas, tables, views, triggers, table/view columns, foreign keys, unique constraints, and indexes.
+- Extracting metadata including DB2 server, databases, schemas, tables, views, triggers, table/view columns, foreign keys, unique constraints, and indexes.
 - Fetching lineage on assets relationships among tables and views.
 
 ## Prerequisites
