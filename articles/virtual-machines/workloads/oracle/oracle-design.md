@@ -185,34 +185,32 @@ After you have a clear picture of the I/O requirements, you can choose a combina
 
 ### Disk cache settings
 
-There are three options for host caching but for an Oracle database, only ReadOnly caching is recommended for a database workload.  ReadWrite can introduce significant vulnerabilities to a datafile, where the goal of a database write is to record it to the datafile, not cache the information.
+Although you have three options for host caching, only read-only caching is recommended for a database workload on an Oracle database. Read/write can introduce significant vulnerabilities to a data file, because the goal of a database write is to record it to the data file, not cache the information. With read-only, all requests are cached for future reads. All writes continue to be written to disk.
 
-Unlike a file system or application, for a database, the recommendation for host caching is *ReadOnly*: All requests are cached for future reads. All writes continue to be written to disk.
+#### Recommendations
 
-**Recommendations**
+To maximize throughput, start with read-only for host caching whenever possible. For premium storage, keep in mind that you must disable the barriers when you mount the file system with the read-only options. Update the */etc/fstab* file with the universally unique identifier to the disks.
 
-To maximize the throughput, we recommend that you start with **ReadOnly** for host caching whenever possible. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** options. Update the `/etc/fstab` file with the UUID to the disks.
+![Screenshot of the managed disk page that shows the read-only option.](./media/oracle-design/premium_disk02.png)
 
-![Screenshot of the managed disk page that shows the ReadOnly and None options.](./media/oracle-design/premium_disk02.png)
+- For operating system disks, use premium SSD with read-write host caching.
+- For data disks that contain the following, use premium SSD with read-only host caching: Oracle data files, temp files, control files, block change tracking files, BFILEs, files for external tables, and flashback logs.
+- For data disks that contain Oracle online redo log files, use premium SSD or UltraDisk with no host caching (the **None** option). Oracle redo log files that are archived, and Oracle Recovery Manager backup sets, can also reside with the online redo log files. Note that host caching is limited to 4095 GiB, so don't allocate a premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, stripe several premium SSDs with RAID-0, using Linux LVM2 or by using Oracle Automatic Storage Management.
 
-- For **OS disks**, use **premium SSD with Read/Write host caching**.
-- For **Data disks** that contain Oracle datafiles, tempfiles, controlfiles, block change tracking files, BFILEs, files for external tables, and flashback logs, use **premium SSD with ReadOnly host caching**.
-- For **Data disks containing Oracle online redo log files**, use **premium SSD or UltraDisk with no host caching (None)**. Oracle archived redo log files and RMAN backupsets can also reside with the online redo log files. Note that host caching is limited to 4095 GiB, so do not allocate premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, RAID-0 stripe several premium SSD using Linux LVM2 or using Oracle ASM.
-
-If workloads vary greatly between the day and evening and the IO workload can support it, P1-P20 Premium SSD with bursting may provide the performance required during night-time batch loads or limited IO demands.  
+If workloads vary greatly between the day and evening, and the I/O workload can support it, P1-P20 Premium SSD with bursting might provide the performance required during night-time batch loads or limited I/O demands.  
 
 ## Security
 
-After you have set up and configured your Azure environment, the next step is to secure your network. Here are some recommendations:
+After you have set up and configured your Azure environment, you need to secure your network. Here are some recommendations:
 
-- *NSG policy*: NSG can be defined by a subnet or NIC. It's simpler to control access at the subnet level, both for security and force routing for things like application firewalls.
+- **NSG policy:** You can define your NSG by a subnet or a network interface card. It's simpler to control access at the subnet level, both for security and for force-routing application firewalls.
 
-- *Jumpbox*: For more secure access, administrators should not directly connect to the application service or database. A jumpbox is used as a media between the administrator machine and Azure resources.
-![Screenshot of the Jumpbox topology page](./media/oracle-design/jumpbox.png)
+- **Jumpbox:** For more secure access, administrators shouldn't directly connect to the application service or database. Use a jumpbox between the administrator machine and Azure resources.
+![Diagram that shows the jumpbox topology.](./media/oracle-design/jumpbox.png)
 
-    The administrator machine should offer IP-restricted access to the jumpbox only. The jumpbox should have access to the application and database.
+    The administrator machine should only offer IP-restricted access to the jumpbox. The jumpbox should have access to the application and database.
 
-- *Private network* (subnets): We recommend that you have the application service and database on separate subnets, so better control can be set by NSG policy.
+- **Private network (subnets):** It's a good idea to have the application service and database on separate subnets, so that NSG policy can set better control.
 
 
 ## Additional reading
