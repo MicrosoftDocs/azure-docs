@@ -14,9 +14,10 @@ ms.reviewer: sngun
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB offers an API to get the latest restorable timestamp of a container. This API is available for accounts that have continuous backup enabled. Latest restorable timestamp represents the latest timestamp in UTC format up to which your data has been successfully backed up. Using this API, you can get the restorable timestamp to trigger live account restore or monitor the data that is being successfully backed up.
+
 This API takes your account location as an input parameter and returns the latest restorable timestamps for a container in this location. If an account exists in multiple locations, the latest restorable timestamp for a container in different locations could be different. Because the backup in different account locations is taken independently.
 
-By default, the API only works at the container level, but you can easily extend it for the entire database or an account. The latest restorable timestamp for a database or a container is the minimum timestamp at which all the partitions for a given database or an account has a backup in the location that’s passed as input.
+By default, the API only works at the container level, but you can easily extend it for the entire database or an account. The latest restorable timestamp for a database or a container is the minimum timestamp at which all the partitions for a given database or an account has a backup in the location that’s passed as input. This article explains the use cases where latest restore timestamp is required and provides examples. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
 
 ## Use cases
 
@@ -76,13 +77,16 @@ If a container “cont1” has two partitions in two regions: “East US” and 
 
 ## Frequently asked questions
 
-**Can I use this API for accounts with periodic backup?**
+### Can I use this API for accounts with periodic backup?
+
 No. This API can only be used for accounts with continuous backup mode.
 
-**Can I use this API for accounts migrated to continuous mode?**
+### Can I use this API for accounts migrated to continuous mode?
+
 Yes.
 
-**What is the typical delay between the latest write timestamp and the latest restorable timestamp?**
+## What is the typical delay between the latest write timestamp and the latest restorable timestamp?
+
 Usually, your data is backed up within 100 seconds (i.e within 1 and a half minutes) after the data write operation. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 ## Next steps
