@@ -35,17 +35,9 @@ Assuming that you create an **Azure Functions** project, make sure to select **H
 
 Azurite is automatically available with [Visual Studio 2022 preview](https://visualstudio.microsoft.com/vs/preview/), so if you install the preview, you won't have to manually install, and then manually start Azurite. 
 
-> [!NOTE] If you are running an earlier version of Visual Studio, then you have to manually install, and then start Azurite. First, install [Node.js version 8.0 or later](https://nodejs.org). Node Package Manager (npm) is the package management tool included with every Node.js installation. After installing Node.js, execute the following `npm` command to install Azurite.
+> [!NOTE] If you are running an earlier version of Visual Studio, then you have to manually install, and then start Azurite. First, install [Node.js version 8.0 or later](https://nodejs.org). Node Package Manager (npm) is the package management tool included with every Node.js installation. 
 >
-> ```console
-> npm install -g azurite
-> ```
-> 
-> From the command line, start Azurite by using the following command:
-> 
-> ```console
-> azurite
-> ```
+> After installing Node.js, execute the following `npm` command to install Azurite: `npm install -g azurite`. Then, start Azurite by using the following command: `azurite`.
 
 ### Run Azurite
 
