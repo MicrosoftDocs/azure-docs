@@ -59,7 +59,7 @@ This diagram shows the steps it takes to fine-tune Text-to-Speech outputs. Use t
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML scripts. Type or upload your content in to Audio Content Creation.
 3. Choose the voice and the language for your script content. Audio Content Creation includes all of the [Microsoft Text-to-Speech voices](language-support.md#text-to-speech). You can use prebuilt neural voices or your custom neural voices.
    > [!NOTE]
-   > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
+   > Gated access is available for Custom Neural Voice, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](./text-to-speech.md).
 
 4. Select the content you want to preview and click the **play** icon (a triangle) to preview the default synthesis output. Please note that if you make any changes on the text, you need to click the **Stop** icon and then click **play** icon again to re-generate the audio with changed scripts. 
 5. Improve the output by adjusting pronunciation, break, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md). Here is a [video](https://youtu.be/ygApYuOOG6w) to show how to fine-tune speech output with Audio Content Creation.
