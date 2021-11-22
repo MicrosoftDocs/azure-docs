@@ -79,9 +79,9 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
 1. Ensure that you have installed [Git Bash](https://gitforwindows.org/) as listed in the [Prerequisites section](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#prerequisites) of the guide since this is recommended for completing the next steps.
 
 1. Using [Cloudera's Deployment and Install Guide for Docker](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html), complete the steps in the following sections:
-   
-   -    Deploy HDP Sandbox
-   -    Verify HDP Sandbox
+
+   - Deploy HDP Sandbox
+   - Verify HDP Sandbox
 
     > [!WARNING] 
     > When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
@@ -97,8 +97,10 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
 ### Automatically start Docker containers when students log in
 
 To provide an easy to use experience for students, we'll use a PowerShell script that automatically:
-  - Starts the HDP Sandbox Docker containers when a student starts and connects to their lab VM.
-  - Launches the browser and navigates to the Sandbox Welcome Page.
+
+- Starts the HDP Sandbox Docker containers when a student starts and connects to their lab VM.
+- Launches the browser and navigates to the Sandbox Welcome Page.
+
 We'll also use Windows Task Scheduler to automatically run this script when a student logs into their VM.
 To set this up, follow these steps: [Big Data Analytics scripting](https://aka.ms/azlabs/classtypes/bigDataAnalytics).
 

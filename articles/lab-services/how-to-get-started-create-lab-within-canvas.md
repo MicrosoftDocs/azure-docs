@@ -11,7 +11,7 @@ This article shows how to add the Azure Lab Services app to a Canvas and then ho
 
 ## Prerequisites
 
-A Canvas URL
+- You need a Canvas URL
 
 ## Get started
 
