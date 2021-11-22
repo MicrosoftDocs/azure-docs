@@ -30,7 +30,7 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
 
 ## Storage of video files
 
-When you use Video Analyzer for Media, video files are stored in Azure Storage through Media Services. There is no time limitation.
+When you use Video Analyzer for Media, video files are stored in Azure Storage through Media Services. The limits are 30 GB in size and 4 hours in length.
 
 You can always delete your video and audio files, along with any metadata and insights that Video Analyzer for Media has extracted from them. After you delete a file from Video Analyzer for Media, the file and its metadata and insights are permanently removed from Video Analyzer for Media. However, if you've implemented your own backup solution in Azure Storage, the file remains in Azure Storage.
 
@@ -108,10 +108,6 @@ After the indexing and encoding jobs are done, the video is published so you can
 
 For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Video Analyzer for Media encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
 The default setting is [content-aware encoding](../../media-services/latest/encode-content-aware-concept.md).
-
-To run the indexing and encoding jobs, the [Azure Media Services account that's connected to your Video Analyzer for Media account](connect-to-azure.md) requires Media Reserved Units. For more information, see [Scaling media processing](../../media-services/previous/media-services-scale-media-processing-overview.md). 
-
-Because these are compute-intensive jobs, we highly recommend the S3 unit type. The number of Request Units (RUs) defines the maximum number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 
