@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 11/17/2021
+ms.date: 11/21/2021
 ms.topic: reference
 ---
 
@@ -1618,7 +1618,7 @@ This section describes on-premises management console APIs for:
 
 ### Version 3
 
-- [Service Now Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration)
+- [ServiceNow Integration API - “/external/v3/integration/ (Preview)](#servicenow-integration-api---externalv3integration-preview)
 
 ### Alert Exclusions
 
@@ -2364,7 +2364,7 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 Note that /api/v2/ is needed for the following information:
 
-- sourceDeviceAddress 
+- sourceDeviceAddress
 - destinationDeviceAddress
 - remediationSteps
 - sensorName
@@ -2734,7 +2734,7 @@ Example:
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
 
-### Service Now Integration API - “/external/v3/integration/
+### ServiceNow Integration API - “/external/v3/integration/ (Preview)
 
 The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
 
@@ -2910,7 +2910,6 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Path parameters:
     - “**timestamp**” – the time from which updates are required, only later updates will be returned.
 - Query parameters:
-    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
     - “**page**” - the page number, from the result set (first page is 0, default value is 0)
     - “**size**” - the page size (default value is 50)
 
@@ -2919,7 +2918,6 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_devices**” - array of
     - “**u_id**” - the same as in the specific device API.
     - “**u_name**” - the same as in the specific device API.
     - “**u_ip_address_objects**” - the same as in the specific device API.
