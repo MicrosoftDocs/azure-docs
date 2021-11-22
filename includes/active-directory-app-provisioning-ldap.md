@@ -163,7 +163,7 @@ Now that we have configured the certificate and granted the network service acco
      |Port|636|
      |Connection Timeout|180|
      |Binding|SSL|
-     |User Name|CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab|
+     |User Name|CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab|
      |Password|The password of the user name specified|
 
      >[!NOTE]
