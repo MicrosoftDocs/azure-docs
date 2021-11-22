@@ -7,14 +7,17 @@ ms.service: load-testing
 ms.topic: reference
 ms.author: nicktrog
 author: ntrogh
-ms.date: 11/11/2021
+ms.date: 11/30/2021
 adobe-target: true
 ---
 
 # Configure load tests in YAML
 
-Learn how to configure your load test in [YAML](https://yaml.org/). You'll create a YAML test configuration to add a load test to your CI/CD workflow.
+Learn how to configure your load test in Azure Load Testing Preview by using [YAML](https://yaml.org/). You use the test configuration YAML file to create and run load tests from your CI/CD workflow.
 
+> [!IMPORTANT]
+> Azure Load Testing is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Load Test definition
 
