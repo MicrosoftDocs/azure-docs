@@ -91,7 +91,7 @@ After you understand the requirements for your class's lab, you're ready to set 
     > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
-    - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-template-vm)
+    - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-lab)
     - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
