@@ -12,6 +12,12 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Confidential VMs
+    items:
+      - name: Create confidential VM with Azure CLI
+        href: quick-create-confidential-vm-arm-amd.md
+      - name: Create confidential VM with Azure portal
+        href: quick-create-confidential-vm-portal-amd.md
   - name: Confidential VMs with enclaves
     items:
       - name: Deploy Intel SGX
@@ -33,20 +39,32 @@
     href: confidential-computing-deployment-models.md
   - name: Confidential virtual machines
     items:
-    - name: Build with enclaves
+    - name: About confidential VMs
+      href: confidential-vm-overview.md
+    - name: FAQ for AMD confidential VMs
+      href: confidential-vm-faq-amd.yml
+    - name: AMD processor options for confidential VMs
+      href: virtual-machine-solutions-amd.md
+    - name: DCasv5 and DCadsv5-series
+      href: ../virtual-machines/dcasv5-dcadsv5-series.md
+    - name: ECasv5 and ECadsv5-series
+      href: ../virtual-machines/ecasv5-ecadsv5-series.md
+  - name: Build with enclaves
+    items:
+    - name: Enclaves overview
+      href: confidential-computing-enclaves.md
+    - name: Developing enclave applications 
       items:
-      - name: Enclaves overview
-        href: confidential-computing-enclaves.md
-      - name: Developing enclave applications 
-        items:
-        - name: Enclave development overview
-          href: application-development.md
-        - name: Open-source projects for development
-          href: enclave-development-oss.md
-        - name: Attesting application enclaves
-          href: attestation.md
+      - name: Enclave development overview
+        href: application-development.md
+      - name: Open-source projects for development
+        href: enclave-development-oss.md
+      - name: Attesting application enclaves
+        href: attestation.md
       - name: Deploying Intel SGX virtual machines
         href: virtual-machine-solutions-sgx.md
+      - name: Deploying AMD virtual machines
+        href: virtual-machine-solutions-amd.md
       - name: Application enclave VM FAQ
         href: faq-application-enclaves.yml 
   - name: Confidential containers
