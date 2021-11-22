@@ -182,7 +182,7 @@ items:
       items:
       - name: Authoring
         href: https://aka.ms/clu-authoring-apis
-      - name: runtime API
+      - name: Runtime API
         href: https://aka.ms/clu-apis
     - name: SDKs
       items:
