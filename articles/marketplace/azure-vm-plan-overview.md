@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 11/10/2021
+ms.date: 11/19/2021
 ---
 
 # Create plans for a virtual machine offer
 
 On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-You can create up to 100 plans for each offer and up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can create up to 100 plans for each offer and up to 45 of these plans can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -39,7 +39,7 @@ In the **New plan** dialog box, enter a unique **Plan ID** for each plan in this
 
 Enter a **Plan name**. Customers see this name when they're deciding which plan to select within your offer. Create a unique name that clearly points out the differences between plans. For example, you might enter **Windows Server** with *Pay-as-you-go*, *BYOL*, *Advanced*, and *Enterprise* plans.
 
-Select **Create**. This opens the **Plan setup** page.
+Select **Create**. The **Plan setup** page appears.
 
 ## Plan setup
 
@@ -51,7 +51,7 @@ Your plan must be made available in at least one Azure region.
 
 Select **Azure Global** to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For more information, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
 
-Select **Azure Government** to make your plan available in the [Azure Government](../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from US federal, state, local, or tribal entities, as well as for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
+Select **Azure Government** to make your plan available in the [Azure Government](../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from US federal, state, local, or tribal entities, and for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
 
 Before you publish to [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md), test and validate your plan in the environment, because certain endpoints may differ. To set up and test your plan, request a trial account from the [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/) page.
 
@@ -106,18 +106,25 @@ Select **Save** to continue.
 
 ### Pricing
 
-For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license.
+For the **License model**, select **Usage-based monthly billed plan** to configure pricing for this plan, or **Bring your own license** to let customers use this plan with their existing license. 
 
-For a usage-based monthly billed plan, use one of the following three price entry options:
+For a usage-based monthly billed plan, Microsoft will charge the customer for their hourly usage and they are billed monthly. This is our _Pay-as-you-go_ plan, where customers are only billed for the hours that they've used. When you select this plan, choose one of the following pricing options:
 
-- **Per core** – Provide pricing per core in USD. Microsoft calculates the pricing per core size and converts it into local currencies by using the current exchange rate.
-- **Per core size** – Provide pricing per core size in USD. Microsoft calculates the pricing and converts it into local currencies by using the current exchange rate.
-- **Per market and core size** – Provide pricing for each core size for all markets. You can import the prices from a spreadsheet.
+- **Free** – Your VM offer is free.
+- **Flat rate (recommended)** – Your VM offer is the same hourly price regardless of the hardware it runs on.
+- **Per core** – Your VM offer pricing is based on per CPU core count. You provide the price for one CPU core and we’ll increment the pricing based on the size of the hardware.
+- **Per core size** – Your VM offer is priced based on the number of CPU cores on the hardware it's deployed on.
+- **Per market and core size** – Assign prices based on the number of CPU cores on the hardware it's deployed on, and also for all markets. Currency conversion is done by you, the publisher. This option is easier if you use the import pricing feature.
 
-Enter a **Price per core**, then select **Price per core size** to see a table of price/hour calculations.
+For **Per core size** and **Per market and core size**, enter a **Price per core**, and then select **Generate prices**. The tables of price/hour calculations are populated for you. You can then adjust the price per core, if you choose. If using the _Per market and core size_ pricing option, you can additionally customize the price/hour calculation tables for each market that’s selected for this plan.
 
 > [!NOTE]
-> Save pricing changes to enable the export of pricing data. After a price for a market in your plan is published, it can't be changed later. To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market.
+> To ensure that the prices are right before you publish them, export the pricing spreadsheet and review the prices in each market. Before you export pricing data, first select **Save draft** near the bottom of the page to save pricing changes.
+
+Some things to consider when selecting a pricing option:
+- For the first four options, Microsoft does the currency conversion.
+- Microsoft suggests using a flat rate pricing for software solutions.
+- Prices are fixed, so once the plan is published the prices cannot be adjusted. However, if you would like to reduce prices for your VM offers you can open a [support ticket](support.md).
 
 ### Free Trial
 

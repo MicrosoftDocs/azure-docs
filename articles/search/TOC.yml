@@ -170,10 +170,10 @@
       href: search-sku-tier.md
     - name: Create a service
       href: search-create-service-portal.md
-    - name: Plan capacity
-      href: search-capacity-planning.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
+    - name: Plan capacity
+      href: search-capacity-planning.md
     - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
