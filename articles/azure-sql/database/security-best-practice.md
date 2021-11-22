@@ -8,7 +8,7 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 11/10/2021
 ms.reviewer: ""
 ---
 
@@ -496,22 +496,18 @@ Best practices on how to prevent client machines and applications with well-know
 
 **How to implement**:
 
-- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using the latest [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit) version.
 
 **Best practices**:
+
+- Enforce a minimal TLS version at the [SQL Database server](connectivity-settings.md#minimal-tls-version) or [SQL Managed Instance](../managed-instance/minimal-tls-version-configure.md) level using the minimal TLS version setting. We recommend setting the minimal TLS version to 1.2, after testing to confirm your applications supports it. TLS 1.2 includes fixes for vulnerabilities found in previous versions.
 
 - Configure all your apps and tools to connect to SQL Database with encryption enabled
   - Encrypt = On, TrustServerCertificate = Off (or equivalent with non-Microsoft drivers).
 
 - If your app uses a driver that doesn't support TLS or supports an older version of TLS, replace the driver, if possible. If not possible, carefully evaluate the security risks.
-
-- Reduce attack vectors via vulnerabilities in SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1 by disabling them on client machines connecting to Azure SQL Database per [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings#tls-10).
-
-- Check cipher suites available on the client: [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel). Specifically, disable 3DES per [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order).
-
-- For Azure SQL Database and SQL Managed Instance, encryption is enforced for both Proxy and Redirect connection types. For Azure SQL Managed Instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections.
-
-- For more information, see [Azure SQL Database Connectivity Architecture - Connection policy](connectivity-architecture.md#connection-policy).
+  - Reduce attack vectors via vulnerabilities in SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1 by disabling them on client machines connecting to Azure SQL Database per [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings#tls-10).
+  - Check cipher suites available on the client: [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel). Specifically, disable 3DES per [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order).
 
 ### Minimize attack surface
 
@@ -525,7 +521,7 @@ In SQL Database:
 
 - Set Allow Access to Azure services to OFF at the server-level
 - Use VNet Service endpoints and VNet Firewall Rules.
-- Use Private Link (preview).
+- Use Private Link.
 
 In SQL Managed Instance:
 
