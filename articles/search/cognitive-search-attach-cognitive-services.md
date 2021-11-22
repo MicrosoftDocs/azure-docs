@@ -6,25 +6,28 @@ description: Learn how to attach a multi-service Cognitive Services resource to 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 10/22/2021
+ms.topic: how-to
+ms.date: 11/22/2021
 
 ---
 
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). 
 
-A multi-service resource key is specified in a skillset and allows Microsoft to charge you for using these APIs:
+A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
 + [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
 + [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
-> [!NOTE]
-> AI enrichment offers a small quantity of free processing so that you can complete short exercises without having to attach a Cognitive Services resource. Free enrichments are 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
+Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md)
 
-## [**Azure portal**](#tab/cogkey-portal)
+## Add a resource key
+
+You can use the Azure portal, REST API, or an Azure SDK to attach a billable resource to a skillset.
+
+### [**Azure portal**](#tab/cogkey-portal)
 
 1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
@@ -36,7 +39,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 
    :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="Screenshot of the key page" border="true":::
 
-## [**REST**](#tab/cogkey-rest)
+### [**REST**](#tab/cogkey-rest)
 
 1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
@@ -74,7 +77,7 @@ Content-Type: application/json
 }
 ```
 
-## [**.NET SDK**](#tab/cogkey-csharp)
+### [**.NET SDK**](#tab/cogkey-csharp)
 
 The following code snippet is from [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/tutorial-ai-enrichment/v11/Program.cs), trimmed for brevity.
 
@@ -104,13 +107,22 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ---
 
+<a name="same-region-requirement"></a>
+
 ## How the key is used
 
-The key is used for billing, but not connections. For connections, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
+Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. 
 
-Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. You can reset the indexer after each indexer invocation to reset the API counter, but the maximum number of calls that can be made freely is limited to 20.
+The key is used for billing, but not connections. For connections, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). Most regions that offer Cognitive Search also offer Cognitive Services.
 
- During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Text Translation, and Text Analytics. Built-in skills that make backend calls to Cognitive Services include [Entity Linking](cognitive-search-skill-entity-linking-v3.md), [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Image Analysis](cognitive-search-skill-image-analysis.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), [Language Detection](cognitive-search-skill-language-detection.md), [OCR](cognitive-search-skill-ocr.md), [PII Detection](cognitive-search-skill-pii-detection.md), [Sentiment](cognitive-search-skill-sentiment-v3.md), and [Text Translation](cognitive-search-skill-text-translation.md).
+If you attempt AI enrichment in region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
+
+> [!NOTE]
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.
+
+## Free enrichments
+
+AI enrichment offers a small quantity of free processing so that you can complete short exercises without having to attach a Cognitive Services resource. Free enrichments are 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
 
 You can omit the key and the Cognitive Services section for skillsets that consist solely of custom skills or utility skills. You can also leave the property unspecified if your usage of billable skills is under 20 transactions per indexer per day.
 
@@ -120,7 +132,9 @@ You can omit the key and the Cognitive Services section for skillsets that consi
 
 + [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Cognitive Services, but it requires a Cognitive Services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
 
-### Other costs of AI enrichment
+## Billable enrichments
+
+ During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Text Translation, and Text Analytics. Built-in skills that make backend calls to Cognitive Services include [Entity Linking](cognitive-search-skill-entity-linking-v3.md), [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Image Analysis](cognitive-search-skill-image-analysis.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), [Language Detection](cognitive-search-skill-language-detection.md), [OCR](cognitive-search-skill-ocr.md), [PII Detection](cognitive-search-skill-pii-detection.md), [Sentiment](cognitive-search-skill-sentiment-v3.md), and [Text Translation](cognitive-search-skill-text-translation.md).
 
 Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable on all tiers, with the exception of 20 free daily extractions on the free tier. Image extraction costs apply to image files inside blobs, embedded images in other files (PDF and other app files), and for images extracted using [Document Extraction](cognitive-search-skill-document-extraction.md). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
@@ -128,15 +142,6 @@ Text extraction also occurs during the [document cracking](search-indexer-overvi
 
 > [!TIP]
 > To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
-
-## Same-region requirement
-
-Both Cognitive Search and Cognitive Services must exist within the same physical region, as indicated on the [product availability](https://azure.microsoft.com/global-infrastructure/services/?products=search) page. Most regions that offer Cognitive Search also offer Cognitive Services.
-
-If you attempt AI enrichment in region that doesn't have both services, you'll see this message: "Provided key is not a valid CognitiveServices type key for the region of your search service."
-
-> [!NOTE]
-> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Using a non-regional skill means that your request might be serviced in a region other than the Azure Cognitive Search region. For more information non-regional services, see the [Cognitive Services product by region](https://aka.ms/allinoneregioninfo) page.
 
 ## Example: Estimate costs
 
