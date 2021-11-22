@@ -23,7 +23,7 @@ Before you begin, make sure you have the following things ready:
 
 - [Download and import the Azure Virtual Desktop module](https://docs.microsoft.com/en-us/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already
 
-# Delete Azure Virtual Desktop (classic)
+## Delete Azure Virtual Desktop (classic)
 1. Sign into Windows Virtual Desktop (classic) in your PowerShell window:
 
     ```powershell
