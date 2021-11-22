@@ -25,6 +25,11 @@ sections:
          Does autoscale create or delete virtual machines (VMs) based on service load?
         answer: |
          No.
+      
+      - question: |
+         Does autoscale change the SKU or size of virtual machines (VMs)?
+        answer: |
+         No.
 
       - question: |
          Can I configure scaling for specific dates like holidays?
