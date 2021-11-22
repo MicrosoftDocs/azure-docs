@@ -192,7 +192,7 @@ The following options create a container with analytical store by using PowerShe
 ## <a id="update-analytical-ttl"></a> Enable analytical store on an existing container
 
 > [!NOTE]
-> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Instructions to check the request status are provided below. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
+> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Instructions to check the request status are provided below. This step is required once per subscription, and all new database accounts will also have this capability enabled. You need **contributor** or **administrator** Azure built-in roles on your subscription to be able to register your request to use the existing containers feature. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com).
 
 > [!NOTE]
 > You can turn on analytical store on existing Azure Cosmos DB SQL API containers. This capability is general available and can be used for production workloads.
