@@ -1,5 +1,5 @@
 ---
-title: Get the latest restorable timestamp for a container in a continuous backup account
+title: Latest restorable timestamp, use cases, examples for an Azure Cosmos DB container
 description: The latest restorable timestamp API provides the latest restorable timestamp for containers on accounts with continuous mode backup. Using this API, you can get the restorable timestamp to trigger live account restore or monitor the data that is being backed up.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -85,7 +85,7 @@ No. This API can only be used for accounts with continuous backup mode.
 
 Yes.
 
-## What is the typical delay between the latest write timestamp and the latest restorable timestamp?
+### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 
 Usually, your data is backed up within 100 seconds (i.e within 1 and a half minutes) after the data write operation. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
