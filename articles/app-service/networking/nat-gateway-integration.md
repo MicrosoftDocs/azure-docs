@@ -31,8 +31,8 @@ For more information and pricing. Go to the [NAT gateway overview](../../virtual
 
 To configure NAT gateway integration with App Service, you need to complete the following steps:
 
-* Configure regional VNet Integration with your app as described in [Integrate your app with an Azure virtual network](../web-sites-integrate-with-vnet.md)
-* Ensure [Route All](../web-sites-integrate-with-vnet.md#routes) is enabled for your VNet Integration so the Internet bound traffic will be affected by routes in your VNet.
+* Configure regional VNet Integration with your app as described in [Integrate your app with an Azure virtual network](../overview-vnet-integration.md)
+* Ensure [Route All](../overview-vnet-integration.md#routes) is enabled for your VNet Integration so the Internet bound traffic will be affected by routes in your VNet.
 * Provision a NAT gateway with a public IP and associate it with the VNet Integration subnet.
 
 Set up NAT gateway through the portal:
@@ -81,4 +81,4 @@ NAT gateway supports both public IP addresses and public IP prefixes. A NAT gate
 ## Next steps
 For more information on the NAT gateway, see [NAT gateway documentation](../../virtual-network/nat-gateway/nat-overview.md).
 
-For more information on VNet Integration, see [VNet Integration documentation](../web-sites-integrate-with-vnet.md).
+For more information on VNet Integration, see [VNet Integration documentation](../overview-vnet-integration.md).

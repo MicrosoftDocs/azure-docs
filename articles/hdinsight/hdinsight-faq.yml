@@ -203,7 +203,12 @@ sections:
           - [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
           
           - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
-          
+      
+      - question: |
+          Can I install Data Analytics Studio (DAS) an an ESP cluster?
+        answer: |
+            No, DAS is not supported on ESP clusters.
+      
       - question: |
           How can I pull login activity shown in Ranger?
         answer: |
@@ -334,7 +339,7 @@ sections:
           * https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
           
       - question: |
-          How do I use Ambari Restful API to monitor YARN performance?
+          How do I use Ambari RESTful to monitor YARN performance?
         answer: |
           If you call the Curl command in the same virtual network or a peered virtual network, the command is:
           

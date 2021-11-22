@@ -18,10 +18,15 @@
     - name: Create container registry - PowerShell
       href: container-registry-get-started-powershell.md
     - name: Create container registry - ARM template
-      displayName: Resource Manager
+      displayName: Resource Manager,ARM
       href: container-registry-get-started-geo-replication-template.md
+    - name: Create container registry - Bicep
+      displayName: Resource Manager,ARM
+      href: container-registry-get-started-bicep.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
+    - name: Manage content with client libraries
+      href: quickstart-client-libraries.md
     - name: Build and push Java images - CLI
       href: container-registry-java-quickstart.md
   - name: Tutorials
@@ -82,6 +87,8 @@
         href: container-registry-oci-artifacts.md
       - name: Push and pull a Helm chart
         href: container-registry-helm-repos.md
+      - name: Push and pull supply chain artifacts (preview)
+        href: container-registry-oras-artifacts.md
       - name: View repositories
         href: container-registry-repositories.md
       - name: Import container images
@@ -135,13 +142,15 @@
         - name: Authenticate from Kubernetes
           items:
           - name: Kubernetes scenarios
-            href: authenticate-kubernetes-options.md  
+            href: authenticate-kubernetes-options.md
           - name: Attach registry to Azure Kubernetes Service (AKS)
             href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
           - name: Cross-tenant authentication from AKS
-            href: authenticate-aks-cross-tenant.md 
+            href: authenticate-aks-cross-tenant.md
           - name: Authenticate using Kubernetes pull secret
             href: container-registry-auth-kubernetes.md
+        - name: Enable unauthenticated pull access
+          href: anonymous-pull-access.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization
@@ -160,13 +169,13 @@
       expanded: false
       items:
         - name: Monitor Container Registry
-          href: monitor-service.md  
+          href: monitor-service.md
         - name: Audit compliance using Azure Policy
-          href: container-registry-azure-policy.md 
+          href: container-registry-azure-policy.md
         - name: Scan container images
           expanded: false
           items:
-          - name: Scan with Azure Defender
+          - name: Scan with Microsoft Defender for Cloud
             href: scan-images-defender.md
           - name: Scan with GitHub actions
             href: github-action-scan.md
@@ -236,7 +245,7 @@
           href: container-registry-tasks-cross-registry-authentication.md
         - name: External authentication using key vault
           href: container-registry-tasks-authentication-key-vault.md
-      - name: Quick task run with Resource Manager template 
+      - name: Quick task run with Resource Manager template
         href: container-registry-task-run-template.md
       - name: Run task on dedicated agent pool (preview)
         href: tasks-agent-pools.md
@@ -246,6 +255,37 @@
         href: container-registry-tasks-pack-build.md
       - name: View task logs
         href: container-registry-tasks-logs.md
+- name: Connected registry
+  expanded: true
+  items:
+  - name: Overview
+    expanded: false
+    items:
+    - name: About connected registry
+      href: intro-connected-registry.md
+    - name: Use with IoT Edge
+      href: overview-connected-registry-and-iot-edge.md
+  - name: Quickstarts
+    expanded: true
+    items:
+    - name: Create connected registry - CLI
+      href: quickstart-connected-registry-cli.md
+    - name: Create connected registry - Portal
+      href: quickstart-connected-registry-portal.md
+    - name: Deploy connected registry to IoT Edge
+      href: quickstart-deploy-connected-registry-iot-edge-cli.md
+  - name: Tutorials
+    items:
+    - name: Deploy connected registry to nested IoT Edge
+      href: tutorial-deploy-connected-registry-nested-iot-edge-cli.md
+  - name: Concepts
+    items:
+    - name: Access to connected registry
+      href: overview-connected-registry-access.md
+  - name: How-to guides
+    items:
+    - name: Pull image from connected registry
+      href: pull-images-from-connected-registry.md
 - name: Reference
   expanded: false
   items:
@@ -288,7 +328,7 @@
   - name: Roadmap
     href: https://aka.ms/acr/roadmap
   - name: Provide product feedback
-    href: https://feedback.azure.com/forums/903958-azure-container-registry
+    href: https://feedback.azure.com/d365community/forum/180a533d-0d25-ec11-b6e6-000d3a4f0858
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos

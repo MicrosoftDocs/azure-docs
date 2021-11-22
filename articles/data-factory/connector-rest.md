@@ -1,25 +1,25 @@
 ---
-title: Copy data from and to a REST endpoint
+title: Copy and transform data from and to a REST endpoint by using Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink by using the copy activity in Azure Data Factory or Azure Synapse Analytics pipelines.
+description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 11/11/2021
 ms.author: makromer
 ---
-# Copy data from and to a REST endpoint using Azure Data Factory or Azure Synapse Analytics
 
+# Copy and transform data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory and Azure Synapse pipelines](copy-activity-overview.md), which presents a general overview of Copy Activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
-The differences between this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
+The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
-- **REST connector** specifically supports copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **REST connector** specifically supports copying data from RESTful APIs.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
@@ -34,7 +34,7 @@ Specifically, this generic REST connector supports:
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
-> To test a request for data retrieval before you configure the REST connector, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
 
 ## Prerequisites
 
@@ -44,7 +44,31 @@ Specifically, this generic REST connector supports:
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-The following sections provide details about properties you can use to define entities that are specific to the REST connector.
+## Create a REST linked service using UI
+
+Use the following steps to create a REST linked service in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for REST and select the REST connector.
+
+    :::image type="content" source="media/connector-rest/rest-connector.png" alt-text="Select REST connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-rest/configure-rest-linked-service.png" alt-text="Configure REST linked service.":::
+
+## Connector configuration details
+
+The following sections provide details about properties you can use to define Data Factory entities that are specific to the REST connector.
 
 ## Linked service properties
 
@@ -66,7 +90,7 @@ Set the **authenticationType** property to **Basic**. In addition to the generic
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | userName | The user name to use to access the REST endpoint. | Yes |
-| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| password | The password for the user (the **userName** value). Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Example**
 
@@ -99,10 +123,10 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Azure Active Directory application's client ID. | Yes |
-| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the Azure Active Directory application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the AAD resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
-| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory or Synapse pipeline's cloud environment is used. | No |
+| azureCloudType | For service principal authentication, specify the type of Azure cloud environment to which your AAD application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
 **Example**
 
@@ -436,7 +460,7 @@ REST is supported in data flows for both integration datasets and inline dataset
 
 You can set the delete, insert, update, and upsert methods as well as the relative row data to send to the REST sink for CRUD operations.
 
-![Data flow REST sink](media/data-flow/data-flow-sink.png)
+:::image type="content" source="media/data-flow/data-flow-sink.png" alt-text="Data flow REST sink":::
 
 ## Sample data flow script
 
@@ -482,6 +506,9 @@ This generic REST connector supports the following pagination patterns:
 | AbsoluteUrl | Indicates the URL to issue the next request. It can be **either absolute URL or relative URL**. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
+| EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
+| MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
+| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined.
 
 **Supported values** in pagination rules:
 
@@ -557,22 +584,22 @@ The template defines two parameters:
 ### How to use this solution template
 
 1. Go to the **Copy from REST or HTTP using OAuth** template. Create a new connection for Source Connection. 
-    ![Create new connections](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png" alt-text="Create new connections":::
 
     Below are key steps for new linked service (REST) settings:
     
      1. Under **Base URL**, specify the url parameter for your own source REST service. 
      2. For **Authentication type**, choose *Anonymous*.
-        ![New REST connection](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+        :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png" alt-text="New REST connection":::
 
 2. Create a new connection for Destination Connection.  
-    ![New Gen2 connection](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png" alt-text="New Gen2 connection":::
 
 3. Select **Use this template**.
-    ![Use this template](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png" alt-text="Use this template":::
 
 4. You would see the pipeline created as shown in the following example:
-    ![Screenshot shows the pipeline created from the template.](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png" alt-text="Screenshot shows the pipeline created from the template.":::
 
 5. Select **Web** activity. In **Settings**, specify the corresponding **URL**, **Method**, **Headers**, and **Body** to retrieve OAuth bearer token from the login API of the service that you want to copy data from. The placeholder in the template showcases a sample of Azure Active Directory (AAD) OAuth. Note AAD authentication is natively supported by REST connector, here is just an example for OAuth flow. 
 
@@ -583,7 +610,7 @@ The template defines two parameters:
     | Headers | Header is user-defined, which references one header name in the HTTP request. | 
     | Body | The body for the HTTP request. | 
 
-    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png" alt-text="Pipeline":::
 
 6. In **Copy data** activity, select *Source* tab, you could see that the bearer token (access_token)  retrieved from previous step would be passed to Copy data activity as **Authorization** under Additional headers. Confirm settings for following properties before starting a pipeline run.
 
@@ -592,21 +619,21 @@ The template defines two parameters:
     | Request method | The HTTP method. Allowed values are **Get** (default) and **Post**. | 
     | Additional headers | Additional HTTP request headers.| 
 
-   ![Copy source Authentication](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png" alt-text="Copy source Authentication":::
 
 7. Select **Debug**, enter the **Parameters**, and then select **Finish**.
-   ![Pipeline run](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png" alt-text="Pipeline run"::: 
 
 8. When the pipeline run completes successfully, you would see the result similar to the following example:
-   ![Pipeline run result](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png" alt-text="Pipeline run result"::: 
 
 9. Click the "Output" icon of WebActivity in **Actions** column, you would see the access_token returned by the service.
 
-   ![Token output](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+   :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png" alt-text="Token output"::: 
 
 10. Click the "Input" icon of CopyActivity in **Actions** column, you would see the access_token retrieved by WebActivity is passed to CopyActivity for authentication. 
 
-    ![Token input](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+    :::image type="content" source="media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png" alt-text="Token input":::
         
     >[!CAUTION] 
     >To avoid token being logged in plain text, enable "Secure output" in Web activity and "Secure input" in Copy activity.
@@ -622,4 +649,4 @@ To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-
 
 ## Next steps
 
-For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory and Synapse pipelines, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

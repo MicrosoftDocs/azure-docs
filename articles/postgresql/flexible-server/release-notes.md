@@ -6,7 +6,7 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 07/30/2021
+ms.date: 11/18/2021
 
 ---
 
@@ -16,6 +16,31 @@ This page provides latest news and updates regarding feature additions, engine v
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server is in preview
+
+## Release: November 2021
+
+* Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
+* Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
+*  Support for [Azure Stream Analytics (ASA) connector in Preview](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170) to ingest high throughput streaming data to existing table.
+*  Several bug fixes, stability, and performance improvements<sup>$</sup>.
+
+<sup>**$**</sup> New servers get these features automatically. In your existing servers, these features are enabled during your server's future maintenance window.
+
+## Release: October 2021
+
+*   Support for [Ddsv4 and Edsv4 SKUs](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/flexible-server-now-supports-v4-compute-series-in-postgresql-on/ba-p/2815092). 
+*   Ability to choose local disk for temporary tablespace using `azure.enable_temp_tablespaces_on_local_ssd` server parameter.
+*   Server parameters page in Azure portal shows unit of measurement and the PostgreSQL doc link for most parameters.
+*   Several bug fixes, stability, and performance improvements.
+
+## Release: September 2021
+
+* Support for [Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server).
+* Support for [new regions](overview.md#azure-regions) Central India and Japan West.
+* Support for non-SSL mode of connectivity using a new `require_secure_transport` server parameter.
+* Support for `log_line_prefix` server parameter which adds the string at the beginning of each log line.
+* Support for [Azure Resource Health](../../service-health/resource-health-overview.md) for Flexible server health diagnosis and to get support.
+* Several bug fixes, stability, and performance improvements.
 
 ## Release: July 2021
 
@@ -55,6 +80,13 @@ This page provides latest news and updates regarding feature additions, engine v
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
 * [Intelligent performance](concepts-query-store.md) in public preview.
 * Several bug fixes, stability and performance improvements.
+
+## Release: October 2020 - March 2021
+
+*  Improved experience to [connect](connect-azure-cli.md) to the Flexible server using Azure CLI with the `az postgres flexible- server connect` command.
+*  Support for [new regions](overview.md#azure-regions).
+*  Several portal improvements, including display of minor versions, summary of metrics on the overview blade.
+*  Several bug fixes, stability, and performance improvements.
 
 ## Contacts
 

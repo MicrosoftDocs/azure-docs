@@ -3,19 +3,20 @@ title: Serverless SQL pool self-help
 description: This section contains information that can help you troubleshoot problems with serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 05/15/2020
+ms.date: 9/23/2021
 ms.author: stefanazaric
-ms.reviewer: jrasnick
+ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Self-help for serverless SQL pool
 
 This article contains information about how to troubleshoot most frequent problems with serverless SQL pool in Azure Synapse Analytics.
 
-## Synapse studio
+## Synapse Studio
 
 ### Serverless SQL pool is grayed out in Synapse Studio
 
@@ -49,7 +50,7 @@ Learn more about [how to set ACLs in Azure Data Lake Storage Gen2](../../storage
 
 > [!NOTE]
 > Execute permission on the container level needs to be set within the Azure Data Lake Gen2.
-> Permissions on the folder can be set within Synapse. 
+> Permissions on the folder can be set within Azure Synapse. 
 
 
 If you would like to query data2.csv in this example, the following permissions are needed: 
@@ -59,7 +60,7 @@ If you would like to query data2.csv in this example, the following permissions 
 
 ![Drawing showing permission structure on data lake.](./media/resources-self-help-sql-on-demand/folder-structure-data-lake.png)
 
-* Log into Synapse with an admin user that has full permissions on the data you want to access.
+* Log into Azure Synapse with an admin user that has full permissions on the data you want to access.
 
 * In the data pane, right-click on the file and select MANAGE ACCESS.
 
@@ -71,13 +72,15 @@ If you would like to query data2.csv in this example, the following permissions 
 ![Screenshot showing grant read permissions UI](./media/resources-self-help-sql-on-demand/grant-permission.png)
 
 > [!NOTE]
-> For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Synapse. 
+> For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Azure Synapse. 
 
 ### Query fails because it cannot be executed due to current resource constraints 
 
 If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
 
-- Make sure data types of reasonable sizes are used. Also, specify schema for Parquet files for string columns as they'll be VARCHAR(8000) by default. 
+- Make sure data types of reasonable sizes are used.  
+
+- If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
 
 - If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
 
@@ -95,7 +98,7 @@ If your query fails with the error message 'error handling external file: Max er
 To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
 
 #### Example
-If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with such error. 
+If you would like to query the file ‘names.csv’ with this query 1, Azure Synapse SQL serverless will return with such error. 
 
 names.csv
 ```csv
@@ -128,11 +131,11 @@ FROM
 ```
 causes:
 
-```Error handling external file: ‘Max error count reached’. File/External table name: [filepath].```
+`Error handling external file: ‘Max error count reached’. File/External table name: [filepath].`
 
 As soon as parser version is changed from version 2.0 to version 1.0, the error messages help to identify the problem. The new error message is now instead: 
 
-```Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]```
+`Bulk load data conversion error (truncation) for row 1, column 2 (Text) in data file [filepath]`
 
 Truncation tells us that our column type is too small to fit our data. The longest first name in this ‘names.csv’ file has seven characters. Therefore, the according data type to be used should be at least VARCHAR(7). 
 The error is caused by this line of code: 
@@ -161,6 +164,14 @@ FROM
     AS [result]
 ```
 
+### Cannot bulk load because the file could not be opened
+
+This error is returned if a file is modified during the query execution. Usually, you are getting an error like:
+`Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
+
+The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
+If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
+
 ### Query fails with conversion error
 If your query fails with the error message 
 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
@@ -170,7 +181,7 @@ To resolve this problem, inspect the file and the according data types you did c
 Read more on field terminators, row delimiters and escape quoting characters [here](query-single-csv-file.md). 
 
 #### Example 
-If you would like to query the file ‘names.csv’ with this query 1, Synapse SQL Serverless will return with such error. 
+If you would like to query the file ‘names.csv’ with this query 1, Azure Synapse SQL serverless will return with such error. 
 
 names.csv
 ```csv
@@ -203,7 +214,7 @@ FROM
 ```
 
 causes this error: 
-```Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]```
+`Bulk load data conversion error (type mismatch or invalid character for the specified codepage) for row 6, column 1 (ID) in data file [filepath]`
 
 It is necessary to browse the data and make an informed decision to handle this problem. 
 To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column “ID” with the data type “SMALLINT”, VARCHAR(100) is now used to analyze this issue. 
@@ -251,7 +262,7 @@ If your query does not fail but you find that your result table is not loaded as
 To resolve this problem, it is needed to have another look at the data and change those settings. As a result table is shown, debugging this query is easy like in upcoming example. 
 
 #### Example
-If you would like to query the file ‘names.csv’ with this Query 1, Synapse SQL Serverless will return with result table that looks odd. 
+If you would like to query the file ‘names.csv’ with this Query 1, Azure Synapse SQL serverless will return with result table that looks odd. 
 
 names.csv
 ```csv
@@ -348,7 +359,7 @@ Best practice hint: Specify mapping only for columns that would otherwise resolv
 Avoiding VARCHAR when possible, leads to better performance in queries. 
 
 #### Example
-If you would like to query the file 'taxi-data.parquet' with this Query 1, Synapse SQL Serverless will return with such error.
+If you would like to query the file 'taxi-data.parquet' with this Query 1, Azure Synapse SQL serverless will return with such error.
 
 taxi-data.parquet:
 
@@ -377,9 +388,10 @@ FROM
 
     AS [result]
 ```
+
 causes this error: 
 
-```Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.```
+`Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.`
 
 This error message tells us that data types are not compatible and already comes with the suggestion to use the FLOAT instead of INT. 
 The error is hence caused by this line of code: 
@@ -406,6 +418,38 @@ FROM
         )
 
     AS [result]
+```
+
+### `WaitIOCompletion` call failed
+
+This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake)
+Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+
+### Incorrect syntax near 'NOT'
+
+This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition. 
+
+### Inserting value to batch for column type DATETIME2 failed
+
+The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julain calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+
+Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
+
+```spark
+from delta.tables import *
+from pyspark.sql.functions import *
+
+deltaTable = DeltaTable.forPath(spark, 
+             "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
+deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
+
+Note this change will remove the values that cannot be represented. The other date values might be properly loaded but incorrectly represented because there is still a difference between Julian and Gregorian Proleptic calendars. You might see an unexpected date shifts even for the dates before `1900-01-01` if you are using Spark 3.0 or older versions.
+Consider [migrating to Spark 3.1 or higher](https://spark.apache.org/docs/latest/sql-migration-guide.html) where it is used Gregorian Proleptic calendar that is aligned with the calendar in the serverless SQL pool.
+You should reload your legacy data with the higher version of Spark, and use the following setting to correct the dates:
+
+```spark
+spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 ```
 
 ## Configuration
@@ -474,7 +518,7 @@ Possible errors and troubleshooting actions are listed in the following table.
 | Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
 | Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
 
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ### UTF-8 collation warning is returned while reading CosmosDB string types
 
@@ -489,7 +533,7 @@ A serverless SQL pool will return a compile-time warning if the `OPENROWSET` col
 
 ### Query returns `NULL` values
 
-Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
+Azure Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
 - There is a synchronization delay between transactional and analytical store. The value that you entered in Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
 - Possibly wrong column name or path expression in the `WITH` clause. Column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. Comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
 - The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1000  properties or more than 127 nesting levels.
@@ -500,27 +544,30 @@ Synapse SQL will return `NULL` instead of the values that you see in the transac
 
 The value specified in the `WITH` clause doesn't match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
 
+### Resolving CosmosDB path has failed
+
+If you are getting the error: `Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'`, check do you use private endpoints in Cosmos DB. To allow SQL serverless to access an analytical store with private endpoint, you need to [configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+
 ### CosmosDB performance issues
 
 If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:
-- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-cosmosdb-analytical-storage-and-serverless-sql-pool).
+- Make sure that you have placed the client application, serverless pool, and Cosmos DB analytical storage in [the same region](best-practices-serverless-sql-pool.md#colocate-your-azure-cosmos-db-analytical-storage-and-serverless-sql-pool).
 - Make sure that you are using the `WITH` clause with [optimal data types](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 - Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
 - If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
 
 ## Delta Lake
 
-Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
+There are some limitations and known issues that you might see in Delta Lake support in serverless SQL pools.
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
-- Delta Lake tables created in the Apache Spark pools are not synchronized in serverless SQL pool. You cannot query Apache Spark pools Delta Lake tables using T-SQL language.
+- Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
-- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
+- Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
-
-You can propose ideas and enhancements on [Azure Synapse feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=171048).
 
 ### Content of directory on path cannot be listed
 
@@ -544,39 +591,9 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 
 If this query fails, the caller does not have permission to read the underlying storage files. 
 
-Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+The easiest way is to grant yourself `Storage Blob Data Contributor` role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
-
-### Partitioning column returns NULL values
-
-**Status**: Resolved
-
-**Release**: August 2021
-
-### Query failed because of a topology change or compute container failure
-
-**Status**: Resolved
-
-**Release**: August 2021
-
-### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
-
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). Automatic schema inference doesn't work with the nested columns in Delta Lake.
-
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
-
-### Cannot find value of partitioning column in file 
-
-Delta Lake data sets may have `NULL` values in the partitioning columns. These partitions are stored in `HIVE_DEFAULT_PARTITION` folder. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
-
-```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
-Cannot find value of partitioning column '<column name>' in file 
-'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
-```
-
-**Workaround:** Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
 
 ### JSON text is not properly formatted
 
@@ -584,34 +601,88 @@ This error indicates that serverless SQL pool cannot read Delta Lake transaction
 
 ```
 Msg 13609, Level 16, State 4, Line 1
-JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
+JSON text is not properly formatted. Unexpected character '' is found at position 263934.
 Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
-First, make sure that your Delta Lake data set is not corrupted.
-- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
-- Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
+Make sure that your Delta Lake data set is not corrupted. Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
 
-Some common errors and workarounds:
+**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
-- `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
-
-**Workaround:** Try to use WITH schema that will exclude unsupported types.
-
-- `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
-
-**Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
-
-**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
-
-In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
+If the data set is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide an additional info:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
-- Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this.
 - Send the content of the copied `_delta_log` file to Azure support.
 
-Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this. Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+
+### Partitioning column returns NULL values
+
+**Status**: Resolved
+
+**Release**: August 2021
+
+### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
+
+**Status**: Resolved
+
+**Release**: October 2021
+
+### Cannot parse field 'type' in JSON object
+
+**Status**: Resolved
+
+**Release**: October 2021
+
+### Cannot find value of partitioning column in file 
+
+**Status**: Resolved
+
+**Release**: November 2021
+
+### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
+
+**Status**: Resolved
+
+**Release**: November 2021
+
+## Performance
+
+The serverless SQL pool assign the resources to the queries based on the size of data set and query complexity. You cannot impact or limit the resources that are provided to the queries. There are some cases where you might experience unexpected query performance degradations and identify the root causes.
+
+### Query duration is very long 
+
+If you are using Synapse Studio, try using some desktop client such as SQL Server Management Studio or Azure Data Studio. Synapse Studio is a web client that is connecting to serverless pool using HTTP protocol, that is generally slower than the native SQL connections used in SQL Server Management Studio or Azure Data Studio.
+
+If you have queries with the query duration longer than 30min, this indicates that returning results to the client is slow. Serverless SQL pool has 30min limit for execution, and any additional time is spent on result streaming.
+
+Check the following issues if you are experiencing the slow query execution:
+-	Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
+-	Make sure that you don’t have networking issues that can cause the slow streaming of result set 
+-	Make sure that the client application has enough resources (for example, not using 100% CPU). 
+-	Make sure that the storage account or cosmosDB analytical storage is placed in the same region as your serverless SQL endpoint.
+
+See the best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
+
+### High variations in query durations
+
+If you are executing the same query and observing variations in the query durations, there might be several reasons that can cause this behavior:  
+- Check is this a first execution of a query. The first execution of a query collects the statistics required to create a plan. The statistics are collected by scanning the underlying files and might increase the query duration. In synapse studio you will see additional “global statistics creation” queries in the SQL request list, that are executed before your query.
+- Statistics might expire after some time, so periodically you might observe an impact on performance because the serverless pool must scan and re-built the statistics. You might notice additional “global statistics creation” queries in the SQL request list, that are executed before your query.
+- Check is there some additional workload that is running on the same endpoint when you executed the query with the longer duration. The serverless SQL endpoint will equally allocate the resources to all queries that are executed in parallel, and the query might be delayed.
+
+## Connections
+
+### SQL on-demand is currently unavailable
+
+The serverless SQL pool endpoint is automatically deactivated when it is not used. The endpoint is automatically activated when the next SQL request is received from any client. In some cases, the endpoint might not properly start when a first query is executed. In most cases like this, this is a transient error. Retrying the query will activate the instance.
+
+If you are seeing this message for a longer time, file a support ticket through the Azure portal.
+
+### Cannot connect from Synapse Studio
+
+See the [Synapse Studio section](#synapse-studio).
 
 ## Security
 
@@ -620,7 +691,7 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing Synapse service to fetch Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
 Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
@@ -671,7 +742,7 @@ There are some general system constraints that may affect your workload:
 | Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
 | Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
 | Max query duration | 30 min |
-| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max size of the result set | up to 200 GB (shared between concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ## Next steps

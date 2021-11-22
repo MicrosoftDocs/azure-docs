@@ -3,15 +3,15 @@ title: Embed Azure Active Directory B2C user interface into your app with a cust
 titleSuffix: Azure AD B2C
 description: Learn how to embed Azure Active Directory B2C user interface into your app with a custom policy
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/17/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -28,7 +28,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-For a simpler sing-up or sign-in experience, you can avoid redirecting users to a separate sing-up or sign-in page, or generating a pop-up window. By using the inline frame &lt;iframe&gt; HTML element, you can embed the Azure AD B2C sign-in user interface directly into your web application. 
+For a simpler sign-up or sign-in experience, you can avoid redirecting users to a separate sign-up or sign-in page, or generating a pop-up window. By using the inline frame &lt;iframe&gt; HTML element, you can embed the Azure AD B2C sign-in user interface directly into your web application. 
 
 > [!TIP]
 > Use the &lt;iframe&gt; HTML element to embed the [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [edit profile](add-profile-editing-policy.md), or [change password](add-password-change-policy.md) custom policies into your web or single page app.

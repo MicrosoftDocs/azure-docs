@@ -38,4 +38,4 @@ Check out these support resources:
 
 + **Stack Overflow**: Visit the Azure Machine Learning community on [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) tagged with "Azure-Machine-Learning".
 
-+ **Share product suggestions** and feature requests in our [Azure Machine Learning Feedback Channel](https://feedback.azure.com/forums/257792-machine-learning). To share your feedback, select the **Product feedback** button at the end of each article.
++ **Share product suggestions** and feature requests in our [Azure Machine Learning Feedback Channel](https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0). To share your feedback, select the **Product feedback** button at the end of each article.

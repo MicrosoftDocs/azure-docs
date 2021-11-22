@@ -28,7 +28,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 ## Register your application
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `MyWebApp`. Users of your app might see this name, and you can change it later.
@@ -44,7 +44,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Enter a **Front-channel logout URL** `https://localhost:3000`.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
 1. Select **Configure**.
-1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
+1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Enter a key description (for instance app secret).
 1. Select a key duration of either **In 1 year, In 2 years,** or **Never Expires**.
 1. Select **Add**. The key value will be displayed. Copy the key value and save it in a safe location for later use.

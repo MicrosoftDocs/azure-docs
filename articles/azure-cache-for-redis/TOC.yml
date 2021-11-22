@@ -70,7 +70,21 @@
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
-      href: cache-best-practices.md
+      items:
+       - name: Connection resilience
+         href: cache-best-practices-connection.md
+       - name: Server load management
+         href: cache-best-practices-server-load.md
+       - name: Memory management
+         href: cache-best-practices-memory-management.md
+       - name: Development
+         href: cache-best-practices-development.md
+       - name: Scaling
+         href: cache-best-practices-scale.md
+       - name: Kubernetes-hosted client applications
+         href: cache-best-practices-kubernetes.md
+       - name: Performance testing
+         href: cache-best-practices-performance.md
     - name: Security
       items:
       - name: Network isolation options
@@ -142,6 +156,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Move between regions
+      href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events
       href: cache-event-grid.md
     - name: Remove TLS 1.0 and 1.1
@@ -154,6 +170,8 @@
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
+    - name: Monitor with diagnostic logs
+      href: cache-monitor-diagnostic-settings.md
     - name: Monitoring FAQs
       href: cache-monitor-troubleshoot-faq.yml
   - name: Scale

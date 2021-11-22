@@ -1,3 +1,4 @@
+items:
 - name: Speech service documentation
   href: index.yml
 - name: Overview
@@ -31,6 +32,8 @@
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
+        - name: Language identification
+          href: language-identification.md
         - name: Use language identification
           href: how-to-automatic-language-detection.md
         - name: Use the batch transcription API
@@ -39,6 +42,8 @@
           href: migrate-v2-to-v3.md
         - name: Use Pronunciation Assessment
           href: how-to-pronunciation-assessment.md
+        - name: Control and monitor connection status
+          href: how-to-control-connections.md
         - name: Customization
           items:
             - name: What is Custom Speech?
@@ -53,6 +58,8 @@
               href: how-to-custom-speech-train-model.md
             - name: CI/CD for Custom Speech
               href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Customize Pronunciation
+              href: customize-pronunciation.md
             - name: Create human-labeled transcriptions
               href: how-to-custom-speech-human-labeled-transcriptions.md
             - name: Model and Endpoint Lifecycle
@@ -119,6 +126,8 @@
           href: regions.md#speech-to-text-text-to-speech-and-translation
         - name: Ingestion Client
           href: ingestion-client.md
+        - name: Universal Phone Set
+          href: phone-sets.md
         - name: Speech-to-text FAQ
           displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
           href: faq-stt.yml
@@ -316,10 +325,49 @@
       href: speaker-recognition-overview.md
     - name: Speaker Recognition quickstart
       href: get-started-speaker-recognition.md
+    - name: Responsible use of AI
+      items: 
+      - name: Transparency note
+        items:
+        - name: Use cases for Speaker Recognition
+          href: /legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: Characteristics and limitations
+          href: /legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Integration and responsible use
+        items:
+        - name: Limited access
+          href: /legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+        - name: General guidelines
+          href: /legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      - name: Data, privacy, and security
+        href: /legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition?context=/azure/cognitive-services/speech-service/context/context
+      
     - name: Reference
       items:
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: /cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-speaker-namespace
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: /java/api/com.microsoft.cognitiveservices.speech
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: /javascript/api/microsoft-cognitiveservices-speech-sdk/
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: /objectivec/cognitive-services/speech/
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: /python/api/azure-cognitiveservices-speech/
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+
 - name: Keyword recognition
   items:
     - name: Keyword recognition overview
@@ -531,42 +579,42 @@
         href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/speech-service/context/context
       - name: Use customer-managed keys
         href: speech-encryption-of-data-at-rest.md
+      - name: How to backup and recover speech customization resources
+        href: resiliency-and-recovery-plan.md
 - name: Devices
   items:
-    - name: Speech devices documentation
-      href: index-devices.yml
     - name: Overview
       items:
-        - name: What is the Speech devices SDK?
-          href: speech-devices-sdk.md
-        - name: Get the Speech devices SDK
-          href: get-speech-devices-sdk.md
-        - name: Speech devices SDK samples (GitHub)
-          href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+      - name: Audio processing overview
+        href: audio-processing-overview.md
+      - name: Speech SDK integration
+        href: audio-processing-speech-sdk.md
     - name: Hardware
       items:
-        - name: Microphone array recommendations
-          href: speech-devices-sdk-microphone.md
-        - name: Roobo v1 details
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Roobo v2 details
-          href: speech-devices-sdk-roobo-v2.md
-    - name: How-to guides
-      items:
-        - name: How to configure a Microphone Array
-          href: how-to-devices-microphone-array-configuration.md
-    - name: Quickstart
-      items:
-        - name: Use Speech devices SDK
-          href: speech-devices-sdk-quickstart.md
-    - name: Resources
-      items:
-        - name: Troubleshoot the Speech devices SDK
-          href: speech-devices-sdk-troubleshooting.md
+      - name: Microphone array recommendations
+        href: speech-sdk-microphone.md
     - name: Reference
       items:
-        - name: Speech devices SDK release notes
-          href: devices-sdk-release-notes.md
+      - name: Speech devices SDK documentation
+        href: index-devices.yml
+      - name: What is the Speech devices SDK?
+        href: speech-devices-sdk.md
+      - name: Get the Speech devices SDK
+        href: get-speech-devices-sdk.md
+      - name: Use Speech devices SDK
+        href: speech-devices-sdk-quickstart.md
+      - name: Speech devices SDK samples (GitHub)
+        href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+      - name: Troubleshoot the Speech devices SDK
+        href: speech-devices-sdk-troubleshooting.md
+      - name: Speech devices SDK release notes
+        href: devices-sdk-release-notes.md
+      - name: How to configure a Microphone Array
+        href: how-to-devices-microphone-array-configuration.md
+      - name: Roobo v1 details
+        href: speech-devices-sdk-roobo-v1.md
+      - name: Roobo v2 details
+        href: speech-devices-sdk-roobo-v2.md
 - name: Resources
   items:
     - name: Speech SDK
@@ -575,6 +623,8 @@
           href: speech-sdk.md
         - name: Setup Speech SDK
           href: quickstarts/setup-platform.md
+        - name: Troubleshoot the Speech SDK
+          href: troubleshooting.md
         - name: Speech SDK Release notes
           href: releasenotes.md
         - name: Reference
@@ -614,6 +664,8 @@
       items:
         - name: Speech Studio overview
           href: speech-studio-overview.md
+        - name: Role-based access control in Speech Studio
+          href: speech-studio-role-based-access-control.md
     - name: Enterprise readiness
       items:
       - name: Region support

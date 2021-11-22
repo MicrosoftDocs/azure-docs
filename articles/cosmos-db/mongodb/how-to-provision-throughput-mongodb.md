@@ -4,7 +4,7 @@ description: Learn how to provision container, database, and autoscale throughpu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 11/17/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
@@ -27,14 +27,14 @@ If you are using a different API, see [SQL API](../how-to-provision-container-th
 
    * Indicate whether you are creating a new database or using an existing one. Select the **Provision database throughput** option if you want to provision throughput at the database level.
    * Enter a collection ID.
-   * Enter a partition key value (for example, `/ItemID`).
+   * Enter a partition key value (for example, `ItemID`).
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot of Data Explorer, when creating a new collection with database level throughput":::
 
 > [!Note]
-> If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path.
+> If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `myShardKey` for the partition key path.
 
 ## <a id="dotnet-mongodb"></a> .NET SDK
 
@@ -74,3 +74,6 @@ Azure PowerShell can be used to provision autoscale throughput on a database or 
 See the following articles to learn about throughput provisioning in Azure Cosmos DB:
 
 * [Request units and throughput in Azure Cosmos DB](../request-units.md)
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

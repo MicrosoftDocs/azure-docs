@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 09/10/2021
 ms.author: alexeyo
 ---
 
@@ -40,7 +40,6 @@ For the usage with [Speech SDK](speech-sdk.md) and/or [Speech-to-text REST API f
 | Max blob container size | N/A | 5 GB |
 | Max number of blobs per container | N/A | 10000 |
 | Max number of files per Transcription request (when using multiple content URLs as input) | N/A | 1000  |
-| Max number of simultaneously running jobs | N/A | 2000  |
 
 #### Model Customization
 | Quota | Free (F0)<sup>1</sup> | Standard (S0) |
@@ -64,7 +63,7 @@ In the tables below Parameters without "Adjustable" row are **not** adjustable f
 |--|--|--|
 | **Max number of Transactions per Second (TPS) per Speech resource** |  |  |
 | Real-time API. Standard, Neural, Custom, and Custom Neural voices | 200<sup>4</sup> | 200<sup>4</sup> |
-| Adjustable | No<sup>4</sup> | No<sup>4</sup> |
+| Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max Audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |

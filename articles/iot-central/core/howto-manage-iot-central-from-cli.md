@@ -1,6 +1,6 @@
 ---
 title: Manage IoT Central from Azure CLI or PowerShell | Microsoft Docs
-description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools.
+description: This article describes how to create and manage your IoT Central application using the Azure CLI or PowerShell. You can view, modify, and remove the application using these tools. You can also configure a managed system identity that can you can use to setup secure data export.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -71,7 +71,7 @@ These commands first create a resource group in the east US region for the appli
 | Parameter         | Description |
 | ----------------- | ----------- |
 | resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
-| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. |
 | name              | The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-).|
 | subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 | sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -101,7 +101,7 @@ The script first creates a resource group in the east US region for the applicat
 |Parameter         |Description |
 |------------------|------------|
 |ResourceGroupName |The resource group that contains the application. This resource group must already exist in your subscription. |
-|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia**, **Asia Pacific**, **Europe**, **United States**, **United Kingdom**, and **Japan** geographies. |
+|Location |By default, this cmdlet uses the location from the resource group. Currently, you can create an IoT Central application  in the **Australia East**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **Southeast Asia**, **UK South**, **West Europe** and **West US** regions. |
 |Name              |The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-). |
 |Subdomain         |The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
 |Sku               |Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
@@ -173,6 +173,30 @@ Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 ```
 
 ---
+
+## Configure a managed identity
+
+An IoT Central application can use a system assigned [managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connection to a [data export destination](howto-export-data.md#connection-options).
+
+To enable the managed identity, use either the [Azure portal - Configure a managed identity](howto-manage-iot-central-from-portal.md#configure-a-managed-identity) or the [REST API](howto-manage-iot-central-with-rest-api.md):
+
+:::image type="content" source="media/howto-manage-iot-central-from-cli/managed-identity.png" alt-text="Screenshot showing managed identity in Azure portal.":::
+
+After you enable the managed identity, you can use the CLI to configure the role assignments.
+
+Use the [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) command to create a role assignment. For example, the following commands first retrieve the principal ID of the managed identity. The second command assigns the `Azure Event Hubs Data Sender` role to the principal ID in the scope of the `MyIoTCentralResourceGroup` resource group:
+
+```azurecli-interactive
+spID=$(az resource list -n myiotcentralapp --query [*].identity.principalId --out tsv)
+az role assignment create --assignee $spID --role "Azure Event Hubs Data Sender" \
+  --scope /subscriptions/<your subscription id>/resourceGroups/MyIoTCentralResourceGroup
+```
+
+To learn more about the role assignments, see:
+
+- [Built-in roles for Azure Event Hubs](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs)
+- [Built-in roles for Azure Service Bus](../../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus)
+- [Built-in roles for Azure Storage Services](/rest/api/storageservices/authorize-with-azure-active-directory#manage-access-rights-with-rbac)
 
 ## Next steps
 

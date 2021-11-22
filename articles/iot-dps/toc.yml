@@ -16,30 +16,10 @@
     - name: ARM template
       displayName: Resource Manager
       href: quick-setup-auto-provision-rm.md
-  - name: Provision a symmetric key device
-    items:
-      - name: C
-        href: quick-create-simulated-device-symm-key.md
-      - name: Java
-        href: quick-create-simulated-device-symmetric-key-java.md
-      - name: C#
-        href: quick-create-device-symmetric-key-csharp.md
-      - name: Node.js
-        href: quick-create-device-symmetric-key-node.md
-      - name: Python
-        href: quick-create-device-symmetric-key-python.md
-  - name: Provision a X.509 certificate device
-    items:
-      - name: C
-        href: quick-create-simulated-device-x509.md
-      - name: Java
-        href: quick-create-simulated-device-x509-java.md
-      - name: C#
-        href: quick-create-simulated-device-x509-csharp.md
-      - name: Node.js
-        href: quick-create-simulated-device-x509-node.md
-      - name: Python
-        href: quick-create-simulated-device-x509-python.md
+  - name: Provision a simulated symmetric key device
+    href: quick-create-simulated-device-symm-key.md
+  - name: Provision a simulated X.509 certificate device
+    href: quick-create-simulated-device-x509.md
 - name: Tutorials
   items:
   - name: 1 - Provision sets of devices with enrollment groups
@@ -59,39 +39,13 @@
 - name: Samples
   items:
   - name: Simulated TPM device attestation sample
-    items:
-    - name: C
-      href: quick-create-simulated-device.md
-    - name: Java
-      href: quick-create-simulated-device-tpm-java.md
-    - name: C#
-      href: quick-create-simulated-device-tpm-csharp.md
-    - name: Node.js
-      href: quick-create-simulated-device-tpm-node.md
-    - name: Python
-      href: quick-create-simulated-device-tpm-python.md
+    href: quick-create-simulated-device-tpm.md
   - name: Create device enrollments using DPS APIs
     items:
     - name: Group enrollment using X.509 Certificate Attestation
-      items:
-      - name: Java
-        href: quick-enroll-device-x509-java.md
-      - name: C#
-        href: quick-enroll-device-x509-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-x509-node.md
-      - name: Python
-        href: quick-enroll-device-x509-python.md
+      href: quick-enroll-device-x509.md
     - name: Individual device enrollment using TPM attestation
-      items:
-      - name: Java
-        href: quick-enroll-device-tpm-java.md
-      - name: C#
-        href: quick-enroll-device-tpm-csharp.md
-      - name: Node.js
-        href: quick-enroll-device-tpm-node.md
-      - name: Python
-        href: quick-enroll-device-tpm-python.md
+      href: quick-enroll-device-tpm.md
 - name: Concepts
   items:
   - name: DPS terminology
@@ -142,16 +96,22 @@
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
+    - name: Managing public network access
+      href: public-network-access.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
       maintainContext: true
     - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md
       maintainContext: true
-  - name: Troubleshooting
-    href: how-to-troubleshoot-dps.md 
+  - name: Troubleshooting and FAQ
+    items:
+    - name: Troubleshooting DPS
+      href: how-to-troubleshoot-dps.md
+    - name: DPS FAQ
+      href: dps-faq.yml
 - name: Reference
   items:
   - name: REST API
@@ -186,8 +146,6 @@
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
       href: ../iot-develop/index.yml
     - name: Azure Maps

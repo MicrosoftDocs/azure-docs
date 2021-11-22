@@ -1,13 +1,13 @@
 ---
 title: Create and manage users
 description: Create and manage users of sensors and the on-premises management console. Users can be assigned the role of administrator, security analyst, or read-only user.
-ms.date: 05/20/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
 # About Defender for IoT console users
 
-This article describes how to create and manage users of sensors and the on-premises management console. User roles include administrator, security analyst, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Azure Defender for IoT.
+This article describes how to create and manage users of sensors and the on-premises management console. User roles include administrator, security analyst, or read-only user. Each role is associated with a range of permissions to tools for the sensor or on-premises management console. Roles are designed to facilitate granular, secure access to Microsoft Defender for IoT.
 
 Features are also available to track user activity and enable Active Directory sign-in.
 
@@ -130,20 +130,24 @@ To disable the feature, change `infinity_session_expiration = true` to `infinity
 
 To update sign-out counting periods, adjust the `= <number>` value to the required time.
 
-## Track user activity 
+## Track user activity
 
 You can track user activity in the event timeline on each sensor. The timeline displays the event or affected device, and the time and date that the user carried out the activity.
 
 **To view user activity**:
 
 1. Sign in to the sensor.
-1. In the event timeline, enable the **User Operations** option. 
+
+1. In the event timeline, enable the **User Operations** option.
 
     :::image type="content" source="media/how-to-create-azure-for-defender-users-and-roles/User-login-attempts.png" alt-text="View a user's activity.":::
 
-## Integrate with Active Directory servers 
+## Integrate with Active Directory servers
 
 Configure the sensor or on-premises management console to work with Active Directory. This allows Active Directory users to access the Defender for IoT consoles by using their Active Directory credentials.
+
+> [!Note]
+> LDAP v3 is supported.
 
 Two types of LDAP-based authentication are supported:
 
@@ -161,20 +165,20 @@ You can associate Active Directory groups defined here with specific permission 
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-system-settings-v2.png" alt-text="View your Active Directory system settings.":::
 
-2. On the **System Settings** pane, select **Active Directory**.
+1. On the **System Settings** pane, select **Active Directory**.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-configurations-v2.png" alt-text="Edit your Active Directory configurations.":::
 
-3. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
+1. In the **Edit Active Directory Configuration** dialog box, select **Active Directory Integration Enabled** > **Save**. The **Edit Active Directory Configuration** dialog box expands, and you can now enter the parameters to configure Active Directory.
 
     :::image type="content" source="media/how-to-setup-active-directory/ad-integration-enabled-v2.png" alt-text="Enter the parameters to configure Active Directory.":::
 
-    > [!NOTE]
-    > - You must define the LDAP parameters here exactly as they appear in Active Directory.
-    > - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
-    > - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
+> [!NOTE]
+> - You must define the LDAP parameters here exactly as they appear in Active Directory.
+> - For all the Active Directory parameters, use lowercase only. Use lowercase even when the configurations in Active Directory use uppercase.
+> - You can't configure both LDAP and LDAPS for the same domain. You can, however, use both for different domains at the same time.
 
-4. Set the Active Directory server parameters, as follows:
+1. Set the Active Directory server parameters, as follows:
 
    | Server parameter | Description |
    |--|--|
@@ -190,7 +194,7 @@ If you are creating Active Directory groups for on-premises management console u
 
 1. Select **Save**.
 
-2. To add a trusted server, select **Add Server** and configure another server.
+1. To add a trusted server, select **Add Server** and configure another server.
 
 ## Change a user's password
 

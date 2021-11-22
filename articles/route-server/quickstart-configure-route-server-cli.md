@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.author: duau
 ---
 
@@ -16,9 +16,7 @@ This article helps you configure Azure Route Server to peer with a Network Virtu
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
 
 > [!IMPORTANT]
-> Azure Route Server (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
 
 ##  Prerequisites 
 
@@ -81,7 +79,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --name RouteServerSubnet \
         --resource-group myRouteServerRG \
         --vnet-name myVirtualNetwork \
-        --address-prefix 10.0.0.0/24)
+        --address-prefix 10.0.0.0/24
     ``` 
 
 1. Make note of the RouteServerSubnet ID. To obtain and store the resource ID of the *RouteServerSubnet* to the `subnet_id` variable, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show):

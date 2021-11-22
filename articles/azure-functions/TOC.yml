@@ -80,7 +80,7 @@
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
-      href: /azure/python/tutorial-vs-code-serverless-python-01
+      href: /azure/azure-functions/create-first-function-vs-code-python
     - name: Create serverless APIs using Visual Studio
       href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger
@@ -93,10 +93,16 @@
           href: functions-create-private-site-access.md
         - name: Use an outbound NAT gateway
           href: functions-how-to-use-nat-gateway.md
+    - name: Identity-based connections
+      items:
+        - name: Use identity for host connections
+          href: functions-identity-based-connections-tutorial.md
+        - name: Use identity for triggers and bindings
+          href: functions-identity-based-connections-tutorial-2.md
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
-      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
@@ -158,8 +164,10 @@
   items:
     - name: Best practices
       items:
-        - name: Performance and reliability
+        - name: General best practices
           href: functions-best-practices.md
+        - name: Performance and reliability
+          href: performance-reliability.md
           displayName: best practices
         - name: Manage connections
           href: manage-connections.md
@@ -184,14 +192,16 @@
           href: functions-premium-plan.md
         - name: Dedicated plan
           href: dedicated-plan.md
-        - name: Event-driven scaling
-          href: event-driven-scaling.md
     - name: Deployments
       href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
+        - name: Event-driven scaling
+          href: event-driven-scaling.md
         - name: Reliable event processing
           href: functions-reliable-event-processing.md
+        - name: Concurrency
+          href: functions-concurrency.md
         - name: Designing for identical input
           href: functions-idempotent.md
     - name: Triggers and bindings
@@ -259,6 +269,8 @@
       href: ip-addresses.md
     - name: Custom handlers
       href: functions-custom-handlers.md
+    - name: High availability 
+      href: azure-functions-az-redundancy.md
 - name: How-to guides
   items:
     - name: Develop
@@ -389,6 +401,8 @@
           href: configure-networking-how-to.md
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
+        - name: Move across regions
+          href: functions-move-across-regions.md
     - name: Monitor
       items:
         - name: Configure monitoring
@@ -398,7 +412,7 @@
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
         - name: Monitor metrics
-          href: monitor-metrics.md  
+          href: monitor-metrics.md
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
@@ -489,8 +503,12 @@
           href: functions-hybrid-powershell.md
     - name: Troubleshoot
       items:
-        - name: Troubleshoot storage
+        - name: Storage connections
           href: functions-recover-storage-account.md
+          displayName: troubleshoot
+        - name: Azure Cosmos DB bindings
+          href: ../cosmos-db/troubleshoot-changefeed-functions.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          displayName: troubleshoot 
         - name: Python functions
           items:
             - name: General troubleshooting
@@ -507,16 +525,16 @@
           href: /azure/templates/microsoft.web/2018-11-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
+        - name: Azure Functions Core Tools 
+          href: functions-core-tools-reference.md
         - name: Azure PowerShell
-          href: /powershell/module/az.functions
+          href: /powershell/module/az.functions/
         - name: Java
           href: /java/api/overview/azure/functions/runtime
         - name: Python
           href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
-    - name: Azure Functions Core Tools 
-      href: functions-core-tools-reference.md
     - name: Triggers and bindings
       items:
         - name: Blob storage
@@ -553,6 +571,17 @@
                 - name: Output
                   href: functions-bindings-cosmosdb-v2-output.md
                   displayName: Azure Cosmos DB
+        - name: Azure SQL
+          items:
+            - name: Overview
+              href: functions-bindings-azure-sql.md
+              displayName: Azure SQL
+            - name: Input
+              href: functions-bindings-azure-sql-input.md
+              displayName: Azure SQL
+            - name: Output
+              href: functions-bindings-azure-sql-output.md
+              displayName: Azure SQL
         - name: Dapr
           href: https://github.com/dapr/azure-functions-extension
         - name: Event Grid
@@ -681,6 +710,8 @@
           items:
           - name: AZF0001
             href: errors-diagnostics/sdk-rules/azf0001.md
+          - name: AZF0002
+            href: errors-diagnostics/sdk-rules/azf0002.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
@@ -704,7 +735,7 @@
     - name: Quota information
       href: functions-scale.md#service-limits
     - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
       href: https://www.youtube.com/c/AzureFunctions
     - name: Microsoft Q&A question page
@@ -714,7 +745,7 @@
     - name: Twitter
       href: https://twitter.com/azurefunctions
     - name: Provide product feedback
-      href: https://feedback.azure.com/forums/355860-azure-functions
+      href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
     - name: Azure Functions GitHub repository
       href: https://github.com/Azure/Azure-Functions/
     - name: Azure updates

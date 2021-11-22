@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Infinity Portal | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Check Point Infinity Portal'
 description: Learn how to configure single sign-on between Azure Active Directory and Check Point Infinity Portal.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/14/2021
+ms.date: 10/12/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Check Point Infinity Portal
+# Tutorial: Azure AD SSO integration with Check Point Infinity Portal
 
 In this tutorial, you'll learn how to integrate Check Point Infinity Portal with Azure Active Directory (Azure AD). When you integrate Check Point Infinity Portal with Azure AD, you can:
 
@@ -108,6 +108,55 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
+There are two ways for authorizing users:
+
+* Configure Check Point Infinity Portal application user roles in Azure AD portal
+
+* Configure Check Point Infinity Portal application user roles in Check Point Infinity Portal
+
+#### Configure Check Point Infinity Portal application user roles in Azure AD portal
+
+In this section, you'll create Admin and Read-Only roles in the Azure portal.
+
+1. From the left pane in the Azure portal, select **App Registration**, select **All applications**, and then select the **Check Point Infinity Portal** application.
+
+2. From the left pane, select **App roles**, click **Create app role** and follow these steps:
+
+   a. In the **Display name** field, enter **Admin**.
+
+   b. In the **Allowed member types**, choose **Users/Groups**.
+   
+   c. In the **Value** field, enter **admin**.
+
+   d. In the **Description** field, enter **Check Point Infinity Portal Admin role**.
+
+   e. Make sure that the **enable this app role** option is selected.
+
+   f. Click **Apply**.
+
+   g. Click **Create app role** again.
+
+   h. In the **Display name** field, enter **Read-Only**.
+
+   i. In the **Allowed member types**, choose **Users/Groups**.
+
+   j. In the **Value** field, enter **readonly**.
+
+   k. In the **Description** field, enter **Check Point Infinity Portal Admin role**.
+
+   l. Make sure that the **enable this app role** option is selected.
+
+   m. Click **Apply**.
+
+#### Configure Check Point Infinity Portal application user roles in Check Point Infinity Portal
+
+This configuration is applied only to the groups assigned to the Check Point Infinity Portal application in Azure AD.
+
+In this section, you’ll create one or more User Groups which will hold the Global and Service roles for the relevant Azure AD groups.
+
+* Copy the ID of the assigned group for use with the Check Point Infinity Portal User Group.
+* For User Group configuration, refer to the [Infinity Portal Admin Guide](https://sc1.checkpoint.com/documents/Infinity_Portal/WebAdminGuides/EN/Infinity-Portal-Admin-Guide/Default.htm#cshid=user_groups).
+
 ### Create an Azure AD test user
 
 In this section, you'll create a test user in the Azure portal called B.Simon.
@@ -189,8 +238,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Check Point Infinity Portal Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Check Point Infinity Portal tile in the My Apps, this will redirect to Check Point Infinity Portal Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Check Point Infinity Portal tile in the My Apps, this will redirect to Check Point Infinity Portal Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Check Point Infinity Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Check Point Infinity Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

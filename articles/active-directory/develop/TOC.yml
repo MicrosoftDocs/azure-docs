@@ -156,6 +156,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identity federation
+    href: workload-identity-federation.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
   - name: App security
@@ -167,6 +169,8 @@
       href: security-best-practices-for-app-registration.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+  - name: Use the Microsoft Graph API
+    href: microsoft-graph-intro.md
 - name: How-to
   items:
   - name: Integrate your app scenario
@@ -176,8 +180,8 @@
       href: v2-supported-account-types.md
     - name: App sign-in flow
       href: app-sign-in-flow.md
-    - name: Single-page app
-      displayName: SPA
+    - name: Single-page app (SPA)
+      displayName: SPA, angular, react
       items:
       - name: Overview
         href: scenario-spa-overview.md
@@ -256,7 +260,19 @@
       - name: Code configuration
         href: scenario-desktop-app-configuration.md
       - name: Acquire token
-        href: scenario-desktop-acquire-token.md
+        items:
+        - name: Overview
+          href: scenario-desktop-acquire-token.md
+        - name: Interactively
+          href: scenario-desktop-acquire-token-interactive.md
+        - name: Interactive with WAM
+          href: scenario-desktop-acquire-token-wam.md
+        - name: Integrated Windows authentication
+          href: scenario-desktop-acquire-token-integrated-windows-authentication.md
+        - name: Username and password
+          href: scenario-desktop-acquire-token-username-password.md
+        - name: Device code flow
+          href: scenario-desktop-acquire-token-device-code-flow.md
       - name: Call a web API
         href: scenario-desktop-call-api.md
       - name: Move to production
@@ -308,6 +324,12 @@
         href: scenario-mobile-call-api.md
       - name: Move to production
         href: scenario-mobile-production.md
+  - name: Test and deploy your app
+    items:
+    - name: Setup a test environment
+      href: test-setup-environment.md
+    - name: Throttling and service limits
+      href: test-throttle-service-limits.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
@@ -353,6 +375,8 @@
           href: msal-net-migration.md
         - name: Migrate confidential client apps to MSAL.NET
           href: msal-net-migration-confidential-client.md
+        - name: Migrate public client apps to MSAL.NET
+          href: msal-net-migration-public-client.md
         - name: Migrate Xamarin Android app using broker to MSAL.NET
           href: msal-net-migration-android-broker.md
         - name: Migrate Xamarin iOS app using broker to MSAL.NET
@@ -522,7 +546,11 @@
     - name: Create a service principal using Azure PowerShell
       href: howto-authenticate-service-principal-powershell.md
     - name: Create a service principal using the Azure portal
-      href: howto-create-service-principal-portal.md
+      href: howto-create-service-principal-portal.md   
+    - name: Configure an app to trust a GitHub repo
+      href: workload-identity-federation-create-trust-github.md 
+    - name: Configure an app to trust an external identity provider
+      href: workload-identity-federation-create-trust.md
   - name: Accept sign-ins from multiple tenants
     items:
     - name: Modify accounts supported by an app
@@ -538,8 +566,8 @@
       href: howto-restrict-your-app-to-a-set-of-users.md
     - name: Add app roles in your application
       href: howto-add-app-roles-in-azure-ad-apps.md
-  - name: Use the Microsoft Graph API
-    href: microsoft-graph-intro.md
+    - name: Implement RBAC in your application
+      href: howto-implement-rbac-for-apps.md      
   - name: Build for resilience
     items:
     - name: Development Overview
@@ -568,7 +596,7 @@
     - name: Publish to Azure AD App Gallery
       href: v2-howto-app-gallery-listing.md
     - name: Publish to the Office 365 Seller Dashboard
-      href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
+      href: /office/dev/store/add-in-submission-guide
   - name: Work with Visual Studio
     items:
     - name: Use the Active Directory connected service
@@ -659,7 +687,7 @@
   - name: Azure CLI
     href: /cli/azure/identity
   - name: Azure PowerShell
-    href: /powershell/module/az.managedserviceidentity
+    href: /powershell/module/az.managedserviceidentity/
   - name: Application types and OAuth 2.0
     displayName: App types, OAuth
     href: v2-app-types.md
@@ -710,14 +738,14 @@
   items:
   - name: Videos
     href: identity-videos.md
-  - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/en-us/identity/blogs/
-  - name: Azure AD blog
-    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft identity platform - Microsoft 365 Developer Blog
+    href: https://devblogs.microsoft.com/microsoft365dev/category/microsoft-identity-platform/
+  - name: Azure Active Directory Identity Blog
+    href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Try Sign in with Microsoft
-    href: https://azure.microsoft.com/develop/identity/signin/
+    href: https://developer.microsoft.com/identity/add-sign-in-with-microsoft
   - name: Managed identities for Azure resources
     href: ../managed-identities-azure-resources/overview.md
   - name: Getting help

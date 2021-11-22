@@ -93,7 +93,7 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
-  - name: Pricing concepts
+  - name: Pricing explained
     href: pricing-concepts.md
   - name: About NVA in a virtual hub
     href: about-nva-hub.md
@@ -121,8 +121,6 @@
       href: virtual-wan-site-to-site-portal.md
     - name: Connect virtual network gateway to Virtual WAN
       href: connect-virtual-network-gateway-vwan.md
-    - name: Perform a packet capture 
-      href: virtual-wan-site-to-site-packet-capture.md
     - name: Configure custom IPsec policy
       href: virtual-wan-custom-ipsec-portal.md
     - name: Configure NAT rules
@@ -195,12 +193,18 @@
       href: howto-private-link.md
     - name: Manage access to resources - Spoke VNet P2S
       href: manage-secure-access-resources-spoke-p2s.md
-  - name: Health monitoring
+  - name: Monitoring
     items:
     - name: Monitoring Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Azure Monitor Insights for Virtual WAN
+    - name: Azure Monitor Insights
       href: azure-monitor-insights.md
+    - name: Configure S2S VPN packet captures
+      items:
+      - name: Azure portal
+        href: packet-capture-site-to-site-portal.md
+      - name: PowerShell
+        href: packet-capture-site-to-site-powershell.md
 - name: Reference
   items:
   - name: Azure PowerShell

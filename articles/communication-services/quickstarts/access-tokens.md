@@ -5,33 +5,37 @@ description: Learn how to manage identities and access tokens using the Azure Co
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
+
 ms.author: tchladek
-ms.date: 06/30/2021
+ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 
 # Quickstart: Create and manage access tokens
 
-Get started with Azure Communication Services by using the Communication Services Identity SDK. It allows you to create identities and manage your access tokens. Identity is representing entity of your application in the Azure Communication Service (for example, user or device). Access tokens let your Chat and Calling SDKs authenticate directly against Azure Communication Services. We recommend generating access tokens on a server-side service. Access tokens are then used to initialize the Communication Services SDKs on client devices.
+Access tokens let ACS SDKs [authenticate](../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You'll need to create some if you want your users to join a call or chat thread within your application. 
+
+You can also use the ACS SDKs to create identities and manage your access tokens and in this quickstart we'll be learning how to do this. For production use cases we recommend generating access tokens on a [server-side service](../concepts/client-and-server-architecture.md).
 
 Any prices seen in images throughout this tutorial are for demonstration purposes only.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [.NET](./includes/user-access-token-net.md)]
+[!INCLUDE [.NET](./includes/access-tokens/access-token-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [JavaScript](./includes/user-access-token-js.md)]
+[!INCLUDE [JavaScript](./includes/access-tokens/access-token-js.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Python](./includes/user-access-token-python.md)]
+[!INCLUDE [Python](./includes/access-tokens/access-token-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Java](./includes/user-access-token-java.md)]
+[!INCLUDE [Java](./includes/access-tokens/access-token-java.md)]
 ::: zone-end
 
 The output of the app describes each action that is completed:

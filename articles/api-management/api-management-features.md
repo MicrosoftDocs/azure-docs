@@ -3,12 +3,12 @@ title: Feature-based comparison of the Azure API Management tiers | Microsoft Do
 description: Compare API Management tiers based on the features they offer. See a table that summarizes the key features available in each pricing tier.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/13/2021
-ms.author: apimpm
+ms.date: 11/15/2021
+ms.author: danlep
 ---
 
 # Feature-based comparison of the Azure API Management tiers
@@ -37,7 +37,8 @@ Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct
 | Direct management API                                                                        | No          | Yes       | Yes   | Yes      | Yes     |
 | Azure Monitor logs and metrics                                                               | No          | Yes       | Yes   | Yes      | Yes     |
 | Static IP                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
-| [WebSocket APIs (preview)](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
+| [WebSocket APIs](websocket-api.md)                                                                                    | No          | Yes       | Yes   | Yes      | Yes     |
+| [GraphQL APIs (preview)](graphql-api.md)                                                                               | Yes          | Yes       | Yes   | Yes      | Yes     |
 
 <sup>1</sup> Enables the use of Azure AD (and Azure AD B2C) as an identity provider for user sign in on the developer portal.<br/>
 <sup>2</sup> Including related functionality e.g. users, groups, issues, applications and email templates and notifications.<br/>

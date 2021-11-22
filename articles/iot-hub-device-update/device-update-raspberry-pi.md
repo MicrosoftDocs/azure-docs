@@ -26,6 +26,8 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
+Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
+
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
@@ -152,7 +154,7 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Pi.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 3. Select the Updates tab.
 4. Select "+ Import New Update".
@@ -180,13 +182,13 @@ Use that version number in the Import Update step below.
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under Device Management from the left-hand navigation bar.
 
 3. Select the Groups tab at the top of the page. 
 
 4. Select the Add button to create a new group.
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag you created in the previous step from the list. Select Create group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 

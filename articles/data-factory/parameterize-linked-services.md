@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/24/2021
+ms.date: 11/22/2021
 author: chez-charlie
 ms.author: chez
 ---
@@ -40,19 +40,24 @@ All the linked service types are supported for parameterization.
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
 - Azure Cosmos DB (SQL API)
+- Azure Data Explorer
 - Azure Data Lake Storage Gen2
 - Azure Database for MySQL
 - Azure Databricks
+- Azure File Storage
 - Azure Key Vault
 - Azure SQL Database
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- File System
+- FTP
 - Generic HTTP
 - Generic REST
 - MySQL
 - Oracle
 - Oracle Cloud Storage
+- SFTP
 - SQL Server
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
@@ -66,15 +71,15 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 
 # [Azure Data Factory](#tab/data-factory)
 
-![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image-1.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1.png" alt-text="Add dynamic content to the Linked Service definition":::
 
-![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image-2.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2.png" alt-text="Create a new parameter":::
 
 # [Azure Synapse](#tab/synapse-analytics)
 
-![Add dynamic content to the Linked Service definition](media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png" alt-text="Add dynamic content to the Linked Service definition":::
 
-![Create a new parameter](media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png)
+:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png" alt-text="Create a new parameter":::
 
 ---
 

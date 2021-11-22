@@ -1,5 +1,6 @@
 ---
-title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
+title: Configure the admin consent workflow
+titleSuffix: Azure AD
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
 author: davidmu1
@@ -8,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/08/2021
+ms.date: 10/06/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
@@ -85,7 +86,7 @@ To review the admin consent requests and take action:
 
 8. Evaluate the request and take the appropriate action:
 
-   * **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access.  
+   * **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access. Approving a request allows all users in your tenant to access the application unless otherwise restricted with user assignment. 
    * **Deny the request**. To deny a request, you must provide a justification that will be provided to all requestors. Once a request is denied, all requestors are notified that they have been denied access to the application. Denying a request won't prevent users from requesting admin consent to the app again in the future.  
    * **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant in a disabled state. Users won't be able to request admin consent to the application in the future.
 

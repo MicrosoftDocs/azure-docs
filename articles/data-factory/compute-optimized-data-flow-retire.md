@@ -4,6 +4,7 @@ description: Data flow compute optimized option is being retired
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: tutorial
 ms.date: 06/29/2021
 ---
@@ -21,7 +22,7 @@ From now through 31 August 2024, your Compute Optimized data flows will continue
 1. Create a new Azure Integration Runtime with “General Purpose” or “Memory Optimized” as the compute type.
 2. Set your data flow activity using either of those compute types.
 
-   ![Compute types](media/data-flow/compute-types.png)
+   :::image type="content" source="media/data-flow/compute-types.png" alt-text="Compute types":::
 
 ## Comparison between different compute options 
 
@@ -32,5 +33,5 @@ From now through 31 August 2024, your Compute Optimized data flows will continue
 | Compute Optimized Data Flows (Deprecated) | Not recommended for production workloads |
 
 * [Visit the Azure Data Factory pricing page for the latest updated pricing available for General Purpose and Memory Optimized data flows](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
-* [Find more detailed information at the data flows FAQ here](https://aka.ms/dataflowsqa)  
-* [Post questions and find answers on data flows on Microsoft Q&A](https://aka.ms/datafactoryqa)
+* [Find more detailed information at the data flows FAQ here](./frequently-asked-questions.yml#mapping-data-flows)  
+* [Post questions and find answers on data flows on Microsoft Q&A](/answers/questions/topics/azure-data-factory.html)

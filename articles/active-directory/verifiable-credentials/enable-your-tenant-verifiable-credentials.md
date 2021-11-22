@@ -3,14 +3,15 @@ title: Tutorial - Configure Azure Active Directory to issue verifiable credentia
 description: In this tutorial, you build the environment needed to deploy verifiable credentials in your tenant.
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.topic: tutorial
 ms.subservice: verifiable-credentials
 ms.date: 06/24/2021
 ms.author: barclayn
-ms.reviewer: 
+ms.reviewer:
+ROBOTS: NOINDEX 
 
 # Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure Active Directory.
 
@@ -248,7 +249,7 @@ Now you take the last step to set up your tenant for verifiable credentials.
 1. Set up your organization by providing the following information:
 
       - **Organization name**: Enter a name to reference your business within Verifiable Credentials. This value isn't customer facing.
-      - **Domain:** Enter a domain that's added to a service endpoint in your DID document. [Microsoft Authenticator](../user-help/user-help-auth-app-download-install.md) and other wallets use this information to validate that your DID is [linked to your domain](how-to-dnsbind.md). If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it couldn't validate. The domain is what binds your DID to something tangible that the user might know about your business.
+      - **Domain:** Enter a domain that's added to a service endpoint in your DID document. [Microsoft Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a) and other wallets use this information to validate that your DID is [linked to your domain](how-to-dnsbind.md). If the wallet can verify the DID, it displays a verified symbol. If the wallet is unable to verify the DID, it informs the user that the credential was issued by an organization it couldn't validate. The domain is what binds your DID to something tangible that the user might know about your business.
       - **Key vault:** Enter the name of the key vault that you created earlier.
 
    >[!IMPORTANT]

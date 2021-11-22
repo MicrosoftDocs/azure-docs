@@ -8,10 +8,9 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-
 # Azure Communication Services Messaging Policy
 
 Azure Communication Services is transforming the way our customers engage with their clients by building rich, custom communication experiences that take advantage of the same enterprise-grade services that back Microsoft Teams and Skype. Integrate SMS messaging functionality into your communications solutions to reach your customers anytime and anywhere they need support. You just need to keep in mind a few messaging requirements and industry standards to get started.
@@ -97,7 +96,6 @@ While prior express consent is normally required before sending a message, there
  
 None of these messages may include solicitations or advertisements.
 
-
 ## Opt-out
 
 Message recipients may revoke consent and opt-out of receiving future messages through any reasonable means. You may not designate an exclusive means for message recipients to revoke consent. 
@@ -111,7 +109,6 @@ One of the most common opt-out mechanisms is to include a “STOP” keyword in 
 ### Opt-out best practices:
 
 In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe on your webpage. 
-
 
 ### How we handle opt-out requests:
 

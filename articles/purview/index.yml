@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 08/26/2021
+  ms.date: 09/27/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,6 +34,10 @@ landingContent:
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Purview
+            url: /learn/modules/intro-to-azure-purview/
   # Card
   - title: Get started
     linkLists:
@@ -133,6 +137,8 @@ landingContent:
           url: register-scan-google-bigquery-source.md
         - text: Scan Amazon S3
           url: register-scan-amazon-s3.md
+        - text: Scan Amazon RDS
+          url: register-scan-amazon-rds.md
         - text: Scan Oracle
           url: register-scan-oracle-source.md
         - text: Scan Hive Metastore Database

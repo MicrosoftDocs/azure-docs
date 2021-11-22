@@ -4,9 +4,9 @@ description: This article provides conceptual details about supported data sourc
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/24/2020
+ms.date: 09/27/2021
 ms.custom: references_regions 
 ---
 # Supported data sources and file types in Azure Purview
@@ -22,14 +22,14 @@ Purview supports all the data sources listed [here](purview-connector-overview.m
 The following file types are supported for scanning, for schema extraction and classification where applicable:
 
 - Structured file formats supported by extension: AVRO, ORC, PARQUET, CSV, JSON, PSV, SSV, TSV, TXT, XML, GZIP
+ > [!Note]
+ > * Purview scanner only supports schema extraction for the structured file types listed above.
+ > * For AVRO, ORC, and PARQUET file types, Purview scanner does not support schema extraction for files that contain complex data types (for example, MAP, LIST, STRUCT). 
+ > * Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
+ > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
+ > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview also supports custom file extensions and custom parsers.
- 
-> [!Note]
-> Every Gzip file must be mapped to a single csv file within. Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. Also, Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
-
-> [!Note]
-> Purview scanner does not support complex data types in AVRO, ORC and PARQUET file types for schema extraction.   
 
 ## Sampling within a file
 
@@ -63,5 +63,5 @@ All 206 system classification rules apply to structured file formats. Only the M
 
 ## Next steps
 
-- [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
-- [Manage data sources in Azure Purview (Preview)](manage-data-sources.md)
+- [Scans and ingestion in Purview](concept-scans-and-ingestion.md)
+- [Manage data sources in Azure Purview](manage-data-sources.md)

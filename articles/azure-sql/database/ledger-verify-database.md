@@ -5,11 +5,10 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang:
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
-ms.date: "07/23/2021"
-ms.custom: references_regions
+ms.date: "09/09/2021"
 ---
 
 # Verify a ledger table to detect tampering
@@ -17,7 +16,7 @@ ms.custom: references_regions
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> Azure SQL Database ledger is currently in public preview and available in West Europe, Brazil South, and West Central US.
+> Azure SQL Database ledger is currently in public preview.
 
 In this article, you'll verify the integrity of the data in your Azure SQL Database ledger tables. If you selected **Enable automatic digest storage** when you [created your database in SQL Database](ledger-create-a-single-database-with-ledger-enabled.md), follow the Azure portal instructions to automatically generate the Transact-SQL (T-SQL) script needed to verify the database ledger in the [query editor](connect-query-portal.md). Otherwise, follow the T-SQL instructions by using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 

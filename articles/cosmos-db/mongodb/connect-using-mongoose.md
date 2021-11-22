@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 03/20/2020
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: seodec18, devx-track-js
@@ -48,12 +48,14 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
 
 1. To create a Node.js application in the folder of your choice, run the following command in a node command prompt.
 
-    ```npm init```
+   `npm init`
 
-    Answer the questions and your project will be ready to go.
+   Answer the questions and your project will be ready to go.
 
 2. Add a new file to the folder and name it ```index.js```.
+
 3. Install the necessary packages using one of the ```npm install``` options:
+
    * Mongoose: ```npm install mongoose@5 --save```
 
      > [!Note]
@@ -64,30 +66,31 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
      >[!Note]
      > The ```--save``` flag adds the dependency to the package.json file.
 
-4. Import the dependencies in your index.js file.
+4. Import the dependencies in your `index.js` file.
 
-    ```JavaScript
+   ```javascript
    var mongoose = require('mongoose');
    var env = require('dotenv').config();   //Use the .env file to load the variables
     ```
 
 5. Add your Cosmos DB connection string and Cosmos DB Name to the ```.env``` file. Replace the placeholders {cosmos-account-name} and {dbname} with your own Cosmos account name and database name, without the brace symbols.
 
-    ```JavaScript
-   # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
+   ```javascript
+   // You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
 
    COSMOSDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
    COSMOSDB_PASSWORD = "<Azure Cosmos account password, this is one of the keys specified in your account>"
    COSMOSDB_DBNAME = "<Azure Cosmos database name>"
    COSMOSDB_HOST= "<Azure Cosmos Host name>"
    COSMOSDB_PORT=10255
-    ```
+   ```
 
 6. Connect to Cosmos DB using the Mongoose framework by adding the following code to the end of index.js.
-    ```JavaScript
+
+   ```javascript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMOSDB_USER,
+        username: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -97,8 +100,9 @@ After you create the database, you'll use the name in the `COSMOSDB_DBNAME` envi
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err));
     ```
-    >[!Note]
-    > Here, the environment variables are loaded using process.env.{variableName} using the 'dotenv' npm package.
+
+    >[!NOTE]
+    > Here, the environment variables are loaded using process.env.{variableName} using the `dotenv` npm package.
 
     Once you are connected to Azure Cosmos DB, you can now start setting up object models in Mongoose.
 
@@ -309,7 +313,7 @@ Here, we create a base object model, define a differentiating key and add 'Famil
     });
     ```
 
-As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running using Azure Cosmos's API for MongoDB without requiring too many changes.
+As you can see, it is easy to work with Mongoose discriminators. So, if you have an app that uses the Mongoose framework, this tutorial is a way for you to get your application up and running using Azure Cosmos DB's API for MongoDB without requiring too many changes.
 
 ## Clean up resources
 
@@ -320,5 +324,8 @@ As you can see, it is easy to work with Mongoose discriminators. So, if you have
 - Learn how to [use Studio 3T](connect-using-mongochef.md) with Azure Cosmos DB's API for MongoDB.
 - Learn how to [use Robo 3T](connect-using-robomongo.md) with Azure Cosmos DB's API for MongoDB.
 - Explore MongoDB [samples](nodejs-console-app.md) with Azure Cosmos DB's API for MongoDB.
+- Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 
 [dbleveltp]: ./media/connect-using-mongoose/db-level-throughput.png

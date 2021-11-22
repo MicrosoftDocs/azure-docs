@@ -8,105 +8,175 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
 # Language support for Computer Vision
 
-Some features of Computer Vision support multiple languages; any features not mentioned here only support English.
+Some capabilities of Computer Vision support multiple languages; any capabilities not mentioned here only support English.
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision's OCR APIs support several languages. They do not require you to specify a language code. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision OCR APIs support many languages. Read can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
-|Language| Language code | Read 3.2 | OCR API | Read 3.0/3.1 |
-|:-----|:----:|:-----:|:---:|:---:|
-|Afrikaans|`af`|✅ | | |
-|Albanian |`sq`|✅ | | |
-|Arabic | `ar`|  | ✅ | |
-|Asturian |`ast`|✅ | | |
-|Basque  |`eu`| ✅ | | |
-|Bislama   |`bi`|✅ | | |
-|Breton    |`br`|✅ | | |
-|Catalan    |`ca`|✅ | | |
-|Cebuano    |`ceb`|✅ | | |
-|Chamorro  |`ch`|✅| | |
-|Chinese Simplified | `zh-Hans`|✅ |✅ | |
-|Chinese Traditional | `zh-Hant`|✅ |✅ | |
-|Cornish     |`kw`|✅ | | |
-|Corsican      |`co`|✅ | | |
-|Crimean Tatar Latin  |`crh`| ✅ | | |
-|Czech | `cs` |✅ | ✅ | |
-|Danish | `da` |✅ | ✅ | |
-|Dutch | `nl` |✅ |✅ |✅ |
-|English (incl. handwritten) | `en` |✅ |✅ (print only)|✅ |
-|Estonian  |`et`|✅ | | |
-|Fijian |`fj`|✅ | | |
-|Filipino  |`fil`|✅ | | |
-|Finnish | `fi` |✅ |✅ | |
-|French | `fr` |✅ |✅ |✅ |
-|Friulian  | `fur` |✅ | | |
-|Galician   | `gl` |✅ | | |
-|German | `de` |✅ |✅ |✅ |
-|Gilbertese    | `gil` |✅ | | |
-|Greek | `el` | |✅ | |
-|Greenlandic   | `kl` |✅ | | |
-|Haitian Creole  | `ht` |✅ | | |
-|Hani  | `hni` |✅ | | |
-|Hmong Daw Latin | `mww` | ✅ | | |
-|Hungarian | `hu` | ✅ |✅ | |
-|Indonesian   | `id` |✅ | | |
-|Interlingua  | `ia` |✅ | | |
-|Inuktitut Latin  | `iu` | ✅ | | |
-|Irish    | `ga` |✅ | | |
-|Italian | `it` |✅ |✅ |✅ |
-|Japanese | `ja` |✅ |✅ | |
-|Javanese | `jv` |✅ | | |
-|K'iche'  | `quc` |✅ | | |
-|Kabuverdianu | `kea` |✅ | | |
-|Kachin Latin | `kac` |✅ | | |
-|Kara-Kalpak | `kaa` | ✅ | | |
-|Kashubian | `csb` |✅ | | |
-|Khasi  | `kha` | ✅ | | |
-|Korean | `ko` |✅ |✅ | |
-|Kurdish Latin | `kur` |✅ | | |
-|Luxembourgish  | `lb` | ✅ | | |
-|Malay Latin  | `ms` | ✅ | | |
-|Manx  | `gv` | ✅ | | |
-|Neapolitan   | `nap` | ✅ | | |
-|Norwegian | `nb` | | ✅ | |
-|Norwegian | `no` | ✅ | | |
-|Occitan | `oc` | ✅ | | |
-|Polish | `pl` | ✅ |✅ | |
-|Portuguese | `pt` |✅ |✅ |✅ |
-|Romanian | `ro` | | ✅ | |
-|Romansh  | `rm` | ✅ | | |
-|Russian | `ru` | |✅ | |
-|Scots  | `sco` | ✅ | | |
-|Scottish Gaelic  | `gd` |✅ | | |
-|Serbian Cyrillic | `sr-Cyrl` | |✅ | |
-|Serbian Latin | `sr-Latn` | |✅ | |
-|Slovak | `sk` | |✅ | |
-|Slovenian  | `slv` | ✅ || |
-|Spanish | `es` |✅ |✅ |✅ |
-|Swahili Latin  | `sw` |✅ | | |
-|Swedish | `sv` |✅ |✅ | |
-|Tatar Latin  | `tat` | ✅ | | |
-|Tetum    | `tet` |✅ |  | |
-|Turkish | `tr` |✅ | ✅ | |
-|Upper Sorbian  | `hsb` |✅ |  | |
-|Uzbek Latin     | `uz` |✅ |  | |
-|Volapük   | `vo` | ✅ | | |
-|Walser    | `wae` | ✅ | | |
-|Western Frisian | `fy` | ✅ | | |
-|Yucatec Maya | `yua` | ✅ | | |
-|Zhuang | `za` |✅ |  | |
-|Zulu  | `zu` | ✅ | | |
+
+> [!NOTE]
+> **Language code optional**
+>
+> Read OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+
+The preview model includes any enhancements to the current GA version of the API. See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. 
+
+### Handwritten languages
+
+The following table lists the languages supported by Read for handwritten text.
+
+|Language| Language code (optional) | Read |
+|:-----|:----:|:-----|
+|English|`en`|✅ |
+|Chinese Simplified |`zh-Hans`|✅ preview |
+|French|`fr`|✅ preview|
+|German |`de`|✅ preview |
+|Italian|`it`|✅ preview |
+|Portuguese |`pt`|✅ preview |
+|Spanish |`es`|✅ preview |
+
+### Print languages
+
+The following table lists the languages supported by the OCR APIs for printed text.
+
+|Language| Language code (optional) | Read | OCR |
+|:-----|:----:|:-----|:---:|
+|Afrikaans|`af`|✅ | |
+|Albanian |`sq`|✅ | |
+|Arabic | `ar`|  | ✅ |
+|Asturian |`ast`|✅ | |
+|Azerbaijani (Latin) | `az` | ✅ preview | |
+|Basque  |`eu`| ✅ | |
+|Belarusian (Cyrillic) | `be` |✅ preview | |
+|Belarusian (Latin) | `be` |✅ preview | |
+|Bislama   |`bi`|✅ | |
+|Bosnian (Latin)   |`bs`|✅ preview | |
+|Breton    |`br`|✅ | |
+|Bulgarian |`bg`|✅ preview | |
+|Buryat (Cyrillic)|`bua`|✅ preview | |
+|Catalan    |`ca`|✅ | |
+|Cebuano    |`ceb`|✅ | |
+|Chamorro  |`ch`|✅| |
+|Chinese Simplified | `zh-Hans`|✅ |✅ |
+|Chinese Traditional | `zh-Hant`|✅ |✅ |
+|Cornish     |`kw`|✅ | |
+|Corsican      |`co`|✅ | |
+|Crimean Tatar (Latin)|`crh`| ✅ | |
+|Croatian |`hr`|✅ preview | |
+|Czech | `cs` |✅ | ✅ |
+|Danish | `da` |✅ | ✅ |
+|Dutch | `nl` |✅ |✅ |
+|English | `en` |✅ |✅|
+|Erzya (Cyrillic) |`myv`|✅ preview | |
+|Estonian  |`et`|✅ | |
+|Faroese |`fo`|✅ preview | |
+|Fijian |`fj`|✅ | |
+|Filipino  |`fil`|✅ | |
+|Finnish | `fi` |✅ |✅ |
+|French | `fr` |✅ |✅ |
+|Friulian  | `fur` |✅ | |
+|Gagauz (Latin) |`gag`|✅ preview | |
+|Galician   | `gl` |✅ | |
+|German | `de` |✅ |✅ |
+|Gilbertese    | `gil` |✅ | |
+|Greek | `el` | |✅ |
+|Greenlandic   | `kl` |✅ | |
+|Haitian Creole  | `ht` |✅ | |
+|Hani  | `hni` |✅ | |
+|Hawaiian |`haw`|✅ preview | |
+|Hmong Daw (Latin)| `mww` | ✅ | |
+|Hungarian | `hu` | ✅ |✅ |
+|Icelandic |`is`|✅ preview | |
+|Inari Sami |`smn`|✅ preview | |
+|Indonesian   | `id` |✅ | |
+|Interlingua  | `ia` |✅ | |
+|Inuktitut (Latin) | `iu` | ✅ | |
+|Irish    | `ga` |✅ | |
+|Italian | `it` |✅ |✅ |
+|Japanese | `ja` |✅ |✅ |
+|Javanese | `jv` |✅ | |
+|K'iche'  | `quc` |✅ | |
+|Kabuverdianu | `kea` |✅ | |
+|Kachin (Latin) | `kac` |✅ | |
+|Kara-Kalpak (Latin) | `kaa` | ✅ | |
+|Kara-Kalpak (Cyrillic) | `kaa-cyrl` | ✅ preview | |
+|Karachay-Balkar |`krc`|✅ preview | |
+|Kashubian | `csb` |✅ | |
+|Kazakh (Cyrillic) |`kk-cyrl`|✅ preview | |
+|Kazakh (Latin) |`kk-latn`|✅ preview | |
+|Khasi  | `kha` | ✅ | |
+|Korean | `ko` |✅ |✅ |
+|Koryak |`kpy`|✅ preview | |
+|Kosraean |`kos`|✅ preview | |
+|Kumyk (Cyrillic) |`kum`|✅ preview | |
+|Kurdish (Latin)| `ku` |✅ | |
+|Kyrgyz (Cyrillic) |`ky`|✅ preview | |
+|Lakota |`lkt`|✅ preview | |
+|Latin|`la`|✅ preview | |
+|Lithuanian|`lt`|✅ preview | |
+|Lower Sorbian|`dsb`|✅ preview | |
+|Lule Sami|`smj`|✅ preview | |
+|Luxembourgish  | `lb` | ✅ | |
+|Malay (Latin) | `ms` | ✅ | |
+|Maltese|`mt`|✅ preview | |
+|Manx  | `gv` | ✅ | |
+|Maori|`mi`|✅ preview | |
+|Mongolian (Cyrillic)|`mn`|✅ preview | |
+|Montenegrin (Cyrillic)|`cnr-cyrl`|✅ preview | |
+|Montenegrin (Latin)|`cnr-latn`|✅ preview | |
+|Neapolitan   | `nap` | ✅ | |
+|Niuean|`niu`|✅ preview | |
+|Nogay|`nog`|✅ preview | |
+|Northern Sami (Latin)|`sme`|✅ preview | |
+|Norwegian | `no` | ✅ | |
+|Occitan | `oc` | ✅ | |
+|Ossetic|`os`|✅ preview | |
+|Polish | `pl` | ✅ |✅ |
+|Portuguese | `pt` |✅ |✅ |
+|Ripuarian|`ksh`|✅ preview | |
+|Romanian | `ro` | ✅ preview | ✅|
+|Romansh  | `rm` | ✅ | |
+|Russian | `ru` |✅ preview |✅ |
+|Samoan (Latin)|`sm`|✅ preview | |
+|Scots  | `sco` | ✅ | |
+|Scottish Gaelic  | `gd` |✅ | |
+|Serbian (Cyrillic) | `sr-cyrl` | |✅ |
+|Serbian (Latin) | `sr-latn` | ✅ preview |✅ |
+|Skolt Sami|`sms`|✅ preview | |
+|Slovak | `sk` | ✅ preview |✅ |
+|Slovenian  | `sl` | ✅ ||
+|Southern Sami|`sma`|✅ preview | |
+|Spanish | `es` |✅ |✅ |
+|Swahili (Latin)  | `sw` |✅ | |
+|Swedish | `sv` |✅ |✅ |
+|Tajik (Cyrillic)|`tg`|✅ preview | |
+|Tatar (Latin)  | `tt` | ✅ |
+|Tetum    | `tet` |✅ |  |
+|Tongan|`to`|✅ preview | |
+|Turkish | `tr` |✅ | ✅ |
+|Turkmen (Latin)|`tk`|✅ preview | |
+|Tuvan|`tyv`|✅ preview | |
+|Upper Sorbian  | `hsb` |✅ |  |
+|Uzbek (Cyrillic)  | `uz-cyrl` |✅ |  |
+|Uzbek (Latin)     | `uz` |✅ |  |
+|Volapük   | `vo` | ✅ | |
+|Walser    | `wae` | ✅ | |
+|Welsh     | `cy` |✅ preview |  |
+|Western Frisian | `fy` | ✅ | |
+|Yucatec Maya | `yua` | ✅ | |
+|Zhuang | `za` |✅ |  |
+|Zulu  | `zu` | ✅ | |
 
 ## Image analysis
 
-Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
+Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
 
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

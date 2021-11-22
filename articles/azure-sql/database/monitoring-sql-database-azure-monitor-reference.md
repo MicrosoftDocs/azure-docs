@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor Azure SQL Data
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: conceptual
-ms.reviewer: mathoma
+ms.reviewer: mathoma, dfurman
 ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: subject-monitoring

@@ -3,13 +3,13 @@ title: "Speech CLI configuration options - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to create and manage configuration files for use with the Azure Speech CLI.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
-ms.author: lajanuar
+ms.author: eur
 ---
 
 # Speech CLI configuration options
@@ -17,6 +17,9 @@ ms.author: lajanuar
 Speech CLI's behavior can rely on settings in configuration files, which you can refer to using a `@` symbol. The Speech CLI saves a new setting in a new `./spx/data` subdirectory that is created in the current working directory for the Speech CLI. When looking for a configuration value, the Speech CLI searches your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary. 
 
 In the Speech CLI quickstart, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
+
+> [!NOTE]
+> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
 
 ## Create and manage configuration files in the datastore
 

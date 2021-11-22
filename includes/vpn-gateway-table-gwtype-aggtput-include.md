@@ -13,25 +13,25 @@
 |**VPN<br>Gateway<br>Generation** |**SKU**   | **S2S/VNet-to-VNet<br>Tunnels** | **P2S<br> SSTP Connections** | **P2S<br> IKEv2/OpenVPN Connections** | **Aggregate<br>Throughput Benchmark** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
 |**Generation1**|**Basic**   | Max. 10    | Max. 128  | Not Supported  | 100 Mbps  | Not Supported| No |
-|**Generation1**|**VpnGw1**  | Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported | No |
-|**Generation1**|**VpnGw2**  | Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    | Supported | No |
-|**Generation1**|**VpnGw3**  | Max. 30*   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | No |
-|**Generation1**|**VpnGw1AZ**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  | Supported | Yes |
-|**Generation1**|**VpnGw2AZ**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    | Supported | Yes |
-|**Generation1**|**VpnGw3AZ**| Max. 30*   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | Yes |
+|**Generation1**|**VpnGw1**  | Max. 30   | Max. 128  | Max. 250       | 650 Mbps  | Supported | No |
+|**Generation1**|**VpnGw2**  | Max. 30   | Max. 128  | Max. 500       | 1 Gbps    | Supported | No |
+|**Generation1**|**VpnGw3**  | Max. 30   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | No |
+|**Generation1**|**VpnGw1AZ**| Max. 30   | Max. 128  | Max. 250       | 650 Mbps  | Supported | Yes |
+|**Generation1**|**VpnGw2AZ**| Max. 30   | Max. 128  | Max. 500       | 1 Gbps    | Supported | Yes |
+|**Generation1**|**VpnGw3AZ**| Max. 30   | Max. 128  | Max. 1000      | 1.25 Gbps | Supported | Yes |
 |        |            |            |           |                |           |           |     |
-|**Generation2**|**VpnGw2**  | Max. 30*   | Max. 128  | Max. 500       | 1.25 Gbps | Supported | No |
-|**Generation2**|**VpnGw3**  | Max. 30*   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | No |
-|**Generation2**|**VpnGw4**  | Max. 30*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | No |
-|**Generation2**|**VpnGw5**  | Max. 30*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | No |
-|**Generation2**|**VpnGw2AZ**| Max. 30*   | Max. 128  | Max. 500       | 1.25 Gbps | Supported | Yes |
-|**Generation2**|**VpnGw3AZ**| Max. 30*   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | Yes |
-|**Generation2**|**VpnGw4AZ**| Max. 30*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | Yes |
-|**Generation2**|**VpnGw5AZ**| Max. 30*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | Yes |
+|**Generation2**|**VpnGw2**  | Max. 30   | Max. 128  | Max. 500       | 1.25 Gbps | Supported | No |
+|**Generation2**|**VpnGw3**  | Max. 30   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | No |
+|**Generation2**|**VpnGw4**  | Max. 100*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | No |
+|**Generation2**|**VpnGw5**  | Max. 100*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | No |
+|**Generation2**|**VpnGw2AZ**| Max. 30   | Max. 128  | Max. 500       | 1.25 Gbps | Supported | Yes |
+|**Generation2**|**VpnGw3AZ**| Max. 30   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | Yes |
+|**Generation2**|**VpnGw4AZ**| Max. 100*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | Yes |
+|**Generation2**|**VpnGw5AZ**| Max. 100*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | Yes |
 
-(*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 30 S2S VPN tunnels.
+(*) Use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) if you need more than 100 S2S VPN tunnels.
 
-* The resizing of VpnGw SKUs is allowed within the same generation, except resizing of the Basic SKU. The Basic SKU is a legacy SKU and has feature limitations. In order to move from Basic to another VpnGw SKU, you must delete the Basic SKU VPN gateway and create a new gateway with the desired Generation and SKU size combination.
+* The resizing of VpnGw SKUs is allowed within the same generation, except resizing of the Basic SKU. The Basic SKU is a legacy SKU and has feature limitations. In order to move from Basic to another VpnGw SKU, you must delete the Basic SKU VPN gateway and create a new gateway with the desired Generation and SKU size combination. You can only resize a Basic gateway to another legacy SKU (see [Working with Legacy SKUs](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)).
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 

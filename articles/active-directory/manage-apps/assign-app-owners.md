@@ -1,16 +1,17 @@
 ---
-title: Assign enterprise application owners - Azure AD | Microsoft Docs
+title: Assign enterprise application owners
+titleSuffix: Azure AD
 description: Assign owners to applications in Azure Active Directory
 services: active-directory
 documentationcenter: ''
-author: davidmu1
+author: saipradeepb23
 manager: celesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.author: davidmu
+ms.author: saibandaru
 #Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
 
 ---

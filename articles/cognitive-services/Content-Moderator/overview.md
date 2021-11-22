@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 09/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: content moderator, azure content moderator, online moderator, content filtering software, content moderation service, content moderation
@@ -18,8 +18,6 @@ keywords: content moderator, azure content moderator, online moderator, content 
 ---
 
 # What is Azure Content Moderator?
-
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
