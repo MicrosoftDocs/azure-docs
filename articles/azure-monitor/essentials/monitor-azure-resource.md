@@ -33,7 +33,6 @@ As soon as you create an Azure resource, Azure Monitor is enabled and starts col
 ### Monitoring data from Azure resources
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
 
-## Diagnostic settings
 Diagnostic settings define where resource logs and metrics for a particular resource should be sent. Possible destinations are:
 
 - [Activity log](./platform-logs-overview.md) - Subscription level events that track operations for each Azure resource, for example creating a new resource or starting a virtual machine. Activity log events are automatically generated and collected for viewing in the Azure portal. You can create a diagnostic setting to send the Activity log to Azure Monitor Logs.
