@@ -9,11 +9,11 @@ ms.date: 11/18/2021
 
 # Use Microsoft Sentinel watchlists and playbooks together to automate activity
 
-This article describes two common situations where using watchlists and playbooks together are helpful in automating activity in your systems: informing resource owners about alerts and responding to incidents with allow lists. 
+This article describes two common situations where using watchlists and playbooks together are helpful in automating activity in your systems: informing resource owners about alerts and responding to incidents with allowlists.
 
 > [!TIP]
 > Use these sample playbooks as examples or templates for how you can create automation in your own system, modifying the values as needed.
-> 
+>
 ## Automatically inform owners of alerts
 
 [Microsoft Defender for Cloud alerts](/azure/defender-for-cloud/defender-for-cloud-introduction) inform the Security Operations Center (SOC) about possible security attacks on Azure resources.
@@ -55,7 +55,7 @@ The process described in this section includes the following steps:
 
 The following image shows the **Watchlists-InformSubowner-IncidentTrigger** playbook in the Logic App designer.
 
-![Image of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/automate-playbook-watchlist/inform-subowner-playbook.png)
+![Screenshot of the Watchlists-InformSubowner-IncidentTrigger playbook.](media/automate-playbook-watchlist/inform-subowner-playbook.png)
 
 The playbook runs the following steps:
 
@@ -69,21 +69,21 @@ The playbook runs the following steps:
 
    1. **Run query and list results - Get Watchlist**. The Azure Monitor Log Analytics connector gets the watchlist items, including the **Subscription**, **Resource Group**, and **Resource Name** for the Microsoft Sentinel workspace details where the watchlist is located. Use the `project` argument to specify which fields are relevant for your use.
 
-      ![Image of the Run query and list results playbook task.](media/automate-playbook-watchlist/inform-subowner-run-query.png)
+      ![Screenshot of the Run query and list results playbook task.](media/automate-playbook-watchlist/inform-subowner-run-query.png)
 
    1. **Filter array to get relevant subscription owners**. This step keeps the watchlist results only for the subscription you're looking for. The Logic Apps expression argument on the right is:
 
       `string(body('Parse_JSON_to_get_subscriptionId')?['properties']?['effectiveSubscriptionId'])`
 
-      ![Image that shows the filter array playbook task.](media/automate-playbook-watchlist/filter-array.png)
+      ![Screenshot that shows the filter array playbook task.](media/automate-playbook-watchlist/filter-array.png)
 
    1. **Post a message as the flow bot to a user**. This step sends a message to the subscription owner in Microsoft Teams with any details you want to share about the new alert.
 
-      ![Image that shows creating the Teams message in the playbook step.](media/automate-playbook-watchlist/create-message.png)
+      ![Screenshot that shows creating the Teams message in the playbook step.](media/automate-playbook-watchlist/create-message.png)
 
    1. **Send an Email**. This step sends a message to the subscription owner in Outlook with any details you want to share about the new alert.
 
-      ![Image that shows creating the email message in the playbook step.](media/automate-playbook-watchlist/create-email.png)
+      ![Screenshot that shows creating the email message in the playbook step.](media/automate-playbook-watchlist/create-email.png)
 
 ### Set up your watchlist and deploy the playbook
 
@@ -117,9 +117,9 @@ Use the following steps to create and upload the watchlist, deploy the playbook,
 
     For any unconnected products, select **Authorize**, sign in, and then save the logic app.
 
-## Automate incident response with an allow list
+## Automate incident response with an allowlist
 
-Allow-listing is a helpful strategy for allowing certain identities or sources to access sensitive resources or exclude them from security protections. For example, if a specific IP address on an allow list triggers a new alert, your system can use an allow list to recognize it as known to the SOC as an approved source. If an alert includes only approved IP addresses in its entities, you can save time by automatically closing the incident.
+Allow-listing is a helpful strategy for allowing certain identities or sources to access sensitive resources or exclude them from security protections. For example, if a specific IP address on an allowlist triggers a new alert, your system can use an allowlist to recognize it as known to the SOC as an approved source. If an alert includes only approved IP addresses in its entities, you can save time by automatically closing the incident.
 
 This section describes how to use a watchlist and a playbook to automatically close incidents for approved IP addresses, as an example of how this strategy works.
 
@@ -151,7 +151,7 @@ The process described in this article includes the following steps:
 
 The following image shows the **Watchlists-CloseIncidentKnownIPs** playbook in the Logic App designer.
 
-![Image of the Watchlists-CloseIncidentKnownIPs playbook.](media/automate-playbook-watchlist/playbook-known-ips.png)
+![Screenshot of the Watchlists-CloseIncidentKnownIPs playbook.](media/automate-playbook-watchlist/playbook-known-ips.png)
 
 The playbook runs the following steps:
 
@@ -170,7 +170,7 @@ The playbook runs the following steps:
 
    :::image type="content" source="media/automate-playbook-watchlist/known-ip-run-query.png" alt-text="Screenshot of the run query and list results step.":::
 
-   If the playbook finds an IP address in the watchlist, the IP address is added to the *Safe* array. If it's not found in the allow list watchlist, the IP address is added to the *Not safe* array.
+   If the playbook finds an IP address in the watchlist, the IP address is added to the *Safe* array. If it's not found in the allowlist watchlist, the IP address is added to the *Not safe* array.
 
 1. **A comment is added to the incident**, listing any safe IP addresses found in the watchlist.
 
