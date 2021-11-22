@@ -14,11 +14,11 @@ ms.author: eur
 
 # Create and use your voice model
 
-In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for custom neural voice.
+In [Prepare training data](how-to-custom-voice-prepare-data.md), you learned about the different data types you can use to train a custom neural voice and the different format requirements. Once you've prepared your data and the voice talent verbal statement, you can start to upload them to the [Speech Studio](https://aka.ms/custom-voice-portal). In this article, you learn how to train a custom neural voice through the Speech Studio portal. See the [supported languages](language-support.md#custom-neural-voice) for Custom Neural Voice.
 
 ## Prerequisites
 
-* Complete [get started with custom neural voice](how-to-custom-voice.md)
+* Complete [get started with Custom Neural Voice](how-to-custom-voice.md)
 * [Prepare training data](how-to-custom-voice-prepare-data.md)
 
 ## Set up voice talent
@@ -32,7 +32,7 @@ the name of the company] to create and use a synthetic version of my voice.”**
 This sentence is used to verify if the training data matches the audio in the consent statement. > Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
 
 > [!NOTE]
-> Custom neural voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
+> Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext), and then [apply for access](https://aka.ms/customneural). 
 
 The following steps assume you've prepared the voice talent verbal consent files.  Go to [Speech Studio](https://aka.ms/custom-voice-portal) to select a custom neural voice project, then follow the following steps to create a voice talent profile.
 
@@ -68,7 +68,7 @@ You can do the following to create and review your training data.
 >- Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names within the .zip file or across multiple .zip files. If utterance IDs (either in audio or script files) are duplicate, they'll be rejected.
 >- If you've created data files in the previous version of Speech Studio, you must specify a training set for your data in advance to use them. Or else, an exclamation mark will be appended to the data name, and the data could not be used.
 
-Each data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the custom neural voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
+Each data you upload must meet the requirements for the data type that you choose. It's important to correctly format your data before it's uploaded, which ensures the data will be accurately processed by the Custom Neural Voice service. Go to [Prepare training data](how-to-custom-voice-prepare-data.md) and make sure your data has been rightly formatted.
 
 > [!NOTE]
 > - Standard subscription (S0) users can upload five data files simultaneously. If you reach the limit, wait until at least one of your data files finishes importing. Then try again.
@@ -148,7 +148,7 @@ Training of custom neural voices isn't free. Check the [pricing](https://azure.m
 
 >[!NOTE]
 >- You need to select at least 300 utterances to create a custom neural voice.
->- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. Custom neural voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
+>- To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural).
 
 4. Then, choose your test script.
 
@@ -199,7 +199,7 @@ After your voice model is successfully built, you can use the generated sample a
 The quality of the voice depends on many factors, including the size of the training data, the quality of the recording, the accuracy of the transcript file, how well the recorded voice in the training data matches the personality of the designed voice for your intended use case, and more. [Check here to learn more about the capabilities and limits of our technology and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for custom neural voice: [regions for custom neural voice](regions.md#text-to-speech).
+> Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other different regions. Check the regions supported for Custom Neural Voice: [regions for Custom Neural Voice](regions.md#text-to-speech).
 
 ## Create and use a custom neural voice endpoint
 
