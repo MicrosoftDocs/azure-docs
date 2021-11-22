@@ -1,55 +1,74 @@
 ---
-title: How to update and rerun a test
+title: Monitor server-side application metrics for load testing
 titleSuffix: Azure Load Testing
-description: Learn how to update and rerun a test.
+description: Learn how to configure a load test to monitor server-side application metrics with Azure Load Testing.
 services: load-testing
 ms.service: load-testing
-ms.author: jmartens
-author: j-martens
-ms.date: 11/08/2021
+ms.author: nicktrog
+author: ntrogh
+ms.date: 11/30/2021
 ms.topic: how-to
 
 ---
-# Update and rerun your test
+# Monitor server-side application metrics with Azure Load Testing Preview
 
- In this article, you'll learn how to update components for a test and then rerun it using the Azure Load Testing Service on **Azure portal**.  
+In this article, you'll learn how to configure your load test to monitor server-side application metrics with Azure Load Testing Preview.
 
-In this article you'll learn how to:  
+Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. You can specify which Azure components and resource metrics to monitor for your load test run.
 
-> [!div class="checklist"]
-> - Update and edit the test from the tests page on Azure portal  
-> - Update and edit the app components from the tests page on Azure portal  
-> - Update and edit Metrics from the test page on Azure portal  
-> - Update and edit app components and Metrics from the test run dashboard on the Azure portal  
+> [!IMPORTANT]
+> Azure Load Testing is currently in preview.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- You'll need an Azure Load Testing Resource already created. If you need to create a Load Test Resource, see [How to create the Load Test Resource](./quickstart-create-and-run-load-test.md).  
-- You must have a valid test created with at least one test run completed. You can also use the sample test plan and the app in our tutorial. See [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).  
+- An Azure Load Testing resource with at least one completed test run. If you need to create an Azure Load Testing resource, see [Tutorial: Run a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md).
 
-## Update a Test from the Tests Page  
+## Configure server-side monitoring for a load test
 
-1. Go to your load test resource.  
-2. Select 'tests' in the navigation menu to view the list of test plans.  
-3. From the list, select the test plan you wish to update.  
-4. On the test run page, you'll see the list of test runs for that test plan.  
+In this section, you'll update an existing load test to configure the Azure application components to capture server-side resource metrics for.
 
-   > [!NOTE]  
-   > Changes made on this page are applied to the test plan. Subsequent runs of the plan will use these new settings for running the test in the future.  
+1. Navigate to your Azure Load Testing resource in the Azure portal. 
 
-1. The **Test**, **App Components**, and **server side Metrics** can be updated on this page using the **Configure** button on the command bar at the top.  
-:::image type="content" source="media/how-to-update-rerun-test/configure.png" alt-text="Configure button on command bar.":::  
-1. Select **Test** to edit the test plan details. Select **Apply** at the bottom to save your changes.  
-:::image type="content" source="media/how-to-update-rerun-test/edit-test.png" alt-text="Configure the test plan.":::  
-1. Select **App Components** to add or remove Azure resources types for which the dashboard would display server-side metrics.
-:::image type="content" source="media/how-to-update-rerun-test/app-component.png" alt-text="Add or remove any app component.":::  
-1. Pick **Metrics** to add any other metrics for the available resource types. You can select the metrics you want to view and also apply aggregation techniques. Your aggregations will show on the charts that would come up on the dashboard.  
-:::image type="content" source="media/how-to-update-rerun-test/metrics.png" alt-text="Add or remove any server-side metrics.":::  
-1. After you've made your changes and want to run the test again, go to the test plan and select  **Run** on the command bar to run the test plan.  
-:::image type="content" source="media/how-to-update-rerun-test/run.png" alt-text="Running the test from the test run list page.":::  
+1. Select **Tests** from the left navigation, and then select your load test from the list.
 
-## Updating and rerunning from the test run dashboard  
+    :::image type="content" source="media/how-to-update-rerun-test/select-test.png" alt-text="Screenshot that shows how to select a load test.":::  
 
-From the test run dashboard, you can configure app components and metrics then select **rerun** for rerunning the test. You can't modify the test script or any other value related to the test plan. You need to be on the test plan page if you want to modify your test plan.  
-:::image type="content" source="media/how-to-update-rerun-test/dashboard-run.png" alt-text="Running the test from the test run dashboard.":::
+1. On the test runs page, select **Configure**, and then select **App Components** to add or remove Azure resources to monitor during the load test.
+
+    :::image type="content" source="media/how-to-update-rerun-test/configure-app-components.png" alt-text="Screenshot that shows how to configure app components for a load test.":::  
+
+    You can add or remove Azure resources by checking the boxes, and then selecting **Apply**.
+
+    :::image type="content" source="media/how-to-update-rerun-test/modify-app-components.png" alt-text="Screenshot that shows how to add or remove app components to a load test configuration.":::  
+
+    The Azure Load Testing service will capture resource metrics for the selected Azure components and display them in the test result dashboard.
+    
+1. Select **Configure**, and then select **Metrics** to select the specific resource metrics to capture during the load test.
+
+    :::image type="content" source="media/how-to-update-rerun-test/configure-metrics.png" alt-text="Screenshot that shows how to configure metrics for a load test.":::  
+
+1. Update the list of metrics you want to capture, and then select **Apply** to save your changes.
+
+    :::image type="content" source="media/how-to-update-rerun-test/modify-metrics.png" alt-text="Screenshot that shows how to modify the list of resource metrics.":::  
+
+    Alternatively, you can also update the app components and metrics from the test result details page.
+
+1. Select **Run** to run the load test with the new configuration settings.
+
+    :::image type="content" source="media/how-to-update-rerun-test/run-load-test.png" alt-text="Screenshot that shows how to run  the test from the test runs page.":::  
+
+    If you've updated the load test from the test results page, you can select **Rerun** to run the load test with the new configuration settings.
+
+    :::image type="content" source="media/how-to-update-rerun-test/dashboard-run.png" alt-text="Screenshot that shows how to rerun the load test from the test result dashboard.":::
+
+    Notice that the test result dashboard now shows the updated server-side metrics.
+
+    :::image type="content" source="media/how-to-update-rerun-test/dashboard-updated-metrics.png" alt-text="Screenshot that shows the updated server-side metrics in the test result dashboard.":::
+
+## Next steps
+
+- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
+
+- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
