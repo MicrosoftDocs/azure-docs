@@ -4,7 +4,7 @@ description: The latest restorable timestamp API provides the latest restorable 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 11/19/2021
+ms.date: 11/22/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -26,58 +26,63 @@ You can use latest restorable timestamp in the following use cases:
 
 * You can use this API to identify that your data has been successfully written before deleting the account. If the timestamp returned by this API is less than the last write timestamp, it means there is some data that has not been backed up yet. In such case, you must call this API until the timestamp becomes equal to or greater than the last write timestamp. If an account exists in multiple locations, you must get the latest restorable timestamp in all the locations to make sure that data has been backed up in all regions before deleting the account.
 
-* You can use this API to monitor that your data is being backed up on time. This timestamp is within a few hundred seconds of the current timestamp. Although, it can sometimes take a bit longer.
+* You can use this API to monitor that your data is being backed up on time. This timestamp is within a few hundred seconds of the current timestamp. Although it can sometimes take a bit longer.
 
 ## Semantics
 
 The latest restorable timestamp API gets the latest time for all the partitions of a container at which the data was last backed up and then returns the minimum of all these timestamps. If the data for all its partitions is backed up and there was no new data written to those partitions, in that case it will return the maximum of current timestamp and the last data backup timestamp. This API makes sure that at the returned timestamp, all the partitions of a particular container have been backed up.
 
-If a partition has not yet taken any backup or it has some data to be backed up, in that case it will return the minimum Unix (epoch) timestamp i.e., Jan 1, 1970, midnight UTC (Coordinated Universal Time). In this case, you must retry until it gives a timestamp greater than epoch timestamp.
+If a partition has not yet taken any backup or it has some data to be backed up, in that case it will return the minimum Unix (epoch) timestamp that is, Jan 1, 1970, midnight UTC (Coordinated Universal Time). In this case, you must retry until it gives a timestamp greater than epoch timestamp.
 
 ## Examples
 
-If a container “cont1” has 2 partitions in two regions: “East US” and “West US”. Assume that you send a request at timestamp t3 to get the latest restorable timestamp.
+If a container “cont1” has two partitions in two regions: “East US” and “West US”. Assume that you send a request at timestamp t3 to get the latest restorable timestamp.
 
 ### Case1: Data for all the partitions has not yet been backed up
 
 **East US:**
-Partition 1 (last backup time: t2)
-Partition 2 (last backup time: t3)
-Latest restorable timestamp = min (t2, t3) = t2
+
+* Partition 1 (last backup time: t2)
+* Partition 2 (last backup time: t3)
+* Latest restorable timestamp = min (t2, t3) = t2
 
 **West US:**
-Partition 1 (last backup time: t1)
-Partition 2 (last backup time: t3)
-Latest restorable timestamp = min (t1, t3) = t1
+
+* Partition 1 (last backup time: t1)
+* Partition 2 (last backup time: t3)
+* Latest restorable timestamp = min (t1, t3) = t1
 
 ### Case2: Data for all partitions is backed up
 
 **East US:**
-Partition 1 (last backup time: t2) (all the data for this partition was backed up at t2 and no new data written to it.)
-Partition 2 (last backup time: t3)
-Latest restorable timestamp = max (current timestamp, t2, t3)
+
+* Partition 1 (last backup time: t2) (all the data for this partition was backed up at t2 and no new data written to it.)
+* Partition 2 (last backup time: t3)
+* Latest restorable timestamp = max (current timestamp, t2, t3)
 
 **West US:**
-Partition 1 (last backup time: t3)
-Partition 2 (last backup time: t3)
-Latest restorable timestamp = max (current timestamp, t3 , t3)
+
+* Partition 1 (last backup time: t3)
+* Partition 2 (last backup time: t3)
+* Latest restorable timestamp = max (current timestamp, t3, t3)
 
 ### Case3: When one of the partitions has not taken any backup yet
 
 **East US:**
-Partition 1: (no backup taken yet)
-Partition 2: (last backup time: t3)
-Latest Restorable Timestamp = 1/1/1970 12:00:00 AM
+
+* Partition 1: (no backup taken yet)
+* Partition 2: (last backup time: t3)
+* Latest Restorable Timestamp = 1/1/1970 12:00:00 AM
 
 ## Frequently asked questions
 
-### Can I use this API for accounts with periodic backup?
+**Can I use this API for accounts with periodic backup?**
 No. This API can only be used for accounts with continuous backup mode.
 
-### Can I use this API for accounts migrated to continuous mode?
+**Can I use this API for accounts migrated to continuous mode?**
 Yes.
 
-### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
+**What is the typical delay between the latest write timestamp and the latest restorable timestamp?**
 Usually, your data is backed up within 100 seconds (i.e within 1 and a half minutes) after the data write operation. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 ## Next steps

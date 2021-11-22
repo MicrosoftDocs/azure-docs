@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Get the latest restorable timestamp for continuous backup accounts
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and request and response format for the PowerShell and CLI commands.
+This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and response format for the PowerShell and CLI commands.
 
 ## SQL container
 
@@ -135,6 +135,8 @@ return $latestRestorableTimestampForDatabase
 }
 ```
 
+**Syntax:**
+
 ```powershell
 Get-LatestRestorableTimestampForSqlDatabase `
   -ResourceGroupName <resourceGroup> `
@@ -156,8 +158,10 @@ Get-LatestRestorableTimestampForSqlDatabase `
 
 **Sample response (In UTC Format):**
 
+```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying containers
 Wednesday, November 3, 2021 8:02:44 PM
+```
 
 ## SQL account
 
@@ -224,6 +228,8 @@ return $latestRestorableTimestampForAccount
 }
 ```
 
+**Syntax:**
+
 ```powershell
 Get-LatestRestorableTimestampForSqlAccount `
   -ResourceGroupName <resourceGroupName> `
@@ -244,9 +250,10 @@ Get-LatestRestorableTimestampForSqlAccount `
 
 **Sample response (In UTC Format):**
 
+```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying containers
-
 Wednesday, November 3, 2021 8:11:03 PM
+```
 
 ## MongoDB collection
 
@@ -305,11 +312,13 @@ az cosmosdb mongodb retrieve-latest-backup-time \
 
 **Sample response:**
 
+```console
 {
   "continuousBackupInformation": {
     "latestRestorableTimestamp": "10/26/2021 5:27:45 PM"
   }
 }
+```
 
 ## MongoDB database
 
@@ -370,6 +379,8 @@ return $latestRestorableTimestampForDatabase
 }
 ```
 
+**Syntax:**
+
 ```powershell
 Get-LatestRestorableTimestampForMongoDBDatabase `
   -ResourceGroupName <resourceGroup> `
@@ -386,8 +397,11 @@ Get-LatestRestorableTimestampForMongoDBDatabase -ResourceGroupName rg -accountNa
 ```
 
 **Sample response (In UTC Format):**
+
+```console
 Latest restorable timestamp for a database is minimum of restorable timestamps of all the underlying collections
 Wednesday, November 3, 2021 8:31:27 PM
+```
 
 ## MongoDB account
 
@@ -454,6 +468,7 @@ return $latestRestorableTimestampForAccount
 }
 ```
 
+**Syntax:**
 
 ```powershell
 Get-LatestRestorableTimestampForMongoDBAccount `
@@ -473,8 +488,11 @@ Get-LatestRestorableTimestampForMongoDBAccount `
 ```
 
 **Sample response (In UTC Format):**
+
+```console
 Latest restorable timestamp for an account is minimum of restorable timestamps of all the underlying collections
 Wednesday, November 3, 2021 8:33:49 PM
+```
 
 ## Next steps
 
