@@ -14,7 +14,7 @@ ms.date: 11/11/2021
 > [!NOTE]
 > The previous name for alert processing rules was **action rules**.
 
-Alert processing rules allow you to apply processing on **fired alerts**. You may be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different - they are rules that modify the fired alerts themselves as they are being fired. You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. Alert processing rules can cover different resource scopes, from a single resource to an entire subscription. They also optionally allow you to apply various filters or have the rule work on a pre-defined schedule.
+Alert processing rules allow you to apply processing on **fired alerts**. You may be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different; they are rules that modify the fired alerts themselves as they are being fired. You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. Alert processing rules can be applied to differening resource scopes, from a single resource to an entire subscription. They can also allow you to apply various filters or have the rule work on a pre-defined schedule.
 
 ## What are alert processing rules useful for?
 
@@ -22,13 +22,15 @@ Some common use cases for alert processing rules include:
 
 ### Notification suppression during planned maintenance
 
-Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. Those customers may choose to stop receiving alert notifications for those resources during the maintenance window. Other customers do not need to receive alert notifications at all outside of their business hours.
+Many customers set up a planned maintenance time for their resources, either on a one-off basis or on a regular schedule. The planned maintenance may cover a single resource like a virtual machine, or multiple resources like all virtual machines in a resource group. Those customers may choose to stop receiving alert notifications for those resources during the maintenance window. 
+  
+Other customers do not need to receive alert notifications at all outside of their business hours.
 
-You could suppress alert notifications by disabling the alert rule themselves, but this approach has several limitations:
-   * You could disable the relevant alert rule at the beginning of the maintenance window. Once the maintenance is over, you will then enable the alert rule back. However, this  approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. So, if you disable the alert rule, you will miss valid alerts on the remaining resources covered by that rule.
-   * You may have many alert rules that cover the resource, so updating them all is time consuming and error prone.
+You could suppress alert notifications by disabling the alert rules themselves, but this approach has several limitations:
+   * You could disable the relevant alert rule at the beginning of the maintenance window. Once the maintenance is over, you can then re-enable the alert rule. However, this  approach is only practical if the scope of the alert rule is exactly the scope of the resources under maintenance. For example, a single alert rule might cover multiple resources, but only one of those resources is going through maintenance. So, if you disable the alert rule, you will miss valid alerts on the remaining resources covered by that rule.
+   * You may have many alert rules that cover the resource. Updating all of them is time consuming and error prone.
    * You might have some alerts that are not created by an alert rule at all.
-In all these cases, an alert processing rule provides an easy way to achieve the notification suppression goal
+In all these cases, an alert processing rule provides an easy way to achieve the notification suppression goal.
 
 ### Management at scale
 
@@ -40,7 +42,7 @@ Alert processing rules allow you to specify that logic in a single rule, instead
 
 Azure Monitor alert rules let you select which action groups will be triggered when their alerts are fired. However, not all Azure alert sources let you specify action groups. Some examples of such alerts include [Azure Backup alerts](/azure/backup/backup-azure-monitoring-built-in-monitor#azure-monitor-alerts-for-azure-backup-preview.md), [VM Insights guest health alerts](/azure/azure-monitor/vm/vminsights-health-alerts#configure-notifications.md), [Azure Stack Edge](/azure/databox-online/azure-stack-edge-gpu-manage-device-event-alert-notifications.md), and Azure Stack Hub.
 
-For those alert types, you can use alert processing rules to add action groups to them.
+For those alert types, you can use alert processing rules to add action groups.
 
 > [!NOTE]
 > Alert processing rules do not affect [Azure Service Health](/azure/service-health/service-health-overview.md) alerts.
@@ -50,7 +52,7 @@ For those alert types, you can use alert processing rules to add action groups t
 
 An alert processing rule definition covers several aspects:
 
-### Which fired alerts should this rule cover?
+### What is the rule's scope? 
 
 Each alert processing rule has a **scope**. A scope is a list of one or more specific Azure resources, or specific resource group, or an entire subscription. The alert processing rule will apply to alerts that fired on resources within that scope.  
 
