@@ -75,7 +75,7 @@ To import the library into your project using the [Maven](https://maven.apache.o
 ```
 
 
-### Setup the placeholders
+### Set up the placeholders
 
 Open and edit the file `MainActivity.java`. In this Quickstart, we'll add our code to `MainActivity`, and view the output in the console. This quickstart does not address building a UI. At the top of file, import the `Communication common`, `Communication chat`, and other system libraries:
 
@@ -304,131 +304,131 @@ Push notifications let clients to be notified for incoming messages and other op
 2. Create a Notification Hub within the same subscription as your Communication Services resource, configure your Firebase Cloud Messaging settings for the hub, and link the Notification Hub to your Communication Services resource. See [Notification Hub provisioning](../../../concepts/notifications.md#notification-hub-provisioning).
 3. Create a new file `MyFirebaseMessagingService.java` in the same path of file `MainActivity.java`. Copy the following code into file `MyFirebaseMessagingService.java`. You need to replace `<your_package_name>` with the package name used in `MainActivity.java`. You can use your own value for `<your_intent_name>`. This value would be used in step 6 below.
 
-```java
-   package <your_package_name>;
+   ```java
+      package <your_package_name>;
 
-   import android.content.Intent;
-   import android.util.Log;
+      import android.content.Intent;
+      import android.util.Log;
 
-   import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-   import com.azure.android.communication.chat.models.ChatPushNotification;
-   import com.google.firebase.messaging.FirebaseMessagingService;
-   import com.google.firebase.messaging.RemoteMessage;
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.firebase.messaging.FirebaseMessagingService;
+      import com.google.firebase.messaging.RemoteMessage;
 
-   import java.util.concurrent.Semaphore;
+      import java.util.concurrent.Semaphore;
 
-   public class MyFirebaseMessagingService extends FirebaseMessagingService {
-       private static final String TAG = "MyFirebaseMsgService";
-       public static Semaphore initCompleted = new Semaphore(1);
+      public class MyFirebaseMessagingService extends FirebaseMessagingService {
+          private static final String TAG = "MyFirebaseMsgService";
+          public static Semaphore initCompleted = new Semaphore(1);
 
-       @Override
-       public void onMessageReceived(RemoteMessage remoteMessage) {
-           try {
-               Log.d(TAG, "Incoming push notification.");
+          @Override
+          public void onMessageReceived(RemoteMessage remoteMessage) {
+              try {
+                  Log.d(TAG, "Incoming push notification.");
 
-               initCompleted.acquire();
+                  initCompleted.acquire();
 
-               if (remoteMessage.getData().size() > 0) {
-                   ChatPushNotification chatPushNotification =
-                       new ChatPushNotification().setPayload(remoteMessage.getData());
-                   sendPushNotificationToActivity(chatPushNotification);
-               }
+                  if (remoteMessage.getData().size() > 0) {
+                      ChatPushNotification chatPushNotification =
+                          new ChatPushNotification().setPayload(remoteMessage.getData());
+                      sendPushNotificationToActivity(chatPushNotification);
+                  }
 
-               initCompleted.release();
-           } catch (InterruptedException e) {
-               Log.e(TAG, "Error receiving push notification.");
-           }
-       }
+                  initCompleted.release();
+              } catch (InterruptedException e) {
+                  Log.e(TAG, "Error receiving push notification.");
+              }
+          }
 
-       private void sendPushNotificationToActivity(ChatPushNotification chatPushNotification) {
-           Log.d(TAG, "Passing push notification to Activity: " + chatPushNotification.getPayload());
-           Intent intent = new Intent("<your_intent_name>");
-           intent.putExtra("PushNotificationPayload", chatPushNotification);
-           LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-       }
-   }
+          private void sendPushNotificationToActivity(ChatPushNotification chatPushNotification) {
+              Log.d(TAG, "Passing push notification to Activity: " + chatPushNotification.getPayload());
+              Intent intent = new Intent("<your_intent_name>");
+              intent.putExtra("PushNotificationPayload", chatPushNotification);
+              LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+          }
+      }
 
-```
+   ```
 
 4. At the top of file `MainActivity.java`, add the following import:
 
-```java
-   import android.content.BroadcastReceiver;
-   import android.content.Context;
-   import android.content.Intent;
-   import android.content.IntentFilter;
+   ```java
+      import android.content.BroadcastReceiver;
+      import android.content.Context;
+      import android.content.Intent;
+      import android.content.IntentFilter;
 
-   import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-   import com.azure.android.communication.chat.models.ChatPushNotification;
-   import com.google.android.gms.tasks.OnCompleteListener;
-   import com.google.android.gms.tasks.Task;
-   import com.google.firebase.messaging.FirebaseMessaging;
-```
+      import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+      import com.azure.android.communication.chat.models.ChatPushNotification;
+      import com.google.android.gms.tasks.OnCompleteListener;
+      import com.google.android.gms.tasks.Task;
+      import com.google.firebase.messaging.FirebaseMessaging;
+   ```
 
 5. Add the following code into class `MainActivity`:
 
-```java
-   private BroadcastReceiver firebaseMessagingReceiver = new BroadcastReceiver() {
-       @Override
-       public void onReceive(Context context, Intent intent) {
-           ChatPushNotification pushNotification =
-               (ChatPushNotification) intent.getParcelableExtra("PushNotificationPayload");
+   ```java
+      private BroadcastReceiver firebaseMessagingReceiver = new BroadcastReceiver() {
+          @Override
+          public void onReceive(Context context, Intent intent) {
+              ChatPushNotification pushNotification =
+                  (ChatPushNotification) intent.getParcelableExtra("PushNotificationPayload");
 
-           Log.d(TAG, "Push Notification received in MainActivity: " + pushNotification.getPayload());
+              Log.d(TAG, "Push Notification received in MainActivity: " + pushNotification.getPayload());
 
-           boolean isHandled = chatAsyncClient.handlePushNotification(pushNotification);
-           if (!isHandled) {
-               Log.d(TAG, "No listener registered for incoming push notification!");
-           }
-       }
-   };
+              boolean isHandled = chatAsyncClient.handlePushNotification(pushNotification);
+              if (!isHandled) {
+                  Log.d(TAG, "No listener registered for incoming push notification!");
+              }
+          }
+      };
 
 
-   private void startFcmPushNotification() {
-       FirebaseMessaging.getInstance().getToken()
-           .addOnCompleteListener(new OnCompleteListener<String>() {
-               @Override
-               public void onComplete(@NonNull Task<String> task) {
-                   if (!task.isSuccessful()) {
-                       Log.w(TAG, "Fetching FCM registration token failed", task.getException());
-                       return;
-                   }
+      private void startFcmPushNotification() {
+          FirebaseMessaging.getInstance().getToken()
+              .addOnCompleteListener(new OnCompleteListener<String>() {
+                  @Override
+                  public void onComplete(@NonNull Task<String> task) {
+                      if (!task.isSuccessful()) {
+                          Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                          return;
+                      }
 
-                   // Get new FCM registration token
-                   String token = task.getResult();
+                      // Get new FCM registration token
+                      String token = task.getResult();
 
-                   // Log and toast
-                   Log.d(TAG, "Fcm push token generated:" + token);
-                   Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
+                      // Log and toast
+                      Log.d(TAG, "Fcm push token generated:" + token);
+                      Toast.makeText(MainActivity.this, token, Toast.LENGTH_SHORT).show();
 
-                   chatAsyncClient.startPushNotifications(token, new Consumer<Throwable>() {
-                       @Override
-                       public void accept(Throwable throwable) {
-                           Log.w(TAG, "Registration failed for push notifications!", throwable);
-                       }
-                   });
-               }
-           });
-   }
+                      chatAsyncClient.startPushNotifications(token, new Consumer<Throwable>() {
+                          @Override
+                          public void accept(Throwable throwable) {
+                              Log.w(TAG, "Registration failed for push notifications!", throwable);
+                          }
+                      });
+                  }
+              });
+      }
 
-```
+   ```
 
 6. Update function `onCreate` in class `MainActivity`.
 
-```java
-   @Override
-   protected void onCreate(Bundle savedInstanceState) {
-       super.onCreate(savedInstanceState);
-       setContentView(R.layout.activity_main);
+   ```java
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          setContentView(R.layout.activity_main);
     
-       LocalBroadcastManager
-           .getInstance(this)
-           .registerReceiver(
-               firebaseMessagingReceiver,
-               new IntentFilter("<your_intent_name>"));
-   }
-```
+          LocalBroadcastManager
+              .getInstance(this)
+              .registerReceiver(
+                  firebaseMessagingReceiver,
+                  new IntentFilter("<your_intent_name>"));
+      }
+   ```
 
 7. Put the following code below comment `<RECEIVE CHAT MESSAGES>`:
 
