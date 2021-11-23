@@ -26,6 +26,9 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 ## Mount your own extra persistent storage to applications
 
+> [!NOTE]
+> Updating persistent storage will result in the restart of applications.
+
 #### [Portal](#tab/Azure-portal)
 The following procedures bind an Azure Storage account as a storage resource in your Azure Spring Cloud and create an app with your own persistent storage.
 
