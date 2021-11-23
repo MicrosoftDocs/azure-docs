@@ -41,10 +41,6 @@
   - name: Concepts
     expanded: true
     items: 
-    - name: App management best practices
-      href: application-management-fundamentals.md
-    - name: App management common scenarios
-      href: common-scenarios.md
     - name: App owner assignment
       href: overview-assign-app-owners.md
     - name: Home realm discovery policy
