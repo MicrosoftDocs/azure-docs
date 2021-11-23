@@ -21,7 +21,7 @@ Defender for Kubernetes protects your Kubernetes clusters whether they're runnin
 
 - **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** (preview) - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
-- **An unmanaged environment** - For example, an on-premises cluster or Kubernetes on IaaS.
+- **An unmanaged environment** - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters on premises or on iaaS.
 
 Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
@@ -124,7 +124,7 @@ To view the alerts and recommendations for your EKS clusters, use the filters on
 
 ### Can I still get cluster protections without the Log Analytics agent?
 
-**Microsoft Defender for Kubernetes** plan provides protections at the cluster level. If you also deploy the Log Analytics agent of **Microsoft Defender for servers**, you'll get the threat protection for your nodes that's provided with that plan. Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
+**Microsoft Defender for Kubernetes** provides protections at the cluster level. If you also deploy the Log Analytics agent of **Microsoft Defender for servers**, you'll get the threat protection for your nodes that's provided with that plan. Learn more in [Introduction to Microsoft Defender for servers](defender-for-servers-introduction.md).
 
 We recommend deploying both, for the most complete protection possible.
 
