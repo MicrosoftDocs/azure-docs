@@ -53,7 +53,9 @@ items:
       - name: Network architecture
         href: concept-best-practices-network.md
       - name: Scanning best practices 
-        href: concept-best-practices-scanning.md       
+        href: concept-best-practices-scanning.md
+      - name: Automation best practices 
+        href: concept-best-practices-automation.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
