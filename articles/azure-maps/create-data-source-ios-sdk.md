@@ -377,10 +377,10 @@ map.layers.insertLayer(layer, below: "labels")
 
 Data is rendered on the map using rendering layers. A single data source can be referenced by one or more rendering layers. The following rendering layers require a data source:
 
-- [Bubble layer](add-bubble-layer-to-map-ios.md) - renders point data as scaled circles on the map.
+- [Bubble layer](add-bubble-layer-map-ios.md) - renders point data as scaled circles on the map.
 - [Symbol layer](add-symbol-layer-ios.md) - renders point data as icons or text.
 - [Heat map layer](add-heat-map-layer-ios.md) - renders point data as a density heat map.
-- [Line layer](add-line-layer-to-map-ios.md) - render a line and or render the outline of polygons.
+- [Line layer](add-line-layer-map-ios.md) - render a line and or render the outline of polygons.
 - [Polygon layer](add-polygon-layer-map-ios.md) - fills the area of a polygon with a solid color or image pattern.
 
 The following code shows how to create a data source, add it to the map, import GeoJSON point data from a remote location into the data source, and then connect it to a bubble layer.
@@ -471,10 +471,10 @@ map.layers.addLayers([polygonLayer, lineLayer, bubbleLayer])
 
 See the following articles for more code samples to add to your maps:
 
-- [Cluster point data](clustering-point-data-in-the-ios-sdk.md)
+- [Cluster point data](clustering-point-data-ios-sdk.md)
 - [Add a symbol layer](Add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-- [Add a line layer](Add-line-layer-to-map-ios.md)
+- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Add a line layer](add-line-layer-map-ios.md)
 - [Add a polygon layer](Add-polygon-layer-map-ios.md)
 - [Add a heat map](Add-heat-map-layer-ios.md)
 - [Web SDK Code samples](/samples/browse/?products=azure-maps)

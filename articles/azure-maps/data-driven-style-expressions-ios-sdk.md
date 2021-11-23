@@ -538,7 +538,7 @@ let layer = LineLayer(
 )
 ```
 
-[See live example](add-line-layer-to-map-ios.md)
+[See live example](add-line-layer-map-ios.md)
 
 ### AzureMaps-specific methods
 

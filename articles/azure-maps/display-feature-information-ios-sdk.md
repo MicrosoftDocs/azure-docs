@@ -181,7 +181,7 @@ The following screen capture shows popups appearing when features are tapped and
 
 To add more data to your map:
 
-> [React to map events](interact-with-map-ios-sdk.md)
+> [React to map events](interact-map-ios-sdk.md)
 
 > [Create a data source](create-data-source-ios-sdk.md)
 

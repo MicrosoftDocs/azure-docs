@@ -99,7 +99,7 @@ See the following articles for more code samples to add to your maps:
 
 > [Create a data source](create-data-source-ios-sdk.md)
 
-> [Cluster point data](clustering-point-data-in-the-ios-sdk.md)
+> [Cluster point data](clustering-point-data-ios-sdk.md)
 
 > [Add a symbol layer](add-symbol-layer-ios.md)
 

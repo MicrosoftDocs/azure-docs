@@ -190,7 +190,7 @@ UIImage.azm_markerYellow
 See the following articles for more code samples to add to your maps:
 
 - [Create a data source](Create-data-source-ios-sdk.md)
-- [Cluster point data](Clustering-point-data-in-the-iOS-SDK.md)
-- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Cluster point data](clustering-point-data-ios-sdk.md)
+- [Add a bubble layer](add-bubble-layer-map-ios.md)
 - [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
 - [Display feature information](display-feature-information-ios-sdk.md)

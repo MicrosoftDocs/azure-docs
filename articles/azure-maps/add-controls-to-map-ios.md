@@ -88,6 +88,6 @@ The screenshot below shows all controls loaded on a map. The order they are adde
 The following articles show how to add other available layers to your maps:
 
 - [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
-- [Add a line layer](add-line-layer-to-map-ios.md)
+- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Add a line layer](add-line-layer-map-ios.md)
 - [Add a polygon layer](add-polygon-layer-map-ios.md)
