@@ -45,15 +45,15 @@ The left-hand side of the **Map data** panel shows the latest message from your 
 > [!TIP]
 > If there's no data in left hand panel, you can manually enter a JSONPath expression in the **JSON path** field.
 
-You view your saved mappings for the device on the **Mapped aliases** page. To verify that IoT Central is mapping the data, navigate to **Raw data** view for your device and check the `_mappeddata` section:
+To verify that IoT Central is mapping the telemetry, navigate to **Raw data** view for your device and check the `_mappeddata` section:
 
 :::image type="content" source="media/howto-map-data/mapped-data.png" alt-text="Screenshot that shows the mapped data section in a message in the **Raw data** view.":::
 
 For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can map any data from your device before you assign it to a device template.
 
-## Edit or delete mappings
+## Manage mappings
 
-To edit or delete mappings, navigate to the **Mapped aliases** page and select a mapping to edit or delete it. You can select multiple mappings and delete them at the same time:
+To view, edit, or delete mappings, navigate to the **Mapped aliases** page. Select a mapping to edit or delete it. You can select multiple mappings and delete them at the same time:
 
 :::image type="content" source="media/howto-map-data/mapped-aliases.png" alt-text="Screenshot that shows the **Mapped aliases** view with the edit and delete buttons.":::
 

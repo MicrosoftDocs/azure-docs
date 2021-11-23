@@ -58,6 +58,10 @@ You use data plane APIs to access the entities in and the capabilities of your I
 
 You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the Azure CLI and Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Manage IoT Central from Azure CLI](howto-manage-iot-central-from-cli.md).
 
+## Transform data at ingress
+
+Devices may send complex telemetry that needs to be simplified before it's used in IoT Central or exported. In some scenarios you need to normalize the telemetry from different devices so that you can display and process the telemetry consistently. To learn more, see [Map telemetry on ingress to IoT Central](howto-map-data.md).
+
 ## Next steps
 
 If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Create an Azure IoT Central application](./quick-deploy-iot-central.md).

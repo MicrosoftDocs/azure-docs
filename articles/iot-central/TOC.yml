@@ -178,6 +178,8 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
+        - name: Transform data internally on ingress
+          href: core/howto-map-data.md
         - name: Transform data internally for export
           href: core/howto-transform-data-internally.md
         - name: Transform data externally
