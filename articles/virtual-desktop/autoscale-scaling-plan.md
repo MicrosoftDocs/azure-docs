@@ -182,10 +182,9 @@ To create a scaling plan:
 8. For **Time zone**, select the time zone you'll use with your plan.
 
 9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to use this functionality for maintenance. When you have set VMs on drain mode, use the tag so autoscale doesn’t override drain mode.
-
-        >[!NOTE]
-        >Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
-
+        
+    >[!NOTE]
+    >Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
 
 10. Select **Next**, which should take you to the **Schedules** tab.
 
