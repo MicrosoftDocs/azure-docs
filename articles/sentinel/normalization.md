@@ -66,8 +66,8 @@ The Advanced SIEM Information Model includes the following components:
 
 |Component  |Description  |
 |---------|---------|
-|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Network Session](./network-normalization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br><br>For more information, see [Advanced SIEM Information Model schemas](normalization-about-schemas.md).  |
-|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [`Parsers` folder in the Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers). Normalized parsers are located in subfolders starting with **ASim***.  <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
+|**Normalized schemas**     |   Cover standard sets of predictable event types that you can use when building unified capabilities. <br><br>Each schema defines the fields that represent an event, a normalized column naming convention, and a standard format for the field values. <br><br> ASIM currently defines the following schemas:<br> - [Authentication Event](authentication-normalization-schema.md)<br> - [DHCP Activity](dhcp-normlization-schema.md)<br> - [DNS Activity](dns-normalization-schema.md)<br> - [File Activity](file-event-normalization-schema.md)  <br> - [Network Session](./network-normalization-schema.md)<br> - [Process Event](process-events-normalization-schema.md)<br> - [Registry Event](registry-event-normalization-schema.md)<br>- [Web Session](web-normalization-schema.md)<br><br>For more information, see [Advanced SIEM Information Model schemas](normalization-about-schemas.md).  |
+|**Parsers**     |  Map existing data to the normalized schemas using [KQL functions](/azure/data-explorer/kusto/query/functions/user-defined-functions). <br><br>Deploy the Microsoft-developed normalizing parsers from the [`Parsers` folder in the Microsoft Sentinel GitHub repository](http://aka.ms/DeployASIM). <br><br>For more information, see [Advanced SIEM Information Model parsers](normalization-about-parsers.md).     |
 |**Content for each normalized schema**     |    Includes analytics rules, workbooks, hunting queries, and more. Content for each normalized schema works on any normalized data without the need to create source-specific content. <br><br>For more information, see [Advanced SIEM Information Model content](normalization-content.md).   |
 | | |
 
@@ -88,7 +88,7 @@ The Advanced SIEM Information Model uses the following terms:
 
 To start using ASIM:
 
-1. Deploy all ASIM parsers quickly from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelASim).
+1. Deploy all ASIM parsers quickly from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM).
 
 1. Activate analytics rule templates that use ASIM. For more information, see the [Advanced SIEM Information Model (ASIM) content list](normalization-content.md#builtin).
 
