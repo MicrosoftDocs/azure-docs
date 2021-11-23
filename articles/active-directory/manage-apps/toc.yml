@@ -45,6 +45,8 @@
       href: application-management-fundamentals.md
     - name: App management common scenarios
       href: common-scenarios.md
+    - name: App owner assignment
+      href: overview-assign-app-owners.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
