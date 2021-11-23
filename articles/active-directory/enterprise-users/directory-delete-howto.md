@@ -98,7 +98,7 @@ If you find that there are still enterprise applications that you can't delete i
 1. Sign in to Azure AD in the Global Administrator role.
 1. Run `Get-AzADServicePrincipal | ForEach-Object {​​​​​ Remove-AzADServicePrincipal -ObjectId $_.Id -Force}​`.​​​​
 
-## You have a trial subscription that blocks deletion
+## Trial subscription that blocks deletion
 
 There are [self-service sign-up products](/office365/admin/misc/self-service-sign-up) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Microsoft 365, which also creates a guest user for authentication in your Azure AD organization. These self-service products block directory deletions until the products are fully deleted from the organization, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
 
@@ -118,7 +118,7 @@ Product state | Data | Access to data
 Active (30 days for trial) | Data accessible to all | Users have normal access to self-service sign-up product, files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources
 Deleted | Data deleted | Users can’t access self-service sign-up product, files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
 
-## How can I delete a self-service sign-up product in the Azure portal?
+## Delete a self-service sign-up product
 
 You can put a self-service sign-up product like Microsoft Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
 
