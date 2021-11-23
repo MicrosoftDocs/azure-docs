@@ -55,7 +55,7 @@ ms.date: 10/08/2020
 |[`networkConfiguration`](#bk_netconf)|Complex Type|The network configuration for the pool.|
 |`resizeTimeout`|Time|The timeout for allocation of compute nodes to the pool specified for the last resize operation on the pool.  (The initial sizing when the pool is created counts as a resize.)|
 |`targetDedicatedNodes`|Int32|The number of dedicated compute nodes that are requested for the pool.|
-|`targetLowPriorityNodes`|Int32|The number of low-priority compute nodes that are requested for the pool.|
+|`targetLowPriorityNodes`|Int32|The number of Spot compute nodes that are requested for the pool.|
 |`enableAutoScale`|Bool|Specifies whether the pool size automatically adjusts over time.|
 |`enableInterNodeCommunication`|Bool|Specifies whether the pool is set up for direct communication between nodes.|
 |`isAutoPool`|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|

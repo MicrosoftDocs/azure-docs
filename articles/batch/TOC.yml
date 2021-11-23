@@ -185,7 +185,7 @@
       href: batch-pool-compute-intensive-sizes.md
     - name: Use Linux compute nodes
       href: batch-linux-nodes.md
-    - name: Use low-priority VMs
+    - name: Use Spot VMs
       displayName: preempted, surplus, capacity
       href: batch-low-pri-vms.md
     - name: Checking for pool and node errors

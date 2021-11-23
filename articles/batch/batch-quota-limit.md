@@ -28,7 +28,7 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in Batch service mode
 
-Core quotas exist for each VM series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series, as well as a total core quota limit for the entire Batch account. For low priority nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
+Core quotas exist for each VM series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series, as well as a total core quota limit for the entire Batch account. For Spot nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
 
 ### Cores quotas in user subscription mode
 
@@ -47,7 +47,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 | Batch subscription pool allocation mode | 80 |
 | **Compute nodes in [pool created with a managed image resource](batch-custom-images.md)**<sup>1</sup> ||
 | Dedicated nodes | 2000 |
-| Low-priority nodes | 1000 |
+| Spot nodes | 1000 |
 
 <sup>1</sup> For pools that are not inter-node communication enabled.
 
@@ -105,11 +105,11 @@ Once you've submitted your support request, Azure support will contact you. Quot
        Quota types include:
 
        - **Per Batch account**  
-         Use this option to request quota increases specific to a single Batch account, including dedicated and low-priority cores, and the number of jobs and pools.
+         Use this option to request quota increases specific to a single Batch account, including dedicated and Spot cores, and the number of jobs and pools.
 
          If you select this option, specify the Batch account to which this request should apply, and then select the quota(s) you'd like to update. Provide the new limit you are requesting for each resource.
 
-         Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+         Spot quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
 
        - **All accounts in this region**  
          Use this option to request quota increases that apply to all Batch accounts in a region, such as the number of Batch accounts per region per subscription.

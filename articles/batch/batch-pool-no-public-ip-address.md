@@ -39,7 +39,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
     `az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies`
 
 > [!IMPORTANT]
-> For each 100 dedicated or low-priority nodes, Batch allocates one private link service and one load balancer. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources. Additionally, no resource locks should be applied to any resource created by Batch, since this prevent cleanup of resources as a result of user-initiated actions such as deleting a pool or resizing to zero.
+> For each 100 dedicated or Spot nodes, Batch allocates one private link service and one load balancer. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources. Additionally, no resource locks should be applied to any resource created by Batch, since this prevent cleanup of resources as a result of user-initiated actions such as deleting a pool or resizing to zero.
 
 ## Current limitations
 
@@ -54,7 +54,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. In the **Pools** window, select **Add**.
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** of your image.
-1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low-priority nodes**, as well as any desired optional settings.
+1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Spot nodes**, as well as any desired optional settings.
 1. Optionally select a virtual network and subnet you wish to use. This virtual network must be in the same resource group as the pool you are creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 

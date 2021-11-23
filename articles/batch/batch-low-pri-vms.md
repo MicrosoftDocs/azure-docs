@@ -1,33 +1,33 @@
 ---
-title: Run workloads on cost-effective Spot or low-priority VMs
-description: Learn how to provision Spot or low-priority VMs to reduce the cost of Azure Batch workloads.
+title: Run workloads on cost-effective Spot VMs
+description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 author: pesocha
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/23/2021
 ms.custom: seodec18
 
 ---
 
-# Use low-priority VMs with Batch
+# Use Spot VMs with Batch
 
-Azure Batch offers low-priority virtual machines (VMs) to reduce the cost of Batch workloads. Low-priority VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a very low cost.
+Azure Batch offers Spot virtual machines (VMs) to reduce the cost of Batch workloads. Spot VMs make new types of Batch workloads possible by enabling a large amount of compute power to be used for a very low cost.
 
-Low-priority VMs take advantage of surplus capacity in Azure. When you specify low-priority VMs in your pools, Azure Batch can use this surplus, when available.
+Spot VMs take advantage of surplus capacity in Azure. When you specify Spot VMs in your pools, Azure Batch can use this surplus, when available.
 
-The tradeoff for using low-priority VMs is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, low-priority VMs are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
+The tradeoff for using Spot VMs is that those VMs may not always be available to be allocated, or may be preempted at any time, depending on available capacity. For this reason, Spot VMs are most suitable for batch and asynchronous processing workloads where the job completion time is flexible and the work is distributed across many VMs.
 
-Low-priority VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
+Spot VMs are offered at a significantly reduced price compared with dedicated VMs. For pricing details, see [Batch Pricing](https://azure.microsoft.com/pricing/details/batch/).
 
 ## Differences between Spot and low-priority VMs
 
-Batch offers two types of low-priority nodes:
+Batch offers two types of low-cost preemptible VMs:
 
 - Spot VMs, a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
 
 The type of node you get depends on your Batch account's pool allocation mode, which is settable during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
 
-Azure Spot and Batch low-priority are similar but have a few differences in behavior.
+Azure Spot VMs and Batch low-priority VMs are similar but have a few differences in behavior.
 
 |  | Spot VMs | Low-priority VMs |
 | -- | -- | -- |
@@ -40,46 +40,44 @@ Azure Spot and Batch low-priority are similar but have a few differences in beha
 | **Quota model** | Subject to core quotas on your subscription | Subject to core quotas on your Batch account |
 | **Availability SLA** | None | None |
 
-## Batch support for low-priority VMs
+## Batch support for Spot VMs
 
-Azure Batch provides several capabilities that make it easy to consume and benefit from low-priority VMs:
+Azure Batch provides several capabilities that make it easy to consume and benefit from Spot VMs:
 
-- Batch pools can contain both dedicated VMs and low-priority VMs. The number of each type of VM can be specified when a pool is created, or changed at any time for an existing pool, using the explicit resize operation or using auto-scale. Job and task submission can remain unchanged, regardless of the VM types in the pool. You can also configure a pool to completely use low-priority VMs to run jobs as cheaply as possible, but spin up dedicated VMs if the capacity drops below a minimum threshold, to keep jobs running.
-- Batch pools automatically seek the target number of low-priority VMs. If VMs are preempted or unavailable, Batch attempts to replace the lost capacity and return to the target.
+- Batch pools can contain both dedicated VMs and Spot VMs. The number of each type of VM can be specified when a pool is created, or changed at any time for an existing pool, using the explicit resize operation or using auto-scale. Job and task submission can remain unchanged, regardless of the VM types in the pool. You can also configure a pool to completely use Spot VMs to run jobs as cheaply as possible, but spin up dedicated VMs if the capacity drops below a minimum threshold, to keep jobs running.
+- Batch pools automatically seek the target number of Spot VMs. If VMs are preempted or unavailable, Batch attempts to replace the lost capacity and return to the target.
 - When tasks are interrupted, Batch detects and automatically requeues tasks to run again.
-- Low-priority VMs have a separate vCPU quota that differs from the one for dedicated VMs. The quota for low-priority VMs is higher than the quota for dedicated VMs, because low-priority VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).
+- Spot VMs have a separate vCPU quota that differs from the one for dedicated VMs. The quota for Spot VMs is higher than the quota for dedicated VMs, because Spot VMs cost less. For more information, see [Batch service quotas and limits](batch-quota-limit.md#resource-quotas).
 
 ## Considerations and use cases
 
-Many Batch workloads are a good fit for low-priority VMs. Consider using them when jobs are broken into many parallel tasks, or when you have many jobs that are scaled out and distributed across many VMs.
+Many Batch workloads are a good fit for Spot VMs. Consider using them when jobs are broken into many parallel tasks, or when you have many jobs that are scaled out and distributed across many VMs.
 
-Some examples of batch processing use cases well suited to use low-priority VMs are:
+Some examples of batch processing use cases well suited to use Spot VMs are:
 
 - **Development and testing**: In particular, if large-scale solutions are being developed, significant savings can be realized. All types of testing can benefit, but large-scale load testing and regression testing are great uses.
-- **Supplementing on-demand capacity**: Low-priority VMs can be used to supplement regular dedicated VMs. When available, jobs can scale and therefore complete quicker for lower cost; when not available, the baseline of dedicated VMs remains available.
-- **Flexible job execution time**: If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated; however, with the addition of low-priority VMs jobs frequently run faster and for a lower cost.
+- **Supplementing on-demand capacity**: Spot VMs can be used to supplement regular dedicated VMs. When available, jobs can scale and therefore complete quicker for lower cost; when not available, the baseline of dedicated VMs remains available.
+- **Flexible job execution time**: If there is flexibility in the time jobs have to complete, then potential drops in capacity can be tolerated; however, with the addition of Spot VMs jobs frequently run faster and for a lower cost.
 
-Batch pools can be configured to use low-priority VMs in a few ways:
+Batch pools can be configured to use Spot VMs in a few ways:
 
-- A pool can use only low-priority VMs. In this case, Batch recovers any preempted capacity when available. This configuration is the cheapest way to execute jobs.
-- Low-priority VMs can be used in conjunction with a fixed baseline of dedicated VMs. The fixed number of dedicated VMs ensures there is always some capacity to keep a job progressing.
-- A pool can use a dynamic mix of dedicated and low-priority VMs, so that the cheaper low-priority VMs are solely used when available, but the full-priced dedicated VMs are scaled up when required. This configuration keeps a minimum amount of capacity available to keep the jobs progressing.
+- A pool can use only Spot VMs. In this case, Batch recovers any preempted capacity when available. This configuration is the cheapest way to execute jobs.
+- Spot VMs can be used in conjunction with a fixed baseline of dedicated VMs. The fixed number of dedicated VMs ensures there is always some capacity to keep a job progressing.
+- A pool can use a dynamic mix of dedicated and Spot VMs, so that the cheaper Spot VMs are solely used when available, but the full-priced dedicated VMs are scaled up when required. This configuration keeps a minimum amount of capacity available to keep the jobs progressing.
 
-Keep in mind the following when planning your use of low-priority VMs:
+Keep in mind the following when planning your use of Spot VMs:
 
 - To maximize use of surplus capacity in Azure, suitable jobs can scale out.
 - Occasionally VMs may not be available or are preempted, which results in reduced capacity for jobs and may lead to task interruption and reruns.
-- Tasks with shorter execution times tend to work best with low-priority VMs. Jobs with longer tasks may be impacted more if interrupted. If long-running tasks implement checkpointing to save progress as they execute, this impact may be reduced. 
-- Long-running MPI jobs that utilize multiple VMs are not well suited to use low-priority VMs, because one preempted VM can lead to the whole job having to run again.
-- Low-priority nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#network-security-groups-specifying-subnet-level-rules) are configured incorrectly.
+- Tasks with shorter execution times tend to work best with Spot VMs. Jobs with longer tasks may be impacted more if interrupted. If long-running tasks implement checkpointing to save progress as they execute, this impact may be reduced. 
+- Long-running MPI jobs that utilize multiple VMs are not well suited to use Spot VMs, because one preempted VM can lead to the whole job having to run again.
+- Spot nodes may be marked as unusable if [network security group (NSG) rules](batch-virtual-network.md#network-security-groups-specifying-subnet-level-rules) are configured incorrectly.
 
-## Create and manage pools with low-priority VMs
+## Create and manage pools with Spot VMs
 
-A Batch pool can contain both dedicated and low-priority VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and low-priority VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
+A Batch pool can contain both dedicated and Spot VMs (also referred to as compute nodes). You can set the target number of compute nodes for both dedicated and Spot VMs. The target number of nodes specifies the number of VMs you want to have in the pool.
 
-Batch-managed Batch accounts will always get low-priority VMs and user-subscription Batch accounts will always get Spot VMs. All code examples below are the same for both types of Batch accounts and both types of low-priority nodes.
-
-For example, to create a pool using Azure virtual machines (in this case Linux VMs) with a target of 5 dedicated VMs and 20 low-priority VMs:
+For example, to create a pool using Azure virtual machines (in this case Linux VMs) with a target of 5 dedicated VMs and 20 Spot VMs:
 
 ```csharp
 ImageReference imageRef = new ImageReference(
@@ -100,7 +98,7 @@ pool = batchClient.PoolOperations.CreatePool(
     virtualMachineConfiguration: virtualMachineConfiguration);
 ```
 
-You can get the current number of nodes for both dedicated and low-priority VMs:
+You can get the current number of nodes for both dedicated and Spot VMs:
 
 ```csharp
 int? numDedicated = pool1.CurrentDedicatedComputeNodes;
@@ -108,7 +106,7 @@ int? numLowPri = pool1.CurrentLowPriorityComputeNodes;
 ```
 
 Pool nodes have a property to indicate if the node is a dedicated or
-low-priority VM:
+Spot VM:
 
 ```csharp
 bool? isNodeDedicated = poolNode.IsDedicated;
@@ -121,12 +119,12 @@ For Virtual Machine Configuration pools, Batch also does the following:
 - The preempted VMs have their state updated to **Preempted**. 
 - The VM is effectively deleted, leading to loss of any data stored locally on the VM.
 - A list nodes operation on the pool will still return the preempted nodes.
-- The pool continually attempts to reach the target number of low-priority nodes available. When replacement capacity is found, the nodes keep their IDs, but are reinitialized, going through **Creating** and **Starting** states before they are available for task scheduling.
+- The pool continually attempts to reach the target number of Spot nodes available. When replacement capacity is found, the nodes keep their IDs, but are reinitialized, going through **Creating** and **Starting** states before they are available for task scheduling.
 - Preemption counts are available as a metric in the Azure portal.
 
-## Scale pools containing low-priority VMs
+## Scale pools containing Spot VMs
 
-As with pools solely consisting of dedicated VMs, it is possible to scale a pool containing low-priority VMs by calling the Resize method or by using autoscale.
+As with pools solely consisting of dedicated VMs, it is possible to scale a pool containing Spot VMs by calling the Resize method or by using autoscale.
 
 The pool resize operation takes a second optional parameter that updates the value of **targetLowPriorityNodes**:
 
@@ -134,7 +132,7 @@ The pool resize operation takes a second optional parameter that updates the val
 pool.Resize(targetDedicatedComputeNodes: 0, targetLowPriorityComputeNodes: 25);
 ```
 
-The pool autoscale formula supports low-priority VMs as follows:
+The pool autoscale formula supports Spot VMs as follows:
 
 - You can get or set the value of the service-defined variable **$TargetLowPriorityNodes**.
 - You can get the value of the service-defined variable **$CurrentLowPriorityNodes**.
@@ -142,14 +140,14 @@ The pool autoscale formula supports low-priority VMs as follows:
 
 ## Configure jobs and tasks
 
-Jobs and tasks require little additional configuration for low-priority nodes. Keep in mind the following:
+Jobs and tasks require little additional configuration for Spot nodes. Keep in mind the following:
 
-- The JobManagerTask property of a job has an **AllowLowPriorityNode** property. When this property is true, the job manager task can be scheduled on either a dedicated or low-priority node. If it's false, the job manager task is scheduled to a dedicated node only.
-- The AZ_BATCH_NODE_IS_DEDICATED [environment variable](batch-compute-node-environment-variables.md) is available to a task application so that it can determine whether it is running on a low-priority or on a dedicated node.
+- The JobManagerTask property of a job has an **AllowLowPriorityNode** property. When this property is true, the job manager task can be scheduled on either a dedicated or Spotnode. If it's false, the job manager task is scheduled to a dedicated node only.
+- The AZ_BATCH_NODE_IS_DEDICATED [environment variable](batch-compute-node-environment-variables.md) is available to a task application so that it can determine whether it is running on a Spot or on a dedicated node.
 
-## View metrics for low-priority VMs
+## View metrics for Spot VMs
 
-New metrics are available in the [Azure portal](https://portal.azure.com) for low-priority nodes. These metrics are:
+New metrics are available in the [Azure portal](https://portal.azure.com) for Spot nodes. These metrics are:
 
 - Low-Priority Node Count
 - Low-Priority Core Count

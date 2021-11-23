@@ -37,7 +37,7 @@ Once you have created your VNet and assigned a subnet to it, you can create a Ba
 1. In the **Pools** window, select **Add**.
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** for your custom image.
-1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Low priority nodes**, as well as any desired optional settings.
+1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Spot nodes**, as well as any desired optional settings.
 1. In **Virtual Network**, select the virtual network and subnet you wish to use.
 1. Select **OK** to create your pool.
 
