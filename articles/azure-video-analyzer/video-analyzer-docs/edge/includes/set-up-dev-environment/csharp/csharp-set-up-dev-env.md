@@ -31,7 +31,7 @@ ms.author: juliako
         AVA_PROVISIONING_TOKEN="<Provisioning token>"
         VIDEO_INPUT_FOLDER_ON_DEVICE="/home/localedgeuser/samples/input"
         VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
-        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoAnalyzer"
+        APPDATA_FOLDER_ON_DEVICE="/var/lib/videoanalyzer"
         CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"
         CONTAINER_REGISTRY_PASSWORD_myacr="<your container registry password>"
    ```
