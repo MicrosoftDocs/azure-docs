@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/13/2021
 ms.author: b-juche
 ---
 # Configure policy-based backups for Azure NetApp Files 
@@ -43,7 +43,7 @@ Assigning a policy creates a baseline snapshot that is the current state of the 
 You need to create a snapshot policy and associate the snapshot policy to the volume that you want to back up. A single snapshot policy can be attached to multiple volumes. Changes in the snapshot policy can affect the backup functionality of a volume. 
 
 1. Sign in to the Azure portal and navigate to **Azure NetApp Files**.    
-2. Select your Azure NetApp Files subscription.   
+2. Select your Azure NetApp Files account.   
 3. Select **Snapshot policy**.   
 
     ![Screenshot that shows how to navigate to Snapshot Policy option.](../media/azure-netapp-files/backup-navigate-snapshot-policy.png)   
@@ -83,7 +83,7 @@ You need to create a backup policy and associate the backup policy to the volume
 To enable a policy-based (scheduled) backup: 
 
 1. Sign in to the Azure portal and navigate to **Azure NetApp Files**. 
-2. Select your Azure NetApp Files subscription.
+2. Select your Azure NetApp Files account.
 3. Select **Backups**. 
 
     ![Screenshot that shows how to navigate to Backups option.](../media/azure-netapp-files/backup-navigate.png)
@@ -156,6 +156,6 @@ To enable the backup functionality for a volume:
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
 
 

@@ -1,6 +1,7 @@
 ---
-title: Use tenant restrictions to manage access to SaaS apps - Azure AD
+title: Use tenant restrictions to manage access to SaaS apps
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
+titleSuffix: Azure AD
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
@@ -13,7 +14,7 @@ ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 
-# Use tenant restrictions to manage access to SaaS cloud applications
+# Restrict access to a tenant
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
@@ -72,7 +73,7 @@ The headers should include the following elements:
 
 - For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list, as well as the directory ID itself. For an example of all three ways of describing a tenant, the name/value pair to allow Contoso, Fabrikam, and Microsoft looks like: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`.  You **must** use your own directory ID in this spot in order to get logs for these authentications.
+- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. You *must* use your own directory ID here to get logs for these authentications. If you use any directory ID other than your own, those sign-in logs *will* appear in someone else’s tenant, with all personal information removed. For more information, see [Admin experience](#admin-experience).
 
 > [!TIP]
 > You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
@@ -219,5 +220,5 @@ The `restrict-msa` policy blocks the use of consumer applications, but allows th
 
 ## Next steps
 
-- Read about [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+- Read about [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/)
 - Review the [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

@@ -19,7 +19,7 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 ### Is IPv6 supported?
 
-At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
+At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you will only be able to send and receive IPv4 traffic via Azure Bastion. 
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -41,7 +41,7 @@ No. You don't need to install an agent or any software on your browser or your A
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
-At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
@@ -66,7 +66,7 @@ In order to make a connection, the following roles are required:
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
+* Reader Role on the Virtual Network of the target virtual machine (in the case that the Bastion is in a peered Virtual Network).
 
 ### <a name="rdscal"></a>Does Azure Bastion require an RDS CAL for administrative purposes on Azure-hosted VMs?
 
@@ -74,7 +74,24 @@ No, access to Windows Server VMs by Azure Bastion does not require an [RDS CAL](
 
 ### <a name="keyboard"></a>Which keyboard layouts are supported during the Bastion remote session?
 
-Azure Bastion currently supports en-us-qwerty keyboard layout inside the VM.  Support for other locales for keyboard layout is work in progress.
+Azure Bastion currently supports the following keyboard layouts inside the VM:
+* en-us-qwerty
+* en-gb-qwerty
+* de-ch-qwertz
+* de-de-qwertz
+* fr-be-azerty
+* fr-fr-azerty
+* fr-ch-qwertz
+* hu-hu-qwertz
+* it-it-qwerty
+* ja-jp-qwerty
+* pt-br-qwerty
+* es-es-qwerty
+* es-latam-qwerty
+* sv-se-qwerty
+* tr-tr-qwerty
+
+To establish the correct key mappings for your target language, you must set either your language on your local computer or your language inside the target VM to English (United States). That is, your local computer language must be set to English (United States) while your target VM language is set to your target language, or vice versa. You can add English (United States) language to your machine in your computer settings.
 
 ### <a name="timezone"></a>Does Azure Bastion support timezone configuration or timezone redirection for target VMs?
 
@@ -144,3 +161,6 @@ Make sure the user has **read** access to both the VM, and the peered VNet. Addi
 |Microsoft.Network/virtualNetworks/read|Get the virtual network definition|Action|
 |Microsoft.Network/virtualNetworks/subnets/virtualMachines/read|Gets references to all the virtual machines in a virtual network subnet|Action|
 |Microsoft.Network/virtualNetworks/virtualMachines/read|Gets references to all the virtual machines in a virtual network|Action|
+
+### What is the maximum screen resolution supported via Bastion?  
+Currently, 1920x1080 (1080p) is the maximum supported resolution. 

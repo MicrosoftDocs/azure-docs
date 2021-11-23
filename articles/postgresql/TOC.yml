@@ -30,6 +30,8 @@
     displayName: version, postgresql
   - name: Major version upgrades
     href: how-to-upgrade-using-dump-and-restore.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -133,8 +135,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
     - name: Security
       items:
       - name: Security overview
@@ -146,7 +146,7 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Threat protection with Azure Defender
+      - name: Threat protection with Microsoft Defender for Cloud
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
@@ -457,7 +457,7 @@
       - name: Create a web app in a virtual network
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Deploy a Django app on App Service
-        href: flexible-server/tutorial-django-app-service-postgres.md
+        href: ../app-service/tutorial-python-postgresql-app.md
   - name: Concepts
     items:
     - name: Servers
@@ -517,6 +517,8 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
+    - name: Azure Advisor recommendations
+      href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
     items:  
     - name: Troubleshoot CLI errors
@@ -630,12 +632,17 @@
         items:
         - name: Shard data on worker nodes
           href: tutorial-hyperscale-shard.md
-      - name: Design a multi-tenant database
-        href: tutorial-design-database-hyperscale-multi-tenant.md
-        displayName: hyperscale, tutorial, multi-tenant
-      - name: Design a real-time dashboard
-        href: tutorial-design-database-hyperscale-realtime.md
-        displayName: hyperscale, tutorial, real-time
+        - name: Design a multi-tenant database
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: hyperscale, tutorial, real-time
+      - name: Administer
+        items:
+        - name: Private access
+          href: tutorial-hyperscale-private-access.md
+          displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
     - name: Basic tier
@@ -651,11 +658,16 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-    - name: Security
+    - name: Data access and security
       items:
-      - name: Firewall rules
+      - name: Overview
+        href: concepts-hyperscale-security-overview.md
+      - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: concepts-hyperscale-private-access.md
+        displayName: private, link, hyperscale
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
@@ -702,11 +714,18 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
-    - name: Firewall rules
+    - name: Data access and security
       items:
-      - name: Azure portal
-        href: howto-hyperscale-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
+      - name: Public access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+      - name: Private access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-private-access.md
+          displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data
@@ -730,6 +749,8 @@
       href: howto-hyperscale-restart.md
     - name: Monitor
       items:
+      - name: View metrics
+        href: howto-hyperscale-monitoring.md
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
         dispalyName: alerts on hyperscale
@@ -802,7 +823,7 @@
       - name: Connect your app's data to Power BI
         href: https://aka.ms/postg-powerbi-vid
   - name: Feedback forum
-    href: https://feedback.azure.com/forums/597976-azure-database-for-postgresql
+    href: https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

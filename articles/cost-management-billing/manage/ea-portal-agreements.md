@@ -3,11 +3,11 @@ title: Azure EA agreements and amendments
 description: This article explains how Azure EA agreements and amendments affect your Azure EA portal use.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ---
 
 # Azure EA agreements and amendments
@@ -28,7 +28,7 @@ An enrollment has one of the following status values. Each value determines how 
 
 **Pending** - The enrollment administrator needs to sign in to the Azure EA portal. Once signed in, the enrollment switches to **Active** status.
 
-**Active** - The enrollment is accessible and usable. You can create accounts and subscriptions in the Azure EA portal. The enrollment remains active until the enterprise agreement end date.
+**Active** - The enrollment is accessible and usable. You can create accounts and subscriptions in the Azure EA portal. Direct customers can create departments, accounts and subscriptions in the [Azure portal](https://portal.azure.com). The enrollment remains active until the enterprise agreement end date. 
 
 **Indefinite Extended Term** - Indefinite extended term status occurs after the enterprise agreement end date is reached. Before the EA enrollment reaches the enterprise agreement end date, the Enrollment Administrator should decide to:
 
@@ -163,6 +163,8 @@ Enterprise Administrators can assign Account Owners to provision previously purc
 1. Click the 'Download' icon in the top-right corner.
 1. Find the corresponding Plan SKU part numbers with filter on column "Included Quantity" and select values greater than "0".
 
+Direct customer can view price sheet in Azure portal. See [view price sheet in Azure portal](ea-pricing.md#download-pricing-for-an-enterprise-agreement).
+
 ### Existing/New account owners to create new subscriptions
 
 **Step One: Sign in to account**
@@ -185,6 +187,8 @@ Update the subscription name and service administrator and click on the checkmar
 New subscriptions may take up to 24 hours to propagate in the subscriptions list.
 
 Only account owners can view and manage subscriptions.
+
+Direct customer can create and edit subscription in Azure portal. See [manage subscription in Azure portal](direct-ea-administration.md#create-a-subscription).
 
 ### Troubleshooting
 

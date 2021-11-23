@@ -8,14 +8,11 @@ ms.topic: conceptual
 ms.date: 9/23/2020
 ---
 
-# Connectivity and networking concepts for Azure Database for MySQL - Flexible Server (Preview)
+# Connectivity and networking concepts for Azure Database for MySQL - Flexible Server
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article introduces the concepts to control connectivity to your Azure MySQL Flexible Server. You will learn in detail the networking concepts for Azure Database for MySQL Flexible server to create and access a server securely in Azure.
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible server is in preview.
 
 Azure Database for MySQL - Flexible server supports two ways to configure connectivity to your servers:
 > [!NOTE]

@@ -57,7 +57,7 @@ A distribution that lists only major versions, like Debian 7, is also supported 
 
 Supported distributions and versions:
 
-- Ubuntu 18.04, 16.04, 14.04
+- Ubuntu 20.04, 18.04, 16.04, 14.04
 - CentOS 7, 6.5+
 - Oracle Linux 7, 6.4+
 - OpenSUSE 13.1+
@@ -842,7 +842,7 @@ Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in
 You also can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer
-* [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 3.0 extension on a test VM. The image doesn't exactly match the [sample LAD 3.0 configuration](#example-lad-30-configuration).
 

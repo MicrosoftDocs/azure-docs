@@ -4,7 +4,7 @@ description: The Azurite open-source emulator provides a free local environment 
 author: normesta
 
 ms.author: normesta
-ms.date: 08/02/2021
+ms.date: 11/22/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -31,26 +31,20 @@ Assuming that you create an **Azure Functions** project, make sure to select **H
 
 ![Function project settings](media/storage-use-azurite/visual-studio-azure-function-project-settings.png)
 
-Install [Node.js version 8.0 or later](https://nodejs.org). Node Package Manager (npm) is the package management tool included with every Node.js installation. After installing Node.js, execute the following `npm` command to install Azurite.
+#### Install Azurite
 
-```console
-npm install -g azurite
-```
+Azurite is automatically available with [Visual Studio 2022 preview](https://visualstudio.microsoft.com/vs/preview/), so if you install the preview, you won't have to manually install, and then manually start Azurite. 
 
-From the command line, start Azurite by using the following command:
+> [!NOTE] 
+> If you are running an earlier version of Visual Studio, then you have to manually install, and then start Azurite. First, install [Node.js version 8.0 or later](https://nodejs.org). Node Package Manager (npm) is the package management tool included with every Node.js installation. 
+>
+> After installing Node.js, execute the following `npm` command to install Azurite: `npm install -g azurite`. Then, start Azurite by using the following command: `azurite`.
 
-```console
-azurite
-```
-
-Output information similar to the following appears in the console.
-
-![Command line output](media/storage-use-azurite/azurite-command-line-output.png)
+### Run Azurite
 
 Change to the [release build configuration](/visualstudio/debugger/how-to-set-debug-and-release-configurations#change-the-build-configuration), and then run the project.
 
-> [!NOTE]
-> If you start the project by using the debug build configuration, you might receive an error. That's because Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. Any attempt to start the legacy emulator will be blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
+If you start the project by using the debug build configuration, you might receive an error. That's because Visual Studio might try to start the legacy storage emulator that is built into Visual Studio. Any attempt to start the legacy emulator will be blocked because Azurite is using the listening ports that are required by the legacy storage emulator.
 
 The following image shows the command line output that appears when you run an Azure Function project.
 

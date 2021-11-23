@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/25/2021
 ---
 
 # Resource functions for Bicep
@@ -186,7 +186,7 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't neede
 
 The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a Bicep file. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
-When used with [property loop](./loop-properties.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+When used with an [iterative loop](loops.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
 
 If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
 
@@ -517,8 +517,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobAddress string = stg.properties.primaryEndpoints.blob
 ```
 
-For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
 
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
 
 ## resourceId
 
@@ -670,4 +671,4 @@ resource myPolicyAssignment 'Microsoft.Authorization/policyAssignments@2019-09-0
 ## Next steps
 
 * To get values from the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
-* To iterate a specified number of times when creating a type of resource, see [Deploy multiple instances of resources in Bicep](./loop-resources.md).
+* To iterate a specified number of times when creating a type of resource, see [Iterative loops in Bicep](loops.md).

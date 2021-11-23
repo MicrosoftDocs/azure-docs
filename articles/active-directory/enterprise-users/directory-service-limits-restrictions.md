@@ -4,14 +4,14 @@ description: Usage constraints and other service limits for the Azure Active Dir
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
-ms.date: 09/01/2021
+ms.date: 10/27/2021
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta

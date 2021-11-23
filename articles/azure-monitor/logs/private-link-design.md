@@ -62,8 +62,9 @@ Choosing the proper access mode has detrimental effects on your network traffic.
 ![Diagram of AMPLS Open access mode](./media/private-link-security/ampls-open-access-mode.png)
 Access modes are set separately for ingestion and queries. For example, you can set the Private Only mode for ingestion and the Open mode for queries.
 
-
 Apply caution when selecting your access mode. Using the Private Only access mode will block traffic to resources not in the AMPLS across all networks that share the same DNS, regardless of subscription or tenant (with the exception of Log Analytics ingestion requests, as explained below). If you can't add all Azure Monitor resources to the AMPLS, start with by adding select resources and applying the Open access mode. Only after adding *all* Azure Monitor resources to your AMPLS, switch to the 'Private Only' mode for maximum security.
+
+See [Use APIs and command line](./private-link-configure.md#use-apis-and-command-line) for configuration details and examples.
 
 > [!NOTE]
 > Log Analytics ingestion uses resource-specific endpoints. As such, it doesn’t adhere to AMPLS access modes. **To assure Log Analytics ingestion requests can’t access workspaces out of the AMPLS, set the network firewall to block traffic to public endpoints, regardless of the AMPLS access modes**.
@@ -99,6 +100,8 @@ Your Log Analytics workspaces or Application Insights components can be set to:
 That granularity allows you to set access according to your needs, per workspace. For example, you may accept ingestion only through Private Link connected networks (meaning specific VNets), but still choose to accept queries from all networks, public and private. 
 
 Blocking queries from public networks means clients (machines, SDKs etc.) outside of the connected AMPLSs can't query data in the resource. That data includes logs, metrics, and the live metrics stream. Blocking queries from public networks affects all experiences that run these queries, such as workbooks, dashboards, Insights in the Azure portal, and queries run from outside the Azure portal.
+
+See [Set resource access flags](./private-link-configure.md#set-resource-access-flags) for configuration details.
 
 ### Exceptions
 
@@ -144,9 +147,9 @@ If your Private Link setup was created before April 19, 2021, it won't reach the
     |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ### Collecting custom logs and IIS log over Private Link
-Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](/cli/azure/monitor/log-analytics/workspace/linked-storage).
+Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s).
 
-For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md)
+For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Using Private Links](private-storage.md#using-private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### Automation
 If you use Log Analytics solutions that require an Automation account (such as Update Management, Change Tracking, or Inventory) you should also create a Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
@@ -162,6 +165,11 @@ We've identified the following products and experiences query workspaces through
 > * Container Insights
 
 ## Requirements
+
+### Network subnet size
+The smallest supported IPv4 subnet is /27 (using CIDR subnet definitions). While Azure VNets [can be as small as /29](../../virtual-network/virtual-networks-faq.md#how-small-and-how-large-can-vnets-and-subnets-be), Azure [reserves 5 IP addresses](../../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) and the Azure Monitor Private Link setup requires at least 11 additional IP addresses, even if connecting to a single workspace. [Review your endpoint's DNS settings](./private-link-configure.md#reviewing-your-endpoints-dns-settings) for the detailed list of Azure Monitor Private Link endpoints.
+
+
 ### Agents
 The latest versions of the Windows and Linux agents must be used to support secure ingestion to Log Analytics workspaces. Older versions can't upload monitoring data over a private network.
 
@@ -194,5 +202,5 @@ The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-oper
 
 ## Next steps
 - Learn how to [configure your Private Link](private-link-configure.md)
-- Learn about [private storage](private-storage.md)
+- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
 - Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)

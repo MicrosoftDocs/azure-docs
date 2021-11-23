@@ -172,9 +172,14 @@ union (AppAvailabilityResults),
 
 ## Viewing Application Insights usage on your Azure bill
 
-Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  For Application Insights resources on the current pricing plans, most usage will show up as Log Analytics for the Meter category since there is a single logs backend for all Azure Monitor components. 
+The easiest way to see the billed usage for a single Application Insights resource which is not a workspace-baed resource is to go to the resource's Overview page and click **View Cost** in the upper right corner. 
 
-More understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/understand/download-azure-daily-usage.md).
+To learn more, Azure provides a great deal of useful functionality in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=/azure/billing/TOC.json) hub. For instance, the "Cost analysis" functionality enables you to view your spends for Azure resources. Adding a filter by resource type (to microsoft.insights/components for Application Insights) will allow you to track your spending. Then for "Group by" select "Meter category" or "Meter".  Note that Application Insights billed usage for data ingestion and data retention will show up as **Log Analytics** for the Meter category since Log Analytics backend for all Azure Monitor logs. 
+
+> [!NOTE]
+> Application Insights billing for data ingestion and data retention is reported as coming from the **Log Analytics** service (Meter category in Azure Cost Management + Billing). 
+
+Even more understanding of your usage can be gained by [downloading your usage from the Azure portal](../../cost-management-billing/understand/download-azure-daily-usage.md).
 In the downloaded spreadsheet, you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## Managing your data volume

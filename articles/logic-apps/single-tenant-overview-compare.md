@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps
@@ -33,9 +34,9 @@ The following table briefly summarizes differences between the **Logic App (Stan
 
 ## Logic App (Standard) resource
 
-The **Logic App (Standard)** resource type is powered by the redesigned single-tenant Azure Logic Apps runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for your logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem.
+The **Logic App (Standard)** resource type is powered by the redesigned single-tenant Azure Logic Apps runtime. This runtime uses the [Azure Functions extensibility model](../azure-functions/functions-bindings-register.md) and is hosted as an extension on the Azure Functions runtime. This design provides portability, flexibility, and more performance for your logic app workflows plus other capabilities and benefits inherited from the Azure Functions platform and Azure App Service ecosystem. For example, you can create, deploy, and run single-tenant based logic apps and their workflows in [Azure App Service Environment v3](../app-service/environment/overview.md).
 
-For example, you can run single-tenant based logic apps and their workflows anywhere that Azure function apps and their functions can run. The Standard resource type introduces a resource structure that can host multiple workflows, similar to how an Azure function app can host multiple functions. With a 1-to-many mapping, workflows in the same logic app and tenant share compute and processing resources, providing better performance due to their proximity. This structure differs from the **Logic App (Consumption)** resource where you have a 1-to-1 mapping between a logic app resource and a workflow.
+The Standard resource type introduces a resource structure that can host multiple workflows, similar to how an Azure function app can host multiple functions. With a 1-to-many mapping, workflows in the same logic app and tenant share compute and processing resources, providing better performance due to their proximity. This structure differs from the **Logic App (Consumption)** resource where you have a 1-to-1 mapping between a logic app resource and a workflow.
 
 To learn more about portability, flexibility, and performance improvements, continue with the following sections. Or, for more information about the single-tenant Azure Logic Apps runtime and Azure Functions extensibility, review the following documentation:
 
@@ -48,9 +49,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 ### Portability and flexibility
 
-When you create logic apps using the **Logic App (Standard)** resource type, you can run your workflows anywhere that you can run Azure function apps and their functions, not just in the single-tenant service environment.
-
-For example, when you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, [create single-tenant based logic apps using Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
+When you create logic apps using the **Logic App (Standard)** resource type, you can deploy and run your workflows in other environments, such as [Azure App Service Environment v3](../app-service/environment/overview.md). If you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflows in your development environment without having to deploy to Azure. If your scenario requires containers, [create single-tenant based logic apps using Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, review [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
 
 These capabilities provide major improvements and substantial benefits compared to the multi-tenant model, which requires you to develop against an existing running resource in Azure. Also, the multi-tenant model for automating **Logic App (Consumption)** resource deployment is completely based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both apps and infrastructure.
 
@@ -69,6 +68,12 @@ Using the **Logic App (Standard)** resource type, you can create and run multipl
 The **Logic App (Standard)** resource type and single-tenant Azure Logic Apps runtime provide another significant improvement by making the more popular managed connectors available as built-in operations. For example, you can use built-in operations for Azure Service Bus, Azure Event Hubs, SQL, and others. Meanwhile, the managed connector versions are still available and continue to work.
 
 When you use the new built-in operations, you create connections called *built-in connections* or *service provider connections*. Their managed connection counterparts are called *API connections*, which are created and run separately as Azure resources that you also have to then deploy by using ARM templates. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the single-tenant Azure Logic Apps runtime. As a result, built-in operations and their connections provide better performance due to proximity with your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
+
+<a name="data-residency"></a>
+
+### Data residency
+
+Logic app resources created with the **Logic App (Standard)** resource type are hosted in single-tenant Azure Logic Apps, which [doesn't store, process, or replicate data outside the region where you deploy these logic app resources](https://azure.microsoft.com/global-infrastructure/data-residency), meaning data in your logic app workflows stay in the same region where you create and deploy their parent resources.
 
 ## Create, build, and deploy options
 
@@ -263,7 +268,7 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
 
-    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the Flat File actions, AS2 (V2) actions, and RosettaNet actions.
+    * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the AS2 (V2) actions and RosettaNet actions.
 
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 

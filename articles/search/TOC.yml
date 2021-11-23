@@ -17,11 +17,13 @@
       href: search-get-started-portal.md
     - name: Create a demo app
       href: search-create-app-portal.md
-    - name: Create a skillset
-      href: cognitive-search-quickstart-blob.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
-    - name: Query with Search explorer
+    - name: Translate text and recognize entities
+      href: cognitive-search-quickstart-blob.md
+    - name: Apply OCR and image analysis
+      href: cognitive-search-quickstart-ocr.md
+    - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
     href: search-get-started-vs-code.md
@@ -124,6 +126,8 @@
     href: samples-rest.md
 - name: Concepts
   items:
+  - name: Search indexes
+    href: search-what-is-an-index.md
   - name: Full-text search
     href: search-lucene-query-architecture.md
   - name: Analyzers
@@ -164,13 +168,13 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Plan capacity
-      href: search-capacity-planning.md
     - name: Create a service
       href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Manage costs
+    - name: Plan capacity
+      href: search-capacity-planning.md
+    - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
       href: search-performance-optimization.md
@@ -196,6 +200,8 @@
       items:
       - name: Key-based authentication
         href: search-security-api-keys.md
+      - name: Azure AD authentication
+        href: search-howto-aad.md
       - name: Role-based authorization
         href: search-security-rbac.md
       - name: Configure an IP firewall
@@ -253,7 +259,7 @@
   - name: Indexes
     items:
     - name: Create an index
-      href: search-what-is-an-index.md
+      href: search-how-to-create-search-index.md
     - name: Create a multi-language index
       href: search-language-support.md
     - name: Synonyms
@@ -336,6 +342,8 @@
           href: search-howto-index-encrypted-blobs.md
       - name: Azure Tables
         href: search-howto-indexing-azure-tables.md
+      - name: Azure Files
+        href: search-file-storage-integration.md
       - name: Azure Cosmos DB
         items:
         - name: SQL and MongoDB APIs
@@ -398,7 +406,9 @@
         href: knowledge-store-projection-shape.md
       - name: Define projections
         href: knowledge-store-projections-examples.md 
-      - name: View with Storage Explorer
+      - name: Projection example
+        href: knowledge-store-projection-example-long.md
+      - name: View with Storage Browser
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md 

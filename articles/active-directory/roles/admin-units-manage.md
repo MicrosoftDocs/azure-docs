@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/14/2021
+ms.date: 11/18/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -63,7 +63,7 @@ You can modify the values that are enclosed in quotation marks, as required.
 Request
 
 ```http
-POST /administrativeUnits
+POST /directory/administrativeUnits
 ```
 
 Body
@@ -105,7 +105,7 @@ You can modify the values that are enclosed in quotation marks, as required for 
 Request
 
 ```http
-DELETE /administrativeUnits/{admin-unit-id}
+DELETE /directory/administrativeUnits/{admin-unit-id}
 ```
 
 Body

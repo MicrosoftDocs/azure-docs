@@ -2,7 +2,7 @@
 title: Set up a lab with R and RStudio on Linux using Azure Lab Services
 description: Learn how to set up labs to teach R using RStudio on Linux
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: enewman
 ---
@@ -59,7 +59,7 @@ sudo apt upgrade
 
 ### Install X2Go Server
 
-If you choose to use X2Go, [install the server](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop#install-x2go-server).  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
+If you choose to use X2Go, install the server.  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
 
 The default installation of X2Go isn't compatible with RStudio.  To work around this issue, update the x2goagent options file.
 

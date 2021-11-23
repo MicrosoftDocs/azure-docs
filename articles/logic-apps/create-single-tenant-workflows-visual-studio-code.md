@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in Visual Studio Code
@@ -77,7 +78,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
   * [C# for Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp), which enables F5 functionality to run your logic app.
 
-  * [Azure Functions Core Tools 3.0.3477 or later](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3477) by using the Microsoft Installer (MSI) version, which is `func-cli-3.0.3477-x*.msi`.
+  * [Azure Functions Core Tools - 3.x version](https://github.com/Azure/azure-functions-core-tools/releases/tag/3.0.3904) by using the Microsoft Installer (MSI) version, which is `func-cli-X.X.XXXX-x*.msi`. Don't install the 4.x version, which isn't supported and won't work.
 
     These tools include a version of the same runtime that powers the Azure Functions runtime, which the Azure Logic Apps (Standard) extension uses in Visual Studio Code.
 
@@ -311,7 +312,7 @@ After you open the designer, the **Choose an operation** prompt appears on the d
 
 The workflow in this example uses this trigger and these actions:
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
 * The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
 
@@ -321,13 +322,13 @@ The workflow in this example uses this trigger and these actions:
 
 1. Next to the designer, in the **Add a trigger** pane, under the **Choose an operation** search box, make sure that **Built-in** is selected so that you can select a trigger that runs natively.
 
-1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When an HTTP request is received**.
 
-   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
+   ![Screenshot that shows the workflow designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-visual-studio-code/add-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the workflow designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the workflow designer with the "When an HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-visual-studio-code/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -559,7 +560,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
       ![Screenshot that shows Postman with the opened request pane](./media/create-single-tenant-workflows-visual-studio-code/postman-request-pane.png)
 
-   1. Return to Visual Studio Code. from the workflow's overview page, copy the **Callback URL** property value.
+   1. Return to Visual Studio Code. From the workflow's overview page, copy the **Callback URL** property value.
 
    1. Return to Postman. On the request pane, next the method list, which currently shows **GET** as the default request method, paste the callback URL that you previously copied in the address box, and select **Send**.
 
@@ -746,6 +747,8 @@ To find the fully qualified domain names (FQDNs) for these connections, follow t
 From Visual Studio Code, you can directly publish your project to Azure, which deploys your logic app using the **Logic App (Standard)** resource type. You can publish your logic app as a new resource, which automatically creates any necessary resources, such as an [Azure Storage account, similar to function app requirements](../azure-functions/storage-considerations.md). Or, you can publish your logic app to a previously deployed **Logic App (Standard)** resource, which overwrites that logic app.
 
 Deployment for the **Logic App (Standard)** resource type requires a hosting plan and pricing tier, which you select during deployment. For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing).
+
+<a name="publish-new-logic-app"></a>
 
 ### Publish to a new Logic App (Standard) resource
 
@@ -945,7 +948,7 @@ In Visual Studio Code, you can view all the deployed logic apps in your Azure su
 
    ![Screenshot that shows Visual Studio Code with the opened "Azure Logic Apps (Standard)" extension pane and the deployed workflow.](./media/create-single-tenant-workflows-visual-studio-code/find-deployed-workflow-visual-studio-code.png)
 
-1. To view all the workflows in the logic app, expand your logic app, and then expand the node that's named **Workflows**.
+1. To view all the workflows in the logic app, expand your logic app, and then expand the **Workflows** node.
 
 1. To view a specific workflow, open the workflow's shortcut menu, and select **Open in Designer**, which opens the workflow in read-only mode.
 

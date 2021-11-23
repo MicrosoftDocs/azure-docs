@@ -53,7 +53,7 @@ Before you start, make sure that you have these items:
 
 <a name="access-azure"></a>
 
-## Access Azure from Visual Studio
+## Access Azure from Visual Studio Code
 
 1. Open Visual Studio Code. On the Visual Studio Code toolbar, select the Azure icon.
 

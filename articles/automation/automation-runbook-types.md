@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/25/2021
+ms.date: 10/28/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -48,10 +48,29 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 * Can't convert to one of the [text formats](automation-runbook-types.md), nor can you convert a text runbook to graphical format. 
 * Can't view or directly edit PowerShell code that the graphical workflow creates. You can view the code you create in any code activities.
 * Can't run runbooks on a Linux Hybrid Runbook Worker. See [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+* Graphical runbooks can't be digitally signed.
 
 ## PowerShell runbooks
 
-PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal.  You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+
+
+The PowerShell version is determined by the **Runtime version** specified (that is version 7.1 preview or 5.1). The Azure Automation service supports the latest PowerShell runtime.
+ 
+The same Azure sandbox and Hybrid Runbook Worker can execute **PowerShell 5.1** and **PowerShell 7.1** runbooks side by side.   
+
+> [!NOTE]
+>  At the time of runbook execution, if you select **Runtime Version** as **7.1 (preview)**, PowerShell modules targeting 7.1 runtime version is used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used.
+ 
+Ensure that you select the right Runtime Version for modules.
+
+For example : if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *7.1 (preview)*, then import the module in **Runtime version** **7.1 (preview)**; if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** **5.1**, then import the module in **Runtime version** *5.1*. In this case, you would see two entries for the module, one for **Runtime Version** **7.1(preview)** and other for **5.1**.
+
+:::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="runbook Types.":::
+
+
+Currently, PowerShell 5.1 and 7.1 (preview) are supported.
+
 
 ### Advantages
 
@@ -59,15 +78,15 @@ PowerShell runbooks are based on Windows PowerShell. You directly edit the code 
 * Start faster than PowerShell Workflow runbooks, since they don't need to be compiled before running.
 * Run in Azure and on Hybrid Runbook Workers for both Windows and Linux.
 
-### Limitations
+### Limitations - version 5.1
 
 * You must be familiar with PowerShell scripting.
 * Runbooks can't use [parallel processing](automation-powershell-workflow.md#use-parallel-processing) to execute multiple actions in parallel.
 * Runbooks can't use [checkpoints](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) to resume runbook if there's an error.
-* You can include only PowerShell Workflow runbooks and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
-* Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and will cause the job to fail.
+* You can include only PowerShell, PowerShell Workflow runbooks, and graphical runbooks as child runbooks by using the [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) cmdlet, which creates a new job.
+* Runbooks can't use the PowerShell [#Requires](/powershell/module/microsoft.powershell.core/about/about_requires) statement, it is not supported in Azure sandbox or on Hybrid Runbook Workers and might cause the job to fail.
 
-### Known issues
+### Known issues - version 5.1
 
 The following are current known issues with PowerShell runbooks:
 
@@ -76,9 +95,34 @@ The following are current known issues with PowerShell runbooks:
 * A [Get-Process](/powershell/module/microsoft.powershell.management/get-process) operation in a loop in a PowerShell runbook can crash after about 80 iterations.
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 
+### Limitations - 7.1 (preview)
+
+-  The Azure Automation internal PowerShell cmdlets are not supported on a Linux Hybrid Runbook Worker. You must import the `automationassets` module at the beginning of your Python runbook to access the Automation account shared resources (assets) functions. 
+-  For the PowerShell 7 runtime version, the module activities are not extracted for the imported modules.
+-  *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
+-  PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
+-  PowerShell 7.x currently does not support signed runbooks.
+
+### Known Issues - 7.1 (preview)
+
+-  Executing child scripts using `.\child-runbook.ps1` is not supported in this preview. 
+  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
+-  Runbook properties defining logging preference is not supported in PowerShell 7 runtime.  
+  **Workaround**: Explicitly set the preference at the start of the runbook as below -
+
+      `$VerbosePreference = "Continue"`
+
+      `$ProgressPreference = "Continue"`
+
+-   Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
+-    You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+
 ## PowerShell Workflow runbooks
 
-PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation. 
+
+>[!NOTE]
+> PowerShell 7.1 does not support workflow runbooks.
 
 ### Advantages
 

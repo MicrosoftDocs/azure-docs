@@ -130,7 +130,9 @@
       href: key-vault-recovery.md
     - name: Integrate Azure Key Vault with Azure Policy
       href: azure-policy.md
-    - name: Back up Individual Key Vault Objects
+    - name: Troubleshoot issues with implementing Azure Key Vault with Azure Policy
+      href: troubleshoot-azure-policy-for-key-vault.md
+    - name: Back up and restore objects
       href: backup.md
   - name: Secure
     items:
@@ -208,4 +210,4 @@
   - name: Blog
     href: /archive/blogs/kv/
   - name: Product Feedback
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://feedback.azure.com/d365community/forum/285c5ae0-f524-ec11-b6e6-000d3a4f0da0

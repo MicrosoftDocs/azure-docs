@@ -84,6 +84,8 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.yml
+        - name: Custom partitioning - Overview
+          href: custom-partitioning-analytical-store.md
     - name: Backup and restore
       items:
         - name: Backup and restore introduction
@@ -96,6 +98,8 @@
               href: continuous-backup-restore-frequently-asked-questions.yml
             - name: Continuous backup - Resource model
               href: continuous-backup-restore-resource-model.md
+            - name: Latest restorable timestamp
+              href: latest-restore-timestamp-continuous-backup.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -165,8 +169,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
-            - name: Xamarin app
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -189,10 +191,6 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-            - name: Build a mobile app
-              items:
-                - name: Xamarin
-                  href: sql/mobile-apps-with-xamarin.md
         - name: 2 - Migrate data
           items:
             - name: Using the Data Migration tool
@@ -209,10 +207,8 @@
           href: sql/tutorial-springboot-aks.md
     - name: Samples
       items:
-        - name: .NET V2 SDK samples
-          href: sql/sql-api-dotnet-samples.md
         - name: .NET V3 SDK samples
-          href: sql/sql-api-dotnet-v3sdk-samples.md
+          href: sql/sql-api-dotnet-samples.md
         - name: Java SDK v4 samples
           href: sql/sql-api-java-sdk-samples.md
         - name: Spring Data v3 samples
@@ -229,6 +225,8 @@
           href: sql/templates-samples-sql.md
         - name: Bicep
           href: sql/bicep-samples.md
+        - name: .NET V2 SDK samples (legacy)
+          href: sql/sql-api-dotnet-v2sdk-samples.md
     - name: Concepts
       items:
         - name: Modeling and partitioning
@@ -624,7 +622,7 @@
               href: sql/change-feed-design-patterns.md
             - name: Reading change feed
               href: sql/read-change-feed.md
-            - name: sql/Change feed processor
+            - name: Change feed processor
               href: sql/change-feed-processor.md
             - name: Trigger Azure Functions
               displayName: change feed
@@ -652,6 +650,14 @@
               href: secure-access-to-data.md
             - name: Advanced threat protection
               href: sql/advanced-threat-protection.md
+        - name: Partial document update
+          items:
+            - name: Partial document update overview
+              href: partial-document-update.md
+            - name: Getting started with Partial document update
+              href: partial-document-update-getting-started.md
+            - name: Partial document update FAQ
+              href: partial-document-update-faq.yml
         - name: Connectivity modes
           href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
@@ -923,13 +929,13 @@
           items:
             - name: .NET SDK v3
               href: sql/sql-api-sdk-dotnet-standard.md
-            - name: .NET SDK v2
+            - name: .NET SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet.md
-            - name: .NET Core SDK v2
+            - name: .NET Core SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet-core.md
-            - name: .NET change feed library v2
+            - name: .NET change feed library v2 (legacy)
               href: sql/sql-api-sdk-dotnet-changefeed.md
-            - name: .NET bulk executor library v2
+            - name: .NET bulk executor library v2 (legacy)
               href: sql/sql-api-sdk-bulk-executor-dot-net.md
         - name: Java SDKs and Connectors
           items:
@@ -1038,6 +1044,8 @@
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: cassandra/find-request-unit-charge-cassandra.md
+        - name: Preventing rate-limiting errors
+          href: cassandra/prevent-rate-limiting-errors.md
         - name: Store and manage Spring Data
           href: cassandra/access-data-spring-data-app.md
         - name: Troubleshoot common issues
@@ -1077,6 +1085,10 @@
           href: cassandra/powershell-samples.md
         - name: Manage using Azure CLI
           href: cassandra/cli-samples.md
+        - name: Glowroot using Cassandra API
+          href: cassandra/glowroot-cassandra.md
+        - name: Error codes definitions
+          href: cassandra/error-codes-solution.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1097,6 +1109,8 @@
       items:
         - name: .NET
           href: mongodb/create-mongodb-dotnet.md
+        - name: Python 
+          href: mongodb/create-mongodb-python.md
         - name: Java
           href: mongodb/create-mongodb-java.md
         - name: Node.js
@@ -1106,7 +1120,7 @@
         - name: Golang
           href: mongodb/create-mongodb-go.md
         - name: Rust
-          href: mongodb/create-mongodb-rust.md
+          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1305,6 +1319,8 @@
           href: graph/powershell-samples.md
         - name: Manage using Azure CLI
           href: graph/cli-samples.md
+        - name: Supply chain traceability solution
+          href: graph/supply-chain-traceability-solution.md
     - name: Reference
       items:
         - name: Response Headers
@@ -1408,6 +1424,9 @@
     - name: Free tier
       href: free-tier.md
       displayName: free tier
+    - name: Limit total account throughput
+      displayName: cost, RUs, RU
+      href: limit-total-account-throughput.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos account
@@ -1470,6 +1489,8 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Use Power BI with Synapse Link
           href: synapse-link-power-bi.md
+        - name: Configure custom partitioning
+          href: configure-custom-partitioning.md
     - name: Backup and restore
       items:
         - name: Manage continuous backup
@@ -1478,12 +1499,18 @@
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
+            - name: Get the latest restore timestamp
+              href: get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md
         - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md
+          items:
+          - name: Configure periodic backup
+            href: configure-periodic-backup-restore.md
+          - name: Update backup storage redundancy 
+            href: update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall

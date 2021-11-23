@@ -80,7 +80,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 2. Create a new file, which inherits from the extensions file.
 
-    ```XML
+    ```xml
     <BasePolicy> 
 
         <TenantId>tenant.onmicrosoft.com</TenantId> 
@@ -92,7 +92,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 3. Create a reference to the custom UI to hide the input box, under the BuildingBlocks resource.
 
-    ```XML
+    ```xml
     <ContentDefinitions> 
 
         <ContentDefinition Id="api.selfasserted"> 
@@ -108,7 +108,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 4. Add the following claims under the BuildingBlocks resource.
 
-    ```XML
+    ```xml
     <ClaimsSchema> 
 
           <ClaimType Id="riskLevel"> 
@@ -142,7 +142,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 5. Configure self-asserted claims provider for the client session ID field.
 
-    ```XML
+    ```xml
     <ClaimsProvider> 
 
           <DisplayName>Client Session ID Claims Provider</DisplayName> 
@@ -186,7 +186,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
 6. Configure REST API claims provider for BioCatch. 
 
-    ```XML
+    ```xml
     <TechnicalProfile Id="BioCatch-API-GETSCORE"> 
 
           <DisplayName>Technical profile for BioCatch API to return session information</DisplayName> 
@@ -232,8 +232,8 @@ document.getElementById("clientSessionId").style.display = 'none';
       </TechnicalProfiles>
     ```
 
-    > [!Note]
-    > BioCatch will provide you the URL, customer ID and unique user ID (uuID) to configure. The customer SessionID claim is passed through as a querystring parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
+    > [!NOTE]
+    > BioCatch will provide you the URL, customer ID and unique user ID (UUID) to configure. The customer SessionID claim is passed through as a query string parameter to BioCatch. You can choose the activity type, for example *MAKE_PAYMENT*.
 
 7. Configure the userjourney; follow the example
 
@@ -243,7 +243,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
    1. If the returned claim *risk* equals *low*, skip the step for MFA, else force user MFA
 
-    ```XML
+    ```xml
     <OrchestrationStep Order="8" Type="ClaimsExchange"> 
 
           <ClaimsExchanges> 
@@ -291,7 +291,7 @@ document.getElementById("clientSessionId").style.display = 'none';
 
     It is useful to pass the BioCatch returned information to your application as claims in the token, specifically *risklevel* and *score*.
 
-    ```XML
+    ```xml
     <RelyingParty> 
 
     <DefaultUserJourney ReferenceId="SignUpOrSignInMfa" /> 

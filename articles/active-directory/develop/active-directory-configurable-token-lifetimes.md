@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)
@@ -33,7 +33,7 @@ For examples, read [examples of how to configure token lifetimes](configure-toke
 
 Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
-Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ## Token lifetime policies for access, SAML, and ID tokens
 

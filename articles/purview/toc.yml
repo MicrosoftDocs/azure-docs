@@ -8,17 +8,17 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create Purview account
+  - name: Create an Azure Purview account
     items:
-    - name: Create Purview account - Portal
+    - name: Create an account - Azure portal
       href: create-catalog-portal.md
-    - name: Create Purview account - PowerShell
+    - name: Create an account - PowerShell/CLI
       href: create-catalog-powershell.md
-    - name: Create Purview account - .NET SDK
+    - name: Create an account - .NET SDK
       href: create-purview-dotnet.md
-    - name: Create Purview account - Python
+    - name: Create an account - Python
       href: create-purview-python.md
-  - name: Create a collection - Portal
+  - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
 - name: Tutorials
   items:
@@ -26,27 +26,35 @@ items:
     items:
     - name: Azure source readiness at scale
       href: tutorial-data-sources-readiness.md
-    - name: Purview MSI configuration at scale
+    - name: Azure Purview MSI configuration at scale
       href: tutorial-msi-configuration.md
-  - name: Onboard an on-prem SQL Server
+  - name: Onboard an on-premises SQL Server instance
     href: tutorial-register-scan-on-premises-sql-server.md
-  - name: Use REST APIs for Purview data planes
+  - name: Use REST APIs for data planes
     href: tutorial-using-rest-apis.md
-  - name: Using REST APIs for Collection Management
+  - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
 - name: Concepts
   items:
-  - name: Use Purview Studio
+  - name: Use Azure Purview Studio
     href: use-purview-studio.md
   - name: Best practices and guidelines
     items:
+      - name: Pricing guidelines 
+        href: concept-guidelines-pricing.md
       - name: Deployment best practices
         href: deployment-best-practices.md
+      - name: Lineage best practices
+        href: concept-best-practices-lineage-azure-data-factory.md
+      - name: Accounts architecture
+        href: concept-best-practices-accounts.md    
       - name: Collections architecture
         href: concept-best-practices-collections.md
-      - name: Purview pricing guidelines 
-        href: concept-guidelines-pricing.md
-  - name: Purview permissions
+      - name: Network architecture
+        href: concept-best-practices-network.md
+      - name: Scanning best practices 
+        href: concept-best-practices-scanning.md       
+  - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -68,11 +76,9 @@ items:
       href: concept-asset-normalization.md
   - name: Data insights
     href: concept-insights.md
-  - name: Upgraded Purview accounts
-    href: concept-account-upgrade.md
 - name: How-to guides
   items:
-  - name: Create and manage collections
+  - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
     items: 
@@ -80,9 +86,11 @@ items:
       href: purview-connector-overview.md
     - name: Manage data sources
       href: manage-data-sources.md
-    - name: Manage Credentials
+    - name: Manage credentials
       href: manage-credentials.md
-      displayName: Create and manage Credentials
+      displayName: Create and manage credentials
+    - name: Create Service Principal
+      href: create-service-principal-azure.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
@@ -123,6 +131,8 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
+    - name: DB2
+      href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
     - name: Google BigQuery
@@ -131,18 +141,28 @@ items:
       href: register-scan-hive-metastore-source.md
     - name: Looker
       href: register-scan-looker-source.md
+    - name: MySQL
+      href: register-scan-mysql.md
     - name: On-premises SQL Server
       href: register-scan-on-premises-sql-server.md
     - name: Oracle
       href: register-scan-oracle-source.md
+    - name: PostgreSQL
+      href: register-scan-postgresql.md
     - name: Power BI tenant - Portal
       href: register-scan-power-bi-tenant.md
-    - name: SAP ECC 
+    - name: Salesforce
+      href: register-scan-salesforce.md
+    - name: SAP ECC
       href: register-scan-sapecc-source.md
     - name: SAP S/4HANA 
       href: register-scan-saps4hana-source.md
+    - name: Snowflake
+      href: register-scan-snowflake.md
     - name: Teradata 
       href: register-scan-teradata-source.md
+    - name: Amazon RDS
+      href: register-scan-amazon-rds.md
     - name: Amazon S3
       href: register-scan-amazon-s3.md
   - name: Scan
@@ -229,8 +249,6 @@ items:
       href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
-    - name: View file extension insights
-      href: file-extension-insights.md
   - name: Networking & security
     items:
     - name: Private endpoints
@@ -255,6 +273,12 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
+  - name: Integrate with Azure security products
+    href: how-to-integrate-with-azure-security-products.md
+  - name: Data owner access policies
+    items:
+    - name: Data access policy Azure Storage
+      href: how-to-access-policies-storage.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
@@ -277,6 +301,8 @@ items:
       href: /python/api/azure-mgmt-purview/
     - name: REST
       href: /rest/api/purview/
+    - name: Azure Purview open-source tools utilities
+      href: tutorial-purview-tools.md
     - name: ABAP function deployment guide
       href: abap-functions-deployment-guide.md
     - name: Frequently asked questions (FAQ)

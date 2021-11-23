@@ -1,8 +1,8 @@
 ---
 title: Custom metrics in Azure Monitor (preview)
 description: Learn about custom metrics in Azure Monitor and how they're modeled.
-author: anirudhcavale
-ms.author: ancav
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2021
@@ -211,7 +211,7 @@ To understand the limit of 50,000 on time series, consider the following metric:
 
 > *Server response time* with Dimensions: *Region*, *Department*, *CustomerID*
 
-With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 2,000 time series. 
+With this metric, if you have 10 regions, 20 departments, and 100 customers, that gives you 10 x 20 x 100 = 20,000 time series. 
 
 If you have 100 regions, 200 departments, and 2,000 customers, that gives you 100 x 200 x 2,000 = 40 million time series, which is far over the limit just for this metric alone. 
 
@@ -225,15 +225,17 @@ Again, this limit is not for an individual metric. It's for the sum of all such 
 
 **High-cardinality metric dimensions**. Metrics with too many valid values in a dimension (a *high cardinality*) are much more likely to hit the 50,000 limit. In general, you should never use a constantly changing value in a dimension. Timestamp, for example, should never be a dimension. You can use server, customer, or product ID, but only if you have a smaller number of each of those types. 
 
-As a test, ask yourself if you would ever chart such data on a graph. If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1,000, the resulting graph would likely be difficult or impossible to read. 
-
-A best practice is to keep it to fewer than 100 valid values. Up to 300 is a grey area. If you need to go over this amount, use Azure Monitor custom logs instead.   
+As a test, ask yourself if you would ever chart such data on a graph. If you have 10 or maybe even 100 servers, it might be useful to see them all on a graph for comparison. But if you have 1,000, the resulting graph would likely be difficult or impossible to read. A best practice is to keep it to fewer than 100 valid values. Up to 300 is a grey area. If you need to go over this amount, use Azure Monitor custom logs instead.   
 
 If you have a variable in the name or a high-cardinality dimension, the following can occur:
 - Metrics become unreliable due to throttling.
 - Metrics Explorer won't work.
 - Alerting and notifications become unpredictable.
 - Costs can increase unexpectedly. Microsoft isn't charging for custom metrics with dimensions while this feature is in public preview. However, after charges start in the future, you will incur unexpected charges. The plan is to charge for metrics consumption based on the number of time series monitored and number of API calls made.
+
+If the metric name or dimension value is populated with an identifier or high cardinality dimension by mistake, you can easily fix it by removing the variable part.
+
+But if high cardinality is essential for your scenario, the aggregated metrics are probably not the right choice. Switch to using custom logs (that is, trackMetric API calls with [trackEvent](../app/api-custom-events-metrics.md#trackevent)). However, consider that logs do not aggregate values so every single entry will be stored. As a result, if you have a large volume of logs in a small time period (1 million a second for example), it can cause throttling and ingestion delays. 
 
 ## Next steps
 Use custom metrics from various services: 

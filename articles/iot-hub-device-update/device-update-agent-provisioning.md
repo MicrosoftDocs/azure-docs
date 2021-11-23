@@ -82,7 +82,7 @@ Follow all or any of the below sections to add the Device update agent based on 
 
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](../iot-edge/index.yml).
 
-1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11).
+1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
 
 1. Install the Device Update image update agent.
 

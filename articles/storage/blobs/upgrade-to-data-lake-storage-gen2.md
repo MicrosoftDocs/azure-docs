@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/12/2021
 ms.author: normesta
 
 ---
@@ -102,7 +102,7 @@ After you upgrade, the way that interact with some features will change. This se
 
 While most of Blob storage features will continue to work after you've enable these capabilities, some of them remain in preview or not yet supported. 
 
-See [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) to understand the current support for Blob storage features with Data Lake Storage Gen2. 
+See [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md) to understand the current support for Blob storage features with Data Lake Storage Gen2. 
 
 ### Diagnostic logs
 

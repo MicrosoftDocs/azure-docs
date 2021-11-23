@@ -197,7 +197,7 @@ The example file structure below, the following outcomes are possible with this 
 
 ## Global headers
 
-The `globalHeaders` section provides a set of [HTTP headers](https://developer.mozilla.org/docs/Web/HTTP/Headers) applied to each response, unless overridden by a [route header](#route-headers) rule, otherwise the union of both the headers from the route and the global headers is returned.
+The `globalHeaders` section provides a set of HTTP headers applied to each response, unless overridden by a [route header](#route-headers) rule, otherwise the union of both the headers from the route and the global headers is returned.
 
 See the [example configuration file](#example-configuration-file) for usage examples.
 
@@ -208,6 +208,18 @@ Some common use cases for global headers include:
 - Custom caching rules
 - Enforcing security policies
 - Encoding settings
+- Configuring cross-origin resource sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS))
+
+The following is an example of how to implement a custom CORS configuration.
+
+```json
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "https://example.com",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
+}
+```
 
 ## Response overrides
 

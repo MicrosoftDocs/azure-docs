@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 10/21/2021
 ms.reviewer: larryfr
 ms.custom: deploy
 ---
@@ -105,6 +105,16 @@ def run(Inputs, GlobalParameters):
         return error
 ```
 
+> [!TIP]
+> The return value from the script can be any Python object that is serializable to JSON. For example, if your model returns a Pandas dataframe that contains multiple columns, you might use an output decorator similar to the following code:
+> 
+> ```python
+> output_sample = pd.DataFrame(data=[{"a1": 5, "a2": 6}])
+> @output_schema(PandasParameterType(output_sample))
+> ...
+> result = model.predict(data)
+> return result
+> ```
 
 ## <a id="binary-data"></a> Binary (i.e. image) data
 
@@ -161,7 +171,7 @@ import requests
 uri = service.scoring_uri
 image_path = 'test.jpg'
 files = {'image': open(image_path, 'rb').read()}
-response = requests.post(url, files=files)
+response = requests.post(uri, files=files)
 
 print(response.json)
 ```
@@ -189,21 +199,35 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
-        # For this example, just return the URL for GETs.
+        # For this example, just return the URL for GET.
+        # For a real-world solution, you would load the data from URL params or headers
+        # and send it to the model. Then return the response.
         respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
+        resp = AMLResponse(respBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
     elif request.method == 'POST':
         reqBody = request.get_data(False)
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
-
-        # For demonstration purposes, this example
-        # adds a header and returns the request body.
         resp = AMLResponse(reqBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
         resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
+    elif request.method == 'OPTIONS':
+        resp = AMLResponse("", 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
         return resp
     else:
-        return AMLResponse("bad request", 500)
+        return AMLResponse("bad request", 400)
 ```
 
 > [!IMPORTANT]

@@ -23,7 +23,7 @@ This article shows you how to use *Azure CNI* networking to create and use a vir
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 * The subnet assigned to the AKS node pool cannot be a [delegated subnet](../virtual-network/subnet-delegation-overview.md).
-* If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will not modify any of the NSGs associated with that subnet. You also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges.
+* AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. If you provide your own subnet and add NSGs associated with that subnet, you must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. For more details, see [Network security groups][aks-network-nsg].
 
 ## Plan IP addressing for your cluster
 
@@ -204,7 +204,7 @@ az provider register --namespace Microsoft.ContainerService
 
 When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-The planning of IPs for K8S services and Docker bridge remain unchanged.
+The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
 ### Maximum pods per node in a cluster with dynamic allocation of IPs and enhanced subnet support
 
@@ -354,6 +354,7 @@ Learn more about networking in AKS in the following articles:
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
 [aks-network-concepts]: concepts-network.md
+[aks-network-nsg]: concepts-network.md#network-security-groups
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md

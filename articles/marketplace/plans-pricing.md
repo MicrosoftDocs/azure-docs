@@ -4,7 +4,7 @@ description: Learn about plans for Microsoft commercial marketplace offers in Pa
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2021
 ---
@@ -75,7 +75,7 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 - **Markets**: Every plan must be available in at least one market.  You have the option to select only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
 - **Pricing**: Pricing models only apply to plans for Azure managed application, SaaS, and Azure virtual machine offers. All plans for the same offer must use the same pricing model.  
-- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from the Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
+- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
 
 > [!TIP]
 > We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users from frequently switching plans based on their changes in usage. For an example of a SaaS offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -121,7 +121,7 @@ Prices set in United States Dollars (USD) are converted into the local currency 
 
 ## Plan visibility
 
-You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private plans in the Microsoft commercial marketplace](private-plans.md).
 
 You define your private audience by using Azure tenant IDs or Azure subscription IDs, depending on the offer type. You can enter up to 10 IDs manually or import up to 10,00 subscription IDs or 20,000 tenant IDs (as applicable) with a .csv file. You can also define private audiences for consulting services and Dynamics 365 offers that do not have plans.
 
@@ -130,7 +130,7 @@ After your offer is published with a private plan, you can update the audience o
 > [!NOTE]
 > A private audience differs from a preview audience. On the **Availability** page for some offer types, you can define an audience who can preview your offer prior to the offer being published live in the commercial marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is being tested and validated.
 
-You can also choose to hide the plan entirely from the Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
+You can also choose to hide the plan entirely from Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
 
 ## Free trials
 
@@ -157,7 +157,7 @@ After a customer selects a free trial for a plan, they can't convert to a paid s
 > [!NOTE]
 > After a customer starts paying for a plan, they can’t get a free trial on the same offer again, even if they switch to another plan that supports free trials.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription).
 
 ## Next steps
 

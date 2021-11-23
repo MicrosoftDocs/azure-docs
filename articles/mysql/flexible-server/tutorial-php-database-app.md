@@ -10,7 +10,7 @@ ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server (Preview) app in Azure App Service
+# Tutorial: Build a PHP (Laravel) and MySQL Flexible Server app in Azure App Service
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
@@ -22,8 +22,8 @@ ms.custom: mvc, devx-track-azurecli
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Setup a PHP (Laravel) app with local MySQL
-> * Create a MySQL Flexible Server (Preview)
-> * Connect a PHP app to MySQL Flexible Server (Preview)
+> * Create a MySQL Flexible Server
+> * Connect a PHP app to MySQL Flexible Server
 > * Deploy the app to Azure App Service
 > * Update the data model and redeploy the app
 > * Manage the app in the Azure portal
@@ -136,8 +136,8 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 
 To stop PHP, type `Ctrl + C` in the terminal.
 
-## Create a MySQL Flexible Server (Preview)
-In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml) which is in public preview. Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) command.
+## Create a MySQL Flexible Server
+In this step, you create a MySQL database in [Azure Database for MySQL Flexible Server](../index.yml). Later, you configure the PHP application to connect to this database. In the [Azure Cloud Shell](../../cloud-shell/overview.md), create a server in with the [`az flexible-server create`](/cli/azure/mysql/server#az_mysql_flexible_server_create) command.
 
 ```azurecli-interactive
 az mysql flexible-server create  --resource-group myResourceGroup --public-access <IP-Address>

@@ -42,4 +42,4 @@ az extension update --name arcdata
 
 ## Next steps
 
-[Create the Azure Arc data controller](create-data-controller.md)
+[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

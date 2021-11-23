@@ -205,7 +205,7 @@ Parameter  |Value  |
 |---------|---------|
 |registryName     | Name of your target container registry      |
 |importPipelineName     |  Name you choose for the import pipeline       |
-|sourceUri     |  URI of the storage container in your target environment (the source for the import pipeline).<br/>Example: `https://targetstorage.blob.core.windows.net/transfer/`|
+|sourceUri     |  URI of the storage container in your target environment (the source for the import pipeline).<br/>Example: `https://targetstorage.blob.core.windows.net/transfer`|
 |keyVaultName     |  Name of the target key vault |
 |sasTokenSecretName     |  Name of the SAS token secret in the target key vault<br/>Example: acr importsas |
 

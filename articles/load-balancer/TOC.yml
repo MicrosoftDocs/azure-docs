@@ -43,6 +43,14 @@
       href: tutorial-cross-region-powershell.md
     - name: Create cross-region load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
+  - name: Gateway load balancer
+    items:
+    - name: Create gateway load balancer - Portal
+      href: tutorial-gateway-portal.md
+    - name: Create gateway load balancer - PowerShell
+      href: tutorial-gateway-powershell.md
+    - name: Create gateway load balancer - Azure CLI
+      href: tutorial-gateway-cli.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer
@@ -67,6 +75,8 @@
     href: manage.md
   - name: Cross-region load balancer
     href: cross-region-overview.md
+  - name: Gateway load balancer
+    href: gateway-overview.md
   - name: What's new?
     href: whats-new.md
   - name: Components
@@ -140,11 +150,11 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - name: Azure Resource Manager template
-      href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
+      href: ./ipv6-configure-standard-load-balancer-template-json.md
       displayName: ARM
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
@@ -242,7 +252,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
-    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

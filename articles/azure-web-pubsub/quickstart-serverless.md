@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: tutorial 
-ms.date: 03/11/2021
+ms.date: 11/08/2021
 ---
 
 # Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub service
@@ -66,7 +66,10 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-1. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package explicitly.
+2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
+
+    > [!NOTE]
+    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -76,10 +79,10 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
     ```
 
-1. Create an `index` function to read and host a static web page for clients.
+3. Create an `index` function to read and host a static web page for clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
@@ -109,18 +112,26 @@ In this tutorial, you learn how to:
    - Update `index/index.js` and copy following codes.
         ```js
         var fs = require('fs');
+        var path = require('path');
+
         module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
+            var index = 'index.html';
+            if (process.env["HOME"] != null)
+            {
+                index = path.join(process.env["HOME"], "site", "wwwroot", index);
+            }
+            context.log("index.html path: " + index);
+            fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
-                    console.log(err);
-                    context.done(err);
+                console.log(err);
+                context.done(err);
                 }
                 context.res = {
-                    status: 200,
-                    headers: {
-                        'Content-Type': 'text/html'
-                    },
-                    body: data
+                status: 200,
+                headers: {
+                    'Content-Type': 'text/html'
+                },
+                body: data
                 };
                 context.done();
             });
@@ -133,15 +144,21 @@ In this tutorial, you learn how to:
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
         {
+            string indexFile = "index.html";
+            if (Environment.GetEnvironmentVariable("HOME") != null)
+            {
+                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
+            }
+            log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
-                Content = File.ReadAllText("index.html"),
+                Content = File.ReadAllText(indexFile),
                 ContentType = "text/html",
             };
         }
         ```
 
-1. Create a `negotiate` function to help clients get service connection url with access token.
+4. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -195,13 +212,13 @@ In this tutorial, you learn how to:
         }
         ```
 
-2. Create a `message` function to broadcast client messages through service.
+5. Create a `message` function to broadcast client messages through service.
    ```bash
    func new -n message -t HttpTrigger
    ```
 
    > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, since the service is still in preview, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
+   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
 
    # [JavaScript](#tab/javascript)
    - Update `message/function.json` and copy following json codes.
@@ -211,15 +228,14 @@ In this tutorial, you learn how to:
                 {
                     "type": "webPubSubTrigger",
                     "direction": "in",
-                    "name": "message",
-                    "dataType": "binary",
+                    "name": "data",
                     "hub": "simplechat",
                     "eventName": "message",
                     "eventType": "user"
                 },
                 {
                     "type": "webPubSub",
-                    "name": "webPubSubEvent",
+                    "name": "actions",
                     "hub": "simplechat",
                     "direction": "out"
                 }
@@ -228,15 +244,15 @@ In this tutorial, you learn how to:
         ```
    - Update `message/index.js` and copy following codes.
         ```js
-        module.exports = async function (context, message) {
-            context.bindings.webPubSubEvent = {
-                "operationKind": "sendToAll",
-                "message": `[${context.bindingData.connectionContext.userId}] ${message}`,
+        module.exports = async function (context, data) {
+            context.bindings.actions = {
+                "actionName": "sendToAll",
+                "data": `[${context.bindingData.request.connectionContext.userId}] ${data}`,
                 "dataType": context.bindingData.dataType
             };
-            // MessageResponse directly return to caller
+            // UserEventResponse directly return to caller
             var response = { 
-                "message": '[SYSTEM] ack.',
+                "data": '[SYSTEM] ack.',
                 "dataType" : "text"
             };
             return response;
@@ -247,26 +263,25 @@ In this tutorial, you learn how to:
    - Update `message.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("message")]
-        public static async Task<MessageResponse> Run(
-            [WebPubSubTrigger(WebPubSubEventType.User, "message")] ConnectionContext context,
-            BinaryData message,
-            MessageDataType dataType,
-            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubOperation> operations)
+        public static async Task<UserEventResponse> Run(
+            [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
+            BinaryData data,
+            WebPubSubDataType dataType,
+            [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubAction> actions)
         {
-            await operations.AddAsync(new SendToAll
+            await actions.AddAsync(WebPubSubAction.CreateSendToAllAction(
+                BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
+                dataType
+            );
+            return new UserEventResponse
             {
-                Message = BinaryData.FromString($"[{context.UserId}] {message.ToString()}"),
-                DataType = dataType
-            });
-            return new MessageResponse
-            {
-                Message = BinaryData.FromString("[SYSTEM] ack"),
-                DataType = MessageDataType.Text
+                Data = BinaryData.FromString("[SYSTEM] ack"),
+                DataType = WebPubSubDataType.Text
             };
         }
         ```
 
-3. Add the client single page `index.html` in the project root folder and copy content as below.
+6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -380,7 +395,7 @@ Use the following commands to create these items.
 
 ## Configure the Web PubSub service `Event Handler`
 
-In this sample, we're using `WebPubSubTrigger` to listen to service upstream message requests. So Web PubSub need to know the function's endpoint information in order to send target client requests. And Azure Function App requires a system key for security regarding extension-specific webhook methods. In the previous step after we deployed the Function App with `message` functions, we're able to get the system key.
+In this sample, we're using `WebPubSubTrigger` to listen to service upstream requests. So Web PubSub need to know the function's endpoint information in order to send target client requests. And Azure Function App requires a system key for security regarding extension-specific webhook methods. In the previous step after we deployed the Function App with `message` functions, we're able to get the system key.
 
 Go to **Azure portal** -> Find your Function App resource -> **App keys** -> **System keys** -> **`webpubsub_extension`**. Copy out the value as `<APP_KEY>`.
 
