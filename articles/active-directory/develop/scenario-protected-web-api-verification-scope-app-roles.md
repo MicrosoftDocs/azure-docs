@@ -69,11 +69,11 @@ using Microsoft.Identity.Web
 [Authorize]
 public class TodoListController : Controller
 {
-    /// <summary>
+     /// <summary>
     /// The web API will accept only tokens that have the `access_as_user` scope for
     /// this API.
     /// </summary>
-    static readonly string[] scopeRequiredByApi = new string[] { "access_as_user" };
+    const string scopeRequiredByApi = "access_as_user";
 
     // GET: api/values
     [HttpGet]
