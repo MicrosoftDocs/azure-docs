@@ -29,7 +29,7 @@ You can track the status of your import or export jobs on the **Import/Export** 
 
    ![Screenshot showing job details for an Azure Import Export job in the Azure portal. The job and job details are highlighted.](./media/storage-import-export-view-drive-status/job-detail.png)
 
-   The details for an Import/Export job created via the Preview portal look like the job shown below. This job shown is in the Data Copy phase. The **Data copy details** area gives the status of the data copy for each drive. You can select a drive ID to see the data copy details.
+   The details for an Import/Export job created via the Preview portal look like the job shown below. This job is in the Data Copy phase. The **Data copy details** area gives the status of the data copy for each drive. You can select a drive ID to see the data copy details.
 
    ![Screenshot showing job details for an Azure Import Export job created in the Preview portal. The job status and data copy details are highlighted.](./media/storage-import-export-view-drive-status/job-detail-preview.png)
 
