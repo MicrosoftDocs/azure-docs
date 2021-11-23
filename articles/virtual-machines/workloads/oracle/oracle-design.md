@@ -16,7 +16,7 @@ ms.reviewer: tigorman
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Suppose you're planning to migrate an Oracle database from an on-premises location to Azure. You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle Database you're looking to migrate. Further, you have an understanding of the various metrics in Oracle, and you have a baseline understanding of application performance and platform utilization.
+Suppose you're planning to migrate an Oracle database from an on-premises location to Azure. You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle database you're looking to migrate. Further, you have an understanding of the various metrics in Oracle, and you have a baseline understanding of application performance and platform utilization.
 
 This article helps you understand how to optimize your Oracle deployment in Azure. You explore performance tuning options for an Oracle database in an Azure environment. And you develop clear expectations about the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
 
@@ -45,7 +45,7 @@ It's a good idea to consider the following requirements before you start your mi
 
 - Determine the real CPU usage. Oracle is licensed by core, which means that sizing the vCPU needs can be an essential exercise to help you reduce costs. 
 - Determine the database size, backup storage, and growth rate.
-- Determine the IO requirements, which you can estimate based on Oracle Statspack and Automatic Workload Repository (AWR) reports. You can also estimate the requirements from storage monitoring tools available from the operating system.
+- Determine the I/O requirements, which you can estimate based on Oracle Statspack and Automatic Workload Repository (AWR) reports. You can also estimate the requirements from storage monitoring tools available from the operating system.
 
 ## Configuration options
 
@@ -58,7 +58,7 @@ It's a good idea to generate an AWR report and obtain some metrics from it that 
 
 ### Generate an AWR report
 
-If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (such as IOPS, Mbps, and GiBs). For those databases without the Diagnostics Pack license, or for a Standard Edition database, you can collect the same important metrics with a Statspack report after manual snapshots have been collected. The main differences between these two reporting methods are that AWR is automatically collected, and that it provides more information about the database than does Statspack.
+If you have an existing an Oracle Enterprise Edition database and are planning to migrate to Azure, you have several options. If you have the [Diagnostics Pack](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) for your Oracle instances, you can run the Oracle AWR report to get the metrics (such as IOPS, Mbps, and GiBs). For those databases without the Diagnostics Pack license, or for an Oracle Standard Edition database, you can collect the same important metrics with a Statspack report after manual snapshots have been collected. The main differences between these two reporting methods are that AWR is automatically collected, and that it provides more information about the database than does Statspack.
 
 You might consider running your AWR report during both regular and peak workloads, so you can compare. To collect the more accurate workload, consider an extended window report of one week, as opposed to one day. AWR does provide averages as part of its calculations in the report.
 
@@ -197,7 +197,7 @@ To maximize throughput, start with read-only for host caching whenever possible.
 - For data disks that contain the following, use premium SSD with read-only host caching: Oracle data files, temp files, control files, block change tracking files, BFILEs, files for external tables, and flashback logs.
 - For data disks that contain Oracle online redo log files, use premium SSD or UltraDisk with no host caching (the **None** option). Oracle redo log files that are archived, and Oracle Recovery Manager backup sets, can also reside with the online redo log files. Note that host caching is limited to 4095 GiB, so don't allocate a premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, stripe several premium SSDs with RAID-0, using Linux LVM2 or by using Oracle Automatic Storage Management.
 
-If workloads vary greatly between the day and evening, and the I/O workload can support it, P1-P20 Premium SSD with bursting might provide the performance required during night-time batch loads or limited I/O demands.  
+If workloads vary greatly between the day and evening, and the I/O workload can support it, P1-P20 premium SSD with bursting might provide the performance required during night-time batch loads or limited I/O demands.  
 
 ## Security
 
