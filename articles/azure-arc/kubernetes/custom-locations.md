@@ -94,7 +94,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 
 1. Deploy the Azure service cluster extension of the Azure service instance you intent to install on your cluster:
 
-    * [Azure Arc-enabled Data Services](../data/create-data-controller-direct-cli.md#create-the-arc-data-services-extension)
+    * [Azure Arc-enabled Data Services](../data/create-data-controller-direct-prerequisites.md)
 
         > [!NOTE]
         > Outbound proxy without authentication and outbound proxy with basic authentication are supported by the Azure Arc-enabled Data Services cluster extension. Outbound proxy that expects trusted certificates is currently not supported.

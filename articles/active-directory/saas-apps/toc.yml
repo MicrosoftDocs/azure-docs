@@ -407,6 +407,8 @@
         href: civic-platform-tutorial.md
       - name: Clarity
         href: cappm-tutorial.md
+      - name: ClarivateWOS
+        href: clarivatewos-tutorial.md  
       - name: Clarizen One
         href: clarizen-tutorial.md
       - name: Claromentis
@@ -679,6 +681,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equifax Workforce Solutions
+        href: equifax-workforce-solutions-tutorial.md  
       - name: Equinix Federation App
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
@@ -1490,6 +1494,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palantir Foundry
+        href: palantir-foundry-tutorial.md  
       - name: Palo Alto Networks - Admin UI
         href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
