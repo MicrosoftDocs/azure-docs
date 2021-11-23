@@ -281,23 +281,6 @@ items:
     items:
     - name: Getting started with iOS map control
       href: how-to-use-ios-map-control-library.md
-    - name: Show traffic data 
-      href: show-traffic-data-on-map-ios-sdk.md
-    - name: Cluster point data
-      href: clustering-point-data-in-the-ios-sdk.md
-    - name: Use data-driven expressions
-      href: data-driven-style-expressions-ios-sdk.md
-    - name: React to events
-      href: interact-with-map-ios-sdk.md         
-      href: how-to-use-ios-map-control-library.md   
-    - name: Add a bubble layer
-      href: add-bubble-layer-to-map-ios.md
-    - name: Display feature information
-      href: display-feature-information-ios-sdk.md
-    - name: Add a line layer
-      href: add-line-layer-to-map-ios.md
-    - name: Add a polygon layer
-      href: add-polygon-layer-map-ios.md  
     - name: Change the style of a map
       href: set-map-style-ios-sdk.md
     - name: Add controls to a map
@@ -306,6 +289,14 @@ items:
       href: create-data-source-ios-sdk.md
     - name: Add a symbol layer
       href: add-symbol-layer-ios.md
+    - name: Add a bubble layer
+      href: add-bubble-layer-map-ios.md
+    - name: Display feature information
+      href: display-feature-information-ios-sdk.md
+    - name: Add a line layer
+      href: add-line-layer-map-ios.md
+    - name: Add a polygon layer
+      href: add-polygon-layer-map-ios.md
     - name: Add a polygon extrusion layer
       href: add-polygon-extrusion-layer-map-ios.md
     - name: Add heat map layer
@@ -313,7 +304,15 @@ items:
     - name: Add an image layer
       href: add-image-layer-to-map-ios.md
     - name: Add a tile layer
-      href: add-tile-layer-to-map-ios.md       
+      href: add-tile-layer-to-map-ios.md
+    - name: Show traffic data 
+      href: show-traffic-data-map-ios-sdk.md
+    - name: Cluster point data
+      href: clustering-point-data-ios-sdk.md
+    - name: Use data-driven expressions
+      href: data-driven-style-expressions-ios-sdk.md
+    - name: React to events
+      href: interact-map-ios-sdk.md  
   - name: Use Azure Maps in Power BI
     items: 
     - name: Getting started

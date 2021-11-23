@@ -121,4 +121,4 @@ The following demonstrates the above code animating the map view from New York t
 See the following articles for more code samples to add to your maps:
 
 - [Add a symbol layer](add-symbol-layer-ios.md)
-- [Add a bubble layer](add-bubble-layer-to-map-ios.md)
+- [Add a bubble layer](add-bubble-layer-map-ios.md)
