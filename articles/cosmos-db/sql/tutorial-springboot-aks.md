@@ -95,7 +95,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    az aks install-cli
    ```
 
-1. Get access credentials for the AKS cluster.
+1. Get access credentials for the Azure Kubernetes Service cluster.
 
    ```azurecli
    az aks get-credentials --resource-group=cosmosdb-springboot-aks-rg --name=cosmosdb-springboot-aks
@@ -121,7 +121,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
 
 ## Run the application locally
 
-If you intend to run the application on AKS, skip this section and move on to [Push Docker image to Azure Container Registry](#push-docker-image-to-azure-container-registry)
+If you intend to run the application on Azure Kubernetes Service, skip this section and move on to [Push Docker image to Azure Container Registry](#push-docker-image-to-azure-container-registry)
 
 1. Before you run the application, update the `application.properties` file with the details of your Azure Cosmos DB account.
 
