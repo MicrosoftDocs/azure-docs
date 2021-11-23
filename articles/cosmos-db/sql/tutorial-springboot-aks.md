@@ -141,7 +141,7 @@ If you intend to run the application on AKS, skip this section and move on to [P
    java -jar target/*.jar
    ```
 
-2. To access the application, move to Step 2 in section [Access the application endpoint](access-the-application-endpoint)
+2. To access the application, move to Step 2 in section [Access the application](access-the-application)
 
 ## Push Docker image to Azure Container Registry
 
