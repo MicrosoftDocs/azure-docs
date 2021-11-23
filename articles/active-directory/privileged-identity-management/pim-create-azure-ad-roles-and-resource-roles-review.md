@@ -39,7 +39,7 @@ The need for access to privileged Azure resource and Azure AD roles by employees
 
     :::image type="content" source="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png" alt-text="Select Identity Governance in Azure Portal screenshot." lightbox="./media/pim-create-azure-ad-roles-and-resource-roles-review/identity-governance.png"::: 
  
-4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the resource you want to manage, such as a subscription.
+4. For **Azure AD roles**, select **Azure AD roles** again under **Manage**. For **Azure resources**, select the subscription you want to manage.
 
 
 5. Under Manage, select **Access reviews**, and then select **New** to create a new access review.
