@@ -36,7 +36,7 @@ Also try automated machine learning for these other model types:
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
 ## Sign in to the studio
 
@@ -66,7 +66,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Browse**. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 

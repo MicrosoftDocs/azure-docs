@@ -5,7 +5,7 @@ ms.date: 11/09/2021
 ms.topic: sample
 author: memildin
 ms.author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.custom: subject-resourcegraph-sample
 ---
 # Azure Resource Graph sample queries for Microsoft Defender for Cloud

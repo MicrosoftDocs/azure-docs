@@ -4,7 +4,7 @@ description: This article describes the different schemas used by Microsoft Defe
 services: security-center
 author: memildin
 manager: rkarlin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: memildin

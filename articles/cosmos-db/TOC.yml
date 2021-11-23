@@ -98,6 +98,8 @@
               href: continuous-backup-restore-frequently-asked-questions.yml
             - name: Continuous backup - Resource model
               href: continuous-backup-restore-resource-model.md
+            - name: Latest restorable timestamp
+              href: latest-restore-timestamp-continuous-backup.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -167,8 +169,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
-            - name: Xamarin app
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -191,10 +191,6 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-            - name: Build a mobile app
-              items:
-                - name: Xamarin
-                  href: sql/mobile-apps-with-xamarin.md
         - name: 2 - Migrate data
           items:
             - name: Using the Data Migration tool
@@ -209,10 +205,8 @@
           href: sql/tutorial-global-distribution-sql-api.md
     - name: Samples
       items:
-        - name: .NET V2 SDK samples
-          href: sql/sql-api-dotnet-samples.md
         - name: .NET V3 SDK samples
-          href: sql/sql-api-dotnet-v3sdk-samples.md
+          href: sql/sql-api-dotnet-samples.md
         - name: Java SDK v4 samples
           href: sql/sql-api-java-sdk-samples.md
         - name: Spring Data v3 samples
@@ -229,6 +223,8 @@
           href: sql/templates-samples-sql.md
         - name: Bicep
           href: sql/bicep-samples.md
+        - name: .NET V2 SDK samples (legacy)
+          href: sql/sql-api-dotnet-v2sdk-samples.md
     - name: Concepts
       items:
         - name: Modeling and partitioning
@@ -624,7 +620,7 @@
               href: sql/change-feed-design-patterns.md
             - name: Reading change feed
               href: sql/read-change-feed.md
-            - name: sql/Change feed processor
+            - name: Change feed processor
               href: sql/change-feed-processor.md
             - name: Trigger Azure Functions
               displayName: change feed
@@ -931,13 +927,13 @@
           items:
             - name: .NET SDK v3
               href: sql/sql-api-sdk-dotnet-standard.md
-            - name: .NET SDK v2
+            - name: .NET SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet.md
-            - name: .NET Core SDK v2
+            - name: .NET Core SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet-core.md
-            - name: .NET change feed library v2
+            - name: .NET change feed library v2 (legacy)
               href: sql/sql-api-sdk-dotnet-changefeed.md
-            - name: .NET bulk executor library v2
+            - name: .NET bulk executor library v2 (legacy)
               href: sql/sql-api-sdk-bulk-executor-dot-net.md
         - name: Java SDKs and Connectors
           items:
@@ -1501,12 +1497,18 @@
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
+            - name: Get the latest restore timestamp
+              href: get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md
         - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md
+          items:
+          - name: Configure periodic backup
+            href: configure-periodic-backup-restore.md
+          - name: Update backup storage redundancy 
+            href: update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall

@@ -1,16 +1,7 @@
 ---
 title: Advanced SIEM Information Model (ASIM) Parsers | Microsoft Docs
 description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf

@@ -175,16 +175,16 @@ In this section, you can verify when the return is complete and then choose to d
 
 ### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
 
-After the device is received at the Azure datacenter, inspect the device for damage or any signs of tampering.
+When you initiate the return, the billing is paused. After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. The order item status will reflect the return as complete also.  You can now choose to delete the order item resource in the Azure portal.
+- If the device arrives intact and is in good shape, Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
 - If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products). 
 
 ### [Portal (Classic)](#tab/azure-portal) 
 
-After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
+When you initiate the return, the billing is paused. After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
+- If the device arrives intact and is in good shape, Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
 - If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
 

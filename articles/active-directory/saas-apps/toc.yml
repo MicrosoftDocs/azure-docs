@@ -407,6 +407,8 @@
         href: civic-platform-tutorial.md
       - name: Clarity
         href: cappm-tutorial.md
+      - name: ClarivateWOS
+        href: clarivatewos-tutorial.md  
       - name: Clarizen One
         href: clarizen-tutorial.md
       - name: Claromentis
@@ -427,7 +429,7 @@
         href: clickup-productivity-platform-tutorial.md
       - name: Clockwork Recruiting
         href: clockwork-recruiting-tutorial.md  
-      - name: Cloud Academy - SSO
+      - name: Cloud Academy
         href: cloud-academy-sso-tutorial.md
       - name: Cloud Management Portal for Microsoft Azure
         href: newsignature-tutorial.md
@@ -443,7 +445,7 @@
         href: cloud-service-picco-tutorial.md
       - name: CloudSign
         href: cloudsign-tutorial.md
-      - name: cloudtamer.io
+      - name: Kion
         href: cloudtamer-io-tutorial.md
       - name: Cobalt
         href: cobalt-tutorial.md
@@ -541,6 +543,8 @@
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
+      - name: CyberSolutions CYBERMAILΣ
+        href: cybersolutions-cybermail-tutorial.md  
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -617,6 +621,8 @@
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
+      - name: EAComposer
+        href: eacomposer-tutorial.md  
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
       - name: EasySSO for BitBucket
@@ -679,6 +685,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equifax Workforce Solutions
+        href: equifax-workforce-solutions-tutorial.md  
       - name: Equinix Federation App
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
@@ -830,6 +838,8 @@
         href: getabstract-tutorial.md
       - name: GetThere
         href: getthere-tutorial.md
+      - name: GHAE
+        href: ghae-tutorial.md  
       - name: Gigya
         href: gigya-tutorial.md
       - name: GitHub
@@ -995,7 +1005,7 @@
       - name: IMAGE WORKS
         href: imageworks-tutorial.md
       - name: Imagineer WebVision
-        href: imagineerwebVision-tutorial.md
+        href: imagineerwebvision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
       - name: Imperva Data Security
@@ -1488,6 +1498,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palantir Foundry
+        href: palantir-foundry-tutorial.md  
       - name: Palo Alto Networks - Admin UI
         href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
@@ -2198,6 +2210,8 @@
         href: vidyard-tutorial.md
       - name: Virtual Risk Manager
         href: virtual-risk-manager-tutorial.md
+      - name: Virtual Risk Manager - USA
+        href: virtual-risk-manager-usa-tutorial.md  
       - name: Visibly
         href: visibly-tutorial.md  
       - name: Visit.org
@@ -2410,7 +2424,9 @@
       - name: BenQ IAM
         href: benq-iam-provisioning-tutorial.md 
       - name: Bentley - Automatic User Provisioning
-        href: bentley-automatic-user-provisioning-tutorial.md  
+        href: bentley-automatic-user-provisioning-tutorial.md
+      - name: BIC Cloud Design
+        href: bic-cloud-design-provisioning-tutorial.md    
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
       - name: Bizagi Studio for Digital Process Automation
@@ -2662,13 +2678,15 @@
       - name: Promapp
         href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
-        href: Proxyclick-provisioning-tutorial.md
+        href: proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
       - name: Proware
         href: proware-provisioning-tutorial.md
       - name: PureCloud by Genesys
         href: purecloud-by-genesys-provisioning-tutorial.md
+      - name: Real Links
+        href: real-links-provisioning-tutorial.md
       - name: Reward Gateway
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO

@@ -168,13 +168,13 @@
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Plan capacity
-      href: search-capacity-planning.md
     - name: Create a service
       href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
-    - name: Manage costs
+    - name: Plan capacity
+      href: search-capacity-planning.md
+    - name: Plan and manage costs
       href: search-sku-manage-costs.md
     - name: Availability and recovery
       href: search-performance-optimization.md

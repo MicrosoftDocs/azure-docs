@@ -4,7 +4,7 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/08/2021
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-portal"
 zone_pivot_groups: app-service-ide
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -414,7 +414,7 @@ Follow these steps to create your App Service resources and publish your project
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-1. Sign into your Azure account by using the [`az login`](/cli/reference-index#az_login) command and following the prompt:
+1. Sign into your Azure account by using the [`az login`](/cli/azure/reference-index#az_login) command and following the prompt:
 
     ```azurecli
     az login

@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --output json)
+SP=$(az ad sp create-for-rbac --role Contributor --output json)
 SP_ID=$(echo $SP | jq -r .appId)
 SP_PASSWORD=$(echo $SP | jq -r .password)
 
