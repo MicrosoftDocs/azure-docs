@@ -249,9 +249,16 @@ Your application's business logic will dictate this step, some common authorizat
 * Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md). 
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
-* Use the `oid` or `sub` claim to determine if the user owns the data that they are attempting to access. 
 
-**Never** use the `email` or `upn` claims to determine if the user in the token has access to data. These claims can change over time and are not secure or reliable to use for authorization. When storing data in your API, always use a combination of `tid` and either `sub` or `oid` as a lookup key - do not use mutable human-readable identifiers. 
+**Never use `email` or `upn` claim values** to determine whether the user in an access token should have access to data! Mutable claim values like these can change over time, making them insecure and unreliable for authorization.
+
+**Do** use immutable claim values `tid` and `sub` or `oid` as a combined key for storing for uniquely identifying your API's data and determining whether a user should be granted access to that data.
+- Good: `tid` + `sub`
+- Better: `tid` + `oid` - the `oid` is consistent across applications, so an ecosystem of apps can audit user access to data, for instance. 
+
+**Do not** use mutable, human-readable identifiers like `email` or `upn` for uniquely identifying data.
+- Bad: `email`
+- Bad: `upn`
 
 #### Validate that the application that signed in the user has permission to access this data
 
