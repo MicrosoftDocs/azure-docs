@@ -150,7 +150,7 @@ The following screenshot shows a map of moderate traffic jams and incidents with
 
 View the following guides to learn how to add more data to your map:
 
-* [Add a tile layer](add-tile-layer-to-map-ios.md)
+* [Add a tile layer](add-tile-layer-map-ios.md)
 * [Add a symbol layer](add-symbol-layer-ios.md)
 * [Add a bubble layer](add-bubble-layer-map-ios.md)
 * [Add a line layer](add-line-layer-map-ios.md)
