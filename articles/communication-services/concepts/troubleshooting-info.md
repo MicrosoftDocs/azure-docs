@@ -192,24 +192,42 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
-## Finding AAD Directory (tenant) and Application (client), user ID values
+## Finding Azure Active Directory information
 
-To find your Directory (tenant) and Application (client) ID, follow the steps listed below:
+* **Getting Directory ID**
+* **Getting Application ID**
+* **Getting User ID**
+
+## Getting Directory ID 
+To find your Directory (tenant) ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+
+    ![Copy the directory (tenant ID](./media/troubleshooting/copy-aad-directory-id.png)
+
+## Getting Application ID 
+To find your Application ID, follow the steps listed below:
 
 1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
 1. From the left-pane, select Azure Active Directory.
 1. From **App registrations** in Azure AD, select your application.
-1. Copy the Directory (tenant) ID and store it in your application code.
-
-    ![Copy the directory (tenant ID) and store it in your app code](./media/troubleshooting/copy-tenant-id.png)
-
-    The directory (tenant) ID can also be found in the default directory overview page.
-
 1. Copy the **Application ID** and store it in your application code.
 
-   ![Copy the application (client) ID](./media/troubleshooting/copy-app-id.png)
+   ![Copy the application ID](./media/troubleshooting/copy-aad-application-id.png)
 
-User ID is the login of the user.
+   The directory (tenant) ID can also be found in the application overview page.
+
+## Getting User ID
+To find your User ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Users** in Azure AD, select your user.
+1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+
+   ![Copy the user ID](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Calling SDK error codes
 
