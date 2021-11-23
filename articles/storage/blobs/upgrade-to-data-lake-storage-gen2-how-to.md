@@ -235,7 +235,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
 
 ## Stop the upgrade
 
-You can stop the migration before it completes. Something here about what happens when you stop it.
+You can stop the migration before it completes.
 
 ### [Portal](#tab/azure-portal)
 

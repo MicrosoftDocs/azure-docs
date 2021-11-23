@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Azure Chaos Studio?
-    href: chaos-studio-overview.md 
+    href: chaos-studio-overview.md
   - name: What is chaos engineering?
     href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: Quickstart
@@ -14,6 +14,8 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
+  - name: Schedule an experiment
+    href: tutorial-schedule.md
 - name: Samples
   items:
   - name: Azure REST API 
@@ -69,18 +71,18 @@
   - name: Service limits
     href: chaos-studio-service-limits.md
   - name: REST API documentation
-    href: https://docs.microsoft.com/rest/api/chaosstudio
+    href: /rest/api/chaosstudio/
   - name: Python SDK
-    href: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+    href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 - name: Resources
   items:
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/
+    href: https://azure.microsoft.com/pricing/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/
+    href: https://stackoverflow.com/questions

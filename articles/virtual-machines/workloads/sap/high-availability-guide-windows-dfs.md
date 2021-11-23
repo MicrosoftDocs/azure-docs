@@ -64,36 +64,16 @@ Setting up of Folder Targets has to be done as described in [High availability f
 ## Configuring DFS-N for SAPMNT
 
 The following shows the individual steps of initially configuring DFS-N. 
-![starting DFS console](media/virtual-machines-shared-sap-high-availability-guide/dfs-console-start-01.png)
 
-Start the DFS Management console from the Windows Administrative Tools in the Windows Server Start Menu.
+Start the **DFS Management console** from the **Windows Administrative Tools** in the Windows Server Start Menu.
 
 ![DFS Setup Step 1](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-01.png)
 
 This screen shows the opening DFS screen.
 
-![DFS Setup Step 2](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-02.png)
+![DFS Setup Step 7](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-07.png)In this screen an AD joined Windows Server with DFS installed has to be selected.
 
-In this screen an AD joined Windows Server with DFS installed has to be selected.
-
-![DFS Setup Step 3](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-03.png)
-
-Pushing the **Browse...** opens the **Select Computer** dialog sequence which shows a list of all domain joined servers. This list may include servers where the DFS-N Role is not installed. Please ensure to choose a server where the DFS-N Role is installed.
- 
-
-![DFS Setup Step 4](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-04.png)
-
-![DFS Setup Step 5](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-05.png)
-
-![DFS Setup Step 6](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-06.png)
-
-![DFS Setup Step 7](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-07.png)
-
-Push the **Next** button to confirm the selection of the DFS server.
-
-![DFS Setup Step 8](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-08.png)
-
-In this screen the name of the second part of the Namespace root is defined. Here **sapmnt** has to be supplied. This is part of the SAP naming convention.
+![DFS Setup Step 8](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-08.png)In this screen the name of the second part of the Namespace root is defined. Here **sapmnt** has to be supplied. This is part of the SAP naming convention.
 
 ![DFS Setup Step 9](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-09.png)
 
@@ -101,9 +81,9 @@ In this step the namespace type is defined. This also determines the name of the
 
 ![DFS Setup Step 10](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-10.png)
 
-Under the Namespace root numerous Namespace folders can be created. Each of them points to a Folder Target. While the name of the Folder Target can be chosen freely, the name of the Namespace folder has to match a valid SAP SID. In combination this will create a valid SWPM usable UNC share. This mechanism is also be used to create the trans-directory in order to provide a SAP transport directory. The screenshot shows an example for such a configuration.
+Under the Namespace root numerous Namespace folders can be created. Each of them points to a Folder Target. While the name of the Folder Target can be chosen freely, the name of the Namespace folder has to match a valid SAP SID. In combination this will create a valid SWPM usable UNC share. This mechanism is also be used to create the trans-directory in order to provide a SAP transport directory. 
 
-![DFS Setup Step 11](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-11.png)
+![DFS Setup Step 11](media/virtual-machines-shared-sap-high-availability-guide/dfs-setup-11.png)The screenshot shows an example for such a configuration.
 
 ## Adding folders to Azure NetApp Files SMB based Namespace root
 

@@ -11,7 +11,9 @@ ms.date: 11/11/2021
 
 # Map Data in Azure Synapse Analytics
 
-## What is the Map Data tool?
+
+## What is the Map data tool?
+
 
 The Map Data tool is a guided process to help users create ETL mappings and mapping data flows from their source data to Synapse lake database tables without writing code. This process starts with the user choosing the destination tables in Synapse lake databases and then mapping their source data into these tables. 
 
@@ -19,9 +21,12 @@ For more information on Synapse lake databases see [Overview of Azure Synapse da
 
 Map Data provides for a guided experience where the user can generate a mapping data flow without having to start with a blank canvas and quickly generate a scalable mapping data flow runnable in Synapse pipelines.
 
-[!NOTE] The Map Data feature in Synapse Analytics pipelines is currently in public preview
 
-## Getting Started
+> [!NOTE] 
+> The Map Data feature in Synapse Analytics pipelines is currently in public preview
+
+## Getting started
+
 The Map Data tool is started from within the Synapse lake database experience. From here, you can select the Map Data tool to begin the process. 
 
 ![Screenshot showing how to open an Map data](./media/overview-map-data/open-map-data.png)
@@ -40,24 +45,26 @@ When choosing a file store such as Azure Data Lake Storage Gen 2 the following f
 * Delimited Text
 * Parquet
 
-## Create Data Mapping
+
+## Create data mapping
 Name your data mapping and select the Synapse lake database destination.
 ![Screenshot showing naming and destination](./media/overview-map-data/destination-map-data.png)
 
-## Source to Target Mapping
+## Source to target mapping
 Choose a Primary source table to map to the Synapse lake database destination table.
 ![Screenshot showing Map data rules](./media/overview-map-data/rules-map-data.png)
 
-### New Mapping
+### New mapping
 Use the New Mapping button to add a mapping method to create a mapping or transformation.
 
-### Additional Source
+### Additional source
 Use the Additional source button to join to and add another source to your mapping.
 
-### Preview Data
+### Preview data
 The **Data Preview** tab gives you an interactive snapshot of the data of each transform. For more information, see [Data preview in debug mode](../../data-factory/concepts-data-flow-debug-mode.md#data-preview).
 
-### Mapping Methods
+### Mapping methods
+
 The following mapping methods are supported:
 
 * [Direct](../../data-factory/data-flow-select.md)
@@ -79,5 +86,7 @@ The following mapping methods are supported:
 	* Lower
 	* Advanced 
 
-## Create Pipeline
+
+## Create pipeline
+
 Once you are done with your Map Data transformations select the Create pipeline button to generate a mapping data flow and pipeline to debug and run your transformation.

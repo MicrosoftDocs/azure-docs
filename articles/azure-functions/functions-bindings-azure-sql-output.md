@@ -3,11 +3,12 @@ title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/9/2021
+ms.date: 11/12/2021
 ms.author: drskwier
+ms.reviewer: cachai
 ---
 
-# Azure SQL output binding for Azure Functions
+# Azure SQL output binding for Azure Functions (preview)
 
 The Azure SQL output binding lets you write to a database.
 

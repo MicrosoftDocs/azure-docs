@@ -6,6 +6,7 @@
   - name: What is Microsoft Defender for Cloud?
     href: defender-for-cloud-introduction.md
   - name: What are the enhanced security features?
+    displayName: azure defender
     href: enhanced-security-features-overview.md
   - name: What's new?
     displayName: changelog, news, release notes
@@ -101,7 +102,7 @@
   - name: Access and track your secure score
     href: secure-score-access-and-track.md
   - name: Prioritize security actions by data sensitivity
-    displayName: sensitivity, data, purview, inventory
+    displayName: sensitivity, data, purview, inventory, information protection
     href: information-protection.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md
@@ -225,9 +226,6 @@
     - name: Scan images in your CI/CD workflows
       displayName: ACR, registry, images, trevi, vulnerabilities, scanner
       href: defender-for-container-registries-cicd.md
-    - name: Disable specific image vulnerability findings
-      displayName: ACR, registry, images, qualys
-      href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Protect Azure Arc-enabled Kubernetes clusters
       displayName: k8s, containers, aks, hybrid, arc, azure arc, multicloud
       href: defender-for-kubernetes-azure-arc.md
@@ -268,6 +266,7 @@
   - name: Integrate security solutions and data sources
     href: partner-integration.md
   - name: Protect network resources
+    displayName: map, network map
     href: protect-network-resources.md
   - name: Enforce and manage MFA
     displayName: identity, access, AAD, active directory, multi-factor, authentication, multifactor, users, passwords
@@ -326,7 +325,7 @@
   - name: REST APIs documentation
     href: /rest/api/securitycenter/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/security-center/TOC.json
+    href: /security/benchmark/azure/baselines/security-center-security-baseline?toc=/azure/defender-for-cloud/TOC.json
   - name: FAQ for Microsoft Defender for Cloud
     items:
     - name: General questions
@@ -342,7 +341,7 @@
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
-  - name: Azure roadmap blog
+  - name: Azure updates blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations
     href: endpoint-protection-recommendations-technical.md
@@ -357,21 +356,19 @@
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
-    href: /azure/asc-for-iot/
+    href: /azure/defender-for-iot/
   - name: Azure security documentation
     href: ../security/index.yml
-  - name: Azure updates
-    href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Microsoft Defender for Cloud tech community blogs
-    href: https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
-    href: https://stackoverflow.com/search?q=azure-security-center
-  - name: ASCinTheField YouTube videos
-    href: https://www.youtube.com/results?search_query=%23ASCInTheField
+    href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
+  - name: MDfCinTheField YouTube videos
+    href: https://www.youtube.com/hashtag/mdfcinthefield
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/security-center/
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Troubleshooting guide

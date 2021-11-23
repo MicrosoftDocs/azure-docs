@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
-# Manage consent to applications and evaluate consent requests in Azure Active Directory
+# Manage consent to applications and evaluate consent requests
 
 Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
