@@ -41,8 +41,6 @@
         href: core/tutorial-define-gateway-device-type.md
       - name: Connect an IoT Edge device
         href: /learn/modules/connect-iot-edge-device-to-iot-central
-      - name: Connect IoT Edge for Linux on Windows device 
-        href: core/howto-connect-eflow.md
     - name: Build integrated solutions
       items:
       - name: Create a device group

@@ -33,7 +33,7 @@ To complete the steps in this article, you need:
   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise) or Windows Server 2019<sup>1</sup>/2022
   * Minimum free memory: 1 GB
   * Minimum free disk space: 10 GB
-    <sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.
+  * <sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.
 
 To follow the steps in this article, download the [EnvironmentalSensorManifest.json](https://raw.githubusercontent.com/Azure-Samples/iot-central-docs-samples/master/iotedge/EnvironmentalSensorManifest.json) file to your computer.
 
@@ -75,7 +75,7 @@ An IoT Edge manifest doesn't define the telemetry a module sends. You add the te
 
 To add the telemetry definitions to the device template:
 
-1. Select the **Manage** interface in the **Environmental Sensor Edge Device** template.
+1. Select the **management** interface in the **Environmental Sensor Edge Device** template.
 
 1. Select **+ Add capability**. Enter *machine* as the **Display name** and select the **Capability type** as **Telemetry**.
 
@@ -91,7 +91,7 @@ To add the telemetry definitions to the device template:
 
 1. Select **Save** to update the template.
 
-The **Manage** interface now includes the **machine**, **ambient**, and **timeCreated** telemetry types:
+The **management** interface now includes the **machine**, **ambient**, and **timeCreated** telemetry types:
 
 :::image type="content" source="media/howto-connect-eflow/manage-interface.png" alt-text="Interface with machine and ambient telemetry types."::: 
 
@@ -105,7 +105,7 @@ To enable an operator to view the telemetry from the device, define a view in th
 
 1. Change the view name to *View IoT Edge device telemetry*.
 
-1. Under **Start with devices**, select the **ambient**, **humidity** and **temperature** telemetry types. Then select **Add tile**.
+1. Under **Start with devices**, select the **ambient/temperature**, **ambient/humidity**, **machine/humidity**, and **machine/temperature** telemetry types. Then select **Add tile**.
 
 1. Select **Save** to save the **View IoT Edge device telemetry** view.
 
@@ -133,7 +133,7 @@ You now have a new device with the status **Registered**:
 
 ### Get the device credentials
 
-When you deploy the IoT Edge device later in this how-to article, you need the credentials that allow the device to connect to your IoT Central application. The get the device credentials:
+When you deploy the IoT Edge device later in this how-to article, you need the credentials that allow the device to connect to your IoT Central application. To get the device credentials:
 
 1. On the **Device** page, select the device you created.
 
@@ -147,13 +147,35 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
 
 ## Install and provision an EFLOW device
 
-This new article should have all the necessary PowerShell commands to install and deploy and EFLOW device. Then at the end of the section a note that says something like "To learn about other ways you can deploy and provision an EFLOW device, see [Install and provision Azure IoT Edge for Linux on a Windows device.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows)
+1. In an elevated PowerShell session, run each of the following commands to download IoT Edge for Linux on Windows.
 
-Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously. 
+   ```powershell
+   $msiPath = $([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))
+   $ProgressPreference = 'SilentlyContinue'
+   Invoke-WebRequest "https://aka.ms/AzEflowMSI" -OutFile $msiPath
+   ```
+
+1. Install IoT Edge for Linux on Windows on your device.
+
+   ```powershell
+   Start-Process -Wait msiexec -ArgumentList "/i","$([io.Path]::Combine($env:TEMP, 'AzureIoTEdge.msi'))","/qn"
+   ```
+
+   You can specify custom IoT Edge for Linux on Windows installation and VHDX directories by adding `INSTALLDIR="<FULLY_QUALIFIED_PATH>"` and `VHDXDIR="<FULLY_QUALIFIED_PATH>"` parameters to the install command.
+
+1. Create the IoT Edge for Linux on Windows deployment. The deployment creates your Linux VM and installs the IoT Edge runtime for you.
+
+   ```powershell
+   Deploy-Eflow
+   ```
+
+Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously.
 
  ```azurepowershell-interactive
    Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
    ```
+
+To learn about other ways you can deploy and provision an EFLOW device, see [Install and provision Azure IoT Edge for Linux on a Windows device.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows)
 
 Go to the **Device Details** page in your IoT Central application and you can see telemetry flowing from your EFLOW device:
 
