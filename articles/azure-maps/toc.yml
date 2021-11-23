@@ -281,6 +281,15 @@ items:
     items:
     - name: Getting started with iOS map control
       href: how-to-use-ios-map-control-library.md
+    - name: Show traffic data 
+      href: show-traffic-data-on-map-ios-sdk.md
+    - name: Cluster point data
+      href: clustering-point-data-in-the-ios-sdk.md
+    - name: Use data-driven expressions
+      href: data-driven-style-expressions-ios-sdk.md
+    - name: React to events
+      href: interact-with-map-ios-sdk.md         
+      href: how-to-use-ios-map-control-library.md   
     - name: Add a bubble layer
       href: add-bubble-layer-to-map-ios.md
     - name: Display feature information
