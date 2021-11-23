@@ -49,11 +49,11 @@ The output of a flowlet defines the output columns that can be expected to emit 
 ### Debugging a flowlet
 Debugging a flowlet has a couple of differences from the mapping data flow debug experience. 
 
-First, the preview data is only available at the output of the flowlet. To preview data make sure to click the flowout output and then the Prevew Data tab.
+First, the preview data is only available at the output of the flowlet. To preview data make sure to select the flowout output and then the Prevew Data tab.
 
 ![Screenshot showing Preview Data](./media/data-flow-flowlet/flowlet-debug.png)
 
-Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings, you should see a grid to fill out with test data that will match the input columns. Note for inputs with a large number of columns you may need to click on the full screen icon.
+Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings, you should see a grid to fill out with test data that will match the input columns. Note for inputs with a large number of columns you may need to select on the full screen icon.
 
 ![Screenshot showing Debug Settings](./media/data-flow-flowlet/flowlet-debug-settings.png)
 
@@ -64,7 +64,7 @@ For a single transformation activity, you can right-click the mapping data flow 
 
 ![Screenshot showing creating a flowlet from an existing activity](./media/data-flow-flowlet/flowlet-context-create.png)
 
-If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can accomplished by either lassoing multiple activities by drawing a rectangle to select them or using shift+left mouse click to select multiple activities. Then you will right-click and select Create a new flowlet.
+If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can accomplished by either lassoing multiple activities by drawing a rectangle to select them or using shift+select to select multiple activities. Then you will right-click and select Create a new flowlet.
 
 ![Screenshot showing  rectangle select from existing activities](./media/data-flow-flowlet/flowlet-context-multi.png)
 
