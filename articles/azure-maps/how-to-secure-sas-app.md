@@ -14,14 +14,7 @@ custom.ms: subject-rbac-steps
 
 # Secure an application with SAS token
 
-This article describes how to host a public web single page applications in a browser without any user authentication for Microsoft Azure Maps using the SAS token authentication.
-
-## View Azure Maps authentication details
-
-[!INCLUDE [authentication details](./includes/view-authentication-details.md)]
-
->[!IMPORTANT]
->For production applications, we recommend implementing a server application with Azure AD and Azure role-based access control (Azure RBAC). For an overview of Azure AD concepts, see [Authentication with Azure Maps](azure-maps-authentication.md).
+This article describes how to create an Azure Maps account and a SAS token which can be used to call the Azure Maps REST API.
 
 ## Scenario: SAS token
 
@@ -37,7 +30,7 @@ The following steps outline this process:
 
 1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md).
 1. Create an [User Assigned Managed Identity](../active-directory/fundamentals/service-accounts-principal.md).
-1. Assign Azure RBAC `Azure Maps Search and Render Data Reader` to the User Assigned Managed Identity. 
+1. Assign Azure RBAC `Azure Maps Data Reader` to the User Assigned Managed Identity. 
 1. Create a Map account with CORS configuration and attaching the User Assigned Managed Identity.
 1. Create and save a SAS token into the Azure Key Vault
 1. Retrieve the SAS token secret from Azure Key Vault.
@@ -45,9 +38,9 @@ The following steps outline this process:
 
 By the end of the steps, you should have an REST API response running on Azure CLI with permissions to connect to the Azure Maps account with recommended controls around a maximum rate limit, allowed regions, localhost configured CORS policy, and Azure RBAC.
 
-### Prerequisite Azure Resource Deployment
+### Azure Resource Deployment with Azure CLI
 
-The following steps are a quick start to create and configure an Azure Map account with SAS token authentication.
+The following steps are a quick start to create and configure an Azure Map account with SAS token authentication. The Azure CLI is assumed to be running in a PowerShell instance.
 
 1. Register Key Vault, Managed Identities, and Azure Maps for your subscription
 
@@ -382,7 +375,7 @@ The following steps are a quick start to create and configure an Azure Map accou
     $outputs = $(az deployment group create --name ExampleDeployment --resource-group ExampleGroup --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
     ```
 
-1. Provision the Azure Maps account with the output deployment parameters of Azure Key Vault and Managed Identity and set the SAS token as a secret in the Key Vault. 
+1. Provision the Azure Maps account with the output deployment parameters of Azure Key Vault and Managed Identity and set the SAS token as a secret in the Key Vault. Notice, that we create the SAS token with allowedRegions of eastus, westus2, and westcentralus. We provide these locations because we expect to make a HTTP request to the `us.atlas.microsoft.com` endpoint. 
 
     > [!IMPORTANT] 
     >We save the SAS token into the Azure Key Vault secret to avoid leaking the credential in the Azure deployment logs. The Azure Key Vault SAS token secret's `tags` also contain the start, expiry, and signing key name to help understand when the SAS token will expire.
@@ -408,10 +401,10 @@ The following steps are a quick start to create and configure an Azure Map accou
 
 In the current directory of the PowerShell session you should have:
 
-1. `prereq.azuredeploy.json` which will create the Key Vault and Managed Identity
+1. `prereq.azuredeploy.json` which will create the Key Vault and Managed Identity.
 1. `azuredeploy.json` which will create the Azure Maps account and configure the Role Assignment and Managed Identity and store the SAS Token into the Key Vault.
 
-The complete script looks like:
+The script:
 
 ```powershell
 az login
