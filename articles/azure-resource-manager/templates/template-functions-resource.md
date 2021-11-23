@@ -592,6 +592,10 @@ The following example template references a storage account that isn't deployed 
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
 
+## resourceGroup
+
+See the [resourceGroup scope function](template-functions-scope.md#resourcegroup).
+
 ## resourceId
 
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
@@ -686,6 +690,10 @@ The output from the preceding example with the default values is:
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+
+## subscription
+
+See the [subscription scope function](template-functions-scope.md#subscription).
 
 ## subscriptionResourceId
 
