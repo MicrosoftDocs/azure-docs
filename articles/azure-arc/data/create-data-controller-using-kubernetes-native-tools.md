@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## Prerequisites
 
-Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
+Review the topic [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) for overview information.
 
 To create the Azure Arc data controller using Kubernetes tools you will need to have the Kubernetes tools installed.  The examples in this article will use `kubectl`, but similar approaches could be used with other Kubernetes tools such as the Kubernetes dashboard, `oc`, or `helm` if you are familiar with those tools and Kubernetes yaml/json.
 
@@ -217,7 +217,7 @@ First, create a copy of the [template file](https://raw.githubusercontent.com/mi
 Edit the following as needed:
 
 **REQUIRED**
-- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  You can see the list of available Azure locations in the [create data controller overview](create-data-controller.md) article.
+- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
 - **resourceGroup**: the Azure resource group where you want to create the data controller Azure resource in Azure Resource Manager.  Typically this resource group should already exist, but it is not required until the time that you upload the data to Azure.
 - **subscription**: the Azure subscription GUID for the subscription that you want to create the Azure resources in.
 
