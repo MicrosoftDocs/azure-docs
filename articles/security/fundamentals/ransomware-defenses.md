@@ -1,6 +1,6 @@
 ---
-title: Azure backup and restore plan to protect against ransomware | Microsoft Docs
-description: Learn what to do before and during a ransomware attack to protect your critical business systems and ensure a rapid recovery of business operations.
+title: Azure defenses against ransomware -- title TBD
+description: Azure defenses against ransomware -- description TBD
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
@@ -38,16 +38,19 @@ Recent trends on the number of attacks are quite alarming. While 2020 was not a 
 
 Historically, cyberattacks were seen as a sophisticated set of actions targeting particular industries, which left the remaining industries believing they were outside the scope of cybercrime, and without context about which cybersecurity threats they should prepare for. Ransomware represents a major shift in this threat landscape, and it's made cyberattacks a very real and omnipresent danger for everyone. Encrypted and lost files and threatening ransom notes have now become the top-of-mind fear for most executive teams.​
 
-## ​Ransomware explained
+### ​Ransomware explained
 
 Ransomware is a type of malware that infects a computer and restricts a user's access to the infected system or specific files in order to extort them for money. After the target system has been compromised, it typically locks out most interaction and displays an on-screen alert, typically stating that the system has been locked or that all of their files have been encrypted.  It then demands a substantial ransom be paid before the system is released or files decrypted.  
+
 Ransomware will typically exploit the weaknesses or vulnerabilities in your organization's IT systems or infrastructures to succeed. The attacks are so obvious that it does not take much investigation to confirm that your business has been attacked or that an incident should be declared.  The exception would be a spam email that demands ransom in exchange for supposedly compromising materials.  In this case, these types of incidents should be dealt with as spam unless the email contains highly specific information.
+
 Who can be targeted by ransomware bad actors?
+
 Any business or organization that operates an IT system with data in it can be attacked.   Although individuals can be targeted in a ransomware attack,  most attacks are targeted at businesses. While the Colonial ransomware attack of May 2021 drew considerable public attention, our Detection and Response team (DART)'s ransomware engagement data shows that the energy sector
 
 represents one of the most targeted sectors, along with the financial, healthcare, and entertainment sectors.  And despite continued promises not to attack hospitals or healthcare companies during a pandemic, as shown in Figure 1, healthcare remains the number one target of human operated ransomware.
 
-## How can my assets in the cloud be targeted?
+### How can my assets in the cloud be targeted?
 
 When attacking cloud infrastructure, adversaries often attack multiple resources to try to obtain access to customer data or company secrets. The cloud kill chain model (Figure 2) explains how attackers attempt to gain access to any of your resources running in the public cloud through a four-step process: exposure, access, lateral movement, and actions.
 
@@ -56,7 +59,7 @@ When attacking cloud infrastructure, adversaries often attack multiple resources
 1. During the lateral movement stage, attackers discover what resources they have access to and what the scope of that access is. Successful attacks on instances give attackers access to databases and other sensitive information. The attacker then searches for additional credentials. Our Microsoft Defender for Cloud data shows that without a security tool to quickly notify you of the attack, it takes organizations on average 101 days to discover a breach. Meanwhile, in just 24-48 hours after a breach, the attacker will usually have complete control of the network. 
 1. The actions an attacker takes after lateral movement are largely dependent on the resources they were able to gain access to during the lateral movement phase. Attackers can take actions that cause data exfiltration, data loss or launch other attacks. For enterprises, the average financial impact of data loss is now reaching $1.23 million.
 
-## Why do ransomware attacks succeed?
+### Why do ransomware attacks succeed?
 
 There are several reasons why ransomware attacks succeed. Businesses that are vulnerable often fall victim to ransomware attacks. The following are some of the attack critical success factors: 
 
@@ -74,7 +77,7 @@ There are several reasons why ransomware attacks succeed. Businesses that are vu
 
 As illustrated in Figure 3, attackers use different techniques, such as RDP brute force attack to exploit vulnerabilities.
 
-## Should you pay ransom if attacked?
+### Should you pay ransom if attacked?
 
 There are varying opinions on what the best option is when confronted with this vexing demand.  The Federal Bureau of Investigation (FBI) advises victims not to pay ransom but to instead be vigilant and take proactive measures to secure their data before an attack.  They contend that paying doesn't guarantee that locked systems and encrypted data will be released again. The FBI says  another reason not to pay is that payments to cyber criminals incentivizes them to continue to attack organizations. 
 
@@ -82,7 +85,7 @@ Nevertheless, some victims elect to pay the ransom demand even though system and
 
 In the end, the best way to prevent paying ransom is not to fall victim by implementing preventive measures and having tool saturation to protect your organization from every step that attacker takes wholly or incrementally to hack into your system. In addition, having the ability to recover impacted assets will ensure restoration of business operations in a timely fashion. Azure Cloud has a robust set of tools to guide you all the way.
 
-## What is the typical cost to a business?
+### What is the typical cost to a business?
 
 The impact of a ransomware attack on any organization is difficult to quantify accurately. However, depending on the scope and type, the impact is multi-dimensional (see Figure 4) and is broadly expressed in:
 - Loss of data access
@@ -91,13 +94,13 @@ The impact of a ransomware attack on any organization is difficult to quantify a
 - Intellectual property theft 
 - Compromised customer trust/tarnished reputation
 
-Colonial Pipeline paid about $4.4 Million in ransom to have their data released.  This does not include the cost of downtime, lost productive, lost sales and the cost of restoring services. More broadly, a significant impact is the “knock-on effect” of impacting high numbers of businesses and organizations of all kinds including towns and cities in their local areas. The financial impact is also staggering. According to Microsoft, the global cost associated with ransomware recovery is projected to exceed $20 billion in 2021. 
+Colonial Pipeline paid about $4.4 Million in ransom to have their data released.  This does not include the cost of downtime, lost productive, lost sales and the cost of restoring services. More broadly, a significant impact is the "knock-on effect" of impacting high numbers of businesses and organizations of all kinds including towns and cities in their local areas. The financial impact is also staggering. According to Microsoft, the global cost associated with ransomware recovery is projected to exceed $20 billion in 2021. 
 
-## How did ransomware evolve as a business?
+## Ransomware evolution
 
-Since the first known ransomware attack was disclosed in 1989, much of the industry has significantly changed not just with the number of attacks occurring every year and the sophistication of those attacks, but the emergence and evolution of new ransomware business models.  The two common types are “Commodity Ransomware” and “Human Operated Ransomware.” Each has its distinctive attributes. 
+Since the first known ransomware attack was disclosed in 1989, much of the industry has significantly changed not just with the number of attacks occurring every year and the sophistication of those attacks, but the emergence and evolution of new ransomware business models.  The two common types are "Commodity Ransomware" and "Human Operated Ransomware." Each has its distinctive attributes. 
 
-Commodity ransomware attacks target individuals, are pre-programmed, opportunistic and are unlikely to cause business disruption. Human-operated ransomware is sometimes referred to as “big game ransomware,” a term that implies cybercriminals select specific networks for their value proposition and then hunt for entry vectors. This approach has been the exception, not the rule, in most major ransomware attacks in the past year. Cybercriminals perform massive wide-ranging sweeps of the internet, searching for vulnerable entry points. Or they enter networks via “commodity” trojans and then “bank” this access for a time and purpose that's advantageous to them. 
+Commodity ransomware attacks target individuals, are pre-programmed, opportunistic and are unlikely to cause business disruption. Human-operated ransomware is sometimes referred to as "big game ransomware," a term that implies cybercriminals select specific networks for their value proposition and then hunt for entry vectors. This approach has been the exception, not the rule, in most major ransomware attacks in the past year. Cybercriminals perform massive wide-ranging sweeps of the internet, searching for vulnerable entry points. Or they enter networks via "commodity" trojans and then "bank" this access for a time and purpose that's advantageous to them. 
 
 While ransomware existed in small pockets before, the business model didn't take off at scale until the introduction of cryptolocker in 2013, which kicked off a surge in this opportunistic, single device way of monetizing cybercrime. 
 
@@ -129,7 +132,7 @@ Microsoft Defender for Cloud delivers protection for all resources from directly
 - Protects data services against ransomware attacks​
 - Protects your managed and unmanaged IoT / OT devices with continuous asset discovery, vulnerability management and threat monitoring​
 
-### Unknown
+### TBD
 
 Microsoft Defender for Cloud provides you the tools to detect and block ransomware, advanced malware and threats for your resources
 
