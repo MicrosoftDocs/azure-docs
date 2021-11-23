@@ -31,7 +31,7 @@ You'll learn how to:
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 > [!NOTE]
-> Azure Pipelines has a 50 minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#capabilities-and-limitations). If not, the pipeline will timeout without waiting for the test results. The test still continues to run and can be viewed from the Azure portal.
+> Azure Pipelines has a 60 minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#capabilities-and-limitations). If not, the pipeline will timeout without waiting for the test results. The test still continues to run and can be viewed from the Azure portal.
 >
 
 ## Prerequisites
