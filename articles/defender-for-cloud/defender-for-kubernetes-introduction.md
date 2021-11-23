@@ -134,7 +134,7 @@ If you choose not to install the agent on your hosts, you'll only receive a subs
 
 For Defender for Cloud to monitor your AKS nodes, they must be running the Log Analytics agent.
 
-AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent isn't currently supported.
+AKS is a managed service and since the Log Analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent isn't currently supported.
 
 ### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
 
