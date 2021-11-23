@@ -25,7 +25,7 @@ To create a lab plan, you need access to an Azure subscription that's already se
 
 ### Estimate how many VMs and VM sizes you need
 
-It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide-2.md#vm-sizing) your school lab requires. 
+It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide-2.md#vm-sizing) your school lab requires.
 
 For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
@@ -56,7 +56,7 @@ To plan your lab plan settings, consider the following questions.
 
 ### Who should be the Owners and Contributors of the lab plan?
 
-Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab plan. These roles are responsible for managing the policies that apply to all the labs in the lab plan. The person who creates the lab plan is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription. 
+Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab plan. These roles are responsible for managing the policies that apply to all the labs in the lab plan. The person who creates the lab plan is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
 
 For more information about the lab plan Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#manage-identity).
 
@@ -123,7 +123,7 @@ When you set up a lab plan, you also can bring your own virtual network to your 
 
 ## Set up your lab plan
 
-After you've finished planning, you're ready to set up your lab plan. You can apply the same steps to setting up [Azure Lab Services in Teams](./lab-services-within-teams-overview.md).
+After you've finished planning, you're ready to set up your lab plan. You can apply the same steps to setting up [Azure Lab Services in Canvas](./lab-services-within-canvas-overview.md).
 
 1. **Create your lab plan**. For instructions, see [Create a lab plan](./tutorial-setup-lab-plan.md#create-a-lab-plan).
 
