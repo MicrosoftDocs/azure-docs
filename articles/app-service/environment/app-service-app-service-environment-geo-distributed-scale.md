@@ -26,7 +26,7 @@ Furthermore, since customers access apps through the vanity domain, customers ar
 
 The conceptual diagram below depicts an app horizontally scaled out across three App Service Environments within a single region.
 
-![Conceptual Architecture][ConceptualArchitecture] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png" alt-text="Conceptual architecture diagram of geo-distributed app service with Traffic Manager.":::
 
 The remainder of this topic walks through the steps involved with setting up a distributed topology for the sample app using multiple App Service Environments.
 
@@ -82,13 +82,13 @@ The final step necessary is to point the custom domain of the app at the Traffic
 
 Using your registrar's domain management tools, a CNAME records needs to be created which points the custom domain at the Traffic Manager domain.  The picture below shows an example of what this CNAME configuration looks like:
 
-![CNAME for Custom Domain][CNAMEforCustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png" alt-text="Screenshot of configuring CNAME record on DNS."::: 
 
 Although not covered in this topic, remember that each individual app instance needs to have the custom domain registered with it as well.  Otherwise, if a request makes it to an app instance, and the application hasn't registered the custom domain with the app, the request will fail.
 
 In this example, the custom domain is `www.asabuludemo.com`, and each application instance has the custom domain associated with it.
 
-![Custom Domain][CustomDomain] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png" alt-text="Screenshot of App Service custom domain setting.":::
 
 For a recap of registering a custom domain with Azure App Service apps, see [registering custom domains][RegisterCustomDomain].
 
@@ -105,7 +105,7 @@ The end result of the Traffic Manager and DNS configuration is that requests for
 
 The console picture below shows a DNS lookup for the sample app's custom domain. It successfully resolves to an app instance that runs on one of the three sample App Service Environments (in this case, the second of the three App Service Environments):
 
-![DNS Lookup][DNSLookup] 
+:::image type="content" source="./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png" alt-text="Screenshot of DNS lookup result.":::
 
 ## Additional Links and Information
 Documentation on the PowerShell [Azure Resource Manager Traffic Manager support][ARMTrafficManager].  
@@ -116,10 +116,3 @@ Documentation on the PowerShell [Azure Resource Manager Traffic Manager support]
 [AzureTrafficManagerProfile]: ../../traffic-manager/traffic-manager-manage-profiles.md
 [ARMTrafficManager]: ../../traffic-manager/traffic-manager-powershell-arm.md
 [RegisterCustomDomain]: ../app-service-web-tutorial-custom-domain.md
-
-
-<!-- IMAGES -->
-[ConceptualArchitecture]: ./media/app-service-app-service-environment-geo-distributed-scale/ConceptualArchitecture-1.png
-[CNAMEforCustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CNAMECustomDomain-1.png
-[DNSLookup]:  ./media/app-service-app-service-environment-geo-distributed-scale/DNSLookup-1.png
-[CustomDomain]:  ./media/app-service-app-service-environment-geo-distributed-scale/CustomDomain-1.png 
