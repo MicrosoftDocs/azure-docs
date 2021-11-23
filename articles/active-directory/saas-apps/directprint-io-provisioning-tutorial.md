@@ -3,7 +3,7 @@ title: 'Tutorial: Configure directprint.io for automatic user provisioning with 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to directprint.io.
 services: active-directory
 documentationcenter: ''
-author: twimmer
+author: twimmers
 writer: Thwimmer
 manager: beatrizd
 

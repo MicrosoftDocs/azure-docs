@@ -9,10 +9,6 @@ ms.date: 06/20/2020
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
-> [!NOTE]
-> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
->
-
 This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](../azure-monitor/overview.md). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](../azure-monitor/overview.md).
 
 [Azure Monitor](../azure-monitor/overview.md) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -53,7 +49,7 @@ git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 
-## Configure Azure Monitor (preview)
+## Configure Azure Monitor
 
 ### Create a Log Analytics Workspace
 
@@ -127,7 +123,7 @@ In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
-Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/logs/log-query-overview.md) for more information on log queries.
+Log queries help you to fully apply the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/logs/log-query-overview.md) for more information on log queries.
 
 ### View AppServiceHTTPLogs with log query
 

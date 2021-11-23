@@ -12,10 +12,18 @@
   - name: Install Bicep tools
     href: install.md
     displayName: nightly
+  - name: Troubleshoot installation
+    href: installation-troubleshoot.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: CI/CD
+    items:
+    - name: Bicep with pipelines
+      href: add-template-to-azure-pipelines.md
+    - name: Bicep with GitHub Actions
+      href: deploy-github-actions.md
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
@@ -26,6 +34,9 @@
   - name: Author
     expanded: true
     items:
+    - name: File structure & syntax
+      displayName: parameters,variables,resources,outputs,condition
+      href: file.md
     - name: Resources
       items:
       - name: Resource declaration
@@ -56,22 +67,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
-      items:
-      - name: Resources
-        displayName: iteration,copy,multiple,batches,child,condition,filter
-        href: loop-resources.md
-      - name: Modules
-        displayName: iteration,copy,multiple,batches,condition,filter
-        href: loop-modules.md
-      - name: Properties
-        displayName: iteration,copy,multiple
-        href: loop-properties.md
-      - name: Variables
-        displayName: iteration,copy,multiple
-        href: loop-variables.md
-      - name: Outputs
-        displayName: iteration,copy,multiple
-        href: loop-outputs.md
+      href: loops.md
     - name: Scopes
       items:
       - name: Resource group
@@ -92,6 +88,8 @@
         href: linter.md
       - name: Linter rules
         items:
+        - name: Admin user name not literal
+          href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
         - name: No unused parameters
@@ -134,12 +132,14 @@
       - name: Pass sensitive values
         displayName: key vault
         href: key-vault-parameter.md
-    - name: CI/CD
-      items:
-      - name: Bicep with pipelines
-        href: add-template-to-azure-pipelines.md
-      - name: Bicep with GitHub Actions
-        href: deploy-github-actions.md
+  - name: Configure settings
+    items:
+    - name: Bicep config file
+      href: bicep-config.md
+    - name: Linter settings
+      href: bicep-config-linter.md
+    - name: Module settings
+      href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
     - name: Recommended workflow
@@ -149,16 +149,11 @@
       displayName: conversion issues,export,convert,playground
 - name: Reference
   items:
-  - name: Bicep file structure
-    displayName: parameters,variables,resources,outputs,condition
-    href: file.md
   - name: Resource reference
     href: /azure/templates/
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Bicep configuration file
-    href: bicep-config.md
   - name: Functions
     items:
     - name: All functions
@@ -201,6 +196,6 @@
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource

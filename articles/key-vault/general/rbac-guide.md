@@ -31,10 +31,8 @@ Our recommendation is to use a vault per application per environment
 Individual keys, secrets, and certificates permissions should be used
 only for specific scenarios:
 
--   Multi-layer applications that need to separate access control
-    between layers
-
--   Sharing individual secret between multiple applications
+-   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
+-   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
 
 More about Azure Key Vault management guidelines, see:
 

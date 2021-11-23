@@ -21,6 +21,7 @@ Some more complex solutions may require creating a chain of trust to establish s
 ## Limitations and other details
 
 The following scenarios are **not** supported:
+- Monitoring addon
 - Different proxy configurations per node pool
 - Updating proxy settings post cluster creation
 - User/Password authentication
@@ -34,6 +35,17 @@ By default, *httpProxy*, *httpsProxy*, and *trustedCa* have no value.
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 * [Azure CLI installed](/cli/azure/install-azure-cli).
+
+### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version 0.5.25 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### Register the `HTTPProxyConfigPreview` preview feature
 
@@ -59,18 +71,18 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Configuring an HTTP proxy using Azure CLI 
 
-Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON or YAML file.
+Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON file.
 
 The schema for the config file looks like this:
 
 ```json
-"httpProxyConfig": {
-    "httpProxy": "string",
-    "httpsProxy": "string",
-    "noProxy": [
-        "string"
-    ],
-    "trustedCa": "string"
+{
+  "httpProxy": "string",
+  "httpsProxy": "string",
+  "noProxy": [
+    "string"
+  ],
+  "trustedCa": "string"
 }
 ```
 
@@ -83,14 +95,14 @@ Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.
 
 ```json
-"httpProxyConfig": { 
-     "httpProxy": "http://myproxy.server.com:8080/", 
-     "httpsProxy": "https://myproxy.server.com:8080/", 
-     "noProxy": [
-         "localhost",
-         "127.0.0.1"
-     ],
-     "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+{
+  "httpProxy": "http://myproxy.server.com:8080/", 
+  "httpsProxy": "https://myproxy.server.com:8080/", 
+  "noProxy": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
 }
 ```
 
@@ -143,3 +155,5 @@ az aks update -n $clusterName -g $resourceGroup --http-proxy-config aks-proxy-co
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az-extension-update

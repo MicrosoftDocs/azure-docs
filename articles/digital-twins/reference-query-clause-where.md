@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - WHERE clauses
+title: Azure Digital Twins query language reference - WHERE clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language WHERE clause
 author: baanders

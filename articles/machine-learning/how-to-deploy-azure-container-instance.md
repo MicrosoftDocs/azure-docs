@@ -10,7 +10,7 @@ ms.custom: deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 05/20/2021
+ms.date: 10/21/2021
 ---
 
 # Deploy a model to Azure Container Instances

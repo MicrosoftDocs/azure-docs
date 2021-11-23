@@ -39,7 +39,7 @@
   - name: CI/CD workflow using GitOps
     href: conceptual-gitops-ci-cd.md
   - name: Inner loop developer experience
-    href: conceptual-inner-loop-gitops.md  
+    href: conceptual-inner-loop-gitops.md
 - name: How-to guides
   items:
   - name: Connect cluster using service principal
@@ -56,14 +56,16 @@
       href: extensions.md
     - name: Monitor using Azure Monitor for containers
       href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Enforce threat protection using Azure Defender
-      href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Admission control policy definitions using Azure Policy
+    - name: Enforce threat protection using Microsoft Defender for Cloud
+      href: ../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
+    - name: In-cluster policy enforcements using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Deploy Azure Arc-enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md
     - name: Securely connect to cluster from anywhere
       href: cluster-connect.md
+    - name: Azure portal Kubernetes resource view
+      href: kubernetes-resource-view.md
     - name: Use Azure AD RBAC for authorization checks
       href: azure-rbac.md
     - name: Create custom locations
@@ -73,7 +75,7 @@
     - name: Azure Arc-enabled Machine Learning
       href: ../../machine-learning/how-to-attach-arc-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
   - name: Troubleshooting
-    href: Troubleshooting.md
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Azure Policy built-ins

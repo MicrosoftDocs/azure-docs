@@ -37,7 +37,7 @@ To see what actions a specific user took in various resources, you can view the 
 
 1. Select a user.
 
-    You see an summary of the user's actions in Azure resources by date. It also shows the recent role activations over that same time period.
+    You see a summary of the user's actions in Azure resources by date. It also shows the recent role activations over that same time period.
 
     ![User details with resource activity summary and role activations](media/azure-pim-resource-rbac/rbac-user-details.png)
 

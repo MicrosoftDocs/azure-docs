@@ -9,7 +9,7 @@ metadata:
   manager: carmonm
   ms.service: automation
   ms.topic: landing-page
-  ms.date: 09/06/2019
+  ms.date: 10/19/2021
   ms.author: magoedte
 
 landingContent:
@@ -20,7 +20,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Automation?
-            url: automation-intro.md
+            url: overview.md
       - linkListType: get-started
         links:
           - text: Create an Automation account

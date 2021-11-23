@@ -21,7 +21,7 @@ ms.author: kumud
 
 Learn how to add an existing network interface when you create an Azure virtual machine (VM). Also learn to add or remove network interfaces from an existing VM in the stopped (deallocated) state. A network interface enables an Azure VM to communicate with internet, Azure, and on-premises resources. A VM has one or more network interfaces. 
 
-If you need to add, change, or remove IP addresses for a network interface, see [Manage network interface IP addresses](virtual-network-network-interface-addresses.md). To create, change, or delete network interfaces, see [Manage network interfaces](virtual-network-network-interface.md).
+If you need to add, change, or remove IP addresses for a network interface, see [Manage network interface IP addresses](./ip-services/virtual-network-network-interface-addresses.md). To create, change, or delete network interfaces, see [Manage network interfaces](virtual-network-network-interface.md).
 
 ## Before you begin
 
@@ -91,7 +91,7 @@ You can view the network interfaces currently attached to a VM to learn about ea
 
 3. In the VM menu bar, select **Networking**.
 
-To learn about network interface settings and how to change them, see [Manage network interfaces](virtual-network-network-interface.md). To learn about how to add, change, or remove IP addresses assigned to a network interface, see [Manage network interface IP addresses](virtual-network-network-interface-addresses.md).
+To learn about network interface settings and how to change them, see [Manage network interfaces](virtual-network-network-interface.md). To learn about how to add, change, or remove IP addresses assigned to a network interface, see [Manage network interface IP addresses](./ip-services/virtual-network-network-interface-addresses.md).
 
 ### Commands
 
@@ -142,7 +142,7 @@ To learn about network interface settings and how to change them, see [Manage ne
 
 - You can connect network interfaces in the same VM to different subnets within a virtual network. However, the network interfaces must all be connected to the same virtual network.
 
-- You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, see [Add, change, or remove IP addresses](virtual-network-network-interface-addresses.md).
+- You can add any IP address for any IP configuration of any primary or secondary network interface to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary network interface could be added to a back-end pool. To learn more about IP addresses and configurations, see [Add, change, or remove IP addresses](./ip-services/virtual-network-network-interface-addresses.md).
 
 - Deleting a VM doesn't delete the network interfaces that are attached to it. When you delete a VM, the network interfaces are detached from the VM. You can add those network interfaces to different VMs or delete them.
 
@@ -157,5 +157,5 @@ To create a VM with multiple network interfaces or IP addresses, see:
 |Task|Tool|
 |---|---|
 |Create a VM with multiple NICs|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
-|Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
+|Create a single NIC VM with multiple IPv4 addresses|[CLI](./ip-services/virtual-network-multiple-ip-addresses-cli.md), [PowerShell](./ip-services/virtual-network-multiple-ip-addresses-powershell.md)|
 |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|

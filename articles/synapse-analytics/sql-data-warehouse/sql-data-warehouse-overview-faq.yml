@@ -68,7 +68,7 @@ sections:
       - question: |
           I have a feature request, where do I submit it?
         answer: |
-          If you have a feature request, submit it on our [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse) page
+          If you have a feature request, submit it on our [UserVoice](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8) page
           
       - question: |
           How can I do x?

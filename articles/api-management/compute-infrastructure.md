@@ -51,7 +51,7 @@ Create or update the virtual network connection, or availability zone configurat
 
 > [!IMPORTANT]
 > When you update the compute platform version of an instance connected to an Azure [virtual network](virtual-network-concepts.md):
-> * You must provide provide a Standard SKU [public IPv4 address](../virtual-network/public-ip-addresses.md#standard) resource
+> * You must provide provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) resource
 > * The VIP address(es) of your API Management instance will change.
 
 ## Next steps

@@ -1,30 +1,28 @@
 ---
-title: Deploy the Azure Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
-description: Learn how to deploy the Azure Sentinel data connector for SAP environments with a secure connection via SNC, for the NetWeaver/ABAP interface based logs.
+title: Deploy the Microsoft Sentinel SAP data connector with Secure Network Communications (SNC)  | Microsoft Docs
+description: Learn how to deploy the Microsoft Sentinel data connector for SAP environments with a secure connection via SNC, for the NetWeaver/ABAP interface based logs.
 author: batamig
 ms.author: bagol
-ms.service: azure-sentinel
 ms.topic: how-to
-ms.custom: mvc
-ms.date: 08/01/2021
-ms.subservice: azure-sentinel
-
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
 ---
 
-# Deploy the Azure Sentinel SAP data connector with SNC
+# Deploy the Microsoft Sentinel SAP data connector with SNC
 
-This article describes how to deploy the Azure Sentinel SAP data connector when you have a secure connection to SAP via Secure Network Communications (SNC) for the NetWeaver/ABAP interface based logs.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article describes how to deploy the Microsoft Sentinel SAP data connector when you have a secure connection to SAP via Secure Network Communications (SNC) for the NetWeaver/ABAP interface based logs.
 
 > [!NOTE]
-> The default, and most recommended process for deploying the Azure Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
+> The default, and most recommended process for deploying the Microsoft Sentinel SAP data connector is by [using an Azure VM](sap-deploy-solution.md). This article is intended for advanced users.
 
 > [!IMPORTANT]
-> The Azure Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+> The Microsoft Sentinel SAP solution is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
-The basic prerequisites for deploying your Azure Sentinel SAP data connector are the same regardless of your deployment method.
+The basic prerequisites for deploying your Microsoft Sentinel SAP data connector are the same regardless of your deployment method.
 
 Make sure that your system complies with the prerequisites documented in the main [SAP data connector deployment procedure](sap-deploy-solution.md#prerequisites) before you start.
 
@@ -34,11 +32,11 @@ Other prerequisites for working with SNC include:
 
 - **The SAPCAR utility**, downloaded from the SAP Service Marketplace. For more information, see the [SAP Installation Guide](https://help.sap.com/viewer/d1d04c0d65964a9b91589ae7afc1bd45/5.0.4/en-US/467291d0dc104d19bba073a0380dc6b4.html)
 
-For more information, see [Azure Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
+For more information, see [Microsoft Sentinel SAP solution detailed SAP requirements (public preview)](sap-solution-detailed-requirements.md).
 
 ## Create your Azure key vault
 
-Create an Azure key vault that you can dedicate to your Azure Sentinel SAP data connector.
+Create an Azure key vault that you can dedicate to your Microsoft Sentinel SAP data connector.
 
 Run the following command to create your Azure key vault and grant access to an Azure service principal:
 
@@ -51,7 +49,8 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname
+
+az ad sp create-for-rbac –name $spname --role Contributor
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -103,7 +102,7 @@ We recommend that you perform this procedure after you have a [key vault](#creat
 
 1. Create a new folder with a meaningful name, and copy the SDK zip file into your new folder.
 
-1. Clone the Azure Sentinel solution GitHub repo onto your data connector VM, and copy Azure Sentinel SAP solution **systemconfig.ini** file into your new folder.
+1. Clone the Microsoft Sentinel solution GitHub repo onto your data connector VM, and copy Microsoft Sentinel SAP solution **systemconfig.ini** file into your new folder.
 
     For example:
 
@@ -118,9 +117,9 @@ We recommend that you perform this procedure after you have a [key vault](#creat
 
     You'll need to edit all configurations except for the key vault secrets. For more information, see [Manually configure the SAP data connector](sap-solution-deploy-alternate.md#manually-configure-the-sap-data-connector).
 
-1. Define the logs that you want to ingest into Azure Sentinel using the instructions in the **systemconfig.ini** file. 
+1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file.
 
-    For example, see [Define the SAP logs that are sent to Azure Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+    For example, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
     > [!NOTE]
     > Relevant logs for SNC communications are only those logs that are retrieved via the NetWeaver / ABAP interface. SAP Control and HANA logs are out of scope for SNC.
@@ -137,13 +136,12 @@ We recommend that you perform this procedure after you have a [key vault](#creat
 
 1. Save your updated **systemconfig.ini** file in the **sapcon** directory on your VM.
 
-1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
+1. Download and run the pre-defined Docker image with the SAP data connector installed. Run:
 
     ```bash
     docker pull docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     docker create -v $(pwd):/sapcon-app/sapcon/config/system -v /home/azureuser /sap/sec:/sapcon-app/sec --env SCUDIR=/sapcon-app/sec --name sapcon-snc mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
     ```
-
 
 ## Post-deployment SAP system procedures
 
@@ -194,7 +192,6 @@ After deploying your SAP data connector, perform the following SAP system proced
     ```
 
     For more information, see [Exchanging the Public-Key Certificates](https://help.sap.com/viewer/4773a9ae1296411a9d5c24873a8d418c/8.0/en-US/7bbf90b29c694e6080e968559170fbcd.html) in the SAP documentation.
-
 
 ## Edit the SAP data connector configuration
 
@@ -278,17 +275,16 @@ This procedure describes how to activate the SAP data connector using the secure
 
 For example, issues may occur because of a misconfiguration in the **systemconfig.ini** file, or in your Azure key vault, or some of the steps for creating a secure connection via SNC weren't run correctly.
 
-Try performing the steps above again to configure a secure connection via SNC. For more information, see also [Troubleshooting your Azure Sentinel SAP solution deployment](sap-deploy-troubleshoot.md).
+Try performing the steps above again to configure a secure connection via SNC. For more information, see also [Troubleshooting your Microsoft Sentinel SAP solution deployment](sap-deploy-troubleshoot.md).
 
 ## Next steps
 
-After your SAP data connector is activated, continue by deploying the **Azure Sentinel - Continuous Threat Monitoring for SAP** solution. For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
+After your SAP data connector is activated, continue by deploying the **Microsoft Sentinel - Continuous Threat Monitoring for SAP** solution. For more information, see [Deploy SAP security content](sap-deploy-solution.md#deploy-sap-security-content).
 
-Deploying the solution enables the SAP data connector to display in Azure Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
+Deploying the solution enables the SAP data connector to display in Microsoft Sentinel and deploys the SAP workbook and analytics rules. When you're done, manually add and customize your SAP watchlists.
 
 For more information, see:
 
-- [Azure Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
-- [Azure Sentinel SAP solution logs reference](sap-solution-log-reference.md)
-- [Azure Sentinel SAP solution: security content reference](sap-solution-security-content.md)
-
+- [Microsoft Sentinel SAP solution detailed SAP requirements](sap-solution-detailed-requirements.md)
+- [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md)
+- [Microsoft Sentinel SAP solution: security content reference](sap-solution-security-content.md)

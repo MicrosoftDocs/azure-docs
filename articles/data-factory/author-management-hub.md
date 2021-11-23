@@ -4,8 +4,8 @@ description: Manage your connections, source control configuration and global au
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.date: 04/27/2021
 ---
 

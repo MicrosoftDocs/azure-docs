@@ -72,7 +72,7 @@ For resource-specific tables, data is written into individual tables for each ca
 
 - How to find which operations are taking most of RU/s?
 
-    ```Kusto
+   ```kusto
    AzureDiagnostics
    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
    | where TimeGenerated >= ago(2h) 

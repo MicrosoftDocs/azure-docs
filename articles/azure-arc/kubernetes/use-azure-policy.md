@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Use Azure Policy to apply cluster configurations at scale"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---

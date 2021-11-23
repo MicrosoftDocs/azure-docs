@@ -128,7 +128,7 @@ STORAGE_ACCOUNT_ID=$(az storage account show --name $STORAGE_ACCOUNT_NAME --quer
 AD_USER=$(az ad signed-in-user show --query objectId -o tsv)
 CONTAINER_NAME=mystoragecontainer
 az role assignment create --role "Storage Blob Data Contributor" --assignee $AD_USER --scope $STORAGE_ACCOUNT_ID
-az storage container create --name $CONTAINER_NAME --account-name jebutlaksstorage --auth-mode login
+az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOUNT_NAME --auth-mode login
 ```
 
 Provide permissions to the Azure HPC Cache service account to access your storage account and Blob container.

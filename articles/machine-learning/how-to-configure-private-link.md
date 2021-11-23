@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/07/2021
+ms.date: 10/21/2021
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -186,11 +186,11 @@ As a preview feature, Azure Machine Learning supports multiple private endpoints
 * An Azure Kubernetes Service (AKS) cluster in a separate VNet.
 * Other Azure services in a separate VNet. For example, Azure Synapse and Azure Data Factory can use a Microsoft managed virtual network. In either case, a private endpoint for the workspace can be added to the managed VNet used by those services. For more information on using a managed virtual network with these services, see the following articles:
 
-    * [Synapse managed private endpoints](/azure/synapse-analytics/security/synapse-workspace-managed-private-endpoints)
-    * [Azure Data Factory managed virtual network](/azure/data-factory/managed-virtual-network-private-endpoint).
+    * [Synapse managed private endpoints](../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md)
+    * [Azure Data Factory managed virtual network](../data-factory/managed-virtual-network-private-endpoint.md).
 
     > [!IMPORTANT]
-    > [Synapse's data exfiltration protection](/azure/synapse-analytics/security/workspace-data-exfiltration-protection) is not supported with Azure Machine Learning.
+    > [Synapse's data exfiltration protection](../synapse-analytics/security/workspace-data-exfiltration-protection.md) is not supported with Azure Machine Learning.
 
 > [!IMPORTANT]
 > Each VNet that contains a private endpoint for the workspace must also be able to access the Azure Storage Account, Azure Key Vault, and Azure Container Registry used by the workspace. For example, you might create a private endpoint for the services in each VNet.
