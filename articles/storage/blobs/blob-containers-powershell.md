@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/04/2021
 ms.author: shaas
 ms.subservice: blobs
 ---
