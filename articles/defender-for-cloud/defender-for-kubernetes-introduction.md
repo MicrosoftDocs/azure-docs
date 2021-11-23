@@ -21,7 +21,7 @@ Defender for Kubernetes protects your Kubernetes clusters whether they're runnin
 
 - **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** (preview) - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
-- **An unmanaged environment** - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters on premises or on iaaS.
+- **An unmanaged Kubernetes distribution** - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters on premises or on iaaS. Learn more in [Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments](defender-for-kubernetes-azure-arc.md).
 
 Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
