@@ -125,7 +125,6 @@ You can also register resource providers via the `az cli`. For more information,
     }
     PS /home/user>
     ```
-    For more information on how to create service principal and perform the role assignment, see the steps in [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
 
 
 ## Enable Arc on Kubernetes cluster

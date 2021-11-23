@@ -28,7 +28,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
   az extension add --name connectedk8s
   ```
 
-* [Login in to Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+* [Login in to Azure CLI](/cli/azure/authenticate-azure-cli) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
     * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
     * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
 
@@ -61,7 +61,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
     > the `Install-Module` cmdlet.
 
-* [Login in to Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+* [Login in to Azure PowerShell](/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
     * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
     * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
 
