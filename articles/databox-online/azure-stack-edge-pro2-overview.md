@@ -72,7 +72,7 @@ The Azure Stack Edge Pro 2 solution comprises of Azure Stack Edge resource, Azur
 
     For more information, go to [Create an order for your Azure Stack Edge Pro 2 device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
     
-* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro GPU device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
+* **Azure Stack Edge resource** – A resource in the Azure portal that lets you manage an Azure Stack Edge Pro 2 device from a web interface that you can access from different geographical locations. Use the Azure Stack Edge resource to create and manage resources, view, and manage devices and alerts, and manage shares.  
    
 
 * **Azure Stack Edge Pro 2 local web UI** - A browser-based local user interface on your Azure Stack Edge Pro 2 device primarily intended for the initial configuration of the device. Use the local web UI also to run diagnostics, shut down and restart the device, view copy logs, and contact Microsoft Support to file a service request.
