@@ -120,7 +120,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 
 ### Network session fields
 
-HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields]( network-normalization-schema,md#network-session-fields) are also include din the Web Session schema. 
+HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also include din the Web Session schema. 
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
