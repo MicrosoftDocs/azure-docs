@@ -14,7 +14,15 @@ ms.subservice: blobs
 
 # Work with blob containers from PowerShell
 
-Intro TBD (keep it short, do this last)
+<!--Intro TBD (keep it short, do this last)-->
+
+The Azure Storage platform offers a variety of cloud solutions, each designed to be used for a specific use-case. Azure blob storage is the solution which allows you to store large amounts of unstructured object data as block blobs. You can use blob storage to gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics.
+
+Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. 
+
+To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+
+
 
 Goal: To provide simple but useful examples for users in one place. It's okay if the examples here are somewhat redundant with those in the PS reference and elsewhere in our docs (but shouldn't be exactly the same).
 
