@@ -498,6 +498,9 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
+There's no way to programatically handle the case that no row with row key id was found with this simple binding.
+Use the [storage SDK](https://docs.microsoft.com/en-us/azure/developer/python/azure-sdk-example-storage-use?tabs=cmd) for more fine grained data selection.
+
 ---
 
 ## Attributes and annotations
