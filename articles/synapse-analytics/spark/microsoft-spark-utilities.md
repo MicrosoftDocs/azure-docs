@@ -1095,9 +1095,9 @@ Env.GetClusterId()
 ## Runtime Context
 
 Mssparkutils runtime utils exposed 3 runtime properties, you can use the mssparkutils runtime context to get the properties listed as below:
-- **Notebookname** - The name of current notbook, will always return value for both interactive mode and pipeline mode.
-- **Pipelinejobid** - The pipeline run id, will return value in pipeline mode and return empty string in interactive mode.
-- **Activityrunid** - The notebook activity run id, will return value in pipeline mode and return empty string in interactive mode.
+- **Notebookname** - The name of current notebook, will always return value for both interactive mode and pipeline mode.
+- **Pipelinejobid** - The pipeline run ID, will return value in pipeline mode and return empty string in interactive mode.
+- **Activityrunid** - The notebook activity run ID, will return value in pipeline mode and return empty string in interactive mode.
 
 Currently runtime context support both Python and Scala.
 
