@@ -79,13 +79,13 @@ Let's say, we have an account which exists in 2 regions (East US and West US). W
 
 ## Frequently asked questions
 
-#### Can I use this API for accounts with periodic backup?
+##### Can I use this API for accounts with periodic backup?
 No. This API can only be used for accounts with continuous backup mode.
 
-#### Can I use this API for accounts migrated to continuous mode?
+##### Can I use this API for accounts migrated to continuous mode?
 Yes. This API can be used for account provisioned with continuous backup mode or successfully migrated to continuous backup mode.
 
-#### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
+##### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
 
 ## Next steps
