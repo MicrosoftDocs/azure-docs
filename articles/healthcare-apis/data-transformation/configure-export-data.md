@@ -5,7 +5,7 @@ author: CaitlinV39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/22/2021
+ms.date: 11/23/2021
 ms.author: cavoeg
 ---
 
@@ -51,3 +51,10 @@ After you've completed this final step, you are now ready to export the data usi
 
 > [!Note]
 > Only storage accounts in the same subscription as that for FHIR service are allowed to be registered as the destination for $export operations.
+
+## Next steps
+
+In this article, you learned about the three steps in configuring export settings that allows you to export data out of FHIR service account to a storage account. For more information about the Bulk Export feature that allows data to be exported from the FHIR service, see 
+
+>[!div class="nextstepaction"]
+>[How to export FHIR data](export-data.md)
