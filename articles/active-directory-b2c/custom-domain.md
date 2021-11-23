@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/23/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -27,6 +27,10 @@ This article describes how to enable custom domains in your redirect URLs for Az
 ## Custom domain overview
 
 You can enable custom domains for Azure AD B2C by using [Azure Front Door](https://azure.microsoft.com/services/frontdoor/). Azure Front Door is a global entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. You can render Azure AD B2C content behind Azure Front Door, and then configure an option in Azure Front Door to deliver the content via a custom domain in your application's URL.
+
+Watch this video to learn about Azure AD B2C custom domain.
+
+>[!Video https://www.youtube.com/embed/mVNB59VK-DQ]
 
 The following diagram illustrates Azure Front Door integration:
 
