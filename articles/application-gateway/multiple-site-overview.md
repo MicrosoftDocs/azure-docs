@@ -48,7 +48,7 @@ Using a wildcard character in the host name, you can match multiple host names i
 :::image type="content" source="./media/multiple-site-overview/wildcard-listener-diag.png" alt-text="Wildcard Listener":::
 
 >[!NOTE]
-> This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.).
+> This feature is available only for Standard_v2 and WAF_v2 SKU of Application Gateway.
 
 In [Azure PowerShell](tutorial-multiple-sites-powershell.md), you must use `-HostNames` instead of `-HostName`. With HostNames, you can mention up to 5 host names as comma-separated values and use wildcard characters. For example, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
