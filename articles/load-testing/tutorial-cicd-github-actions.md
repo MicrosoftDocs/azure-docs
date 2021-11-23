@@ -238,11 +238,7 @@ You can specify these criteria in the test configuration YAML file.
 
 Next, you'll parameterize your load test using workflow variables. These parameters can be secrets such as passwords or non-secrets.
 
-1. Edit the *config.json* file in your GitHub repository.
-    
-    Update the `enableSecretsFeature` value to **true** to enable the code which expects an x-secret value in the request header.
-
-1. Commit the changes to the config.json file.
+In this tutorial, you'll reconfigure the sample application to only accept secure requests. To send a secure request, you'll need to pass a secret value in the HTTP request.
 
 1. Edit the *SampleApp.yaml* file in your GitHub repository.
 
@@ -256,9 +252,22 @@ Next, you'll parameterize your load test using workflow variables. These paramet
     engineInstances: 1
     ```
 
-    The *SampleApp_Secrets.jmx* JMeter script uses a user-defined variable that contains a secret value. The value is defined with a custom function `{{__GetSecret(secretName)}}`.
+    The *SampleApp_Secrets.jmx* Apache JMeter script uses a user-defined variable that retrieves the secret value with the custom function `${__GetSecret(secretName)}`. Apache JMeter then passes this secret value to the sample application endpoint.
 
 1. Commit the changes to the YAML file.
+
+1. Edit the *config.json* file in your GitHub repository.
+    
+    Update the `enableSecretsFeature` setting to **true** to reconfigure the sample application to only accept secure requests.
+    
+    ```json
+    {
+        "enableSecretsFeature": true,
+        "secretHeaderValue": "1797669089"
+    }
+    ```
+    
+1. Commit the changes to the *config.json* file.
 
 1. Edit the *SampleApp_Secrets.jmx* file.
 
