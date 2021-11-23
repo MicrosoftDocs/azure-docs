@@ -49,7 +49,7 @@ Monthly/yearly backup| Not supported when backing up with Azure VM extension. On
 Automatic clock adjustment | Not supported.<br/><br/> Azure Backup doesn't automatically adjust for daylight saving time changes when backing up a VM.<br/><br/>  Modify the policy manually as needed.
 [Security features for hybrid backup](./backup-azure-security-feature.md) |Disabling security features isn't supported.
 Back up the VM whose machine time is changed | Not supported.<br/><br/> If the machine time is changed to a future date-time after enabling backup for that VM, however even if the time change is reverted, successful backup isn't guaranteed.
-Multiple backups per day   |  Supported, using Enhanced policy (in preview). To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).     <br><br>   Learn about how to [back up Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
+Multiple backups per day   |  Supported, using Enhanced policy (in preview). To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).     <br><br>   Learn about how to [back up an Azure VM using Enhanced policy](backup-azure-vms-enhanced-policy.md).
 
 ## Operating system support (Windows)
 

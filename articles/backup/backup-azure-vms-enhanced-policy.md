@@ -72,5 +72,5 @@ Follow these steps:
 
 - [Run a backup immediately](/backup/backup-azure-vms-first-look-arm#run-a-backup-immediately)
 - [Verify Backup job status](/azure/backup/backup-azure-arm-vms-prepare#verify-backup-job-status)
-- [Restore a Azure virtual machines](/azure/backup/backup-azure-arm-restore-vms#restore-disks)
+- [Restore Azure virtual machines](/azure/backup/backup-azure-arm-restore-vms#restore-disks)
 
