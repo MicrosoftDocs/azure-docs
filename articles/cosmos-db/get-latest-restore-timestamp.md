@@ -165,7 +165,7 @@ Wednesday, November 3, 2021 8:02:44 PM
 
 ## SQL account
 
-Use the following script to get the latest restorable timestamp for a Sql account. This script will iterate through all the containers within this account and returns the minimum of latest restorable timestamp of all its containers.
+Use the following script to get the latest restorable timestamp for a SQL account. This script will iterate through all the containers within this account and returns the minimum of latest restorable timestamp of all its containers.
 
 ```powershell
 Function Get-LatestRestorableTimestampForSqlAccount {

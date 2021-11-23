@@ -17,7 +17,7 @@ Azure Cosmos DB offers an API to get the latest restorable timestamp of a contai
 
 This API also takes the account location as an input parameter and returns the latest restorable timestamp for the given container in this location. If an account exists in multiple locations, then the latest restorable timestamp for a container in different locations could be different because the backups in each location are taken independently.
 
-By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp] (get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
+By default, the API only works at the container level, but it can be easily extended to work at the database or account level. This article helps you understand the semantics of latest restorable timestamp api, how it gets calculated and use cases for it. To learn more, see [how to get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
 
 ## Use cases
 
@@ -83,7 +83,7 @@ Let's say, we have an account which exists in 2 regions (East US and West US). W
 No. This API can only be used for accounts with continuous backup mode.
 
 #### Can I use this API for accounts migrated to continuous mode?
-Yes. This Api can be used for account provisioned with continuous backup mode or successfully migrated to continuous backup mode.
+Yes. This API can be used for account provisioned with continuous backup mode or successfully migrated to continuous backup mode.
 
 #### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
