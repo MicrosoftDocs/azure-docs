@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps iOS SDK to customize image layers and overlay images on fixed sets of coordinates.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/19/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -15,7 +15,7 @@ services: azure-maps
 This article shows you how to overlay an image to a fixed set of coordinates. Here are a few examples of different images types that can be overlaid on maps:
 
 * Images captured from drones
-* Building floorplans
+* Building floor plans
 * Historical or other specialized map images
 * Blueprints of job sites
 
@@ -124,4 +124,4 @@ The following screenshot shows a map with a KML ground overlay overlaid using an
 
 See the following article to learn more about ways to overlay imagery on a map.
 
-> [Add a tile layer](add-tile-layer-to-map-ios.md)
+* [Add a tile layer](add-tile-layer-map-ios.md)

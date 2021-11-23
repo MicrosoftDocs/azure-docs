@@ -284,7 +284,7 @@ items:
     - name: Change the style of a map
       href: set-map-style-ios-sdk.md
     - name: Add controls to a map
-      href: add-controls-to-map-ios.md
+      href: add-controls-map-ios.md
     - name: Create a data source
       href: create-data-source-ios-sdk.md
     - name: Add a symbol layer
@@ -302,12 +302,12 @@ items:
     - name: Add heat map layer
       href: add-heat-map-layer-ios.md
     - name: Add an image layer
-      href: add-image-layer-to-map-ios.md
+      href: add-image-layer-map-ios.md
     - name: Add a tile layer
-      href: add-tile-layer-to-map-ios.md
+      href: add-tile-layer-map-ios.md
     - name: Show traffic data 
       href: show-traffic-data-map-ios-sdk.md
-    - name: Cluster point data
+    - name: Clustering point data
       href: clustering-point-data-ios-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-ios-sdk.md

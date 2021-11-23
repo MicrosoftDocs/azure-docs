@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps iOS SDK to add line layers to maps and to customize lines with symbols and color gradients.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -230,8 +230,8 @@ map.layers.addLayer(SymbolLayer(source: source, options: [
 For this sample, the following image was loaded into the assets folder of the app.
 
 | ![purple_arrow_right](./media/ios-sdk/add-line-layer-map-ios/purple-arrow-right.png) |
-|:-----------------------------------------------------------------------:|
-|                           `purple_arrow_right.png`                       |
+|:------------------------------------------------------------------------------------:|
+|                           `purple-arrow-right.png`                                   |
 
 The screenshot below shows the above code displaying a line with arrow icons displayed along it.
 
@@ -241,8 +241,6 @@ The screenshot below shows the above code displaying a line with arrow icons dis
 
 See the following articles for more code samples to add to your maps:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-
-> [Add a polygon layer](add-polygon-layer-map-ios.md)
+* [Create a data source](create-data-source-ios-sdk.md)
+* [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+* [Add a polygon layer](add-polygon-layer-map-ios.md)

@@ -315,11 +315,7 @@ Initializer parameter | Format string syntax
 
 ### Conditionals
 
-Conditionals are supported via the built-in
-`NSExpression(forAZMConditional:trueExpression:falseExpression:)`
-method and `TERNARY()` operator. If you need to express multiple cases
-(“else-if”), you can either nest a conditional within a conditional or 
-use [the match expression](#match-expression).
+Conditionals are supported via the built-in `NSExpression(forAZMConditional:trueExpression:falseExpression:)` method and `TERNARY()` operator. If you need to express multiple cases (“else-if”), you can either nest a conditional within a conditional or use the [match expression](#match-expression).
 
 #### Conditionals example
 
@@ -352,9 +348,7 @@ let layer = BubbleLayer(
 
 ### Aggregates
 
-Aggregate expressions can contain arrays of expressions. In some cases, it is
-possible to use the array itself instead of wrapping the array in an aggregate
-expression.
+Aggregate expressions can contain arrays of expressions. In some cases, it is possible to use the array itself instead of wrapping the array in an aggregate expression.
 
 ### Variables
 
@@ -384,13 +378,13 @@ _Format string syntax_: `$featureAccumulated`
 
 The type of geometry represented by the feature. A feature’s type is one of the following strings:
 
-- `Point` for point features, corresponding to the `Point` class.
-- `MultiPoint` for point collection features, corresponding to the `PointCollection` class.
-- `LineString` for polyline features, corresponding to the `Polyline` class.
-- `MultiLineString` for multiple polylines features, corresponding to the `MultiPolyline` class.
-- `Polygon` for polygon features, corresponding to the `Polygon` class.
-- `MultiPolygon` for multiple polygons features, corresponding to the `MultiPolygon` class.
-- `GeometryCollection` for geometry collection features, corresponding to the `GeometryCollection` class.
+* `Point` for point features, corresponding to the `Point` class.
+* `MultiPoint` for point collection features, corresponding to the `PointCollection` class.
+* `LineString` for polyline features, corresponding to the `Polyline` class.
+* `MultiLineString` for multiple polylines features, corresponding to the `MultiPolyline` class.
+* `Polygon` for polygon features, corresponding to the `Polygon` class.
+* `MultiPolygon` for multiple polygons features, corresponding to the `MultiPolygon` class.
+* `GeometryCollection` for geometry collection features, corresponding to the `GeometryCollection` class.
 
 This variable corresponds to the `NSExpression.geometryTypeAZMVariable` property.
 
@@ -743,3 +737,12 @@ let layer = BubbleLayer(
 The following image demonstrates how the colors are chosen for the above expression.
 
 :::image type="content" source="./media/ios-sdk/data-driven-style-expressions-ios/step-expression-example.png" alt-text="Step expression example":::
+
+## Additional information
+
+Learn more about the layers that support expressions:
+
+* [Add a symbol layer](add-symbol-layer-ios.md)
+* [Add a bubble layer](add-bubble-layer-map-ios.md)
+* [Add a line layer](add-line-layer-map-ios.md)
+* [Add a polygon layer](add-polygon-layer-map-ios.md)

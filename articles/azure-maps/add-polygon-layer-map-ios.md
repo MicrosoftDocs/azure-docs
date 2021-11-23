@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps iOS SDK to customize geometric shapes and make them easy to update and maintain.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -124,7 +124,7 @@ For this sample, the following image was loaded into the assets folder of the ap
 
 | :::image type="content" source="./media/ios-sdk/add-polygon-layer-map-ios/fill-checker-red.png" alt-text="Image showing a polygon with a red checker fill pattern.":::
 |:-----------------------------------------------------------------------:|
-| `fill_checker_red.png`                                                    |
+| `fill-checker-red.png`                                                  |
 
 The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 
@@ -134,10 +134,7 @@ The following is a screenshot of the above code rendering a polygon with a fill 
 
 See the following articles for more code samples to add to your maps:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-
-> [Add a line layer](add-line-layer-map-ios.md)
-
-> [Add a polygon extrusion layer](add-polygon-extrusion-layer-map-ios.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Add a line layer](add-line-layer-map-ios.md)
+- [Add a polygon extrusion layer](add-polygon-extrusion-layer-map-ios.md)

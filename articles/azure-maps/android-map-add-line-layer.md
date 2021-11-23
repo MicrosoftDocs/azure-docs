@@ -450,7 +450,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 
 | ![Purple arrow icon image](media/android-map-add-line-layer/purple-arrow-right.png)|
 |:-----------------------------------------------------------------------:|
-|                           `purple_arrow_right.png`                       |
+|                           `purple-arrow-right.png`                       |
 
 The screenshot below shows the above code displaying a line with arrow icons displayed along it.
 

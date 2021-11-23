@@ -48,7 +48,7 @@ The following screenshot shows the above code rendering real-time traffic inform
 
 ## Get traffic incident details
 
-Details about a traffic incident are available within the properties of the feature used to display the incident on the map. Traffic incidents are added to the map using the Azure Maps traffic incident vector tile service. The format of the data in these vector tiles can be found in the[Vector Incident Tiles](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) article on the TomTom site. The following code adds a delegate to the map which handles a click event, retrieves the traffic incident feature that was clicked and displays an alert with some of the details.
+Details about a traffic incident are available within the properties of the feature used to display the incident on the map. Traffic incidents are added to the map using the Azure Maps traffic incident vector tile service. The format of the data in these vector tiles can be found in the [Vector Incident Tiles](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) article on the TomTom site. The following code adds a delegate to the map which handles a click event, retrieves the traffic incident feature that was clicked and displays an alert with some of the details.
 
 ```swift
 // Show traffic information on the map.
@@ -150,4 +150,8 @@ The following screenshot shows a map of moderate traffic jams and incidents with
 
 View the following guides to learn how to add more data to your map:
 
-- [Add a tile layer](add-tile-layer-to-map-ios.md)
+* [Add a tile layer](add-tile-layer-map-ios.md)
+* [Add a symbol layer](add-symbol-layer-ios.md)
+* [Add a bubble layer](add-bubble-layer-map-ios.md)
+* [Add a line layer](add-line-layer-map-ios.md)
+* [Add a polygon layer](add-polygon-layer-map-ios.md)

@@ -3,7 +3,7 @@ title: Display feature information in iOS maps | Microsoft Azure Maps
 description: Learn how to display information when users interact with map features. Use the Azure Maps iOS SDK to display toast messages and other types of messages.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -181,14 +181,9 @@ The following screen capture shows popups appearing when features are tapped and
 
 To add more data to your map:
 
-> [React to map events](interact-map-ios-sdk.md)
-
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Add a bubble layer](add-bubble-layer-map-ios.md)
-
-> [Add a line layer](add-line-layer-map-ios.md)
-
-> [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [React to map events](interact-map-ios-sdk.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Add a bubble layer](add-bubble-layer-map-ios.md)
+- [Add a line layer](add-line-layer-map-ios.md)
+- [Add a polygon layer](add-polygon-layer-map-ios.md)
