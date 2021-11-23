@@ -42,7 +42,7 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 ## Customize the security alerts email notifications via the portal<a name="email"></a>
 You can send email notifications to individuals or to all users with specific Azure roles.
 
-1. From Defender for Cloud's **Environment settings** area, select the relevant subscription, and select **Email notifications**.
+1. From Defender for Cloud's **Environment settings** area, select the relevant subscription, and open **Email notifications**.
 
 1. Define the recipients for your notifications with one or both of these options:
 

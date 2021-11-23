@@ -1477,6 +1477,8 @@
           href: configure-synapse-link.md
         - name: Connect to Azure Synapse Link
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Synapse Link and integrated Power BI 
+          href: integrated-power-bi-synapse-link.md
         - name: Analytical store and private endpoints
           href: analytical-store-private-endpoints.md
         - name: Query with Azure Synapse Spark 3
@@ -1497,7 +1499,7 @@
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
-            - name: Get the latest restore timestamp
+            - name: Get the latest restorable timestamp
               href: get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md
