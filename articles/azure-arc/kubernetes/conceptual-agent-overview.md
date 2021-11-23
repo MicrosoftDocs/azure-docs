@@ -49,26 +49,6 @@ The following steps are involved in connecting a Kubernetes cluster to Azure Arc
     * An Azure Arc-enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tracks this resource as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata (like Kubernetes version, agent version, and number of nodes) appears on the Azure Arc-enabled Kubernetes resource as metadata.
 
-## Data exchange between cluster and Azure
-
-| Data type | Scenario | Communication mode |
-| --------- | -------- | ------------------ |
-| Kubernetes cluster version | Cluster metadata | Agent pushes to Azure |
-| Number of nodes in the cluster | Cluster metadata | Agent pushes to Azure |
-| Agent version | Cluster metadata | Agent pushes to Azure |
-| Kubernetes distribution type | Cluster metadata | Azure CLI pushes to Azure |
-| Infrastructure type (AWS/GCP/vSphere/...) | Cluster metadata | Azure CLI pushes to Azure |
-| vCPU count of nodes in the cluster | Billing | Azure CLI pushes to Azure |
-| Agent heartbeat | Resource Health | Agent pushes to Azure |
-| Resource consumption (memory/CPU) by agents | Diagnostics and supportability | Agent pushes to Azure |
-| Logs of all agent containers | Diagnostics and supportability | Agent pushes to Azure |
-| Agent upgrade availability | Agent upgrade | Agent pulls from Azure |
-| Desired state of configuration: Git repository URL, flux operator parameters, private key, known hosts content, HTTPS username, token, or password | Configuration | Agent pulls from Azure |
-| Status of flux operator installation | Configuration | Agent pushes to Azure |
-| Azure Policy assignments that need Gatekeeper enforcement within cluster | Azure Policy | Agent pulls from Azure |
-| Audit and compliance status of in-cluster policy enforcements | Azure Policy | Agent pushes to Azure |
-| Metrics and logs of customer workloads | Azure Monitor | Agent pushes to Log Analytics workspace resource in customer's tenant and subscription |
-
 ## Connectivity status
 
 | Status | Description |

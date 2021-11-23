@@ -22,8 +22,12 @@
     href: ./resource-graph-samples.md
 - name: Concepts
   items:
-  - name: Agent architecture
-    href: conceptual-agent-architecture.md
+  - name: Agent overview
+    href: conceptual-agent-overview.md
+  - name: Connectivity modes
+    href: conceptual-connectivity-modes.md
+  - name: Data exchange between cluster and Azure
+    href: conceptual-data-exchange.md
   - name: Configurations and GitOps
     href: conceptual-configurations.md
   - name: Cluster extensions
