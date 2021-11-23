@@ -67,8 +67,10 @@ Some universities have used the lab plan and the resource group as ways to separ
 
 In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
-> [!NOTE]
-> Labs get tagged with the name of the lab plan they were created from, so you can filter by the lab plan tag to view total cost across labs created from a lab plan.
+In the November 2021 Update:
+
+- Labs get tagged with the name of the lab plan they were created from, so you can filter by the lab plan tag to view total cost across labs created from a lab plan.
+- You can set custom tags on labs or resource groups containing the labs to organize and analyze cost.
 
 ## Manage costs
 

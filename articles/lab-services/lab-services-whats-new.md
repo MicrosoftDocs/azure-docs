@@ -25,7 +25,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 [More built-in roles](administrator-guide-2.md#manage-identity). In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules. 
 
-**Improved cost tracking in Cost Management**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
+[Improved cost tracking in Cost Management](cost-management-guide.md#separate-the-costs). Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
 
 [Updates to lab owner experience](how-to-manage-classroom-labs-2.md). Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
 
@@ -78,4 +78,26 @@ For each new lab plan, there are some settings that you will need to configure, 
 - Select regions that your labs will be deployed in.
 - Set auto-shutdown settings.
 
-With all the new enhancements in the public preview, this is a good time to revisit your overall lab structure. For example, you may decide to structure your lab plans differently than your lab accounts now that you can explicitly select the regions that labs are deployed in.
+With all the new enhancements in the November 2021 Update, this is a good time to revisit your overall lab structure. For example, you may decide to structure your lab plans differently than your lab accounts now that you can explicitly select the regions that labs are deployed in.
+
+### Configure a lab plan
+
+Once the lab plan is created, administrators can set up the following configurations:
+
+Restrictions that apply at lab creation:
+
+- Which region(s) the labs can be created in.
+- What marketplace images are allowed.
+- What custom images from a connected Azure Compute Gallery are allowed.
+- Default auto-shutdown settings that labs will inherit.
+- Specify your organization’s Azure Compute Gallery to export custom VM images to.
+- Provide internal support information for your organization when using Azure Lab Services.
+- Give access to educators to create and/or manage labs.
+
+Lab owners who were given access can create new labs, and these labs will inherit the configuration set in the lab plan.
+
+Here is an example of how admins can create multiple lab plans to manage different collections of configurations to apply to labs:
+
+:::image type="content" source="./media/lab-services-whats-new/multiple-lab-plans-example.png" alt-text="Lab plan page":::
+ 
+Changes made to the lab settings from the lab plan will apply only to new labs created after the settings change.
