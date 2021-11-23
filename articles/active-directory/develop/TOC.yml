@@ -94,6 +94,18 @@
       href: tutorial-blazor-server.md
     - name: Node.js web app tutorial
       href: tutorial-v2-nodejs-webapp-msal.md
+    - name: Python Flask
+      items:
+      - name: 1 - Overview
+        href: web-app-tutorial-01-overview.md
+      - name: 2 - Prepare your app for auth
+        href: web-app-tutorial-02-prepare-app.md
+      - name: 3 - Prepare Azure AD for your app
+        href: web-app-tutorial-03-prepare-azure-ad.md
+      - name: 4 - Sign in users
+        href: web-app-tutorial-04-sign-in-users.md
+      - name: 5 - Get user data from web API
+        href: web-app-tutorial-05-call-web-api-graph.md
   - name: Mobile and desktop
     items:
     - name: Android
