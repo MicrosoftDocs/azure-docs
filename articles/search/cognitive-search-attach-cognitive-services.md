@@ -135,7 +135,7 @@ Some enrichments are always free:
 
 + Utility skills that do not call Cognitive Services (namely, [Conditional](cognitive-search-skill-conditional.md), [Document Extraction](cognitive-search-skill-document-extraction.md), [Shaper](cognitive-search-skill-shaper.md), [Text Merge](cognitive-search-skill-textmerger.md), and [Text Split skills](cognitive-search-skill-textsplit.md)) are not billable.
 
-+ Text extraction from PDF documents and other application files is non-billable. Text extraction occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase and is not an enrichment per se, but it occurs during AI enrichment and is thus noted here.
++ Text extraction from PDF documents and other application files is non-billable. Text extraction occurs during the [document cracking](search-indexer-overview.md#document-cracking) phase and is not an enrichment per se, but it occurs during AI enrichment and is thus noted here.
 
 ## Billable enrichments
 
