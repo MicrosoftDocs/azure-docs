@@ -17,7 +17,7 @@ This article outlines the process to register an Azure Blob Storage account in A
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| Yes | Limited** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy) | Limited** |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -281,6 +281,11 @@ Scans can be managed or run again on completion
 1. You can _run an incremental scan_ or a _full scan_ again 
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
+
+## Access policy
+[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
+
+Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
 
 ## Next steps
 
