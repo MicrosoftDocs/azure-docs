@@ -11,7 +11,7 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- *Custom Locations* provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases like Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale or application instances like App Services, Functions, Event Grid, Logic Apps and API Management. A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure RBAC can be used to grant application developers or database admins granular permissions to deploy different resources like databases or application instances on top of the Arc-enabled Kubernetes cluster in a multi-tenant manner. 
+ *Custom Locations* provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. Examples of Azure offerings that can be deployed on top of custom locations include databases like Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale or application instances like App Services, Functions, Event Grid, Logic Apps, and API Management. A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure RBAC can be used to grant application developers or database admins granular permissions to deploy different resources like databases or application instances on top of the Arc-enabled Kubernetes cluster in a multi-tenant manner. 
  
 A conceptual overview of this feature is available in [Custom locations - Azure Arc-enabled Kubernetes](conceptual-custom-locations.md) article. 
 
@@ -90,7 +90,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 
 ## Create custom location
 
-1. Deploy the Azure service cluster extension of the Azure service instance you intent to install on your cluster:
+1. Deploy the Azure service cluster extension of the Azure service instance you want to install on your cluster:
 
     * [Azure Arc-enabled Data Services](../data/create-data-controller-direct-prerequisites.md)
 
@@ -128,7 +128,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 | `--resource-group, --g` | Resource group of the custom location  | 
 | `--namespace` | Namespace in the cluster bound to the custom location being created |
 | `--host-resource-id` | Azure Resource Manager identifier of the Azure Arc-enabled Kubernetes cluster (connected cluster) |
-| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids  |
+| `--cluster-extension-ids` | Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs  |
 
 **Optional parameters**
 
@@ -189,7 +189,7 @@ az customlocation update -n <customLocationName> -g <resourceGroupName> --namesp
 
 | Parameter name | Description |
 |--------------|------------|
-| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids |
+| `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags. Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Patch a custom location
