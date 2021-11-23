@@ -252,10 +252,10 @@ It is important to give your service principal the permission to scan the ADLS G
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
 ## Access policy
-[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
+[!INCLUDE [supported regions](./includes/storage-policy-regions.md)]
+[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
 Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
-
 
 ## Next steps
 

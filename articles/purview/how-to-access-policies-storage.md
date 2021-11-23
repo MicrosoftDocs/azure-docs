@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 ## Supported capabilities
 This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
--   Data access policies to control access to data stored in Blob or Azure Data Lake Storage (ADLS) Gen2
+-   Data access policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2
 
 > [!IMPORTANT]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
@@ -22,7 +22,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Best practices
 - We highly encourage you to register all data sources for use governance and manage all associated access policies from a single Azure Purview account.
-- If you want to use multiple Purview accounts, be aware of these valid and invalid configurations. In the diagram below:
+- However, in case you need to use multiple Purview accounts, be aware of these valid and invalid configurations. In the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
     - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are being registered to different Purview accounts. 
@@ -40,19 +40,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 [!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
 
 ## Configuration
-
-### Enable access policy enforcement for the Azure Storage account
-The following PowerShell commands need to be executed in the subscription where the Azure Storage account resides. This will cover all Azure Storage accounts in that subscription.
-
-```powershell
-# Install the Az module
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-# Login into the subscription
-Connect-AzAccount -Subscription <SubscriptionID>
-# Register the feature
-Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
-```
-If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
+[!INCLUDE [policy regions and enablement](./includes/storage-access-policy-enable.md)]
 
 ### Opt in to participate in Azure Purview data use policy preview
 This functionality is currently in preview. You will need to [Opt in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
