@@ -29,154 +29,172 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 > [!NOTE]
 > Updating persistent storage will result in the restart of applications.
 
-#### [Portal](#tab/Azure-portal)
-The following procedures bind an Azure Storage account as a storage resource in your Azure Spring Cloud and create an app with your own persistent storage.
+# [Portal](#tab/Azure-portal)
 
-1. Go to the service Overview page and select Storage.
+Use the following steps to bind an Azure Storage account as a storage resource in your Azure Spring Cloud and create an app with your own persistent storage.
 
-   ![Navigate to storage blade](./media/spring-cloud-byos/select-storage-blade.png)
+1. Go to the service **Overview** page, then select **Storage** in the left-hand navigation pane.
 
-1. On the Storage page, select **Add storage**, fill out the form on the **Add storage** page and select **Apply**.
+1. On the **Storage** page, select **Add storage**, add the values in the following table, and then select **Apply**.
 
-   |Setting     |Value                                                                      |
-    |------------|---------------------------------------------------------------------------|
-    |Storage name       |Enter *\<storage-resource-name>*. It refers to the name of storage resource, which is a service level resource in Azure Spring Cloud.                                 |
-    |Account name        |Enter *\<Azure-Storage-account-name>*                                                           |
-    |Account key         |Enter *\<Azure-Storage-account-key>*                                                        
-    
-   Then select **Apply**.
+   | Setting      | Value                                                                                      |
+   |--------------|--------------------------------------------------------------------------------------------|
+   | Storage name | The name of the storage resource, which is a service-level resource in Azure Spring Cloud. |
+   | Account name | The name of the storage account.                                                           |
+   | Account key  | The storage account key.                                                                   |
 
-   ![Add storage resource](./media/spring-cloud-byos/add-storage-resource.png)
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-storage-resource.png" alt-text="Azure portal screenshot showing the Storage page and the 'Add storage' pane" lightbox="media/how-to-custom-persistent-storage/add-storage-resource.png":::
 
-1. Go the **Apps** page and select an application to mount the persistent storage.
-   ![Select app to add persistent storage](./media/spring-cloud-byos/select-an-app-to-mount-persistent-storage.png)
+1. Go to the **Apps** page, then select an application to mount the persistent storage.
 
-1. Select **Configuration** and then select **Persistent Storage**. 
-   ![Navigate to configuration blade](./media/spring-cloud-byos/go-to-persistent-storage-blade.png)
+   :::image type="content" source="media/how-to-custom-persistent-storage/select-an-app-to-mount-persistent-storage.png" alt-text="Screenshot of the Apps page" lightbox="media/how-to-custom-persistent-storage/select-an-app-to-mount-persistent-storage.png":::
 
-1. Select **Add persistent storage** and enter or select this information:
+1. Select **Configuration**, then select **Persistent Storage**.
 
+1. Select **Add persistent storage**, add the values in the following table, and then select **Apply**.
 
-    |Setting     |Value                                                                      |
-    |------------|---------------------------------------------------------------------------|
-    |Storage name       |Enter *\<storage-resource-name>* from Step 2                                                        |
-    |Persistent storage type        |Select **AzureFileVolume**                                                               |
-    |Share name         |Enter *\<azure-file-share-name>*. It refers to the name of the Azure File share in Azure Storage account.                                                                   |
-    |Mount path    |Enter *\<unique-mount-path>*                                                            |
-    |Mount options  |Optional property   |
-    |Read only |Optional property   |
-    
-   Then select **Apply**.
+    | Setting                 | Value                                                          |
+    |-------------------------|----------------------------------------------------------------|
+    | Storage name            | The name of the storage resource that you entered earlier.     |
+    | Persistent storage type | **AzureFileVolume**                                            |
+    | Share name              | The name of the Azure File share in the Azure Storage account. |
+    | Mount path              | A unique mount path.                                           |
+    | Mount options           | Optional                                                       |
+    | Read only               | Optional                                                       |
 
-   ![Add persistent storage](./media/spring-cloud-byos/add-persistent-storage.png)
+   :::image type="content" source="media/how-to-custom-persistent-storage/add-persistent-storage.png" alt-text="Screenshot of the 'Add persistent storage' form":::
 
 1. Select **Save** to apply all the configuration changes.
-   ![Save configuration changes](./media/spring-cloud-byos/save-persistent-storage-changes.png)
 
+   :::image type="content" source="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png" alt-text="Screenshot of the Persistent Storage section of the Configuration page" lightbox="media/how-to-custom-persistent-storage/save-persistent-storage-changes.png":::
 
-#### [CLI](#tab/Azure-CLI)
+# [CLI](#tab/Azure-CLI)
 
 You can enable your own storage with the Azure CLI by using the following steps.
 
 1. Use the following command to bind your Azure Storage account as a storage resource in your Azure Spring Cloud instance:
 
     ```azurecli
-   az spring-cloud storage add --storage-type StorageAccount --account-name <account-name> --account-key <account-key>  -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
+   az spring-cloud storage add \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Cloud-instance-name> \
+       --name <storage-resource-name> \
+       --storage-type StorageAccount \
+       --account-name <account-name> \
+       --account-key <account-key>
     ```
 
 1. Use the following command to create an app with your own persistent storage.
 
-    ```azurecli
-    az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file>
-    ```
+   ```azurecli
+   az spring-cloud app create \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Cloud-instance-name> \
+       --name <app-name> \
+       --persistent-storage <path-to-JSON-file>
+   ```
 
-    Here's a sample of the JSON file that is passed to the `--persistent-storage` parameter in the create command:
+   Here's a sample of the JSON file that is passed to the `--persistent-storage` parameter in the create command:
 
-    ```json
-    {
-       "customPersistentDisks": [
-          {
-              "storageName": "<Storage-Resource-Name>",
-              "customPersistentDiskProperties": {
-                  "type": "AzureFileVolume",
-                  "shareName": "<Azure-File-Share-Name>",
-                  "mountPath": "<Unique-Mount-Path>",
-                  "mountOptions": [
-                      "uid=0",
-                      "gid=0"
-                   ],
-                   "readOnly": false 
-                }
-          },
-          {
-              "storageName": "<Storage-Resource-Name>",
-              "customPersistentDiskProperties": {
-                  "type": "AzureFileVolume",
-                  "shareName": "<Azure-File-Share-Name>",
-                  "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
-                  "readOnly": true
-              }
-          }
-       ]
-    }
-    ```
+   ```json
+   {
+      "customPersistentDisks": [
+         {
+             "storageName": "<storage-resource-name>",
+             "customPersistentDiskProperties": {
+                 "type": "AzureFileVolume",
+                 "shareName": "<Azure-file-share-name>",
+                 "mountPath": "<unique-mount-path>",
+                 "mountOptions": [
+                     "uid=0",
+                     "gid=0"
+                  ],
+                  "readOnly": false 
+               }
+         },
+         {
+             "storageName": "<storage-resource-name>",
+             "customPersistentDiskProperties": {
+                 "type": "AzureFileVolume",
+                 "shareName": "<Azure-file-share-name>",
+                 "mountPath": "<unique-mount-path>",
+                 "readOnly": true
+             }
+         }
+      ]
+   }
+   ```
 
 1. Optionally, add extra persistent storage to an existing app using the following command:
 
-    ```azurecli
-    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
-    ```
+   ```azurecli
+   az spring-cloud app append-persistent-storage \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Cloud-instance-name> \
+       --name <app-name> \
+       --persistent-storage-type AzureFileVolume \
+       --share-name <Azure-file-share-name> \
+       --mount-path <unique-mount-path> \
+       --storage-name <storage-resource-name>
+   ```
 
 1. Optionally, list all existing persistent storage of a specific storage resource using the following command:
 
    ```azurecli
-   az spring-cloud storage list-persistent-storage -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
+   az spring-cloud storage list-persistent-storage \
+       --resource-group <resource-group-name> \
+       --service <Azure-Spring-Cloud-instance-name> \
+       --name <storage-resource-name>
    ```
+
+---
 
 ## Use best practices
 
 These are best practices to use when adding your own persistent storage to Azure Spring Cloud.
 
-- To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
+* To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
-- In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the your own persistent storage remains available to the applications during key regeneration. 
+* In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the your own persistent storage remains available to the applications during key regeneration.
 
    For example, assuming that you used key1 to bind a storage account to Azure Spring Cloud, you would use the following steps:
 
    1. Regenerate key2.
    1. Update the account key of the storage resource to use the regenerated key2.
-   1. Restart the applications that mount the persistent storage from this storage resource. (You can use ```az spring-cloud storage list-persistent-storage``` to list all related applications.)
+   1. Restart the applications that mount the persistent storage from this storage resource. (You can use `az spring-cloud storage list-persistent-storage` to list all related applications.)
    1. Regenerate key1.
 
-- If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storage in the applications to avoid possible errors.
+* If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storage in the applications to avoid possible errors.
 
 ## FAQs
 
 The following are frequently asked questions (FAQ) about using your own persistent storage with Azure Spring Cloud.
 
-- If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Storage Account?
+* If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Storage Account?
 
    *No. But we're going to provide a document to help you do the migration yourself soon.*
 
-- What are the reserved mount paths?
+* What are the reserved mount paths?
 
    *These mount paths are reserved by the Azure Spring Cloud service:*
-   - */tmp*
-   - */persistent*
-   - */secrets*
-   - */app-insights/agents*
-   - */etc/azure-spring-cloud/certs*
-   - */app-insights/agents/settings*
-   - */app-lifecycle/settings*
 
-- What are the available mount options?
+   * */tmp*
+   * */persistent*
+   * */secrets*
+   * */app-insights/agents*
+   * */etc/azure-spring-cloud/certs*
+   * */app-insights/agents/settings*
+   * */app-lifecycle/settings*
+
+* What are the available mount options?
 
    *We currently support the following mount options:*
-   - `uid`
-   - `gid`
-   - `file_mode`
-   - `dir_mode`
-   
+
+   * `uid`
+   * `gid`
+   * `file_mode`
+   * `dir_mode`
+
    *The `mountOptions` property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 ## Next steps
