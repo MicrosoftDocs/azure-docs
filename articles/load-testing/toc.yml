@@ -14,9 +14,10 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Load test in Azure portal
+    - name: Identify performance bottlenecks
       href: tutorial-identify-bottlenecks-azure-portal.md
     - name: Continuous regression testing (CI/CD)
+      expanded: true
       items:
       - name: Automate with GitHub Actions
         href: tutorial-cicd-github-actions.md
@@ -27,7 +28,7 @@
   items: 
     - name: Compare test runs
       href: how-to-compare-multiple-test-runs.md
-    - name: Update and rerun tests
+    - name: Configure server-side monitoring
       href: how-to-update-rerun-test.md
     - name: Configure for high scale loads
       href: how-to-high-scale-load.md
