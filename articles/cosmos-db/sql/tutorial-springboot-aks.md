@@ -141,7 +141,7 @@ If you intend to run the application on AKS, skip this section and move on to [P
    java -jar target/*.jar
    ```
 
-2. Proceed to the section [Access the application](#access-the-application)
+2. Proceed to [Access the application](#access-the-application) or refer to the next section to deploy the application to Kubernetes.
 
 ## Push Docker image to Azure Container Registry
 
@@ -206,7 +206,7 @@ If you intend to run the application on AKS, skip this section and move on to [P
 
 ## Access the application
 
-To access the application locally over port `8080`, run the below command:
+If the application is running in Kubernetes and you want to access it locally over port `8080`, run the below command:
 
 ```bash
 kubectl port-forward svc/spring-cosmos-app-internal 8080:8080
