@@ -40,11 +40,11 @@ landingContent:
         links:
           - text: Recent updates
             url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
-  - title: Develop and connect devices
+  - title: Connect you devices
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview for device developers
+          - text: Device connectivity guide
             url: core/overview-iot-central-developer.md
       - linkListType: tutorial
         links:
@@ -60,11 +60,11 @@ landingContent:
         links:
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
-  - title: Build integrated solutions
+  - title: Extend your application
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview for solution builders
+          - text: Data integration guide
             url: core/overview-iot-central-solution-builder.md
       - linkListType: tutorial
         links:
@@ -86,7 +86,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Overview for operators
+          - text: Device connectivity guide
             url: core/overview-iot-central-operator.md
       - linkListType: tutorial
         links:
