@@ -25,7 +25,7 @@ Azure Communication Services can be used to build custom applications and experi
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
 
-Azure Communication Services supports two modes of Teams interoperability depending on the end user:
+Azure Communication Services supports two modes of Teams interoperability depending on the identity of the end user:
 
 - **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. This mode allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **Teams user identity.** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This mode allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the standard Teams client.
