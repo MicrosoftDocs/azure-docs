@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
-ms.date: 11/19/2021
+ms.date: 11/30/2021
 ms.custom: template-quickstart
 adobe-target: true
 ---
@@ -41,7 +41,7 @@ In the next section, you'll create an Apache JMeter script. If you already have 
 
 In this section, you'll create a sample Apache JMeter script that you'll use in the next section to load test a web endpoint.
 
-1. Create a new file *SampleTest.jmx*.
+1. Create a new file *SampleTest.jmx* on your local machine.
 
     ```powershell
     touch SampleTest.jmx
