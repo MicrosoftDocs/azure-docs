@@ -27,10 +27,10 @@ To use Azure Kubernetes Service clusters for Azure Machine Learning training and
 
 Before deploying the Azure Machine Learning extension on Azure Kubernetes Service clusters, you have to:
 
-- Register the feature in your cluster. For more information, see [Azure Kubernetes Service prerequisites](#aks-prerequisites).
+- Register the feature in your AKS cluster. For more information, see [Azure Kubernetes Service prerequisites](#aks-prerequisites).
 - Configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
 
-To deploy the Azure Machine Learning extension on Azure Kubernetes Service clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
+To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
 
 ## Prerequisites
 
