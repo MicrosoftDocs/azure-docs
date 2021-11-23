@@ -74,7 +74,7 @@ For a broader overview  including how to handle other complex scenarios, see usi
 
 The admin consent workflow gives users a way to request admin consent for applications when they aren't allowed to consent themselves. When the admin consent workflow is enabled, a user is presented with an approval required dialog box to request admin approval for access to the application.
 
-After the user submits the admin consent request, the admins who've been designated as reviewers receive notifications. The user is notified after a reviewer has acted on their request. See [configure admin consent workflow](configure-admin-consent-workflow) for step-by-step instructions for configuring the admin consent workflow using the Azure portal.
+After the user submits the admin consent request, the admins who've been designated as reviewers receive notifications. The user is notified after a reviewer has acted on their request. See [configure admin consent workflow](configure-admin-consent-workflow.md) for step-by-step instructions for configuring the admin consent workflow using the Azure portal.
 
 ### How users request admin consent
 
