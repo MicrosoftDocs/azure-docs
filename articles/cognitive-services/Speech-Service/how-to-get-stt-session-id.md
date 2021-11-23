@@ -17,17 +17,21 @@ ms.author: alexeyo
 When opening support cases in connection with [Speech-to-text](speech-to-text.md), customers are often asked to provide a *Session ID* or *Transcription ID* of the problematic transcriptions to debug the issue. This article explains how to get these IDs. 
 
 > [!NOTE]
-> * *Session ID* are used in [Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md).
-> * *Transcription ID* are used in [Batch transcription](batch-transcription.md).
+> * *Session ID* is used in [Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md).
+> * *Transcription ID* is used in [Batch transcription](batch-transcription.md).
 
-## Getting Session ID for Online transcription and Translation. (Speech SDK).
+## Getting Session ID for Online transcription and Translation. (Speech SDK and REST API for short audio).
 
-[Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md) are performed with the help of the [Speech SDK](speech-sdk.md). To get the Session ID, you need to:
+[Online transcription](get-started-speech-to-text.md) and [Translation](speech-translation.md) are performed with the help either the [Speech SDK](speech-sdk.md) or the [REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio).
+
+To get the Session ID, when using SDK you need to:
 
 1. Enable application logging.
 1. Find the Session ID inside the log.
 
 If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details [below](#get-session-id-using-speech-cli).
+
+In case of [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) you need to "inject" the session information together with the requests. See details [below](#providing-session-id-using-rest-api-for-short-audio).
 
 ### Enable logging in the Speech SDK
 
@@ -50,7 +54,20 @@ You can also enable logging for your sessions and get the Session ID from the lo
 ```console
 spx help recognize log
 ```
-## Getting Transcription ID for Batch transcription. (REST API).
+
+### Prove Session ID using REST API for short audio
+
+Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) does not automatically generates a Session ID. You need to generate it yourself and provide it within the REST request.
+
+Generate a GUID inside your code or using any standard tool. Use the GUID value *without dashes or other dividers*. As an example we will use `9f4ffa5113a846eba289aa98b28e766f`.
+
+As a part of your REST request use `X-ConnectionId=<GUID>` expression. For our example a sample request will look like this:
+```http
+https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&X-ConnectionId=9f4ffa5113a846eba289aa98b28e766f
+```
+`9f4ffa5113a846eba289aa98b28e766f` will be your Session ID.
+
+## Getting Transcription ID for Batch transcription. (REST API v3.0).
 
 [Batch transcription](batch-transcription.md) is using [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30). 
 
