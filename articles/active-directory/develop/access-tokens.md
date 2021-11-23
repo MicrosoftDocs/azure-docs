@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 11/22/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -174,9 +174,19 @@ Microsoft identities can authenticate in different ways, which may be relevant t
 
 ## Access token lifetime
 
-The default lifetime of an access token varies, depending on the client application requesting the token. For example, continuous access evaluation (CAE) capable clients that negotiate CAE-aware sessions will see a long lived token lifetime (up to 28 hours).  When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+The default lifetime of an access token is variable.  When issued, an access token's default lifetime is a assigned a random value ranging between 60-90 minutes (75 minutes on average). The variation improves service resilience by spreading access token demand over a period of 60 to 90 minutes, which prevents hourly spikes in traffic to Azure AD.
 
-You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). For more information, read [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md).
+Tenants that don’t use Conditional Access have a default access token lifetime of 2-hours for clients such as Microsoft Teams and Microsoft 365.
+
+You can adjust the lifetime of an access token to control how often the client application expires the application session, and how often it requires the user to re-authenticate (either silently or interactively). Customers that wish to override default access token lifetime variation can set a static default access token lifetime by using [Configurable token lifetime (CTL)](active-directory-configurable-token-lifetimes.md).
+
+Default token lifetime variation is applied to organizations that have Continuous Access Evaluation (CAE) enabled, even if CTL policies are configured. The default token lifetime for long lived token lifetime ranges from 20 to 28 hours. When the access token expires, the client must use the refresh token to (usually silently) acquire a new refresh token and access token.
+
+Organizations that use [Conditional Access sign-in frequency (SIF)](/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#user-sign-in-frequency) to enforce how frequent sign-ins occur can not override default access token lifetime variation. The time between credential prompts for a client is the token lifetime (ranging from 60 - 90 minutes) plus the sign-in frequency interval.  
+
+Here's an example of how default token lifetime variation works with sign-in frequency.  Let's say an organization sets sign-in frequency to occur every hour. The actual sign in interval will occur anywhere between 1 hour to 2.5 hours since the token is issued with lifetime ranging from 60-90 minutes (due to token lifetime variation).
+
+If a user with a token with 1 hour lifetime performs an interactive sign-in at 59 minutes (just prior to the sign-in frequency being exceeded), there is no credential prompt because the sign in is below the SIF threshold.  If a new token is then issued with a lifetime of 90 minutes, the user would not see a credential prompt for an additional hour and a half.  When a silent renewal attempted of the 90 minute token lifetime is made, Azure AD will require a credential prompt because the total session length has exceeded the sign-in frequency setting of 1 hour. In this example, the time difference between credential prompts due to the SIF interval and token lifetime variation would be 2.5 hours.
 
 ## Validating tokens
 
