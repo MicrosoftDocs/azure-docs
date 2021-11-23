@@ -31,7 +31,7 @@ To get the Session ID, when using SDK you need to:
 
 If you use [Speech CLI](spx-overview.md), you can also get the Session ID interactively. See details [below](#get-session-id-using-speech-cli).
 
-In case of [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) you need to "inject" the session information together with the requests. See details [below](#providing-session-id-using-rest-api-for-short-audio).
+In case of [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) you need to "inject" the session information together with the requests. See details [below](#provide-session-id-using-rest-api-for-short-audio).
 
 ### Enable logging in the Speech SDK
 
@@ -55,7 +55,7 @@ You can also enable logging for your sessions and get the Session ID from the lo
 spx help recognize log
 ```
 
-### Prove Session ID using REST API for short audio
+### Provide Session ID using REST API for short audio
 
 Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text.md#speech-to-text-rest-api-for-short-audio) does not automatically generates a Session ID. You need to generate it yourself and provide it within the REST request.
 
