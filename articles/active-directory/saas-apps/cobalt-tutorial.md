@@ -136,11 +136,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot for configuration page](./media/cobalt-tutorial/configuration.png)
 
-    a. In the **IDP ISSUER URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
-
-    b. In the **IDP TARGET URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
-
-    c. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **IDP CERTIFICATE** textbox.
+    1. In the **IDP ISSUER URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    1. In the **IDP TARGET URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **IDP CERTIFICATE** textbox.
 
 1. Click **SAVE**.
 
