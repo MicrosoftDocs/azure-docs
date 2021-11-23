@@ -25,9 +25,9 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 
 This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector is based on Spark 3.1.x.
 
-Throughout this quick tutorial we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
 
-You can use any other Spark 3.1.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc).
+You can use any other Spark 3.1.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ You can use any other Spark 3.1.1 spark offering as well, also you should be abl
 
 * (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 
-SLF4J is only needed if you plan to use logging, please also download an SLF4J binding which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
+SLF4J is only needed if you plan to use logging, also download an SLF4J binding, which will link the SLF4J API with the logging implementation of your choice. See the [SLF4J user manual](https://www.slf4j.org/manual.html) for more information.
 
 Install Cosmos DB Spark Connector, in your spark Cluster [azure-cosmos-spark_3-1_2-12-4.3.1.jar](https://search.maven.org/artifact/com.azure.cosmos.spark/azure-cosmos-spark_3-1_2-12/4.3.1/jar)
 
@@ -76,9 +76,9 @@ spark.sql("CREATE DATABASE IF NOT EXISTS cosmosCatalog.{};".format(cosmosDatabas
 spark.sql("CREATE TABLE IF NOT EXISTS cosmosCatalog.{}.{} using cosmos.oltp TBLPROPERTIES(partitionKeyPath = '/id', manualThroughput = '1100')".format(cosmosDatabaseName, cosmosContainerName))
 ```
 
-When creating containers with the Catalog API you can set the throughput and [partition key path](../partitioning-overview.md#choose-partitionkey) for the container to be created.
+When creating containers with the Catalog API, you can set the throughput and [partition key path](../partitioning-overview.md#choose-partitionkey) for the container to be created.
 
-For more details, see the full [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md) documentation.
+For more information, see the full [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md) documentation.
 
 ## Ingest data
 
@@ -96,7 +96,7 @@ spark.createDataFrame((("cat-alive", "Schrodinger cat", 2, True), ("cat-dead", "
 
 Note that `id` is a mandatory field for Cosmos DB.
 
-For more details related to ingesting data, see the full [write configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#write-config) documentation.
+For more information related to ingesting data, see the full [write configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#write-config) documentation.
 
 ## Query data
 
@@ -113,7 +113,7 @@ df.filter(col("isAlive") == True)\
  .show()
 ```
 
-For more details related to querying data, see the full [query configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#query-config) documentation.
+For more information related to querying data, see the full [query configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#query-config) documentation.
 
 ## Schema inference
 
@@ -153,7 +153,7 @@ df = spark.read.format("cosmos.oltp").options(**cfg)\
 df.printSchema()
 ```
 
-For more details related to schema inference, see the full [schema inference configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#schema-inference-config) documentation.
+For more information related to schema inference, see the full [schema inference configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#schema-inference-config) documentation.
 
 ## Configuration reference
 
@@ -165,20 +165,20 @@ For more details related to schema inference, see the full [schema inference con
 | `spark.cosmos.database`      | None    | Cosmos DB database name  |
 | `spark.cosmos.container`      | None    | Cosmos DB container name  |
 
-### Additional tuning
+### Extra tuning
 | Config Property Name      | Default | Description |
 | :---        |    :----   |         :--- | 
 | `spark.cosmos.useGatewayMode`      | `false`    | Use gateway mode for the client operations  |
 | `spark.cosmos.read.forceEventualConsistency`  | `true`    | Makes the client use Eventual consistency for read operations instead of using the default account level consistency |
 | `spark.cosmos.applicationName`      | None    | Application name  |
-| `spark.cosmos.preferredRegionsList`      | None    | Preferred regions list to be used for a multi region Cosmos DB account. This is a comma separated value (e.g., `[East US, West US]` or `East US, West US`) provided preferred regions will be used as hint. You should use a collocated spark cluster with your Cosmos DB account and pass the spark cluster region as preferred region. See list of azure regions [here](/dotnet/api/microsoft.azure.documents.locationnames?view=azure-dotnet&preserve-view=true). Please note that you can also use `spark.cosmos.preferredRegions` as alias |
-| `spark.cosmos.diagnostics`      | None    | Can be used to enable more verbose diagnostics. Currently the only supported option is to set this property to `simple` - which will result in additional logs being emitted as `INFO` logs in the Driver and Executor logs.|
+| `spark.cosmos.preferredRegionsList`      | None    | Preferred regions list to be used for a multi region Cosmos DB account. This is a comma-separated value (for example, `[East US, West US]` or `East US, West US`) provided preferred regions will be used as hint. You should use a collocated spark cluster with your Cosmos DB account and pass the spark cluster region as preferred region. See list of Azure regions [here](/dotnet/api/microsoft.azure.documents.locationnames?view=azure-dotnet&preserve-view=true). You can also use `spark.cosmos.preferredRegions` as alias |
+| `spark.cosmos.diagnostics`      | None    | Can be used to enable more verbose diagnostics. Currently the only supported option is to set this property to `simple` - which will result in extra logs being emitted as `INFO` logs in the Driver and Executor logs.|
 
 ### Write config
 | Config Property Name      | Default | Description |
 | :---        |    :----   |         :--- | 
-| `spark.cosmos.write.strategy`      | `ItemOverwrite`    | Cosmos DB Item write Strategy: `ItemOverwrite` (using upsert), `ItemAppend` (using create, ignore pre-existing items i.e., Conflicts), `ItemDelete` (delete all documents), `ItemDeleteIfNotModified` (delete all documents for which the etag hasn't changed)  |
-| `spark.cosmos.write.maxRetryCount`      | `10`    | Cosmos DB Write Max Retry Attempts on retriable failures (e.g., connection error, moderakh add more details)   |
+| `spark.cosmos.write.strategy`      | `ItemOverwrite`    | Cosmos DB Items write Strategy: `ItemOverwrite` (using upsert), `ItemAppend` (using create, ignore pre-existing items that are, Conflicts), `ItemDelete` (delete all documents), `ItemDeleteIfNotModified` (delete all documents for which the etag hasn't changed)  |
+| `spark.cosmos.write.maxRetryCount`      | `10`    | Cosmos DB Write Max Retry Attempts on retryable failures (for example, connection error)   |
 | `spark.cosmos.write.point.maxConcurrency`   | None   | Cosmos DB Item Write Max concurrency. If not specified it will be determined based on the Spark executor VM Size |
 | `spark.cosmos.write.bulk.maxPendingOperations`   | None   | Cosmos DB Item Write bulk mode maximum pending operations. Defines a limit of bulk operations being processed concurrently. If not specified it will be determined based on the Spark executor VM Size. If the volume of data is large for the provisioned throughput on the destination container, this setting can be adjusted by following the estimation of `1000 x Cores` |
 | `spark.cosmos.write.bulk.enabled`      | `true`   | Cosmos DB Item Write bulk enabled |
@@ -187,7 +187,7 @@ For more details related to schema inference, see the full [schema inference con
 | Config Property Name      | Default | Description |
 | :---        |    :----   |         :--- | 
 | `spark.cosmos.read.customQuery`      | None   | When provided the custom query will be processed against the Cosmos endpoint instead of dynamically generating the query via predicate push down. Usually it is recommended to rely on Spark's predicate push down because that will allow to generate the most efficient set of filters based on the query plan. But there are a couple of predicates like aggregates (count, group by, avg, sum etc.) that cannot be pushed down yet (at least in Spark 3.1) - so the custom query is a fallback to allow them to be pushed into the query sent to Cosmos. If specified, with schema inference enabled, the custom query will also be used to infer the schema. |
-| `spark.cosmos.read.maxItemCount`  | `1000`    | Overrides the maximum number of documents that can be returned for a single query- or change feed request. The default value is `1000` - consider increasing this only for average document sizes significantly smaller than 1KB or when projection reduces the number of properties selected in queries significantly (like when only selecting "id" of documents etc.).  |
+| `spark.cosmos.read.maxItemCount`  | `1000`    | Overrides the maximum number of documents that can be returned for a single query- or change feed request. The default value is `1000` - consider increasing this only for average document sizes smaller than 1 KB or when projection reduces the number of properties selected in queries significantly (like when only selecting "ID" of documents etc.).  |
 
 ### Schema inference config
 When doing read operations, users can specify a custom schema or allow the connector to infer it. Schema inference is enabled by default.
@@ -224,7 +224,7 @@ Used to influence the json serialization/deserialization behavior
 | Config Property Name      | Default | Description |
 | :---        |    :----   |         :--- | 
 | `spark.cosmos.read.partitioning.strategy`     | `Default`    | The partitioning strategy used (Default, Custom, Restrictive or Aggressive) |
-| `spark.cosmos.partitioning.targetedCount`      | None    | The targeted Partition Count. This parameter is optional and ignored unless strategy==Custom is used. In this case the Spark Connector won't dynamically calculate number of partitions but stick with this value.  |
+| `spark.cosmos.partitioning.targetedCount`      | None    | The targeted Partition Count. This parameter is optional and ignored unless strategy==Custom is used. In this case, the Spark Connector won't dynamically calculate number of partitions but stick with this value.  |
 
 ### Throughput control config
 | Config Property Name      | Default | Description |
@@ -233,8 +233,8 @@ Used to influence the json serialization/deserialization behavior
 | `spark.cosmos.throughputControl.name`      | None    | Throughput control group name   |
 | `spark.cosmos.throughputControl.targetThroughput`      | None   | Throughput control group target throughput  |
 | `spark.cosmos.throughputControl.targetThroughputThreshold`      | None    | Throughput control group target throughput threshold  |
-| `spark.cosmos.throughputControl.globalControl.database`      | None    | Database which will be used for throughput global control  |
-| `spark.cosmos.throughputControl.globalControl.container`      | None   | Container which will be used for throughput global control  |
+| `spark.cosmos.throughputControl.globalControl.database`      | None    | Database, which will be used for throughput global control  |
+| `spark.cosmos.throughputControl.globalControl.container`      | None   | Container, which will be used for throughput global control  |
 | `spark.cosmos.throughputControl.globalControl.renewIntervalInMS`      | `5s`    | How often the client is going to update the throughput usage of itself  |
 | `spark.cosmos.throughputControl.globalControl.expireIntervalInMS`      | `11s`   | How quickly an offline client will be detected |
 
