@@ -223,8 +223,6 @@
         href: azure-vm-image-test.md
       - name: Get SAS URI
         href: azure-vm-get-sas-uri.md
-      - name: SAS failure messages
-        href: azure-vm-sas-failure-messages.md
       - name: VM creation FAQ
         href: azure-vm-faq.yml
       - name: VM certification troubleshooting

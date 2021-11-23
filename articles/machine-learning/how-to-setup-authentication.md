@@ -74,7 +74,7 @@ The easiest way to create an SP and grant access to your workspace is by using t
 1. Create the service principal. In the following example, an SP named **ml-auth** is created:
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --sdk-auth --name ml-auth
+    az ad sp create-for-rbac --sdk-auth --name ml-auth --role Contributor
     ```
 
     The output will be a JSON similar to the following. Take note of the `clientId`, `clientSecret`, and `tenantId` fields, as you will need them for other steps in this article.

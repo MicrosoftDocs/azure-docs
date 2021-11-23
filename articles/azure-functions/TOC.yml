@@ -80,7 +80,7 @@
     - name: Functions with Logic Apps
       href: functions-twitter-email.md
     - name: Develop Python functions with VS Code
-      href: /azure/python/tutorial-vs-code-serverless-python-01
+      href: /azure/azure-functions/create-first-function-vs-code-python
     - name: Create serverless APIs using Visual Studio
       href: openapi-apim-integrate-visual-studio.md
       displayName: OpenAPI, Swagger
@@ -102,7 +102,7 @@
     - name: Image resize with Event Grid
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Create a serverless web app
-      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr
+      href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/
     - name: Machine learning with TensorFlow
       href: functions-machine-learning-tensorflow.md
     - name: Image classification with PyTorch
@@ -402,7 +402,7 @@
         - name: Geo-disaster recovery
           href: functions-geo-disaster-recovery.md
         - name: Move across regions
-          href: functions-move-across-regions.md          
+          href: functions-move-across-regions.md
     - name: Monitor
       items:
         - name: Configure monitoring
@@ -412,7 +412,7 @@
           href: analyze-telemetry-data.md
           displayName: App Insights, Application Insights, Kusto
         - name: Monitor metrics
-          href: monitor-metrics.md  
+          href: monitor-metrics.md
         - name: Streaming logs
           href: streaming-logs.md
           displayName: monitoring
@@ -431,7 +431,7 @@
               href: ../app-service/configure-authentication-provider-google.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate with Twitter
               href: ../app-service/configure-authentication-provider-twitter.md?toc=%2fazure%2fazure-functions%2ftoc.json
-            - name: Authenticate with an OpenID Connect provider (Preview)
+            - name: Authenticate with an OpenID Connect provider
               href: ../app-service/configure-authentication-provider-openid-connect.md?toc=%2fazure%2fazure-functions%2ftoc.json
             - name: Authenticate using Sign in with Apple (Preview)
               href: ../app-service/configure-authentication-provider-apple.md?toc=%2fazure%2fazure-functions%2ftoc.json
@@ -528,7 +528,7 @@
         - name: Azure Functions Core Tools 
           href: functions-core-tools-reference.md
         - name: Azure PowerShell
-          href: /powershell/module/az.functions
+          href: /powershell/module/az.functions/
         - name: Java
           href: /java/api/overview/azure/functions/runtime
         - name: Python
@@ -735,7 +735,7 @@
     - name: Quota information
       href: functions-scale.md#service-limits
     - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Videos
       href: https://www.youtube.com/c/AzureFunctions
     - name: Microsoft Q&A question page

@@ -86,7 +86,7 @@ Many organizations have [common access concerns that Conditional Access policies
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features. 
 
 [Sign-in Risk](concept-conditional-access-conditions.md#sign-in-risk) requires access to [Identity Protection](../identity-protection/overview-identity-protection.md)
 
