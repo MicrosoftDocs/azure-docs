@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/26/2021
+ms.date: 11/30/2021
 ---
 
 # Revenue dashboard in commercial marketplace analytics
@@ -35,13 +35,29 @@ The [Revenue dashboard](https://partner.microsoft.com/dashboard/commercial-marke
 
 ## Access the Revenue dashboard
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Insights** tile.
 
     [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
-1. In the left menu, select **Revenue**.
+1. In the left menu, under **Marketplace offers**, select **Revenue**.
+
+    [ ![Illustrates the Revenue dashboard.](./media/revenue-dashboard/revenue-dashboard.png) ](./media/revenue-dashboard/revenue-dashboard.png#lightbox)
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Revenue**.
+
+    :::image type="content" source="./media/revenue-dashboard/revenue-dashboard-nav.png" alt-text="Illustrates the Revenue dashboard link in the left nav of the Partner Center Home page.":::
+
+---
 
 ## Elements of the Revenue dashboard
 
@@ -113,7 +129,7 @@ In this section, you will find the _estimated revenue timeline_ information that
 
 ### Customer leader board
 
-In this section, you will find the information for top customers who contribute the most to estimated revenue. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line represents revenue figures for the open month.
+In this section, you will find the information for top customers who contribute the most to estimated revenue. The “All” row denotes billed sales of all your customers. Up to 500 records can be displayed in this leaderboard table. All figures are reported in the partner preferred currency and can be sorted on different columns. You can select each row of the table and see the corresponding revenue split across different statuses, and the revenue trend for the selected month range. The dotted line in the revenue trend represents revenue figures for the open month.
 
 [ ![Illustrates the Customer leader board section of the Revenue dashboard.](./media/revenue-dashboard/customer-leader-board-1.png) ](./media/revenue-dashboard/customer-leader-board-1.png#lightbox)
 
@@ -142,14 +158,17 @@ The _Revenue details_ table displays a numbered list of the 1,000 top orders sor
 
 - Each column in the grid is sortable.
 - The data can be extracted to a .CSV or .TSV file if the count of the records is less than 1,000. To download the report, select **Download raw data** (down arrow icon) in the upper right of the widget.
-- If records number over 1,000, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- If records number over 500, exported data will be asynchronously placed in a downloads page for the next 30 days.
+- Use the expand and collapse widget icon at the rightmost side of each record to view billed sales revenue split across different statuses for a given _purchase order id_ and _line item id_.
 - Apply filters to the revenue details table to display only the data you're interested in. You can filter by order type, offer name, billing model, sales channel, payment instrument type, payout status, and estimated payout instrument.
 
 [ ![Illustrates the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget.png) ](./media/revenue-dashboard/details-widget.png#lightbox)
 
 Details widget with expandable and collapsible view.
 
-[ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
+[ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-1.png) ](./media/revenue-dashboard/details-widget-1.png#lightbox)
+
+[ ![Illustrates the collapsable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
 
 Note the following:
 
