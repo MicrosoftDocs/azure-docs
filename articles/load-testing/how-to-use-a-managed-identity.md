@@ -10,9 +10,9 @@ ms.date: 11/23/2021
 ms.topic: how-to
 ---
 
-# Use managed identities for Azure Load Testing
+# Use managed identities for Azure Load Testing Preview
 
-This topic shows you how to create a managed identity for Azure Load Testing resource and how to use it to access other resources.
+This topic shows you how to create a managed identity for Azure Load Testing Preview resource and how to use it to access other resources.
 
 A managed identity from Azure Active Directory (Azure AD) allows your resource to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform. For more about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
