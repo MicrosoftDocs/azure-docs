@@ -32,7 +32,7 @@
     items:
       - name: Azure RBAC
         href: conceptual-azure-rbac.md
-  - name: Acess cluster from anywhere
+  - name: Access cluster from anywhere
     href: conceptual-cluster-connect.md
   - name: Extend Azure capabilities to clusters anywhere
     items:
@@ -53,8 +53,6 @@
 
 - name: How-to guides
   items:
-  - name: Connect cluster using service principal
-    href: create-onboarding-service-principal.md
   - name: Upgrade agents
     href: agent-upgrade.md
   - name: Scenarios

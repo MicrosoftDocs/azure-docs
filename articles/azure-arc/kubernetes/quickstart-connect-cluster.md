@@ -28,6 +28,10 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
   az extension add --name connectedk8s
   ```
 
+* [Login in to Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+    * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+    * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
+
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
     * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
@@ -42,7 +46,6 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
 * A `kubeconfig` file and context pointing to your cluster.
-* 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -58,6 +61,10 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
     > the `Install-Module` cmdlet.
 
+* [Login in to Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+    * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+    * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
+
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
     * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
@@ -72,7 +79,6 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
 * A `kubeconfig` file and context pointing to your cluster.
-* 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
 * Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
@@ -176,6 +182,9 @@ Run the following command:
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
+> [!NOTE]
+> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set for enabling the custom location feature on the cluster.
+
 Output:
 <pre>
 Helm release deployment succeeded
@@ -214,9 +223,6 @@ Helm release deployment succeeded
 
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
-
-> [!NOTE]
-> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set for enabling the custom location feature on the cluster.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
