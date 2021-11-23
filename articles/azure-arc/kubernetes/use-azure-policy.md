@@ -1,15 +1,15 @@
 ---
-title: "Use Azure Policy to apply cluster configurations at scale"
+title: "Apply configurations at-scale using Azrue Policy"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 03/03/2021
+ms.date: 11/23/2021
 ms.topic: article
-description: "Use Azure Policy to apply cluster configurations at scale"
+description: "Apply configurations at-scale using Azrue Policy"
 keywords: "Kubernetes, Arc, Azure, K8s, containers"
 ---
 
-# Use Azure Policy to apply GitOps configurations at scale
+# Apply configurations at-scale using Azrue Policy
 
 You can use Azure Policy to apply configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
 
