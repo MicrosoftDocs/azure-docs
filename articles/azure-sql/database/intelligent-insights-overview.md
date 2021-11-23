@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman 
 ms.author: dfurman
-ms.reviewer: mathoma, wiassaf
-ms.date: 10/18/2021
+ms.reviewer: wiassaf
+ms.date: 11/22/2021
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
