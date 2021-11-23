@@ -151,11 +151,11 @@ You can enable your own storage with the Azure CLI by using the following steps.
 
 ## Use best practices
 
-These are best practices to use when adding your own persistent storage to Azure Spring Cloud.
+Use the following best practices when adding your own persistent storage to Azure Spring Cloud.
 
 * To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
-* In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the your own persistent storage remains available to the applications during key regeneration.
+* In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the persistent storage remains available to the applications during key regeneration.
 
    For example, assuming that you used key1 to bind a storage account to Azure Spring Cloud, you would use the following steps:
 
