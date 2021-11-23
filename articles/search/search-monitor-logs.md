@@ -157,20 +157,20 @@ The properties below are specific to Azure Cognitive Search.
 | IndexName_s |string |"test-index" |Name of the index associated with the operation |
 | Query_s |string |"?search=AzureSearch&$count=true&api-version=2020-06-30" |The query parameters |
 
-## Metrics schema
+## AllMetrics schema
 
-Metrics are captured for query requests and measured in one minute intervals. Every metric exposes minimum, maximum and average values per minute. For more information, see [Monitor query requests](search-monitor-queries.md).
+If you choose **AllMetrics** in Diagnostic Settings, metrics will be captured for query requests, skillset execution, and document indexing. Metric readings are measured in one minute intervals. For more information, see [Monitor query requests](search-monitor-queries.md).
 
 | Name | Type | Example | Notes |
-| --- | --- | --- | --- |
-| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |your resource ID |
-| metricName |string |"Latency" |the name of the metric |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |the operation's timestamp |
+| ---- | ---- | ------- | ----- |
 | average |int |64 |The average value of the raw samples in the metric time interval, units in seconds or percentage, depending on the metric. |
+| count |int |4 |The number of metrics emitted from a node to the log within the one minute interval.  |
+| metricName |string |"Latency" | Name of the metric, from [Platform Metrics (Microsoft.Search/searchServices)](../azure-monitor/essentials/metrics-supported.md#microsoftsearchsearchservices) |
 | minimum |int |37 |The minimum value of the raw samples in the metric time interval, units in seconds. |
 | maximum |int |78 |The maximum value of the raw samples in the metric time interval, units in seconds.  |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/RESOURCEGROUPS/DEFAULT/PROVIDERS/MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" | your resource ID |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |the operation's timestamp |
 | total |int |258 |The total value of the raw samples in the metric time interval, units in seconds.  |
-| count |int |4 |The number of metrics emitted from a node to the log within the one minute interval.  |
 | timegrain |string |"PT1M" |The time grain of the metric in ISO 8601. |
 
 It's common for queries to execute in milliseconds, so only queries that measure as seconds will appear in metric like QPS.
