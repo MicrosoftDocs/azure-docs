@@ -47,20 +47,20 @@ The output of a flowlet defines the output columns that can be expected to emit 
 ![Screenshot showing flowlet output](./media/data-flow-flowlet/flowlet-output.png)
 
 ### Debugging a flowlet
-Debugging a flowlet has a couple of differences from the mapping data flow debug expeirence. 
+Debugging a flowlet has a couple of differences from the mapping data flow debug experience. 
 
 First, the preview data is only available at the output of the flowlet. To preview data make sure to click the flowout output and then the Prevew Data tab.
 
 ![Screenshot showing Preview Data](./media/data-flow-flowlet/flowlet-debug.png)
 
-Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings, you should see a grid to fill out with test data tthat will match the input columns. Note for inputs with a large number of columns you may need to click on the full screen icon.
+Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings, you should see a grid to fill out with test data that will match the input columns. Note for inputs with a large number of columns you may need to click on the full screen icon.
 
 ![Screenshot showing Debug Settings](./media/data-flow-flowlet/flowlet-debug-settings.png)
 
 ## Other methods for creating a flowlet
 Flowlets can also be created from existing mapping data flows. This allows users to quickly reuse logic already created.
 
-For a single transformation activity, you can right-click the mappng data flow activity and select Create a new flowlet. This will create a flowlet with that activity and in input to match the activity's inputs.
+For a single transformation activity, you can right-click the mapping data flow activity and select Create a new flowlet. This will create a flowlet with that activity and in input to match the activity's inputs.
 
 ![Screenshot showing creating a flowlet from an existing activity](./media/data-flow-flowlet/flowlet-context-create.png)
 
