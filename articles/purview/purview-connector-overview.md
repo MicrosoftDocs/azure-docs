@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/22/2021
+ms.date: 11/23/2021
 ms.custom: ignite-fall-2021
 ---
 

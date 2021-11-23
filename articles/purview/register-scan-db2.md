@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/22/2021
+ms.date: 11/23/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -49,7 +49,7 @@ When scanning IBM DB2 source, Purview supports:
     > [!Note]
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
-* The DB2 user must have the CONNECT permission. Azure Purview connects to the syscat tables which exists in IBM DB2 environment when importing metadata.
+* The DB2 user must have the CONNECT permission. Azure Purview connects to the syscat tables in IBM DB2 environment when importing metadata.
 
 ## Register
 
