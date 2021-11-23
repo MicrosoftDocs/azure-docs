@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to add a tile layer to a map. See an example that uses the Azure Maps iOS SDK to add a weather radar overlay to a map.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/19/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -109,4 +109,4 @@ The following screenshot shows the above code overlaying a web-mapping tile serv
 
 See the following article to learn more about ways to overlay imagery on a map.
 
-> [Add an image layer to a map](Add-image-layer-to-map-ios.md)
+* [Add an image layer to a map](add-image-layer-map-ios.md)

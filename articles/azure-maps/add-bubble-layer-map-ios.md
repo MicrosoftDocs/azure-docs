@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps iOS SDK to add and customize bubble layers for this purpose.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/22/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -97,12 +97,8 @@ The following screenshot shows the above code rendering a point in a bubble laye
 
 See the following articles for more code samples to add to your maps:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Cluster point data](clustering-point-data-ios-sdk.md)
-
-> [Add a symbol layer](add-symbol-layer-ios.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-
-> [Display feature information](display-feature-information-ios-sdk.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Cluster point data](clustering-point-data-ios-sdk.md)
+- [Add a symbol layer](add-symbol-layer-ios.md)
+- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Display feature information](display-feature-information-ios-sdk.md)

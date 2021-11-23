@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure Maps iOS SDK to add a heat map layer to a map. Find out how to customize heat map layers.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/19/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -209,6 +209,5 @@ The following video shows a map running the above code, which scales the radius 
 
 For more code examples to add to your maps, see the following articles:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)

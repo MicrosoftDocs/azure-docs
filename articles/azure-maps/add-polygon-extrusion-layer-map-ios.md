@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: How to add a polygon extrusion layer to the Microsoft Azure Maps iOS SDK.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 11/19/2021
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -111,8 +111,6 @@ The following screenshot shows a choropleth map of US states colored and stretch
 
 See the following articles for more code samples to add to your maps:
 
-> [Create a data source](create-data-source-ios-sdk.md)
-
-> [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-
-> [Add a polygon layer](add-polygon-layer-map-ios.md)
+- [Create a data source](create-data-source-ios-sdk.md)
+- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Add a polygon layer](add-polygon-layer-map-ios.md)

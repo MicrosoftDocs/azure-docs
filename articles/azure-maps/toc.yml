@@ -307,7 +307,7 @@ items:
       href: add-tile-layer-to-map-ios.md
     - name: Show traffic data 
       href: show-traffic-data-map-ios-sdk.md
-    - name: Cluster point data
+    - name: Clustering point data
       href: clustering-point-data-ios-sdk.md
     - name: Use data-driven expressions
       href: data-driven-style-expressions-ios-sdk.md

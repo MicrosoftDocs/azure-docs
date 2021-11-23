@@ -408,7 +408,7 @@ map.layers.addLayer(layer)
 
 There are additional rendering layers that don't connect to these data sources, but they directly load the data for rendering.
 
-- [Tile layer](Add-tile-layer-to-map-ios.md) - superimposes a raster tile layer on top of the map.
+- [Tile layer](add-tile-layer-map-ios.md) - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
