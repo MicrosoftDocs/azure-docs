@@ -61,7 +61,7 @@ Unlike Speech SDK, [Speech-to-text REST API for short audio](rest-speech-to-text
 
 Generate a GUID inside your code or using any standard tool. Use the GUID value *without dashes or other dividers*. As an example we will use `9f4ffa5113a846eba289aa98b28e766f`.
 
-As a part of your REST request use `X-ConnectionId=<GUID>` expression. For our example a sample request will look like this:
+As a part of your REST request use `X-ConnectionId=<GUID>` expression. For our example, a sample request will look like this:
 ```http
 https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&X-ConnectionId=9f4ffa5113a846eba289aa98b28e766f
 ```
