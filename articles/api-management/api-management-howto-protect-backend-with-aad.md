@@ -226,7 +226,7 @@ The following example policy, when added to the `<inbound>` policy section, chec
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>insert aud claim value expected in the token</value>
+            <value>{backend-api-application-client-id}</value>
         </claim>
     </required-claims>
 </validate-jwt>
