@@ -88,6 +88,10 @@ sections:
   - name: Sign-in logs
     questions:
       - question: |
+          What data is included in the CSV file I can download from the Azure AD Sign-in logs blade in the Azure Portal?
+        answer: |
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included in CSV downloads. For example, CA policies and report-only information are not included in the CSV download. If you need to export all the information contained in your sign-in logs, the Export Data Settings button in the Azure AD Sign-in logs blade will let you export all data. 
+      - question: |
           I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
           Azure AD may redact part of an IP address in the sign in logs to protect user privacy when a user may not belong to the tenant viewing the logs. This happens in two cases: first, during cross tenant sign ins, such as when a CSP technician signs into a tenant that CSP manages. Second, when our service was not able to determine the user's identity with sufficient confidence to be sure the user belongs to the tenant viewing the logs.
