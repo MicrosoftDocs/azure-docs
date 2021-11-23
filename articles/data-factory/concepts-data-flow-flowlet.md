@@ -15,22 +15,22 @@ ms.date: 11/11/2021
 
 ## What is a flowlet?
 
- A flowlet is a reusable container of activities that can be created from an existing mapping data flow or started from scratch. By reusing patterns you can prevent logic duplication as well as apply the same logic across many mapping data flows.
+ A flowlet is a reusable container of activities that can be created from an existing mapping data flow or started from scratch. By reusing patterns you can prevent logic duplication and apply the same logic across many mapping data flows.
  
- With flowlets you can create logic to do things such as address cleaning, string trimming, etc. and map the input and outputs to columns in the calling data flow for a dynamic code re-use experience.
+ With flowlets you can create logic to do things such as address cleaning, string trimming, etc. and map the input and outputs to columns in the calling data flow for a dynamic code reuse experience.
 
 [!NOTE] 
 The Flowlet feature in mapping data flow is currently in public preview
 
 ## Getting started
-To create a flowlet click the new flowlet action from the mapping data flow menu options.
+To create a flowlet, click the new flowlet action from the mapping data flow menu options.
 
 ![Screenshot showing how to create a flowlet](./media/data-flow-flowlet/flowlet-new-menu.png)
 
 This will create a new flowlet where you can add in your inputs, outputs, and transformation activities
 
 ## Flowlet design surface
-The flowlet design surface is very similar to the mapping data flow design surface. The primary differences are the input, output, and debugging experiences which are described below.
+The flowlet design surface is very similar to the mapping data flow design surface. The primary differences are the input, output, and debugging experiences that are described below.
 
 ![Screenshot showing the flowlet design surface](/media/data-flow-flowlet/flowlet-design.png)
 
@@ -53,23 +53,23 @@ First, the preview data is only available at the output of the flowlet. To previ
 
 ![Screenshot showing Preview Data](./media/data-flow-flowlet/flowlet-debug.png)
 
-Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings you should see a grid to fill out with test data tthat will match the input columns. Please note for inputs with a large amount of columns you may need to click on the full screen icon.
+Second, because flowlets are dynamically mapped to inputs, in order to debug them flowlets allow users to enter test data to send through the flowlet. Under the debug settings, you should see a grid to fill out with test data tthat will match the input columns. Note for inputs with a large number of columns you may need to click on the full screen icon.
 
 ![Screenshot showing Debug Settings](./media/data-flow-flowlet/flowlet-debug-settings.png)
 
 ## Other methods for creating a flowlet
-Flowlets can also be created form existing mapping data flows. This allows users to quickly re-use logic already created.
+Flowlets can also be created from existing mapping data flows. This allows users to quickly reuse logic already created.
 
-For a single transformation activity, you can right-click the mappng data flow activity and select Create a new flowlet. This will create a flowlet with that activity as well as in input to match the activity's inputs.
+For a single transformation activity, you can right-click the mappng data flow activity and select Create a new flowlet. This will create a flowlet with that activity and in input to match the activity's inputs.
 
 ![Screenshot showing creating a flowlet from an existing activity](./media/data-flow-flowlet/flowlet-context-create.png)
 
-If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can accomplished by either lassoing multiple activities by drawing a rectangle to select them or using shift+left mouse click to select multiple activties. Then you will right-click and select Createa new flowlet.
+If you have mulit-select turned on, you can also select multiple mapping data flow activities. This can accomplished by either lassoing multiple activities by drawing a rectangle to select them or using shift+left mouse click to select multiple activities. Then you will right-click and select Create a new flowlet.
 
 ![Screenshot showing  rectangle select from existing activities](./media/data-flow-flowlet/flowlet-context-multi.png)
 
 
 ## Running a flowlet inside of a mapping data flow
-Once the flowlet is created you can run the flowlet from your mapping data flow activitity with the flowlet transformation. 
+Once the flowlet is created, you can run the flowlet from your mapping data flow activity with the flowlet transformation. 
 
-For more information osee [Flowlet transformation in mapping data flow | Microsoft Docs](data-flow-flowet.md)
+For more information see [Flowlet transformation in mapping data flow | Microsoft Docs](data-flow-flowet.md)

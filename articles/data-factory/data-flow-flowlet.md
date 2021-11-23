@@ -36,7 +36,7 @@ Select the flowlet to run. Once the flowlet is selected you will be able to map 
 
 :::image type="content" source="media/data-flow-flowlet/flowlet-mapping.png" alt-text="Flatten mapping":::
 
-If the selected flowlet has input columns you can map columns from the input stream to the expected input columnsin the flowlet. This mapping of your mapping data flow columns to the flowlet is what enables the flowlets to serve as resusable snippets of mapping data flow logic across potentially many mapping data flows.
+If the selected flowlet has input columns, you can map columns from the input stream to the expected input columns in the flowlet. This mapping of your mapping data flow columns to the flowlet is what enables the flowlets to serve as reusable snippets of mapping data flow logic across potentially many mapping data flows.
 
 ## Data flow script
 
