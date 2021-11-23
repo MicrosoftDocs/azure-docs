@@ -22,8 +22,8 @@ Semantic search is a premium feature. We recommend this article for background, 
 
 > [!div class="checklist"]
 > * [Check regional and service tier requirements](#availability-and-pricing).
-> * [Sign up for the preview program](https://aka.ms/SemanticSearchPreviewSignup). It can take up to two business days to process the request.
-> * Upon acceptance, create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
+> * [Enable semantic search](#enable-semantic-search) on your search service.
+> * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also return [semantic answers](semantic-answers.md).
 > * Optionally, invoke [spell check](speller-how-to-add.md) to maximize precision and recall.
 
@@ -80,16 +80,29 @@ Although semantic search is not beneficial in every scenario, certain content ca
 
 ## Availability and pricing
 
-Semantic search is available through [sign-up registration](https://aka.ms/SemanticSearchPreviewSignup). There is one sign-up for both semantic search and spell check.
+Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilites](#enable-semantic-search) on your search service.
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
-| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | North Central US, West US, West US 2, East US 2, North Europe, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
+| Semantic search (rank, captions, highlights, answers) | Standard tier (S1, S2, S3) | Australia East, East US, East US 2, North Central US, South Central US, West US, West US 2, North Europe, UK South, West Europe | Required | [Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/)  |
 | Spell check | Basic<sup>1</sup> and above  | All | None | None (free) |
 
 <sup>1</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
 Charges for semantic search are levied when query requests include "queryType=semantic" and the search string is not empty (for example, "search=pet friendly hotels in new york". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
+
+## Enable semantic search
+
+By default, semantic search is disabled on all services. To enable semantic search for your search service:
+
+1. Open the [Azure portal](https://portal.azure.com).
+1. Navigate to your search service.
+1. On the left-nav pane, select **Semantic Search (Preview)**.
+1. Select either the **Free plan** or the **Standard plan**.
+
+:::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic search in the Azure portal" border="true":::
+
+Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
 
 ## Disable semantic search
 
@@ -119,6 +132,4 @@ To re-enable semantic search, rerun the above request, setting "semanticSearch" 
 
 ## Next steps
 
-[Sign-up](https://aka.ms/SemanticSearchPreviewSignup) for the preview on a search service that meets the tier and regional requirements noted in the previous section.
-
-It can take up to two business days to process the request. Once your service is ready, [create a semantic query](semantic-how-to-query-request.md) to evaluate its performance on your content.
+[Enable semantic search](#enable-semantic-search) for your search service and follow the documentation on how to [create a semantic query](semantic-how-to-query-request.md) so that you can test out semantic search on your content.
