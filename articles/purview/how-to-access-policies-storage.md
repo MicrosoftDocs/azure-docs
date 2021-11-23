@@ -37,10 +37,10 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 - Create a **new** Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
 - Create a **new** Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md).
 
-[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
+[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
 
 ## Configuration
-[!INCLUDE [policy regions and enablement](./includes/storage-access-policy-enable.md)]
+[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
 ### Opt in to participate in Azure Purview data use policy preview
 This functionality is currently in preview. You will need to [Opt in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
