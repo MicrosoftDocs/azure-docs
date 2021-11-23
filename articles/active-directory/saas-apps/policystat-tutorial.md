@@ -72,52 +72,45 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<companyname>.policystat.com/saml2/metadata/`
+    1. In the **Identifier (Entity ID)** text box, type a URL using the following pattern: `https://<companyname>.policystat.com/saml2/metadata/`
 
-	b. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.policystat.com`
+    1. In the **Sign on URL** text box, type a URL using the following pattern: `https://<companyname>.policystat.com`
 
-	> [!NOTE]
+        > [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [PolicyStat Client support team](https://rldatix.com/services-support/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+    ![The Certificate download link](common/metadataxml.png)
 
-5. Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+1. Your PolicyStat application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected.](common/edit-attribute.png)
+    ![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected.](common/edit-attribute.png)
 
-6. In addition to above, PolicyStat application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+1. In addition to above, PolicyStat application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
-	| Name | Source Attribute |
-	|------------------- | -------------------- |
-	| uid | ExtractMailPrefix([mail]) |
+    | Name | Source Attribute |
+    |------------------- | -------------------- |
+    | uid | ExtractMailPrefix([mail]) |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+    1. Click **Add new claim** to open the **Manage user claims** dialog.
 	
 	![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
 	![Screenshot that shows the "Manage user claims" dialog with the "Name", "Transformation", and "Parameter" text boxes highlighted, and the "Save" button selected.](./media/policystat-tutorial/claims.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+    1. In the **Name** textbox, type the attribute name shown for that row.
+    1. Leave the **Namespace** blank.
+    1. Select Source as **Transformation**.
+    1. From the **Transformation** list, type the attribute value shown for that row.
+    1. From the **Parameter 1** list, type the attribute value shown for that row.
+    1. Select **Save**.
 
-	c. Leave the **Namespace** blank.
+1. On the **Set up PolicyStat** section, copy the appropriate URL(s) as per your requirement.
 
-	d. Select Source as **Transformation**.
-
-	e. From the **Transformation** list, type the attribute value shown for that row.
-	
-	f. From the **Parameter 1** list, type the attribute value shown for that row.
-
-	g. Click **Save**.
-
-7. On the **Set up PolicyStat** section, copy the appropriate URL(s) as per your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -147,31 +140,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, log into your PolicyStat company site as an administrator.
 
-2. Click the **Admin** tab, and then click **Single Sign-On Configuration** in left navigation pane.
+1. Click the **Admin** tab, and then click **Single Sign-On Configuration** in left navigation pane.
    
     ![Administrator Menu](./media/policystat-tutorial/admin.png "Administrator Menu")
 
-3. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
+1. Click **Your IDP Metadata**, and then, in the **Your IDP Metadata** section, perform the following steps:
    
     ![Screenshot that shows the "Your I D P Metadata" action selected.](./media/policystat-tutorial/metadata.png "Single Sign-On Configuration")
    
-    a. Open your downloaded metadata file, copy the content, and  then paste it into the **Your Identity Provider Metadata** textbox.
+    1. Open your downloaded metadata file, copy the content, and  then paste it into the **Your Identity Provider Metadata** textbox.
 
-    b. Click **Save Changes**.
+    1. Select **Save Changes**.
 
-4. Click **Configure Attributes**, and then, in the **Configure Attributes** section, perform the following steps using the **CLAIM NAMES** found in your Azure configuration:
+1. Click **Configure Attributes**, and then, in the **Configure Attributes** section, perform the following steps using the **CLAIM NAMES** found in your Azure configuration:
    
-    a. In the **Username Attribute** textbox, type the username claim value you are passing over as the key username attribute. The default value in Azure is UPN, but if you already have accounts in PolicyStat, you will need to match those username values to avoid duplicate accounts or update the existing accounts in PolicyStat to the UPN value. Default value to enter to pass the UPN **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`** .
+    1. In the **Username Attribute** textbox, type the username claim value you are passing over as the key username attribute. The default value in Azure is UPN, but if you already have accounts in PolicyStat, you will need to match those username values to avoid duplicate accounts or update the existing accounts in PolicyStat to the UPN value. Default value to enter to pass the UPN **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`** .
 
-    b. In the **First Name Attribute** textbox, type the First Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
+    1. In the **First Name Attribute** textbox, type the First Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`**.
 
-    c. In the **Last Name Attribute** textbox, type the Last Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.
+    1. In the **Last Name Attribute** textbox, type the Last Name Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`**.
 
-    d. In the **Email Attribute** textbox, type the Email Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
+    1. In the **Email Attribute** textbox, type the Email Attribute claim name from Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`**.
 
-    e. Click **Save Changes**.
+    1. Click **Save Changes**.
 
-5. In the **Setup** section, select **Enable Single Sign-on Integration**.
+1. In the **Setup** section, select **Enable Single Sign-on Integration**.
    
     ![Single Sign-On Configuration](./media/policystat-tutorial/attributes.png "Single Sign-On Configuration")
 
