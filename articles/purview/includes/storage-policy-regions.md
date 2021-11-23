@@ -5,24 +5,16 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include
 ms.date: 11/19/2021
-ms.custom: ignite-fall-2021
+ms.custom: references_regions
 ---
 
 ### Supported regions
 
 #### Azure Purview (management side)
--   North Europe
--   West Europe
--   UK South
--   East US
--   East US2
--   South Central US
--   West US 2
--   Southeast Asia
--   Australia East
--   Canada Central
--   France Central
+The Purview access policies capability is available in all Azure Purview [regions](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=purview&regions=all)
+
 
 #### Azure Storage (enforcement side)
+Purview access policies can only be enforced in the following Azure Storage regions
 -   France Central
 -   Canada Central

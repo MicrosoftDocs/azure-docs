@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 11/15/2021
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: ignite-fall-2021
 ---
 
 # Dataset provisioning by data owner for Azure Storage (preview)
@@ -34,24 +34,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
 2. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
 
-### Supported regions
-
-#### Azure Purview (management side)
--   North Europe
--   West Europe
--   UK South
--   East US
--   East US2
--   South Central US
--   West US 2
--   Southeast Asia
--   Australia East
--   Canada Central
--   France Central
-
-#### Azure Storage (enforcement side)
--   France Central
--   Canada Central
+[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
 
 ## Prerequisites
 > [!Important]
