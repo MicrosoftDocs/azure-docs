@@ -54,7 +54,7 @@ Review the configurations of your pipeline and make any necessary changes.
     - *Authentication*: **Managed Identity** is used for authentication. Refer to [Prerequisites](#prerequisites) to grant necessary permissions.
     - *Resource* : `https://dev.azuresynapse.net/`.
     
-        :::image type="content" source="media/solution-template-synapse-notebook/web-call-synapse-pipeline-setting.png" alt-text="Pipeline parameters":::
+        :::image type="content" source="media/solution-template-synapse-notebook/web-call-synapse-pipeline-setting.png" alt-text="Call Synapse pipeline":::
 
 1. Do **Web** activity to get Synapse pipeline status, **Until** web activity returns status of *Succeeded*, *Failed*, or *Canceled*.
     - **Web** *URL*: `@concat(pipeline().parameters.SynapseEndpoint,'/pipelineruns/',activity('Call Synapse Pipeline with Notebook').output.runId,'?api-version=2020-12-01')`. Refer to [Synapse Get Pipeline Run REST API](https://docs.microsoft.com/rest/api/synapse/data-plane/pipeline-run/get-pipeline-run).
