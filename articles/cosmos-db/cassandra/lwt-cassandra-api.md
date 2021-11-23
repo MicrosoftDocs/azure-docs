@@ -10,19 +10,22 @@ ms.date: 11/19/2021
 ms.custom: template-how-to
 ---
 
-# Azure Cosmos DB Cassandra API Lightweight Transactions with Conditions.
+# Azure Cosmos DB Cassandra API Lightweight Transactions with Conditions
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB Cassandra API already supports Light Weight Transaction (LWT) to a limited degree but without DELETE and UPDATE conditions. Cassandra API now has full support for these features. For more information, see [Wire protocol support](cassandra-support.md) for more details. LWT helps perform a read before write, for operations that require the data insert or update must be unique. For details pn how consistency level works with LWT  see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md).
+Azure Cosmos DB Cassandra API already supports Light Weight Transaction (LWT) including DELETE and UPDATE conditions. Cassandra API now has full support for these features. For more information, see [Wire protocol support](cassandra-support.md) for more details. LWT helps perform a read before write, for operations that require the data insert or update must be unique. For details pn how consistency level works with LWT  see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md).
 
-## LWT Support within Azure Cosmos DB Cassandra API.
-To use LWT within Azure Cosmos DB Cassandra API, we advise that the following flags are set at the create table level. There is an increase in performance with flags enabled.
+## LWT Support within Azure Cosmos DB Cassandra API
+To use LWT within Azure Cosmos DB Cassandra API, we advise that the following flags are set at the create table level. 
 
 ```sql
 with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
 ``` 
+You might experience reduced performance on full row inserts compared to not using the flags.
+[!NOTE]
+>LWTs are not supported for multi-region write scenarios.
 
-
+## LWT with flags enabled
 ```sql
 CREATE KEYSPACE IF NOT EXISTS lwttesting WITH REPLICATION= {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor' : '1'};
 ```
@@ -36,8 +39,7 @@ CREATE TABLE IF NOT EXISTS lwttesting.users (
   PRIMARY KEY ((name), userID)) with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true; 
 ```
 
-## LWT with flags enabled.
-There is a performance increase on full row insert.
+
 ```sql
 CREATE TABLE IF NOT EXISTS lwttesting.vendor_users (
   name text,
@@ -48,11 +50,11 @@ CREATE TABLE IF NOT EXISTS lwttesting.vendor_users (
 );
 ```
 
+This query below returns TRUE.
 ```sql
 INSERT INTO lwttesting.vendor_users(name, userID, areaCode, vendor)
 VALUES('Sara', 103, 832, 'vendor21') IF NOT EXISTS; 
 ``` 
-This query returns TRUE.
 
 There are some known limitations with flag enabled. If a row has been inserted into the table, an attempt to insert a static row will return FALSE. 
 ```sql
@@ -71,7 +73,7 @@ IF areaCode = 832;
 ```
 An error message: Conditional delete of an entire row is not supported. 
 
-## LWT with flags enabled or disabled.
+## LWT with flags enabled or disabled
 Any request containing assignment and condition combination of a static and regular column is unsupported with the IF condition.
 The query will not return an error message as both columns are regular.
 ```sql
