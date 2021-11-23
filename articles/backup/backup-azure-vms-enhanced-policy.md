@@ -8,11 +8,11 @@ author: v-amallick
 ms.service: backup
 ms.author: v-amallick
 ---
-# Back up an Azure VM using enhanced policy (in preview)
+# Back up an Azure VM using Enhanced policy (in preview)
 
 This article explains how to back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service using the Enhanced policy. Backup for Trusted Launch VM is in preview.
 
-Azure Backup now provides an Enhanced policy through which you can enable all newer compute storage capabilities (for example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch). To enroll your subscription for Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+Azure Backup now provides an Enhanced policy through which you can enable all newer compute storage capabilities (for example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch). To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 
 >[!Important]
 >The [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support managing the newer compute storage capabilities, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
