@@ -171,7 +171,7 @@
               href: sql/create-sql-api-python.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
+        - name: Create and manage data
           items:
             - name: Build a console app
               items:
@@ -191,17 +191,17 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-        - name: 2 - Migrate data
+        - name: Migrate data
           items:
             - name: Using the Data Migration tool
               href: import-data.md
             - name: Using .NET bulk support
               href: sql/tutorial-sql-api-dotnet-bulk-import.md
-        - name: 3 - Query data
+        - name: Query data
           href: sql/tutorial-query-sql-api.md
-        - name: 4 - Create a notebook
+        - name: Create a notebook
           href: sql/create-notebook-visualize-data.md
-        - name: 5 - Distribute data globally
+        - name: Distribute data globally
           href: sql/tutorial-global-distribution-sql-api.md
         - name: Spring Boot app on Azure Kubernetes Service
           href: sql/tutorial-springboot-aks.md
