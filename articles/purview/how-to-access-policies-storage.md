@@ -33,7 +33,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Prerequisites
 >[!Note]
 > The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
-- Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription).
+- Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription.md).
 - Create a **new** Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
 - Create a **new** Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md).
 
