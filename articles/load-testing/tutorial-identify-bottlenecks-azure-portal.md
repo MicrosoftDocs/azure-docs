@@ -65,7 +65,7 @@ Before you can load test the sample app, you have to get it up and running. Use 
    > [!TIP]
    > You can install PowerShell Core on [Linux/WSL](/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-7.1#ubuntu-1804&preserve-view=true) or [macOS](/powershell/scripting/install/installing-powershell-core-on-macos?view=powershell-7.1&preserve-view=true).  
    >
-   > After installing it, you can run the previous command as `pwsh .\deploymentscript.ps1`.  
+   > After installing it, you can run the previous command as `pwsh ./deploymentscript.ps1`.  
 
 1. At the prompt, provide:
 
