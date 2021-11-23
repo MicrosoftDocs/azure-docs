@@ -301,7 +301,7 @@ Here's the code for a distributed in-memory token cache:
         options.DisableL1Cache = false;
         
         // Or limit the memory (by default, this is 500 MB)
-        options.SizeLimit = 500 * 1024 * 1024,   // 500 MB
+        options.SizeLimit = 1024 * 1024 * 1024,   // 1Gb
 
         // You can choose to encrypt the cache or not
         options.Encrypt = false;
