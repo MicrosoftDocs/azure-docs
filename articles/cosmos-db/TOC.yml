@@ -1499,7 +1499,7 @@
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
-            - name: Get the latest restore timestamp
+            - name: Get the latest restorable timestamp
               href: get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md
