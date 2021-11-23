@@ -91,7 +91,7 @@ Each connection can support multiple types of custom content, including analytic
     # [Azure DevOps](#tab/azure-devops)
 
     > [!NOTE]
-    > When creating Azure DevOps connections, [guest users](../active-directory/external-identities/what-is-b2b.md) currently cannot connect to a workspace that is not in their own Azure Active Directory tenant. Such cross-tenant scenarios are not yet supported for Azure DevOps connections.
+    > Due to cross-tenant limitations, if you are creating a connection as a [guest user](../active-directory/external-identities/what-is-b2b.md) on the workspace, your Azure DevOps URL won't appear in the dropdown. Enter it manually instead.
     >
 
     You are automatically authorized to Azure DevOps using your current Azure credentials. To ensure valid connectivity, [verify that you've authorized to the same Azure DevOps account](https://aex.dev.azure.com/) that you're connecting to from Microsoft Sentinel or use an InPrivate browser window to create your connection.

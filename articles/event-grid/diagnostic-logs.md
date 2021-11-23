@@ -39,13 +39,13 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 
 | Property name | Data type | Description |
 | ------------- | --------- | ----------- |
-| NetworkAccess | String | **PublicAccess**  - when the connection via public IP <br /> **PrivateAccess** - when the connection via private link |
+| NetworkAccess | String | Allowed values are: <ul><li>`PublicAccess` - when connecting via public IP</li><li>`PrivateAccess` - when connecting via private link</li></ul> |
 | ClientIpAddress | String | Source IP of incoming requests |
-| TlsVersion | String | The Tls version used by the client connection. **1.0**, **1.1** and **1.2** are possible values |
-| Authentication/Type | String | The type of secret used for authentication when publishing messages. <br /> **Unknown** – not of the other authentication types. OPTIONS requests will have this authentication type <br /> **Key** – request uses the SAS key <br /> **SASToken** – request uses a SAS token generated from SAS key <br /> **AADAccessToken** – AAD issued JWT token |
-| Authentication/ObjectId | String | ObjectId of the Service Principal used AADAccessToken authentication type |
-| OperationResult | String | Result of the publish. **Success**, **Unauthorized**, **Forbidden**, **RequestEntityTooLarge**, **BadRequest** & **InternalServerError** |
-| TotalOperations | String | These traces are not emitted for each publish request. An aggregate for each unique combination of above values is emitted every minute |
+| TlsVersion | String | The transport layer security (TLS) version used by the client connection. Possible values are: **1.0**, **1.1** and **1.2** |
+| Authentication/Type | String | The type of secret used for authentication when publishing messages. <ul><li>`Key` – request uses the SAS key</li><li>`SASToken` – request uses a SAS token generated from SAS key</li><li>`AADAccessToken` – Azure Active Directory issued JSON Web Token (JWT) token</li><li>`Unknown` – None of the above authentication types. OPTIONS requests will have this authentication type </li></ul> |
+| Authentication/ObjectId | String | ObjectId of the service principal used when the authentication type is set to `AADAccessToken` |
+| OperationResult | String | Result of the publish. Possible values are: <ul><li>Success</li><li>Unauthorized</li><li>Forbidden</li><li>RequestEntityTooLarge</li><li>BadRequest</li><li>InternalServerError</li></ul> |
+| TotalOperations | String | These traces aren't emitted for each publish request. An aggregate for each unique combination of above values is emitted every minute |
 
 ## Example - Schema for data plane requests
 
@@ -75,7 +75,7 @@ The possible values of `Outcome` are `NotFound`, `Aborted`, `TimedOut`, `Generic
 }
 ```
 
-Once `DataPlaneRequests` diagnostic setting is selected, Event Grid resources will start publishing the audit traces for data plane operations including the public and private access, this trace may log one or more requests if needed.
+Once the `DataPlaneRequests` diagnostic setting is selected, Event Grid resources will start publishing audit traces for data plane operations including public and private access operations. This trace may log one or more requests if needed.
 
 ## Next steps
 
