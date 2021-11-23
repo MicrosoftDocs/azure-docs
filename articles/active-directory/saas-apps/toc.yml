@@ -407,6 +407,8 @@
         href: civic-platform-tutorial.md
       - name: Clarity
         href: cappm-tutorial.md
+      - name: ClarivateWOS
+        href: clarivatewos-tutorial.md  
       - name: Clarizen One
         href: clarizen-tutorial.md
       - name: Claromentis
