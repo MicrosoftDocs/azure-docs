@@ -100,8 +100,6 @@
           href: app-service-sql-github-actions.md
         - name: ASP.NET
           href: app-service-sql-asp-github-actions.md
-    - name: Control outbound traffic with Azure Firewall
-      href: tutorial-outbound-traffic-control-azfw.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -159,6 +157,8 @@
           href: networking/nat-gateway-integration.md
         - name: Traffic Manager integration
           href: web-sites-traffic-manager.md
+        - name: Control outbound traffic with Azure Firewall
+          href: outbound-traffic-control-azfw.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics
