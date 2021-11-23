@@ -3,7 +3,7 @@ title: How to secure an application in Microsoft Azure Maps with SAS token
 titleSuffix: Azure Maps
 description: This article describes how to configure an application to be secured with SAS token authentication.
 author: stack111
-ms.author: stack111
+ms.author: dstack
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
@@ -30,7 +30,7 @@ Applications that use SAS token authentication, should store the keys in a secur
 >[!IMPORTANT]
 > This scenario assumes: 
 > 1. The current user must have subscription `Owner` role permissions on the Azure subscription to create a Azure Key Vault, User Assigned Managed Identity, assign the Managed Identity a role, and create an Azure Maps Account.
-> 1. Azure CLI is installed to deploy the resources. Read more on [how to install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+> 1. Azure CLI is installed to deploy the resources. Read more on [how to install Azure CLI](/cli/azure/install-azure-cli).
 > 1. The current user is signed-in to Azure CLI with an active Azure subscription.
 
 The following steps outline this process:

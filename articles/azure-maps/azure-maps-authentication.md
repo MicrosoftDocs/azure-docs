@@ -64,7 +64,8 @@ After the application receives an access token, the SDK and/or application sends
 | x-ms-client-id | 30d7cc….9f55        |
 | Authorization  | Bearer eyJ0e….HNIVN |
 
-> [!NOTE] > `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
+> [!NOTE] 
+> `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
 
 Here's an example of an Azure Maps route request that uses an Azure AD OAuth Bearer token:
 
@@ -164,7 +165,7 @@ Functional key differences of SAS token from Azure AD Access tokens:
 - Private keys of the token are the primary and secondary keys of an Azure Maps account resource.
 - Service Principal object for authorization is supplied by a User Assigned Managed Identity.
 
-SAS tokens are immutable, this means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user assigned managed identity cannot be changed. Read more below on [understanding access control](./azure-maps-authentication.md/#Understanding-SAS-token-Access-Control) for SAS token revocation and changes to access control.
+SAS tokens are immutable, this means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user assigned managed identity cannot be changed. Read more below on [understanding access control](./azure-maps-authentication.md#understanding-sas-token-access-control) for SAS token revocation and changes to access control.
 
 ### Understanding SAS token Rate Limits
 
@@ -193,20 +194,20 @@ As described in [Azure Maps rate limits](./azure-maps-qps-rate-limits.md), indiv
 
 Consider the case of, `Search Service: Non-Batch Reverse` which has a limit of 250 queries per second (QPS).
 
-|       | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
+| Name  | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :---- | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
 | token | 500                                 | 500                    | 60                                    | ~15000                                    |
 
 Suppose 2 SAS tokens have been created for the same Azure Maps account assuming that the tokens produced equal amount of rate / ratio of 50%.
 
-|         | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
+| Name    | Approximate Maximum Rate Per Second | Actual Rate Per Second | Duration of sustained rate in seconds | Approximate total successful transactions |
 | :------ | :---------------------------------- | :--------------------- | :------------------------------------ | :---------------------------------------- |
 | token 1 | 250                                 | 250                    | 60                                    | ~7500                                     |
 | token 2 | 250                                 | 250                    | 60                                    | ~7500                                     |
 
 ### Understanding SAS token Access Control
 
-SAS tokens use [Azure RBAC To control access](./azure-maps-authentication.md#Authorization-with-role-based-access-control) to REST APIs. When you create a SAS token, the prerequisite Managed Identity on the Map Account is assigned Azure RBAC role which grants access to specific REST API actions. Review [picking a role definition](./azure-maps-authentication.md#Picking-a-Role-Definition) to decide which APIs should be allowed by the application.
+SAS tokens use [Azure RBAC To control access](./azure-maps-authentication.md#Authorization-with-role-based-access-control) to REST APIs. When you create a SAS token, the prerequisite Managed Identity on the Map Account is assigned Azure RBAC role which grants access to specific REST API actions. Review [picking a role definition](./azure-maps-authentication.md#picking-a-role-definition) to decide which APIs should be allowed by the application.
 
 For a reason which access control should be revoked for SAS token(s) there are 2 options:
 
@@ -228,7 +229,7 @@ First, you should create an [User Assigned Managed Identity](../active-directory
 > [!TIP]
 > Microsoft's general recommendation to pick the same location for the Managed Identity and the Azure Maps account.
 
-Once a Managed Identity is created, you can create or update an Azure Maps account to attach the Manage Identity. To attach a Managed Identity, you can go use steps described in [manage your Azure Maps account](./azure-maps/how-to-manage-account-keys.md) to create the account and attach the Managed Identity.
+Once a Managed Identity is created, you can create or update an Azure Maps account to attach the Manage Identity. To attach a Managed Identity, you can go use steps described in [manage your Azure Maps account](./how-to-manage-account-keys.md) to create the account and attach the Managed Identity.
 
 After the account has been successfully created or updated with the Managed Identity; assign role based access control for the Managed Identity to an Azure Maps data role on the account scope. This will allow the managed identity to be given access to the Azure Maps REST APIs for your map account.
 
@@ -253,7 +254,8 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 | :------------ | :------------------- |
 | Authorization | jwt-sas eyJ0e….HNIVN |
 
-> [!NOTE] > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
+> [!NOTE] 
+> `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Restrict Cross Origin Resource Sharing
 
@@ -338,12 +340,15 @@ For understanding pricing tiers read more on [choosing a pricing tier](./choose-
 
 To learn more about Azure RBAC, see
 
-> [!div class="nextstepaction"] > [Azure role-based access control](../role-based-access-control/overview.md)
+> [!div class="nextstepaction"] 
+> [Azure role-based access control](../role-based-access-control/overview.md)
 
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
-> [!div class="nextstepaction"] > [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
+> [!div class="nextstepaction"] 
+> [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
 
 To learn more about authenticating the Azure Maps Map Control with Azure AD, see
 
-> [!div class="nextstepaction"] > [Use the Azure Maps Map Control](./how-to-use-map-control.md)
+> [!div class="nextstepaction"] 
+> [Use the Azure Maps Map Control](./how-to-use-map-control.md)

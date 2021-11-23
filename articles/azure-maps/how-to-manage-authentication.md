@@ -124,8 +124,10 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 
 Find the API usage metrics for your Azure Maps account:
 
-> [!div class="nextstepaction"] > [View usage metrics](how-to-view-api-usage.md)
+> [!div class="nextstepaction"] 
+> [View usage metrics](how-to-view-api-usage.md)
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 
-> [!div class="nextstepaction"] > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [!div class="nextstepaction"] 
+> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
