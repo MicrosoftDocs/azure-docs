@@ -17,20 +17,20 @@ Azure Firewall has two versions: Standard and Premium.
 
 - Azure Firewall Standard
 
-   Azure Firewall Standard has been generally available since September, 2018. It is a cloud native, highly available, with built-in auto scaling firewall-as-a-service offering which allows you to centrally govern and log all your traffic flows using a DevOps approach. The service supports both application and network level filtering rules and is integrated with the Microsoft Threat Intelligence feed for filtering known malicious IP addresses and domains. 
+   Azure Firewall Standard has been generally available since September 2018. It's cloud native, highly available, with built-in auto scaling firewall-as-a-service. You can centrally govern and log all your traffic flows using a DevOps approach. The service supports both application and network level-filtering rules, and is integrated with the Microsoft Threat Intelligence feed for filtering known malicious IP addresses and domains. 
 - Azure Firewall Premium
 
-   Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. The features that might impact the performance of the Firewall are TLS inspection and IDPS (Intrusion Detection and Prevention).
+   Azure Firewall Premium is a next generation firewall with capabilities that are required for highly sensitive and regulated environments. The features that might affect the performance of the Firewall are TLS inspection and IDPS (Intrusion Detection and Prevention).
 
 For more information about Azure Firewall, see [What is Azure Firewall?](overview.md)
 
 ## Performance testing
 
-Before deploying Azure Firewall, the performance needs to be tested and evaluated to ensure that it meets your expectations. Not only should Azure Firewall be able to handle the current traffic on a network, but it should also be ready for potential traffic growth. It is recommended to perform the evaluation on a test network and not in a production environment. The testing should attempt to replicate the production environment as close as possible. This includes the network topology, and emulating the actual characteristics of the expected traffic through the firewall.
+Before deploying Azure Firewall, the performance needs to be tested and evaluated to ensure it meets your expectations. Not only should Azure Firewall handle the current traffic on a network, but it should also be ready for potential traffic growth. It's recommended to evaluate on a test network and not in a production environment. The testing should attempt to replicate the production environment as close as possible. This includes the network topology, and emulating the actual characteristics of the expected traffic through the firewall.
 
 ## Performance data
 
-The following set of performance results demonstrate the maximal Azure Firewall throughout in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny.
+The following set of performance results demonstrates the maximal Azure Firewall throughout in various use cases. All use cases were measured while Threat intelligence mode was set to alert/deny.
 
 
 |Firewall type and use case  |TCP/UDP bandwidth (Gbps)  |HTTP/S bandwidth (Gbps)  |
@@ -44,7 +44,7 @@ The following set of performance results demonstrate the maximal Azure Firewall 
 > [!NOTE]
 > IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
 
-Azure Firewall's new accelerated networking functionality is now in private preview and provides you with additional enhancements to the overall firewall performance as shown below:
+Azure Firewall's new accelerated networking functionality is now in private preview and provides you with enhancements to the overall firewall performance as shown below:
 
 
 |Firewall use case  |Without Accelerated Networking (Gbps)  |With Accelerated Networking (Gbps)  |
