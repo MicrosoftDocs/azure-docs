@@ -90,7 +90,7 @@ sections:
       - question: |
           What data is included in the CSV file I can download from the Azure AD sign-in logs?
         answer: |
-          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included in CSV downloads. For example, CA policies and report-only information are not included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
+          The CSV includes sign-in logs for your users and service principals. However, data that is represented as a nested array in the MS Graph API for sign in logs is not included. For example, conditional access policies and report-only information are not included. If you need to export all the information contained in your sign-in logs, use the **Export Data Settings** feature. 
       - question: |
           I see .XXX in part of the IP address from a user in my sign in logs. Why is that happening?
         answer: |
