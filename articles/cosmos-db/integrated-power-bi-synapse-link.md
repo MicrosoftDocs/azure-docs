@@ -1,6 +1,6 @@
 ---
 title: Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts
-description: With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the in-built Power BI integration feature in the Azure portal.
+description: With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the built-in Power BI integration feature in the Azure portal.
 author: AnithaAdusumilli
 ms.service: cosmos-db
 ms.topic: how-to
@@ -12,7 +12,7 @@ ms.custom: synapse-cosmos-db
 # Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the in-built Power BI integration feature in the Azure portal along with [Azure Synapse Link](synapse-link.md).
+With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the built-in Power BI integration feature in the Azure portal along with [Azure Synapse Link](synapse-link.md).
 
 Synapse Link enables you to build Power BI dashboards with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can either use [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. With DirectQuery, you can build dashboards using live data from your Azure Cosmos DB accounts, without importing or copying the data into Power BI.
 
@@ -39,12 +39,12 @@ Use the following steps to build a Power BI report from Azure Cosmos DB data in 
    * You can enable Synapse Link on your existing containers.
 
    > [!IMPORTANT]
-   > Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. If you have any issues or questions, please reach out to the [Azure Cosmos DB Synapse team](mailto:cosmosdbsynapselink@microsoft.com)
+   > Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. If you have any issues or questions, please reach out to the [Azure Cosmos DB Synapse team](mailto:cosmosdbsynapselink@microsoft.com).
 
    :::image type="content" source="./media/integrated-power-bi-synapse-link/register-synapse-link.png" alt-text="Register Synapse Link for selected containers." border="true" lightbox="./media/integrated-power-bi-synapse-link/register-synapse-link.png":::
 
    > [!NOTE]
-   > You will only need to register once per each subscriptions. When the subscription is approved, you can enable Synapse Link for existing containers in all eligible accounts within that subscription.
+   > You will only need to register once per each subscription. When the subscription is approved, you can enable Synapse Link for existing containers in all eligible accounts within that subscription.
 
 1. Select **register** to enable Synapse Link on your existing accounts. The status changes to "registration pending". After your request is approved by Azure Cosmos DB team, this button will go away, and you will be able to select your existing containers.
 
@@ -66,7 +66,7 @@ Use the following steps to build a Power BI report from Azure Cosmos DB data in 
 
    :::image type="content" source="./media/integrated-power-bi-synapse-link/synapse-create-views.png" alt-text="Connect to Synapse Link workspace and create views." border="true" lightbox="./media/integrated-power-bi-synapse-link/synapse-create-views.png":::
 
-1. Next, select **Download .pbids** to download the Power BI data source file. Open the downloaded file, it contains the required connection information and opens a Power BI dashboard.
+1. Next, select **Download .pbids** to download the Power BI data source file. Open the downloaded file. It contains the required connection information and opens a Power BI dashboard.
 
    :::image type="content" source="./media/integrated-power-bi-synapse-link/download-powerbi-desktop-files.png" alt-text="Download the Power BI desktop files in .pbids format." border="true" lightbox="./media/integrated-power-bi-synapse-link/download-powerbi-desktop-files.png":::
 
