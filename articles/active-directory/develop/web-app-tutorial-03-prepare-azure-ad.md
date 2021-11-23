@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Prepare your web app for auth"
+title: "Tutorial: Prepare Azure AD by registering your app"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you learn how to configure Azure AD to provide identity services to your web app so it can sign in your organization's users and get authorization for accessing resources.
 author: henrymbuguakiarie

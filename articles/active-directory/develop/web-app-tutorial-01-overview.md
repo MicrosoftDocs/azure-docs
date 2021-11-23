@@ -2,6 +2,7 @@
 title: "Tutorial: Web app overview"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you learn web application overview
+author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
