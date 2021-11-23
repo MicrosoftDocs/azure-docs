@@ -28,7 +28,7 @@ You can't delete a organization in Azure AD until it passes several checks. Thes
 * You must have paid all outstanding invoices and amounts due or overdue.
 * There can be no users in the Azure AD tenant except one global administrator who is to delete the organization. Any other users must be deleted before the organization can be deleted. If users are synchronized from on-premises, then sync must first be turned off, and the users must be deleted in the cloud organization using the Azure portal or Azure PowerShell cmdlets.
 * There can be no applications in the organization. Any applications must be removed before the organization can be deleted.
-* There can be no multi-factor authentication providers linked to the organization.
+* There can be no multifactor authentication providers linked to the organization.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Microsoft 365, or Azure AD Premium associated with the organization. For example, if a default Azure AD tenant was created for you in Azure, you can't delete this organization if your Azure subscription still relies on it for authentication. You also can't delete a tenant if another user has associated an Azure subscription with it.
 
 ## Delete the organization
