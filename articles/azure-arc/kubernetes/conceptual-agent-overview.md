@@ -10,21 +10,17 @@ description: "This article provides an architectural overview of Azure Arc-enabl
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Azure Arc-enabled Kubernetes Agent Architecture
+# Azure Arc-enabled Kubernetes Agent Overview
 
-On its own, [Kubernetes](https://kubernetes.io/) can deploy containerized workloads consistently on hybrid and multi-cloud environments. Azure Arc-enabled Kubernetes, however, works as a centralized, consistent control plane that manages policy, governance, and security across heterogenous environments. This article provides:
-
-* An architectural overview of connecting a cluster to Azure Arc.
-* The connectivity pattern followed by agents.
-* A description of the data exchanged between the cluster environment and Azure.
+[Kubernetes](https://kubernetes.io/) can deploy containerized workloads consistently on hybrid and multi-cloud environments. Azure Arc-enabled Kubernetes provides a centralized, consistent control plane to manage policy, governance, and security across Kubernetes clusters on these heterogenous environments. This article provides an overview of the Azure Arc agents deployed on the Kubernetes clusters as part of connecting the cluster to Azure Arc.
 
 ## Deploy agents to your cluster
 
-Most on-prem datacenters enforce strict network rules that prevent inbound communication on the network boundary firewall. Azure Arc-enabled Kubernetes works with these restrictions by not requiring inbound ports on the firewall and only enabling selective egress endpoints for outbound communication. Azure Arc-enabled Kubernetes agents initiate this outbound communication. 
+Most on-prem datacenters enforce strict network rules that prevent inbound communication on the network boundary firewall. Azure Arc-enabled Kubernetes works with these restrictions by not requiring inbound ports on the firewall. Azure Arc agents only require outbound communication to a prerequisite list of network endpoints.
 
 ![Architectural overview](./media/architectural-overview.png)
 
-### Connect a cluster to Azure Arc
+The following steps are involved in connecting a Kubernetes cluster to Azure Arc:
 
 1. Create a Kubernetes cluster on your choice of infrastructure (VMware vSphere, Amazon Web Services, Google Cloud Platform, etc.). 
 
@@ -44,15 +40,16 @@ Most on-prem datacenters enforce strict network rules that prevent inbound commu
         | `deployment.apps/cluster-metadata-operator` | Gathers cluster metadata, including cluster version, node count, and Azure Arc agent version. |
         | `deployment.apps/resource-sync-agent` | Syncs the above-mentioned cluster metadata to Azure. |
         | `deployment.apps/flux-logs-agent` | Collects logs from the flux operators deployed as a part of source control configuration. |
-        | `deployment.apps/extension-manager` | Installs and manages lifecycle of extension helm charts |  
-        | `deployment.apps/clusterconnect-agent` | Reverse proxy agent that enables cluster connect feature to provide access to `apiserver` of cluster. This is an optional component deployed only if `cluster-connect` feature is enabled on the cluster   |
+        | `deployment.apps/extension-manager` | Installs and manages lifecycle of extension helm charts |
+        | `deployment.apps/kube-aad-proxy` | Used for authentication of requests sent to the cluster using Cluster Connect |
+        | `deployment.apps/clusterconnect-agent` | Reverse proxy agent that enables Cluster Connect feature to provide access to `apiserver` of cluster. This is an optional component deployed only if `cluster-connect` feature is enabled on the cluster   |
         | `deployment.apps/guard` | Authentication and authorization webhook server used for AAD RBAC feature. This is an optional component deployed only if `azure-rbac` feature is enabled on the cluster   |
 
 1. Once all the Azure Arc-enabled Kubernetes agent pods are in `Running` state, verify that your cluster connected to Azure Arc. You should see:
     * An Azure Arc-enabled Kubernetes resource in [Azure Resource Manager](../../azure-resource-manager/management/overview.md). Azure tracks this resource as a projection of the customer-managed Kubernetes cluster, not the actual Kubernetes cluster itself.
     * Cluster metadata (like Kubernetes version, agent version, and number of nodes) appears on the Azure Arc-enabled Kubernetes resource as metadata.
 
-## Data exchange between cluster environment and Azure
+## Data exchange between cluster and Azure
 
 | Data type | Scenario | Communication mode |
 | --------- | -------- | ------------------ |
