@@ -1,7 +1,7 @@
 ---
-title: Parameterize load tests
+title: Parameterize load tests with secrets and environment variables
 titleSuffix: Azure Load Testing
-description: Parameterize load tests with Azure Load Testing using secret and non-secret parameters
+description: Parameterize load tests with Azure Load Testing by using secret and non-secret parameters.
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
