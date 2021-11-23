@@ -81,7 +81,7 @@ The report prompts you for the following information:
 - The ending `SnapshotID` for the report window.
 - The name of the report to be created by the AWR script.
 
-If you're running the AWR report on a Real Application Cluster (RAC), the command line report is the *awrgrpt.sql* file, instead of *awrrpt.sql*. The `g` report creates a report for all nodes in the RAC database, in a single report. This report eliminates the need to run one report on each RAC node.
+If you're running the AWR report on a Real Application Cluster (RAC), the command-line report is the *awrgrpt.sql* file, instead of *awrrpt.sql*. The `g` report creates a report for all nodes in the RAC database, in a single report. This report eliminates the need to run one report on each RAC node.
 
 You can obtain the following metrics from the AWR report:
 
@@ -155,7 +155,7 @@ Here are some tips for you as you consider disks.
 
 - **Default OS disks:** These disk types offer persistent data and caching. They're optimized for operating system access at startup, and aren't designed for either transactional or data warehouse (analytical) workloads.
 
-- **Managed disks:** Azure manages the storage accounts that you use for your VM disks. You specify the disk type (most often, this is premium SSD for Oracle workloads), and the size of the disk that you need. Azure creates and manages the disk for you. A premium SSD managed disk is only available for memory-optimized and specifically designed VM series. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
+- **Managed disks:** Azure manages the storage accounts that you use for your VM disks. You specify the disk type (most often, this is premium SSD for Oracle workloads), and the size of the disk that you need. Azure creates and manages the disk for you. A premium SSD-managed disk is only available for memory-optimized and specifically designed VM series. After you choose a particular VM size, the menu shows only the available premium storage SKUs that are based on that VM size.
 
   ![Screenshot of the managed disk page.](./media/oracle-design/premium_disk01.png)
 
@@ -185,7 +185,7 @@ After you have a clear picture of the I/O requirements, you can choose a combina
 
 ### Disk cache settings
 
-Although you have three options for host caching, only read-only caching is recommended for a database workload on an Oracle database. Read/write can introduce significant vulnerabilities to a data file, because the goal of a database write is to record it to the data file, not cache the information. With read-only, all requests are cached for future reads. All writes continue to be written to disk.
+Although you have three options for host caching, only read-only caching is recommended for a database workload on an Oracle database. Read/write can introduce significant vulnerabilities to a data file, because the goal of a database write is to record it to the data file, not to cache the information. With read-only, all requests are cached for future reads. All writes continue to be written to disk.
 
 #### Recommendations
 
