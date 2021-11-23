@@ -4,7 +4,6 @@ description: This article lists the Microsoft Security Response Center updates a
 services: cloud-services
 ms.subservice: auto-os-updates
 documentationcenter: na
-author: gunnarcms
 author: ibthampy
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -13,7 +12,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/19/2021
-ms.author: gunnarcms
 ms.author: ibthampy
 ---
 
