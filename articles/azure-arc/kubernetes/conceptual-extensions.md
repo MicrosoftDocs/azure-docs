@@ -13,13 +13,13 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 [Helm charts](https://helm.sh/) help you manage Kubernetes applications by providing the building blocks needed to define, install, and upgrade even the most complex Kubernetes applications. Cluster extension feature builds on top of the packaging components of Helm by providing an Azure Resource Manager driven experience for installation and lifecycle management of different Azure capabilities on top of your Kubernetes cluster. A cluster operator or admin can use the cluster extensions feature to:
 
-- Install and manage key management, data and application offerings on your Kubernetes cluster. List of available extensions can be found [here](extensions.md#currently-available-extensions)
+- Install and manage key management, data, and application offerings on your Kubernetes cluster. List of available extensions can be found [here](extensions.md#currently-available-extensions)
 - Use Azure Policy to automate at-scale deployment of cluster extensions across all clusters in your environment. 
 - Subscribe to release trains (for example, preview or stable) for each extension.
 - Set up auto-upgrade for extensions or pin to a specific version and manually upgrade versions.
 - Update extension properties or delete extension instances.
 
-An extension can be cluster-scoped or scoped to a namespace. Each extension type (Eg: Azure Monitor, Microsoft Defender for Cloud, Azure App services) defines the scope at which they operate on the cluster. 
+An extension can be cluster-scoped or scoped to a namespace. Each extension type (like Azure Monitor for containers, Microsoft Defender for Cloud, Azure App services) defines the scope at which they operate on the cluster. 
 
 ## Architecture for cluster extensions on Azure Arc-enabled Kubernetes clusters
 
