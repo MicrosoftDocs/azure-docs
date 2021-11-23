@@ -52,9 +52,9 @@ In this section, you will create Azure services required for this tutorial.
    az group create --name=cosmosdb-springboot-aks-rg --location=eastus
    ```
 
-> [!NOTE]
-> Replace `cosmosdb-springboot-aks-rg` with a unique name for your resource group.
-
+    > [!NOTE]
+    > Replace `cosmosdb-springboot-aks-rg` with a unique name for your resource group.
+    
 ### Create an Azure Cosmos DB SQL API database account
 
 Use this command to create an [Azure Cosmos DB SQL API database account](manage-with-cli.md#create-an-azure-cosmos-db-account) using the Azure CLI.
@@ -121,8 +121,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
 
 ## Run the application locally
 
-> [!NOTE]
-> If you intend to run the application on AKS, skip this section and move to [Push Docker image to Azure Container Registry](#push-docker-image-to-azure-container-registry)
+If you intend to run the application on AKS, skip this section and move on to [Push Docker image to Azure Container Registry](#push-docker-image-to-azure-container-registry)
 
 1. Before you run the application, update the `application.properties` file with the details of your Azure Cosmos DB account.
 
@@ -142,7 +141,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    java -jar target/*.jar
    ```
 
-2. To access the application, move to Step 2 in section [Access the application endpoint](#access-the-application-endpoint)
+2. To access the application, move to Step 2 in section [Access the application endpoint](access-the-application-endpoint)
 
 ## Push Docker image to Azure Container Registry
 
@@ -322,6 +321,7 @@ Creating a Service of type `LoadBalancer` in Azure Kubernetes Service will resul
     spring-cosmos-app   LoadBalancer   10.0.68.83   20.81.108.180   8080:31523/TCP   18s
     ```
    
+   > [!NOTE]
    > `EXTERNAL-IP` value may differ in your case
 
 1. Use the public IP address
@@ -347,7 +347,7 @@ Here are some of the key points related to the Kubernetes resources for this app
     kubectl exec -it $(kubectl get pods -l=app=spring-cosmos-app -o=jsonpath='{.items[0].metadata.name}') -c spring-cosmos-app -- cat /config/application.properties
     ```
 
-- When a Spring Boot application is deployed to a Kubernetes environment, [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) gathers the liveness and readiness indicators which are then are exposed as separate HTTP Probes - `/actuator/health/liveness` and `/actuator/health/readiness`. [Liveness and Readiness probes](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L34) refer to these HTTP endpoints.
+- [Liveness and Readiness probes](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L34) configuration for this application refer to the HTTP endpoints that are made available by [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) when a Spring Boot application is [deployed to a Kubernetes environment](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.kubernetes-probes) - `/actuator/health/liveness` and `/actuator/health/readiness`. 
 - A [ClusterIP Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L61) can be created to access the REST endpoints of the Spring Boot application *internally* within the Kubernetes cluster.
 - A [LoadBalancer Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/load-balancer-service.yaml) can be created to access the application via a public IP address.
 
