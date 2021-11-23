@@ -1,11 +1,11 @@
 ---
 title:  "Azure Spring Cloud access app in virtual network"
-description: Access app in an Azure Spring Cloud in virtual network.
+description: Access app in Azure Spring Cloud in a virtual network.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/11/2020
+ms.date: 11/23/2020
 ms.custom: devx-track-java
 ---
 
@@ -13,15 +13,14 @@ ms.custom: devx-track-java
 
 This document explains how to access an endpoint for your application in a private network.
 
-When **Assign Endpoint** for applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private FQDN. The domain is only accessible in the private network. Apps and services use the application endpoint. They include the **Test Endpoint** described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). **Log streaming**, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
+When **Assign Endpoint** on applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
-## Requirement
+## Requirements
 
 1. Find the IP to access your application.
-
 2. Add a DNS record for the IP.
 
-### Find the IP
+### Find the IP for your application
 
 #### [Portal](#tab/azure-portal)
 
