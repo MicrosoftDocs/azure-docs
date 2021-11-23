@@ -15,6 +15,9 @@ This article has two main sections. The first section covers how to create the c
 
 ## Lab configuration
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account. See the following tutorial for creating a new lab account: [Tutorial to setup a lab account](tutorial-setup-lab-account.md).
 
 Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and then apply the following settings:
@@ -135,7 +138,8 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 Next steps are common to setting up any lab:
 
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users).
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

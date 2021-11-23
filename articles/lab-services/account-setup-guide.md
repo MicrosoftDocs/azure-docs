@@ -1,11 +1,12 @@
 ---
-title: Accelerated lab account setup guide for Azure Lab Services
-description: This guide helps administrators quickly set up a lab account for use within their school.
+title: Accelerated lab account setup guide (deprecated)
+description: This guide helps administrators quickly set up a lab account for use within their school. (deprecated)
 ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
-# Lab account setup guide
+# Lab account setup guide (deprecated)
+
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 
 This guide includes three sections:

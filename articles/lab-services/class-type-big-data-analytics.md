@@ -23,6 +23,9 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ### Lab account settings
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+
 Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
@@ -76,9 +79,9 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
 1. Ensure that you have installed [Git Bash](https://gitforwindows.org/) as listed in the [Prerequisites section](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html#prerequisites) of the guide since this is recommended for completing the next steps.
 
 1. Using [Cloudera's Deployment and Install Guide for Docker](https://www.cloudera.com/tutorials/sandbox-deployment-and-install-guide/3.html), complete the steps in the following sections:
-   
-   -    Deploy HDP Sandbox
-   -    Verify HDP Sandbox
+
+   - Deploy HDP Sandbox
+   - Verify HDP Sandbox
 
     > [!WARNING] 
     > When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
@@ -94,8 +97,10 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
 ### Automatically start Docker containers when students log in
 
 To provide an easy to use experience for students, we'll use a PowerShell script that automatically:
-  - Starts the HDP Sandbox Docker containers when a student starts and connects to their lab VM.
-  - Launches the browser and navigates to the Sandbox Welcome Page.
+
+- Starts the HDP Sandbox Docker containers when a student starts and connects to their lab VM.
+- Launches the browser and navigates to the Sandbox Welcome Page.
+
 We'll also use Windows Task Scheduler to automatically run this script when a student logs into their VM.
 To set this up, follow these steps: [Big Data Analytics scripting](https://aka.ms/azlabs/classtypes/bigDataAnalytics).
 
@@ -116,7 +121,7 @@ This article walked you through the steps necessary to create a lab for a big da
 
 Next steps are common to setting up any lab.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

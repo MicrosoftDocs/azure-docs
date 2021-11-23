@@ -28,23 +28,25 @@ landingContent:
             url: ../devtest-labs/lab-services-overview.md?toc=%2fazure%2fevent-grid%2fclassroom-labs%2ftoc.json                        
           - text: About labs
             url: classroom-labs-overview.md
+          - text: What's new in Lab Services?
+            url: lab-services-whats-new.md
       - linkListType: concept
         links:
           - text: Labs concepts
             url: classroom-labs-concepts.md
   # Card
-  - title: Lab accounts
+  - title: Lab plans
     linkLists:
     - linkListType: tutorial
       links:
-        - text: Set up a lab account        
-          url: tutorial-setup-lab-account.md
+        - text: Set up a lab plan      
+          url: tutorial-setup-lab-plan.md
     - linkListType: how-to-guide
       links:
-        - text: Create and manage lab accounts
-          url: how-to-manage-lab-accounts.md
-        - text: Configure lab accounts
-          url: how-to-configure-lab-accounts.md
+        - text: Create and manage lab plans
+          url: how-to-manage-lab-plans.md
+        - text: Configure lab plans
+          url: how-to-configure-lab-plans.md
   - title: Set up labs
     linkLists:
     - linkListType: tutorial
@@ -54,7 +56,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Create and manage labs
-          url: how-to-manage-lab-accounts.md
+          url: how-to-manage-lab-plans.md
         - text: Set up, customize, and publish templates
           url: how-to-create-manage-template.md
         - text: Set up and manage virtual machine pool 

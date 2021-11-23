@@ -15,6 +15,9 @@ In this article, we'll show how to set up a virtual machine template in a lab wi
 
 ## Lab configuration
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [tutorial to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
 
 ### Lab account settings
@@ -141,7 +144,7 @@ Here is an example of a possible cost estimate for this class:
 
 Next steps are common to setting up any lab.
 
-- [Create, manage, and publish a template](how-to-create-manage-template.md)
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

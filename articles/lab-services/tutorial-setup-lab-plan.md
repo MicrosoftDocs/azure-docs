@@ -74,4 +74,3 @@ In this tutorial, you created a lab plan. To learn about how to create a classro
 
 > [!div class="nextstepaction"]
 > [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-

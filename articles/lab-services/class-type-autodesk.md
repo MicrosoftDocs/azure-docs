@@ -21,6 +21,9 @@ To set up this lab, you need an Azure subscription and lab account to get starte
 
 ### Lab account settings
 
+>[!NOTE]
+> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+
 Enable your lab account settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
 
 | Lab account setting | Instructions |
@@ -75,7 +78,8 @@ Let’s cover an example cost estimate for this class.  This estimate doesn’t 
 
 As you set up your lab, see the following articles:
 
+- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quotas](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users) 
+- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
+- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

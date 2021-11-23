@@ -127,4 +127,4 @@ The X2Go client is used to connect to a template VM that has X2Go configured.  U
 
 After an instructor sets up either RDP or X2Go on their template VM and publishes, students can connect to their VMs via the GUI remote desktop or SSH.
 
-For more information, see [Connect to a Linux VM](how-to-use-remote-desktop-linux-student.md)
+For more information, see [Connect to a Linux VM](how-to-use-remote-desktop-linux-student.md).

@@ -79,7 +79,8 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 Next steps are common to setting up any lab:
 
+- [Create, manage, and publish a template](how-to-create-manage-template.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users).
+- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

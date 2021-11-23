@@ -6,6 +6,7 @@ ms.date: 06/26/2020
 ---
 
 # Tutorial: Track usage of a lab in Azure Lab Service
+
 This tutorial shows you how a lab creator/owner can track usage of a lab.
 
 In this tutorial, you do the following actions:
@@ -13,8 +14,7 @@ In this tutorial, you do the following actions:
 > [!div class="checklist"]
 > * View users registered with your lab
 > * View the usage of VMs in the lab
-> * Manage student VMs 
-
+> * Manage student VMs
 
 ## View registered users
 
@@ -34,7 +34,8 @@ In this tutorial, you do the following actions:
 
     ![VM usage](./media/tutorial-track-usage/vm-usage.png)
 
-## Manage student VMs 
+## Manage student VMs
+
 On this page, you can start, stop, or reset student VMs by using controls in the **State** column or on the toolbar.
 
 ![VM actions](./media/tutorial-track-usage/vm-controls.png)
@@ -45,4 +46,5 @@ For more information about managing virtual machine pool for the lab, see [Set u
 > When an educator turns on a student VM, quota for the student isn't affected. Quota for a user specifies the number of lab hours available to the user outside of the scheduled class time. For more information on quotas, see [Set quotas for users](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## Next steps
-To learn more about labs, see articles under [How-to guides](how-to-manage-lab-accounts.md).
+
+To learn more about labs, see articles under [Administrator Guide](administrator-guide.md).
