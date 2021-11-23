@@ -49,7 +49,7 @@ To delegate the update and read of basic SAML Configurations for SAML based sing
 
 To delegate the management of signing certificates for SAML based single sign-on applications. Permissions required.
 
-microsoft.directory/applications/credentials/update
+microsoft.directory/servicePrincipals/credentials/update
 
 #### Update expiring sign-in cert notification email address
 
