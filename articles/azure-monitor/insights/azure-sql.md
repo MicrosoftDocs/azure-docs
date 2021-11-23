@@ -47,7 +47,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 | Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
 | Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
-## Configuration of Azure SQL Analytics (preview)
+## <a id="configuration"></a>Configuration of Azure SQL Analytics (preview)
 
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
