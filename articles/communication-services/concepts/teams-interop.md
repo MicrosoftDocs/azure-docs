@@ -30,7 +30,7 @@ Azure Communication Services supports two mode of Teams interoperability dependi
 - **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. This mode allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **Teams user identity.** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This mode allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the standard Teams client.
 
-
+Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
 
 ## Overview
 
