@@ -5734,6 +5734,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-direct-cli.md",
+      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-prerequisites",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/plan-azure-arc-data-services",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/create-data-controller-azure-data-studio.md",
       "redirect_url": "/azure/azure-arc/data/create-data-controller-indirect-azure-data-studio",
       "redirect_document_id": false
@@ -9843,7 +9853,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/low-priority-quota",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
       "redirect_document_id": true
     },
     {
@@ -9875,6 +9885,11 @@
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
       "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
@@ -44767,6 +44782,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/vm/monitor-vm-azure.md",
+      "redirect_url": "/azure/virtual-machines/monitor-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46327,6 +46347,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-azure-security-center.md",
+      "redirect_url": "/azure/sentinel/connect-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/entities-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/azure-sentinel-billing.md",
+      "redirect_url": "/azure/sentinel/billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/automation-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/automation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true
@@ -47288,7 +47328,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
+      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
       "redirect_document_id": false
     },
     {

@@ -13,17 +13,15 @@ ms.custom: ignite-fall-2021
 
 # Connect to a VM using Bastion and the native client on your Windows computer (Preview)
 
-Azure Bastion now offers support for connecting to target VMs in Azure using a native client on your Windows workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
+Azure Bastion now offers support for connecting to target VMs in Azure using a native RDP or SSH client on your Windows workstation. This feature lets you connect to your target VMs via Bastion using Azure CLI and expands your sign-in options to include local SSH key pair and Azure Active Directory (Azure AD). This article helps you configure Bastion with the required settings, and then connect to a VM in the VNet. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
 > This configuration requires the Standard SKU for Azure Bastion.
 >
 
-> [!IMPORTANT]
-> This feature is still rolling out globally. If you cannot access it in the Azure portal, please wait for a few days and try again.
-
-
 Currently, this feature has the following limitations:
+
+* Native client support is not yet available for use from your local Linux workstation. If you are connecting to your target VM from a Linux workstation, please use the Azure portal experience.
 
 * Signing in to your target VM using a custom port or protocol is not yet available with native client support. If you want to use a custom port or protocol to sign in to your target VM via Bastion, use the Azure portal experience.
 
@@ -38,6 +36,10 @@ Before you begin, verify that you have met the following criteria:
 * The latest version of the CLI commands (version 2.30 or later) is installed. For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 * An Azure virtual network.
 * A virtual machine in the virtual network.
+* If you plan to sign into your virtual machine using your Azure AD credentials, make sure your virtual machine is set up using one of the following methods:
+    * Enable Azure AD login for a [Windows VM](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Linux VM](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md).
+    * [Configure your Windows VM to be Azure AD-joined](../active-directory/devices/concept-azure-ad-join.md).
+    * [Configure your Windows VM to be hybrid Azure AD-joined](../active-directory/devices/concept-azure-ad-join-hybrid.md).
 
 ## Configure Bastion
 
@@ -72,7 +74,7 @@ Verify that the following roles and ports are configured in order to connect.
 * Reader role on the virtual machine.
 * Reader role on the NIC with private IP of the virtual machine.
 * Reader role on the Azure Bastion resource.
-* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method.
+* Virtual Machine Administrator Login or Virtual Machine User Login role, if you are using the Azure AD login method. Note that you only need to do this if you're enabling Azure AD login using the process described here: [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md) or [Azure Linux VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md)
 
 ### Ports
 

@@ -1,45 +1,34 @@
 ---
-title: Azure Sentinel SOAR content catalog | Microsoft Docs
-description: This article displays and details the content provided by Azure Sentinel for security orchestration, automation, and response (SOAR), including playbooks and Logic Apps connectors.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel SOAR content catalog | Microsoft Docs
+description: This article displays and details the content provided by Microsoft Sentinel for security orchestration, automation, and response (SOAR), including playbooks and Logic Apps connectors.
 author: yelevin
-manager: rkarlin
-
-ms.assetid:
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2021
 ms.author: yelevin
 ---
-# Azure Sentinel SOAR content catalog
+# Microsoft Sentinel SOAR content catalog
 
-Azure Sentinel provides a wide variety of playbooks and connectors for security orchestration, automation, and response (SOAR), so that you can readily integrate Azure Sentinel with any product or service in your environment.
+Microsoft Sentinel provides a wide variety of playbooks and connectors for security orchestration, automation, and response (SOAR), so that you can readily integrate Microsoft Sentinel with any product or service in your environment.
 
 The integrations listed below may include some or all of the following components:
 
 | Component type | Purpose | Use case and linked instructions |
 | -------------- | ------- | -------------------------------- |
-| **Playbook templates** | Automated workflow | Use playbook templates to deploy ready-made playbooks for responding to threats automatically.<br><br>[Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md) |
+| **Playbook templates** | Automated workflow | Use playbook templates to deploy ready-made playbooks for responding to threats automatically.<br><br>[Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md) |
 | **Azure Logic Apps managed connector** | Building blocks for creating playbooks | Playbooks use managed connectors to communicate with hundreds of both Microsoft and non-Microsoft services.<br><br>[List of Logic Apps connectors and their documentation](/connectors/connector-reference/) |
 | **Azure Logic Apps custom connector** | Building blocks for creating playbooks | You may want to communicate with services that aren't available as prebuilt connectors. Custom connectors address this need by allowing you to create (and even share) a connector and define its own triggers and actions.<br><ul><li>[Custom connectors overview](/connectors/custom-connectors/)<li>[Create your own custom Logic Apps connectors](/connectors/custom-connectors/create-logic-apps-connector) |
 |
 
 You can find SOAR integrations and their components in the following places:
 
-- Azure Sentinel solutions
-- Azure Sentinel Automation blade, playbook templates tab
+- Microsoft Sentinel solutions
+- Microsoft Sentinel Automation blade, playbook templates tab
 - Logic Apps designer (for managed Logic Apps connectors)
-- Azure Sentinel GitHub repository
+- Microsoft Sentinel GitHub repository
 
 > [!TIP]
-> - Many SOAR integrations can be deployed as part of an [Azure Sentinel solution](sentinel-solutions.md), together with related data connectors, analytics rules and workbooks. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md).
-> - More integrations are provided by the Azure Sentinel community and can be found in the GitHub repository.
+> - Many SOAR integrations can be deployed as part of a [Microsoft Sentinel solution](sentinel-solutions.md), together with related data connectors, analytics rules and workbooks. For more information, see the [Microsoft Sentinel solutions catalog](sentinel-solutions-catalog.md).
+> - More integrations are provided by the Microsoft Sentinel community and can be found in the GitHub repository.
 > - If you have a product or service that isn't listed or currently supported, please submit a Feature Request.  
 > You can also create your own, using the following tools:
 >    - Logic Apps custom connector
@@ -231,7 +220,7 @@ You can find SOAR integrations and their components in the following places:
 
 ## Next steps
 
-In this document, you learned about Azure Sentinel solutions and how to find and deploy them.
+In this document, you learned about Microsoft Sentinel SOAR content.
 
-- Learn more about [Azure Sentinel Solutions](sentinel-solutions.md).
-- [Find and deploy Azure Sentinel Solutions](sentinel-solutions-deploy.md).
+- Learn more about [Microsoft Sentinel Solutions](sentinel-solutions.md).
+- [Find and deploy Microsoft Sentinel Solutions](sentinel-solutions-deploy.md).

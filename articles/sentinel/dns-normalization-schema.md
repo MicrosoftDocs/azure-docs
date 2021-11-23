@@ -1,24 +1,11 @@
 ---
 title: Microsoft Sentinel DNS normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel DNS normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
-
-
 ---
 
 # Microsoft Sentinel DNS normalization schema reference (Public preview)
@@ -80,7 +67,7 @@ To use the source-agnostic parsers that unify all of the out-of-the-box parsers,
 | --- | --- | --- |
 | **imDNS** | Aggregative parser that uses *union* to include normalized events from all DNS sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
 | **ASimDNS** | Similar to the `imDns` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *imDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+| **vimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *vimDNSWindowsOMS*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
 | **ASimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASimDNS*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
 | | | |
 
@@ -108,8 +95,8 @@ The parsers can be deployed from the [Microsoft Sentinel GitHub repository](http
 
 When implementing custom parsers for the Dns information model, name your KQL functions using the following syntax:
 
-- `vimDns<vendor><Product` for parametrized parsers
-- `ASimDns<vendor><Product` for regular parsers
+- `vimDns<vendor><Product>` for parametrized parsers
+- `ASimDns<vendor><Product>` for regular parsers
 
 ### Filtering parser parameters
 

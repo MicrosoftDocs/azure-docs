@@ -1,22 +1,11 @@
 ---
 title: Advanced SIEM Information Model (ASIM) Schemas | Microsoft Docs
 description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help ASIM normalizes data from many different sources to a uniform presentation
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-
 --- 
 
 # Advanced SIEM Information Model (ASIM) schemas (Public preview)
@@ -125,7 +114,8 @@ The following fields are defined by ASIM for all schemas:
 | **DvcZone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
 | **DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred.    <br><br>Example: `Windows`    |
 | **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred. <br><br>Example: `10` |
-| **DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
+| <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
+| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="additionalfields"></a>**AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 | | | | |
 

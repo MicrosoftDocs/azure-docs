@@ -37,7 +37,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
-## Adding Cobalt from the gallery
+## Add Cobalt from the gallery
 
 To configure the integration of Cobalt into Azure AD, you need to add Cobalt from the gallery to your list of managed SaaS apps.
 
@@ -71,7 +71,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, enter the values for the following fields:
+1. On the **Basic SAML Configuration** section, perform the following step:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://brightside-prod-<INSTANCENAME>.cobaltdl.com`
@@ -163,4 +163,5 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Cobalt you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure Cobalt, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+
