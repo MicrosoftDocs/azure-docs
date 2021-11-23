@@ -55,25 +55,7 @@ If you don't have an Azure Key Vault yet, see [Azure Key Vault quick-start](/azu
         * **Name**: The secret name must be unique within the Key Vault. The name must be a 1-127 character string, starting with a letter and containing only 0-9, a-z, A-Z, and -.
         * **Value**: The value for your secret.
     
-1. Navigate to your Azure Load Testing resource.
-
-1. Open the **Identity**, switch on the system assigned identity, and then select **Save**.
-
-    :::image type="content" source="media/how-to-parameterize-load-tests/system-assigned-managed-identity.png" alt-text="Screenshot that shows how to turn on system assigned managed identity for Azure Load Testing.":::
-
-1. Open your Azure Key Vault resource in the Azure portal.
-
-1. Under **Settings**, select **Access Policies**, and then **Add Access Policy**.
-
-1. Select **Get** in the **Secret permissions**.
-
-    :::image type="content" source="media/how-to-parameterize-load-tests/key-vault-add-policy.png" alt-text="Screenshot that shows how to add an access policy to Azure Key Vault.":::
-
-1. Select **Select principal** and select your Azure Load Testing resource system-assigned principal.
-
-1. Select **Add**.
-
-You now have your secret value securely stored in Azure Key Vault, and you've granted access to your Azure Load Testing resource to read the secret value from the secret store.
+1. Enable system-assigned managed identity on your Azure Load Testing resource and grant access to the Azure Key Vault. See [how to use managed identities for Azure Load Testing](how-to-use-a-managed-identity.md).
 
 ### Specify secrets in the Azure portal
 
@@ -129,7 +111,7 @@ Use the following steps to provide secret parameters to Azure Load Testing resou
 
     ```yaml
     - name: 'Azure Load Testing'
-      uses: azure/load-testing
+      uses: azure/load-testing@v1
       with:
         loadtestConfigFile: 'SampleApp.yaml'
         loadtestResource: 'MyTest'
