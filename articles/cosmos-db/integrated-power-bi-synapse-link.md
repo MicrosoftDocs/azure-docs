@@ -4,7 +4,7 @@ description: With the integrated Power BI experience, you can visualize your Azu
 author: AnithaAdusumilli
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 11/23/2021
 ms.author: anithaa
 ms.custom: synapse-cosmos-db
 ---
@@ -27,13 +27,16 @@ Use the following steps to build a Power BI report from Azure Cosmos DB data in 
    > [!NOTE]
    > Currently, this option is only available for SQL API accounts.
 
-1. From the **Enable Azure Synapse Link** tab, if your account is not already enabled with Synapse Link, you can enable it from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab. Once enabled, you cannot disable Azure Synapse Link. Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](synapse-link.md#pricing) section for more details.
+1. From the **Enable Azure Synapse Link** tab, if your account is not already enabled with Synapse Link, you can enable it from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab.
+
+   > [!NOTE]
+   > Once enabled, you cannot disable Azure Synapse Link. Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](synapse-link.md#pricing) section for more details.
 
 1. Next from the **Enable Azure Synapse Link for your containers** section, choose the required containers to enable Synapse Link.
 
-   * You can enable Synapse Link on your existing containers.
-
    * If you already enabled Synapse Link on some containers, you will see the checkbox next to the container name is selected. You may optionally deselect them, based on the data you'd like to visualize in Power BI.
+
+   * You can enable Synapse Link on your existing containers.
 
    > [!IMPORTANT]
    > Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. If you have any issues or questions, please reach out to the [Azure Cosmos DB Synapse team](mailto:cosmosdbsynapselink@microsoft.com)
