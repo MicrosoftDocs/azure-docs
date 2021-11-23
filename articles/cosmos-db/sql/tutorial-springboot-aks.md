@@ -13,16 +13,15 @@ ms.author: abhishgu
 # Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-In this tutorial, you will set up and build a Spring Boot application to perform operations on data in an Azure Cosmos DB SQL API account. You will then package the image using Docker, push it to Azure Container Registry. Finally, you will deploy to Azure Kubernetes Service and access the REST APIs exposed by the application.
+In this tutorial, you will set up and deploy a Spring Boot application that exposes REST APIs to perform CRUD operations on data in Azure Cosmos DB (SQL API account). You will package the application as Docker image, push it to Azure Container Registry, deploy to Azure Kubernetes Service and test the application.
 
 ## Pre-requisites
 
-- An Azure account with an active subscription. Create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
+- An Azure account with an active subscription. Create a [free account](https://azure.microsoft.com/free/) or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 - [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Point your `JAVA_HOME` environment variable to the path where the JDK is installed.
-- [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) to provision Azure services.
+- [Azure CLI](/cli/azure/install-azure-cli) to provision Azure services.
 - [Docker](https://docs.docker.com/engine/install/) to manage images and containers.
-- A recent version of [Maven](https://maven.apache.org/download.cgi).
-- [Git](https://www.git-scm.com/downloads).
+- A recent version of [Maven](https://maven.apache.org/download.cgi) and [Git](https://www.git-scm.com/downloads).
 - [curl](https://curl.se/download.html) to invoke REST APIs exposed the applications.
 
 ## Provision Azure services
@@ -53,6 +52,9 @@ In this section, you will create Azure services required for this tutorial.
    az group create --name=cosmosdb-springboot-aks-rg --location=eastus
    ```
 
+> [!NOTE]
+> Replace `cosmosdb-springboot-aks-rg` with a unique name for your resource group.
+
 ### Create an Azure Cosmos DB SQL API database account
 
 Use this command to create an [Azure Cosmos DB SQL API database account](manage-with-cli.md#create-an-azure-cosmos-db-account) using the Azure CLI.
@@ -71,7 +73,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
     --name cosmosdbspringbootregistry --sku Basic
 ```
 
-### Create an AKS cluster using the Azure CLI
+### Create a Kubernetes cluster on Azure using the Azure CLI
 
 1. The following command creates a Kubernetes cluster in the *cosmosdb-springboot-aks-rg* resource group, with *cosmosdb-springboot-aks* as the cluster name, with Azure Container Registry (ACR) `cosmosdbspringbootregistry` attached:
 
@@ -93,7 +95,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    az aks install-cli
    ```
 
-1. Download the AKS cluster configuration information.
+1. Get access credentials for the AKS cluster.
 
    ```azurecli
    az aks get-credentials --resource-group=cosmosdb-springboot-aks-rg --name=cosmosdb-springboot-aks
@@ -111,7 +113,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
     cd cosmosdb-springboot-aks
     ```
 
-1. Use Maven to build the application.
+1. Use `Maven` to build the application. At the end of this step, you should have the application JAR file created in the `target` folder.
 
    ```bash
    ./mvnw install
@@ -132,7 +134,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    ```
 
    > [!NOTE]
-   > The database and a container (`users`) will get created automatically once you start the application.
+   > The database and container (called `users`) will get created automatically once you start the application.
 
 1. Run the application locally.
 
@@ -151,7 +153,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    ```
 
    > [!NOTE]
-   > `cosmosdbspringbootregistry.azurecr.io` is the Azure Container Registry server name
+   > Replace `cosmosdbspringbootregistry` with the name of your Azure Container Registry
 
 1. Log into Azure Container Registry.
 
@@ -159,7 +161,7 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    az acr login -n cosmosdbspringbootregistry
    ```
 
-1. Push image to Azure Container Registry and confirm.
+1. Push image to Azure Container Registry and list it.
 
    ```bash
    docker push cosmosdbspringbootregistry.azurecr.io/spring-cosmos-app:v1
@@ -203,17 +205,17 @@ az acr create --resource-group cosmosdb-springboot-aks-rg --location eastus \
    > You can check application logs using: `kubectl logs -f $(kubectl get pods -l=app=spring-cosmos-app -o=jsonpath='{.items[0].metadata.name}') -c spring-cosmos-app`
 
 
-## Access the application endpoint
+## Access the application
 
-In this section, you will test the application by invoking its REST endpoints.
+To access the application locally over port `8080`, run the below command:
 
-1. Run this command to access the application locally over port `8080`:
+```bash
+kubectl port-forward svc/spring-cosmos-app-internal 8080:8080
+```
 
-    ```bash
-    kubectl port-forward svc/spring-cosmos-app-internal 8080:8080
-    ```
+Invoke the REST endpoints to test the application. You can also navigate to the `Data Explorer` menu of the Azure Cosmos DB account in the Azure portal and access the `users` container to confirm the result of the operations.
 
-1. Create new users:
+1. Create new users
 
     ```bash
     curl -i -X POST -H "Content-Type: application/json" -d '{"email":"john.doe@foobar.com", "firstName": "John", "lastName": "Doe", "city": "NYC"}' http://localhost:8080/users
@@ -223,19 +225,19 @@ In this section, you will test the application by invoking its REST endpoints.
     
     If successful, you should get an HTTP `201` response.
 
-1. Update user:
+1. Update an user
 
     ```bash
     curl -i -X POST -H "Content-Type: application/json" -d '{"email":"john.doe@foobar.com", "firstName": "John", "lastName": "Doe", "city": "Dallas"}' http://localhost:8080/users
     ```
 
-1. List all users.
+1. List all users
 
     ```bash
     curl -i http://localhost:8080/users
     ```
 
-1. Get an existing user.
+1. Get an existing user
 
     ```bash
     curl -i http://localhost:8080/users/john.doe@foobar.com
@@ -252,7 +254,7 @@ In this section, you will test the application by invoking its REST endpoints.
     }
     ```
 
-1. List a user that does not exist.
+1. Try to get a user that does not exist
 
     ```bash
     curl -i http://localhost:8080/users/not.there@foobar.com
@@ -260,13 +262,13 @@ In this section, you will test the application by invoking its REST endpoints.
     
     You should receive an HTTP `404` response.
 
-1. Replace user:
+1. Replace a user
 
     ```bash
     curl -i -X PUT -H "Content-Type: application/json" -d '{"email":"john.doe@foobar.com", "firstName": "john", "lastName": "doe","city": "New Jersey"}' http://localhost:8080/users/
     ```
 
-1. Try to replace user that does not exist:
+1. Try to replace user that does not exist
 
     ```bash
     curl -i -X PUT -H "Content-Type: application/json" -d '{"email":"not.there@foobar.com", "firstName": "john", "lastName": "doe","city": "New Jersey"}' http://localhost:8080/users/
@@ -274,13 +276,13 @@ In this section, you will test the application by invoking its REST endpoints.
         
     You should receive an HTTP `404` response.
 
-1. Delete a user:
+1. Delete a user
 
     ```bash
     curl -i -X DELETE http://localhost:8080/users/mr.jim@foobar.com
     ```
 
-1. Delete a user that does not exist:
+1. Delete a user that does not exist
 
     ```bash
     curl -X DELETE http://localhost:8080/users/go.nuts@foobar.com
@@ -288,7 +290,9 @@ In this section, you will test the application by invoking its REST endpoints.
     
     You should receive an HTTP `404` response.
 
-### Access the application using a public IP address
+### Access the application using a public IP address (optional)
+
+Creating a Service of type `LoadBalancer` in Azure Kubernetes Service will result in an Azure Load Balancer getting provisioned. You can then access the application using its public IP address. 
 
 1. Create a Kubernetes Service of type `LoadBalancer`
 
@@ -320,35 +324,32 @@ In this section, you will test the application by invoking its REST endpoints.
    
    > `EXTERNAL-IP` value may differ in your case
 
-1. Access the application using public IP
+1. Use the public IP address
 
-   Stop the `kubectl watch` process and repeat the above `curl` commands with the public IP address along with port `8080`. For example, to list all users:
+   Terminate the `kubectl watch` process and repeat the above `curl` commands with the public IP address along with port `8080`. For example, to list all users:
 
    ```bash
     curl -i http://20.81.108.180:8080/users
    ```
     
    > [!NOTE]
-   > `20.81.108.180` is the public IP address - replace it with the value for your setup
-
-## Check data in Azure Cosmos DB
-
-Navigate to the `Data Explorer` menu of the Azure Cosmos DB account in the Azure portal. Access the `users` container to confirm. 
+   > Replace `20.81.108.180` with the the public IP address for your environment
 
 ## Kubernetes resources for the application
 
-Some of the key points related to the Kubernetes resources for the application:
+Here are some of the key points related to the Kubernetes resources for this application:
 
 - The Spring Boot application is a Kubernetes `Deployment` based on the [Docker image in Azure Container Registry](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L21)
 - Azure Cosmos DB configuration is mounted in `application.properties` at path `/config` [inside the container](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L26).
-- This is made possible using a [Kubernetes `Volume`](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L15) that in turn refers to a [Kubernetes Secret](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L49), which was created along with the application
+- This is made possible using a [Kubernetes `Volume`](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L15) that in turn refers to a [Kubernetes Secret](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L49), which was created along with the application. You can run the command below to confirm that this file is present within the application container:
 
-> [!NOTE]
-> You can confirm that this file is present within the application container - `kubectl exec -it $(kubectl get pods -l=app=spring-cosmos-app -o=jsonpath='{.items[0].metadata.name}') -c spring-cosmos-app -- cat /config/application.properties`
+    ```bash
+    kubectl exec -it $(kubectl get pods -l=app=spring-cosmos-app -o=jsonpath='{.items[0].metadata.name}') -c spring-cosmos-app -- cat /config/application.properties
+    ```
 
-- [Liveness and Readiness probes](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L34) point to respective HTTP endpoints. When a Spring Boot application is deployed to a Kubernetes environment, [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) gathers the liveness and readiness indicators that are exposed as separate HTTP Probes - `/actuator/health/liveness` and `/actuator/health/readiness`.
-- [A Kubernetes Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L61) (type `ClusterIP`) is created to access the REST endpoints of the Spring Boot application internally within the Kubernetes cluster.
-- An externally accessible [Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/load-balancer-service.yaml) (type `LoadBalancer`) can be created to access the application via a public IP address.
+- When a Spring Boot application is deployed to a Kubernetes environment, [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html) gathers the liveness and readiness indicators which are then are exposed as separate HTTP Probes - `/actuator/health/liveness` and `/actuator/health/readiness`. [Liveness and Readiness probes](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L34) refer to these HTTP endpoints.
+- A [ClusterIP Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/app.yaml#L61) can be created to access the REST endpoints of the Spring Boot application *internally* within the Kubernetes cluster.
+- A [LoadBalancer Service](https://github.com/Azure-Samples/cosmosdb-springboot-aks/blob/main/deploy/load-balancer-service.yaml) can be created to access the application via a public IP address.
 
 ## Clean up resources
 

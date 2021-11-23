@@ -205,7 +205,7 @@
           href: sql/create-notebook-visualize-data.md
         - name: 5 - Distribute data globally
           href: sql/tutorial-global-distribution-sql-api.md
-        - name: Deploy to Azure Kubernetes Service
+        - name: Spring Boot app on Azure Kubernetes Service
           href: sql/tutorial-springboot-aks.md
     - name: Samples
       items:
