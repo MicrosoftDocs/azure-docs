@@ -47,7 +47,7 @@ Use the following steps to bind an Azure Storage account as a storage resource i
 
 1. Go to the **Apps** page, then select an application to mount the persistent storage.
 
-   :::image type="content" source="media/how-to-custom-persistent-storage/select-an-app-to-mount-persistent-storage.png" alt-text="Screenshot of the Apps page" lightbox="media/how-to-custom-persistent-storage/select-an-app-to-mount-persistent-storage.png":::
+   :::image type="content" source="media/how-to-custom-persistent-storage/select-app-mount-persistent-storage.png" alt-text="Screenshot of the Apps page" lightbox="media/how-to-custom-persistent-storage/select-an-app-to-mount-persistent-storage.png":::
 
 1. Select **Configuration**, then select **Persistent Storage**.
 
