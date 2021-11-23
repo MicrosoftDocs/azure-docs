@@ -334,24 +334,32 @@ Azure Arc-enabled Kubernetes deploys a few operators into the `azure-arc` namesp
     Output:
     <pre>
 
-    NAME                                        READY      UP-TO-DATE  AVAILABLE  AGE
-    deployment.apps/cluster-metadata-operator     1/1             1        1      16h
-    deployment.apps/clusteridentityoperator       1/1             1        1      16h
-    deployment.apps/config-agent                  1/1             1        1      16h
-    deployment.apps/controller-manager            1/1             1        1      16h
-    deployment.apps/flux-logs-agent               1/1             1        1      16h
-    deployment.apps/metrics-agent                 1/1             1        1      16h
-    deployment.apps/resource-sync-agent           1/1             1        1      16h
+    NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/cluster-metadata-operator   1/1     1            1           13d
+    deployment.apps/clusterconnect-agent        1/1     1            1           13d
+    deployment.apps/clusteridentityoperator     1/1     1            1           13d
+    deployment.apps/config-agent                1/1     1            1           13d
+    deployment.apps/controller-manager          1/1     1            1           13d
+    deployment.apps/extension-manager           1/1     1            1           13d
+    deployment.apps/flux-logs-agent             1/1     1            1           13d
+    deployment.apps/kube-aad-proxy              1/1     1            1           13d
+    deployment.apps/metrics-agent               1/1     1            1           13d
+    deployment.apps/resource-sync-agent         1/1     1            1           13d
 
-    NAME                                           READY    STATUS   RESTART AGE
-    pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
-    pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
-    pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
-    pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
-    pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
-    pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
-    pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+    NAME                                            READY   STATUS    RESTARTS   AGE
+    pod/cluster-metadata-operator-9568b899c-2stjn   2/2     Running   0          13d
+    pod/clusterconnect-agent-576758886d-vggmv       3/3     Running   0          13d
+    pod/clusteridentityoperator-6f59466c87-mm96j    2/2     Running   0          13d
+    pod/config-agent-7cbd6cb89f-9fdnt               2/2     Running   0          13d
+    pod/controller-manager-df6d56db5-kxmfj          2/2     Running   0          13d
+    pod/extension-manager-58c94c5b89-c6q72          2/2     Running   0          13d
+    pod/flux-logs-agent-6db9687fcb-rmxww            1/1     Running   0          13d
+    pod/kube-aad-proxy-67b87b9f55-bthqv             2/2     Running   0          13d
+    pod/metrics-agent-575c565fd9-k5j2t              2/2     Running   0          13d
+    pod/resource-sync-agent-6bbd8bcd86-x5bk5        2/2     Running   0          13d
     </pre>
+
+A conceptual overview of these agents is available [here](conceptual-agent-overview.md).
 
 ## 7. Clean up resources
 
