@@ -261,7 +261,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
   You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-   ```csharp
+  ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
@@ -269,7 +269,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   {
       ....
   }
-   ```
+  ```
 
   For a complete example, see [Trigger example](#example).
 

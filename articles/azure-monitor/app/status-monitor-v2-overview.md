@@ -69,6 +69,18 @@ Each of these options is described in the [detailed instructions](status-monitor
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
 
+
+## Release notes
+
+### 2.0.0-beta2
+
+- Updated ApplicationInsights .NET/.NET Core SDK to 2.18.1-redfield.
+
+### 2.0.0-beta1
+
+- Added ASP.NET Core Auto-Instrumentation feature.
+
+
 ## Next steps
 
 View your telemetry:

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Symantec Web Security Service (WSS) | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Symantec Web Security Service (WSS)'
 description: Learn how to configure single sign-on between Azure Active Directory and Symantec Web Security Service (WSS).
 services: active-directory
 author: jeevansd
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/24/2021
+ms.date: 10/28/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Symantec Web Security Service (WSS)
+# Tutorial: Azure AD SSO integration with Symantec Web Security Service (WSS)
 
 In this tutorial, you will learn how to integrate your Symantec Web Security Service (WSS) account with your Azure Active Directory (Azure AD) account so that WSS can authenticate an end user provisioned in the Azure AD using SAML authentication and enforce user or group level policy rules.
 
 Integrating Symantec Web Security Service (WSS) with Azure AD provides you with the following benefits:
 
-- Manage all of the end users and groups used by your WSS account from your Azure AD portal.
+* Manage all of the end users and groups used by your WSS account from your Azure AD portal.
 
-- Allow the end users to authenticate themselves in WSS using their Azure AD credentials.
+* Allow the end users to authenticate themselves in WSS using their Azure AD credentials.
 
-- Enable the enforcement of user and group level policy rules defined in your WSS account.
+* Enable the enforcement of user and group level policy rules defined in your WSS account.
 
 ## Prerequisites
 
@@ -30,6 +30,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Symantec Web Security Service (WSS) single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -134,4 +137,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Symantec Web Security Service (WSS) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Symantec Web Security Service (WSS) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

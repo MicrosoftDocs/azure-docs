@@ -4,7 +4,7 @@ description: This article tracks FedRAMP and DoD compliance scope for Azure, Dyn
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
-ms.date: 10/14/2021
+ms.date: 11/19/2021
 ---
 
 # Azure, Dynamics 365, Microsoft 365, and Power Platform services compliance scope
@@ -49,7 +49,7 @@ For current Azure Government regions and available services, see [Products avail
 This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services in scope for FedRAMP High, DoD IL2, DoD IL4, DoD IL5, and DoD IL6 authorizations across Azure, Azure Government, and Azure Government Secret cloud environments. For other authorization details in Azure Government Secret and Azure Government Top Secret, contact your Microsoft account representative.
 
 ## Azure public services by audit scope
-*Last updated: September 2021*
+*Last updated: November 2021*
 
 ### Terminology used
 
@@ -94,7 +94,6 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | |
-| [Azure Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | |
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | |
@@ -106,9 +105,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Functions](https://azure.microsoft.com/services/functions/) | &#x2705; | &#x2705; | |
 | [Azure Health Bot](/healthbot/) | &#x2705; | &#x2705; | |
 | [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Healthcare APIs](https://azure.microsoft.com/services/healthcare-apis/) (formerly Azure API for FHIR) | &#x2705; | &#x2705; | |
 | [Azure HPC Cache](https://azure.microsoft.com/services/hpc-cache/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Immersive Reader](https://azure.microsoft.com/services/immersive-reader/) | &#x2705; | &#x2705; | |
 | [Azure Information Protection](https://azure.microsoft.com/services/information-protection/) | &#x2705; | &#x2705; | |
 | [Azure Internet Analyzer](https://azure.microsoft.com/services/internet-analyzer/) | &#x2705; | &#x2705; | |
@@ -123,26 +122,24 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; | |
 | [Azure Maps](https://azure.microsoft.com/services/azure-maps/) | &#x2705; | &#x2705; | |
 | [Azure Media Services](https://azure.microsoft.com/services/media-services/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Monitor](https://azure.microsoft.com/services/monitor/) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; | |
 | [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) | &#x2705; | &#x2705; | |
 | [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) | &#x2705; | &#x2705; | |
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
 | [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | |
-| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | |
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Azure Sign-up portal](https://signup.azure.com/) | | | &#x2705; |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | |
 | [Azure Sphere](https://azure.microsoft.com/services/azure-sphere/) | &#x2705; | &#x2705; | |
@@ -157,8 +154,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure VMware Solution](https://azure.microsoft.com/services/azure-vmware/) | &#x2705; | &#x2705; | |
 | [Azure Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/) | &#x2705; | &#x2705; | |
 | [Batch](https://azure.microsoft.com/services/batch/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | &#x2705; | &#x2705; | |
 | [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | &#x2705; | &#x2705; | |
 | [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | |
@@ -173,8 +170,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Container Instances](https://azure.microsoft.com/services/container-instances/) | &#x2705; | &#x2705; | |
 | [Container Registry](https://azure.microsoft.com/services/container-registry/) | &#x2705; | &#x2705; | |
 | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Data Factory](https://azure.microsoft.com/services/data-factory/) | &#x2705; | &#x2705; | |
 | [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (incl. [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake)) | &#x2705; | &#x2705; | |
 | [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | |
@@ -189,23 +186,26 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | |
 | [GitHub AE](https://docs.github.com/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | |
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | |
 | [Microsoft Azure Attestation](https://azure.microsoft.com/services/azure-attestation/)| &#x2705; | &#x2705; | |
 | [Microsoft Azure Marketplace portal](https://azuremarketplace.microsoft.com/marketplace/)| &#x2705; | &#x2705; | |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/)| &#x2705; | &#x2705; | |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) (formerly Azure Security Center) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Identity](/defender-for-identity/what-is) (formerly Azure Advanced Threat Protection) | &#x2705; | &#x2705; | |
+| [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | |
 | [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | |
 | [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | |
+| [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (incl. [UEBA](../../sentinel/identify-threats-with-entity-behavior-analytics.md#what-is-user-and-entity-behavior-analytics-ueba)) | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Microsoft Threat Experts](/microsoft-365/security/defender-endpoint/microsoft-threat-experts) | &#x2705; | &#x2705; | |
 | [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) incl. [Traffic Analytics](../../network-watcher/traffic-analytics.md)  | &#x2705; | &#x2705; | |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | |
 | [Power AI Builder](/ai-builder/overview) | &#x2705; | &#x2705; | |
@@ -219,10 +219,10 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Private Link](https://azure.microsoft.com/services/private-link/) | &#x2705; | &#x2705; | |
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | |
 | [SQL Server Registry](/sql/sql-server/end-of-support/sql-server-extended-security-updates) | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | |
 | [Storage: Data Movement](../../storage/common/storage-use-data-movement-library.md) | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **Planned 2021** |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) (incl. [Azure File Sync](../../storage/file-sync/file-sync-introduction.md)) | &#x2705; | &#x2705; | |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | |
@@ -243,7 +243,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 **&ast;&ast;** FedRAMP High authorization for Azure Databricks is applicable to limited regions in Azure. To configure Azure Databricks for FedRAMP High use, contact your Microsoft or Databricks representative.
 
 ## Azure Government services by audit scope
-*Last updated: September 2021*
+*Last updated: November 2021*
 
 ### Terminology used
 
@@ -282,6 +282,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Cognitive Search](https://azure.microsoft.com/services/search/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Cost Management and Billing](https://azure.microsoft.com/services/cost-management/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure CXP Nomination Portal](https://cxp.azure.com/nominationportal/nominationform/fasttrack)| &#x2705; | &#x2705; | | | |
 | [Azure Data Box](https://azure.microsoft.com/services/databox/) **&ast;** | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Data Share](https://azure.microsoft.com/services/data-share/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -292,9 +293,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure DDoS Protection](https://azure.microsoft.com/services/ddos-protection/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Dedicated HSM](https://azure.microsoft.com/services/azure-dedicated-hsm/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure DNS](https://azure.microsoft.com/services/dns/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -309,8 +309,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Lab Services](https://azure.microsoft.com/services/lab-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Managed Applications](https://azure.microsoft.com/services/managed-applications/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -322,17 +322,16 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Scheduler](../../scheduler/scheduler-intro.md) (replaced by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Security Center](https://azure.microsoft.com/services/security-center/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Service Health](https://azure.microsoft.com/features/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Service Manager (RDFE)](/previous-versions/azure/ee460799(v=azure.100)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure SignalR Service](https://azure.microsoft.com/services/signalr-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Sign-up portal](https://signup.azure.com/) | &#x2705; | &#x2705; | | | |
 | [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure SQL Managed Instance](https://azure.microsoft.com/products/azure-sql/managed-instance/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -341,14 +340,15 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/export-to-data-lake) | &#x2705; | &#x2705; | | | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/) (formerly Windows Virtual Desktop) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Web Application Firewall)](https://azure.microsoft.com/services/web-application-firewall/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Batch](https://azure.microsoft.com/services/batch/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Content Moderator](https://azure.microsoft.com/services/cognitive-services/content-moderator/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Custom Vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Cognitive Services Containers](../../cognitive-services/cognitive-services-container-support.md) | &#x2705; | &#x2705; | | | |
 | [Cognitive Services: Face API](https://azure.microsoft.com/services/cognitive-services/face/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Personalizer](https://azure.microsoft.com/services/cognitive-services/personalizer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -357,10 +357,10 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Cognitive Services: Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Cognitive Services: Translator](https://azure.microsoft.com/services/cognitive-services/translator/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Container Instances](https://azure.microsoft.com/services/container-instances/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Container Registry](https://azure.microsoft.com/services/container-registry/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Content Delivery Network](https://azure.microsoft.com/services/cdn/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Data Factory](https://azure.microsoft.com/services/data-factory/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dataverse](/powerapps/maker/common-data-service/data-platform-intro) (formerly Common Data Service) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Chat (Omnichannel Engagement Hub)](/dynamics365/omnichannel/introduction-omnichannel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -368,30 +368,36 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Dynamics 365 Customer Voice](/dynamics365/customer-voice/about) (formerly Forms Pro) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Customer Service](/dynamics365/customer-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Field Service](/dynamics365/field-service/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Dynamics 365 Finance](https://dynamics.microsoft.com/finance/overview/) | &#x2705; | &#x2705; | | | |
 | [Dynamics 365 Project Service Automation](/dynamics365/project-operations/psa/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Dynamics 365 Sales](https://dynamics.microsoft.com/sales/overview/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Dynamics 365 Supply Chain Management](https://dynamics.microsoft.com/supply-chain-management/overview/) | &#x2705; | &#x2705; | | | |
 | [Event Grid](https://azure.microsoft.com/services/event-grid/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [GitHub AE](https://docs.github.com/en/github-ae@latest/admin/overview/about-github-ae) | &#x2705; | &#x2705; | | | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Import/Export](https://azure.microsoft.com/services/storage/import-export/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Key Vault](https://azure.microsoft.com/services/key-vault/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Load Balancer](https://azure.microsoft.com/services/load-balancer/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft 365 Defender](/microsoft-365/security/defender/) (formerly Microsoft Threat Protection) | &#x2705; | &#x2705; | | | |
 | [Microsoft Azure portal](https://azure.microsoft.com/features/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
-| [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/) (formerly Azure Security Center) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) (formerly Microsoft Cloud App Security) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) (formerly Microsoft Defender Advanced Threat Protection) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Defender for Identity](/defender-for-identity/what-is) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Defender for IoT](https://azure.microsoft.com/services/azure-defender-for-iot/) (formerly Azure Security for IoT) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Graph](/graph/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Microsoft Intune](/mem/intune/fundamentals/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (formerly Azure Sentinel) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Microsoft Stream](/stream/overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Multifactor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Network Watcher](https://azure.microsoft.com/services/network-watcher/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Network Watcher Traffic Analytics](../../network-watcher/traffic-analytics.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Notification Hubs](https://azure.microsoft.com/services/notification-hubs/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Planned Maintenance for VMs](../../virtual-machines/maintenance-control-portal.md) | &#x2705; | &#x2705; | | | |
+| [Power AI Builder](/ai-builder/overview) | &#x2705; | &#x2705; | | | |
 | [Power Apps](/powerapps/powerapps-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Power BI](https://powerbi.microsoft.com/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -403,9 +409,9 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Bus](https://azure.microsoft.com/services/service-bus/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../../virtual-machines/managed-disks-overview.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Files](https://azure.microsoft.com/services/storage/files/) (incl. [Azure File Sync](../../storage/file-sync/file-sync-introduction.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Storage: Queues](https://azure.microsoft.com/services/storage/queues/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Storage: Tables](https://azure.microsoft.com/services/storage/tables/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [StorSimple](https://azure.microsoft.com/services/storsimple/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |

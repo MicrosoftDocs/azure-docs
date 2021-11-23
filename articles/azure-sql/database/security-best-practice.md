@@ -1,5 +1,5 @@
 ---
-title: Playbook for addressing common security requirements 
+title: Playbook for addressing common security requirements
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: This article provides common security requirements and best practices in Azure SQL Database and Azure SQL Managed Instance.
 ms.service: sql-db-mi
@@ -8,7 +8,7 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 09/21/2020
+ms.date: 11/10/2021
 ms.reviewer: ""
 ---
 
@@ -496,22 +496,18 @@ Best practices on how to prevent client machines and applications with well-know
 
 **How to implement**:
 
-- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Ensure that client machines connecting to Azure SQL Database and SQL Managed Instance are using the latest [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit) version.
 
 **Best practices**:
+
+- Enforce a minimal TLS version at the [SQL Database server](connectivity-settings.md#minimal-tls-version) or [SQL Managed Instance](../managed-instance/minimal-tls-version-configure.md) level using the minimal TLS version setting. We recommend setting the minimal TLS version to 1.2, after testing to confirm your applications supports it. TLS 1.2 includes fixes for vulnerabilities found in previous versions.
 
 - Configure all your apps and tools to connect to SQL Database with encryption enabled
   - Encrypt = On, TrustServerCertificate = Off (or equivalent with non-Microsoft drivers).
 
 - If your app uses a driver that doesn't support TLS or supports an older version of TLS, replace the driver, if possible. If not possible, carefully evaluate the security risks.
-
-- Reduce attack vectors via vulnerabilities in SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1 by disabling them on client machines connecting to Azure SQL Database per [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings#tls-10).
-
-- Check cipher suites available on the client: [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel). Specifically, disable 3DES per [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order).
-
-- For Azure SQL Database and SQL Managed Instance, encryption is enforced for both Proxy and Redirect connection types. For Azure SQL Managed Instance, use the **Proxy** connection type (default) as this enforces encryption from the server side. The **Redirect** connection type currently doesn't support encryption enforcement and is only available on private IP connections.
-
-- For more information, see [Azure SQL Database Connectivity Architecture - Connection policy](connectivity-architecture.md#connection-policy).
+  - Reduce attack vectors via vulnerabilities in SSL 2.0, SSL 3.0, TLS 1.0, and TLS 1.1 by disabling them on client machines connecting to Azure SQL Database per [Transport Layer Security (TLS) registry settings](/windows-server/security/tls/tls-registry-settings#tls-10).
+  - Check cipher suites available on the client: [Cipher Suites in TLS/SSL (Schannel SSP)](/windows/desktop/SecAuthN/cipher-suites-in-schannel). Specifically, disable 3DES per [Configuring TLS Cipher Suite Order](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order).
 
 ### Minimize attack surface
 
@@ -525,7 +521,7 @@ In SQL Database:
 
 - Set Allow Access to Azure services to OFF at the server-level
 - Use VNet Service endpoints and VNet Firewall Rules.
-- Use Private Link (preview).
+- Use Private Link.
 
 In SQL Managed Instance:
 
@@ -571,7 +567,7 @@ In SQL Managed Instance:
 
 - For a simple Web App, connecting over public endpoint requires setting **Allow Azure Services** to ON.
 
-- [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
+- [Integrate your app with an Azure Virtual Network](../../app-service/overview-vnet-integration.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
 
 - For Web App with ASE or virtual network Integrated Web App connecting to a database in SQL Database, you can use [virtual network service endpoints and virtual network firewall rules](vnet-service-endpoint-rule-overview.md) to limit access from a specific virtual network and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
 
@@ -620,7 +616,7 @@ DDoS protection is automatically enabled as part of the Azure Platform. It inclu
 - The Advanced Threat Protection **Brute force SQL credentials** alert helps to detect brute force attacks. In some cases, the alert can even distinguish penetration testing workloads.
 
 - For Azure VM hosting applications connecting to SQL Database:
-  - Follow recommendation to Restrict access through Internet-facing endpoints in Azure Security Center.
+  - Follow recommendation to Restrict access through Internet-facing endpoints in Microsoft Defender for Cloud.
   - Use virtual machine scale sets to run multiple instances of your application on Azure VMs.
   - Disable RDP and SSH from Internet to prevent brute force attack.
 
@@ -642,7 +638,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by enabling [Azure Defender](../../security-center/security-center-pricing.md).
+- Configure [Microsoft Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Microsoft Defender for SQL for all servers and managed instances in a subscription by enabling [Microsoft Defender for Cloud](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -729,7 +725,7 @@ Discover columns that potentially contain sensitive data. What is considered sen
 
 - Continuously monitor the status of recommended sensitive data in SQL Vulnerability Assessment. Track the sensitive data discovery rule and identify any drift in the recommended columns for classification.  
 
-- Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) policy in Azure Security Center.
+- Use classification in a way that is tailored to the specific needs of your organization. Customize your Information Protection policy (sensitivity labels, information types, discovery logic) in the [SQL Information Protection](../../security-center/security-center-info-protection-policy.md) policy in Microsoft Defender for Cloud.
 
 ### Track access to sensitive data
 
@@ -752,7 +748,7 @@ Use a unified infrastructure security management system that strengthens the sec
 
 **How to implement**:
 
-- Monitor SQL-related security recommendations and active threats in [Azure Security Center](https://azure.microsoft.com/documentation/services/security-center/).
+- Monitor SQL-related security recommendations and active threats in [Microsoft Defender for Cloud](https://azure.microsoft.com/documentation/services/security-center/).
 
 ## Common security threats and potential mitigations
 

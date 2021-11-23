@@ -43,7 +43,7 @@ This API stores data in document format. It offers the best end-to-end experienc
 
 If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. and if you want to use the modernized technologies to build your apps, SQL API is the recommended option. SQL API supports analytics and offers performance isolation between operational and analytical workloads.
 
-### Capacity planning for migration to API for MongoDB
+### Capacity planning for migration to API for SQL(Core)API
 
 Trying to do capacity planning for a migration to Azure Cosmos DB SQL API from an existing database cluster? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).

@@ -27,7 +27,7 @@ This guide shows you how to escalate a Job in a Queue by using an Exception Poli
 
 ## Escalation Overview
 
-Escalation can take the form of several different behaviors including moving a Job to a different Queue and/or specifying a higher priority. Jobs with a higher priority will be distributed to Workers before Jobs with a lower priority. For this how-to guide, we will use an Escalation Policy to set a new Queue and increase the priority of a Job.
+Escalation can take the form of several different behaviors including moving a Job to a different Queue and/or specifying a higher priority. Jobs with a higher priority will be distributed to Workers before Jobs with a lower priority. For this how-to guide, we will use an Escalation Policy and a Classification Policy to achieve this goal.
 
 ## Exception policy configuration
 
@@ -37,7 +37,7 @@ Create an exception policy, which you will attach to the regular queue, which is
 // create the exception policy
 await client.SetExceptionPolicyAsync(
     id: "Escalate_XBOX_Policy",
-    name: "Escalate XBOX Requests to the XBOX Escalation Queue and set the Priority to 10 after 5 minutes",
+    name: "Add escalated label and reclassify XBOX Job requests after 5 minutes",
     rules: new List<ExceptionRule>()
     {
         new (
@@ -45,7 +45,6 @@ await client.SetExceptionPolicyAsync(
             trigger: new WaitTimeExceptionTrigger(TimeSpan.FromMinutes(5)),
             actions: new List<ExceptionAction>
             {
-                new ManualReclassifyExceptionAction("Increase Priority", null, 10),
                 new ReclassifyExceptionAction("EscalateReclassifyExceptionAction")
                 {
                     LabelsToUpsert = new LabelCollection(
@@ -57,6 +56,22 @@ await client.SetExceptionPolicyAsync(
             }
         )
     });
+```
+
+## Classification policy configuration
+
+Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also use the [RulesEngine](../../concepts/router/router-rule-concepts.md) to increase the priority of the Job from `1` to `10`.
+
+```csharp
+await client.SetClassificationPolicyAsync(
+    id: "Classify_XBOX_Voice_Jobs",
+    name: "Classify XBOX Voice Jobs",
+    queueSelector: new QueueIdSelector(
+        new ExpressionRule(
+            "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")")),
+    workerSelectors: null,
+    prioritizationRule: new ExpressionRule("If(job.Escalated = true, 10, 1)"),
+    fallbackQueueId: "Default");
 ```
 
 ## Queue configuration
@@ -81,22 +96,6 @@ await client.SetQueueAsync(
     name: "XBOX Escalation Queue",
     distributionPolicyId: "Round_Robin_Policy"
 );
-```
-
-## Classification policy configuration
-
-Create a Classification Policy to handle the new label added to the Job. This policy will evaluate the `Escalated` label and assign the Job to either Queue. The policy will also add a
-
-```csharp
-await client.SetClassificationPolicyAsync(
-    id: "Classify_XBOX_Voice_Jobs",
-    name: "Classify XBOX Voice Jobs",
-    queueSelector: new QueueIdSelector(
-        new ExpressionRule(
-            "If(job.Escalated = true, \"XBOX_Queue\", \"XBOX_Escalation_Queue\")")),
-    workerSelectors: null,
-    prioritizationRule: null,
-    fallbackQueueId: "Default");
 ```
 
 ## Job lifecycle

@@ -3,13 +3,13 @@ title: "Custom Speech overview - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Custom Speech is a set of online tools that allow you to evaluate and improve the Microsoft speech-to-text accuracy for your applications, tools, and products. 
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
 ---
 

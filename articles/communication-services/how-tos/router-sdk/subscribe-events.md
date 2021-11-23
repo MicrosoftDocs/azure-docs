@@ -23,7 +23,7 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 - Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
-- Review the [GitHub sample project using the Event Grid Viewer](https://github.com/Azure/communication-preview/tree/master/samples/Job-Router/Event-Grid-Viewer)
+- Review the [GitHub sample project using the Event Grid Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer)
 
 ## Create an Event Grid subscription
 
@@ -201,7 +201,7 @@ armclient put "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:EVENT
 :::image type="content" source="media/advanced-filters.png" alt-text="Advanced filters output":::
 
 > [!NOTE]
-> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](https://docs.microsoft.com/azure/event-grid/event-filtering)
+> For a complete list of operators that can be used while creating subscriptions, refer to [Event Grid | Event Filtering - Operators](../../../event-grid/event-filtering.md)
 
 ## Events Catalog
 

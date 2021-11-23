@@ -48,7 +48,7 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 ### Auditing
 
-It is recommended to enable auditing at the level of the databases in the sync groups. 
+It is recommended to enable auditing at the level of the databases in the sync groups. Learn how to [enable auditing on your Azure SQL database](./auditing-overview.md) or [enable auditing on your SQL Server database](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15).
 
 ## Setup
 

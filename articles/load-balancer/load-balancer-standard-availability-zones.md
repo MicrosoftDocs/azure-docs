@@ -54,7 +54,7 @@ For an internal load balancer frontend, add a **zones** parameter to the interna
 
 ## Non-Zonal
 
-Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend (Public IP or Public IP Prefix).  This option does not give a guarantee of redundancy. Note that all Public IP addresses that are [upgraded](../virtual-network/public-ip-upgrade-portal.md) will be of type "no-zone".
+Load Balancers can also be created in a non-zonal configuration by use of a "no-zone" frontend (Public IP or Public IP Prefix).  This option does not give a guarantee of redundancy. Note that all Public IP addresses that are [upgraded](../virtual-network/ip-services/public-ip-upgrade-portal.md) will be of type "no-zone".
 
 ## <a name="design"></a> Design considerations
 

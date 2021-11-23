@@ -39,7 +39,7 @@ sections:
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/jobs-and-operations-list.png" alt-text="Screenshot showing jobs including database discovery and registering, and backup and restore operations.":::
            
-          1. **Backup alerts**: Alerts help you monitor backups of SAP HANA databases. These help you to focus on the required events, thus eliminating the effort to frequently check multitude of events that a backup generates. For more details, see [View backup alerts](/azure/backup/sap-hana-db-manage#view-backup-alerts).
+          1. **Backup alerts**: Alerts help you monitor backups of SAP HANA databases. These help you to focus on the required events, thus eliminating the effort to frequently check multitude of events that a backup generates. For more details, see [View backup alerts](./sap-hana-db-manage.md#view-backup-alerts).
 
           1. **Backup Reports**: Reports are another way to view the status of your backup jobs. Your reports will be as follows:
 
@@ -47,7 +47,7 @@ sections:
 
              :::image type="content" source="./media/sap-hana-faq-backup-azure-vm/backup-reports-mabs.png" alt-text="Screenshot showing the other type of report in Azure portal.":::
 
-             Learn about [how to configure Azure Backup reports](/azure/backup/configure-reports).
+             Learn about [how to configure Azure Backup reports](./configure-reports.md).
 
           1. **SAP HANA Native clients**: If you're a SAP HANA customer, you can also use HANA Studio, one of the most common HANA clients. In this client, navigate to **Backup Console** -> **Backup Catalog** to see the **Backup status**.
 
@@ -173,15 +173,15 @@ sections:
       - question: |
           What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
-           - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types#premium-ssd)
-           - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
-           - [M-series](/azure/virtual-machines/m-series)
-           - [SAP HANA Azure virtual machine storage configurations](/azure/virtual-machines/workloads/sap/hana-vm-operations-storage#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
+           - [Select a disk type for Azure IaaS VMs - managed disks](../virtual-machines/disks-types.md)
+           - [Performance tiers for Azure managed disks](../virtual-machines/disks-change-performance.md)
+           - [M-series](../virtual-machines/m-series.md)
+           - [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines)
 
           >[!Note]
-          >You can also limit the backup throughput performance. [Learn more](/azure/backup/tutorial-backup-sap-hana-db#limiting-backup-throughput-performance).
+          >You can also limit the backup throughput performance. [Learn more](./tutorial-backup-sap-hana-db.md#limiting-backup-throughput-performance).
 
   - name: Restore
     questions:

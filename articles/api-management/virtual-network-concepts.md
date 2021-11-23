@@ -50,7 +50,7 @@ The following are virtual network resource requirements for API Management. Some
 ### [stv2](#tab/stv2)
 
 * An Azure Resource Manager virtual network is required.
-* You must provide a Standard SKU [public IPv4 address](../virtual-network/public-ip-addresses.md#standard) in addition to specifying a virtual network and subnet.
+* You must provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) in addition to specifying a virtual network and subnet.
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
 * For multi-region API Management deployments, you configure virtual network resources separately for each location.

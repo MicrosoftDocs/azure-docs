@@ -221,7 +221,7 @@ To migrate using backup and restore, follow these steps:
    ```
 1. Restore the backup from the Azure storage blob container. For example: 
 
-	```sql
+   ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```

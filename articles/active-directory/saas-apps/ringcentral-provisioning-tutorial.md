@@ -34,6 +34,10 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A RingCentral tenant](https://www.ringcentral.com/office/plansandpricing.html)
 * A user account in RingCentral with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
+
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
 2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -147,6 +151,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * 09/10/2020 - Removed support for "displayName" and "manager" attributes.
 * 03/15/2021 - Updated authorization method from permanent bearer token to OAuth code grant flow.
+* 10/28/2021 - Updated default mapping to **mail-> emails[type eq “work”].value**.
+* 10/28/2021 - Rate limiting updated to 300/min for read, 1000/min for write.
 
 ## Additional resources
 

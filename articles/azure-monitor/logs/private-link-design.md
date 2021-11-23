@@ -10,7 +10,7 @@ ms.date: 08/01/2021
 # Design your Private Link setup
 
 Before you set up your Azure Monitor Private Link, consider your network topology, and specifically your DNS routing topology.
-As discussed in [How it work](./private-link-security.md#how-it-works), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks the share the same DNS.
+As discussed in [How it works](./private-link-security.md#how-it-works), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks sharing the same DNS.
 
 The simplest and most secure approach would be:
 1. Create a single Private Link connection, with a single Private Endpoint and a single AMPLS. If your networks are peered, create the Private Link connection on the shared (or hub) VNet.
@@ -147,9 +147,9 @@ If your Private Link setup was created before April 19, 2021, it won't reach the
     |Azure China 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Outbound
 
 ### Collecting custom logs and IIS log over Private Link
-Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s). See more details on how to set up such accounts using the [command line](/cli/azure/monitor/log-analytics/workspace/linked-storage).
+Storage accounts are used in the ingestion process of custom logs. By default, service-managed storage accounts are used. However to ingest custom logs on private links, you must use your own storage accounts and associate them with Log Analytics workspace(s).
 
-For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md)
+For more information on connecting your own storage account, see [Customer-owned storage accounts for log ingestion](private-storage.md) and specifically [Using Private Links](private-storage.md#using-private-links) and [Link storage accounts to your Log Analytics workspace](private-storage.md#link-storage-accounts-to-your-log-analytics-workspace).
 
 ### Automation
 If you use Log Analytics solutions that require an Automation account (such as Update Management, Change Tracking, or Inventory) you should also create a Private Link for your Automation account. For more information, see [Use Azure Private Link to securely connect networks to Azure Automation](../../automation/how-to/private-link-security.md).
@@ -202,5 +202,5 @@ The [`externaldata` operator](/azure/data-explorer/kusto/query/externaldata-oper
 
 ## Next steps
 - Learn how to [configure your Private Link](private-link-configure.md)
-- Learn about [private storage](private-storage.md)
+- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
 - Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)

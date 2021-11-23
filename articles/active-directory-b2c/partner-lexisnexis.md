@@ -79,10 +79,10 @@ Application settings can be [configured in the App service in Azure](../app-serv
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
-|ThreatMetrix: Url | ThreatMetrix account configuration |     |
+|ThreatMetrix:Url | ThreatMetrix account configuration |     |
 |ThreatMetrix:OrgId | ThreatMetrix account configuration |     |
 |ThreatMetrix:ApiKey |ThreatMetrix account configuration|  |
-|ThreatMetrix: Policy | Name of policy created in ThreatMetrix | |
+|ThreatMetrix:Policy | Name of policy created in ThreatMetrix | |
 | BasicAuth:ApiUsername |Define a username for the API| Username will be used in the Azure AD B2C configuration
 | BasicAuth:ApiPassword | Define a password for the API | Password will be used in the Azure AD B2C configuration
 

@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Azure Digital Twins Explorer
 titleSuffix: Azure Digital Twins
-description: Understand the capabilities and purpose of Azure Digital Twins Explorer
+description: Learn about the capabilities and purpose of Azure Digital Twins Explorer and when it can be a useful tool for visualizing digital models, twins, and graphs.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/24/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins Explorer (preview)
 
-**Azure Digital Twins Explorer** is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
+This article contains information about the **Azure Digital Twins Explorer**, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
+
+Azure Digital Twins Explorer is a developer tool for visualizing and interacting with the data in your Azure Digital Twins instance, including your [models](concepts-models.md) and [twin graph](concepts-twins-graph.md). 
 
 >[!NOTE]
 >This tool is currently in **public preview**.
@@ -27,8 +29,6 @@ Here's a view of the explorer window, showing models and twins that have been po
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png" alt-text="Screenshot of Azure Digital Twins Explorer showing sample models and twins." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-demo.png":::
 
 The visual interface is a great tool for exploring and understanding the shape of your graph and model set. It also allows you to make pointed, on the spot changes to individual twins and relationships.
-
-This article contains more information about the Azure Digital Twins Explorer, including its use cases and an overview of its features. For detailed steps on using each feature, see [Use Azure Digital Twins Explorer](how-to-use-azure-digital-twins-explorer.md).
 
 ## When to use
 
@@ -47,10 +47,11 @@ The explorer's main purpose is to help you visualize and understand your graph, 
 Azure Digital Twins Explorer is organized into panels, each with a different set of capabilities for exploring and managing your models, twins, and relationships.
 
 The sections of the explorer are as follows:
-* **Models**: Add, remove, and view details of your models from a list view.
-* **Model Graph**: Visualize your models and the ways they're interconnected in the form of a customizable model graph.
-* **Twin Graph**: Visualize your twins and relationships as a customizable twin graph. Create and delete twins and relationships, and view or edit their properties.
 * **Query Explorer**: Run queries against the twin graph and see the visual results in the **Twin Graph** panel.
+* **Models**: View a list of your models and perform model actions such as add, remove, and view model details.
+* **Twins**: View a list of your twins and their associated relationships.
+* **Twin Graph**: Visualize your twins and relationships as a customizable twin graph. Create and delete twins and relationships, and view or edit their properties.
+* **Model Graph**: Visualize your models and the ways they're interconnected in the form of a customizable model graph.
 
 :::image type="content" source="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png" alt-text="Screenshot of Azure Digital Twins Explorer, with a highlight around each of the panels described above." lightbox="media/concepts-azure-digital-twins-explorer/azure-digital-twins-explorer-panels.png":::
 
