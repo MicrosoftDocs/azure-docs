@@ -105,7 +105,7 @@ mssparkutils.fs.mount(
 Assuming you have a gen2 storage account named **storegen2** and the account has one file share named **myfileshare**, and you want to mount the **myfileshare/test** to your Spark pool. 
 ![Screenshot of file share](./media/synapse-file-mount-api/file-share.png)
  
-Mount azure file share only support the account key authentication method, below is the code sample to mount **myfileshare/test** and we reuse the Azure Key Value settings of `MountKV` here: 
+Mount Azure File Shares only supports the account key authentication method. The following sample shows how to mount **myfileshare/test**. We reuse the Azure Key Value settings of `MountKV` in this sample: 
 
 ```python 
 from notebookutils import mssparkutils  
@@ -153,7 +153,7 @@ While when you want to access the data with mssparkutils fs API, the path format
 
 You can see the **synfs** is used as schema in this case instead of a part of the mounted path. 
 
-Below are three examples to show how to access file with mount point path using mssparkutils fs, while **49** is a Spark job id we got from calling mssparkutils.env.getJobId(). 
+Below are three examples to show how to access file with mount point path using mssparkutils fs, while **49** is a Spark job ID we got from calling mssparkutils.env.getJobId(). 
 
 + List dirs:  
 
