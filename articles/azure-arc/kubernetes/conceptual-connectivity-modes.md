@@ -19,7 +19,7 @@ Azure Arc-enabled Kubernetes requires deployment of Azure Arc agents on your Kub
 | Connectivity mode | Description |
 | ----------------- | ----------- |
 | Fully connected | Agents can consistently communicate with Azure with little delay in propagating GitOps configurations, enforcing Azure Policy and Gatekeeper policies, and collecting workload metrics and logs in Azure Monitor. |
-| Semi-connected | The MSI certificate pulled down by the `clusteridentityoperator` is valid for up to 90 days before the certificate expires. Upon expiration, the Azure Arc-enabled Kubernetes resource stops working. To reactivate all Azure Arc features on the cluster, delete and recreate the Azure Arc-enabled Kubernetes resource and agents. During the 90 days, connect the cluster at least once every 30 days. |
+| Semi-connected | The managed identity certificate pulled down by the `clusteridentityoperator` is valid for up to 90 days before the certificate expires. Upon expiration, the Azure Arc-enabled Kubernetes resource stops working. To reactivate all Azure Arc features on the cluster, delete, and recreate the Azure Arc-enabled Kubernetes resource and agents. During the 90 days, connect the cluster at least once every 30 days. |
 | Disconnected | Kubernetes clusters in disconnected environments unable to access Azure are currently unsupported by Azure Arc-enabled Kubernetes. If this capability is of interest to you, submit or up-vote an idea on [Azure Arc's UserVoice forum](https://feedback.azure.com/d365community/forum/5c778dec-0625-ec11-b6e6-000d3a4f0858).
 
 
