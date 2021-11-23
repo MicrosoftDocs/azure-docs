@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 Distributed Application Runtime (Dapr) offers APIs that simplify microservice development and implementation. Running as a sidecar process in tandem with your applications, Dapr APIs abstract away common complexities developers regularly encounter when building distributed applications, such as service discovery, message broker integration, encryption, observability, and secret management. Whether your inter-application communication is direct service-to-service, or pub/sub messaging, Dapr helps you write simple, portable, resilient, and secured microservices.
 
-Dapr is incrementally adoptable – the API building blocks can be leveraged as the need arises. Use one, several, or all to develop your application faster.
+Dapr is incrementally adoptable – the API building blocks can be used as the need arises. Use one, several, or all to develop your application faster.
 
 :::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
 
@@ -27,7 +27,7 @@ Dapr provides the following set of capabilities to help with your microservice d
 * Pluggable observability and monitoring through Open Telemetry API collector
 * Works independent of language, while also offering language specific SDKs
 * Integration with VS Code through the Dapr extension
-* [Additional APIs for solving distributed application challenges][dapr-blocks]
+* [More APIs for solving distributed application challenges][dapr-blocks]
 
 ## Frequently asked questions
 
@@ -63,7 +63,7 @@ For more information on the Secrets Store CSI driver and Azure Key Vault provide
 
 ### How does the managed Dapr cluster extension compare to the open source Dapr offering?
 
-The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you have the option to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (e.g., provisioning the Dapr control plane in high availability mode).
+The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you're able to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (for example, provisioning the Dapr control plane in high availability mode).
 
 When installing Dapr OSS via helm or the Dapr CLI, runtime versions and configuration options are the responsibility of developers and cluster maintainers.  
 
