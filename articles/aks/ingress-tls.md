@@ -26,7 +26,7 @@ You can also:
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 This article also assumes you have [a custom domain][custom-domain] with a [DNS Zone][dns-zone] in the same resource group as your AKS cluster.
 
@@ -79,6 +79,8 @@ az acr import --name $REGISTRY_NAME --source $CERT_MANAGER_REGISTRY/$CERT_MANAGE
 ```
 
 ### [Azure PowerShell](#tab/azure-powershell)
+
+Use `Import-AzContainerRegistryImage` to import those images into your ACR.
 
 ```azurepowershell
 $RegistryName = "<REGISTRY_NAME>"
@@ -165,7 +167,7 @@ kubectl create namespace ingress-basic
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
 # Set variable for ACR location to use for pulling images
-$AcrUrl = "$RegistryName.azurecr.io"
+$AcrUrl = (Get-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $RegistryName).LoginServer
 
 # Get the SHA256 digest of the controller and patch images
 $ControllerDigest = (Get-AzContainerRegistryTag -RegistryName $RegistryName -RepositoryName $ControllerImage -Name $ControllerTag).Attributes.digest
