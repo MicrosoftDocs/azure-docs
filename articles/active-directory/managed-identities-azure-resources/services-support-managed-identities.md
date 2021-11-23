@@ -273,6 +273,16 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 
 For more information, see [Use managed identities with Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
 
+### Azure Maps
+
+Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | Preview | Preview | Not available | Not available |
+| User assigned | Preview | Preview | Not available | Not available |
+
+For more information, see [Authentication on Azure Maps](../../azure-maps/azure-maps-authentication.md).
+
+
 ### Azure Media Services
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |

@@ -8,7 +8,7 @@ ms.date: 06/10/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager:  philmea
+manager: philmea
 custom.ms: subject-rbac-steps
 ---
 
@@ -18,8 +18,8 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 
 ## View authentication details
 
- >[!IMPORTANT]
- >We recommend that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
+> [!IMPORTANT]
+> We recommend that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
 
 To view your Azure Maps authentication details:
 
@@ -27,11 +27,11 @@ To view your Azure Maps authentication details:
 
 2. Navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/select-all-resources.png" alt-text="Select Azure Maps account.":::
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/select-all-resources.png" alt-text="Select Azure Maps account.":::
 
 3. Under **Settings** in the left pane, select **Authentication**.
 
-      :::image type="content" border="true" source="./media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
+   :::image type="content" border="true" source="./media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
 
 ## Choose an authentication category
 
@@ -53,6 +53,7 @@ This table outlines common authentication and authorization scenarios in Azure M
 | [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Low                | Medium             |
 | [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
 | [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
+| [Web and daemon / non-interactive sign-on](./how-to-secure-sas-app.md)                      | Sas Token      | High          | Medium             | Low                |
 | [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
 | [IoT device / input constrained device](./how-to-secure-device-code.md)                     | Azure AD       | High          | Medium             | Medium             |
 
@@ -93,7 +94,7 @@ Request a token from the Azure AD token endpoint. In your Azure AD request, use 
 | Azure public cloud     | `https://login.microsoftonline.com` | `https://atlas.microsoft.com/` |
 | Azure Government cloud | `https://login.microsoftonline.us`  | `https://atlas.microsoft.com/` |
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md).  To view specific scenarios, see [the table of scenarios](./how-to-manage-authentication.md#choose-an-authentication-and-authorization-scenario).
+For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md). To view specific scenarios, see [the table of scenarios](./how-to-manage-authentication.md#choose-an-authentication-and-authorization-scenario).
 
 ## Manage and rotate shared keys
 
@@ -123,10 +124,9 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 ## Next steps
 
 Find the API usage metrics for your Azure Maps account:
-> [!div class="nextstepaction"]
-> [View usage metrics](how-to-view-api-usage.md)
+
+> [!div class="nextstepaction"] > [View usage metrics](how-to-view-api-usage.md)
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [!div class="nextstepaction"] > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
