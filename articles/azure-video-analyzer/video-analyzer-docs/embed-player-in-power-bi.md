@@ -79,4 +79,4 @@ Here is a sample of multiple videos pinned to a single Power BI dashboard.
 ## Next steps
 
 - [Real-time visualization of AI inference events in Power BI](visualize-ai-events-power-bi.md)
-- Learn more about the [widget API](https://github.com/Azure/video-analyzer/tree/main/widgets)
+- Learn more about the [widget API](https://github.com/Azure/video-analyzer-widgets)
