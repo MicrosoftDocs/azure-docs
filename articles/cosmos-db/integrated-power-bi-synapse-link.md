@@ -10,7 +10,7 @@ ms.custom: synapse-cosmos-db
 ---
 
 # Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the in-built Power BI integration feature in the Azure portal along with [Azure Synapse Link](synapse-link.md).
 
