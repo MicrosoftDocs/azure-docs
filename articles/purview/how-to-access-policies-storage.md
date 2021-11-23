@@ -62,17 +62,20 @@ Execute this step only if the Storage account you want to manage access to is in
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 ### Configure permissions for policy management actions
-- User needs to have role *Owner* in the Azure Storage account to register this source for Data use Governance in Azure Purview. [You can follow this guide to configure this permission](../role-based-access-control/check-access.md)
-- User needs to be member of Purview *Data source admins* role at the root collection level to register a source for Data use governance. Note, Azure Storage Owner any of those roles independently can de-register the source for Data use governance.
+- User needs to have role *Owner* in the Azure Storage account to register this source for *Data use Governance* in Azure Purview. [You can follow this guide to configure this permission](../role-based-access-control/check-access.md)
+- User needs to be member of Purview *Data source admins* role at the root collection level to register a source for *Data use governance*.
 - User needs to be member of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
 - User needs to be member of Purview *Data source admin* role at the root collection level to publish the policy.
+
+>[!NOTE]
+> Both Azure Storage *Owner* or Purview *Data source admin* can independently de-register the source for Data use governance.
 
 See the section on managing role assignments for Purview in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
 
 In addition to these, see "Known issues" section at the bottom of this document.
 
 ### Register and scan data sources in Purview
-Register and scan each data source with Purview to later define access policies. Follow the Purview registration guides to register your storage account:
+Register and scan each data source with Purview to later define access policies. You can follow these guides:
 
 -   [Register and scan Azure Storage Blob - Azure Purview](register-scan-azure-blob-storage-source.md)
 
