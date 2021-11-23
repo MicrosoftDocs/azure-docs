@@ -57,4 +57,4 @@ In this quickstart, you learned how to send SMS messages using Azure Communicati
 > [Phone number types](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
+> [Learn more about SMS](../../concepts/sms/concepts.md)

@@ -33,16 +33,16 @@ The following list presents the set of features which are currently available in
 |                   | Support for idempotency                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Custom tags for messages.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports | ✔️   | ✔️    | ✔️    | ✔️      |
-| Phone Number      | Toll-Free numbers, Short Codes (*Coming soon*)                                        | ✔️   | ✔️    | ✔️    | ✔️      |
+| Phone Number      | Toll-Free numbers, Short Codes                                         | ✔️   | ✔️    | ✔️    | ✔️      |
 | PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/telephony-sms/send.md)
+> [Get started with sending sms](../../quickstarts/sms/send.md)
 
 The following documents may be interesting to you:
 
 - Familiarize yourself with general [SMS concepts](../sms/concepts.md)
-- Get an SMS capable [phone number](../../quickstarts/sms/get-phone-number.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)
