@@ -23,7 +23,7 @@ This article goes into more depth about each step in the data flow. The next ste
 
 The next sections describe the stages that IoMT (Internet of Medical Things) data goes through once received from an event hub into IoT connector.
 
-:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flow from IoT devices into an event hub. IoMT data ingested by IoT connector is normalized, grouped, transformed, and persisted in a FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
+:::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by IoT connector as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
 ## Ingest
 Ingest is the first stage where device data is received into IoT connector. The ingestion endpoint for device data is hosted on an [Azure Event Hubs](../../event-hubs/index.yml). Azure Event Hubs platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables IoT connector to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
