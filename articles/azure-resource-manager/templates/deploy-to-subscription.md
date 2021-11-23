@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -33,10 +33,15 @@ For Azure Policies, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For Azure role-based access control (Azure RBAC), use:
+For access control, use:
 
+* [accessReviewScheduleDefinitions](/azure/templates/microsoft.authorization/accessreviewscheduledefinitions)
+* [accessReviewScheduleSettings](/azure/templates/microsoft.authorization/accessreviewschedulesettings)
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
+* [roleAssignmentScheduleRequests](/azure/templates/microsoft.authorization/roleassignmentschedulerequests)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+* [roleEligibilityScheduleRequests](/azure/templates/microsoft.authorization/roleeligibilityschedulerequests)
+* [roleManagementPolicyAssignments](/azure/templates/microsoft.authorization/rolemanagementpolicyassignments)
 
 For nested templates that deploy to resource groups, use:
 
@@ -48,11 +53,33 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
-* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
+* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
+* [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
+* [locks](/azure/templates/microsoft.authorization/locks)
+* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
+
+For monitoring, use:
+
+* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
+
+For security, use:
+
+* [advancedThreatProtectionSettings](/azure/templates/microsoft.security/advancedthreatprotectionsettings)
+* [alertsSuppressionRules](/azure/templates/microsoft.security/alertssuppressionrules)
+* [assessmentMetadata](/azure/templates/microsoft.security/assessmentmetadata)
+* [assessments](/azure/templates/microsoft.security/assessments)
+* [autoProvisioningSettings](/azure/templates/microsoft.security/autoprovisioningsettings)
+* [connectors](/azure/templates/microsoft.security/connectors)
+* [deviceSecurityGroups](/azure/templates/microsoft.security/devicesecuritygroups)
+* [ingestionSettings](/azure/templates/microsoft.security/ingestionsettings)
+* [pricings](/azure/templates/microsoft.security/pricings)
+* [securityContacts](/azure/templates/microsoft.security/securitycontacts)
+* [settings](/azure/templates/microsoft.security/settings)
+* [workspaceSettings](/azure/templates/microsoft.security/workspacesettings)
 
 Other supported types include:
 
