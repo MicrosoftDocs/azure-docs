@@ -199,5 +199,5 @@ The following are frequently asked questions (FAQ) about using your own persiste
 
 ## Next steps
 
-* Learn about [how to use Logback to write logs to your own persistent storage ](./how-to-write-log-to-custom-persistent-storage.md).
-* Learn how to [manually scale your application](./how-to-scale-manual.md).
+* [How to use Logback to write logs to custom persistent storage](how-to-write-log-to-custom-persistent-storage.md).
+* [Scale an application in Azure Spring Cloud](how-to-scale-manual.md).
