@@ -11,7 +11,7 @@ description: "Use custom locations to deploy Azure PaaS services on Azure Arc-en
 
 # Create and manage custom locations on Azure Arc-enabled Kubernetes
 
- *Custom Locations* provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying Azure services instances i.e  resources like Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale. On Azure Arc-enabled Kubernetes clusters, custom location represents an abstraction of a namespace within the Azure Arc-enabled Kubernetes cluster. Tenant or cluster administrators can assign Role-based access control (RBAC)  permissions to application developers or database admins to deploy resources like Azure Arc-enabled SQL Managed Instances, Azure Arc-enabled PostgreSQL Hyperscale instances or Azure web apps on the custom location. 
+ *Custom Locations* provides a way for tenant or cluster administrators to configure their Azure Arc-enabled Kubernetes clusters as target locations for deploying instances of Azure offerings. This includes databases like Azure Arc-enabled SQL Managed Instance and Azure Arc-enabled PostgreSQL Hyperscale or application instances like App Services, Functions, Event Grid, Logic Apps and API Management. A custom location has a one-to-one mapping to a namespace within the Azure Arc-enabled Kubernetes cluster. The custom location Azure resource combined with Azure RBAC can be used to grant application developers or database admins granular permissions to deploy different resources like databases or application instances on top of the Arc-enabled Kubernetes cluster in a multi-tenant manner. 
  
 A conceptual overview of this feature is available in [Custom locations - Azure Arc-enabled Kubernetes](conceptual-custom-locations.md) article. 
 
@@ -26,9 +26,9 @@ In this article, you learn how to:
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
 
 - Install the following Azure CLI extensions:
-    - `connectedk8s` (version 1.1.0 or later)
-    - `k8s-extension` (version 0.2.0 or later)
-    - `customlocation` (version 0.1.0 or later) 
+    - `connectedk8s` (version 1.2.0 or later)
+    - `k8s-extension` (version 1.0.0 or later)
+    - `customlocation` (version 0.1.3 or later) 
   
     ```azurecli
     az extension add --name connectedk8s
@@ -36,15 +36,13 @@ In this article, you learn how to:
     az extension add --name customlocation
     ```
     
-    If you've previously installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the latest version using the following command:
+    If you have already installed the `connectedk8s`, `k8s-extension`, and `customlocation` extensions, update to the **latest version** using the following command:
 
     ```azurecli
     az extension update --name connectedk8s
     az extension update --name k8s-extension
     az extension update --name customlocation
     ```
-    >[!NOTE]
-    >We recommend using the latest version of the CLI extensions to get latest features.  
 
 - Verify completed provider registration for `Microsoft.ExtendedLocation`.
     1. Enter the following commands:
@@ -62,11 +60,11 @@ In this article, you learn how to:
         Once registered, the `RegistrationState` state will have the `Registered` value.
 
 - Verify you have an existing [Azure Arc-enabled Kubernetes connected cluster](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.1.0 or later.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version 1.5.3 or later.
 
 ## Enable custom locations on cluster
 
-If you are logged into Azure CLI as a Azure AD user, to enable this feature on your cluster, execute the following command:
+If you are logged into Azure CLI as an Azure AD user, to enable this feature on your cluster, execute the following command:
 
 ```azurecli
 az connectedk8s enable-features -n <clusterName> -g <resourceGroupName> --features cluster-connect custom-locations
@@ -136,7 +134,6 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Default is `None`. Creates a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) if parameter is set to "SystemAssigned" |
 | `--location, --l` | Location of the custom location Azure Resource Manager resource in Azure. By default, this will be set to the location (or Azure region) of the connected cluster |
 | `--tags` | Space-separated list of tags: key[=value] [key[=value] ...]. Use '' to clear existing tags |
 | `--kubeconfig` | Admin Kubeconfig of Cluster. Needs to passed in as a file if the cluster is a non-AAD enabled cluster |
@@ -147,7 +144,7 @@ If you are logged into Azure CLI using a service principal, to enable this featu
 Show details of a custom location
 
 ```azurecli
-    az customlocation show -n <customLocationName> -g <resourceGroupName> 
+az customlocation show -n <customLocationName> -g <resourceGroupName> 
 ```
 
 **Required parameters**
@@ -162,7 +159,7 @@ Show details of a custom location
 Lists all custom locations in a resource group
 
 ```azurecli
-    az customlocation show -g <resourceGroupName> 
+az customlocation show -g <resourceGroupName> 
 ```
 
 **Required parameters**
@@ -177,7 +174,7 @@ Lists all custom locations in a resource group
 Use `update` command when you want to add new tags, associate new cluster extension IDs to the custom location while retaining existing tags and associated cluster extensions. `--cluster-extension-ids`, `--tags`,  `assign-identity` can be updated. 
 
 ```azurecli
-    az customlocation update -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation update -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
 ```
 **Required parameters**
 
@@ -192,7 +189,6 @@ Use `update` command when you want to add new tags, associate new cluster extens
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to the custom location |
 | `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension ids |
 | `--tags` | Add new tags in addition to existing tags.Space-separated list of tags: key[=value] [key[=value] ...]. |
 
@@ -201,7 +197,7 @@ Use `update` command when you want to add new tags, associate new cluster extens
 Use `patch` command when you want to replace existing tags, cluster extension IDs with new tags, cluster extension IDs. `--cluster-extension-ids`, `assign-identity`, `--tags` can be patched. 
 
 ```azurecli
-    az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+az customlocation patch -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
 ```
 
 **Required parameters**
@@ -215,15 +211,14 @@ Use `patch` command when you want to replace existing tags, cluster extension ID
 
 | Parameter name | Description |
 |--------------|------------|
-| `--assign-identity` | Can be updated to either `None` or `"SystemAssigned` if you want to assign a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) to the custom location |
 | `--cluster-extension-ids` | Associate new cluster extensions to this custom location by providing Azure Resource Manager identifiers of the cluster extension instances installed on the connected cluster. Provide a space-seperated list of the cluster extension IDs |
 | `--tags` | Add new tags in addition to existing tags.Space-separated list of tags: key[=value] [key[=value] ...]. |
 
 ## Delete a custom location
 
- ```azurecli
-    az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
-   ```
+```azurecli
+az customlocation delete -n <customLocationName> -g <resourceGroupName> --namespace <name of namespace> --host-resource-id <connectedClusterId> --cluster-extension-ids <extensionIds> 
+```
 
 ## Next steps
 

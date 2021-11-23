@@ -2,7 +2,7 @@
 title: "Cluster extensions - Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 10/19/2021
+ms.date: 11/24/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
@@ -21,7 +21,7 @@ description: "This article provides a conceptual overview of cluster extensions 
 
 An extension can be cluster-scoped or scoped to a namespace. Each extension type (like Azure Monitor for containers, Microsoft Defender for Cloud, Azure App services) defines the scope at which they operate on the cluster. 
 
-## Architecture for cluster extensions on Azure Arc-enabled Kubernetes clusters
+## Architecture
 
 [ ![Cluster extensions architecture](./media/conceptual-extensions.png) ](./media/conceptual-extensions.png#lightbox)
 
