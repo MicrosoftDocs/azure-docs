@@ -240,7 +240,7 @@ Next, you'll parameterize your load test using workflow variables. These paramet
 
 1. Edit the *config.json* file in your GitHub repository.
     
-    Update the `enableSecretsFeature` value to *true*. This with enable the code which expects an x-secret value in request header.
+    Update the `enableSecretsFeature` value to **true** to enable the code which expects an x-secret value in the request header.
 
 1. Commit the changes to the config.json file.
 
