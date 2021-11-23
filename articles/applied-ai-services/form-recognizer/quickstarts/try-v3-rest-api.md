@@ -422,7 +422,7 @@ Before you run the command, make these changes:
 #### Request
 
 ```bash
-curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlsource': '{your-document-url}'}"
+curl -v -i POST "https://{endpoint}/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {subscription key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Operation-Location

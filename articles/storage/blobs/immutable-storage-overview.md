@@ -168,7 +168,7 @@ This table shows how this feature is supported in your account and the impact on
 | Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>
 
-<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 <sup>2</sup>    Feature is supported at the preview level.
 
