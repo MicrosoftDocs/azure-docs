@@ -431,6 +431,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/security-center/remediate-vulnerability-findings-vm.md",
+            "redirect_url": "/azure/defender-for-cloud/remediate-vulnerability-findings-vm",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/security-center/enable-data-collection.md",
             "redirect_url": "/azure/defender-for-cloud/enable-data-collection",
             "redirect_document_id": true
