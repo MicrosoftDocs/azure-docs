@@ -61,7 +61,7 @@ This identity model is ideal for use cases where a custom user interface is need
 
 Calling and screen sharing functionality is available via the Communication Services Calling SDK. Calling management is available via Graph API, configuration in the Teams client or Teams Admin Portal. Chat functionality is available via Graph API.
 
-Teams users are authenticated via the MSAL library against Azure Active Directory in the client application. Authentication tokens received from Azure Active Directory are exchanged for Communication Services tokens via the Communication Services Identity SDK. You are encouraged to implement an exchange of tokens in your backend services as exchange requests are signed by credentials for Azure Communication Services. In your backend services, you can require any additional authentication.
+Teams users are authenticated via the MSAL library against Azure Active Directory in the client application. Authentication tokens received from Azure Active Directory are exchanged for Communication Services access tokens via the Communication Services Identity SDK. You are encouraged to implement an exchange of tokens in your backend services as exchange requests are signed by credentials for Azure Communication Services. In your backend services, you can require any additional authentication.
 
 To learn more about the functionality, join our TAP program for early access by completing [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 
