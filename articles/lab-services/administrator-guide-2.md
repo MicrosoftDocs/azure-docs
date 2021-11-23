@@ -102,7 +102,7 @@ The shared image gallery service is an optional resource that you might not need
 
 - **You can upload your own custom images from other environments outside of labs**
 
-    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
+    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery-2.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
 To logically group shared images, you can do either of the following:
 

@@ -34,7 +34,7 @@ When you create a lab account, you must configure the resource group that contai
 
 A resource group is also required when you create a [shared image gallery](#shared-image-gallery). You can place your lab account and shared image gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the image gallery across various solutions.
 
-When you create a lab account, you can automatically create and attach a shared image gallery at the same time.  This option results in the lab account and the shared image gallery being created in separate resource groups. You'll see this behavior when you follow the steps that are described in the [Configure shared image gallery at the time of lab account creation](how-to-attach-detach-shared-image-gallery-2.md#configure-at-the-time-of-lab-plan-creation) tutorial. The image at the beginning of this article uses this configuration. 
+When you create a lab account, you can automatically create and attach a shared image gallery at the same time.  This option results in the lab account and the shared image gallery being created in separate resource groups. You'll see this behavior when you follow the steps that are described in the [Configure shared image gallery at the time of lab account creation](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation) tutorial. The image at the beginning of this article uses this configuration. 
 
 We recommend that you invest time up front to plan the structure of your resource groups, because it's *not* possible to change a lab account or shared image gallery resource group once it's created. If you need to change the resource group for these resources, you'll need to delete and re-create your lab account or shared image gallery.
 
@@ -101,7 +101,7 @@ The shared image gallery service is an optional resource that you might not need
 
 - **You can upload your own custom images from other environments outside of labs**
 
-    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery-2.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
+    You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
 To logically group shared images, you can do either of the following:
 
