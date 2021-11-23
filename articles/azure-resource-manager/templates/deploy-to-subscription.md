@@ -53,18 +53,18 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
-* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
-* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
+* [configurations - Advisor ](/azure/templates/microsoft.advisor/configurations)
 * [lineOfCredit](/azure/templates/microsoft.billing/billingaccounts/lineofcredit)
-* [Locks](/azure/templates/microsoft.authorization/locks)
+* [locks](/azure/templates/microsoft.authorization/locks)
+* [profile - Change Analysis ](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
 For monitoring, use:
 
 * [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
-* [logprofiles])(/azure/templates/microsoft.insights/logprofiles)
+* [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 For security, use:
 
