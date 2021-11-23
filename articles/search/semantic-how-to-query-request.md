@@ -37,6 +37,22 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
 In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* [has parameters](#query-using-rest) that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
 
+### [**2021-04-30-Preview API (recommended)**](#tab/aad-dotnet)
+
+The following request is representative of a minimal semantic query (without answers).
+
+```http
+POST https://[service name].search.windows.net/indexes/[index name]/docs/search?api-version=2021-04-30-Preview      
+{    
+    "search": " Where was Alan Turing born?",    
+    "queryType": "semantic",  
+    "semanticConfiguration": "my-semantic-configuration",  
+    "queryLanguage": "en-us"  
+}
+```
+
+### [**2020-06-30-Preview API**](#tab/aad-dotnet)
+
 The following request is representative of a minimal semantic query (without answers).
 
 ```http
