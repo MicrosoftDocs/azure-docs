@@ -97,15 +97,20 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. Click **Add new claim** to open the **Manage user claims** dialog.
 	
-	![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
+        ![Screenshot that shows the "User claims" section with the "Add new claim" and "Save" actions highlighted.](common/new-save-attribute.png)
 
-	![Screenshot that shows the "Manage user claims" dialog with the "Name", "Transformation", and "Parameter" text boxes highlighted, and the "Save" button selected.](./media/policystat-tutorial/claims.png)
+        ![Screenshot that shows the "Manage user claims" dialog with the "Name", "Transformation", and "Parameter" text boxes highlighted, and the "Save" button selected.](./media/policystat-tutorial/claims.png)
 
     1. In the **Name** textbox, type the attribute name shown for that row.
+
     1. Leave the **Namespace** blank.
+
     1. Select Source as **Transformation**.
+
     1. From the **Transformation** list, type the attribute value shown for that row.
+
     1. From the **Parameter 1** list, type the attribute value shown for that row.
+
     1. Select **Save**.
 
 1. On the **Set up PolicyStat** section, copy the appropriate URL(s) as per your requirement.
