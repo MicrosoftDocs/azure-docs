@@ -1,5 +1,5 @@
 ---
-title: 
+title: Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts
 description: 
 author: AnithaAdusumilli
 ms.service: cosmos-db
@@ -9,65 +9,69 @@ ms.author: anithaa
 ms.custom: synapse-cosmos-db
 ---
 
-# Seamless Power BI integration in Azure Cosmos DB portal using Azure Synapse Link
+# Integrated Power BI experience in Azure Cosmos DB portal for Synapse Link enabled accounts
 
-With just a few clicks, you can visualize your Azure Cosmos DB data in near real-time using the in-built Power BI integration, with [Azure Synapse Link](synapse-link.md).
+With the integrated Power BI experience, you can visualize your Azure Cosmos DB data in near real time in just a few clicks. It uses the in-built Power BI integration feature in the Azure portal along with [Azure Synapse Link](synapse-link.md).
 
 Synapse Link enables you to build Power BI dashboards with no performance or cost impact to your transactional workloads, and no ETL pipelines. You can either use [DirectQuery](/power-bi/connect-data/service-dataset-modes-understand#directquery-mode) or [import](/power-bi/connect-data/service-dataset-modes-understand#import-mode) modes. With DirectQuery, you can build dashboards using live data from your Azure Cosmos DB accounts, without importing or copying the data into Power BI.
 
-To build a Power BI report from Azure Cosmos DB data in DirectQuery mode, use the following steps:
+## Build a Power BI report - DirectQuery mode
+
+Use the following steps to build a Power BI report from Azure Cosmos DB data in DirectQuery mode:
 
 1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
 
-1. Open the **Power BI** pane under **Integrations** and select **Get started**.
+1. From the **Integrations** section, open the **Power BI** pane and select **Get started**.
 
    > [!NOTE] Currently, this option is only available for SQL API accounts.
 
-1. If your account is not already enabled with Synapse Link, you can enable it from **Enable Azure Synapse link for this account** tab. If Synapse Link is already enabled for the account, you will not see this tab. Once enabled, currently you cannot disable Azure Synapse Link. Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](synapse-link.md#pricing) for more details.
+1. From the **Enable Azure Synapse Link** tab, if your account is not already enabled with Synapse Link, you can enable it from **Enable Azure Synapse link for this account** section. If Synapse Link is already enabled for your account, you will not see this tab. Once enabled, you cannot disable Azure Synapse Link. Enabling Azure Synapse Link has cost implications. See [Azure Synapse Link pricing](synapse-link.md#pricing) section for more details.
 
-1. You can now enable Synapse Link on containers. Choose the required containers from **Enable Azure Synapse Link for your containers**.
+1. Next from the **Enable Azure Synapse Link for your containers** section, choose the required containers to enable Synapse Link.
 
-   * If you already enabled Synapse Link for some containers, you would see them as “selected”. You may optionally deselect some of them, based on the data you’d like to visualize in Power BI.
+   * You can enable Synapse Link on your existing containers.
 
-   * You can also enable Synapse Link on your existing containers.
+   * If you already enabled Synapse Link on some containers, you will see the checkbox next to the container name is selected. You may optionally deselect them, based on the data you'd like to visualize in Power BI.
 
-   > [!IMPORTANT] Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week.  If you have any issues or questions, please reach out to cosmosdbsynapselink@microsoft.com.
+   > [!IMPORTANT] Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. If you have any issues or questions, please reach out to the [Azure Cosmos DB Synapse team](mailto:cosmosdbsynapselink@microsoft.com)
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/register-synapse-link.png" alt-text="" border="true":::
 
-   > [!NOTE] You will only need to register once per each of your subscriptions. When the subscription is approved, you can enable Synapse Link for existing containers in all eligible accounts in that subscription.
+   > [!NOTE] You will only need to register once per each subscriptions. When the subscription is approved, you can enable Synapse Link for existing containers in all eligible accounts within that subscription.
 
-1. When you click on “register”, the status will change to “registration pending”. Once the request is approved by Azure Cosmos DB team, this dialogue will go away, and you will be able to select your existing containers.
+1. Select **register** to enable Synapse Link on your existing accounts. The status changes to "registration pending". After your request is approved by Azure Cosmos DB team, this button will go away, and you will be able to select your existing containers.
 
-1. Select any of the existing containers and click **Next**.
+1. Select any of the existing containers and select **Next**.
 
-   If enabling Synapse Link is in progress on any of the containers, the data from those containers will not be included. You can always come back to this portal screen, at a later point in time, to import data when the containers are ready.
+   If enabling Synapse Link is in progress on any of the containers, the data from those containers will not be included. You should come back to this tab later and import data when the containers are enabled.
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/synapse-link-progress-existing-containers.png" alt-text="" border="true":::
 
-1. Depending on the amount of data in your Cosmos DB containers, it may take a while to enable Synapse Link. To learn more about enabling Synapse Link on existing containers, please see [this article](configure-synapse-link.md#update-analytical-ttl).  
+1. Depending on the amount of data in your containers, it may take a while to enable Synapse Link. To learn more, see [enable Synapse Link on existing containers](configure-synapse-link.md#update-analytical-ttl) article.  
 
-   You can check the progress in the portal as shown below. Containers are enabled with Synapse Link when the progress reaches 100%. 
+   You can check the progress in the portal as shown in the following screen. Containers are enabled with Synapse Link when the progress reaches 100%.
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/synapse-link-existing-containers-registration-complete.png" alt-text="" border="true":::
 
-1. Next select the Azure Synapse Analytics workspace and click “Next”. This will automatically create T-SQL views in Synapse Analytics, for the containers selected earlier in step 5. For more information on T-SQL views required to connect your Cosmos DB to Power BI, please see [this](../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#3---prepare-view) article.
+1. From the **Select workspace** tab, choose the Azure Synapse Analytics workspace and select **Next**. This will automatically create T-SQL views in Synapse Analytics, for the containers selected earlier. For more information on T-SQL views required to connect your Cosmos DB to Power BI, see [Prepare views](../synapse-analytics/sql/tutorial-connect-power-bi-desktop.md#3---prepare-view) article.
 
-1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and **Database** details. Azure portal will use your AAD credentials to automatically connect to Synapse workspace and create views. Please make sure you are added as “Synapse administrator” in this workspace.
+1. You can either choose an existing workspace or create a new one. To select an existing workspace, provide the **Subscription**, **Workspace**, and the **Database** details. Azure portal will use your AAD credentials to automatically connect to your Synapse workspace and create views. Make sure you have "Synapse administrator" permissions to this workspace.
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/synapse-create-views.png" alt-text="" border="true":::
 
 1. Next, select **Download .pbids** to download the Power BI data source file. Open the downloaded file, it contains the required connection information and opens a Power BI dashboard.
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/.png" alt-text="" border="true":::
 
-1. You can now connect to Cosmos DB data from Power BI, using Synapse Link. A list of T-SQL views corresponding to data in each container are displayed. For example, the following screen shows vehicle fleet data. You can load this data for further analysis or transform it before loading.
+1. You can now connect to Azure Cosmos DB data from Power BI, using Synapse Link. A list of T-SQL views corresponding to the data in each container are displayed.
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+   For example, the following screen shows vehicle fleet data. You can load this data for further analysis or transform it before loading.
 
-1. You can now start building the dashboard using Cosmos DB’s analytical data. Any changes to the Cosmos DB data will be reflected in the dashboard, as soon as the data is replicated to analytical store, in a couple of minutes.
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/powerbi-desktop-select-view.png" alt-text="" border="true":::
 
-   :::image type="content" source="./media//.png" alt-text="" border="true":::
+1. You can now start building the dashboard using Azure Cosmos DB's analytical data. Any changes to your data will be reflected in the dashboard, as soon as the data is replicated to analytical store, which typically happens in a couple of minutes.
+
+   :::image type="content" source="./media/integrated-power-bi-synapse-link/fleet-management-dashboard-example.png" alt-text="" border="true":::
 
 ## Next steps
 
