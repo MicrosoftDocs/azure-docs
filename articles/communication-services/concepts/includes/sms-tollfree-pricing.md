@@ -7,7 +7,7 @@ manager: shahen
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 11/30/2021
+ms.date: 11/30/2021 
 ms.topic: include
 ms.custom: include file
 ms.author: prakulka
@@ -20,9 +20,9 @@ SMS service is priced on a per-message basis. SMS pricing is determined by the n
 ### Leasing Fee
 Fees for toll-free leasing are charged after provisioning and then recur on a month-to-month basis:
 
-|Number type   |Monthly fee   |
+|Number type   |Monthly fee |
 |--------------|-----------|
-|Toll-free (United States) |$2/mo |
+|Toll-free (United States) |$2/mo|
 
 
 ### Usage Fee
