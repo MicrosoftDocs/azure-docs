@@ -1,8 +1,7 @@
 ---
 title: Get more insights when testing Azure App Service workloads
 titleSuffix: Azure Load Testing
-description: Learn how to get more insights by using App Service Diagnostics when testing Azure App Service workloads.
-Get more insights when testing AppService workloads using App Service Diagnostics
+description: 'Learn how to get more insights by using App Service Diagnostics when testing Azure App Service workloads.'
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
