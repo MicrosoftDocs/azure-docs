@@ -12,28 +12,7 @@ ms.custom:
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
 
-> [!IMPORTANT]
-> Cloud Services (extended support) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 To ensure a successful Cloud Services (extended support) deployment review the below steps and complete each item prior to attempting any deployments. 
-
-## Register the CloudServices feature
-Register the feature for your subscription. The registration may take several minutes to complete. 
-
-```powershell
-Register-AzProviderFeature -FeatureName CloudServices -ProviderNamespace Microsoft.Compute
-```
-
-Check the status of registration using the following:  
-```powershell
-Get-AzProviderFeature 
-
-#Sample output
-FeatureName               ProviderName      RegistrationState
-CloudServices           Microsoft.Compute    Registered
-```
 
 ## Required Service Configuration (.cscfg) file updates
 
@@ -51,6 +30,7 @@ For a virtual networks belonging to the same resource group as the cloud service
        <Subnet name="<subnet-name>"/> 
      </Subnets> 
     </InstanceAddress> 
+  </AddressAssignments> 
 ```
 
 #### Virtual network located in different resource group
@@ -62,6 +42,7 @@ For a virtual networks belonging to the same resource group as the cloud service
         <Subnet name="<subnet-name>"/> 
        </Subnets> 
      </InstanceAddress> 
+   </AddressAssignments>
 ```
 ### 2) Remove the old plugins
 
@@ -90,19 +71,19 @@ The following sizes are deprecated in Azure Resource Manager. However, if you wa
 
 | Previous size name | Updated size name | 
 |---|---|
-| ExtraSmall | Standard_A0 | 
-| Small | Standard_A1 |
-| Medium | Standard_A2 | 
-| Large | Standard_A3 | 
-| ExtraLarge | Standard_A4 | 
-| A5 | Standard_A5 | 
-| A6 | Standard_A6 | 
-| A7 | Standard_A7 |  
-| A8 | Standard_A8 | 
-| A9 | Standard_A9 |
-| A10 | Standard_A10 | 
-| A11 | Standard_A11 | 
-| MSODSG5 | Standard_MSODSG5 | 
+| ExtraSmall | Standard_A1_v2 | 
+| Small | Standard_A1_v2 |
+| Medium | Standard_A2_v2 | 
+| Large | Standard_A4_v2 | 
+| ExtraLarge | Standard_A8_v2 | 
+| A5 | Standard_A2m_v2 | 
+| A6 | Standard_A4m_v2 | 
+| A7 | Standard_A8m_v2 |  
+| A8 | Deprecated | 
+| A9 | Deprecated |
+| A10 | Deprecated | 
+| A11 | Deprecated | 
+| MSODSG5 | Deprecated | 
 
  For example, `<WorkerRole name="WorkerRole1" vmsize="Medium"` would become `<WorkerRole name="WorkerRole1" vmsize="Standard_A2"`.
  
@@ -126,6 +107,9 @@ Deployments that utilized the old diagnostics plugins need the settings removed 
 ```xml
 <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
+## Access Control
+
+The subscription containing networking resources needs to have [network contributor](../role-based-access-control/built-in-roles.md#network-contributor) access or above for Cloud Services (extended support). For more details on please refer to [RBAC built in roles](../role-based-access-control/built-in-roles.md)
 
 ## Key Vault creation 
 
@@ -134,5 +118,5 @@ Key Vault is used to store certificates that are associated to Cloud Services (e
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Visit the [Cloud Services (extended support) samples repository](https://github.com/Azure-Samples/cloud-services-extended-support)

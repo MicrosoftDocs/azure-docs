@@ -29,7 +29,7 @@ This hybrid access tutorial demonstrates how to migrate an on-premises web appli
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Maverics Identity Orchestrator SAML Connector SSO-enabled subscription. To get the Maverics software, contact [Strata sales](mailto:sales@strata.io).
-* At least one application that uses header-based authentication. The examples work against an application called Sonar, which is hosted at https://app.sonarsystems.com, and an application called Connectulum, hosted at https://app.connectulum.com.
+* At least one application that uses header-based authentication. The examples work against an application called Connectulum, hosted at `https://app.connectulum.com`.
 * A Linux machine to host the Maverics Orchestrator
   * OS: RHEL 7.7 or higher, CentOS 7+
   * Disk: >= 10 GB
@@ -101,7 +101,7 @@ tls:
     keyFile: /etc/maverics/maverics.key
 ```
 
-To confirm that TLS is configured as expected, restart the Maverics service, and make a request to the status endpoint. From your browser, request https://sonar.maverics.com/status.
+To confirm that TLS is configured as expected, restart the Maverics service, and make a request to the status endpoint.
 
 ## Step 2: Proxy an application
 
@@ -125,7 +125,7 @@ appgateways:
     upstream: https://app.sonarsystems.com
 ```
 
-To confirm that proxying is working as expected, restart the Maverics service, and make a request to the application through the Maverics proxy. From your browser, request https://sonar.maverics.com. You can optionally make a request to specific application resources, for example, `https://sonar.maverics.com/RESOURCE`, where `RESOURCE` is a valid application resource of the protected upstream app.
+To confirm that proxying is working as expected, restart the Maverics service, and make a request to the application through the Maverics proxy. You can optionally make a request to specific application resources.
 
 ## Step 3: Register an enterprise application in Azure AD
 
@@ -319,7 +319,7 @@ connectors:
 
 You might have noticed that the code adds a `host` field to your App Gateway definitions. The `host` field enables the Maverics Orchestrator to distinguish which upstream host to proxy traffic to.
 
-To confirm that the newly added App Gateway is working as expected, make a request to https://connectulum.maverics.com.
+To confirm that the newly added App Gateway is working as expected, make a request to `https://connectulum.maverics.com`.
 
 ## Advanced scenarios
 

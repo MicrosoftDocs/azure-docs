@@ -1,11 +1,10 @@
 ---
 title: Advanced filtering - Azure Event Grid IoT Edge | Microsoft Docs 
 description: Advanced filtering in Event Grid on IoT Edge.
-author: HiteshMadan
 manager: rajarv
-ms.author: himad
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ---
 

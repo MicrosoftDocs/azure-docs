@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 # Deploy an Amazon Web Services VM with a runbook
 
-In this article, you learn how you can leverage Azure Automation to provision a virtual machine in your Amazon Web Service (AWS) subscription and give that VM a specific name – which AWS refers to as “tagging” the VM.
+In this article, you learn how you can leverage Azure Automation to provision a virtual machine in your Amazon Web Service (AWS) subscription and give that VM a specific name - which AWS refers to as “tagging” the VM.
 
 ## Prerequisites
 

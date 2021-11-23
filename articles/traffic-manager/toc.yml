@@ -48,7 +48,7 @@
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
   - name: Nested Traffic Manager profiles
     href: traffic-manager-nested-profiles.md
   - name: Endpoint types
@@ -117,8 +117,6 @@
     href: /cli/azure/network/traffic-manager
   - name: Java
     href: /java/api/com.microsoft.azure.management.trafficmanager
-  - name: Node.js
-    href: https://azure.github.io/azure-sdk-for-node/azure-arm-trafficmanager/latest/
   - name: Ruby
     href: https://www.rubydoc.info/gems/azure_mgmt_traffic_manager
   - name: Python

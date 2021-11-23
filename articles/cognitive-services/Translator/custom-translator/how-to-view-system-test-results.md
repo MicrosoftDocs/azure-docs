@@ -106,4 +106,3 @@ To update deployment settings:
 
 - Start using your deployed custom translation model via [Microsoft Translator Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
-- Learn [how to migrate your workspace and project](how-to-migrate.md) from [Microsoft Translator Hub](https://hub.microsofttranslator.com)

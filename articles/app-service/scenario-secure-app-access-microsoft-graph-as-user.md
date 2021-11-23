@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -50,28 +50,81 @@ Select **Delegated permissions**, and then select **User.Read** from the list. S
 
 ## Configure App Service to return a usable access token
 
-The web app now has the required permissions to access Microsoft Graph as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing Microsoft Graph. For this step, you need the client/app ID of the downstream service (Microsoft Graph). The app ID for Microsoft Graph is *00000003-0000-0000-c000-000000000000*.
+The web app now has the required permissions to access Microsoft Graph as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing Microsoft Graph. For this step, you need to add the User.Read scope for the downstream service (Microsoft Graph): `https://graph.microsoft.com/User.Read`.
 
 > [!IMPORTANT]
 > If you don't configure App Service to return a usable access token, you receive a ```CompactToken parsing failed with error code: 80049217``` error when you call Microsoft Graph APIs in your code.
 
-Go to [Azure Resource Explorer](https://resources.azure.com/) and using the resource tree, locate your web app. The resource URL should be similar to `https://resources.azure.com/subscriptions/subscription-id/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
+# [Azure Resource Explorer](#tab/azure-resource-explorer)
+Go to [Azure Resource Explorer](https://resources.azure.com/) and using the resource tree, locate your web app. The resource URL should be similar to `https://resources.azure.com/subscriptions/subscriptionId/resourceGroups/SecureWebApp/providers/Microsoft.Web/sites/SecureWebApp20200915115914`.
 
 The Azure Resource Explorer is now opened with your web app selected in the resource tree. At the top of the page, select **Read/Write** to enable editing of your Azure resources.
 
-In the left browser, drill down to **config** > **authsettings**.
+In the left browser, drill down to **config** > **authsettingsV2**.
 
-In the **authsettings** view, select **Edit**. Set ```additionalLoginParams``` to the following JSON string by using the client ID you copied.
+In the **authsettingsV2** view, select **Edit**. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
 
 ```json
-"additionalLoginParams": ["response_type=code id_token","resource=00000003-0000-0000-c000-000000000000"],
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
+        ]
+      }
+    }
+  }
+},
 ```
 
 Save your settings by selecting **PUT**. This setting can take several minutes to take effect. Your web app is now configured to access Microsoft Graph with a proper access token. If you don't, Microsoft Graph returns an error saying that the format of the compact token is incorrect.
 
-## Call Microsoft Graph (.NET)
+# [Azure CLI](#tab/azure-cli)
 
-Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters. Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
+Use the Azure CLI to call the App Service Web App REST APIs to [get](/rest/api/appservice/web-apps/get-auth-settings) and [update](/rest/api/appservice/web-apps/update-auth-settings) the auth configuration settings so your web app can call Microsoft Graph. Open a command window and login to Azure CLI:
+
+```azurecli
+az login
+```
+
+Get your existing 'config/authsettingsv2’ settings and save to a local *authsettings.json* file.
+
+```azurecli
+az rest --method GET --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2/list?api-version=2020-06-01' > authsettings.json
+```
+
+Open the authsettings.json file using your preferred text editor. Find the **login** section of **identityProviders** -> **azureActiveDirectory** and add the following **loginParameters** settings: `"loginParameters":[ "response_type=code id_token","scope=openid offline_access profile https://graph.microsoft.com/User.Read" ]` .
+
+```json
+"identityProviders": {
+    "azureActiveDirectory": {
+      "enabled": true,
+      "login": {
+        "loginParameters":[
+          "response_type=code id_token",
+          "scope=openid offline_access profile https://graph.microsoft.com/User.Read"
+        ]
+      }
+    }
+  }
+},
+```
+
+Save your changes to the *authsettings.json* file and upload the local settings to your web app:
+
+```azurecli
+az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.Web/sites/{WEBAPP_NAME}/config/authsettingsv2?api-version=2020-06-01' --body @./authsettings.json
+```
+---
+
+## Call Microsoft Graph
+
+Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
+
+# [C#](#tab/programming-language-csharp)
+Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
@@ -84,7 +137,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
-# [Command line](#tab/command-line)
+#### .NET Core command line
 
 Open a command line, and switch to the directory that contains your project file.
 
@@ -96,7 +149,7 @@ dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 dotnet add package Microsoft.Identity.Web
 ```
 
-# [Package Manager](#tab/package-manager)
+#### Package Manager Console
 
 Open the project/solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
 
@@ -106,8 +159,6 @@ Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```
-
----
 
 ### Startup.cs
 
@@ -220,6 +271,54 @@ public class IndexModel : PageModel
     }
 }
 ```
+
+# [Node.js](#tab/programming-language-nodejs)
+
+The web app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the `/me` endpoint.
+
+To see this code as part of a sample application, see *graphController.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
+```nodejs
+const graphHelper = require('../utils/graphHelper');
+
+// Some code omitted for brevity.
+
+exports.getProfilePage = async(req, res, next) => {
+
+    try {
+        const graphClient = graphHelper.getAuthenticatedClient(req.session.protectedResources["graphAPI"].accessToken);
+
+        const profile = await graphClient
+            .api('/me')
+            .get();
+
+        res.render('profile', { isAuthenticated: req.session.isAuthenticated, profile: profile, appServiceName: appServiceName });   
+    } catch (error) {
+        next(error);
+    }
+}
+```
+
+To query Microsoft Graph, use the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript). The code for this is located in [utils/graphHelper.js](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/utils/graphHelper.js):
+
+```nodejs
+const graph = require('@microsoft/microsoft-graph-client');
+
+// Some code omitted for brevity.
+
+getAuthenticatedClient = (accessToken) => {
+    // Initialize Graph client
+    const client = graph.Client.init({
+        // Use the provided access token to authenticate requests
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+```
+---
 
 ## Clean up resources
 

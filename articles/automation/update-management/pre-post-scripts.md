@@ -3,13 +3,14 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
-ms.topic: conceptual
+ms.date: 09/16/2021
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage pre-scripts and post-scripts
 
-Pre-scripts and post-scripts are runbooks to run in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre-scripts and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. Post-scripts run at the end of the deployment and after any reboots that are configured.
+Pre-scripts and post-scripts are runbooks to run in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre-scripts and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. On Windows, post-scripts run at the end of the deployment and after any reboots that are configured. For Linux, post-scripts run after the end of the deployment, not after the machine reboots. 
 
 ## Pre-script and post-script requirements
 
@@ -39,21 +40,57 @@ In addition to your standard runbook parameters, the `SoftwareUpdateConfiguratio
 
 ### SoftwareUpdateConfigurationRunContext properties
 
-|Property  |Description  |
-|---------|---------|
-|SoftwareUpdateConfigurationName     | The name of the software update configuration.        |
-|SoftwareUpdateConfigurationRunId     | The unique ID for the run.        |
-|SoftwareUpdateConfigurationSettings     | A collection of properties related to the software update configuration.         |
-|SoftwareUpdateConfigurationSettings.operatingSystem     | The operating systems targeted for the update deployment.         |
-|SoftwareUpdateConfigurationSettings.duration     | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601; also called the maintenance window.          |
-|SoftwareUpdateConfigurationSettings.Windows     | A collection of properties related to Windows computers.         |
-|SoftwareUpdateConfigurationSettings.Windows.excludedKbNumbers     | A list of KBs that are excluded from the update deployment.        |
-|SoftwareUpdateConfigurationSettings.Windows.includedUpdateClassifications     | Update classifications selected for the update deployment.        |
-|SoftwareUpdateConfigurationSettings.Windows.rebootSetting     | Reboot settings for the update deployment.        |
-|azureVirtualMachines     | A list of resourceIds for the Azure VMs in the update deployment.        |
-|nonAzureComputerNames|A list of the non-Azure computers FQDNs in the update deployment.|
+|Property  |Type |Description  |
+|---------|---------|---------|
+|SoftwareUpdateConfigurationName     |String | The name of the software update configuration.        |
+|SoftwareUpdateConfigurationRunId     |GUID | The unique ID for the run.        |
+|SoftwareUpdateConfigurationSettings     || A collection of properties related to the software update configuration.         |
+|SoftwareUpdateConfigurationSettings.OperatingSystem     |Int | The operating systems targeted for the update deployment. `1` = Windows and `2` = Linux        |
+|SoftwareUpdateConfigurationSettings.Duration     |Timespan (HH:MM:SS) | The maximum duration of the update deployment run as `PT[n]H[n]M[n]S` as per ISO8601; also called the maintenance window.<br> Example: 02:00:00         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration     || A collection of properties related to Windows computers.         |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.excludedKbNumbers     |String | A space separated list of KBs that are excluded from the update deployment.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.includedKbNumbers     |String | A space separated list of KBs that are included with the update deployment.        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.UpdateCategories     |Integer | 1 = "Critical";<br> 2 = "Security"<br> 4 = "UpdateRollUp"<br> 8 = "FeaturePack"<br> 16 = "ServicePack"<br> 32 = "Definition"<br> 64 = "Tools"<br> 128 = "Updates"        |
+|SoftwareUpdateConfigurationSettings.WindowsConfiguration.rebootSetting     |String | Reboot settings for the update deployment. Values are `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration     || A collection of properties related to Linux computers.         |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageClassifications |Integer |0 = "Unclassified"<br> 1 = "Critical"<br> 2 = "Security"<br> 4 = "Other"|
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.IncludedPackageNameMasks |String | A space separated list of package names that are included with the update deployment. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.ExcludedPackageNameMasks |String |A space separated list of package names that are excluded from the update deployment. |
+|SoftwareUpdateConfigurationSettings.LinuxConfiguration.RebootSetting |String |Reboot settings for the update deployment. Values are `IfRequired`, `Never`, `Always`      |
+|SoftwareUpdateConfiguationSettings.AzureVirtualMachines     |String array | A list of resourceIds for the Azure VMs in the update deployment.        |
+|SoftwareUpdateConfigurationSettings.NonAzureComputerNames|String array |A list of the non-Azure computers FQDNs in the update deployment.|
 
-The following example is a JSON string passed in to the **SoftwareUpdateConfigurationRunContext** parameter:
+The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Linux computer:
+
+```json
+"SoftwareUpdateConfigurationSettings": {
+     "OperatingSystem": 2,
+     "WindowsConfiguration": null,
+     "LinuxConfiguration": {
+         "IncludedPackageClassifications": 7,
+         "ExcludedPackageNameMasks": "fgh xyz",
+         "IncludedPackageNameMasks": "abc bin*",
+         "RebootSetting": "IfRequired"
+     },
+     "Targets": {
+         "azureQueries": null,
+         "nonAzureQueries": ""
+     },
+     "NonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+     ],
+     "AzureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Compute/virtualMachines/vm-01"
+     ],
+     "Duration": "02:00:00",
+     "PSComputerName": "localhost",
+     "PSShowComputerName": true,
+     "PSSourceJobInstanceId": "2477a37b-5262-4f4f-b636-3a70152901e9"
+ }
+```
+
+The following example is a JSON string passed to the **SoftwareUpdateConfigurationSettings** properties for a Windows computer:
 
 ```json
 "SoftwareUpdateConfigurationRunContext": {
@@ -61,7 +98,7 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
     "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
     "SoftwareUpdateConfigurationSettings": {
       "operatingSystem": "Windows",
-      "duration": "PT2H0M",
+      "duration": "02:00:00",
       "windows": {
         "excludedKbNumbers": [
           "168934",
@@ -71,9 +108,9 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
         "rebootSetting": "IfRequired"
       },
       "azureVirtualMachines": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/vm-03"
       ],
       "nonAzureComputerNames": [
         "box1.contoso.com",
@@ -139,21 +176,21 @@ Pre-scripts and post-scripts run as runbooks in your Automation account and not 
 
 Pre-tasks and post-tasks run as runbooks and don't natively run on your Azure VMs in your deployment. To interact with your Azure VMs, you must have the following items:
 
-* A Run As account
+* A [managed identity](../automation-security-overview.md#managed-identities) or a Run As account
 * A runbook you want to run
 
-To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management – run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
+To interact with Azure machines, you should use the [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand) cmdlet to interact with your Azure VMs. For an example of how to do this, see the runbook example [Update Management - run script with Run command](https://github.com/azureautomation/update-management-run-script-with-run-command).
 
 ### Interact with non-Azure machines
 
 Pre-tasks and post-tasks run in the Azure context and don't have access to non-Azure machines. To interact with the non-Azure machines, you must have the following items:
 
-* A Run As account
+* A [managed identity](../automation-security-overview.md#managed-identities) or a Run As account
 * Hybrid Runbook Worker installed on the machine
 * A runbook you want to run locally
 * A parent runbook
 
-To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. You must specify the `RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. See the runbook example [Update Management – run script locally](https://github.com/azureautomation/update-management-run-script-locally).
+To interact with non-Azure machines, a parent runbook is run in the Azure context. This runbook calls a child runbook with the [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) cmdlet. You must specify the `RunOn` parameter and provide the name of the Hybrid Runbook Worker for the script to run on. See the runbook example [Update Management - run script locally](https://github.com/azureautomation/update-management-run-script-locally).
 
 ## Abort patch deployment
 
@@ -200,7 +237,7 @@ The samples are all based on the basic template that's defined in the following 
 
 .DESCRIPTION
   This script is intended to be run as a part of Update Management pre/post-scripts.
-  It requires a RunAs account.
+  It requires the Automation account's system-assigned managed identity.
 
 .PARAMETER SoftwareUpdateConfigurationRunContext
   This is a system variable which is automatically passed in by Update Management during a deployment.
@@ -209,21 +246,20 @@ The samples are all based on the basic template that's defined in the following 
 param(
     [string]$SoftwareUpdateConfigurationRunContext
 )
+
 #region BoilerplateAuthentication
-#This requires a RunAs account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
 
-Add-AzAccount `
-    -ServicePrincipal `
-    -TenantId $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
-$AzureContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 #endregion BoilerplateAuthentication
 
 #If you wish to use the run context, it must be converted from JSON
-$context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext
+$context = ConvertFrom-Json $SoftwareUpdateConfigurationRunContext
 #Access the properties of the SoftwareUpdateConfigurationRunContext
 $vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId
@@ -233,9 +269,9 @@ Write-Output $context
 #Example: How to create and write to a variable using the pre-script:
 <#
 #Create variable named after this run so it can be retrieved
-New-AzAutomationVariable -ResourceGroupName $ResourceGroup –AutomationAccountName $AutomationAccount –Name $runId -Value "" –Encrypted $false
+New-AzAutomationVariable -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccount -Name $runId -Value "" -Encrypted $false
 #Set value of variable
-Set-AutomationVariable –Name $runId -Value $vmIds
+Set-AutomationVariable -Name $runId -Value $vmIds
 #>
 
 #Example: How to retrieve information from a variable set during the pre-script
@@ -243,6 +279,11 @@ Set-AutomationVariable –Name $runId -Value $vmIds
 $variable = Get-AutomationVariable -Name $runId
 #>
 ```
+
+If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+1. From line 22, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
+1. Enter the Client ID.
 
 > [!NOTE]
 > For non-graphical PowerShell runbooks, `Add-AzAccount` and `Add-AzureRMAccount` are aliases for [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). You can use these cmdlets or you can [update your modules](../automation-update-azure-modules.md) in your Automation account to the latest versions. You might need to update your modules even if you have just created a new Automation account.

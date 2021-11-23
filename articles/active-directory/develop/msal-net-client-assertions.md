@@ -52,6 +52,12 @@ string signedClientAssertion = ComputeAssertion();
 app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .WithClientAssertion(() => { return GetSignedClientAssertion(); } )
                                           .Build();
+                                          
+// or in async manner
+
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientAssertion(async cancellationToken => { return await GetClientAssertionAsync(cancellationToken); })
+                                          .Build();
 ```
 
 The [claims expected by Azure AD](active-directory-certificate-credentials.md) in the signed assertion are:
@@ -127,11 +133,11 @@ string GetSignedClientAssertion()
     var header = new Dictionary<string, string>()
          {
               { "alg", "RS256"},
-              { "kid", Encode(Certificate.GetCertHash()) }
+              { "kid", Encode(certificate.GetCertHash()) }
          };
 
     //Please see the previous code snippet on how to craft claims for the GetClaims() method
-    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
+    string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims()).ToString()));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
     string signedClientAssertion = string.Concat(token, ".", signature);

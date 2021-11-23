@@ -128,7 +128,9 @@ The most common reason for the ObjectTypeMismatch error is two objects of differ
 #### Description
 Azure Active Directory schema does not allow two or more objects to have the same value of the following attributes. That is each object in Azure AD is forced to have a unique value of these attributes at a given instance.
 
+* Mail
 * ProxyAddresses
+* SignInName
 * UserPrincipalName
 
 If Azure AD Connect attempts to add a new object or update an existing object with a value for the above attributes that is already assigned to another object in Azure Active Directory, the operation results in the "AttributeValueMustBeUnique" sync error.
@@ -179,28 +181,14 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 #### Related Articles
 * [Prepare to provision users through directory synchronization to Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
-### FederatedDomainChangeError
-#### Description
-This case results in a **"FederatedDomainChangeError"** sync error when the suffix of a user's UserPrincipalName is changed from one federated domain to another federated domain.
+## Deletion access violation and Password access violation errors
 
-#### Scenarios
-For a synchronized user, the UserPrincipalName suffix was changed from one federated domain to another federated domain on premises. For example, *UserPrincipalName = bob\@contoso.com* was changed to *UserPrincipalName = bob\@fabrikam.com*.
+Azure Active Directory protects cloud only objects from being updated through Azure AD Connect. While it is not possible to update these objects through Azure AD Connect, calls can be made directly to the AADConnect cloud side backend to attempt to change cloud only objects. When doing so, the following errors can be returned:
 
-#### Example
-1. Bob Smith, an account for Contoso.com, gets added as a new user in Active Directory with the UserPrincipalName bob@contoso.com
-2. Bob moves to a different division of Contoso.com called Fabrikam.com and their UserPrincipalName is changed to bob@fabrikam.com
-3. Both contoso.com and fabrikam.com domains are federated domains with Azure Active Directory.
-4. Bob's userPrincipalName does not get updated and results in a "FederatedDomainChangeError" sync error.
-
-#### How to fix
-If a user's UserPrincipalName suffix was updated from bob@**contoso.com** to bob\@**fabrikam.com**, where both **contoso.com** and **fabrikam.com** are **federated domains**, then follow these steps to fix the sync error
-
-1. Update the user's UserPrincipalName in Azure AD from bob@contoso.com to bob@contoso.onmicrosoft.com. You can use the following PowerShell command with the Azure AD PowerShell Module:
-   `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
-2. Allow the next sync cycle to attempt synchronization. This time synchronization will be successful and it will update the UserPrincipalName of Bob to bob@fabrikam.com as expected.
-
-#### Related Articles
-* [Changes aren't synced by the Azure Active Directory Sync tool after you change the UPN of a user account to use a different federated domain](./howto-troubleshoot-upn-changes.md)
+* This synchronization operation, Delete, is not valid. Contact Technical Support.
+* Unable to process this update as one or more cloud only users credential update is included in current request.
+* Deleting a cloud only object is not supported. Please contact Microsoft Customer Support.
+* The password change request cannot be executed since it contains changes to one or more cloud only user objects, which is not supported. Please contact Microsoft Customer Support.
 
 ## LargeObject
 ### Description

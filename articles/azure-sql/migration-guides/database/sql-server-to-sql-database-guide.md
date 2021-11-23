@@ -1,5 +1,5 @@
 ---
-title: "SQL Server to SQL Database: Migration guide"
+title: "SQL Server to Azure SQL Database: Migration guide"
 description: Follow this guide to migrate your SQL Server databases to Azure SQL Database. 
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -8,13 +8,13 @@ ms.devlang:
 ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: MashaMSFT
+ms.reviewer: cawrites
 ms.date: 03/19/2021
 ---
-# Migration guide: SQL Server to SQL Database
+# Migration guide: SQL Server to Azure SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
-This guide helps you migrate your SQL Server instance to Azure SQL Database. 
+In this guide, you learn [how to migrate](https://azure.microsoft.com/migration/migration-journey) your SQL Server instance to Azure SQL Database. 
 
 You can migrate SQL Server running on-premises or on: 
 
@@ -24,22 +24,25 @@ You can migrate SQL Server running on-premises or on:
 - Compute Engine (Google Cloud Platform - GCP)  
 - Cloud SQL for SQL Server (Google Cloud Platform – GCP) 
 
-For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other scenarios, see the [Database Migration Guide](https://datamigration.microsoft.com/).
+For more migration information, see the [migration overview](sql-server-to-sql-database-overview.md). For other migration guides, see [Database Migration](/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Migration process flow":::
 
 ## Prerequisites 
 
-To migrate your SQL Server to Azure SQL Database, make sure you have the following prerequisites: 
+For your [SQL Server migration](https://azure.microsoft.com/migration/sql-server/) to Azure SQL Database, make sure you have: 
 
-- A chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools 
-- [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) installed on a machine that can connect to your source SQL Server
-- A target [Azure SQL Database](../../database/single-database-create-quickstart.md)
+- Chosen [migration method](sql-server-to-sql-database-overview.md#compare-migration-options) and corresponding tools .
+- Installed [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) on a machine that can connect to your source SQL Server.
+- Created a target [Azure SQL Database](../../database/single-database-create-quickstart.md). 
+- Configured connectivity and proper permissions to access both source and target. 
+- Reviewed the database engine features [available in Azure SQL Database](../../database/features-comparison.md). 
+
 
 
 ## Pre-migration
 
-After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your migration. 
+After you've verified that your source environment is supported, start with the pre-migration stage. Discover all of the existing data sources, assess migration feasibility, and identify any blocking issues that might prevent your [Azure cloud migration](https://azure.microsoft.com/migration).
 
 ### Discover
 
@@ -144,7 +147,7 @@ When using migration options that continuously replicate / sync data changes fro
 After you verify that data is same on both the source and the target, you can cutover from the source to the target environment. It is important to plan the cutover process with business / application teams to ensure minimal interruption during cutover does not affect business continuity. 
 
 > [!IMPORTANT]
-> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-azure-sql-online.md#perform-migration-cutover).
+> For details on the specific steps associated with performing a cutover as part of migrations using DMS, see [Performing migration cutover](../../../dms/tutorial-sql-server-to-azure-sql.md).
 
 ## Migration recommendations
 
@@ -192,6 +195,10 @@ To learn more, see [managing Azure SQL Database after migration](../../database/
 
 - For a matrix of the Microsoft and third-party services and tools that are available to assist you with various database and data migration scenarios as well as specialty tasks, see [Service and tools for data migration](../../../dms/dms-tools-matrix.md).
 
+
+- To learn more about [Azure Migrate](https://azure.microsoft.com/services/azure-migrate) see
+   - [Azure Migrate](../../../migrate/migrate-services-overview.md)
+
 - To learn more about SQL Database see:
 	- [An Overview of Azure SQL Database](../../database/sql-database-paas-overview.md)
    - [Azure total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) 
@@ -199,7 +206,8 @@ To learn more, see [managing Azure SQL Database after migration](../../database/
 
 - To learn more about the framework and adoption cycle for Cloud migrations, see
    -  [Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)
-   -  [Best practices for costing and sizing workloads migrate to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Best practices for costing and sizing workloads for migration to Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/migrate-best-practices-costs) 
+   -  [Cloud Migration Resources](https://azure.microsoft.com/migration/resources)
 
 - To assess the Application access layer, see [Data Access Migration Toolkit (Preview)](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit)
 - For details on how to perform Data Access Layer A/B testing see [Database Experimentation Assistant](/sql/dea/database-experimentation-assistant-overview).

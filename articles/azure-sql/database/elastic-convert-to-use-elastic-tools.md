@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang:
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 
 ---
@@ -151,11 +151,11 @@ Once you have completed the setup, you can begin to use the Elastic Database cli
 
 ## Next steps
 
-Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Get the PowerShell scripts from [Azure Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell).
 
-The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+The Elastic database tools client library is available on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
-Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-get-started.md).
+Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-configure-deploy-split-and-merge.md).
 
 ## Additional resources
 
@@ -163,7 +163,7 @@ For information on common data architecture patterns of multi-tenant software-as
 
 ## Questions and feature requests
 
-For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

@@ -13,6 +13,8 @@ ms.custom: mvc
 
 # Quickstart: Create a Windows virtual machine in the Azure portal
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2019. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -25,7 +27,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Type **virtual machines** in the search.
 1. Under **Services**, select **Virtual machines**.
-1. In the **Virtual machines** page, select **Add** then **Virtual machine**. 
+1. In the **Virtual machines** page, select **Create** then **Virtual machine**. 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
     ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the virtual machine](./media/quick-create-portal/project-details.png)
@@ -34,7 +36,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quick-create-portal/instance-details.png)
 
-1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
     ![Screenshot of the Administrator account section where you provide the administrator username and password](./media/quick-create-portal/administrator-account.png)
 
@@ -51,6 +53,8 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. After deployment is complete, select **Go to resource**.
 
     ![Screenshot showing the next step of going to the resource](./media/quick-create-portal/next-steps.png)
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to virtual machine
 

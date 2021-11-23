@@ -4,7 +4,7 @@ description: Explains how to add new users or delete existing users in Azure Act
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
@@ -13,7 +13,7 @@ ms.date: 12/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-#As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Azure AD organization’s user-created groups. 
+#Customer intent: As an Azure AD identity administrator, I want to enforce naming policy on self-service groups, to help me sort and search in my Azure AD organization’s user-created groups. 
 ms.collection: M365-identity-device-management
 ---
 

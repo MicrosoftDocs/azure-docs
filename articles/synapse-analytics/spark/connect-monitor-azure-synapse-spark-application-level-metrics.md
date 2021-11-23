@@ -1,8 +1,8 @@
 ---
-title: Tutorial - Connect and monitor Azure Synapse Spark Application level metrics
+title:  Collect Apache Spark applications metrics using APIs
 description: Tutorial - Learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector.
 services: synapse-analytics 
-author: hrasheed-msft
+author: jejiang
 ms.author: jejiang
 ms.reviewer: jrasnick 
 ms.service: synapse-analytics
@@ -11,20 +11,20 @@ ms.subservice: spark
 ms.date: 01/22/2021
 ---
 
-# Tutorial: Connect and monitor Azure Synapse Spark Application level metrics
+#  Collect Apache Spark applications metrics using APIs
 
 ## Overview
 
-In this tutorial, you will learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Azure Spark application metrics using the Synapse Prometheus connector. 
+In this tutorial, you will learn how to integrate your existing on-premises Prometheus server with Azure Synapse workspace for near real-time Apache Spark application metrics using the Synapse Prometheus connector. 
 
-This tutorial also introduces the Azure Synapse REST metrics APIs. You can fetch Spark application metrics data through the REST APIs to build your own monitoring and diagnosis toolkit or integrate with your monitoring systems.
+This tutorial also introduces the Azure Synapse REST metrics APIs. You can fetch Apache Spark application metrics data through the REST APIs to build your own monitoring and diagnosis toolkit or integrate with your monitoring systems.
 
 ## Use Azure Synapse Prometheus connector for your on-premises Prometheus servers
 
 [Azure Synapse Prometheus connector](https://github.com/microsoft/azure-synapse-spark-metrics) is an open-source project. The Synapse Prometheus connector uses a file-based service discovery method to allow you to:
  - Authenticate to Synapse workspace via an AAD service principal.
  - Fetch workspace Apache Spark applications list. 
- - Pull Spark application metrics through Prometheus file-based configuration. 
+ - Pull Apache Spark application metrics through Prometheus file-based configuration. 
 
 ### 1. Prerequisite
 
@@ -37,7 +37,7 @@ To use the Azure Synapse Prometheus connector in your on-premises Prometheus ser
 #### 2.1 Create a service principal:
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 The result should look like:
@@ -147,7 +147,7 @@ You can use the client credentials flow to get an access token. To access the me
 | grant_type    | True     | Specifies the requested grant type. In a Client Credentials Grant flow, the value must be client_credentials. |
 | client_id     | True     | The application (service principal) ID of the application you registered in Azure portal or Azure CLI.        |
 | client_secret | True     | The secret generated for the application (service principal)                                                  |
-| resource      | True     | Synapse resource uri, should be https://dev.azuresynapse.net                                                  |
+| resource      | True     | Synapse resource uri, should be 'https://dev.azuresynapse.net'                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -171,27 +171,27 @@ Response looks like:
 
 ### 2. List running applications in the Azure Synapse workspace
 
-To get list of spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+To get list of Apache Spark applications for a Synapse workspace, you can follow this document [Monitoring - Get Apache Spark Job List](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
-### 3. Collect spark application metrics with the Prometheus or REST APIs
+### 3. Collect Apache Spark application metrics with the Prometheus or REST APIs
 
 
-#### Collect spark application metrics with the Prometheus API
+#### Collect Apache Spark application metrics with the Prometheus API
 
-Get latest metrics of the specified spark application by Prometheus API
+Get latest metrics of the specified Apache Spark application by Prometheus API
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/metrics/executors/prometheus?format=html
 ```
 
-| Parameter          | Required | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
-| sparkPoolName      | True     | Name of the spark pool.                                                                   |
-| sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application ID                                                                      |
+| Parameter          | Required | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | The workspace development endpoint, for example `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                      |
+| sparkPoolName      | True     | Name of the spark pool.                                                                     |
+| sessionId          | True     | Identifier for the session.                                                                 |
+| sparkApplicationId | True     | Spark Application ID                                                                        |
 
 Sample Request: 
 
@@ -217,19 +217,19 @@ metrics_executor_completedTasks_total{application_id="application_1605509647837_
 
 ```
 
-#### Collect spark application metrics with the REST API
+#### Collect Apache Spark application metrics with the REST API
 
 ```
 GET https://{endpoint}/livyApi/versions/{livyApiVersion}/sparkpools/{sparkPoolName}/sessions/{sessionId}/applications/{sparkApplicationId}/executors
 ```
 
-| Parameter          | Required | Description                                                                               |
-| ------------------ | -------- | ----------------------------------------------------------------------------------------- |
-| endpoint           | True     | The workspace development endpoint, for example https://myworkspace.dev.azuresynapse.net. |
-| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                    |
-| sparkPoolName      | True     | Name of the spark pool.                                                                   |
-| sessionId          | True     | Identifier for the session.                                                               |
-| sparkApplicationId | True     | Spark Application ID                                                                      |
+| Parameter          | Required | Description                                                                                 |
+| ------------------ | -------- | --------------------------------------------------------------------------------------------|
+| endpoint           | True     | The workspace development endpoint, for example `https://myworkspace.dev.azuresynapse.net.` |
+| livyApiVersion     | True     | Valid api-version for the request. Currently, it is 2019-11-01-preview                      |
+| sparkPoolName      | True     | Name of the spark pool.                                                                     |
+| sessionId          | True     | Identifier for the session.                                                                 |
+| sparkApplicationId | True     | Spark Application ID                                                                        |
 
 Sample Request
 
@@ -282,4 +282,4 @@ Status code: 200
 
 ### 4. Build your own diagnosis and monitoring tools
 
-The Prometheus API and the REST APIs provide rich metrics data about the spark application running information.You can collect the application-related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.
+The Prometheus API and the REST APIs provide rich metrics data about the Apache Spark application running information.You can collect the application-related metrics data through the Prometheus API and the REST APIs. And build your own diagnosis and monitoring tools that are more suitable for your needs.

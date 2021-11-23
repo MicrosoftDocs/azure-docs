@@ -1,18 +1,20 @@
 ---
-title: Deploy a self-hosted gateway to Kubernetes | Microsoft Docs
+title: Deploy a self-hosted gateway to Kubernetes
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to Kubernetes
-services: api-management
-author: vladvino
+author: dlepow
 manager: gwallace
 ms.service: api-management
 ms.workload: mobile
 ms.topic: article
-ms.author: apimpm
-ms.date: 04/23/2020
+ms.author: danlep
+ms.date: 05/25/2021
 ---
 # Deploy a self-hosted gateway to Kubernetes
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
+
+> [!NOTE]
+> You can also deploy self-hosted gateway to an [Azure Arc-enabled Kubernetes cluster](how-to-deploy-self-hosted-gateway-azure-arc.md) as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
 ## Prerequisites
 
@@ -34,38 +36,40 @@ This article describes the steps for deploying the self-hosted gateway component
 8. Paste commands to the terminal (or command) window. The first command creates a Kubernetes secret that contains the access token generated in step 4. The second command applies the configuration file downloaded in step 6 to the Kubernetes cluster and expects the file to be in the current directory.
 9. Run the commands to create the necessary Kubernetes objects in the [default namespace](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) and start self-hosted gateway pods from the [container image](https://aka.ms/apim/sputnik/dhub) downloaded from the Microsoft Container Registry.
 10. Run the following command to check if the deployment succeeded. Note that it might take a little time for all the objects to be created and for the pods to initialize.
+
     ```console
     kubectl get deployments
     NAME             READY   UP-TO-DATE   AVAILABLE   AGE
     <gateway-name>   1/1     1            1           18s
     ```
 11. Run the following command to check if the service was successfully created. Note that your service IPs and ports will be different.
+
     ```console
     kubectl get services
     NAME             TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
     <gateway-name>   LoadBalancer   10.99.236.168   <pending>     80:31620/TCP,443:30456/TCP   9m1s
     ```
-12. Go back to the Azure portal and select **Overview**.
-13. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
+1. Go back to the Azure portal and select **Overview**.
+1. Confirm that **Status** shows a green check mark, followed by a node count that matches the number of replicas specified in the YAML file. This status means the deployed self-hosted gateway pods are successfully communicating with the API Management service and have a regular "heartbeat."
 
     ![Gateway status](media/how-to-deploy-self-hosted-gateway-kubernetes/status.png)
 
 > [!TIP]
-> Run the <code>kubectl logs deployment/<gateway-name></code> command to view logs from a randomly selected pod if there's more than one.
-> Run <code>kubectl logs -h</code> for a complete set of command options, such as how to view logs for a specific pod or container.
+> Run the `kubectl logs deployment/<gateway-name>` command to view logs from a randomly selected pod if there's more than one.
+> Run `kubectl logs -h` for a complete set of command options, such as how to view logs for a specific pod or container.
 
 ## Production deployment considerations
 
 ### Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
 
-When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
+When you're automating token refresh, use [this management API operation](/rest/api/apimanagement/2020-12-01/gateway/generate-token) to generate a new token. For information on managing Kubernetes secrets, see the [Kubernetes website](https://kubernetes.io/docs/concepts/configuration/secret).
 
 ### Namespace
 Kubernetes [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) help with dividing a single cluster among multiple teams, projects, or applications. Namespaces provide a scope for resources and names. They can be associated with a resource quota and access control policies.
 
 The Azure portal provides commands to create self-hosted gateway resources in the **default** namespace. This namespace is automatically created, exists in every cluster, and can't be deleted.
-Consider [creating and deploying](https://kubernetesbyexample.com/ns/) a self-hosted gateway into a separate namespace in production.
+Consider [creating and deploying](https://www.kubernetesbyexample.com/) a self-hosted gateway into a separate namespace in production.
 
 ### Number of replicas
 The minimum number of replicas suitable for production is two.
@@ -124,3 +128,4 @@ Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) t
 ## Next steps
 
 * To learn more about the self-hosted gateway, see [Self-hosted gateway overview](self-hosted-gateway-overview.md).
+* Learn [how to deploy API Management self-hosted gateway to Azure Arc-enabled Kubernetes clusters](how-to-deploy-self-hosted-gateway-azure-arc.md).

@@ -50,7 +50,7 @@ In this section, the different steps are listed that you need to perform before 
 ## Step-by-step VM deployment and guest OS considerations
 In this phase, you need to go through the steps deploying the VM(s) to install HANA and eventually optimize the chosen operating system after the installation.
 
-1. Chose the base image out of the Azure gallery. If you want to build your own operating system image for SAP HANA, you need to know all the different packages that are necessary for a successful SAP HANA installation. Otherwise it is recommended using the SUSE and Red Hat images for SAP or SAP HANA out of the Azure image gallery. These images include the packages necessary for a successful HANA installation. Based on your support contract with the operating system provider, you need to choose an image where you bring your own license. Or you choose an OS image that includes support
+1. Chose the base image out of the Azure gallery. If you want to build your own operating system image for SAP HANA, you need to know all the different packages that are necessary for a successful SAP HANA installation. Otherwise it is recommended using the SUSE and Red Hat images for SAP or SAP HANA out of the gallery. These images include the packages necessary for a successful HANA installation. Based on your support contract with the operating system provider, you need to choose an image where you bring your own license. Or you choose an OS image that includes support
 2. If you chose a guest OS image that requires you bringing your own license, you need to register the OS image with your subscription, so, that you can download and apply the latest patches. This step is going to require public internet access. Unless you set up your private instance of, for example, an SMT server in Azure.
 3. Decide the network configuration of the VM. You can read more information in the document [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md). Keep in mind that there are no network throughput quotas you can assign to virtual network cards in Azure. As a result, the only purpose of directing traffic through different vNICs is based on security considerations. We trust you to find a supportable compromise between complexity of traffic routing through multiple vNICs and the requirements enforced by security aspects.
 3. Apply the latest patches to the operating system once the VM is deployed and registered. Registered  either with your own subscription. Or in case you chose an image that includes operating system support the VM should have access to the patches already. 
@@ -89,8 +89,8 @@ For SAP HANA scale-out configurations using direct attached disks of Azure Premi
 
 ## Additional resources for SAP HANA backup
 For information on how to back up SAP HANA databases on Azure VMs, see:
-* [Backup guide for SAP HANA on Azure Virtual Machines](./sap-hana-backup-guide.md)
-* [SAP HANA Azure Backup on file level](./sap-hana-backup-file-level.md)
+* [Backup guide for SAP HANA on Azure Virtual Machines](../../../backup/sap-hana-db-about.md)
+* [SAP HANA Azure Backup on file level](../../../backup/sap-hana-db-about.md)
 
 ## Next steps
 Read the documentation:

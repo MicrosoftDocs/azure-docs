@@ -2,7 +2,7 @@
 title: Work with Azure Desired State Configuration extension version history
 description: This article shares version history information for the Desired State Configuration (DSC) extension in Azure.
 ms.date:  02/17/2021
-keywords:  dsc, powershell, azure, extension
+keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: dsc
 ms.topic: conceptual
@@ -11,6 +11,9 @@ ms.topic: conceptual
 # Work with Azure Desired State Configuration extension version history
 
 The Azure Desired State Configuration (DSC) VM [extension](../virtual-machines/extensions/dsc-overview.md) is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.
+
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 This article provides information about each version of the Azure DSC VM extension, what environments it supports, and comments and remarks on new features or changes.
 
@@ -306,7 +309,7 @@ This article provides information about each version of the Azure DSC VM extensi
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
-  - In extension version 2.14, changes to install WMF RTM were included. While upgrading from extension version 2.13.2.0 to 2.14.0.0, you may notice that some DSC cmdlets fail or your configuration fails with an error – 'No Instance found with given property values'. For more information, see the [DSC release notes](/powershell/scripting/wmf/known-issues/known-issues-dsc). The workarounds for these issues have been added in 2.15 version. 
+  - In extension version 2.14, changes to install WMF RTM were included. While upgrading from extension version 2.13.2.0 to 2.14.0.0, you may notice that some DSC cmdlets fail or your configuration fails with an error - 'No Instance found with given property values'. For more information, see the [DSC release notes](/powershell/scripting/wmf/known-issues/known-issues-dsc). The workarounds for these issues have been added in 2.15 version. 
   - If you already installed version 2.14 and are running into one of the above two issues, you need to perform these steps manually. In an elevated PowerShell session run the following commands:
     - `Remove-Item -Path $env:SystemRoot\system32\Configuration\DSCEngineCache.mof`
     - `mofcomp $env:windir\system32\wbem\DscCoreConfProv.mof`

@@ -13,10 +13,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 
-#As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
+#Customer intent: As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
 ---
 
 # Tutorial: Moderate e-commerce product images with Azure Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 In this tutorial, you'll learn how to use Azure Cognitive Services, including Content Moderator, to classify and moderate product images for an e-commerce scenario. You'll use Computer Vision and Custom Vision to apply tags (labels) to images, and then you'll create a team review, which combines Content Moderator's machine-learning-based technologies with human review teams to provide an intelligent moderation system.
 
@@ -76,7 +78,7 @@ See the following code in the **Main** method, which loops through a list of ima
 
 ## EvaluateAdultRacy method
 
-See the **EvaluateAdultRacy** method in the **Program** class. This method takes an image URL and an array of key-value pairs as parameters. It calls the Content Moderator's Image API (using REST) to get the Adult and Racy scores of the image. If the score for either is greater than 0.4 (the range is between 0 and 1), it sets the corresponding value in the **ReviewTags** array to **True**.
+See the **EvaluateAdultRacy** method in the **Program** class. This method takes an image URL and an array of key-value pairs as parameters. It calls the Content Moderator Image REST API to get the Adult and Racy scores of the image. If the score for either is greater than 0.4 (the range is between 0 and 1), it sets the corresponding value in the **ReviewTags** array to **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 

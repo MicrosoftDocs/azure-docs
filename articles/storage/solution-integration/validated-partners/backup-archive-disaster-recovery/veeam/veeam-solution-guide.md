@@ -5,7 +5,7 @@ description: Provides an overview of factors to consider and steps to follow to 
 
 author: karauten
 ms.author: karauten
-ms.date: 03/15/2021
+ms.date: 05/12/2021
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: partner
@@ -16,7 +16,7 @@ ms.subservice: partner
 This article helps you integrate a Veeam infrastructure with Azure Blob storage. It includes prerequisites, considerations, implementation, and operational guidance. This article addresses using Azure as an offsite backup target and a recovery site if a disaster occurs, which prevents normal operation within your primary site.
 
 > [!NOTE]
-> Veeam also offers a lower recovery time objective (RTO) solution, Veeam replication. This solution lets you have a standby VM that can help you recover more quickly in the event of a disaster in an Azure production environment. Veeam also has dedicated tools to back up Azure and Office 365 resources. These capabilities are outside the scope of this document.
+> Veeam also offers a lower recovery time objective (RTO) solution, Veeam Backup & Replication with support for Azure VMware Solution workloads. This solution lets you have a standby VM that can help you recover more quickly in the event of a disaster in an Azure production environment. Veeam also offers Direct Restore to Microsoft Azure and other dedicated tools to back up Azure and Office 365 resources. These capabilities are outside the scope of this document.
 
 ## Reference architecture
 
@@ -35,7 +35,10 @@ Your existing Veeam deployment can easily integrate with Azure by adding an Azur
 | Azure Blob | v10a | v10a | N/A | 10a<sup>*</sup> |
 | Azure Files | v10a | v10a | N/A | 10a<sup>*</sup> |
 
-<sup>*</sup>Veeam Backup and Replication support REST API only for Azure Data Box. Therefore, Azure Data Box Disk is not supported.
+Veeam has offered support for above Azure features in older versions of their product as well, for optimal experience leveraging the latest product version is strongly recommended.
+
+<sup>*</sup>Veeam Backup and Replication support REST API only for Azure Data Box. Therefore, Azure Data Box Disk is not supported. Please see details for Data Box support [here](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=110).
+
 
 ## Before you begin
 
@@ -83,7 +86,7 @@ Use the following methods to identify the bandwidth headroom that your backups t
 
 ### Choose the right storage options
 
-When you use Azure as a backup target, you'll make use of [Azure Blob storage](../../../../blobs/storage-blobs-introduction.md). Blob storage is Microsoft's object storage solution. Blob storage is optimized for storing massive amounts of unstructured data, which is data that does not adhere to any data model or definition. Additionally, Azure Storage is durable, highly available, secure, and scalable. You can select the right storage for your workload to provide the [level of resiliency](../../../../common/storage-redundancy.md) to meet your internal SLAs. Blob storage is a pay-per-use service. You're [charged monthly](../../../../blobs/storage-blob-storage-tiers.md#pricing-and-billing) for the amount of data stored, accessing that data, and in the case of cool and archive tiers, a minimum required retention period. The resiliency and tiering options applicable to backup data are summarized in the following tables.
+When you use Azure as a backup target, you'll make use of [Azure Blob storage](../../../../blobs/storage-blobs-introduction.md). Blob storage is Microsoft's object storage solution. Blob storage is optimized for storing massive amounts of unstructured data, which is data that does not adhere to any data model or definition. Additionally, Azure Storage is durable, highly available, secure, and scalable. You can select the right storage for your workload to provide the [level of resiliency](../../../../common/storage-redundancy.md) to meet your internal SLAs. Blob storage is a pay-per-use service. You're [charged monthly](../../../../blobs/access-tiers-overview.md#pricing-and-billing) for the amount of data stored, accessing that data, and in the case of cool and archive tiers, a minimum required retention period. The resiliency and tiering options applicable to backup data are summarized in the following tables.
 
 **Blob storage resiliency options:**
 
@@ -110,17 +113,17 @@ With pay-per-use can be daunting to customers who are new to the cloud. While yo
 |Cost factor  |Monthly cost  |
 |---------|---------|
 |100 TB of backup data on cool storage     |$1556.48         |
-|2 TB of new data written per day x 30 days     |$72 in transactions          |
-|Monthly estimated total     |$1628.48         |
+|2 TB of new data written per day x 30 days     |$42 in transactions          |
+|Monthly estimated total     |$1598.48         |
 |---------|---------|
 |One time restore of 5 TB to on-premises over public internet   | $527.26         |
 
 > [!Note]
-> This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Veeam default of 256 kb chunk size for WAN transfers. This example may not be applicable towards your requirements.
+> This estimate was generated in the Azure Pricing Calculator using East US Pay-as-you-go pricing and is based on the Veeam default of 512 kb chunk size for WAN transfers. This example may not be applicable towards your requirements.
 
 ## Implementation guidance
 
-This section provides a brief guide for how to add Azure Storage to an on-premises Veeam deployment. For detailed guidance and planning considerations, see the [Veeam Cloud Connect Backup Guide](https://helpcenter.veeam.com/docs/backup/cloud/cloud_backup.html?ver=100).
+This section provides a brief guide for how to add Azure Storage to an on-premises Veeam deployment. For detailed guidance and planning considerations, we recommend you take a look at the following Veeam Guidance for their [Capacity Tier](https://helpcenter.veeam.com/docs/backup/vsphere/capacity_tier.html?ver=110).
 
 1. Open the Azure portal, and search for **Storage Accounts**. You can also click on the default service icon.
 
@@ -132,11 +135,9 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
     ![Shows storage account settings in the portal](../media/account-create-1.png)
 
-3. Keep the default networking options for now and move on to **Data protection**. Here, you can choose to enable soft delete, which allows you to recover an accidentally deleted backup file within the defined retention period and offers protection against accidental or malicious deletion.
+3. Keep the default networking and data protection options for now. Do **not** enable Soft Delete for Storage Accounts storing Veeam capacity tiers.
 
-    ![Shows the Data Protection settings in the portal.](../media/account-create-2.png)
-
-4. Next, we recommend the default settings from the **Advanced** screen for backup to Azure use cases.
+ 4. Next, we recommend the default settings from the **Advanced** screen for backup to Azure use cases.
 
     ![Shows Advanced settings tab in the portal.](../media/account-create-3.png)
 

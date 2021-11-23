@@ -2,7 +2,8 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 04/23/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Move guidance for virtual machines
@@ -24,11 +25,11 @@ The following scenarios aren't yet supported:
 You can't move a virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md). To move the VM, you must disable encryption.
 
 ```azurecli-interactive
-az vm encryption disable --resource-group demoRG --name myVm1
+az vm encryption disable --resource-group demoRG --name myVm1 --volume-type all
 ```
 
 ```azurepowershell-interactive
-Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1 -VolumeType all
 ```
 
 ## Virtual machines with Marketplace plans
@@ -51,7 +52,7 @@ Virtual machines created from Marketplace resources with plans attached can't be
 
 ## Virtual machines with Azure Backup
 
-To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
+To move virtual machines configured with Azure Backup, you must delete the restore points collections (snapshots) from the vault. Restore points already copied to the vault can be retained and moved.
 
 If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
 
@@ -68,7 +69,7 @@ If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for
    6. After the delete operation is complete, you can move your virtual machine.
 
 3. Move the VM to the target resource group.
-4. Resume the backup.
+4. Reconfigure the backup.
 
 ### PowerShell
 

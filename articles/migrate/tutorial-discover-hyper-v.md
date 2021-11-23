@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/10/2021
+ms.date: 11/12/2021
 ms.custom: mvc
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
 
 # Tutorial: Discover servers running on Hyper-V with Azure Migrate: Discovery and assessment
 
-As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
+As part of your migration journey to Azure, you discover your on-premises inventory and workloads.
 
 This tutorial shows you how to discover on-premises servers on Hyper-V hosts with the Azure Migrate: Discovery and assessment tool, using a lightweight Azure Migrate appliance. You deploy the appliance as a server on Hyper-V host, to continuously discover machine and performance metadata.
 
@@ -38,7 +38,7 @@ Before you start this tutorial, check you have these prerequisites in place.
 --- | ---
 **Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
 **Appliance deployment** | Hyper-V host needs resources to allocate a server for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance, directly or via a proxy.
-**Servers** | Servers can be running any Windows or Linux operating system. 
+**Servers** | Servers can be running any Windows or Linux operating system.
 
 ## Prepare an Azure user account
 
@@ -52,7 +52,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Search box to search for the Azure subscription](./media/tutorial-discover-hyper-v/search-subscription.png)
 
-2. In the **Subscriptions** page, select the subscription in which you want to create a project. 
+2. In the **Subscriptions** page, select the subscription in which you want to create a project.
 3. In the subscription, select **Access control (IAM)** > **Check access**.
 4. In **Check access**, search for the relevant user account.
 5. In **Add a role assignment**, click **Add**.
@@ -87,7 +87,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
 ### Run the script
 
 1. Download the script from the [Microsoft Download Center](https://aka.ms/migrate/script/hyperv). The script is cryptographically signed by Microsoft.
-2. Validate the script integrity using either MD5, or SHA256 hash files. Hashtag values are below. Run this command to generate the hash for the script:
+2. Validate the script integrity using SHA256 hash file. Hashtag value is below. Run this command to generate the hash for the script:
 
     ```powershell
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
@@ -97,16 +97,15 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     ```powershell
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1 SHA256
     ```
-3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command:
+3. After validating the script integrity, run the script on each Hyper-V host with this PowerShell command with elevated permissions:
 
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
-Hash values are:
+Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-MD5 | 0ef418f31915d01f896ac42a80dc414e
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## Set up a project
@@ -134,7 +133,8 @@ Set up a new project.
 Azure Migrate uses a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate. The appliance can be set up by deploying a VHD file that can be downloaded from the project.
 
 > [!NOTE]
-> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/>
+> The option to deploy an appliance using an VHD template isn't supported in Azure Government cloud. [Learn more](./deploy-appliance-script-government.md) on how to deploy an appliance for Azure Government cloud.
 
 This tutorial sets up the appliance on a server running in Hyper-V environment, as follows:
 
@@ -172,13 +172,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  40aa037987771794428b1c6ebee2614b092e6d69ac56d48a2bbc75eeef86c99a
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  91A435962F0DC9C7032DE0288D578171A76CC07563AC543C5E1EB25CD31BB231
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### 3. Create an appliance
 
@@ -289,5 +289,3 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 - [Assess servers on Hyper-V environment](tutorial-assess-hyper-v.md) for migration to Azure VMs.
 - [Review the data](migrate-appliance.md#collected-data---hyper-v) that the appliance collects during discovery.
-
-

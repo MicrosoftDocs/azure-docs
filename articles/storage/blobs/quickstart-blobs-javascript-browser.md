@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage library v12 - JavaScript in a browser"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
-author: mhopkins-msft
+author: normesta
 
-ms.author: mhopkins
+ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
@@ -20,32 +20,29 @@ Azure Blob storage is optimized for storing large amounts of unstructured data. 
 
 Additional resources:
 
-* [API reference documentation](/javascript/api/@azure/storage-blob)
-* [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
-* [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
-* [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+- [API reference documentation](/javascript/api/@azure/storage-blob)
+- [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+- [Package (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+- [Samples](../common/storage-samples-javascript.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## Prerequisites
 
-* [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [An Azure Storage account](../common/storage-account-create.md)
-* [Node.js](https://nodejs.org)
-* [Microsoft Visual Studio Code](https://code.visualstudio.com)
-* A Visual Studio Code extension for browser debugging, such as:
-    * [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
-    * [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
-    * [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
-
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+- [An Azure account with an active subscription](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [An Azure Storage account](../common/storage-account-create.md)
+- [Node.js](https://nodejs.org)
+- [Microsoft Visual Studio Code](https://code.visualstudio.com)
+- A Visual Studio Code extension for browser debugging, such as:
+  - [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+  - [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+  - [Debugger for Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 ## Object model
 
 Blob storage offers three types of resources:
 
-* The storage account
-* A container in the storage account
-* A blob in the container
+- The storage account
+- A container in the storage account
+- A blob in the container
 
 The following diagram shows the relationship between these resources.
 
@@ -53,9 +50,9 @@ The following diagram shows the relationship between these resources.
 
 In this quickstart, you'll use the following JavaScript classes to interact with these resources:
 
-* [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
-* [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
+- [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage resources and blob containers.
+- [ContainerClient](/javascript/api/@azure/storage-blob/containerclient): The `ContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+- [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient): The `BlockBlobClient` class allows you to manipulate Azure Storage blobs.
 
 ## Setting up
 
@@ -73,10 +70,10 @@ The following table describes each CORS setting and explains the values used to 
 
 |Setting  |Value  | Description |
 |---------|---------|---------|
-| **ALLOWED ORIGINS** | **\*** | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
+| **ALLOWED ORIGINS** | * | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
 | **ALLOWED METHODS** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS**, and **PUT** | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
-| **ALLOWED HEADERS** | **\*** | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
-| **EXPOSED HEADERS** | **\*** | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header. |
+| **ALLOWED HEADERS** | * | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
+| **EXPOSED HEADERS** | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header. |
 | **MAX AGE** | **86400** | The maximum amount of time the browser caches the preflight OPTIONS request in seconds. A value of *86400* allows the cache to remain for a full day. |
 
 After you fill in the fields with the values from this table, click the **Save** button.
@@ -91,7 +88,7 @@ The shared access signature (SAS) is used by code running in the browser to auth
 Follow these steps to get the Blob service SAS URL:
 
 1. In the Azure portal, select your storage account.
-2. Navigate to the **Settings** section and select **Shared access signature**.
+2. Navigate to the **Security + networking** section and select **Shared access signature**.
 3. Scroll down and click the **Generate SAS and connection string** button.
 4. Scroll down further and locate the **Blob service SAS URL** field
 5. Click the **Copy to clipboard** button at the far-right end of the **Blob service SAS URL** field.
@@ -149,13 +146,13 @@ Save the file as *index.html* in the *azure-blobs-js-browser* folder.
 
 The example code shows you how to accomplish the following tasks with the Azure Blob storage client library for JavaScript:
 
-* [Declare fields for UI elements](#declare-fields-for-ui-elements)
-* [Add your storage account info](#add-your-storage-account-info)
-* [Create client objects](#create-client-objects)
-* [Create and delete a storage container](#create-and-delete-a-storage-container)
-* [List blobs](#list-blobs)
-* [Upload blobs](#upload-blobs)
-* [Delete blobs](#delete-blobs)
+- [Declare fields for UI elements](#declare-fields-for-ui-elements)
+- [Add your storage account info](#add-your-storage-account-info)
+- [Create client objects](#create-client-objects)
+- [Create and delete a storage container](#create-and-delete-a-storage-container)
+- [List blobs](#list-blobs)
+- [Upload blobs](#upload-blobs)
+- [Delete blobs](#delete-blobs)
 
 You'll run the code after you add all the snippets to the *index.js* file.
 
@@ -304,5 +301,5 @@ For tutorials, samples, quickstarts, and other documentation, visit:
 > [!div class="nextstepaction"]
 > [Azure for JavaScript documentation](/azure/developer/javascript/)
 
-* To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
-* To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).
+- To learn more, see the [Azure Blob storage client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob).
+- To see Blob storage sample apps, continue to [Azure Blob storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples).

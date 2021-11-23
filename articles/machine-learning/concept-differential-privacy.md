@@ -1,27 +1,27 @@
 ---
 title: Differential privacy in machine learning (preview)
 titleSuffix: Azure Machine Learning
-description: Learn what differential privacy is and how you can implement differentially private systems that preserve data privacy.
+description: Learn what differential privacy is and how differentially private systems preserve data privacy. 
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 01/21/2020
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
-ms.custom:  responsible-ml
-#intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.
+ms.custom:  responsible-ml, mktng-kw-nov2021
+#Customer intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.
 ---
 
-# What is differential privacy in machine learning (preview)
+# What is differential privacy in machine learning (preview)?
 
 Learn about differential privacy in machine learning and how it works.
 
-As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
+As the amount of data that an organization collects and uses for analyses increases, so do concerns of privacy and security. Analyses require data. Typically, the more data used to train machine learning models, the more accurate they are. When personal information is used for these analyses, it's especially important that the data remains private throughout its use.
 
 ## How differential privacy works
 
-Differential privacy is a set of systems and practices that help keep the data of individuals safe and private.
+Differential privacy is a set of systems and practices that help keep the data of individuals safe and private. In machine learning solutions, differential privacy may be required for regulatory compliance.
 
 > [!div class="mx-imgBorder"]
 > ![Differential privacy machine learning process](./media/concept-differential-privacy/differential-privacy-machine-learning.jpg)
@@ -32,9 +32,9 @@ In differentially private systems, data is shared through requests called **quer
 
 ## Differential privacy metrics
 
-Differential privacy tries to protect against the possibility that a user can produce an indefinite number of reports to eventually reveal sensitive data. A value known as **epsilon** measures how noisy or private a report is. Epsilon has an inverse relationship to noise or privacy. The lower the epsilon, the more noisy (and private) the data is.
+Differential privacy tries to protect against the possibility that a user can produce an indefinite number of reports to eventually reveal sensitive data. A value known as **epsilon** measures how noisy, or private, a report is. Epsilon has an inverse relationship to noise or privacy. The lower the epsilon, the more noisy (and private) the data is.
 
-Epsilon values are non-negative. Values below 1 provide full plausible deniability. Anything above 1 comes with a higher risk of exposure of the actual data. As you implement differentially private systems, you want to produce reports with epsilon values between 0 and 1.
+Epsilon values are non-negative. Values below 1 provide full plausible deniability. Anything above 1 comes with a higher risk of exposure of the actual data. As you implement machine learning solutions with differential privacy, you want to data with epsilon values between 0 and 1.
 
 Another value directly correlated to epsilon is **delta**. Delta is a measure of the probability that a report is not fully private. The higher the delta, the higher the epsilon. Because these values are correlated, epsilon is used more often.
 
@@ -48,7 +48,7 @@ Although the preservation of privacy should be the goal, there is a tradeoff whe
 
 ## Open-source differential privacy libraries
 
-SmartNoise is an open-source project that contains different components for building global differentially private systems. SmartNoise is made up of the following top-level components:
+SmartNoise is an open-source project that contains components for building machine learning solutions with differential privacy. SmartNoise is made up of the following top-level components:
 
 - SmartNoise Core library
 - SmartNoise SDK library
@@ -76,6 +76,8 @@ The system library provides the following tools and services for working with ta
 
 ## Next steps
 
-[How to build a differentially private system](how-to-differential-privacy.md) in Azure Machine Learning.
+Learn more about differential privacy in machine learning: 
 
-To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).
+ - [How to build a differentially private system](how-to-differential-privacy.md) in Azure Machine Learning.
+
+ - To learn more about the components of SmartNoise, check out the GitHub repositories for [SmartNoise Core](https://github.com/opendifferentialprivacy/smartnoise-core), [SmartNoise SDK](https://github.com/opendifferentialprivacy/smartnoise-sdk), and [SmartNoise samples](https://github.com/opendifferentialprivacy/smartnoise-samples).

@@ -75,10 +75,10 @@ Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3
 - x.x.x.0: Network address
 - x.x.x.1: Reserved by Azure for the default gateway
 - x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
-- x.x.x.255: Network broadcast address
+- x.x.x.255: Network broadcast address for subnets of size /25 and larger. This will be a different address in smaller subnets. 
 
 ### How small and how large can VNets and subnets be?
-The smallest supported IPv4 subnet is /29, and the largest is /8 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
+The smallest supported IPv4 subnet is /29, and the largest is /2 (using CIDR subnet definitions).  IPv6 subnets must be exactly /64 in size.  
 
 ### Can I bring my VLANs to Azure using VNets?
 No. VNets are Layer-3 overlays. Azure does not support any Layer-2 semantics.
@@ -108,10 +108,10 @@ Yes. You can add, remove, expand, or shrink a subnet if there are no VMs or serv
 Yes. You can add, remove, and modify the CIDR blocks used by a VNet.
 
 ### If I am running my services in a VNet, can I connect to the internet?
-Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
+Yes. All services deployed within a VNet can connect outbound to the internet. To learn more about outbound internet connections in Azure, see [Outbound connections](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you want to connect inbound to a resource deployed through Resource Manager, the resource must have a public IP address assigned to it. To learn more about public IP addresses, see [Public IP addresses](./ip-services/virtual-network-public-ip-address.md). Every Azure Cloud Service deployed in Azure has a publicly addressable VIP assigned to it. You define input endpoints for PaaS roles and endpoints for virtual machines to enable these services to accept connections from the internet.
 
 ### Do VNets support IPv6?
-Yes, VNets can be IPv4-only or dual stack (IPv4+IPv6).  For details, see [Overview of IPv6 for Azure Virtual Networks](./ipv6-overview.md).
+Yes, VNets can be IPv4-only or dual stack (IPv4+IPv6).  For details, see [Overview of IPv6 for Azure Virtual Networks](./ip-services/ipv6-overview.md).
 
 ### Can a VNet span regions?
 No. A VNet is limited to a single region. A virtual network does, however, span availability zones. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). You can connect virtual networks in different regions with virtual network peering. For details, see [Virtual network peering overview](virtual-network-peering-overview.md)
@@ -157,7 +157,7 @@ Yes. All network interfaces (NIC) attached to a VM deployed through the Resource
   - **Resource Manager**: A private IP address assigned with the dynamic or static method remains assigned to a virtual machine (Resource Manager) until the resource is deleted. The difference is that you select the address to assign when using static, and Azure chooses when using dynamic. 
   - **Classic**: A private IP address assigned with the dynamic method may change when a virtual machine (classic) VM is restarted after having been in the stopped (deallocated) state. If you need to ensure that the private IP address for a resource deployed through the classic deployment model never changes, assign a private IP address with the static method.
 
-* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses and can be assigned dynamically.
+* **Public:** Optionally assigned to NICs attached to VMs deployed through the Azure Resource Manager deployment model. The address can be assigned with the static or dynamic allocation method. All VMs and Cloud Services role instances deployed through the classic deployment model exist within a cloud service, which is assigned a *dynamic*, public virtual IP (VIP) address. A public *static* IP address, called a [Reserved IP address](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip), can optionally be assigned as a VIP. You can assign public IP addresses to individual VMs or Cloud Services role instances deployed through the classic deployment model. These addresses are called [Instance level public IP (ILPIP)](/previous-versions/azure/virtual-network/virtual-networks-instance-level-public-ip) addresses and can be assigned dynamically.
 
 ### Can I reserve a private IP address for a VM that I will create at a later time?
 No. You cannot reserve a private IP address. If a private IP address is available, it is assigned to a VM or role instance by the DHCP server. The VM may or may not be the one that you want the private IP address assigned to. You can, however, change the private IP address of an already created VM, to any available private IP address.
@@ -166,7 +166,7 @@ No. You cannot reserve a private IP address. If a private IP address is availabl
 It depends. If the VM was deployed through Resource Manager, no, regardless of whether the IP address was assigned with the static or dynamic allocation method. If the VM was deployed through the classic deployment model, dynamic IP addresses can change when a VM is started after having been in the stopped (deallocated) state. The address is released from a VM deployed through either deployment model when the VM is deleted.
 
 ### Can I manually assign IP addresses to NICs within the VM operating system?
-Yes, but it's not recommended unless necessary, such as when assigning multiple IP addresses to a virtual machine. For details, see [Adding multiple IP addresses to a virtual machine](virtual-network-multiple-ip-addresses-portal.md#os-config). If the IP address assigned to an Azure NIC attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
+Yes, but it's not recommended unless necessary, such as when assigning multiple IP addresses to a virtual machine. For details, see [Adding multiple IP addresses to a virtual machine](./ip-services/virtual-network-multiple-ip-addresses-portal.md#os-config). If the IP address assigned to an Azure NIC attached to a VM changes, and the IP address within the VM operating system is different, you lose connectivity to the VM.
 
 ### If I stop a Cloud Service deployment slot or shutdown a VM from within the operating system, what happens to my IP addresses?
 Nothing. The IP addresses (public VIP, public, and private) remain assigned to the cloud service deployment slot or VM.
@@ -189,8 +189,8 @@ Yes. All VMs and Cloud Services role instances deployed within a VNet can connec
 Yes. You can deploy Web Apps inside a VNet using an ASE (App Service Environment), connect the backend of your apps to your VNets with VNet Integration, and lock down inbound traffic to your app with service endpoints. For more information, see the following articles:
 
 * [App Service networking features](../app-service/networking-features.md)
-* [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-* [Integrate your app with an Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Creating Web Apps in an App Service Environment](../app-service/environment/using.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+* [Integrate your app with an Azure Virtual Network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 * [App Service access restrictions](../app-service/app-service-ip-restrictions.md)
 
 ### Can I deploy Cloud Services with web and worker roles (PaaS) in a VNet?
@@ -226,6 +226,18 @@ Yes. For details, see [Azure Network Security Overview](../security/fundamentals
 ### Do Virtual Networks store customer data?
 No. Virtual Networks doesn't store any customer data. 
 
+### Can I set [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) property for an entire subscription? 
+No. This must be set at the virtual network. The following can assist automate setting this property for larger subscriptions:  
+```Powershell
+$Allvnet = Get-AzVirtualNetwork
+$time = 4 #The value should be between 4 and 30 minutes (inclusive) to enable tracking, or null to disable tracking. $null to disable. 
+ForEach ($vnet in $Allvnet)
+{
+    $vnet.FlowTimeoutInMinutes = $time
+    $vnet | Set-AzVirtualNetwork
+}
+```
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
@@ -253,7 +265,7 @@ The following resources can use Basic Load Balancers which means you cannot reac
 - Redis Cache 
 - Application Gateway (v1) SKU
 - Service Fabric
-- API Management
+- API Management (stv1)
 - Active Directory Domain Service (ADDS)
 - Logic Apps
 - HDInsight
@@ -277,7 +289,7 @@ Yes. You can peer VNets across subscriptions and across regions.
 ### Can I peer two VNets with matching or overlapping address ranges?
 No. Address spaces must not overlap to enable VNet Peering.
 
-### Can I peer a VNet to two different VNets with the the 'Use Remote Gateway' option enabled on both the peerings?
+### Can I peer a VNet to two different VNets with the 'Use Remote Gateway' option enabled on both the peerings?
 No. You can only enable the 'Use Remote Gateway' option on one peering to one of the VNets.
 
 ### How much do VNet peering links cost?
@@ -398,7 +410,7 @@ To reach the Azure service, NSGs need to allow outbound connectivity. If your NS
 Service endpoints can be configured on a virtual network independently by a user with write access to the virtual network. To secure Azure service resources to a VNet, the user must have permission **Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action** for the subnets being added. This permission is included in the built-in service administrator role by default and can be modified by creating custom roles. Learn more about built-in roles and assigning specific permissions to [custom roles](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 
-### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? 
+### Can I filter virtual network traffic to Azure services, allowing only specific Azure service resources, over VNet service endpoints? 
 
 Virtual network (VNet) service endpoint policies allow you to filter virtual network traffic to Azure services, allowing only specific Azure service resources over the service endpoints. Endpoint policies provide granular access control from the virtual network traffic to the Azure services. You can learn more about the service endpoint policies [here](virtual-network-service-endpoint-policies-overview.md).
 
@@ -414,15 +426,11 @@ There is no limit on the total number of VNet service endpoints in a virtual net
 |Azure Storage|	100|
 |Azure SQL|	128|
 |Azure Synapse Analytics|	128|
-|Azure KeyVault|	127|
+|Azure KeyVault|	200 |
 |Azure Cosmos DB|	64|
 |Azure Event Hub|	128|
 |Azure Service Bus|	128|
 |Azure Data Lake Store V1|	100|
  
 >[!NOTE]
-> The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details. 
-
-
-
-
+> The limits are subjected to changes at the discretion of the Azure service. Refer to the respective service documentation for services details.

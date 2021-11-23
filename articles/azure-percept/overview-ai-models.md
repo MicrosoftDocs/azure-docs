@@ -1,15 +1,15 @@
 ---
-title: Azure Percept AI models
+title: Azure Percept sample AI models
 description: Learn more about the AI models available for prototyping and deployment
-author: elqu20
-ms.author: v-elqu
+author: tsampige
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
 ---
 
-# Azure Percept AI models
+# Azure Percept sample AI models
 
 Azure Percept enables you to develop and deploy AI models directly to your [Azure Percept DK](./overview-azure-percept-dk.md) from [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). Model deployment utilizes [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/#iotedge-overview).
 

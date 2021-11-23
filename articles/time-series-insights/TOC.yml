@@ -55,6 +55,10 @@
         href: breaking-changes-long-data-type.md
       - name: Changes to JSON flattening and storage
         href: ingestion-rules-update.md
+    - name: Security
+      items:
+      - name: Private network access
+        href: concepts-private-links.md
   - name: Azure Time Series Insights Gen1
     items:
     - name: About Time Series Insights
@@ -89,6 +93,8 @@
     href: ./how-to-monitor-tsi.md
   - name: Manage resources by using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
+  - name: Enable private access for TSI
+    href: how-to-private-links.md
   - name: Azure Time Series Insights Gen2
     items:
     - name: Best practices
@@ -180,7 +186,7 @@
   - name: Monitor data reference
     href: how-to-monitor-tsi-reference.md
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/
+    href: /cli/azure/tsi
 - name: Resources
   items:
   - name: Support and help options
@@ -220,7 +226,7 @@
     - name: MSDN forum
       href: https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights
     - name: Product requests and suggestions
-      href: https://feedback.azure.com/forums/906859-azure-time-series-insights
+      href: https://feedback.azure.com/d365community/forum/873d6d1c-0c25-ec11-b6e6-000d3a4f07b8
   - name: Azure videos
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
   - name: Channel 9 videos

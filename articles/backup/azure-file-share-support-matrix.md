@@ -35,7 +35,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 | Standard                                           | Supported |
 | Large                                              | Supported |
 | Premium                                            | Supported |
-| File shares connected with Azure File sync service | Supported |
+| File shares connected with Azure File Sync service | Supported |
 
 ## Protection limits
 
@@ -51,7 +51,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
 | Maximum  number of on-demand backups per day | 10   |
-| Maximum  number of scheduled backups per day | 1     |
+| Maximum  number of scheduled backups per day | 6    |
 
 ## Restore limits
 

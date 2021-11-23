@@ -8,12 +8,12 @@ metadata:
   description: Learn how to use Event Grid on IoT Edge to react to relevant events generated on edge devices in near-real time fashion. # Required; article description that is displayed in search results. < 160 chars.
   services: event-grid
   ms.service: event-grid #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: 
+  ms.subservice: iot-edge
   ms.topic: landing-page # Required
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/12/2019 #Required; mm/dd/yyyy format.
+  ms.date: 05/10/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

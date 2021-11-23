@@ -7,10 +7,10 @@ ms.author: nibaccam
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to,automl,contperf-fy21q2
-ms.date: 12/18/2020
+ms.subservice: automl
+ms.topic: how-to
+ms.custom: automl,contperf-fy21q2
+ms.date: 10/21/2021
 ---
 
 # Data featurization in automated machine learning
@@ -27,7 +27,11 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an automated ML experiment. For information about configuration, see the following articles:
+This article assumes that you already know how to configure an automated ML experiment. 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
+For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).
@@ -251,16 +255,19 @@ def print_model(model, prefix=""):
     for step in model.steps:
         print(prefix + step[0])
         if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
-            pprint({'estimators': list(
-                e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
             print()
             for estimator in step[1].estimators:
-                print_model(estimator[1], estimator[0] + ' - ')
+                print_model(estimator[1], estimator[0]+ ' - ')
+        elif hasattr(step[1], '_base_learners') and hasattr(step[1], '_meta_learner'):
+            print("\nMeta Learner")
+            pprint(step[1]._meta_learner)
+            print()
+            for estimator in step[1]._base_learners:
+                print_model(estimator[1], estimator[0]+ ' - ')
         else:
             pprint(step[1].get_params())
-            print()
-
-print_model(model)
+            print()   
 ```
 
 This helper function returns the following output for a particular run using `LogisticRegression with RobustScalar` as the specific algorithm.
@@ -317,7 +324,7 @@ In order to invoke BERT, set  `enable_dnn: True` in your automl_settings and use
 
 AutoML takes the following steps for BERT. 
 
-1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
+1. **Preprocessing and tokenization of all text columns**. For example, the "StringCast" transformer can be found in the final model's featurization summary. An example of how to produce the model's featurization summary can be found in [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-text-dnn/auto-ml-classification-text-dnn.ipynb).
 
 2. **Concatenate all text columns into a single text column**, hence the `StringConcatTransformer` in the final model. 
 
@@ -361,4 +368,4 @@ automl_settings = {
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](how-to-auto-train-remote.md).
+* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](concept-automated-ml.md#local-remote).

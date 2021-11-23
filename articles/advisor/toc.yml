@@ -16,11 +16,15 @@
 - name: Concepts
   items:
   - name: Security baseline
-    href: security-baseline.md
+    href: /security/benchmark/azure/baselines/advisor-security-baseline?toc=/azure/advisor/toc.json
 - name: Tutorials
   items:
   - name: Get started with Advisor
     href: advisor-get-started.md
+- name: Samples
+  items:
+  - name: Azure Resource Graph queries
+    href: ./resource-graph-samples.md
 - name: How-to guides
   items:
   - name: Reliability
@@ -49,7 +53,7 @@
     href: azure-advisor-score.md
 - name: Reference
   items:
-  - name: Security Center
+  - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
     href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
@@ -66,7 +70,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/advisor
+    href: https://azure.microsoft.com/pricing/details/advisor/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service updates
@@ -78,4 +82,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=azure+advisor
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=advisor
+    href: /samples/browse/?products=azure

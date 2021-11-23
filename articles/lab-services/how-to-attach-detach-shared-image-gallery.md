@@ -1,7 +1,7 @@
 ---
 title: Attach or detach a shared image gallery in Azure Lab Services | Microsoft Docs
 description: This article describes how to attach a shared image gallery to a classroom lab in Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/11/2020
 ---
 
@@ -83,5 +83,7 @@ Only one shared image gallery can be attached to a lab. If you would like to att
 
 ## Next steps
 To learn about how to save a lab image to the shared image gallery or use an image from the shared image gallery to create a VM, see [How to use shared image gallery](how-to-use-shared-image-gallery.md).
+
+To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
 For more information about shared image galleries in general, see [shared image gallery](../virtual-machines/shared-image-galleries.md).

@@ -20,7 +20,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Key Vault Managed HSM (preview)
+  - title: About Azure Key Vault Managed HSM
     linkLists:
       - linkListType: overview
         links:
@@ -92,8 +92,8 @@ landingContent:
             url: ../general/overview.md
           - text: Basic concepts
             url: ../general/basic-concepts.md
-          - text: Security overview
-            url: ../general/security-overview.md
+          - text: Security features
+            url: ../general/security-features.md
           - text: Soft-delete overview
             url: ../general/soft-delete-overview.md
 

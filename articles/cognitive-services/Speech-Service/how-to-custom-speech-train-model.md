@@ -3,13 +3,14 @@ title: Train and deploy a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model or a for custom model.
 services: cognitive-services
-author: trevorbye
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: trbye
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
 # Train and deploy a Custom Speech model
@@ -22,8 +23,8 @@ If you're encountering recognition problems with a base model, you can use human
 
 | Use case | Data type |
 | -------- | --------- |
-| Improve recognition accuracy on industry-specific vocabulary and grammar, like medical terminology or IT jargon | Related text (sentences/utterances) |
-| Define the phonetic and displayed form of a word or term that has nonstandard pronunciation, like product names or acronyms | Related text (pronunciation) |
+| Improve recognition accuracy on industry-specific vocabulary and grammar, like medical terminology or IT jargon | Plain text or structured text data |
+| Define the phonetic and displayed form of a word or term that has nonstandard pronunciation, like product names or acronyms | Pronunciation data or phonetic pronunciation in structured text |
 | Improve recognition accuracy on speaking styles, accents, or specific background noises | Audio + human-labeled transcripts |
 
 ## Train and evaluate a model
@@ -56,7 +57,7 @@ The **Training** table displays a new entry that corresponds to the new model. T
 See the [how-to](how-to-custom-speech-evaluate-data.md) on evaluating and improving Custom Speech model accuracy. If you choose to test accuracy, it's important to select an acoustic dataset that's different from the one you used with your model to get a realistic sense of the model's performance.
 
 > [!NOTE]
-> Both base models and custom  models can be used only up to a certain date (see [Model and Endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio shows this date in the **Expiration** column for each model and endpoint. After that date request to an endpoint or to batch transcription  might fail or fall back to base model.
+> Both base models and custom  models can be used only up to a certain date (see [Model and endpoint lifecycle](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Speech Studio shows this date in the **Expiration** column for each model and endpoint. After that date request to an endpoint or to batch transcription  might fail or fall back to base model.
 >
 > Retrain your model using the then most recent base model to benefit from accuracy improvements and to avoid that your model expires.
 

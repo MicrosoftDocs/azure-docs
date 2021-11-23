@@ -5,7 +5,7 @@ description: Provides you with a resolution to errors while calling Azure Active
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
@@ -48,5 +48,5 @@ Please follow the steps in the [Prerequisites to access the Azure Active Directo
 
 ## Next Steps
 
-[Use the audit API reference](/graph/api/resources/directoryaudit?view=graph-rest-beta)
-[Use the sign-in activity report API reference](/graph/api/resources/signin?view=graph-rest-beta)
+[Use the audit API reference](/graph/api/resources/directoryaudit)
+[Use the sign-in activity report API reference](/graph/api/resources/signin)

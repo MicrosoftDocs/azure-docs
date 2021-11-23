@@ -79,10 +79,10 @@ Application settings can be [configured in the App service in Azure](../app-serv
 
 | Application settings | Source | Notes |
 | :-------- | :------------| :-----------|
-|ThreatMetrix: Url | ThreatMetrix account configuration |     |
+|ThreatMetrix:Url | ThreatMetrix account configuration |     |
 |ThreatMetrix:OrgId | ThreatMetrix account configuration |     |
 |ThreatMetrix:ApiKey |ThreatMetrix account configuration|  |
-|ThreatMetrix: Policy | Name of policy created in ThreatMetrix | |
+|ThreatMetrix:Policy | Name of policy created in ThreatMetrix | |
 | BasicAuth:ApiUsername |Define a username for the API| Username will be used in the Azure AD B2C configuration
 | BasicAuth:ApiPassword | Define a password for the API | Password will be used in the Azure AD B2C configuration
 
@@ -117,7 +117,7 @@ In the provided [TrustFrameworkExtensions policy](https://github.com/azure-ad-b2
 
 ### Part 7 - Configure the Azure AD B2C policy
 
-Refer to this [document](./custom-policy-get-started.md?tabs=applications#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
+Refer to this [document](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) to download [Local Accounts starter pack](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/LocalAccounts) and configure the [policy](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/ThreatMetrix/policy) for the Azure AD B2C tenant.
 
 >[!NOTE]
 >Update the provided policies to relate to your specific tenant.
@@ -150,4 +150,4 @@ For additional information, review the following articles:
 
 - [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](./custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

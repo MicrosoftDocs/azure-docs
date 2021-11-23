@@ -2,10 +2,10 @@
 title: 'Azure Front Door Standard/Premium (Preview) Reports'
 description: This article explains how reporting works in Azure Front Door.
 services: frontdoor
-author: duongau
+author: jessie-jyy
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 02/18/2021
+ms.date: 07/07/2021
 ms.author: yuajia
 ---
 
@@ -22,7 +22,7 @@ Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-a
 |---------|---------|
 | Overview of key metrics | Shows overall data that got sent from Azure Front Door edges to clients<br/>- Peak bandwidth<br/>- Requests <br/>- Cache hit ratio<br/> - Total latency<br/>- 5XX error rate |
 | Traffic by Domain | - Provides an overview of all the domains under the profile<br/>- Breakdown of data transferred out from AFD edge to client<br/>- Total requests<br/>- 3XX/4XX/5XX response code by domains |
-| Traffic by Location | - Shows a map view of request and usage by top countries<br/>- Trend view of top countries |
+| Traffic by Location | - Shows a map view of request and usage by top countries/regions<br/>- Trend view of top countries/regions |
 | Usage | - Displays data transfer out from Azure Front Door edge to clients<br/>- Data transfer out from origin to AFD edge<br/>- Bandwidth from AFD edge to clients<br/>- Bandwidth from origin to AFD edge<br/>- Requests<br/>- Total latency<br/>- Request count trend by HTTP status code |
 | Caching | - Shows cache hit ratio by request count<br/>- Trend view of hit and miss requests |
 | Top URL | - Shows request count <br/>- Data transferred <br/>- Cache hit ratio <br/>- Response status code distribution for the most requested 50 assets. |
@@ -32,7 +32,7 @@ Azure Front Door Standard/Premium Analytics Reports provide a built-in and all-a
 | Security reports | Details |
 |---------|---------|
 | Overview of key metrics | - Shows matched WAF rules<br/>- Matched OWASP rules<br/>- Matched BOT rules<br/>- Matched custom rules |
-| Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, country, IP address, URL, and user agent  |
+| Metrics by dimensions | - Breakdown of matched WAF rules trend by action<br/>- Doughnut chart of events by Rule Set Type and event by rule group<br/>- Break down list of top events by rule ID, countries/regions, IP address, URL, and user agent  |
 
 > [!NOTE]
 > Security reports is only available with Azure Front Door Premium SKU.
@@ -79,7 +79,7 @@ Reports support any selected date range from the previous 90 days. With data poi
 
         You can always use Aggregation to change the default aggregation granularity. Note: 5 minutes doesn’t work for data range longer than 14 days. 
 
-    1. **Location** - Select single or multiple client locations by country. Countries are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [region/country mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
+    1. **Location** - Select single or multiple client locations by countries/regions. Countries/regions are grouped into six regions: North America, Asia, Europe, Africa, Oceania, and South America. Refer to [countries/regions mapping](https://en.wikipedia.org/wiki/Subregion). By default, all countries are selected.
     
         :::image type="content" source="../media/how-to-reports/front-door-reports-dimension-locations.png" alt-text="Screenshot of Reports for location dimension.":::
    
@@ -147,15 +147,16 @@ This report shows the trends of traffic and response status code by different di
 
 ## Traffic by Location
 
-This report displays the top 50 locations by the country of the visitors that access your asset the most. The report also provides a breakdown of metrics by country and gives you an overall view of countries where the most traffic gets generated. Lastly you can see which country is having higher cache hit ratio or 4XX/5XX error codes.
+This report displays the top 50 locations by the countries/regions of the visitors that access your asset the most. The report also provides a breakdown of metrics by countries/regions and gives you an overall view of countries/regions
+ where the most traffic gets generated. Lastly you can see which countries/regions is having higher cache hit ratio or 4XX/5XX error codes.
 
 :::image type="content" source="../media/how-to-reports/front-door-reports-by-location.png" alt-text="Screenshot of Reports by locations" lightbox="../media/how-to-reports/front-door-reports-by-location-expanded.png":::
 
 The following are included in the reports:
 
-* A world map view of the top 50 countries by data transferred out or requests of your choice.
-* Two line charts trend view of the top five countries by data transferred out and requests of your choice. 
-* A grid of the top countries with corresponding data transferred out from AFD to clients, data transferred out % of all countries, requests, request % among all countries, cache hit ratio, 4XX response code and 5XX response code.
+* A world map view of the top 50 countries/regions by data transferred out or requests of your choice.
+* Two line charts trend view of the top five countries/regions by data transferred out and requests of your choice. 
+* A grid of the top countries/regions with corresponding data transferred out from AFD to clients, data transferred out % of all countries/regions, requests, request % among all countries/regions, cache hit ratio, 4XX response code and 5XX response code.
 
 ## Caching
 
@@ -254,7 +255,7 @@ This report allows you to have graphical and statistics view of WAF patterns by 
 | Events by Rule Group | Doughnut chart of the WAF requests distribution by Rule Group. |
 | Requests by actions | A table of requests by actions, in descending order. |
 | Requests by top Rule IDs | A table of requests by top 50 rule IDs, in descending order. |
-| Requests by top  countries |  A table of requests by top 50 countries, in descending order. |
+| Requests by top  countries/regions |  A table of requests by top 50 countries/regions, in descending order. |
 | Requests by top client IPs |  A table of requests by top 50 IPs, in descending order. |
 | Requests by top Request URL |  A table of requests by top 50 URLs, in descending order. |
 | Request by top Hostnames | A table of requests by top 50 hostname, in descending order. |
@@ -276,7 +277,7 @@ Every CSV report includes some general information and the information is availa
 | StartDateUTC | The start of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
 | EndDateUTC | The end of the date range for which you generated the report, in Coordinated Universal Time (UTC) |
 | GeneratedTimeUTC | The date and time when you generated the report, in Coordinated Universal Time (UTC) |
-| Location | The list of the countries where the client requests originated. The value is ALL by default. Not applicable to Security report. |
+| Location | The list of the countries/regions where the client requests originated. The value is ALL by default. Not applicable to Security report. |
 | Protocol | The protocol of the request, HTTP, or HTTPs. Not applicable to Top URL and Traffic by User Agent in Reports and Security report. |
 | Aggregation | The granularity of data aggregation in each row, every 5 minutes, every hour, and every day. Not applicable to Traffic by Domain, Top URL, and Traffic by User Agent in Reports and Security report. |
 
@@ -359,7 +360,7 @@ There are seven tables all with the same fields below.
 * CustomRuleRequests 
 * BotRequests 
 
-The seven tables are for time, rule ID, country, IP address, URL, hostname, user agent. 
+The seven tables are for time, rule ID, countries/regions, IP address, URL, hostname, user agent. 
 
 ## Next steps
 

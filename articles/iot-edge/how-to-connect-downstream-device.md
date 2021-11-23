@@ -2,7 +2,7 @@
 title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
 description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -106,7 +106,7 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
-You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pkiclient/import-certificate) as an administrator:
+You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pki/import-certificate) as an administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -139,7 +139,7 @@ Have two things ready before using the application-level samples:
 
 This section provides a sample application to connect an Azure IoT NodeJS device client to an IoT Edge gateway. For NodeJS applications, you must install the root CA certificate at the application level as shown here. NodeJS applications don't use the system's certificate store.
 
-1. Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+1. Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. In the edge_downstream_device.js file, update the **connectionString** and **edge_ca_cert_path** variables.
 4. Refer to the SDK documentation for instructions on how to run the sample on your device.
@@ -190,7 +190,7 @@ On Windows hosts, if you're not using OpenSSL or another TLS library, the SDK de
 
 This section introduces a sample application to connect an Azure IoT Java device client to an IoT Edge gateway.
 
-1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
+1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. Refer to the SDK documentation for instructions on how to run the sample on your device.
 
@@ -198,7 +198,7 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway.
 
-1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-edge-scenarios).
 2. Set the `IOTHUB_DEVICE_CONNECTION_STRING` and `IOTEDGE_ROOT_CA_CERT_PATH` environment variables as specified in the Python script comments.
 3. Refer to the SDK documentation for any additional instructions on how to run the sample on your device.
 

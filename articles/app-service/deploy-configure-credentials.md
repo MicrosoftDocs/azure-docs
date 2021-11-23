@@ -5,7 +5,7 @@ description: Learn what types of deployment credentials are in Azure App Service
 ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -22,7 +22,7 @@ and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as you
 
 # [Azure CLI](#tab/cli)
 
-Run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Replace \<username> and \<password> with a deployment user username and password. 
+Run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az_webapp_deployment_user_set) command. Replace \<username> and \<password> with a deployment user username and password. 
 
 - The username must be unique within Azure, and for local Git pushes, must not contain the ‘@’ symbol. 
 - The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols. 

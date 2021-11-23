@@ -4,10 +4,11 @@ description: Confidential computing nodes on AKS
 services: virtual-machines
 author: agowdamsft
 ms.service: container-service
+ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 2/08/2021
+ms.date: 11/04/2021
 ms.author: amgowda
- 
+ms.custom: ignite-fall-2021
 ---
 
 # Confidential computing nodes on Azure Kubernetes Service
@@ -18,7 +19,7 @@ ms.author: amgowda
 
 Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nodes](confidential-computing-enclaves.md) powered by Intel SGX. These nodes allow you to run sensitive workloads within a hardware-based trusted execution environment (TEE). TEE’s allow user-level code from containers to allocate private regions of memory to execute the code with CPU directly. These private memory regions that execute directly with CPU are called enclaves. Enclaves help protect the data confidentiality, data integrity and code integrity from other processes running on the same nodes. The Intel SGX execution model also removes the intermediate layers of Guest OS, Host OS and Hypervisor thus reducing the attack surface area. The *hardware based per container isolated execution* model in a node allows applications to directly execute with the CPU, while keeping the special block of memory encrypted per container. Confidential computing nodes with confidential containers are a great addition to your zero trust security planning and defense-in-depth container strategy.
 
-![sgx node overview](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
+:::image type="content" source="./media/confidential-nodes-aks-overview/sgx-aks-node.png" alt-text="Graphic of AKS Confidential Compute Node, showing confidential containers with code and data secured inside.":::
 
 ## AKS Confidential Nodes Features
 
@@ -34,7 +35,7 @@ The add-on feature enables extra capability on AKS when running confidential com
 
 #### Azure Device Plugin for Intel SGX <a id="sgx-plugin"></a>
 
-The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as an another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential workload containers. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
+The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential workload containers. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 
 ## Programming models
@@ -48,11 +49,13 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 ## Next Steps
 
-[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-get-started.md)
+[Deploy AKS Cluster with confidential computing nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+[Intel SGX Confidential VM's - DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+
+[Intel SGX Confidential VM's - DCsv3 SKU List](../virtual-machines/dcv3-series.md)
 
 [Defense-in-depth with confidential containers webinar session](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 
@@ -61,4 +64,4 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions-sgx.md

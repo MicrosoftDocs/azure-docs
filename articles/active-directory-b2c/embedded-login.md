@@ -3,20 +3,20 @@ title: Embed Azure Active Directory B2C user interface into your app with a cust
 titleSuffix: Azure AD B2C
 description: Learn how to embed Azure Active Directory B2C user interface into your app with a custom policy
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/21/2021
+ms.date: 08/17/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Embedded sign-in experience
+# Embedded sign-up or sign-in experience
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -28,7 +28,10 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-For a simpler sign-in experience, you can avoid redirecting users to a separate sign-in page or generating a pop-up window. By using the inline frame element `<iframe>`, you can embed the Azure AD B2C sign-in user interface directly into your web application.
+For a simpler sign-up or sign-in experience, you can avoid redirecting users to a separate sign-up or sign-in page, or generating a pop-up window. By using the inline frame &lt;iframe&gt; HTML element, you can embed the Azure AD B2C sign-in user interface directly into your web application. 
+
+> [!TIP]
+> Use the &lt;iframe&gt; HTML element to embed the [sign-up or sign-in](add-sign-up-and-sign-in-policy.md), [edit profile](add-profile-editing-policy.md), or [change password](add-password-change-policy.md) custom policies into your web or single page app.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
@@ -40,12 +43,12 @@ The inline frame element `<iframe>` is used to embed a document in an HTML5 web 
 
 When using iframe, consider the following:
 
-- Embedded sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
-- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on https://app.contoso.com has the same origin as Azure AD B2C running on https://login.contoso.com.
+- Embedded sign-up or sign-in supports local accounts only. Most social identity providers (for example, Google and Facebook) block their sign-in pages from being rendered in inline frames.
+- Because Azure AD B2C session cookies within an iframe are considered third-party cookies, certain browsers (for example Safari or Chrome in incognito mode) either block or clear these cookies, resulting in an undesirable user experience. To prevent this issue, make sure your application domain name and your Azure AD B2C domain have the *same origin*. To use the same origin, [enable custom domains](custom-domain.md) for Azure AD B2C tenant, then configure your web app with the same origin. For example, an application hosted on 'https://app.contoso.com' has the same origin as Azure AD B2C running on 'https://login.contoso.com'.
 
 ## Prerequisites
 
-* Complete the steps in the [Get started with custom policies in Active Directory B2C](custom-policy-get-started.md).
+* Complete the steps in the [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 * [Enable custom domains](custom-domain.md) for your policies.
 
 ## Configure your policy
@@ -103,7 +106,7 @@ window.parent.postMessage("signUp", '*');
 
 ## Configure a web application
 
-When a user selects the sign-in button, the [web app](code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
+When a user selects the sign-in button, the [web app](integrate-with-app-code-samples.md#web-apps-and-apis) generates an authorization request that takes the user to Azure AD B2C sign-in experience. After sign-in is complete, Azure AD B2C returns an ID token, or authorization code, to the configured redirect URI within your application.
 
 To support embedded login, the iframe **src** property points to the sign-in controller, such as `/account/SignUpSignIn`, which generates the authorization request and redirects the user to Azure AD B2C policy.
 
@@ -164,6 +167,6 @@ See the following related articles:
 - [User interface customization](customize-ui.md)
 - [RelyingParty](relyingparty.md) element reference
 - [Enable your policy for JavaScript](./javascript-and-page-layout.md)
-- [Code samples](code-samples.md)
+- [Code samples](integrate-with-app-code-samples.md)
 
 ::: zone-end

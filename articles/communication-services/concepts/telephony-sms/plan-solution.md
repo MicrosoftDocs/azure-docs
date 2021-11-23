@@ -7,26 +7,23 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/10/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
 
-
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 > [!IMPORTANT]
-> Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
+> Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States (including Puerto Rico), United Kingdom and Ireland. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility] (#azure-subscriptions-eligibility) section of this document.
 
 
 Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, configuration options, and region availability for planning your telephony and SMS solution using Communication Services.
 
 ## Azure Subscriptions eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits. 
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
 
 Phone number availability is currently restricted to Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location.
 
@@ -54,13 +51,13 @@ The table below summarizes these phone number types:
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 
-### Phone number features in Azure Communication Services
+### Phone number capabilities in Azure Communication Services
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
-For most phone numbers, we allow you to configure an "a la carte" set of features. These features can be selected as you lease your telephone numbers within Azure Communication Services.
+For most phone numbers, we allow you to configure an "a la carte" set of capabilities. These capabilities can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The features that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These features vary by country due to regulatory requirements. Azure Communication Services offers the following phone number features:
+The capabilities that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following phone number capabilities:
 
 - **One-way outbound SMS** This option allows you to send SMS messages to your users. This can be useful in notification and two-factor authentication scenarios.
 - **Two-way inbound and outbound SMS** This option allows you to send and receive messages from your users using phone numbers. This can be useful in customer service scenarios.
@@ -70,12 +67,13 @@ The features that are available to you depend on the country that you're operati
 
 The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS features associated with these phone number types.
 
-|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To       | Receive Messages From |
+|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From*                                    |Send Messages To       | Receive Messages From |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more*| US, Canada, United Kingdom, Germany, France,. +more* |Not available| Not available |
+| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more**| US, Canada, United Kingdom, Germany, France,. +more** |Not available| Not available |
 | Toll-Free | US                 | US                                                   | US                                                    |US                | US |
 
-*For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
+*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony)
+**For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
 
 ## Next steps
@@ -83,7 +81,7 @@ The following table shows you where you can acquire different types of phone num
 ### Quickstarts
 
 - [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Place a call](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [Place a call](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Send an SMS](../../quickstarts/telephony-sms/send.md)
 
 ### Conceptual documentation

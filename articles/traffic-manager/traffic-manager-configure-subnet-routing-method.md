@@ -49,7 +49,7 @@ In this section, you create two VMs *myEndpointVMEastUS* and *myEndpointVMWEurop
     |---|---|
     |Name|myIISVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **New** and then type *myResourceGroupTM1*.|
     |Location| Select **East US**.|
     |||
@@ -135,7 +135,7 @@ In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azur
     |---|---|
     |Name|myVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **Existing** and then select *myResourceGroupTM1*.|
     |||
 

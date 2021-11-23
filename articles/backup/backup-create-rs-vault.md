@@ -2,7 +2,7 @@
 title: Create and configure Recovery Services vaults
 description: In this article, learn how to create and configure Recovery Services vaults that store the backups and recovery points. Learn how to use Cross Region Restore to restore in a secondary region.
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/06/2021
 ms.custom: references_regions 
 ---
 
@@ -17,7 +17,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 > [!NOTE]
 > Changing **Storage Replication type** (Locally redundant/ Geo-redundant) for a Recovery Services vault has to be done before configuring backups in the vault. Once you configure backup, the option to modify is disabled.
 >
->- If you haven't yet configured the backup, then [follow these steps](#set-storage-redundancy) to review and modify the settings.
+>- If you haven't yet configured the backup, complete the following steps to review and modify the settings.
 >- If you've already configured the backup and must move from GRS to LRS, then [review these workarounds](#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 1. From the **Recovery Services vaults** pane, select the new vault. Under the **Settings** section, select  **Properties**.
@@ -37,42 +37,27 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The restore option **Cross Region Restore (CRR)** allows you to restore data in a secondary, [Azure paired region](../best-practices-availability-paired-regions.md).
+The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, Azure paired region. You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
 
-It supports the following datasources:
-
-- Azure VMs (general availability)
-- SQL databases hosted on Azure VMs (preview)
-- SAP HANA databases hosted on Azure VMs (preview)
-
-Using Cross Region Restore allows you to:
-
-- conduct drills when there's an audit or compliance requirement
-- restore the data if there's a disaster in the primary region
-
-When restoring a VM, you can restore the VM or its disk. If you're restoring from SQL/SAP HANA databases hosted on Azure VMs, then you can restore databases or their files.
-
-To choose this feature, select **Enable Cross Region Restore** from the **Backup Configuration** pane.
-
-Since this process is at the storage level, there are [pricing implications](https://azure.microsoft.com/pricing/details/backup/).
-
->[!NOTE]
->Before you begin:
->
->- Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions.
->- The Cross Region Restore (CRR) feature for Azure VMs is now in general availability in all Azure public regions.
->- Cross Region Restore for SQL and SAP HANA databases is in preview in all Azure public regions.
->- CRR is a vault level opt-in feature for any GRS vault (turned off by default).
->- After opting-in, it might take up to 48 hours for the backup items to be available in secondary regions.
->- Currently CRR for Azure VMs is supported only for Azure Resource Manger Azure VMs. Classic Azure VMs won't be supported.  When additional management types support CRR, then they'll be **automatically** enrolled.
->- Cross Region Restore **currently can't be reverted back** to GRS or LRS once the protection is initiated for the first time.
->- Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
+Before you begin:
+- CRR is supported:
+     - Only for Recovery Services Vault with [GRS replication type](#set-storage-redundancy).
+     - Azure VMs (you can restore the VM or its disk) that are ARM based Azure VMs and encrypted Azure VMs. Classic VMs won’t be supported.  
+     - SQL/SAP HANA databases hosted on Azure VMs (you can restore databases or their files)
+     - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions
+- Using CRR will incur additional charges , [learn more](https://azure.microsoft.com/pricing/details/backup/)
+- After opting-in, it might **take up to 48 hours for the backup items to be available in secondary regions**.
+- CRR currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
+- Currently, secondary region RPO is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
 
 ### Configure Cross Region Restore
 
 A vault created with GRS redundancy includes the option to configure the Cross Region Restore feature. Every GRS vault will have a banner, which will link to the documentation. To configure CRR for the vault, go to the Backup Configuration pane, which contains the option to enable this feature.
 
  ![Backup Configuration banner](./media/backup-azure-arm-restore-vms/banner.png)
+
+>[!Note]
+>If you've access to restricted paired regions and still unable to view Cross Region Restore settings in **Backup Configuration** blade, then re-register the recovery services resource provider. <br><br> To re-register the provider, go to your subscription in the Azure portal, navigate to **Resource provider** on the left navigation bar, then select **Microsoft.RecoveryServices** and select **Re-register**.
 
 1. From the portal, go to your Recovery Services vault > **Properties** (under **Settings**).
 1. Under **Backup Configuration**, select **Update**.

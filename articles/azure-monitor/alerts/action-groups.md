@@ -3,11 +3,11 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 11/18/2021
 ms.author: dukek
 ---
 # Create and manage action groups in the Azure portal
-An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor and Service Health alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
+An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor, Service Health and Azure Advisor alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements. 
 
 This article shows you how to create and manage action groups in the Azure portal.
 
@@ -18,6 +18,8 @@ Each action is made up of the following properties:
 * **Details**: The corresponding details that vary by *type*.
 
 For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
+
+Action Group is **Global** service, therefore there is no dependency on a specific Azure region. Requests from client can be processed by action group service in any region, which means, if one region of service is down, the traffic will be routed and process by other regions automatically. Being a *global service* it helps client not to worry about **disaster recovery**. 
 
 ## Create an action group by using the Azure portal
 
@@ -43,7 +45,7 @@ Under **Instance details**:
 
 1. Enter a **Display name**. The display name is used in place of a full action group name when notifications are sent using this group.
 
-      ![The Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
+      ![The "Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
 
 
 ### Configure notifications
@@ -142,8 +144,25 @@ If you are not receiving Notifications on your *primary email*, then you can try
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
+While setting up *Email ARM Role* you need to make sure below 3 conditions are met:
+
+1. The type of the entity being assigned to the role needs to be **“User”**.
+2. The assignment needs to be done at the **subscription** level.
+3. The user needs to have an email configured in their **AAD profile**. 
+
+> [!NOTE]
+> It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
+
+### Event Hub (Preview)
+> [!NOTE]
+> The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
+
+An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
+
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
+
+When defining the Function action the the Function's httptrigger endpoint and access key are saved in the action definition. For example: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. If you change the access key for the function you will need to remove and recreate the Function action in the Action Group.
 
 You may have a limited number of Function actions in an Action Group.
 
@@ -156,12 +175,10 @@ You may have a limited number of ITSM actions in an Action Group.
 You may have a limited number of Logic App actions in an Action Group.
 
 ### Secure Webhook
+The Action Groups Secure Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 > [!NOTE]
 > Using the webhook action requires that the target webhook endpoint either doesn't require details of the alert to function successfully or it's capable of parsing the alert context information that's provided as part of the POST operation. If the webhook endpoint can't handle the alert context information on its own, you can use a solution like a [Logic App action](./action-groups-logic-app.md) for a custom manipulation of the alert context information to match the webhook's expected data format.
-> User should be the **owner** of webhook service principal in order to make sure security is not violated. As any azure customer can access all object IDs through portal, without checking the owner, anyone can add the secure webhook to their own action group for azure monitor alert notification which violate security.
-
-The Action Groups Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 1. Create an Azure AD Application for your protected web API. See [Protected web API: App registration](../../active-directory/develop/scenario-protected-web-api-app-registration.md).
     - Configure your protected API to be [called by a daemon app](../../active-directory/develop/scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
@@ -255,7 +272,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) and [SMS alert be
 You may have a limited number of SMS actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, a work around is to have your action group call a webhook to a third-party SMS provider with support in your country/region.  
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -291,12 +308,14 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 | 351 | Portugal |
 | 1 | Puerto Rico |
 | 40 | Romania |
+| 7  | Russia  |
 | 65 | Singapore |
 | 27 | South Africa |
 | 82 | South Korea |
 | 34 | Spain |
 | 41 | Switzerland |
 | 886 | Taiwan |
+| 971 | UAE    |
 | 44 | United Kingdom |
 | 1 | United States |
 
@@ -306,7 +325,7 @@ See the [rate limiting information](./alerts-rate-limiting.md) article for addit
 You may have a limited number of Voice actions in an Action Group.
 
 > [!NOTE]
-> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
+> If the Azure portal action group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0).  In the meantime, a work around is to have your action group call a webhook to a third-party voice call provider with support in your country/region.  
 > Only Country code supported today in Azure portal action group for Voice Notification is +1(United States). 
 
 Pricing for supported countries/regions is listed in the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).

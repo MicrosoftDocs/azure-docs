@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # Quickstart: Create an Azure Dedicated HSM by using the Azure CLI
 
-This article describes how to create and manage an Azure Dedicated HSM by using the [az dedicated-hsm](/cli/azure/ext/hardware-security-modules/dedicated-hsm) Azure CLI extension.
+This article describes how to create and manage an Azure Dedicated HSM by using the [az dedicated-hsm](/cli/azure/dedicated-hsm) Azure CLI extension.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ az group create --name myRG --location westus
 
 ## Create a dedicated HSM
 
-To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command. The following example provisions a dedicated HSM named `hsm1` in the `westus` region, `myRG` resource group, and specified subscription, virtual network, and subnet. The required parameters are `name`, `location`, and `resource group`.
+To create a dedicated HSM, use the [az dedicated-hsm create](/cli/azure/dedicated-hsm#az_dedicated_hsm_create) command. The following example provisions a dedicated HSM named `hsm1` in the `westus` region, `myRG` resource group, and specified subscription, virtual network, and subnet. The required parameters are `name`, `location`, and `resource group`.
 
 ```azurecli-interactive
 az dedicated-hsm create \
@@ -58,7 +58,7 @@ The deployment takes approximately 25 to 30 minutes to complete.
 
 ## Get a dedicated HSM
 
-To get a current dedicated HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command. The following example gets the `hsm1` dedicated HSM in the `myRG` resource group.
+To get a current dedicated HSM, run the [az dedicated-hsm show](/cli/azure/dedicated-hsm#az_dedicated_hsm_show) command. The following example gets the `hsm1` dedicated HSM in the `myRG` resource group.
 
 ```azurecli-interactive
 az dedicated-hsm show --resource-group myRG --name hsm1
@@ -66,7 +66,7 @@ az dedicated-hsm show --resource-group myRG --name hsm1
 
 ## Update a dedicated HSM
 
-Use the [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) command to update a dedicated HSM. The following example updates the `hsm1` dedicated HSM in the `myRG` resource group, and its tags:
+Use the [az dedicated-hsm update](/cli/azure/dedicated-hsm#az_dedicated_hsm_update) command to update a dedicated HSM. The following example updates the `hsm1` dedicated HSM in the `myRG` resource group, and its tags:
 
 ```azurecli-interactive
 az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType="hsm" Environment="prod" Slice="A"
@@ -74,7 +74,7 @@ az dedicated-hsm update --resource-group myRG –-name hsm1 --tags resourceType=
 
 ## List dedicated HSMs
 
-Run the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) command to get information about current dedicated HSMs. The following example lists the dedicated HSMs in the `myRG` resource group:
+Run the [az dedicated-hsm list](/cli/azure/dedicated-hsm#az_dedicated_hsm_list) command to get information about current dedicated HSMs. The following example lists the dedicated HSMs in the `myRG` resource group:
 
 ```azurecli-interactive
 az dedicated-hsm list --resource-group myRG
@@ -82,7 +82,7 @@ az dedicated-hsm list --resource-group myRG
 
 ## Remove a dedicated HSM
 
-To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete) command. The following example deletes the `hsm1` dedicated HSM from the `myRG` resource group:
+To remove a dedicated HSM, use the [az dedicated-hsm delete](/cli/azure/dedicated-hsm#az_dedicated_hsm_delete) command. The following example deletes the `hsm1` dedicated HSM from the `myRG` resource group:
 
 ```azurecli-interactive
 az dedicated-hsm delete --resource-group myRG –-name hsm1

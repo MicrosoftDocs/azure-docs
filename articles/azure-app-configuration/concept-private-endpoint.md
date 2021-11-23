@@ -21,7 +21,7 @@ Using private endpoints for your App Configuration store enables you to:
 
 ## Conceptual overview
 
-A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Config store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
+A private endpoint is a special network interface for an Azure service in your [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your App Configuration store, it provides secure connectivity between clients on your VNet and your configuration store. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the configuration store uses a secure private link.
 
 Applications in the VNet can connect to the configuration store over the private endpoint **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the App Configuration store.
 
@@ -29,11 +29,11 @@ While App Configuration doesn't support service endpoints, private endpoints can
 
 When you create a private endpoint for a service in your VNet, a consent request is sent for approval to the service account owner. If the user requesting the creation of the private endpoint is also an owner of the account, this consent request is automatically approved.
 
-Service account owners can manage consent requests and private endpoints through the `Private Endpoints` tab of the config store in the [Azure portal](https://portal.azure.com).
+Service account owners can manage consent requests and private endpoints through the `Private Endpoints` tab of the App Configuration store in the [Azure portal](https://portal.azure.com).
 
 ### Private endpoints for App Configuration 
 
-When creating a private endpoint, you must specify the App Configuration store to which it connects. If you have multiple App Configuration instances within an account, you need a separate private endpoint for each store.
+When creating a private endpoint, you must specify the App Configuration store to which it connects. If you have multiple App Configuration stores, you need a separate private endpoint for each store.
 
 ### Connecting to private endpoints
 
@@ -42,13 +42,20 @@ Azure relies upon DNS resolution to route connections from the VNet to the confi
 > [!IMPORTANT]
 > Use the same connection string to connect to your App Configuration store using private endpoints as you would use for a public endpoint. Don't connect to the store using its `privatelink` subdomain URL.
 
+> [!NOTE]
+> By default, when a private endpoint is added to your App Configuration store, all requests for your App Configuration data over the public network are denied. You can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
+>
+> ```azurecli-interactive
+> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> ```
+
 ## DNS changes for private endpoints
 
 When you create a private endpoint, the DNS CNAME resource record for the configuration store is updated to an alias in a subdomain with the prefix `privatelink`. Azure also creates a [private DNS zone](../dns/private-dns-overview.md) corresponding to the `privatelink` subdomain, with the DNS A resource records for the private endpoints.
 
 When you resolve the endpoint URL from within the VNet hosting the private endpoint, it resolves to the private endpoint of the store. When resolved from outside the VNet, the endpoint URL resolves to the public endpoint. When you create a private endpoint, the public endpoint is disabled.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the service endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `AppConfigInstanceA.privatelink.azconfig.io` with the private endpoint IP address.
+If you are using a custom DNS server on your network, clients must be able to resolve the fully qualified domain name (FQDN) for the service endpoint to the private endpoint IP address. Configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for `[Your-store-name].privatelink.azconfig.io` with the private endpoint IP address.
 
 > [!TIP]
 > When using a custom or on-premises DNS server, you should configure your DNS server to resolve the store name in the `privatelink` subdomain to the private endpoint IP address. You can do this by delegating the `privatelink` subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.

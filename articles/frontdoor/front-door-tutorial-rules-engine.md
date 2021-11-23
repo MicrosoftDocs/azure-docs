@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.date: 09/09/2020
 ms.author: duau 
 ms.custom: devx-track-azurecli
-# customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
+# Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI. 
 ---
 
 # Tutorial: Configure your Rules Engine
@@ -44,6 +44,15 @@ In this tutorial, you learn how to:
     ![Rules Engine configuration](./media/front-door-rules-engine/rules-engine-tutorial-4.png) 
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
+
+
+    > [!TIP]
+    > If you like to verify when the changes are propagated to Azure Front Door, you can create a custom response header in the rule using the example below. You can add a response header `_X-<RuleName>-Version_`  and change the value each time rule is updated.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > After the changes are updated, you can go to the URL to confirm the rule version being invoked: 
+    > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
+
 
 1. Once you have created one or more rules, press **Save**. This action creates your Rules Engine configuration.
 
@@ -92,7 +101,7 @@ In this tutorial, you learn how to:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/ext/front-door/network/front-door/rules-engine).   
+For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/network/front-door/rules-engine).   
 
 ## Clean up resources
 

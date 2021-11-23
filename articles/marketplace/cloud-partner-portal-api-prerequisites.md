@@ -26,4 +26,4 @@ Now that you've created the service principal in your tenant, you can add it as 
 
 ## Next steps
 
-See [Manage Azure AD applications](partner-center-portal/manage-account.md#manage-azure-ad-applications).
+See [Manage Azure AD applications](manage-aad-apps.md).

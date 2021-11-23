@@ -3,7 +3,7 @@ title: Create a virtual network - quickstart - Azure PowerShell
 titlesuffix: Azure Virtual Network
 description: In this quickstart, you create a virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet.
 author: KumudD
-Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+# Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
 ms.service: virtual-network
 ms.topic: quickstart
 ms.date: 03/06/2021
@@ -123,6 +123,8 @@ You'll have to create another user and password. Azure takes a few minutes to cr
 
 > [!IMPORTANT]
 > Don't continue with the next step until Azure's finished.  You'll know it's done when it returns output to PowerShell.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Connect to a VM from the internet
 

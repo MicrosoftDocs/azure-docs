@@ -4,7 +4,8 @@ description: This article tells how to work with certificates for access by runb
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage certificates in Azure Automation
@@ -16,7 +17,7 @@ Azure Automation stores certificates securely for access by runbooks and DSC con
 
 ## PowerShell cmdlets to access certificates
 
-The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the Az modules.
 
 |Cmdlet |Description|
 | --- | ---|
@@ -71,7 +72,7 @@ $PfxCertPath = '.\MyCert.pfx'
 $CertificatePassword = ConvertTo-SecureString -String 'P@$$w0rd' -AsPlainText -Force
 $ResourceGroup = "ResourceGroup01"
 
-New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath –Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
+New-AzAutomationCertificate -AutomationAccountName "MyAutomationAccount" -Name $certificateName -Path $PfxCertPath -Password $CertificatePassword -Exportable -ResourceGroupName $ResourceGroup
 ```
 
 ### Create a new certificate with a Resource Manager template
@@ -131,7 +132,7 @@ The following example shows how to add a certificate to a cloud service in a run
 $serviceName = 'MyCloudService'
 $cert = Get-AutomationCertificate -Name 'MyCertificate'
 $certPwd = Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAccount" –Name 'MyCertPassword'
+-AutomationAccountName "MyAutomationAccount" -Name 'MyCertPassword'
 Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 ```
 

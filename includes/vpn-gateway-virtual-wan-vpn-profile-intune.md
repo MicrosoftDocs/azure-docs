@@ -5,14 +5,18 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 02/04/2021
+ ms.date: 04/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
-# this include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
+# This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---
 
 You can deploy profiles for Azure VPN clients (Windows 10) by using Microsoft Intune. This article helps you create an Intune profile using custom settings.
+
+> [!NOTE]
+>* This article applies to deploying profiles that use Azure Active Directory for authentication only.
+
 
 ## Prerequisites
 
@@ -42,9 +46,9 @@ For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/
       <RegisterDNS>false</RegisterDNS>
       <PluginProfile>
         <ServerUrlList>azuregateway-7cee0077-d553-4323-87df-069c331f58cb-053dd0f6af02.vpn.azure.com</ServerUrlList> 
-	    <CustomConfiguration>
+        <CustomConfiguration>
 
-	    </CustomConfiguration>
+        </CustomConfiguration>
         <PluginPackageFamilyName>Microsoft.AzureVpn_8wekyb3d8bbwe</PluginPackageFamilyName>
       </PluginProfile>
     </VPNProfile>
@@ -59,15 +63,13 @@ For other supported options, see the [VPNv2 CSP](/windows/client-management/mdm/
 In this section, you create a Microsoft Intune profile with custom settings.
 
 1. Sign in to Intune and navigate to **Devices -> Configuration profiles**. Select **+ Create profile**.
-
-   :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/configuration-profile.png" alt-text="Configuration profiles":::
-1. For **Platform**, select **Windows 10 and later**. For **Profile**, select **Custom**. Then, select **Create**.
+1. For **Platform**, select **Windows 10 and later**. For **Profile Type**, select **Templates** and **Custom**. Then, select **Create**.
 1. Give the profile a name and description, then select **Next**.
 1. On the **Configuration settings** tab, select **Add**.
 
     * **Name:** Enter a name for the configuration.
     * **Description:** Optional description.
-    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the <name> </name> tag).
+    * **OMA-URI:** ```./User/Vendor/MSFT/VPNv2/<name of your connection>/ProfileXML``` (this information can be found in the azurevpnconfig.xml file in the \<name\> \</name\> tag).
     * **Data type:** String (XML file).
 
    Select the folder icon and pick the file you saved in step 6 in the [XML](#xml) steps. Select **Add**.

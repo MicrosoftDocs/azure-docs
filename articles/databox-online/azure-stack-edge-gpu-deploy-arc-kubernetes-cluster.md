@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 10/05/2021
 ms.author: alkohli
 ---
 
@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This article shows you how to enable Azure Arc on an existing Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
+This procedure is intended for those who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)?](../azure-arc/kubernetes/overview.md).
 
 
 ## Prerequisites
@@ -70,7 +70,7 @@ Before you enable Azure Arc on the Kubernetes cluster, you will need to enable a
     
     ![Register Kubernetes resource providers 3](media/azure-stack-edge-gpu-connect-powershell-interface/register-k8-resource-providers-4.png)
 
-You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc enabled Kubernetes](../azure-arc/kubernetes/connect-cluster.md#register-the-two-providers-for-azure-arc-enabled-kubernetes)
+You can also register resource providers via the `az cli`. For more information, see [Register the two providers for Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/quickstart-connect-cluster.md#1-register-providers-for-azure-arc-enabled-kubernetes).
 
 ## Create service principal, assign role
 
@@ -84,14 +84,14 @@ You can also register resource providers via the `az cli`. For more information,
 
 1. To create a service principal, use the following command via the `az cli`.
 
-    `az ad sp create-for-rbac --skip-assignment --name "<Informative name for service principal>"`  
+    `az ad sp create-for-rbac --name "<Informative name for service principal>"`  
 
     For information on how to log into the `az cli`, [Start Cloud Shell in Azure portal](../cloud-shell/quickstart-powershell.md#start-cloud-shell)
 
     Here is an example. 
     
     ```azurecli
-    PS /home/user> az ad sp create-for-rbac --skip-assignment --name "https://azure-arc-for-ase-k8s"
+    PS /home/user> az ad sp create-for-rbac --name "https://azure-arc-for-ase-k8s"
     {
       "appId": "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b",
       "displayName": "azure-arc-for-ase-k8s",
@@ -136,18 +136,31 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
 
 1. Type:
 
-    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
+    `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>"` 
+    
+    When this command is run, there is a followup prompt to enter the `ClientSecret`. Provide the service principal password.
 
+    Add the `CloudEnvironment` parameter if you are using a cloud other than Azure public. You can set this parameter to `AZUREPUBLICCLOUD`, `AZURECHINACLOUD`, `AZUREGERMANCLOUD`, and `AZUREUSGOVERNMENTCLOUD`.
 
     > [!NOTE]
-    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](../azure-arc/kubernetes/overview.md#supported-regions). 
+    > - To deploy Azure Arc on your device, make sure that you are using a [Supported region for Azure Arc](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc). 
     > - Use the `az account list-locations` command to figure out the exact location name to pass in the `Set-HcsKubernetesAzureArcAgent` cmdlet. Location names are typically formatted without any spaces.
+    > - `ClientId` and `ClientSecret` are required. 
     
     Here is an example:
    
     ```powershell
-    [10.128.44.240]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b" -ClientSecret "<password>"
-        [10.128.44.240]: PS>
+    [10.100.10.10]: PS>Set-HcsKubernetesAzureArcAgent -SubscriptionId "062c67a6-019b-40af-a775-c4dc1abe56ed" -ResourceGroupName "myaserg1" -ResourceName "myasetestresarc" -Location "westeurope" -TenantId "72f988bf-86f1-41af-91ab-2d7cd011db47" -ClientId "aa8a082e-0fa1-4a82-b51c-e8b2a9fdaa8b"
+    
+    WARNING: A script or application on the remote computer 10.126.76.0 is sending a prompt request. When you are prompted,
+    enter sensitive information, such as credentials or passwords, only if you trust the remote computer and the
+    application or script that is requesting the data.
+
+    cmdlet Set-HcsKubernetesAzureArcAgent at command pipeline position 1
+
+    Supply values for the following parameters:
+    ClientSecret: **********************************
+    [10.100.10.10]: PS>
     ```
     
     In the Azure portal, a resource should be created with the name you provided in the preceding command.
@@ -200,14 +213,14 @@ Follow these steps to configure the Kubernetes cluster for Azure Arc management:
     ```
 
 
-As the preceding output shows, Azure Arc enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
+As the preceding output shows, Azure Arc-enabled Kubernetes consists of a few agents (operators) that run in your cluster deployed to the `azure-arc` namespace.
 
 - `config-agent`: watches the connected cluster for source control configuration resources applied on the cluster and updates compliance state
 - `controller-manager`: is an operator of operators and orchestrates interactions between Azure Arc components
 - `metrics-agent`: collects metrics of other Arc agents to ensure that these agents are exhibiting optimal performance
 - `cluster-metadata-operator`: gathers cluster metadata - cluster version, node count, and Azure Arc agent version
 - `resource-sync-agent`: syncs the above mentioned cluster metadata to Azure
-- `clusteridentityoperator`: Azure Arc enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
+- `clusteridentityoperator`: Azure Arc-enabled Kubernetes currently supports system assigned identity. clusteridentityoperator maintains the managed service identity (MSI) certificate used by other agents for communication with Azure.
 - `flux-logs-agent`: collects logs from the flux operators deployed as a part of source control configuration.
 - `connect-agent`: talks to the Azure Arc resource.
 
@@ -222,7 +235,7 @@ To remove the Azure Arc management, follow these steps:
 
 
 > [!NOTE]
-> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters)
+> By default, when resource `yamls` are deleted from the Git repository, the corresponding resources are not deleted from the Kubernetes cluster. You need to set `--sync-garbage-collection`  in Arc OperatorParams to allow the deletion of resources when deleted from git repository. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters)
 
 ## Next steps
 

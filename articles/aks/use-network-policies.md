@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --output json)
+SP=$(az ad sp create-for-rbac --role Contributor --output json)
 SP_ID=$(echo $SP | jq -r .appId)
 SP_PASSWORD=$(echo $SP | jq -r .password)
 
@@ -301,7 +301,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -388,7 +388,7 @@ kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
 
 ```console
-wget -qO- --timeout=2 http://backend
+wget -O- --timeout=2 --tries=1 http://backend
 ```
 
 ```output
@@ -485,7 +485,7 @@ kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubu
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
 
 ```console
-wget -qO- --timeout=2 http://backend.development
+wget -O- --timeout=2 --tries=1 http://backend.development
 ```
 
 ```output
@@ -557,12 +557,12 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
 [use-advanced-networking]: configure-azure-cni.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
 [concepts-network]: concepts-network.md
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
 [windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-extension-add]: /cli/azure/extension#az_extension_add
+[az-extension-update]: /cli/azure/extension#az_extension_update
 [dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

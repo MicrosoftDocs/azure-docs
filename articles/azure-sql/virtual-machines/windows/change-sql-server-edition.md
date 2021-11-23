@@ -3,7 +3,7 @@ title: In-place change of SQL Server edition
 description: Learn how to change the edition of your SQL Server virtual machine in Azure to downgrade to reduce cost or upgrade to enable more features.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,8 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -48,8 +48,9 @@ To upgrade the edition of SQL Server, obtain the SQL Server setup media for the 
    ![Selection for upgrading the edition of SQL Server](./media/change-sql-server-edition/edition-upgrade.png)
 
 1. Select **Next** until you reach the **Ready to upgrade edition** page, and then select **Upgrade**. The setup window might stop responding for a few minutes while the change is taking effect. A **Complete** page will confirm that your edition upgrade is finished. 
+1. After the SQL Server edition is upgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
 
-After the SQL Server edition is upgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
+
 
 ## Downgrade an edition
 
@@ -67,8 +68,9 @@ You can downgrade the edition of SQL Server by following these steps:
 1. Install SQL Server by using the media with the desired edition of SQL Server.
 1. Install the latest service packs and cumulative updates.  
 1. Replace the new system databases that were created during installation with the system databases that you previously moved to a different location. 
+1. After the SQL Server edition is downgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM. 
 
-After the SQL Server edition is downgraded, modify the edition property of the SQL Server virtual machine in the Azure portal. This will update the metadata and billing associated with this VM.
+
 
 ## Change edition in portal 
 
@@ -96,6 +98,6 @@ Once you've changed the edition of SQL Server using the installation media, and 
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.md)
+* [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)

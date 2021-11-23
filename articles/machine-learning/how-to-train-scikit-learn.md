@@ -8,8 +8,8 @@ ms.subservice: core
 ms.author: jordane
 author: jpe316
 ms.date: 09/28/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.topic: how-to
+ms.custom: devx-track-python
 
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
@@ -27,7 +27,7 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 Run this code on either of these environments:
  - Azure Machine Learning compute instance - no downloads or installation necessary
 
-    - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > ml-frameworks > scikit-learn > train-hyperparameter-tune-deploy-with-sklearn** folder.
 
  - Your own Jupyter Notebook server
@@ -201,5 +201,5 @@ The full [how-to](how-to-deploy-and-where.md) covers deployment in Azure Machine
 
 In this article, you trained and registered a scikit-learn model, and learned about deployment options. See these other articles to learn more about Azure Machine Learning.
 
-* [Track run metrics during training](how-to-track-experiments.md)
+* [Track run metrics during training](how-to-log-view-metrics.md)
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)

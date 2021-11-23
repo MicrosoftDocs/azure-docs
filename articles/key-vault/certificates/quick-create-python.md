@@ -140,15 +140,15 @@ python kv_certificates.py
 ```
 
 - If you encounter permissions errors, make sure you ran the [`az keyvault set-policy` command](#grant-access-to-your-key-vault).
-- Re-running the code with the same key name may produce the error, "(Conflict) Certificate <name> is currently in a deleted but recoverable state." Use a different key name.
+- Re-running the code with the same key name may produce the error, "(Conflict) Certificate \<name\> is currently in a deleted but recoverable state." Use a different key name.
 
 ## Code details
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](https://docs.microsoft.com/python/api/overview/azure/identity-readme). 
+In below example, the name of your key vault is expanded to the key vault URI, in the format `https://\<your-key-vault-name\>.vault.azure.net`. This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -180,7 +180,7 @@ To read a certificate from Key Vault, use the [get_certificate](/python/api/azur
 retrieved_certificate = client.get_certificate(certificateName)
  ```
 
-You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+You can also verify that the certificate has been set with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 ### Delete a certificate
 
@@ -193,7 +193,7 @@ deleted_certificate = poller.result()
 
 The `begin_delete_certificate` method is asynchronous and returns a poller object. Calling the poller's `result` method waits for its completion.
 
-You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az-keyvault-certificate-show).
+You can verify that the certificate is deleted with the Azure CLI command [az keyvault certificate show](/cli/azure/keyvault/certificate?#az_keyvault_certificate_show).
 
 Once deleted, a certificate remains in a deleted but recoverable state for a time. If you run the code again, use a different certificate name.
 
@@ -210,7 +210,7 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/secure-your-key-vault.md)
+- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
-- [Key Vault security overview](../general/security-overview.md)
+- [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

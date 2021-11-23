@@ -1,13 +1,13 @@
 ---
 title: 'Scenario: Route to shared services VNets'
 titleSuffix: Azure Virtual WAN
-description: Scenarios for routing - set up routes to access a shared service VNet with a workload that you want every VNet and branch to access.
+description: Learn about Virtual WAN routing scenarios. In this scenario, you set up routes to access a shared service VNet with a workload that you want every VNet and branch to access.
 services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/02/2021
+ms.date: 04/27/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

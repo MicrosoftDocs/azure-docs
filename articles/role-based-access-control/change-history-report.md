@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 03/01/2021
 ms.author: rolyon
-ms.custom: H1Hack27Feb2017, devx-track-azurecli
+ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
 # View activity logs for Azure RBAC changes
 
@@ -41,7 +41,7 @@ The activity log in the portal has several filters. Here are the Azure RBAC-rela
 | Event category | <ul><li>Administrative</li></ul> |
 | Operation | <ul><li>Create role assignment</li><li>Delete role assignment</li><li>Create or update custom role definition</li><li>Delete custom role definition</li></ul> |
 
-For more information about activity logs, see [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+For more information about activity logs, see [Azure Activity log](../azure-monitor/essentials/activity-log.md).
 
 
 ## Interpret a log entry
@@ -229,5 +229,5 @@ AzureActivity
 ![Activity logs using the Advanced Analytics portal - screenshot](./media/change-history-report/azure-log-analytics.png)
 
 ## Next steps
-* [View activity logs to monitor actions on resources](../azure-resource-manager/management/view-activity-logs.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
+* [View activity logs to monitor actions on resources](../azure-monitor/essentials/activity-log.md)
 * [Monitor subscription activity with the Azure Activity log](../azure-monitor/essentials/platform-logs-overview.md)

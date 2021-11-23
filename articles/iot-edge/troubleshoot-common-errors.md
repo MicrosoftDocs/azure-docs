@@ -2,7 +2,7 @@
 title: Common errors - Azure IoT Edge | Microsoft Docs 
 description: Use this article to resolve common issues encountered when deploying an IoT Edge solution
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -80,6 +80,8 @@ Specify the DNS server for your environment in the container engine settings, wh
 
 The above example sets the DNS server to a publicly accessible DNS service. If the edge device can't access this IP from its environment, replace it with DNS server address that is accessible.
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 Place `daemon.json` in the right location for your platform:
 
 | Platform | Location |
@@ -95,6 +97,24 @@ Restart the container engine for the updates to take effect.
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Admin PowerShell) | `Restart-Service iotedge-moby -Force` |
+
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+Place `daemon.json` in the `/etc/docker` directory on your device.
+
+If the location already contains a `daemon.json` file, add the **dns** key to it and save the file.
+
+Restart the container engine for the updates to take effect.
+
+```bash
+sudo systemctl restart docker
+```
+
+:::moniker-end
+<!-- end 1.2 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -268,6 +288,9 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.2 -->
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
+
 ## Can't get the IoT Edge daemon logs on Windows
 
 **Observed behavior:**
@@ -290,6 +313,9 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+:::moniker-end
+<!-- end 1.1 -->
 
 ## Stability issues on smaller devices
 
@@ -363,7 +389,68 @@ Only use one type of deployment mechanism per device, either an automatic deploy
 
 For more information, see [Understand IoT Edge automatic deployments for single devices or at scale](module-deployment-monitoring.md).
 
-<!-- <1.2> -->
+## IoT Edge module reports connectivity errors
+
+**Observed behavior:**
+
+IoT Edge modules that connect directly to cloud services, including the runtime modules, stop working as expected and return errors around connection or networking failures.
+
+**Root cause:**
+
+Containers rely on IP packet forwarding in order to connect to the internet so that they can communicate with cloud services. IP packet forwarding is enabled by default in Docker, but if it gets disabled then any modules that connect to cloud services will not work as expected. For more information, see [Understand container communication](https://apimirror.com/docker~1.12/engine/userguide/networking/default_network/container-communication/index) in the Docker documentation.
+
+**Resolution:**
+
+Use the following steps to enable IP packet forwarding.
+
+<!--1.1-->
+:::moniker range="iotedge-2018-06"
+
+On Windows:
+
+1. Open the **Run** application.
+
+1. Enter `regedit` in the text box and select **Ok**.
+
+1. In the **Registry Editor** window, browse to **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters**.
+
+1. Look for the **IPEnableRouter** parameter.
+
+   1. If the parameter exists, set the value of the parameter to **1**.
+
+   1. If the paramter doesn't exist, add it as a new parameter with the following settings:
+
+      | Setting | Value |
+      | ------- | ----- |
+      | Name    | IPEnableRouter |
+      | Type    | REG_DWORD |
+      | Value   | 1 |
+
+1. Close the registry editor window.
+
+1. Restart your system to apply the changes.
+
+On Linux:
+:::moniker-end
+<!-- end -->
+
+1. Open the **sysctl.conf** file.
+
+   ```bash
+   sudo nano /etc/sysctl.conf
+   ```
+
+1. Add the following line to the file.
+
+   ```input
+   net.ipv4.ip_forward=1
+   ```
+
+1. Save and close the file.
+
+1. Restart the network service and docker service to apply the changes.
+
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -381,6 +468,7 @@ IoT Edge devices behind a gateway get their module images from the parent IoT Ed
 Make sure the parent IoT Edge device can receive incoming requests from the child IoT Edge device. Open network traffic on ports 443 and 6617 for requests coming from the child device.
 
 :::moniker-end
+<!-- end 1.2 -->
 
 ## Next steps
 

@@ -1,11 +1,8 @@
 ---
 title: Health monitoring in Service Fabric 
 description: An introduction to the Azure Service Fabric health monitoring model, which provides monitoring of the cluster and its applications and services.
-author: georgewallace
-
 ms.topic: conceptual
 ms.date: 2/28/2018
-ms.author: gwallace
 ---
 # Introduction to Service Fabric health monitoring
 Azure Service Fabric introduces a health model that provides rich, flexible, and extensible health evaluation and reporting. The model allows near-real-time monitoring of the state of the cluster and the services running in it. You can easily obtain health information and correct potential issues before they cascade and cause massive outages. In the typical model, services send reports based on their local views, and that information is aggregated to provide an overall cluster-level view.
@@ -96,7 +93,7 @@ The cluster health policy contains:
   </FabricSettings>
   ```
 
-* [NodeTypeHealthPolicyMap](/dotnet/api/system.fabric.health.clusterhealthpolicy.nodetypehealthpolicymap). The node type health policy map can be used during cluster health evaluation to describe special node types. The node types are evaluated against the percentages associated with their node type name in the map. Setting this value has no effect on the global pool of nodes used for `MaxPercentUnhealthyNodes`. For example, a cluster has hundreds of nodes of different types and a few node types that host important work. No nodes in that type should be down. You can specify global `MaxPercentUnhealthyNodes` to 20% to tolerate some failures for all nodes, but for the node type `SpecialNodeType`, set the `MaxPercentUnhealthyNodes` to 0. This way, if some of the many nodes are unhealthy but below the global unhealthy percentage, the cluster would be evaluated as being in the Warning health state. A Warning health state doesn't affect cluster upgrade or other monitoring triggered by an Error health state. But even one node of type `SpecialNodeType` in an Error health state would make the cluster unhealthy and trigger rollback or pause the cluster upgrade, depending on the upgrade configuration. Conversely, setting the global `MaxPercentUnhealthyNodes` to 0 and setting the `SpecialNodeType` max percent unhealthy nodes to 100 with one node of type `SpecialNodeType` in an error state would still put the cluster in an error state because the global restriction is more strict in this case. 
+* `NodeTypeHealthPolicyMap`. The node type health policy map can be used during cluster health evaluation to describe special node types. The node types are evaluated against the percentages associated with their node type name in the map. Setting this value has no effect on the global pool of nodes used for `MaxPercentUnhealthyNodes`. For example, a cluster has hundreds of nodes of different types and a few node types that host important work. No nodes in that type should be down. You can specify global `MaxPercentUnhealthyNodes` to 20% to tolerate some failures for all nodes, but for the node type `SpecialNodeType`, set the `MaxPercentUnhealthyNodes` to 0. This way, if some of the many nodes are unhealthy but below the global unhealthy percentage, the cluster would be evaluated as being in the Warning health state. A Warning health state doesn't affect cluster upgrade or other monitoring triggered by an Error health state. But even one node of type `SpecialNodeType` in an Error health state would make the cluster unhealthy and trigger rollback or pause the cluster upgrade, depending on the upgrade configuration. Conversely, setting the global `MaxPercentUnhealthyNodes` to 0 and setting the `SpecialNodeType` max percent unhealthy nodes to 100 with one node of type `SpecialNodeType` in an error state would still put the cluster in an error state because the global restriction is more strict in this case. 
 
   The following example is an excerpt from a cluster manifest. To define entries in the node type map, prefix the parameter name with "NodeTypeMaxPercentUnhealthyNodes-", followed by the node type name.
 

@@ -6,10 +6,10 @@ services: machine-learning
 author: NilsPohlmann
 ms.author: nilsp
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 08/11/2020
-ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.subservice: mlops
+ms.date: 10/21/2021
+ms.topic: how-to
+ms.custom: devx-track-python
 ---
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 

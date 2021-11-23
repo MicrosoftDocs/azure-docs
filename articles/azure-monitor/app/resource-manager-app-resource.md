@@ -1,17 +1,14 @@
 ---
 title: Resource Manager template samples for Application Insights Resources
 description: Sample Azure Resource Manager templates to deploy Application Insights resources in Azure Monitor.
-ms.subservice: application-insights
 ms.topic: sample
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 07/08/2020
-
+ms.custom: ignite-fall-2021
 ---
 
 # Resource Manager template samples for creating Application Insights resources
 
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) and the new [preview workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to deploy and configure [classic Application Insights resources](../app/create-new-resource.md) and the new [preview workspace-based Application Insights resources](../app/create-workspace-resource.md). Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -47,7 +44,7 @@ The following sample creates a [classic Application Insights resource](../app/cr
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
           }
         },
         "requestSource": {
@@ -134,7 +131,7 @@ The following sample creates a [workspace-based Application Insights resource](.
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
             }
         },
         "requestSource": {

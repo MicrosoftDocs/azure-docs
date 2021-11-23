@@ -2,12 +2,12 @@
 title: 'Internet Analyzer FAQ | Microsoft Docs'
 description: The FAQ for Azure Internet Analyzer. 
 services: internet-analyzer
-author: diego-perez-botero
+author: KumudD
 
 ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
-ms.author: mebeatty
+ms.author: kumud
 ---
 # Azure Internet Analyzer FAQ (Preview)
 

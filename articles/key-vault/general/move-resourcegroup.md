@@ -2,16 +2,15 @@
 title: Azure Key Vault moving a vault to a different resource group | Microsoft Docs
 description: Guidance on moving a key vault to a different resource group.
 services: key-vault
-author: ShaneBala-keyvault
-manager: ravijan
+author: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.date: 04/29/2020
-ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another resource group.
+ms.date: 03/31/2021
+ms.author: mbaldwin
+# Customer intent: As a key vault administrator, I want to move my vault to another resource group.
 ---
 
 # Moving an Azure Key Vault across resource groups
@@ -30,7 +29,7 @@ Your organization may have implemented Azure Policy with enforcement or exclusio
 
 ### Example
 
-You have an application connected to key vault that creates certificates that are valid for two years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than one year. After moving your key vault to the new resource group the operation to create a certificate that is valid for two years will be blocked by an Azure policy assignment.
+You have an application connected to key vault that creates certificates that are valid for two years. The resource group where you are attempting to move your key vault has a policy assignment that blocks the creation of certificates that are valid for longer than one year. After moving your key vault to the new resource group the operation to create a certificate that is valid for two years will be blocked by an Azure Policy assignment.
 
 ### Solution
 

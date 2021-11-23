@@ -1,11 +1,11 @@
 ---
-title: How to encode and stream video files with Node.JS
-description: How to stream video files with Node.JS. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+title: How to encode and stream video files with Node.js
+description: How to stream video files with Node.js. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: azure media services, stream, Node.JS
+keywords: azure media services, stream, Node.js
 
 ms.service: media-services
 ms.workload: media
@@ -15,7 +15,7 @@ ms.author: inhenkel
 
 ---
 
-# How to encode and stream video files with Node.JS
+# How to encode and stream video files with Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -23,10 +23,10 @@ This quickstart shows you how easy it is to encode and start streaming videos on
 
 By the end of this quickstart you will know:
 
-- How to encode with Node.JS
-- How to stream with Node.JS
-- How to upload a file from an HTTPS URL with Node.JS
-- How to use an HLS or DASH client player with Node.JS
+- How to encode with Node.js
+- How to stream with Node.js
+- How to upload a file from an HTTPS URL with Node.js
+- How to use an HLS or DASH client player with Node.js
 
 The sample in this article encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
 
@@ -55,7 +55,7 @@ Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorial
 
 The sample performs the following actions:
 
-1. Creates a **Transform** with a [Content Aware Encoding preset](./content-aware-encoding.md). It first checks if the specified Transform exists.
+1. Creates a **Transform** with a [Content Aware Encoding preset](./encode-content-aware-concept.md). It first checks if the specified Transform exists.
 1. Creates an output **Asset** that is used by the encoding **Job** to contain the output
 1. Optionally uploads a local file using the Storage Blob SDK
 1. Creates the **Job** input that is based on an HTTPS URL or uploaded file
@@ -68,7 +68,7 @@ The sample performs the following actions:
 
 ## Run the sample
 
-1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59) file. It is set to "Temp" by default.
+1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) file. It is set to "Temp" by default.
 1. Open a **command prompt**, browse to the sample's directory.
 1. Change directory into the AMSv3Samples folder.
 

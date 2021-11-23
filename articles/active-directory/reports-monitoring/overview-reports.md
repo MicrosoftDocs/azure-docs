@@ -5,7 +5,7 @@ description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -86,7 +86,7 @@ The [audit logs report](concept-audit-logs.md) provides you with records of syst
 
 #### What Azure AD license do you need to access the audit logs report?  
 
-The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A deatiled feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/). For more details, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
+The audit logs report is available for features for which you have licenses. If you have a license for a specific feature, you also have access to the audit log information for it. A deatiled feature comparison as per [different types of licenses](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses) can be seen on the [Azure Active Directory pricing page](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing). For more details, see [Azure Active Directory features and capabilities](../fundamentals/active-directory-whatis.md#which-features-work-in-azure-ad).
 
 ### Sign-ins report
 

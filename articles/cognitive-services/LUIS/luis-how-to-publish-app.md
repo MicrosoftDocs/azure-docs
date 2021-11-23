@@ -10,7 +10,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 01/12/2021
+ms.date: 10/28/2021
 
 ---
 
@@ -40,7 +40,7 @@ By using both publishing slots, this allows you to have two different versions o
 
 ### Publishing regions
 
-The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-a-resource-to-an-app)** page.
+The app is published to all regions associated with the LUIS prediction endpoint resources added in the LUIS portal from the **Manage** -> **[Azure Resources](luis-how-to-azure-subscription.md#assign-luis-resources)** page.
 
 For example, for an app created on [www.luis.ai](https://www.luis.ai), if you create a LUIS resource in two regions, **westus** and **eastus**, and add these to the app as resources, the app is published in both regions. For more information about LUIS regions, see [Regions](luis-reference-regions.md).
 
@@ -67,9 +67,9 @@ If you need the endpoint URL, select the link. You can also get to the endpoint 
 
 <a name="enable-sentiment-analysis"></a>
 
-Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
+Sentiment analysis allows LUIS to integrate with the [Language service](https://azure.microsoft.com/services/cognitive-services/text-analytics/) to provide sentiment and key phrase analysis.
 
-You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account.
+You do not have to provide a Language service key and there is no billing charge for this service to your Azure account.
 
 Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels.
 

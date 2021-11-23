@@ -9,12 +9,15 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 10/28/2021
 ms.author: pafarley
 #How to set any of the configurations in the review tool.
 ---
 
 # Configure the Review tool
+
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 
 The [Review tool](https://contentmoderator.cognitive.microsoft.com) has several important features that you can access through the **Settings** menu on the dashboard.
 
@@ -94,7 +97,7 @@ The [Review tool](./human-in-the-loop.md) includes the following connectors:
 - Emotion
 - Face
 - PhotoDNA Cloud Service
-- Text Analytics
+- Language service
 
 ### Add a connector
 

@@ -53,11 +53,11 @@ There are many ways to install pip and Python on your platform. Here are some st
 
 For Windows 10, Windows Server 2016, and Windows Server 2012 R2, use the standard official installation instructions. The Python installer also installs pip by default.
 
-1. Go to the official [Python downloads page](https://www.python.org/downloads/), and download the latest release of Python 3.7.
+1. Go to the official [Python downloads page](https://www.python.org/downloads/), and download the latest release of Python 3.x.
 
 2. Start the installer.
 
-3. At the bottom of the prompt, select **Add Python 3.7 to PATH**.
+3. At the bottom of the prompt, select **Add Python 3.x to PATH**.
 
 4. Select **Install Now**, and finish the installation.
 
@@ -113,8 +113,8 @@ sudo pip3 install sfctl
 To install Service Fabric CLI on Red Hat, run the following commands:
 
 ```bash
-sudo yum install -y python34
-sudo yum install python34-setuptools
+sudo yum install -y python38
+sudo yum install python38-setuptools
 sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
@@ -130,7 +130,7 @@ For MacOS, we recommend that you use the [HomeBrew package manager](https://brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Then from the terminal, install Python 3.7, pip, and the Service Fabric CLI by running the following commands:
+Then from the terminal, install the latest Python 3.x, pip, and the Service Fabric CLI by running the following commands:
 
 ```bash
 brew install python3

@@ -14,7 +14,7 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
 # Quickstart: Set up a tenant
@@ -66,7 +66,7 @@ If you don't already have an Azure AD tenant or if you want to create a new one 
 You'll provide the following information to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - This domain is part of *.onmicrosoft.com. You can customize the domain later.
+- **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
 
 > [!NOTE]

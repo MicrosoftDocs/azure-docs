@@ -3,14 +3,14 @@ title: Migrate OWIN-based web APIs to b2clogin.com or a custom domain
 titleSuffix: Azure AD B2C
 description: Learn how to enable a .NET web API to support tokens issued by multiple token issuers while you migrate your applications to b2clogin.com.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -26,7 +26,7 @@ The following sections present an example of how to enable multiple issuers in a
 
 You need the following Azure AD B2C resources in place before continuing with the steps in this article:
 
-* [User flows](tutorial-create-user-flows.md) or [custom policies](custom-policy-get-started.md) created in your tenant
+* [User flows](tutorial-create-user-flows.md?pivots=b2c-user-flow) or [custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) created in your tenant
 
 ## Get token issuer endpoints
 

@@ -17,9 +17,6 @@ There are two stages in an upgrade:
 1. Change IP allocation method from Dynamic to Static.
 2. Run the PowerShell script to complete the upgrade and traffic migration.
 
-> [!IMPORTANT]
-> The script is currently under maintenance. You can refer to instructions [here](../virtual-network/virtual-network-public-ip-address-upgrade.md) on how to upgrade Public IP addresses from Basic SKU and Standard SKU.
-
 ## Upgrade overview
 
 An Azure PowerShell script is available that does the following:
@@ -56,7 +53,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/4.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzurePublicLBUpgrade/6.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:
@@ -113,7 +110,7 @@ Yes. See [Caveats/Limitations](#caveatslimitations).
 
 ### How long does the upgrade take?
 
-It usually take about 5-10 minutes for the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
+It usually take about a few minutes for the script to finish and it could take longer depending on the complexity of your Load Balancer configuration. Therefore, keep the downtime in mind and plan for failover if necessary.
 
 ### Does the Azure PowerShell script also switch over the traffic from my Basic Load Balancer to the newly created Standard Load Balancer?
 

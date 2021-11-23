@@ -13,6 +13,8 @@ ms.author: cynthn
 ---
 # Install and configure xrdp to use Remote Desktop with Ubuntu
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://xrdp.org)) for your Linux VM running Ubuntu.
 
 The article was writen and tested using an Ubuntu 18.04 VM. 
@@ -44,6 +46,7 @@ Next, install xfce using `apt` as follows:
 ```bash
 sudo apt-get update
 sudo apt-get -y install xfce4
+sudo apt install xfce4-session
 ```
 
 ## Install and configure a remote desktop server
@@ -81,7 +84,7 @@ sudo passwd azureuser
 ## Create a Network Security Group rule for Remote Desktop traffic
 To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a network security group?](../../virtual-network/network-security-groups-overview.md) You can also [use the Azure portal to create a network security group rule](../windows/nsg-quickstart-portal.md).
 
-The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az-vm-open-port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
+The following example creates a network security group rule with [az vm open-port](/cli/azure/vm#az_vm_open_port) on port *3389*. From the Azure CLI, not the SSH session to your VM, open the following network security group rule:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

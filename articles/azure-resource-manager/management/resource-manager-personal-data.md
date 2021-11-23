@@ -10,8 +10,6 @@ To avoid exposing sensitive information, delete any personal information you may
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Delete personal data in deployment history
 
 For deployments, Resource Manager retains parameter values and status messages in the deployment history. These values persist until you delete the deployment from the history. To see if you have provided personal data in these values, list the deployments. If you find personal data, delete the deployments from the history.
@@ -36,13 +34,13 @@ To list **resource groups**, use:
 
 * [List](/rest/api/resources/resourcegroups/list)
 * [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup)
-* [az group list](/cli/azure/group#az-group-list)
+* [az group list](/cli/azure/group#az_group_list)
 
 To delete **resource groups**, use:
 
 * [Delete](/rest/api/resources/resourcegroups/delete)
 * [Remove-AzResourceGroup](/powershell/module/az.resources/Remove-AzResourceGroup)
-* [az group delete](/cli/azure/group#az-group-delete)
+* [az group delete](/cli/azure/group#az_group_delete)
 
 ## Delete personal data in tags
 
@@ -52,13 +50,13 @@ To list **tags**, use:
 
 * [List](/rest/api/resources/tags/list)
 * [Get-AzTag](/powershell/module/az.resources/Get-AzTag)
-* [az tag list](/cli/azure/tag#az-tag-list)
+* [az tag list](/cli/azure/tag#az_tag_list)
 
 To delete **tags**, use:
 
 * [Delete](/rest/api/resources/tags/delete)
 * [Remove-AzTag](/powershell/module/az.resources/Remove-AzTag)
-* [az tag delete](/cli/azure/tag#az-tag-delete)
+* [az tag delete](/cli/azure/tag#az_tag_delete)
 
 ## Next steps
 * For an overview of Azure Resource Manager, see the [What is Resource Manager?](overview.md)

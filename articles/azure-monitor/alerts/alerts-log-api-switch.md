@@ -19,11 +19,12 @@ In the past, users used the [legacy Log Analytics Alert API](./api-alerts.md) to
 ## Benefits
 
 - Single template for creation of alert rules (previously needed three separate templates).
-- Single API for both Log Analytics workspaces or Application Insights resources.
+- Single API for all Azure resources log alerting.
+- Support for stateful and 1-minute log alert previews.
 - [PowerShell cmdlets support](./alerts-log.md#managing-log-alerts-using-powershell).
 - Alignment of severities with all other alert types.
 - Ability to create [cross workspace log alert](../logs/cross-workspace-query.md) that span several external resources like Log Analytics workspaces or Application Insights resources.
-- Users can specify dimensions to split the alerts by using the 'Aggregate On' parameter.
+- Users can specify dimensions to split the alerts.
 - Log alerts have extended period of up to two days of data (previously limited to one day).
 
 ## Impact
@@ -51,7 +52,7 @@ With request body containing the below JSON:
 Here is an example of using [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool, that simplifies invoking the above API call:
 
 ```powershell
-$switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
+$switchJSON = '{"scheduledQueryRulesEnabled": true}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
 

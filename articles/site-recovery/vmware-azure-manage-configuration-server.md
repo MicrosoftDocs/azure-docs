@@ -1,11 +1,12 @@
 ---
 title: Manage the configuration server for disaster recovery with Azure Site Recovery
-author: Rajeswari-Mamilla
-manager: rochakm
+description: Learn about the common tasks to manage an on-premises configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/15/2019
-ms.author: ramamill
+ms.author: sharrai
+ms.date: 05/27/2021
 ---
 
 # Manage the configuration server for VMware VM/physical server disaster recovery
@@ -218,7 +219,7 @@ Run the installation file as follows:
 |/PSIP|Required|IP address of the NIC to be used for replication data transfer| Any valid IP Address|
 |/CSIP|Required|The IP address of the NIC on which the configuration server is listening on| Any valid IP Address|
 |/PassphraseFilePath|Required|The full path to location of the passphrase file|Valid file path|
-|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy|To do get this value from Venu|
+|/BypassProxy|Optional|Specifies that the configuration server connects to Azure without a proxy||
 |/ProxySettingsFilePath|Optional|Proxy settings (The default proxy requires authentication, or a custom proxy)|The file should be in the format specified below|
 |DataTransferSecurePort|Optional|Port number on the PSIP to be used for replication data| Valid Port Number (default value is 9433)|
 |/SkipSpaceCheck|Optional|Skip space check for cache disk| |

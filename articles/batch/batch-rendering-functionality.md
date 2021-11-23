@@ -15,7 +15,7 @@ For an overview of Batch concepts, including pools, jobs, and tasks, see [this a
 
 ## Batch pools using custom VM images and standard application licensing
 
-As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
+As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
 
 The task command line strings will need to reference the applications and paths used when creating the custom VM image.
 
@@ -24,7 +24,7 @@ Most rendering applications will require licenses obtained from a license server
 ## Batch pools using rendering VM images
 
 > [!IMPORTANT]
-> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on 29 February 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
+> The rendering VM images and pay-for-use licensing have been [deprecated and will be retired on February 29, 2024](https://azure.microsoft.com/updates/azure-batch-rendering-vm-images-licensing-will-be-retired-on-29-february-2024/). To use Batch for rendering, [a custom VM image and standard application licensing should be used.](batch-rendering-functionality.md#batch-pools-using-custom-vm-images-and-standard-application-licensing)
 
 ### Rendering application installation
 
@@ -32,7 +32,7 @@ An Azure Marketplace rendering VM image can be specified in the pool configurati
 
 There is a Windows image and a CentOS image.  In the [Azure Marketplace](https://azuremarketplace.microsoft.com), the VM images can be found by searching for 'batch rendering'.
 
-For an example pool configuration, see the [Azure CLI rendering tutorial](./tutorial-rendering-cli.md).  The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
+The Azure portal and Batch Explorer provide GUI tools to select a rendering VM image when you create a pool.  If using a Batch API, then specify the following property values for [ImageReference](/rest/api/batchservice/pool/add#imagereference) when creating a pool:
 
 | Publisher | Offer | Sku | Version |
 |---------|---------|---------|--------|
@@ -41,8 +41,8 @@ For an example pool configuration, see the [Azure CLI rendering tutorial](./tuto
 
 Other options are available if additional applications are required on the pool VMs:
 
-* A custom image from the Shared Image Gallery:
-  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Shared Image Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
+* A custom image from the Azure Compute Gallery:
+  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Azure Compute Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](./batch-application-packages.md):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:
@@ -93,7 +93,5 @@ When the Azure Marketplace VM images are used, then the best practice is to use 
 
 ## Next steps
 
-For examples of Batch rendering try out the two tutorials:
-
-* [Rendering using the Azure CLI](./tutorial-rendering-cli.md)
-* [Rendering using Batch Explorer](./tutorial-rendering-batchexplorer-blender.md)
+* Learn about [using rendering applications with Batch](batch-rendering-applications.md).
+* Learn about [Storage and data movement options for rendering asset and output files](batch-rendering-storage-data-movement.md).

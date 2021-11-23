@@ -57,7 +57,7 @@ Accelerated Networking is supported on most general purpose and compute-optimize
 Support for Accelerated Networking can be found in the individual [virtual machine sizes](../virtual-machines/sizes.md) documentation. 
 
 ### Custom Images
-If you are using a custom image, and your image supports Accelerated Networking, please make sure to have the required drivers to work with Mellanox ConnectX-3 and ConnectX-4 Lx NICs on Azure.
+If you're using a custom image and your image supports Accelerated Networking, make sure that you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Also, Accelerated Networking requires network configurations that exempt the configuration of the virtual functions (mlx4_en and mlx5_core drivers). In images that have cloud-init >=19.4, networking is correctly configured to support Accelerated Networking during provisioning.
 
 ### Regions
 Available in all public Azure regions as well as Azure Government Clouds.
@@ -196,8 +196,8 @@ From the Bash shell, enter `uname -r` and confirm that the kernel version is one
 
 * **Ubuntu 16.04**: 4.11.0-1013
 * **SLES SP3**: 4.4.92-6.18
-* **RHEL**: 7.4.2017120423
-* **CentOS**: 7.4.20171206
+* **RHEL**: 3.10.0-693
+* **CentOS**: 3.10.0-693
 
 
 Confirm the Mellanox VF device is exposed to the VM with the `lspci` command. The returned output is similar to the following output:

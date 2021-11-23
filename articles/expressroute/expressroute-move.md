@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 12/15/2020
+ms.date: 06/02/2021
 ms.author: duau
 
 ---
@@ -18,7 +18,7 @@ You can use a single ExpressRoute circuit to connect virtual networks that are d
 ![An ExpressRoute circuit that links to virtual networks across both deployment models](./media/expressroute-move/expressroute-move-1.png)
 
 ## ExpressRoute circuits that are created in the classic deployment model
-ExpressRoute circuits created in the classic deployment model need to migrate to the Resource Manager deployment model first. Only then can enable connectivity to both the classic and the Resource Manager deployment models. Connectivity isn't loss or disrupted when a connection is being moved. All circuit-to-virtual network links in the classic deployment model within the same subscription and cross-subscription are preserved.
+ExpressRoute circuits created in the classic deployment model need to migrate to the Resource Manager deployment model first. Only then can enable connectivity to both the classic and the Resource Manager deployment models. Connectivity isn't lost or disrupted when a connection is being moved. All circuit-to-virtual network links in the classic deployment model within the same subscription and cross-subscription are preserved.
 
 After the move has successfully completed, the ExpressRoute circuit will behave exactly like an ExpressRoute circuit that was created in the Resource Manager deployment model. You can now create connections to virtual networks in the Resource Manager deployment model.
 

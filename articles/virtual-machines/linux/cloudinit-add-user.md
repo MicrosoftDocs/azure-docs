@@ -1,15 +1,18 @@
 ---
 title: Use cloud-init to add a user to a Linux VM on Azure 
 description: How to use cloud-init to add a user to a Linux VM during creation with the Azure CLI
-author: rickstercdn
+author: mimckitt
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 11/29/2017
-ms.author: rclaus
-
+ms.date: 05/11/2021
+ms.author: mimckitt
+ms.subservice: cloud-init
 ---
 # Use cloud-init to add a user to a Linux VM in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to add a user on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. This cloud-init script runs on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md).
 
 ## Add a user to a VM with cloud-init

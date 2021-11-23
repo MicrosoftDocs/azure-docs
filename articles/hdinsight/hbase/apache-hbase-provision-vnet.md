@@ -37,9 +37,9 @@ In this section, you create a Linux-based Apache HBase cluster with the dependen
 >
 > `CLUSTERNAME` is replaced with the cluster name you provide when using the template.
 
-1. Select the following image to open the template in the Azure portal. The template is located in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
+1. Select the following image to open the template in the Azure portal. The template is located in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/hdinsight-hbase-linux-vnet/).
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 1. From the **Custom deployment** dialog, select **Edit template**.
 
@@ -100,14 +100,14 @@ When using a Java application to connect to HBase remotely, you must use the ful
 In the JavaScript Object Notation (JSON) data returned, find the "host_name" entry. It contains the FQDN for the nodes in the cluster. For example:
 
 ```json
-"host_name" : "hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
+"host_name" : "hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net"
 ```
 
 The portion of the domain name beginning with the cluster name is the DNS suffix. For example, `hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 ### Verify communication inside virtual network
 
-To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, `ping hn0-hbaseg.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
+To verify that the virtual machine can communicate with the HBase cluster, use the command `ping headnode0.<dns suffix>` from the virtual machine. For example, `ping hn*.hjfrnszlumfuhfk4pi1guh410c.bx.internal.cloudapp.net`.
 
 To use this information in a Java application, you can follow the steps in [Use Apache Maven to build Java applications that use Apache HBase with HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) to create an application. To have the application connect to a remote HBase server, modify the **hbase-site.xml** file in this example to use the FQDN for Zookeeper. For example:
 

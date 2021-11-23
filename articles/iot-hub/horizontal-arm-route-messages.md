@@ -1,12 +1,12 @@
 ---
 title: Use ARM template to publish Azure IoT Hub, storage account, route messages
 description: Use ARM template to publish Azure IoT Hub, storage account, route messages
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: quickstart
 ms.date: 08/24/2020
-ms.author: robinsh
+ms.author: lizross
 ms.custom: mvc, subject-armqs
 ---
 
@@ -18,7 +18,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Review the template
 
-The template used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-auto-route-messages).
+The template used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-auto-route-messages).
 
-:::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-auto-route-messages/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -44,7 +44,7 @@ This section provides the steps to deploy the template, create a virtual device,
     > [!TIP]
     > Select the button below to start the deployment of the template. While it's running, set up the arm-read-write application to run.
 
-    [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+    [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
 1. Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
@@ -58,8 +58,6 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard.
 
-   ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
-
     Substitute the hub name in this command where noted, and execute this command in the command window:
 
     ```cmd
@@ -72,11 +70,11 @@ This section provides the steps to deploy the template, create a virtual device,
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **IOT Devices** from the IoT Hub menu for the hub.
+1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **Devices** from the IoT Hub menu for the hub.
 
-   ![Select IoT Devices](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/04-select-iot-devices.png" alt-text="Screenshot that shows devices in the left pane." border="true":::
 
-1. On the right side of the screen, select **+ NEW** to add a new device.
+1. On the right side of the screen, select **+ Add Device** to add a new device.
 
    Fill in the new device name. This quickstart uses a name starting with **Contoso-Test-Device**. Save the device and then open that screen again to retrieve the device key. (The key is generated for you when you close the pane.) Select either the primary or secondary key and copy it to the Windows clipboard. In the command window, set the command to execute and then press **Enter**. The command should look like this one but with the device key pasted in:
 

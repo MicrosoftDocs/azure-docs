@@ -1,14 +1,14 @@
 ---
 title: Understand how metric alerts work in Azure Monitor.
 description: Get an overview of what you can do with metric alerts and how they work in Azure Monitor.
-ms.date: 03/11/2021
+ms.date: 10/14/2021
 ms.topic: conceptual
 
 ---
 
 # Understand how metric alerts work in Azure Monitor
 
-Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../essentials/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
+Metric alerts in Azure Monitor work on top of multi-dimensional metrics. These metrics could be [platform metrics](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [custom metrics](../essentials/metrics-custom-overview.md), [popular logs from Azure Monitor converted to metrics](./alerts-metric-logs.md) and Application Insights metrics. Metric alerts evaluate at regular intervals to check if conditions on one or more metric time-series are true and notify you when the evaluations are met. Metric alerts are stateful by default, that is, they only send out notifications when the state changes (fired, resolved). If you want to make them stateless, see [make metric alerts occur every time my condition is met](alerts-troubleshoot-metric.md#make-metric-alerts-occur-every-time-my-condition-is-met).
 
 ## How do metric alerts work?
 
@@ -126,8 +126,6 @@ Increasing look-back periods and number of violations can also allow filtering a
 > -	Metric alert rule that monitors multiple resources – When a new resource is added to the scope
 > -	Metric alert rule that monitors a metric that isn’t emitted continuously (sparse metric) –  When the metric is emitted after a period longer than 24 hours in which it wasn’t emitted
 
-
-
 ## Monitoring at scale using metric alerts in Azure Monitor
 
 So far, you have seen how a single metric alert could be used to monitor one or many metric time-series related to a single Azure resource. Many times, you might want the same alert rule applied to many resources. Azure Monitor also supports monitoring multiple resources (of the same type) with one metric alert rule, for resources that exist in the same Azure region. 
@@ -144,6 +142,7 @@ This feature is currently supported for platform metrics (not custom metrics) fo
 | Key vaults | **Yes** | **Yes** | **Yes** |
 | Azure Cache for Redis | **Yes** | **Yes** | **Yes** |
 | Data box edge devices | **Yes** | **Yes** | **Yes** |
+| Recovery Services vaults | **Yes** | **No** | **No** |
 
 <sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
 
@@ -171,11 +170,10 @@ For metric alerts, typically you will get notified in under 5 minutes if you set
 
 You can find the full list of supported resource types in this [article](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-
 ## Next steps
 
 - [Learn how to create, view, and manage metric alerts in Azure](../alerts/alerts-metric.md)
-- [Learn how to create alerts within Azure Montior Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
+- [Learn how to create alerts within Azure Monitor Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
 - [Learn how to deploy metric alerts using Azure Resource Manager templates](./alerts-metric-create-templates.md)
 - [Learn more about action groups](./action-groups.md)
 - [Learn more about Dynamic Thresholds condition type](../alerts/alerts-dynamic-thresholds.md)

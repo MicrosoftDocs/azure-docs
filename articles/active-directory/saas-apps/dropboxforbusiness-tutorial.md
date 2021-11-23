@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/17/2021
+ms.date: 11/17/2021
 ms.author: jeedes
 ---
 # Tutorial: Integrate Dropbox Business with Azure Active Directory
@@ -34,7 +34,7 @@ To get started, you need the following items:
 
 * In this tutorial, you configure and test Azure AD SSO in a test environment. Dropbox Business supports **SP** initiated SSO.
 
-* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-tutorial.md).
+* Dropbox Business supports [Automated user provisioning and deprovisioning](dropboxforbusiness-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -81,6 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	 b. In the **Identifier (Entity ID)** text box, type the value:
     `Dropbox`
 	
+	c. In the **Reply URL** field, enter `https://www.dropbox.com/saml_login`
 	> [!NOTE]
 	> The **Dropbox Sign SSO ID** can be found in the Dropbox site at Dropbox > Admin console > Settings > Single sign-on > SSO sign-in URL.
 
@@ -167,6 +168,8 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 In this section, a user called B.Simon is created in Dropbox Business. Dropbox Business supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dropbox Business, a new one is created after authentication.
 
+This application also supports automatic user provisioning. See how to enable auto provisioning for [Dropbox Business](dropboxforbusiness-provisioning-tutorial.md).
+
 >[!Note]
 >If you need to create a user manually, Contact [Dropbox Business Client support team](https://www.dropbox.com/business/contact)
 
@@ -178,8 +181,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Dropbox Business Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Dropbox Business tile in the My Apps, this will redirect to Dropbox Business Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Dropbox Business tile in the My Apps, this will redirect to Dropbox Business Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Dropbox Business you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Dropbox Business you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

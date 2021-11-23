@@ -1,0 +1,43 @@
+### YamlMime:Landing
+
+title: Transfer and Transform Data
+summary: Data transfer and data transformation documentation page for Azure Healthcare APIs (preview). 
+
+metadata:
+  title: Azure Healthcare APIs Data Transformation
+  description: Data Transformation documentation section for Azure Healthcare APIs
+  services: healthcare-apis
+  ms.service: healthcare-apis
+  ms.subservice: data-transformation
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: ginalee-dotcom
+  ms.author: ginle
+  ms.date: 06/01/2021
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+
+  - title: Configure settings for data export
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Configure settings for export
+            url: configure-export-data.md
+  - title: Export data
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Exporting your data
+            url: export-data.md
+          - text: De-identified export
+            url: de-identified-export.md
+          - text: Export data to Synapse
+            url: move-to-synapse.md
+  - title: Convert Data
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: $convert-data and FHIR Converter Extension Templates
+            url: convert-data.md

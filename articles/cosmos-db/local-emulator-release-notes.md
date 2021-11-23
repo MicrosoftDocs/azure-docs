@@ -11,16 +11,40 @@ ms.date: 09/21/2020
 # Azure Cosmos DB Emulator - Release notes and download information
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of emulator to download and use.
+This article shows the Azure Cosmos DB Emulator release notes with a list of feature updates that were made in each release. It also lists the latest version of the emulator to download and use.
 
 ## Download
 
-| |Links |
+| | Link |
 |---------|---------|
 |**MSI download**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
 |**Get started**|[Develop locally with Azure Cosmos DB Emulator](local-emulator.md)|
 
 ## Release notes
+
+### 2.14.4 (25 October 2021)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB services.
+
+### 2.14.3 (8 September 2021)
+
+ - This release updates the Cosmos Emulator background services to match the latest online functionality of the Azure Cosmos DB, fixes couple issues with telemetry data that is collected and resets the base image for the Linux Cosmos emulator Docker image.
+
+### 2.14.2 (12 August 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and resets the base for the Linux Cosmos emulator Docker image.
+
+### 2.14.1 (18 June 2021)
+
+ - This release improves the start-up time for the emulator while reducing the footprint of its data on the disk. This new optimization is activated by "/EnablePreview" argument.
+
+### 2.14.0 (15 June 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version; in this release we addresses a known issue when importing multiple document items by using the JSON file uploading feature.
+
+### 2.11.13 (21 April 2021)
+
+ - This release updates the local Data Explorer content to latest Azure Portal version and adds a new MongoDB endpoint configuration, "4.0".
 
 ### 2.11.11 (22 February 2021)
 

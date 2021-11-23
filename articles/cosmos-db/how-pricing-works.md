@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 08/26/2021
 ---
 
 # Pricing model in Azure Cosmos DB
@@ -32,7 +32,7 @@ If you deploy your Azure Cosmos DB account to a non-government region in the US,
 
 Azure Cosmos DB offers many options for developers to it for free. These options include:
 
-* **Azure Cosmos DB free tier**: Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 400 RU/s and 5 GB of storage in the account free, for the lifetime of the account. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To get started, [create a new account in Azure portal with free tier enabled](create-cosmosdb-resources-portal.md) or use an [ARM Template](./manage-with-templates.md#free-tier).
+* **Azure Cosmos DB free tier**: Azure Cosmos DB free tier makes it easy to get started, develop and test your applications, or even run small production workloads for free. When free tier is enabled on an account, you'll get the first 1000 RU/s and 25 GB of storage in the account free, for the lifetime of the account. You can have up to one free tier account per Azure subscription and must opt-in when creating the account. To learn more, see how to [create a free tier account](free-tier.md) article.
 
 * **Azure free account**: Azure offers a [free tier](https://azure.microsoft.com/free/) that gives you $200 in Azure credits for the first 30 days and a limited quantity of free services for 12 months. For more information, see [Azure free account](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB is a part of Azure free account. Specifically for Azure Cosmos DB, this free account offers 25-GB storage and 400 RU/s of provisioned throughput for the entire year.
 
@@ -50,6 +50,9 @@ Reserved capacity provides a billing discount and does not affect the runtime st
 
 You can learn more about optimizing the costs for your Azure Cosmos DB resources in the following articles:
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 * Learn about [Optimizing for development and testing](optimize-dev-test.md)
 * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)
 * Learn more about [Optimizing throughput cost](optimize-cost-throughput.md)

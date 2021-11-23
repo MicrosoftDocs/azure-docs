@@ -1,30 +1,44 @@
 ---
-title: Using Azure Import/Export to transfer data to Azure Files | Microsoft Docs
+title: Tutorial to transfer data to Azure Files with Azure Import/Export | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: how-to
-ms.date: 03/03/2021
+ms.topic: tutorial
+ms.date: 10/06/2021
 ms.author: alkohli
 ms.subservice: common
-ms.custom: "devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
+ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
 ---
-# Use Azure Import/Export service to import data to Azure Files
+# Tutorial: Transfer data to Azure Files with Azure Import/Export
 
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely import large amounts of data into Azure Files. To import data, the service requires you to ship supported disk drives containing your data to an Azure datacenter.
 
 The Import/Export service supports only import of Azure Files into Azure Storage. Exporting Azure Files is not supported.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Prerequisites to import data to Azure Files
+> * Step 1: Prepare the drives
+> * Step 2: Create an import job
+> * Step 3: Ship the drives to Azure datacenter
+> * Step 4: Update the job with tracking information
+> * Step 5: Verify data upload to Azure
 
 ## Prerequisites
 
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](../storage/common/storage-account-create.md).
-- Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
-- Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
-- [Download the WAImportExport version 2](https://aka.ms/waiev2) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md).
+  - Consider configuring large file shares on the storage account. During imports to Azure Files, if a file share doesn't have enough free space, auto splitting the data to multiple Azure file shares is no longer supported, and the copy will fail. For instructions, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+  - For information on creating a new storage account, see [How to create a storage account](../storage/common/storage-account-create.md).
+- Have an adequate number of disks of [supported types](storage-import-export-requirements.md#supported-disks).
+- Have a Windows system running a [supported OS version](storage-import-export-requirements.md#supported-operating-systems).
+- Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
+  1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
+  1. Unzip to the default folder `WaImportExportV2`. For example, `C:\WaImportExportV2`.
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
@@ -40,31 +54,34 @@ This step generates a journal file. The journal file stores basic information su
 
 Do the following steps to prepare the drives.
 
-1. Connect our disk drives to the Windows system via SATA connectors.
+1. Connect your disk drives to the Windows system via SATA connectors.
 2. Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
 3. Modify the *dataset.csv* file in the root folder where the tool is. Depending on whether you want to import a file or folder or both, add entries in the *dataset.csv* file similar to the following examples.
 
    - **To import a file**: In the following example, the data to copy is on the F: drive. Your file *MyFile1.txt*  is copied to the root of the *MyAzureFileshare1*. If the *MyAzureFileshare1* does not exist, it's created in the Azure Storage account. Folder structure is maintained.
 
        ```
-           BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+           BasePath,DstItemPathOrPrefix,ItemType
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+       ```
+
+   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to the fileshare. Folder structure is maintained. If you import a file with the same name as an existing file in the destination folder, the imported file will overwrite that file.
 
        ```
-   - **To import a folder**: All files and folders under *MyFolder2* are recursively copied to fileshare. Folder structure is maintained.
-
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
+   
+       > [!NOTE]
+       > The /Disposition parameter, which let you choose what to do when you import a file that already exists in earlier versions of the tool, is not supported in Azure Import/Export version 2.2.0.300. In the earlier tool versions, an imported file with the same name as an existing file was renamed by default.
 
-       ```
      Multiple entries can be made in the same file corresponding to folders or files that are imported.
 
        ```
-           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
-           "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None
-
+           "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
+           "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-     Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).
+
+<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
 
 
 4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
@@ -90,19 +107,19 @@ Do the following steps to prepare the drives.
 5. Use the `PrepImport` option to copy and prepare data to the disk drive. For the first copy session to copy directories and/or files with a new copy session, run the following command:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    An import example is shown below.
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
+    .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
     ```
 
 6. A journal file with name you provided with `/j:` parameter, is created for every run of the command line. Each drive you prepare has a journal file that must be uploaded when you create the import job. Drives without journal files aren't processed.
 
     > [!IMPORTANT]
-    > - Do not modify the data on the disk drives or the journal file after completing disk preparation.
+    > Do not modify the journal files or the data on the disk drives, and don't reformat any disks, after completing disk preparation.
 
 For additional samples, go to [Samples for journal files](#samples-for-journal-files).
 
@@ -148,7 +165,7 @@ Do the following steps to create an import job in the Azure portal.
 
    Select **Next: Shipping >** to proceed.
 
-4. In **Shipping**:
+6. In **Shipping**:
 
     1. Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
     1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
@@ -161,7 +178,7 @@ Do the following steps to create an import job in the Azure portal.
 
    Select **Review + create** to proceed.
 
-5. In the order summary:
+7. In the order summary:
 
    1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
@@ -177,7 +194,7 @@ Use the following steps to create an import job in the Azure CLI.
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
@@ -195,19 +212,19 @@ Use the following steps to create an import job in the Azure CLI.
     az storage account create -resource-group myierg -name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/import-export/location#az_import_export_location_list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
+1. Use the [az import-export location show](/cli/azure/import-export/location#az_import_export_location_show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
+1. Run the following [az import-export create](/cli/azure/import-export#az_import_export_create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -235,13 +252,13 @@ Use the following steps to create an import job in the Azure CLI.
    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
+1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/import-export#az_import_export_update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
@@ -358,7 +375,11 @@ Install-Module -Name Az.ImportExport
 
 ## Step 5: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you verify that upload was successful.
+Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Check your copy logs for failures. For more information, see [Review copy logs](storage-import-export-tool-reviewing-job-status-v1.md). Delete the on-premises data only after you verify that upload was successful.
+
+> [!NOTE]
+> In the latest version of the Azure Import/Export tool for files (2.2.0.300), if a file share doesn't have enough free space, the data is no longer auto split to multiple Azure file shares. Instead, the copy fails, and you'll be contacted by Support. You'll need to either configure large file shares on the storage account or move around some data to make space in the share. For more information, see [Configure large file shares on a storage account](../storage/files/storage-how-to-create-file-share.md?tabs=azure-portal#enable-large-files-shares-on-an-existing-account).
+
 
 ## Samples for journal files
 
@@ -394,4 +415,4 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 ## Next steps
 
 * [View the job and drive status](storage-import-export-view-drive-status.md)
-* [Review Import/Export requirements](storage-import-export-requirements.md)
+* [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md)

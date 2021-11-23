@@ -1,16 +1,21 @@
 ---
 title: Mapping data flow transformation overview
+titleSuffix: Azure Data Factory & Azure Synapse
 description: An overview of the different transformations available in mapping data flow
-author: dcstwh
-ms.author: weetok
+author: kromerm
+ms.author: makromer
 ms.service: data-factory
+ms.subservice: data-flows
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/27/2020
+ms.date: 10/07/2021
 ---
 
 # Mapping data flow transformation overview
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 
@@ -33,7 +38,9 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Sink](data-flow-sink.md) | - | A final destination for your data |
 | [Sort](data-flow-sort.md) | Row modifier | Sort incoming rows on the current data stream |
 | [Source](data-flow-source.md) | - | A data source for the data flow |
+| [Stringify](data-flow-stringify.md) | - | Turn complex types into plain strings |
 | [Surrogate key](data-flow-surrogate-key.md) | Schema modifier | Add an incrementing non-business arbitrary key value |
 | [Union](data-flow-union.md) | Multiple inputs/outputs | Combine multiple data streams vertically |
 | [Unpivot](data-flow-unpivot.md) | Schema modifier | Pivot columns into row values |
 | [Window](data-flow-window.md) | Schema modifier |  Define window-based aggregations of columns in your data streams. |
+| [Parse](data-flow-parse.md) | Schema modifier |  Parse column data to Json or delimited text |

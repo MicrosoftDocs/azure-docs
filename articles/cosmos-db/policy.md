@@ -5,7 +5,8 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 09/23/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 

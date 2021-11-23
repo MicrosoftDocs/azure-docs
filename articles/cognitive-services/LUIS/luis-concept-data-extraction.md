@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 10/28/2021
 ---
 
 # Extract data from utterance text with intents and entities
@@ -238,17 +238,17 @@ Location names are set and known such as cities, counties, states, provinces, an
 
 ### New and emerging names
 
-Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md#simple-entity)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
+Some apps need to be able to find new and emerging names such as products or companies. These types of names are the most difficult type of data extraction. Begin with a **[simple entity](luis-concept-entity-types.md)** and add a [phrase list](luis-concept-feature.md). [Review](./luis-how-to-review-endpoint-utterances.md) endpoint utterances on a regular basis to label any names that were not predicted correctly.
 
 ## Pattern.any entity data
 
 [Pattern.any](reference-entity-pattern-any.md) is a variable-length placeholder used only in a pattern's template utterance to mark where the entity begins and ends. The entity used in the pattern must be found in order for the pattern to be applied.
 
 ## Sentiment analysis
-If Sentiment analysis is configured while [publishing](luis-how-to-publish-app.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Text Analytics](../text-analytics/index.yml) documentation.
+If Sentiment analysis is configured while [publishing](luis-how-to-publish-app.md#sentiment-analysis), the LUIS json response includes sentiment analysis. Learn more about sentiment analysis in the [Language service](../language-service/sentiment-opinion-mining/overview.md) documentation.
 
 ## Key phrase extraction entity data
-The [key phrase extraction entity](luis-reference-prebuilt-keyphrase.md) returns key phrases in the utterance, provided by [Text Analytics](../text-analytics/index.yml).
+The [key phrase extraction entity](luis-reference-prebuilt-keyphrase.md) returns key phrases in the utterance, provided by the [Language service](../language-service/key-phrase-extraction/overview.md).
 
 ## Data matching multiple entities
 

@@ -1,7 +1,7 @@
 ---
 title: Connect to a peer network in Azure Lab Services | Microsoft Docs
 description: Learn how to connect your lab network with another network as a peer. For example, connect your on-premises organization/university network with Lab's virtual network in Azure.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -22,6 +22,9 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 
 > [!NOTE]
 > When creating a Azure Virtual Network that will be peered with a lab account, it's important to understand how the virtual network's region impacts where labs are created.  For more information, see the administrator guide's section on [regions\locations](./administrator-guide.md#regionslocations).
+
+> [!NOTE]
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
 ## Configure at the time of lab account creation
 

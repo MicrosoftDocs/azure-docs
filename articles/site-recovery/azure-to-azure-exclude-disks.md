@@ -4,7 +4,8 @@ description: Learn how to exclude disks of Azure virtual machines during Azure S
 author: sideeksh
 manager: rochakm
 ms.topic: how-to
-ms.date: 02/18/2019
+ms.date: 02/18/2019 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Exclude disks from PowerShell replication of Azure VMs

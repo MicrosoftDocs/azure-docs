@@ -7,9 +7,8 @@ ms.subservice: development
 ms.custom: sqldbrb=2
 ms.devlang:
 ms.topic: conceptual
-author: denzilribeiro
-ms.author: denzilr
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 09/02/2020
 ---
 # Accelerate real-time big data analytics using the Spark connector

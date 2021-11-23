@@ -72,7 +72,7 @@ If you anticipate heavy use of Boolean operators, which is more likely in indexe
 
 ## Autocomplete and suggested queries
 
-[Autocomplete or suggested results](search-autocomplete-tutorial.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
+[Autocomplete or suggested results](search-add-autocomplete-suggestions.md) are alternatives to **`search`** that fire successive query requests based on partial string inputs (after each character) in a search-as-you-type experience. You can use **`autocomplete`** and **`suggestions`** parameter together or separately, as described in [this tutorial](tutorial-csharp-type-ahead-and-suggestions.md), but you cannot use them with **`search`**. Both completed terms and suggested queries are derived from index contents. The engine will never return a string or suggestion that is non-existent in your index. For more information, see [Autocomplete (REST API)](/rest/api/searchservice/autocomplete) and [Suggestions (REST API)](/rest/api/searchservice/suggestions).
 
 ## Filter search
 
@@ -84,7 +84,7 @@ You might also need filters to invoke a specialized query form, as described in 
 |-----------------|-------------|
 | Range filters | In Azure Cognitive Search, range queries are built using the filter parameter. For more information and examples, see [Range filter example](search-query-simple-examples.md#example-5-range-filters). |
 | Geo-location search | If a searchable field is of [Edm.GeographyPoint type](/rest/api/searchservice/supported-data-types), you can create a filter expression for "find near me" or map-based search controls. Fields that drive geo-search contain coordinates. For more information and an example, see [Geo-search example](search-query-simple-examples.md#example-6-geo-search). |
-| Faceted navigation | A facet navigation structure becomes instrumental in user-directed navigation when you invoke a filter in response to an `onclick` event on a facet. As such, facets and filters go hand-in-hand. If you add facet navigation, you will need filters to complete the experience. For more information, see [How to build a facet filter](search-filters-facets.md). |
+| Faceted navigation | In [faceted navigation](search-faceted-navigation.md) tree, users can select facets, narrowing the results on each click. Each facet is backed by a filter that excludes documents that no longer match the criteria. |
 
 > [!NOTE]
 > Text that's used in a filter expression is not analyzed during query processing. The text input is presumed to be a verbatim case-sensitive character pattern that either succeeds or fails on the match. Filter expressions are constructed using [OData syntax](query-odata-filter-orderby-syntax.md) and passed in a **`filter`** parameter in all *filterable* fields in your index. For more information, see [Filters in Azure Cognitive Search](search-filters.md).

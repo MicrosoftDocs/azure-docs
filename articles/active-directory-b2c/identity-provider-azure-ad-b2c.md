@@ -3,14 +3,14 @@ title: Set up sign-up and sign-in with an Azure AD B2C account from another Azur
 titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with Azure AD B2C accounts from another tenant in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
-ms.author: mimart
+ms.date: 09/16/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
@@ -37,11 +37,19 @@ This article describes how to set up a federation with another Azure AD B2C tena
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
+### Verify the application's publisher domain
+As of November 2020, new application registrations show up as unverified in the user consent prompt unless [the application's publisher domain is verified](../active-directory/develop/howto-configure-publisher-domain.md) ***and*** the company’s identity has been verified with the Microsoft Partner Network and associated with the application. ([Learn more](../active-directory/develop/publisher-verification-overview.md) about this change.) Note that for Azure AD B2C user flows, the publisher’s domain appears only when using a [Microsoft account](../active-directory-b2c/identity-provider-microsoft-account.md) or other Azure AD tenant as the identity provider. To meet these new requirements, do the following:
+
+1. [Verify your company identity using your Microsoft Partner Network (MPN) account](/partner-center/verification-responses). This process verifies information about your company and your company’s primary contact.
+1. Complete the publisher verification process to associate your MPN account with your app registration using one of the following options:
+   - If the app registration for the Microsoft account identity provider is in an Azure AD tenant, [verify your app in the App Registration portal](../active-directory/develop/mark-app-as-publisher-verified.md).
+   - If your app registration for the Microsoft account identity provider is in an Azure AD B2C tenant, [mark your app as publisher verified using Microsoft Graph APIs](../active-directory/develop/troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) (for example, using Graph Explorer). The UI for setting an app’s verified publisher is currently disabled for Azure AD B2C tenants.
+
 ## Create an Azure AD B2C application
 
 To enable sign-in for users with an account from another Azure AD B2C tenant (for example, Fabrikam), in your Azure AD B2C (for example, Contoso):
 
-1. Create a [user flow](tutorial-create-user-flows.md), or a [custom policy](custom-policy-get-started.md).
+1. Create a [user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow), or a [custom policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Then create an application in the Azure AD B2C, as describe in this section. 
 
 To create an application.
@@ -78,7 +86,8 @@ To create an application.
 ## Configure Azure AD B2C as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains the Azure AD B2C tenant you want to configure the federation (for example, Contoso). Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant (for example, Contoso).
+1. Make sure you're using the directory that contains the Azure AD B2C tenant you want to configure the federation (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, enter *Fabrikam*.
@@ -126,7 +135,8 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 You need to store the application key that you created earlier in your Azure AD B2C tenant.
 
-1. Make sure you're using the directory that contains the Azure AD B2C tenant you want to configure the federation (for example, Contoso). Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant (for example, Contoso).
+1. Make sure you're using the directory that contains the Azure AD B2C tenant you want to configure the federation (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy keys** and then select **Add**.
@@ -225,7 +235,7 @@ You can define Azure AD B2C as a claims provider by adding Azure AD B2C to the *
 ## Test your custom policy
 
 1. Select your relying party policy, for example `B2C_1A_signup_signin`.
-1. For **Application**, select a web application that you [previously registered](troubleshoot-custom-policies.md#troubleshoot-the-runtime). The **Reply URL** should show `https://jwt.ms`.
+1. For **Application**, select a web application that you [previously registered](tutorial-register-applications.md). The **Reply URL** should show `https://jwt.ms`.
 1. Select the **Run now** button.
 1. From the sign-up or sign-in page, select **Fabrikam** to sign in with the other Azure AD B2C tenant.
 

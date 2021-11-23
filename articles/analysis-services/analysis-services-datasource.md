@@ -4,7 +4,7 @@ description: Describes data sources and connectors supported for tabular 1200 an
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 

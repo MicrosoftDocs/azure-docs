@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: troubleshooting
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: wiassaf, sstein
-ms.date: 1/14/2021
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
+ms.date: 11/04/2021
 ---
 
 # Detectable types of query performance bottlenecks in Azure SQL Database
@@ -74,7 +74,6 @@ For more information about resolving PSP problems, see these blog posts:
 
 - [I smell a parameter](/archive/blogs/queryoptteam/i-smell-a-parameter)
 - [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
-- [SQL query optimization techniques in SQL Server: Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### Compile activity caused by improper parameterization
 
@@ -134,7 +133,7 @@ A recompilation (or fresh compilation after cache eviction) can still result in 
 
 - **Changed physical design**: For example, newly created indexes more effectively cover the requirements of a query. The new indexes might be used on a new compilation if the query optimizer decides that using that new index is more optimal than using the data structure that was originally selected for the first version of the query execution. Any physical changes to the referenced objects might result in a new plan choice at compile time.
 
-- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated. For example, if one system has more processors, a parallel plan might be chosen.
+- **Server resource differences**: When a plan in one system differs from the plan in another system, resource availability, such as the number of available processors, can influence which plan gets generated. For example, if one system has more processors, a parallel plan might be chosen. For more information on parallelism in Azure SQL Database, see [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md).
 
 - **Different statistics**: The statistics associated with the referenced objects might have changed or might be materially different from the original system's statistics. If the statistics change and a recompilation happens, the query optimizer uses the statistics starting from when they changed. The revised statistics' data distributions and frequencies might differ from those of the original compilation. These changes are used to create cardinality estimates. (*Cardinality estimates* are the number of rows that are expected to flow through the logical query tree.) Changes to cardinality estimates might lead you to choose different physical operators and associated orders of operations. Even minor changes to statistics can result in a changed query execution plan.
 
@@ -176,6 +175,8 @@ It's not always easy to identify a workload volume change that's driving a CPU p
 
 Use Intelligent Insights to detect [workload increases](database/intelligent-insights-troubleshoot-performance.md#workload-increase) and [plan regressions](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
+- **Parallelism**: Excessive parallelism can worsen cause other concurrent workload performance by starving other queries of CPU and worker thread resources. For more information on parallelism in Azure SQL Database, see [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md).
+
 ## Waiting-related problems
 
 Once you have eliminated a suboptimal plan and *Waiting-related* problems that are related to execution problems, the performance problem is generally the queries are probably waiting for some resource. Waiting-related problems might be caused by:
@@ -191,7 +192,7 @@ Once you have eliminated a suboptimal plan and *Waiting-related* problems that a
   If the workload uses temporary tables or there are TempDB spills in the plans, the queries might have a problem with TempDB throughput. See using DMVs to [identity TempDB issues](database/monitoring-with-dmvs.md#identify-tempdb-performance-issues).
 - **Memory-related problems**
 
-  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues).
+  If the workload doesn't have enough memory, the page life expectancy might drop, or the queries might get less memory than they need. In some cases, built-in intelligence in Query Optimizer will fix memory-related problems. See using DMVs to [identify memory grant issues](database/monitoring-with-dmvs.md#identify-memory-grant-wait-performance-issues). For more information and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](database/troubleshoot-memory-errors-issues.md).
 
 ### Methods to show top wait categories
 
@@ -215,6 +216,11 @@ DMVs that track Query Store and wait statistics show results for only successful
 > - [TigerToolbox waits and latches](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [TigerToolbox usp_whatsup](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
+## See also
+
+* [Configure the max degree of parallelism (MAXDOP) in Azure SQL Database](database/configure-max-degree-of-parallelism.md)
+* [Understand and resolve Azure SQL Database blocking problems in Azure SQL Database](database/understand-resolve-blocking.md)
+
 ## Next steps
 
-[SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)
+* [SQL Database monitoring and tuning overview](database/monitor-tune-overview.md)

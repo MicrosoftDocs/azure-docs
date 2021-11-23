@@ -21,7 +21,7 @@ ms.reviewer: anilmur
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Version 2](media-services-media-encoder-standard-formats.md)
-> * [Version 3](../latest/media-encoder-standard-formats.md)
+> * [Version 3](../latest/encode-media-encoder-standard-formats-reference.md)
 
 This document contains a list of the most common import and export file formats that you can use with Media Encoder Standard.
 
@@ -41,7 +41,7 @@ This document contains a list of the most common import and export file formats 
 | QuickTime (.mov) |Yes |
 
 > [!NOTE]
-> Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, provide your feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
+> Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, provide your feedback [here](https://feedback.azure.com/d365community/forum/a78db44a-0d25-ec11-b6e6-000d3a4f09d0?c=a1733251-0d25-ec11-b6e6-000d3a4f09d0).
 > 
 > 
 
