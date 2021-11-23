@@ -177,7 +177,7 @@ In this section, you create a user called B.Simon in Firmex. Work with [Firmex S
 
 ## Test SSO
 
-In this section, you test your Azure AD single sign-on configuration with following options. 
+In this section, you test your Azure AD single sign-on configuration with the following options. 
 
 #### SP initiated:
 
