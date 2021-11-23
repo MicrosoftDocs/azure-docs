@@ -1,5 +1,5 @@
 ---
-title: Get the latest restorable timestamp for Azure Cosmos DB continuous backup accounts
+title: Get the latest restorable timestamp for Azure Cosmos DB accounts with continuous backup mode
 description: Learn how to get the latest restorable timestamp for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Get the latest restorable timestamp for continuous backup accounts
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts enabled with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and response format for the PowerShell and CLI commands.
+This article describes how to get the [latest restorable timestamp](latest-restore-timestamp-continuous-backup.md) for accounts with continuous backup mode. It explains how to get the latest restorable time for SQL containers and MongoDB collections using Azure PowerShell and Azure CLI. You can see the request and response format for the PowerShell and CLI commands.
 
 ## SQL container
 
@@ -78,7 +78,7 @@ az cosmosdb sql retrieve-latest-backup-time -g "rg" \
 
 ## SQL database
 
-Use the following script to get the latest restorable timestamp for a database. This script will iterate through all the containers within the specified database and returns the minimum of latest restorable timestamp of all the containers.
+Use the following script to get the latest restorable timestamp for a database. This script will iterate through all the containers within the specified database and returns the minimum of latest restorable timestamp of all its containers.
 
 ```powershell
 Function Get-LatestRestorableTimestampForSqlDatabase {
@@ -165,7 +165,7 @@ Wednesday, November 3, 2021 8:02:44 PM
 
 ## SQL account
 
-Use the following script to get the latest restorable timestamp for a database. This script will iterate through all the containers within this database and returns the minimum of latest restorable timestamp of all the containers.
+Use the following script to get the latest restorable timestamp for a SQL account. This script will iterate through all the containers within this account and returns the minimum of latest restorable timestamp of all its containers.
 
 ```powershell
 Function Get-LatestRestorableTimestampForSqlAccount {
@@ -322,7 +322,7 @@ az cosmosdb mongodb retrieve-latest-backup-time \
 
 ## MongoDB database
 
-Use the following script to get the latest restorable timestamp for a database. This script will iterate through all the containers within this database and will return the minimum of latest restorable timestamp of all the containers.
+Use the following script to get the latest restorable timestamp for a database. This script will iterate through all the collections within this database and will return the minimum of latest restorable timestamp of all its collections.
 
 ```powershell
 Function Get-LatestRestorableTimestampForMongoDBDatabase {
@@ -405,7 +405,7 @@ Wednesday, November 3, 2021 8:31:27 PM
 
 ## MongoDB account
 
-Use can use the following script to get the latest restorable timestamp for a database. This script will iterate through all the containers within this database and will return the minimum of latest restorable timestamp of all the containers.
+Use can use the following script to get the latest restorable timestamp for a MongoDB account. This script will iterate through all the collections within this account and will return the minimum of latest restorable timestamp of all its collections.
 
 ```powershell
 Function Get-LatestRestorableTimestampForMongoDBAccount {
