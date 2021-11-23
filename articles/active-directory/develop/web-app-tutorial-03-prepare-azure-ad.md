@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Prepare your web app for auth"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, the first in a series, you follow steps to prepare a new or existing app to support core auth features like user sign-in and getting data from a protected web API by using Microsoft identity platform components like Azure Active Directory (Azure AD) and the Microsoft Authentication Library (MSAL).
+description: In this tutorial, you learn how to configure Azure AD to provide identity services to your web app so it can sign in your organization's users and get authorization for accessing resources.
 author: henrymbuguakiarie
 manager: CelesteDG
 
