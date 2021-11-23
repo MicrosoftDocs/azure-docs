@@ -30,6 +30,10 @@ You'll learn how to:
 > Azure Load Testing is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!NOTE]
+> Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the load test status in the Azure portal.
+>
+
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
@@ -247,6 +251,12 @@ You can specify these criteria in the test configuration YAML file.
 ## Pass parameters to your load tests from the pipeline
 
 Next, you'll parameterize your load test using pipeline variables. These variables can be secrets, such as passwords, or non-secrets.
+
+1. Edit the *config.json* file in your GitHub repository.
+    
+    Update the `enableSecretsFeature` value to **true** to enable the code which expects an x-secret value in the request header.
+
+1. Commit the changes to the config.json file.
 
 1. Edit the *SampleApp.yaml* file in your GitHub repository.
 
