@@ -238,6 +238,12 @@ You can specify these criteria in the test configuration YAML file.
 
 Next, you'll parameterize your load test using workflow variables. These parameters can be secrets such as passwords or non-secrets.
 
+1. Edit the *config.json* file in your GitHub repository.
+    
+    Update the `enableSecretsFeature` value to *true*. This with enable the code which expects an x-secret value in request header.
+
+1. Commit the changes to the config.json file.
+
 1. Edit the *SampleApp.yaml* file in your GitHub repository.
 
     Update the **testPlan** configuration setting to use the *SampleApp_Secrets.jmx* file.
