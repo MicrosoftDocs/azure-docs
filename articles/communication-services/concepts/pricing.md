@@ -208,13 +208,3 @@ The following prices include required communications taxes and fees:
 |Germany     |Starting at $0.015/min   |
 |France     |Starting at $0.016/min   |
 
-
-### SMS
-
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
-
-The following prices include required communications taxes and fees:
-
-|Country   |Send messages|Receive messages|
-|-----------|------------|------------|
-|USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |

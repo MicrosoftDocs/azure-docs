@@ -38,11 +38,11 @@ items:
       - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
-        href: quickstarts/telephony-sms/send.md
+        href: quickstarts/sms/send.md
       - name: Handle SMS events
-        href: quickstarts/telephony-sms/handle-sms-events.md
+        href: quickstarts/sms/handle-sms-events.md
       - name: Send an SMS in Azure Logic Apps
-        href: quickstarts/telephony-sms/logic-app.md
+        href: quickstarts/sms/logic-app.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your client app
@@ -125,9 +125,9 @@ items:
   - name: Telephony and SMS
     items:
       - name: SMS SDK overview
-        href: concepts/telephony-sms/sdk-features.md
+        href: concepts/sms/sdk-features.md
       - name: SMS concepts
-        href: concepts/telephony-sms/concepts.md
+        href: concepts/sms/concepts.md
       - name: Telephony Concepts
         href: concepts/telephony-sms/telephony-concept.md
       - name: Phone number types
@@ -139,9 +139,9 @@ items:
       - name: Pair the Session Border Controller and configure voice routing
         href: concepts/telephony-sms/direct-routing-provisioning.md
       - name: SMS FAQ
-        href: concepts/telephony-sms/sms-faq.md
+        href: concepts/sms/sms-faq.md
       - name: Messaging policy
-        href: concepts/telephony-sms/messaging-policy.md
+        href: concepts/sms/messaging-policy.md
   - name: UI Library
     items:
       - name: UI Library overview

@@ -51,5 +51,5 @@ In this quickstart you learned how to:
 > * Submit a request to port your phone number
 
 > [!div class="nextstepaction"]
-> [Send an SMS](../telephony-sms/send.md)
+> [Send an SMS](../sms/send.md)
 > [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
