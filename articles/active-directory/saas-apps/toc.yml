@@ -543,6 +543,8 @@
         href: cyara-cx-assurance-platform-tutorial.md
       - name: CyberArk SAML Authentication
         href: cyberark-saml-authentication-tutorial.md
+      - name: CyberSolutions CYBERMAILΣ
+        href: cybersolutions-cybermail-tutorial.md  
       - name: CylancePROTECT
         href: cylanceprotect-tutorial.md
     - name: D - E
@@ -619,6 +621,8 @@
         href: eab-navigate-impl-tutorial.md
       - name: EAB Navigate Strategic Care
         href: eab-navigate-strategic-care-tutorial.md
+      - name: EAComposer
+        href: eacomposer-tutorial.md  
       - name: EasySSO for Bamboo
         href: easysso-for-bamboo-tutorial.md
       - name: EasySSO for BitBucket
@@ -681,6 +685,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equifax Workforce Solutions
+        href: equifax-workforce-solutions-tutorial.md  
       - name: Equinix Federation App
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
@@ -1492,6 +1498,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palantir Foundry
+        href: palantir-foundry-tutorial.md  
       - name: Palo Alto Networks - Admin UI
         href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture

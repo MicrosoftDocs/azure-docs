@@ -119,18 +119,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Cobalt SSO
 
-To configure single sign-on on **Cobalt** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Cobalt support team](https://www.cobalt.net/support/). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Login to the Cobalt website as an administrator.
+
+1. Select **Settings** on the left menu.
+
+1. Select **Identity & Access**, and select **Enable** in SAML 2.0.
+
+    ![Screenshot for Settings page](./media/cobalt-tutorial/settings.png)
+
+1. Perform the following steps in the SAML 2.0 section.
+
+    ![Screenshot for configuration page](./media/cobalt-tutorial/configuration.png)
+
+    1. In the **IDP ISSUER URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
+    1. In the **IDP TARGET URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
+    1. Open the downloaded **Certificate (Base64)** from the Azure portal into Notepad and paste the content into the **IDP CERTIFICATE** textbox.
+
+1. Click **SAVE**.
+
+> [!NOTE]
+> Please follow [this](https://cobaltio.zendesk.com/hc/articles/360058406992-Setting-up-SAML-for-Azure-AD) article for more information on how to configure SSO on Cobalt side.
 
 ### Create Cobalt test user
 
 In this section, you create a user called B.Simon in Cobalt. Work with [Cobalt support team](https://www.cobalt.net/support/) to add the users in the Cobalt platform. Users must be created and activated before you use single sign-on.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -142,4 +161,5 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Cobalt you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure Cobalt, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+
