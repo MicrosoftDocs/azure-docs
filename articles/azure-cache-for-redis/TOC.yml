@@ -182,20 +182,18 @@
       href: cache-how-to-premium-clustering.md
   - name: Diagnose and troubleshoot
     items:
-    - name: Troubleshoot Redis server
-      href: cache-troubleshoot-server.md
-    - name: Troubleshoot Redis client
-      href: cache-troubleshoot-client.md
+    - name: Troubleshoot connectivity issues
+      href: cache-troubleshoot-connectivity.md
     - name: Troubleshoot timeouts
       href: cache-troubleshoot-timeouts.md
+    - name: Troubleshoot client 
+      href: cache-troubleshoot-client.md
+    - name: Troubleshoot Redis server
+      href: cache-troubleshoot-server.md
     - name: Troubleshoot data loss
       href: cache-troubleshoot-data-loss.md
     - name: Troubleshooting FAQs
       href: cache-monitor-troubleshoot-faq.yml
-    - name: Troubleshoot common errors
-      href: cache-troubleshoot-common-errors.md
-    - name: Troubleshoot connectivity issues
-      href: cache-troubleshoot-connectivity.md
 - name: Reference
   items:
   - name: Azure Cache for Redis samples

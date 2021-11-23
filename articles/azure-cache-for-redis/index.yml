@@ -106,15 +106,16 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot client-side issues
-            url: cache-troubleshoot-client.md
-          - text: Troubleshoot server-side issues
-            url: cache-troubleshoot-server.md
-          - text: Troubleshoot timeouts
-            url: cache-troubleshoot-timeouts.md
-          - text: Troubleshoot data loss issues
-            url: cache-troubleshoot-data-loss.md
-          - text: Troubleshoot common errors
-            url: cache-troubleshoot-common-errors.md
           - text: Troubleshoot connectivity issues
             url: cache-troubleshoot-connectivity.md
+          - text: Troubleshoot timeouts
+            url: cache-troubleshoot-timeouts.md
+          - text: Troubleshoot client issues
+            url: cache-troubleshoot-client.md
+          - text: Troubleshoot Redis server issues
+            url: cache-troubleshoot-server.md
+          - text: Troubleshoot data loss issues
+            url: cache-troubleshoot-data-loss.md
+          - text: Troubleshooting FAQs
+            url: cache-monitor-troubleshoot-faq.yml
+            
