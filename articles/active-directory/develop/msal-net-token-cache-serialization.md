@@ -19,7 +19,7 @@ ms.custom: "devx-track-csharp, aaddev, has-adal-ref"
 
 # Token cache serialization in MSAL.NET
 
-After Microsoft Authentication Library (MSAL) [acquires a token](msal-acquire-cache-tokens.md), it caches that token. Public client applications (desktop and mobile apps) should try to get a token from the cache before acquiring a token by another method. Acquisition methods on confidential client applications manage the cache themselves. This article discusses default and custom serialization of the token cache in MSAL.NET.
+After Microsoft Authentication Library (MSAL) [acquires a token](msal-acquire-cache-tokens.md), it caches that token. Public client applications (desktop and mobile apps) and web apps should try to get a token from the cache before acquiring a token by another method. In confidential client applications, `AcquireTokenByAuthorization` and `AcquireTokenOnBehalfOf` manage the cache themselves. This article discusses default and custom serialization of the token cache in MSAL.NET.
 
 ## Quick summary
 
