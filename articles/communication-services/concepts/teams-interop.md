@@ -13,7 +13,7 @@ ms.subservice: teams-interop
 # Teams interoperability
 
 > [!IMPORTANT]
-> Bring your own identity (BYOI) interoperability is in public preview and available to all Communication Services applications and Teams organizations.
+> BYOI interoperability is in public preview and available to all Communication Services applications and Teams organizations.
 >
 > Teams identity interoperability is in private preview, and restricted using service controls to Azure Communication Services early adopters. To join early access program, complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 >
