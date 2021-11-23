@@ -32,7 +32,7 @@ This will create a new flowlet where you can add in your inputs, outputs, and tr
 ## Flowlet design surface
 The flowlet design surface is very similar to the mapping data flow design surface. The primary differences are the input, output, and debugging experiences that are described below.
 
-![Screenshot showing the flowlet design surface](/media/data-flow-flowlet/flowlet-design.png)
+![Screenshot showing the flowlet design surface](./media/data-flow-flowlet/flowlet-design.png)
 
 ### Flowlet input
 
