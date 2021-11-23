@@ -172,7 +172,7 @@ The steps to publish a policy are as follows
 >[!NOTE]
 > Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 
-## Azure Purview policy action to Azure Storage action mapping
+## Policy action mapping
 
 This section contains a reference of how actions in Azure Purview data policies map to specific actions in Azure Storage.
 
