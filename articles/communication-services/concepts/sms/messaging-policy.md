@@ -38,9 +38,9 @@ The messages that you send must be the same type of messages that the recipient 
 
 Consent can be obtained in a variety of ways, such as:
 
-- when a user enters their telephone number into a website, 
-- when a user initiates a text message exchange, or
-- when a user sends a sign-up keyword to your phone number. 
+- When a user enters their telephone number into a website, 
+- When a user initiates a text message exchange, or
+- When a user sends a sign-up keyword to your phone number. 
  
 Regardless of how consent is obtained, you and your customers must ensure that the consent is unambiguous. The scope of the consent should clear to the recipient.
 
@@ -48,7 +48,7 @@ Regardless of how consent is obtained, you and your customers must ensure that t
 ### Consent requirements:
 
 - Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
-- Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third-party. If you collect an individual’s consent for a third-party, then you must clearly identify the third-party to the individual. You must also state that the consent you obtained applies only to communications from the third-party.
+- Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third-party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent Is limited in purpose. An individual who provides their number for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you'll send recurring messages or messages from an affiliate.
 
 ### Consent best practices:
@@ -56,15 +56,15 @@ Regardless of how consent is obtained, you and your customers must ensure that t
 In addition to the messaging requirements discussed above, you may want to implement several common best practices, including: 
 
 - Detailed “Call to Action” information. To ensure that you obtain appropriate consent, provide
-  - the name or description of your messaging program or product
-  - the number(s) from which recipients will receive messages, and 
-  - any applicable terms and conditions before an individual opts-in to receiving messages from you.
+  - The name or description of your messaging program or product
+  - The number(s) from which recipients will receive messages, and 
+  - Any applicable terms and conditions before an individual opts-in to receiving messages from you.
 - Accurate records of consent. You should retain records of any consent that an individual provides to you for at least four years. Records of consent can include:
-  - timestamps
-  - the medium by which consent was obtained
-  - the specific campaign for which consent was obtained
-  - screen captures
-  - the session ID or IP address of the consenting individual.
+  - Timestamps
+  - The medium by which consent was obtained
+  - The specific campaign for which consent was obtained
+  - Screen captures
+  - The session ID or IP address of the consenting individual.
 - Privacy and security policies. Developers are encouraged to provide straightforward privacy policies that message recipients can review before their consent is obtained. We also recommend maintaining proactive security controls to safeguard individuals’ private information.
 
 
@@ -83,16 +83,16 @@ Yes, while double opt-in consent is always recommended, Azure Communication Serv
 - Sweepstakes, contests, and giveaways
 - Work-from-home offers
 
-The campaigns for which double opt-in consent are required are subject to change at the discretion of Azure Communication Services.
+The campaigns for which double opt-in consent is required are subject to change at the discretion of Azure Communication Services.
 
 ### Exceptions to traditional consent rules:
 While prior express consent is normally required before sending a message, there are two situations in which consent to message an individual is implied.
 
 - Recipient initiates a communication. If an individual initiates a communication by sending a message to you, then you may provide relevant information in response to a specific inquiry or request contained in the message. However, the implied consent that the individual provided is limited to the conversation that the individual initiated unless you obtain consent for further communications.
 - Exemptions for specific services. There are several specific services for which you may have implied consent to initiate a message. The most common of these are: 
-- package delivery messages
-- financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches)
-- healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). 
+- Package delivery messages
+- Financial institution messages that concern time-sensitive topics (such as potentially fraudulent transactions or data breaches)
+- Healthcare provider messages that include time-sensitive information and a treatment purpose (such as appointment or exam reminders, lab results, and prescription notifications). 
  
 None of these messages may include solicitations or advertisements.
 
@@ -127,7 +127,7 @@ Even where such content is not unlawful, you should include an age verification 
 Both you and your customers are prohibited from using Azure Communication Services to evade reasonable opt-out requests. Additionally, you and your customers may not evade any measures implemented by Azure Communication Services or a communications service provider to ensure your compliance with messaging requirements and industry standards.
 
 Azure Communication Services also prohibits certain message content regardless of consent. Prohibited content includes:
-- Content that promotes unlawful activities (e.g., tax evasion or animal cruelty in the United States)
+- Content that promotes unlawful activities (for example, tax evasion or animal cruelty in the United States)
 - Hate speech, defamatory speech, harassment, or other speech determined to be patently offensive
 - Pornographic content
 - Obscene or vulgar content

@@ -15,7 +15,7 @@ ms.author: prakulka
 >[!Important] 
 >Short Code availability is currently restricted to Azure enterprise subscriptions that have a billing address in the United States.
 
-Short Code service requires provisioning a short code through Azure Portal. Once a short code is provisioned, pay-as-you-go pricing applies to leasing fee, usage fee, and carrier surcharge. The leasing fee, usage fee, and carrier surcharge is determined by the short code type, location of the short code, destination, and carrier of the message.
+Short Code service requires provisioning a short code through Azure portal. Once a short code is provisioned, pay-as-you-go pricing applies to leasing fee, usage fee, and carrier surcharge. The leasing fee, usage fee, and carrier surcharge is determined by the short code type, location of the short code, destination, and carrier of the message.
 
 ## Short Codes Pricing
 
@@ -35,9 +35,10 @@ Fees for short code provisioning are charged during short code provisioning peri
 ### Leasing Fee
 Fees for short code leasing are charged after provisioning is complete and then recur on a month-to-month basis:
 
-|Number type   |Monthly fee|
-|--------------|-----------|
-|Random Short Code |$1000/mo*|
+|Number type | Monthly fee |
+|----------|-----------|
+|Random Short Code |$1000/mo* |
+
 *Additional $500/mo would be charged for Vanity short codes
 
 
