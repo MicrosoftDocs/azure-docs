@@ -79,7 +79,7 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
+| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. |
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
 | **httpuseragent_has_any** | dynamic | Filter only Web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. |  
 | | | |
@@ -120,7 +120,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 
 ### Network session fields
 
-HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields]( network-normalization-schema#network-session-fields) are also include din the Web Session schema. 
+HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields]( network-normalization-schema,md#network-session-fields) are also include din the Web Session schema. 
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
