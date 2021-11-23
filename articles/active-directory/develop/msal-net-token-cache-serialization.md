@@ -213,7 +213,7 @@ public static async Task<AuthenticationResult> GetTokenAsync(string clientId, X5
      return await app.AcquireTokenByAuthorizationCode(scopes, authCode);    
      
      // OR, when the user has previously logged in, get a token silently
-     var homeAccountId = GetHomeAccountIdFromClaimsPrincipal(); // uid and utid claims
+     string homeAccountId = User.GetHomeAccountId(); // uid and utid claims
      var account = await app.GetAccountAsync(homeAccountId);
      try
      {
