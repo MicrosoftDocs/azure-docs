@@ -53,8 +53,9 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 
 If you have your own DNS solution for your virtual network like Active Directory Domain Controller, Infoblox, etc., you need point domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
-    >[!NOTE]
-    > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+> [!NOTE]
+> If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
+
 ## Create a private DNS zone
 
 The following procedure creates a private DNS zone for an application in the private network.
