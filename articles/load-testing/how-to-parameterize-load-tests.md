@@ -291,4 +291,4 @@ If a parameter exists in both the YAML configuration file and the Azure Pipeline
 
 ### I created and ran a test from my CI/CD workflow by passing parameters using the Azure Load Testing task / action. Can I run this test from the Azure portal with the same parameters?
 
-The values of the parameters are not stored when they're passed from the CI/CD workflow. You'll have to provide the parameter values again when running the test from the Azure portal. You'll get a prompt to enter the missing values. For secret values, you'll enter the Azure Key Vault secret URI.
+The values of the parameters are not stored when they're passed from the CI/CD workflow. You'll have to provide the parameter values again when running the test from the Azure portal. You'll get a prompt to enter the missing values. For secret values, you'll enter the Azure Key Vault secret URI. The values entered at the test run or rerun page are valid only for that test run. For making changes at the test level, please go to *Configure Test* and input your parameter values.
