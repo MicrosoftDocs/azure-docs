@@ -49,6 +49,8 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
        --output tsv`
    ```
 
+---
+
 ### Add a DNS for the IP
 
 If you have your own DNS solution for your virtual network like Active Directory Domain Controller, Infoblox, etc., you need point domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
