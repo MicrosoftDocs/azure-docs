@@ -10,16 +10,14 @@ ms.author: v-amallick
 ---
 # Back up an Azure VM using enhanced policy (in preview)
 
-This article explains how to back up Trusted VMs with the Azure Backup service using the Enhanced policy. Trusted VM is in preview.
+This article explains how to back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service using the Enhanced policy. Backup for Trusted Launch VM is in preview.
 
-Azure Backup now provides an enhanced policy through which you can enable all newer compute storage capabilities (for example, [Trusted VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal). To enroll your subscription for Trusted VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+Azure Backup now provides an Enhanced policy through which you can enable all newer compute storage capabilities (for example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch). To enroll your subscription for Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 
 >[!Important]
->The [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support managing the newer compute storage capabilities, such as Trusted VM, UltraSSD, Shared disk, and Confidential Azure VMs.
+>The [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support managing the newer compute storage capabilities, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
 
-
-
-You must enable Trusted VM through enhanced policy only. The Enhanced policy provides the following features:
+You must enable backup for Trusted Launch VM through enhanced policy only. The Enhanced policy provides the following features:
 
 - Supports multiple backups per day. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 - Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details page](https://azure.microsoft.com/pricing/details/managed-disks/).
