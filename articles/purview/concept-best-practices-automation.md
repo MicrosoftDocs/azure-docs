@@ -18,7 +18,7 @@ For example:
 * Monitoring for metadata changes in real time.
 * Building your own custom user experience.
 
-Azure Purview provides several tools in which we can use to interact with the underlying platform, in an automated, and programmatic fashion. Because of the open nature of the Azure Purview service, we can automate different aspects of the service. From the control plane, made accessible via Azure Resource Manager, to Azure Purview's multiple data planes (catalog, scanning, administration, and more).
+Azure Purview provides several tools in which we can use to interact with the underlying platform, in an automated, and programmatic fashion. Because of the open nature of the Azure Purview service, we can automate different aspects, from the control plane, made accessible via Azure Resource Manager, to Azure Purview's multiple data planes (catalog, scanning, administration, and more).
 
 This article provides a summary of the options available, and guidance on what to use when.
 
@@ -34,7 +34,7 @@ This article provides a summary of the options available, and guidance on what t
 **SDK** | <ul><li><a href="/dotnet/api/overview/azure" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ |
 
 ## Resource Management
-[Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) is a deployment and management service, which enables customers to create/update/delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
+[Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
 
 To implement infrastructure as code, we can build [ARM templates](/azure/azure-resource-manager/templates/overview) using JSON or [Bicep](/azure/azure-resource-manager/bicep/overview), or open-source alternatives such as [Terraform](/azure/developer/terraform/overview). 
 
