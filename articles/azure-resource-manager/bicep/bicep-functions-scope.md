@@ -44,7 +44,7 @@ The following example sets the scope for a module to a management group.
 ```bicep
 param managementGroupIdentifier string
 
-module  'module.bicep' = {
+module  'mgModule.bicep' = {
   name: 'deployToMG'
   scope: managementGroup(managementGroupIdentifier)
 }
@@ -170,7 +170,7 @@ The following example scopes a module to a resource group.
 ```bicep
 param resourceGroupName string
 
-module exampleModule 'module.bicep' = {
+module exampleModule 'rgModule.bicep' = {
   name: 'exampleModule'
   scope: resourceGroup(resourceGroupName)
 }
@@ -208,11 +208,11 @@ You can also use the resourceGroup function to apply tags from the resource grou
 
 `subscription()`
 
-Returns an object used for setting the scope to a subscription.
+Returns details about the subscription for the current deployment.
 
 `subscription(subscriptionId)`
 
-Returns details about the subscription for the current deployment.
+Returns an object used for setting the scope to a subscription.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -250,7 +250,7 @@ When used for getting details about the subscription, the function returns the f
 The following example scopes a module to the subscription.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'subModule.bicep' = {
   name: 'deployToSub'
   scope: subscription()
 }
@@ -287,7 +287,7 @@ An object used for setting the `scope` property on a [module](modules.md#set-mod
 The following example shows a module deployed to the tenant.
 
 ```bicep
-module exampleModule 'module.bicep' = {
+module exampleModule 'tenantModule.bicep' = {
   name: 'deployToTenant'
   scope: tenant()
 }
