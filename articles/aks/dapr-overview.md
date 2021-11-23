@@ -16,7 +16,7 @@ Dapr is incrementally adoptable – the API building blocks can be leveraged as 
 
 :::image type="content" source="./media/dapr-overview/dapr-building-blocks.png" alt-text="Diagram showing how many different code frameworks can interface with the various building blocks of Dapr via HTTP or gRPC.":::
 
-## Capabilities and features 
+## Capabilities and features
 
 Dapr provides the following set of capabilities to help with your microservice development on AKS:
 
@@ -31,7 +31,7 @@ Dapr provides the following set of capabilities to help with your microservice d
 
 ## Frequently asked questions
 
-**Q: How do Dapr and Service meshes compare?**
+### How do Dapr and Service meshes compare?
 
 A: Where a service mesh is defined as a networking service mesh, Dapr is not a service mesh. While Dapr and service meshes do offer some overlapping capabilities, a service mesh is focused on networking concerns, whereas Dapr is focused on providing building blocks that make it easier for developers to build applications as microservices. Dapr is developer-centric, while service meshes are infrastructure-centric.  
 
@@ -46,9 +46,9 @@ In addition, Dapr provides other application-level building blocks for state man
 
 For more information on Dapr and service meshes, and how they can be used together, visit the [Dapr documentation][dapr-docs].
 
-**Q: How does the Dapr secrets API compare to the Secrets Store CSI driver?**
+### How does the Dapr secrets API compare to the Secrets Store CSI driver?
 
-A: Both the Dapr secrets API and the managed Secrets Store CSI driver allow for the integration of secrets held in an external store, abstracting secret store technology from application code. The Secrets Store CSI driver mounts secrets held in Azure Key Vault as a CSI volume for consumption by an application. Dapr exposes secrets via a RESTful API that can be called by application code and can be configured with assorted secret stores. The following table lists the capabilities of each offering:
+Both the Dapr secrets API and the managed Secrets Store CSI driver allow for the integration of secrets held in an external store, abstracting secret store technology from application code. The Secrets Store CSI driver mounts secrets held in Azure Key Vault as a CSI volume for consumption by an application. Dapr exposes secrets via a RESTful API that can be called by application code and can be configured with assorted secret stores. The following table lists the capabilities of each offering:
 
 | | Dapr secrets API | Secrets Store CSI driver |
 | --- | --- | ---|
@@ -61,17 +61,17 @@ For more information on the secret management in Dapr, see the [secrets manageme
 
 For more information on the Secrets Store CSI driver and Azure Key Vault provider, see the [Secrets Store CSI driver overview][csi-secrets-store].
 
-**Q: How does the managed Dapr cluster extension compare to the open source Dapr offering?**
+### How does the managed Dapr cluster extension compare to the open source Dapr offering?
 
-A: The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you have the option to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (e.g., provisioning the Dapr control plane in high availability mode).
+The managed Dapr cluster extension is the easiest method to provision Dapr on an AKS cluster. With the extension, you have the option to offload management of the Dapr runtime version by opting into automatic upgrades. Additionally, the extension installs Dapr with smart defaults (e.g., provisioning the Dapr control plane in high availability mode).
 
 When installing Dapr OSS via helm or the Dapr CLI, runtime versions and configuration options are the responsibility of developers and cluster maintainers.  
 
 Lastly, the Dapr extension is an extension of AKS, therefore you can expect the same support policy as other AKS features that are currently in preview.
 
-**Q: How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?**
+### How can I switch to using the Dapr extension if I’ve already installed Dapr via a method, such as Helm?
 
-A: Recommended guidance is to completely uninstall Dapr from the AKS cluster and reinstall it via the cluster extension.  
+Recommended guidance is to completely uninstall Dapr from the AKS cluster and reinstall it via the cluster extension.  
 
 If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
@@ -79,14 +79,13 @@ If you install Dapr through the AKS extension, our recommendation is to continue
 
 After learning about Dapr and some of the challenges it solves, try [Deploying an application with the Dapr cluster extension][dapr-quickstart].
 
-<!-- LINKS -->
-<!-- Internal -->
+<!-- Links Internal -->
 [csi-secrets-store]: ./csi-secrets-store-driver.md
 [osm-docs]: ./open-service-mesh-about.md
 [cluster-extensions]: ./cluster-extensions.md
 [dapr-quickstart]: ./quickstart-dapr.md
 
-<!-- External -->
+<!-- Links External -->
 [dapr-docs]: https://docs.dapr.io/
 [dapr-blocks]: https://docs.dapr.io/concepts/building-blocks-concept/
 [dapr-secrets-block]: https://docs.dapr.io/developing-applications/building-blocks/secrets/secrets-overview/
