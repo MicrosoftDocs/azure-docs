@@ -40,8 +40,8 @@ The following procedures bind an Azure Storage account as a storage resource in 
 
    |Setting     |Value                                                                      |
     |------------|---------------------------------------------------------------------------|
-    |Storage name       |Enter *\<storage-resource-name>*                                                         |
-    |Account name        |Enter *\<Azure-Storage-account-name>*                                                             |
+    |Storage name       |Enter *\<storage-resource-name>*. It refers to the name of storage resource, which is a service level resource in Azure Spring Cloud.                                 |
+    |Account name        |Enter *\<Azure-Storage-account-name>*                                                           |
     |Account key         |Enter *\<Azure-Storage-account-key>*                                                        
     
    Then select **Apply**.
@@ -61,7 +61,7 @@ The following procedures bind an Azure Storage account as a storage resource in 
     |------------|---------------------------------------------------------------------------|
     |Storage name       |Enter *\<storage-resource-name>* from Step 2                                                        |
     |Persistent storage type        |Select **AzureFileVolume**                                                               |
-    |Share name         |Enter *\<azure-file-share-name>*                                                                   |
+    |Share name         |Enter *\<azure-file-share-name>*. It refers to the name of the Azure File share in Azure Storage account.                                                                   |
     |Mount path    |Enter *\<unique-mount-path>*                                                            |
     |Mount options  |Optional property   |
     |Read only |Optional property   |
