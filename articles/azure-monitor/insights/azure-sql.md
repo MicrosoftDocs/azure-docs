@@ -1,19 +1,22 @@
 ---
-title: Azure SQL Analytics solution in Azure Monitor
+title: Azure SQL Analytics (preview) solution in Azure Monitor
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 ms.topic: conceptual
-ms.date: 11/17/2021
-author: dimitri-furman
-ms.author: dfurman
-ms.reviewer: mathoma, wiassaf
+author: danimir
+ms.author: danil
+ms.date: 11/22/2021
+ms.reviewer: wiassaf
 ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
 
+> [!CAUTION]
+> Azure SQL Analytics (preview) is an integration with Azure Monitor, where many monitoring solutions are no longer in active development. For more monitoring options, see [Monitoring and performance tuning in Azure SQL Database and Azure SQL Managed Instance](../../azure-sql/database/monitor-tune-overview.md).
+
 ![Azure SQL Analytics symbol](./media/azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
+Azure SQL Analytics (preview) is an advanced cloud monitoring solution for monitoring performance of all of your Azure SQL databases at scale and across multiple subscriptions in a single view. Azure SQL Analytics collects and visualizes key performance metrics with built-in intelligence for performance troubleshooting.
 
 By using these collected metrics, you can create custom monitoring rules and alerts. Azure SQL Analytics helps you to identify issues at each layer of your application stack. Azure SQL Analytics uses [Azure Diagnostics](../agents/diagnostics-extension-overview.md) metrics along with Azure Monitor views to present data about all your Azure SQL databases in a single Log Analytics workspace. Azure Monitor helps you to collect, correlate, and visualize structured and unstructured data.
 
@@ -44,7 +47,7 @@ The below table outlines supported options for two versions of the Azure SQL Ana
 | Query duration | Provides hierarchical drill-down into the query execution statistics such as query duration, CPU usage, Data IO usage, Log IO usage. | Yes | Yes |
 | Query waits | Provides hierarchical drill-down into the query wait statistics by wait category. | Yes | Yes |
 
-## Configuration
+## Configuration of Azure SQL Analytics (preview)
 
 Use the process described in [Add Azure Monitor solutions from the Solutions Gallery](./solutions.md) to add Azure SQL Analytics (Preview) to your Log Analytics workspace.
 
@@ -56,9 +59,9 @@ Once you have created Azure SQL Analytics solution in your workspace, you need t
 
 The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
-## Using Azure SQL Analytics
+## Use Azure SQL Analytics (preview)
 
-Navigate to your SQL Analytics deployment from the **Solutions** blade of the Log Analytics workspace.
+Navigate to your SQL Analytics deployment from the **Solutions** page of the Log Analytics workspace.
 
 Azure SQL Analytics provides two separate views: one for monitoring SQL Database, and the other view for monitoring SQL Managed Instance.
 
@@ -114,9 +117,9 @@ Through the query duration and query waits perspectives, you can correlate the p
 
 ## Permissions
 
-To use Azure SQL Analytics, users need to be granted a minimum permission of the Reader role in Azure. This role, however, does not allow users to see the query text, or perform any Automatic tuning actions. More permissive roles in Azure that allow using Azure SQL Analytics to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contributor. You also might want to consider creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
+To use Azure SQL Analytics (preview), users need to be granted a minimum permission of the Reader role in Azure. This role, however, does not allow users to see the query text, or perform any Automatic tuning actions. More permissive roles in Azure that allow using Azure SQL Analytics to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contributor. You also might want to consider creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
 
-### Creating a custom role in portal
+### Create a custom role in portal
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -174,7 +177,7 @@ AzureMetrics
 > [!NOTE]
 >
 > - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to Azure SQL Analytics.
-> - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
+> - Replace the MetricName value `cpu_percent` with `dtu_consumption_percent` to obtain high DTU results instead.
 
 #### High CPU on elastic pools
 
@@ -190,7 +193,7 @@ AzureMetrics
 > [!NOTE]
 >
 > - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to Azure SQL Analytics.
-> - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
+> - Replace the MetricName value `cpu_percent` with `dtu_consumption_percent` to obtain high DTU results instead.
 
 #### Storage in average above 95% in the last 1 hr
 
@@ -208,13 +211,13 @@ AzureMetrics
 > [!NOTE]
 >
 > - Pre-requirement of setting up this alert is that monitored databases stream basic metrics to Azure SQL Analytics.
-> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
-> - The output is a list of database resources that are above the storage_threshold within the time_range defined.
+> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the `storage_threshold` within the `time_range` defined.
+> - The output is a list of database resources that are above the `storage_threshold` within the `time_range` defined.
 
 #### Alert on Intelligent insights
 
 > [!IMPORTANT]
-> In case a database is performing well, and that no Intelligent Insights have been generated, this query will fail with an error message: Failed to resolve scalar expression named 'rootCauseAnalysis_s'. This behavior is expected for all cases where there exist no intelligent insights for the database.
+> In case a database is performing well, and that no Intelligent Insights have been generated, this query will fail with an error message: Failed to resolve scalar expression named `rootCauseAnalysis_s`. This behavior is expected for all cases where there exist no intelligent insights for the database.
 
 ```kusto
 let alert_run_interval = 1h;
@@ -229,8 +232,8 @@ AzureDiagnostics
 > [!NOTE]
 >
 > - Pre-requirement of setting up this alert is that monitored databases stream SQLInsights diagnostics log to Azure SQL Analytics.
-> - This query requires an alert rule to be set up to run with the same frequency as alert_run_interval in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
-> - Customize the alert_run_interval to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to Azure SQL Analytics.
+> - This query requires an alert rule to be set up to run with the same frequency as `alert_run_interval` in order to avoid duplicate results. The rule should be set up to fire off the alert when there exist results (> 0 results) from the query.
+> - Customize the `alert_run_interval` to specify the time range to check if the condition has occurred on databases configured to stream SQLInsights log to Azure SQL Analytics.
 > - Customize the insights_string to capture the output of the Insights root cause analysis text. This is the same text displayed in the UI of Azure SQL Analytics that you can use from the existing insights. Alternatively, you can use the query below to see the text of all Insights generated on your subscription. Use the output of the query to harvest the distinct strings for setting up alerts on Insights.
 
 ```kusto
@@ -275,7 +278,7 @@ AzureDiagnostics
 
 ### Pricing
 
-While Azure SQL Analytics is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. More active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in Azure SQL Analytics by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
+While Azure SQL Analytics (preview) is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. More active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in Azure SQL Analytics by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ## Next steps
 
