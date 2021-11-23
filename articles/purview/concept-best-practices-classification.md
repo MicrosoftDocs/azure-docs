@@ -200,4 +200,6 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 * Purview also allows bulk edit of classification through Purview Studio. Read [here](how-to-bulk-edit-assets.md) for more details.
 
 ## Next steps
--  [Manage data sources](./manage-data-sources.md)
+- [Apply system classification](./apply-classifications.md)
+- [Create custom classification](./create-a-custom-classification-and-classification-rule.md)
+

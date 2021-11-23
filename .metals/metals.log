@@ -1,0 +1,40 @@
+[0m2021.10.24 09:34:05 INFO  Started: Metals version 0.10.7 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.24 09:34:09 INFO  time: initialize in 3.95s[0m
+[0m2021.10.24 09:34:10 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.24 09:34:10 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 24, 2021 9:57:57 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+Oct 24, 2021 10:03:38 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.10.26 14:36:51 INFO  shutting down Metals[0m
+[0m2021.10.26 14:38:16 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.26 14:38:20 INFO  time: initialize in 4.44s[0m
+[0m2021.10.26 14:38:21 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.26 14:38:21 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 27, 2021 11:33:46 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.10.27 11:33:51 INFO  shutting down Metals[0m
+[0m2021.10.27 11:35:36 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.61.2.[0m
+[0m2021.10.27 11:35:42 INFO  time: initialize in 5.62s[0m
+[0m2021.10.27 11:35:43 WARN  Build server is not auto-connectable.[0m
+[0m2021.10.27 11:35:43 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Oct 27, 2021 11:34:44 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.18 16:19:26 INFO  Started: Metals version 0.10.8 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.61.2.[0m
+[0m2021.11.18 16:19:32 INFO  time: initialize in 5.36s[0m
+[0m2021.11.18 16:19:39 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.18 16:19:39 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 18, 2021 7:03:09 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.18 23:57:32 INFO  shutting down Metals[0m
+[0m2021.11.18 23:59:34 INFO  Started: Metals version 0.10.9 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.62.3.[0m
+[0m2021.11.18 23:59:38 INFO  time: initialize in 4.24s[0m
+[0m2021.11.18 23:59:39 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.18 23:59:39 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 20, 2021 12:14:46 AM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
+[0m2021.11.23 13:29:00 INFO  shutting down Metals[0m
+[0m2021.11.23 13:55:59 INFO  Started: Metals version 0.10.9 in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr' for client Visual Studio Code 1.62.3.[0m
+[0m2021.11.23 13:56:01 INFO  time: initialize in 1.43s[0m
+[0m2021.11.23 13:56:01 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.23 13:56:01 WARN  no build tool detected in workspace 'C:\Users\amberz\Documents\GitHub\azure-docs-pr'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
