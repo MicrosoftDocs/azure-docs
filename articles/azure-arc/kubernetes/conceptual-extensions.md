@@ -33,7 +33,7 @@ Both the `config-agent` and `extensions-manager` components running in the clust
 
 > [!NOTE]
 > * `config-agent` checks for new or updated extension instances on top of Azure Arc-enabled Kubernetes cluster. The agents require connectivity for the desired state of the extension to be pulled down to the cluster. If agents are unable to connect to Azure, propagation of the desired state to the cluster is delayed.
-> * Protected configuration settings for an extension instance are stored for up to 48 hours in the Azure Arc-enabled Kubernetes services. As a result, if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. We advise bringing the clusters online regularly.
+> * Protected configuration settings for an extension instance are stored for up to 48 hours in the Azure Arc-enabled Kubernetes services. As a result, if the cluster remains disconnected during the 48 hours after the extension resource was created on Azure, the extension transitions from a `Pending` state to `Failed` state. As a result, we advise bringing the clusters online regularly.
 
 ## Next steps
 
