@@ -19,22 +19,18 @@ ms.subservice: teams-interop
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build custom applications that interact with Microsoft Teams. End users of your Communication Services application can interact with Teams participants over voice, video, chat, and screen sharing. The following video demonstrates this capability:
-
+Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
-<br>
-
-
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
 
-Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
+Azure Communication Services supports two modes of Teams interoperability depending on the end user:
 
-- **Bring your own identity.** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. Teams treats your application as anonymous external user.
-- **Microsoft 365 Teams identity.** Your application acts on behalf of an end user's Microsoft 365 identity and their Teams configured resources. These authenticated applications can make calls and join meetings seamlessly on behalf of Microsoft 365 users.
+- **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. This mode allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
+- **Teams user identity.** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This mode allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the standard Teams client.
 
-Applications can implement both authentication schemes and leave the choice of authentication up to the end user.
+
 
 ## Overview
 
