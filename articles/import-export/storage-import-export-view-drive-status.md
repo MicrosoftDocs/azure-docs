@@ -16,7 +16,7 @@ This article provides information on how to view the drive and job status for Az
 
 ## View job and drive status
 You can track the status of your import or export jobs on the **Import/Export** tab in the Azure portal.
-1. Log on to https://portal.azure.com/.
+1. Log on to https://portal.azure.com/. 
 2. Search for **import/export jobs**. If you created your Import-Export job in the Preview portal, search for **Azure Data Box**, as shown below.
 
     ![Screenshot showing the Search box in the Azure portal. A search for Import Export Jobs is highlighted. ](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
