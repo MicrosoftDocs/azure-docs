@@ -12,8 +12,10 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
+# Quickstart: Apply for a short code
+
 > [!IMPORTANT]
-> Short code availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Short code cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
+> Short code availability is currently restricted to Azure enterprise subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Short code cannot be acquired on trial accounts or using Azure free credits. 
 
 ## Prerequisites
 
