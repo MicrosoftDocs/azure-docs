@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, containers"
 
 # Data exchanged between Azure Arc-enabled Kubernetes cluster and Azure
 
-The scenarios enabled by Azure Arc-enabled Kubernetes involve exchange of desired state configurations, metadata and other scenario specific data between the Azure Arc-enabled Kubernetes cluster environment and Azure service. For all types of data, the Azure Arc agents initiate outbound communication to Azure services and thus require only egress access to endpoints listed under the network prerequisites. Enabling inbound ports on firewall is not required for Azure Arc agents.
+The scenarios enabled by Azure Arc-enabled Kubernetes involve exchange of desired state configurations, metadata, and other scenario specific operational data between the Azure Arc-enabled Kubernetes cluster environment and Azure service. For all types of data, the Azure Arc agents initiate outbound communication to Azure services and thus require only egress access to endpoints listed under the network prerequisites. Enabling inbound ports on firewall is not required for Azure Arc agents.
 
 The following table presents a per-scenario breakdown of the data exchanged between these environments.
 
@@ -36,9 +36,9 @@ The following table presents a per-scenario breakdown of the data exchanged betw
 | Azure Policy | Azure Policy assignments that need Gatekeeper enforcement within cluster | Agent pulls from Azure |
 | Azure Policy | Audit and compliance status of in-cluster policy enforcements | Agent pushes to Azure |
 | Azure Monitor | Metrics and logs of customer workloads | Agent pushes to Log Analytics workspace resource in customer's tenant and subscription |
-| Cluster Connect | Requests sent to cluster | Outbound session established with Arc service dataplane by clusterconnect-agent used to send requests to cluster |
-| Custom Location | Metadata on namespace and ClusterRoleBinding/RoleBinding for authorization | Outbound session established with Arc service dataplane by clusterconnect-agent used to send requests to cluster |
-| Resources on top of custom location | Desired specifications of databases or application instances | Outbound session established with Arc service dataplane by clusterconnect-agent used to send requests to cluster |
+| Cluster Connect | Requests sent to cluster | Outbound session established with Arc service by clusterconnect-agent used to send requests to cluster |
+| Custom Location | Metadata on namespace and ClusterRoleBinding/RoleBinding for authorization | Outbound session established with Arc service by clusterconnect-agent used to send requests to cluster |
+| Resources on top of custom location | Desired specifications of databases or application instances | Outbound session established with Arc service by clusterconnect-agent used to send requests to cluster |
 
 ## Next steps
 
