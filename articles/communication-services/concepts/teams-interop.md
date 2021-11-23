@@ -22,7 +22,11 @@ ms.subservice: teams-interop
 Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
+<br>
+
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
+
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
 
