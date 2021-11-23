@@ -142,7 +142,7 @@ You can put a self-service sign-up product like Microsoft Power BI or Azure Righ
 
 1. Once you have deleted all the products, you can sign back into the Azure AD admin center again and there should be no required action and no products blocking your organization deletion. You should be able to successfully delete your Azure AD organization.
 
-    ![the username is mistyped or not found](./media/directory-delete-howto/delete-organization.png)
+    ![the username is mistyped or not found](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## Next steps
 
