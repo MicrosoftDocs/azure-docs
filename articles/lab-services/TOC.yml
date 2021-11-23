@@ -102,9 +102,9 @@
 - name: How-to guides
   items:
   - name: Administrator guide
-    href: administrator-guide.md
-  - name: Accelerated lab account setup guide
-    href: account-setup-guide.md
+    href: administrator-guide-2.md
+  - name: Accelerated lab plan setup guide
+    href: account-setup-guide-2.md
   - name: Accelerated lab setup guide
     href: setup-guide.md
   - name: Create and configure lab plans
@@ -114,7 +114,7 @@
     - name: Manage labs
       href: manage-labs-2.md
     - name: Configure auto-shutdown of VMs for a lab plan
-      href: how-to-configure-lab-plan.md
+      href: how-to-configure-lab-plans.md
     - name: Add a lab creator
       href: add-lab-creator.md
     - name: Connect to a virtual network
@@ -250,6 +250,12 @@
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-teams.md
+  - name: (deprecated)
+    items:
+    - name: Administrator guide
+      href: administrator-guide.md
+    - name: Accelerated lab account setup guide
+      href: account-setup-guide.md
       
 - name: Reference
   items:

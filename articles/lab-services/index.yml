@@ -46,7 +46,7 @@ landingContent:
         - text: Create and manage lab plans
           url: how-to-manage-lab-plans.md
         - text: Configure lab plans
-          url: how-to-configure-lab-plan.md
+          url: how-to-configure-lab-plans.md
   - title: Set up labs
     linkLists:
     - linkListType: tutorial

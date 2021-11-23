@@ -85,7 +85,7 @@ You can configure these settings at both the lab plan level and the lab level. I
 
 ### Scheduled time vs. quota time
 
-See the [Schedules](classrooom-labs-concepts.md#schedules) section in the Lab Concepts article.
+See the [Schedules](classroom-labs-concepts.md#schedules) section in the Lab Concepts article.
 
 ### Scheduled event: stop only
 

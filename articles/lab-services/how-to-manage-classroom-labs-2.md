@@ -97,10 +97,12 @@ The following steps apply for publishing a template VM or a non-customized VM.
 
 ## VM sizes  
 
-For information on VM sizes and their cost, see the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/).
+In the November 2021 Update, we show compute size name, number of cores, amount of memory, OS disk size, and disk type. Sizes are no longer listed in families, so you know exactly what you are getting. All lab virtual machines now use solid state disks (SSD) and you have a choice between Standard SSD and Premium SSD.
+
+For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 > [!NOTE]
-> You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
+> You may not see some of the expected VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available.
 
 ## View the student VM pool
 
