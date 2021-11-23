@@ -245,7 +245,7 @@ Your application's business logic will dictate this step, some common authorizat
 
 * Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permission to write to your API, but not a normal user.
 * Check that the `tid` inside the token matches the tenant ID used to store the data in your API. 
-  * When a user stores data in your API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed in another. 
+  * When a user stores data in your API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed from another tenant. 
 * Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md). 
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
