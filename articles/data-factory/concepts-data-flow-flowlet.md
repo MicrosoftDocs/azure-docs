@@ -38,7 +38,7 @@ The flowlet design surface is very similar to the mapping data flow design surfa
 
 The input of a flowlet defines the input columns expected from a calling mapping data flow. That calling mapping data flow will map columns from a stream into the columns you have defined from the input. This allows your flowlet  to perform reusable logic on columns while giving flexibility on the calling mapping data flow for which columns the flowlet applies to.
 
-![Screenshot showing flowlet output](./media/data-flow-flowlet/flowlet-input.png)
+![Screenshot showing flowlet input](./media/data-flow-flowlet/flowlet-input.png)
 
 ### Flowlet output
 
@@ -72,4 +72,4 @@ If you have mulit-select turned on, you can also select multiple mapping data fl
 ## Running a flowlet inside of a mapping data flow
 Once the flowlet is created, you can run the flowlet from your mapping data flow activity with the flowlet transformation. 
 
-For more information see [Flowlet transformation in mapping data flow | Microsoft Docs](data-flow-flowet.md)
+For more information see [Flowlet transformation in mapping data flow | Microsoft Docs](data-flow-flowlet.md)
