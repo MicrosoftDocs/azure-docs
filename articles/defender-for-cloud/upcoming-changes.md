@@ -5,11 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: overview
-ms.date: 11/10/2021
+ms.date: 11/21/2021
 ms.author: memildin
-
 ---
-
 # Important upcoming changes to Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -28,12 +26,11 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | November 2021             |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | November 2021             |
-| [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name) | November 2021             |
 | [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)                                                 | November 2021             |
 | [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | February 2022             |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022             |
 |                                                                                                                                                                                     |                           |
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
@@ -57,15 +54,6 @@ The legacy implementation of ISO 27001 will be removed from Defender for Cloud's
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
-
-### Inventory display of on-premises machines will use different template for resource name
-
-**Estimated date for change:** November 2021
-
-To improve the presentation of resources in the [Asset inventory](asset-inventory.md), we'll be removing the "source-computer-IP" element from the template for naming on-premises machines.
-
-- **Current format:** ``machine-name_source-computer-id_VMUUID``
-- **From the update:** ``machine-name_VMUUID``
 
 ### Changes to a security alert from Microsoft Defender for Storage
 
@@ -137,12 +125,13 @@ Defender for Cloud includes multiple recommendations for improving the managemen
 
 **Estimated date for change:** December 2021
 
-Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans:
+Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans: [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Microsoft Defender for container registries](defender-for-container-registries-introduction.md).
 
-- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+With this change:
 
-With this change, these two plans will be deprecated and the new, combined plan will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
+- These two plans will be deprecated.
+- The two existing recommendations to enable the current plans will also be deprecated: **Azure Defender for Kubernetes should be enabled** and **Azure Defender for container registries should be enabled**.
+- A new, combined plan, **Microsoft Defender for Containers**, will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
 
 There'll be no change to subscriptions that already have Defender for Kubernetes or Defender for container registries enabled. You'll have the option to upgrade your existing subscriptions to Microsoft Defender for Containers.
 
@@ -160,7 +149,7 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** February 2022
+**Estimated date for change:** March 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, see [the release note](release-notes.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
