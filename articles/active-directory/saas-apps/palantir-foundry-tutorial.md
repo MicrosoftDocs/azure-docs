@@ -72,17 +72,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Identifier** text box, type a value using the following pattern:
-    `urn:uuid:<SOME_UUID>`
+    1. In the **Identifier** text box, type a value using the following pattern: `urn:uuid:<SOME_UUID>`
 
-    b. In the **Reply URL** text box, type a URL using the following pattern:
-    ` https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/saml/SSO`
+    1. In the **Reply URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/saml/SSO`
 
-    c. In the **Logout URL** text box, type a URL using the following pattern:
-    `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/SingleLogout`
+    1. In the **Logout URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/SingleLogout`
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Logout URL. Contact [Palantir Foundry Client support team](mailto:support@palantir.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+        > [!NOTE]
+        > These values are not real. Update these values with the actual Identifier, Reply URL and Logout URL. Contact [Palantir Foundry Client support team](mailto:support@palantir.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
