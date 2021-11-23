@@ -11,10 +11,50 @@ ms.custom: devx-track-java
 
 # Access your application in a private network
 
-This document explains how to access an endpoint for your application in a private network.  In order to get access, you need to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
+This document explains how to access an endpoint for your application in a private network.
 
 When **Assign Endpoint** for applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private FQDN. The domain is only accessible in the private network. Apps and services use the application endpoint. They include the **Test Endpoint** described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). **Log streaming**, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
+## Requirement
+
+1. Find the IP to access your application.
+
+2. Add a DNS record for the IP.
+
+### Find the IP
+
+#### [Portal](#tab/azure-portal)
+
+1. Select the virtual network resource you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
+
+2. In the **Connected devices** search box, enter *kubernetes-internal*.
+
+3. In the filtered result, find the **Device** connected to the service runtime **Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
+
+    [ ![Create DNS record](media/spring-cloud-access-app-vnet/create-dns-record.png) ](media/spring-cloud-access-app-vnet/create-dns-record.png)
+
+#### [CLI](#tab/azure-CLI)
+
+Find the IP Address for your Spring Cloud services. Customize the value of your spring cloud name based on your real environment.
+
+   ```azurecli
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
+       --name $SPRING_CLOUD_NAME --query \
+       "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
+       --output tsv`
+   IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
+       --resource-group $SERVICE_RUNTIME_RG \
+       --query "[0].privateIpAddress" \
+       --output tsv`
+   ```
+
+### Add a DNS for the IP
+
+If you have your own DNS solution for your virtual network like Active Directory Domain Controller, Infoblox, etc., you need point domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
+
+    >[!NOTE]
+    > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
 ## Create a private DNS zone
 
 The following procedure creates a private DNS zone for an application in the private network.
@@ -102,32 +142,11 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 #### [Portal](#tab/azure-portal)
 
-1. Select the virtual network resource you created as explained in [Deploy Azure Spring Cloud in your Azure virtual network (VNet injection)](./how-to-deploy-in-azure-virtual-network.md).
+1. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**.
 
-2. In the **Connected devices** search box, enter *kubernetes-internal*.
+2. Select **Record set**.
 
-3. In the filtered result, find the **Device** connected to the service runtime **Subnet** of the service instance, and copy its **IP Address**. In this sample, the IP Address is *10.1.0.7*.
-
-    [ ![Create DNS record](media/spring-cloud-access-app-vnet/create-dns-record.png) ](media/spring-cloud-access-app-vnet/create-dns-record.png)
-
-Or, you can fetch the IP using the following az CLI command:
-
-```azurecli
-SPRING_CLOUD_RG= # Resource group name of your Azure Spring Cloud service instance
-SPRING_CLOUD= # Name of your Azure Spring Cloud service instance
-
-SERVICE_RUNTIME_RG=`az spring-cloud show -g $SPRING_CLOUD_RG -n $SPRING_CLOUD --query \
-"properties.networkProfile.serviceRuntimeNetworkResourceGroup" -o tsv`
-
-IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal -g \
-$SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
-```
-
-4. Select the private DNS zone resource created above: **<span>private.azuremicroservices.io</span>**.
-
-5. Select **Record set**.
-
-6. In **Add record set**, enter or select this information:
+3. In **Add record set**, enter or select this information:
 
     |Setting     |Value                                                                      |
     |------------|---------------------------------------------------------------------------|
@@ -143,21 +162,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
 
 #### [CLI](#tab/azure-CLI)
 
-1. Find the IP Address for your Spring Cloud services. Customize the value of your spring cloud name based on your real environment.
-
-   ```azurecli
-   SPRING_CLOUD_NAME='spring-cloud-name'
-   SERVICE_RUNTIME_RG=`az spring-cloud show --resource-group $RESOURCE_GROUP \
-       --name $SPRING_CLOUD_NAME --query \
-       "properties.networkProfile.serviceRuntimeNetworkResourceGroup" \
-       --output tsv`
-   IP_ADDRESS=`az network lb frontend-ip list --lb-name kubernetes-internal \
-       --resource-group $SERVICE_RUNTIME_RG \
-       --query "[0].privateIpAddress" \
-       --output tsv`
-   ```
-
-1. Use this IP address to create the A record in your DNS zone. 
+Use the [IP address](#find-the-ip) to create the A record in your DNS zone. 
 
    ```azurecli
    az network private-dns record-set a add-record \
