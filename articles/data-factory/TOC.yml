@@ -648,6 +648,7 @@ items:
       href: data-flow-flatten.md
     - name: Flowlet
       href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
