@@ -533,6 +533,8 @@
         href: crises-control-tutorial.md
       - name: CrossKnowledge Learning Suite
         href: crossknowledge-learning-suite-tutorial.md
+      - name: Crowd Log
+        href: crowd-log-tutorial.md  
       - name: CrowdStrike Falcon Platform
         href: crowdstrike-falcon-platform-tutorial.md
       - name: CS Stars
