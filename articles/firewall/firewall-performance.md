@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Azure Firewall performance
 
-Reliable firewall performance is essential to operate and protect your virtual networks in Azure. More advanced features (like those found in Azure Firewall Premium) require more processing complexity. This will affect Firewall performance and impact the overall network performance.
+Reliable firewall performance is essential to operate and protect your virtual networks in Azure. More advanced features (like those found in Azure Firewall Premium) require more processing complexity. This will affect firewall performance and impact the overall network performance.
 
 Azure Firewall has two versions: Standard and Premium.
 
