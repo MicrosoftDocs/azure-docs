@@ -12,9 +12,15 @@ ms.topic: conceptual
 ms.date: 09/09/2021
 ---
 
-# Update  Machine Learning Studio (classic) models by using Update Resource activity
+# Update Machine Learning Studio (classic) models by using Update Resource activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+
+> [!NOTE] 
+> Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Update Resource activity to update Machine Learning Studio (classic) models.
+
 
 This article complements the main Machine Learning Studio (classic) integration article: [Create predictive pipelines using Machine Learning Studio (classic)](transform-data-using-machine-learning.md). If you haven't already done so, review the main article before reading through this article.
 

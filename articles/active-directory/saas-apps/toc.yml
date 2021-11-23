@@ -407,6 +407,8 @@
         href: civic-platform-tutorial.md
       - name: Clarity
         href: cappm-tutorial.md
+      - name: ClarivateWOS
+        href: clarivatewos-tutorial.md  
       - name: Clarizen One
         href: clarizen-tutorial.md
       - name: Claromentis
@@ -679,6 +681,8 @@
         href: eplatform-tutorial.md
       - name: Elqano SSO
         href: elqano-sso-tutorial.md
+      - name: Equifax Workforce Solutions
+        href: equifax-workforce-solutions-tutorial.md  
       - name: Equinix Federation App
         href: equinix-federation-app-tutorial.md
       - name: Equisolve
@@ -997,7 +1001,7 @@
       - name: IMAGE WORKS
         href: imageworks-tutorial.md
       - name: Imagineer WebVision
-        href: imagineerwebVision-tutorial.md
+        href: imagineerwebvision-tutorial.md
       - name: IMPAC Risk Manager
         href: impacriskmanager-tutorial.md
       - name: Imperva Data Security
@@ -1490,6 +1494,8 @@
         href: pagedna-tutorial.md
       - name: PagerDuty
         href: pagerduty-tutorial.md
+      - name: Palantir Foundry
+        href: palantir-foundry-tutorial.md  
       - name: Palo Alto Networks - Admin UI
         href: paloaltoadmin-tutorial.md
       - name: Palo Alto Networks - Aperture
@@ -2668,7 +2674,7 @@
       - name: Promapp
         href: promapp-provisioning-tutorial.md     
       - name: Proxyclick
-        href: Proxyclick-provisioning-tutorial.md
+        href: proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
       - name: Proware
