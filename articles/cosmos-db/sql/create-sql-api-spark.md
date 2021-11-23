@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/27/2021
+ms.date: 11/23/2021
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
@@ -29,7 +29,7 @@ Throughout this quick tutorial we rely on [Azure Databricks Runtime 8.0 with Spa
 
 You can use any other Spark 3.1.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc).
 
-### Prerequisites
+## Prerequisites
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/try/cosmosdb/). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
 
@@ -43,7 +43,7 @@ Install Cosmos DB Spark Connector, in your spark Cluster [azure-cosmos-spark_3-1
 
 The getting started guide is based on PySpark however you can use the equivalent scala version as well, and you can run the following code snippet in an Azure Databricks PySpark notebook.
 
-### Create databases and containers
+## Create databases and containers
 
 First, set Cosmos DB account credentials, and the Cosmos DB Database name and container name.
 
@@ -80,7 +80,7 @@ When creating containers with the Catalog API you can set the throughput and [pa
 
 For more details, see the full [Catalog API](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/catalog-api.md) documentation.
 
-### Ingesting data
+## Ingest data
 
 The name of the data source is `cosmos.oltp`, and the following example shows how you can write a memory dataframe consisting of two items to Cosmos DB:
 
@@ -98,7 +98,7 @@ Note that `id` is a mandatory field for Cosmos DB.
 
 For more details related to ingesting data, see the full [write configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#write-config) documentation.
 
-### Querying data
+## Query data
 
 Using the same `cosmos.oltp` data source, we can query data and use `filter` to push down filters:
 
@@ -115,7 +115,7 @@ df.filter(col("isAlive") == True)\
 
 For more details related to querying data, see the full [query configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md#query-config) documentation.
 
-### Schema inference
+## Schema inference
 
 When querying data, the Spark Connector can infer the schema based on sampling existing items by setting `spark.cosmos.read.inferSchema.enabled` to `true`.
 
