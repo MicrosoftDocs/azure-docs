@@ -57,7 +57,7 @@ To **get started**, see [Analyze sign-ins with the Azure AD sign-ins log](quicks
  
 
 
-## Access from an app or script 
+## Access from code
 
 There are cases where you need to periodically access activity logs (user sign-in info) from an app or a script.
 For example, you need to: 
@@ -80,15 +80,13 @@ Another method for accessing activity logs from your code is to use **Azure Even
 
 **Use:**
 
-- **The graph API** - For scoped queries (a limited set of users or time). For more information, see [access Azure AD logs with the Microsoft Graph API](quickstart-access-log-with-graph-api.md). 
+- **The Microsoft graph API** - For scoped queries (a limited set of users or time). For more information, see [access Azure AD logs with the Microsoft Graph API](quickstart-access-log-with-graph-api.md). 
 - **Azure Event hubs** - For pulling large sets of sign-in data. For more information, see [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
 
-## Real-time security event detection 
+## Security monitoring 
 
-If you are planning on implementing a monitoring solution, you need real-time access to your activity logs. 
-
-
+A security monitoring solution provides near real time security detection.
 Near real time security event detection includes scenarios, in which you need to:
 
 - Ben example 1
@@ -100,7 +98,7 @@ Near real time security event detection includes scenarios, in which you need to
 
 For real-time security detection, you [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
-Use:
+**Use:**
 
 - **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
