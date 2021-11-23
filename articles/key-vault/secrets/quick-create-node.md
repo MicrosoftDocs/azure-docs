@@ -50,7 +50,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 ## Create new Node.js application
 
-Next, create a Node.js application that can be deployed to the Cloud. 
+Create a Node.js application that uses your . 
 
 1. In a terminal, create a folder named `key-vault-node-app` and change into that folder:
 
@@ -119,7 +119,7 @@ az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principa
     |AZURE_CLIENT_SECRET|From the service principal result, YOUR-SERVICE-PRINCIPAL-SECRET|
     |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
 
-1. Select your command and run it four times with the keys and settings. 
+1. Select your command and run it four times, once for each of the keys and settings in the previous table. 
 
     # [Windows](#tab/env-windows)
     
