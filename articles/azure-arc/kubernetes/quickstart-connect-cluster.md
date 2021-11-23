@@ -12,7 +12,7 @@ keywords: "Kubernetes, Arc, Azure, cluster"
 
 # Quickstart: Connect an existing Kubernetes cluster to Azure Arc
 
-In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes and how to connect an existing Kubernetes cluster to Azure Arc. For a conceptual look at connecting clusters to Azure Arc, see the [Azure Arc-enabled Kubernetes Agent Architecture article](./conceptual-agent-architecture.md).
+In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes and how to connect an existing Kubernetes cluster to Azure Arc. For a conceptual look at connecting clusters to Azure Arc, see the [Azure Arc-enabled Kubernetes Agent Architecture article](./conceptual-agent-overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
