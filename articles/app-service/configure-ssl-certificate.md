@@ -165,7 +165,7 @@ From the same **Certificate Configuration** page you used in the last step, clic
 
 Select **App Service Verification**. Since you already mapped the domain to your web app (see [Prerequisites](#prerequisites)), it's already verified. Just click **Verify** to finish this step. Click the **Refresh** button until the message **Certificate is Domain Verified** appears.
 
-> [IMPORTANT]
+> [!IMPORTANT]
 > For a **Standard** certificate, the certificate provider gives you a certificate for the requested top-level domain *and* its `www` subdomain (for example, `contoso.com` and `www.contoso.com`). However, beginning on December 1, 2021, [a restriction is introduced](https://azure.github.io/AppService/2021/11/22/ASC-1130-Change.html) on the **App Service** and the **Manual** verification methods. Both of them use HTML page verification to verify domain ownership. With this method, the certificate provider is no longer allowed to include the `www` subdomain when issuing, rekeying, or renewing a certificate.
 >
 > The **Domain** and **Mail** verification methods continue to include the `www` subdomain with the requested top-level domain in the certificate.
