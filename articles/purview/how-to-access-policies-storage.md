@@ -30,19 +30,14 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 :::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
 
 
-## Important limitations
-1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
-2. This feature can only be used in the regions listed below, where access policy management and enforcement functionality are deployed.
-
-[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
-
 ## Prerequisites
-> [!Important]
-> Read this section carefully. There are multiple prerequisites for access policies to work correctly.
-
+>[!Note]
+> The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
 - Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription).
 - Create a **new** Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
-- Create a **new** Azure Storage account in one of the regions listed above. You can [follow this guide to create one](../storage/common/storage-account-create.md).
+- Create a **new** Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md).
+
+[!INCLUDE [policy regions and enablement](./includes/storage-policy-regions.md)]
 
 ## Configuration
 
