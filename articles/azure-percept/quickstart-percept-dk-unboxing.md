@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
-ms.custom: "template-quickstart #Required", leave this attribute/value as-is., mode-other
+ms.custom: template-quickstart, mode-other
 ---
 
 # Unbox and assemble the Azure Percept DK device

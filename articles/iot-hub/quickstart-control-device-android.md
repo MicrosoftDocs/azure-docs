@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: [mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
+ms.custom: mvc, mqtt, devx-track-java, devx-track-azurecli, mode-other
 ms.date: 06/21/2019
 ms.author: wesmc
 #Customer intent: As a developer new to IoT Hub, I need to use a service application written for Android to control devices connected to the hub.
