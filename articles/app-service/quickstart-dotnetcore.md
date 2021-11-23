@@ -414,7 +414,7 @@ Follow these steps to create your App Service resources and publish your project
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-1. Sign into your Azure account by using the [`az login`](/cli/reference-index#az_login) command and following the prompt:
+1. Sign into your Azure account by using the [`az login`](/cli/azure/reference-index#az_login) command and following the prompt:
 
     ```azurecli
     az login

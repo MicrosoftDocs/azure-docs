@@ -235,7 +235,7 @@
               href: configure-authentication-provider-google.md
             - name: Authenticate with Twitter
               href: configure-authentication-provider-twitter.md
-            - name: Authenticate with an OpenID Connect provider (Preview)
+            - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
             - name: Authenticate using Sign in with Apple (Preview)
               href: configure-authentication-provider-apple.md
@@ -251,7 +251,7 @@
           href: configure-authentication-file-based.md
     - name: Secure app
       items:
-        - name: Add TSL/SSL cert
+        - name: Add TLS/SSL cert
           href: configure-ssl-certificate.md
         - name: Restrict access
           href: app-service-ip-restrictions.md

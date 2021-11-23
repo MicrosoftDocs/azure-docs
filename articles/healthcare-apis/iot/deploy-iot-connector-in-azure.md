@@ -220,7 +220,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
    ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-assignment.png#lightbox)
 
-   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
+   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC](.././configure-azure-rbac.md).
 
 ## Next steps
 

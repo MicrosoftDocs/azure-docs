@@ -56,7 +56,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Enter the following details:
 
-   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Data center name** - Type a data center name in the text field.
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
