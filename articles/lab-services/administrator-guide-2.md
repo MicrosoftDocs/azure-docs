@@ -36,8 +36,6 @@ When you create a lab plan, you must configure the resource group that contains 
 
 A resource group is also required when you create a [shared image gallery](#shared-image-gallery). You can place your lab plan and shared image gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the image gallery across various solutions.
 
-When you create a lab plan, you can automatically create and attach a shared image gallery at the same time.  This option results in the lab plan and the shared image gallery being created in separate resource groups. You'll see this behavior when you follow the steps that are described in the [Configure shared image gallery at the time of lab plan creation](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-plan-creation) tutorial. The image at the beginning of this article uses this configuration. 
-
 We recommend that you invest time up front to plan the structure of your resource groups, because it's *not* possible to change a lab plan or shared image gallery resource group once it's created. If you need to change the resource group for these resources, you'll need to delete and re-create your lab plan or shared image gallery.
 
 ## Lab plan
