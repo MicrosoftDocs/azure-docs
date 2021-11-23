@@ -379,7 +379,7 @@ Failure to access the secure hybrid access-protected application can result from
 
 - FBA SSO is performed by the BIG-IP as it parses the logon form at the specified URI and looks for the username and password element tags that are defined in your configuration.
 
-- Element tags need to be consistent, or SSO will fail. More complex forms that are generated dynamically might require you to analyze them closer by using dev tools to understand the makeup of the llogon form.
+- Element tags need to be consistent, or SSO will fail. More complex forms that are generated dynamically might require you to analyze them closer by using dev tools to understand the makeup of the logon form.
 
 - A client-initiated approach might be better suited for logon pages that contain multiple forms, because it lets you specify a form name and even customize the JavaScript form handler logic.
 
