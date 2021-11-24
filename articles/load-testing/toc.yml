@@ -32,7 +32,7 @@
       href: how-to-update-rerun-test.md
     - name: Configure for high scale loads
       href: how-to-high-scale-load.md
-    - name: Find and download logs
+    - name: Troubleshoot test execution errors
       href: how-to-find-download-logs.md
     - name: Define test criteria
       href: how-to-define-test-criteria.md
