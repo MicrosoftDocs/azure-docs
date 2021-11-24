@@ -138,8 +138,10 @@ There are two methods you can use to register the connector:
 
    ```powershell
    # Load MSAL (Tested with version 4.7.1) 
+   # The Microsoft.Identity.Client package will need to be installed if not already installed. https://www.nuget.org/packages/Microsoft.Identity.Client
 
-   Add-Type -Path "..\MSAL\Microsoft.Identity.Client.dll" 
+   # Replace <version> with the version number installed.
+   Add-Type -Path "C:\Program Files\WindowsPowerShell\Modules\Microsoft.Identity.Client\<version>\Microsoft.Identity.Client.dll" 
         
    # The AAD authentication endpoint uri
         
