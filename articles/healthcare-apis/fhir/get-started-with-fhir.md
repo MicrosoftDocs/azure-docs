@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/22/2021
+ms.date: 11/23/2021
 ms.author: zxue
 ---
 
@@ -17,16 +17,16 @@ This article outlines the basic steps to get started with the FHIR service in [A
 
 ## Create a workspace in your Azure subscription
 
-You can create a workspace from the [Azure portal](healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of FHIR service instances you can create in each Azure subscription.
 
 ## Create a FHIR service in the workspace
 
-You can create a FHIR service instance from the [Azure portal](fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM](./././dicom/deploy-dicom-services-in-azure.md) service and [IoT connector](./././iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM](../dicom/deploy-dicom-services-in-azure.md) service and [IoT connector](./././iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
@@ -34,7 +34,7 @@ The FHIR service is secured by Azure Active Directory (Azure AD) that can't be d
 
 ### Register a client application
 
-You can create or register a client application from the [Azure portal](register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Healthcare APIs.
+You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Healthcare APIs.
 
 If the client application is created with a certificate or client secret, make sure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
@@ -42,7 +42,7 @@ You can delete a client application. Before you delete a client application, ens
 
 ### Grant access permissions
 
-You can grant access permissions or assign roles from the [Azure portal](configure-azure-rbac.md), or using PowerShell and Azure CLI scripts.
+You can grant access permissions or assign roles from the [Azure portal](../configure-azure-rbac.md), or using PowerShell and Azure CLI scripts.
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
@@ -50,13 +50,13 @@ You can perform create, read (search), update, and delete (CRUD) transactions ag
 
 #### Get an access token
 
-You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](get-access-token.md).
+You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, or .NET SDK.  For more information, see [Get access token](../get-access-token.md).
 
 #### Access using existing tools
 
-- [Postman](use-postman.md)
-- [Rest Client](using-rest-client.md)
-- [cURL](using-curl.md)
+- [Postman](../use-postman.md)
+- [Rest Client](../using-rest-client.md)
+- [cURL](../using-curl.md)
 
 #### Load data
 
@@ -72,20 +72,20 @@ You can find more details on interoperability and patient access, search, profil
 
 ### $export data
 
-Optionally, you can $export data to [Azure Storage](data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-id](data-transformation/de-identified-export.md) in `ndjson` format. 
+Optionally, you can $export data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-id](../data-transformation/de-identified-export.md) in `ndjson` format. 
 
-You can also export data to [Synapse](data-transformation/move-to-synapse.md) using the Open Source project. In the future, this feature will be integrated to the managed service.
+You can also export data to [Synapse](../data-transformation/move-to-synapse.md) using the Open Source project. In the future, this feature will be integrated to the managed service.
 
 ### Converting data
 
-Optionally, you can convert [HL7 v2](data-transformation/convert-data.md) and other format data to FHIR.
+Optionally, you can convert [HL7 v2](../data-transformation/convert-data.md) and other format data to FHIR.
 
 ### Using FHIR data in Power BI Dashboard
 
 Optionally, you can create Power BI dashboard reports with FHIR data.
 
 - [Power Query connector for FHIR](https://docs.microsoft.com/power-query/connectors/fhir/fhir)
-- [IoT connector and Microsoft Power BI](iot/iot-connector-power-bi.md)
+- [IoT connector and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps
 
