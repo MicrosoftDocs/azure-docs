@@ -7,19 +7,19 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 11/23/2021
 ms.author: danlep
 ---
 
 # Self-hosted gateway overview
 
-This article explains how self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
+This article explains how the self-hosted gateway feature of Azure API Management enables hybrid and multi-cloud API management, presents its high-level architecture, and highlights its capabilities.
 
 ## Hybrid and multi-cloud API management
 
 The self-hosted gateway feature expands API Management support for hybrid and multi-cloud environments and enables organizations to efficiently and securely manage APIs hosted on-premises and across clouds from a single API Management service in Azure.
 
-With the self-hosted gateway, customers have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where they host their APIs. All self-hosted gateways are managed from the API Management service they are federated with, thus providing customers with the visibility and unified management experience across all internal and external APIs. Placing the gateways close to the APIs allow customers to optimize API traffic flows and address security and compliance requirements.
+With the self-hosted gateway, customers have the flexibility to deploy a containerized version of the API Management gateway component to the same environments where they host their APIs. All self-hosted gateways are managed from the API Management service they are federated with, thus providing customers with the visibility and unified management experience across all internal and external APIs. Placing the gateways close to the APIs allows customers to optimize API traffic flows and address security and compliance requirements.
 
 Each API Management service is composed of the following key components:
 
@@ -27,11 +27,11 @@ Each API Management service is composed of the following key components:
 -   Gateway (or data plane) is responsible for proxying API requests, applying policies, and collecting telemetry
 -   Developer portal used by developers to discover, learn, and onboard to use the APIs
 
-By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the picture below) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, additional data transfer fees.
+By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the following picture ) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, additional data transfer fees.
 
 ![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
-Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery of all APIs within the organization regardless of where their implementations are hosted.
+Deploying self-hosted gateways into the same environments where the backend API implementations are hosted allows API traffic to flow directly to the backend APIs, which reduces latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management, observability, and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
 ![API traffic flow with self-hosted gateways](media/self-hosted-gateway-overview/with-gateways.png)
 
@@ -46,19 +46,30 @@ The following functionality found in the managed gateways is **not available** i
 - Validation of server and client certificates using [CA root certificates](api-management-howto-ca-certificates.md) uploaded to API Management service. You can configure [custom certificate authorities](api-management-howto-ca-certificates.md#create-custom-ca-for-self-hosted-gateway) for your self-hosted gateways and [client certificate validation](api-management-access-restriction-policies.md#validate-client-certificate) policies to enforce them.
 - Integration with the [Service Fabric](../service-fabric/service-fabric-api-management-overview.md)
 - TLS session resumption
-- Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
-- Built-in cache. See this [document](api-management-howto-cache-external.md) to learn about using external cache in self-hosted gateways.
+- Client certificate renegotiation. This means that for [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) to work, API consumers must present their certificates as part of the initial TLS handshake. To ensure that, enable the negotiate client certificate setting when configuring a self-hosted gateway custom hostname.
+- Built-in cache. Learn about using an [external Redis-compatible cache](api-management-howto-cache-external.md) in self-hosted gateways.
 
 ## Connectivity to Azure
 
-Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. Each self-hosted gateway must be associated with a single API Management service and is configured via its management plane. Self-hosted gateway uses connectivity to Azure for:
+Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. Each self-hosted gateway must be associated with a single API Management service and is configured via its management plane. A self-hosted gateway uses connectivity to Azure for:
 
 -   Reporting its status by sending heartbeat messages every minute
 -   Regularly checking for (every 10 seconds) and applying configuration updates whenever they are available
 -   Sending request logs and metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
 
-When connectivity to Azure is lost, self-hosted gateway will be unable to receive configuration updates, report its status, or upload telemetry.
+### FQDN dependencies
+
+To operate properly, each self-hosted gateway needs connectivity to the following endpoints for the associated API Management service:
+* The service's management endpoint: `<apim-service-name>.management.azure-api.net`
+* Associated blob storage account: `<account-name>.blob.core.windows.net`
+* Associated table storage account: `<account-name>.table.core.windows.net`
+
+The associated storage FQDNs are in the service's **Network connectivity status** in the Azure portal.
+
+### Connectivity failures
+
+When connectivity to Azure is lost, the self-hosted gateway is unable to receive configuration updates, report its status, or upload telemetry.
 
 The self-hosted gateway is designed to "fail static" and can survive temporary loss of connectivity to Azure. It can be deployed with or without local configuration backup. In the former case, self-hosted gateways will regularly save a backup copy of the latest downloaded configuration on a persistent volume attached to its container or pod.
 
