@@ -19,11 +19,9 @@ ms.subservice: teams-interop
 >
 > Preview APIs and SDKs are provided without a service-level agreement, and are not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The following video demonstrates some of the capabilities of Teams interoperability:
+The Azure Communication Services Calling and Chat SDKs can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. And the [Communication Services UI Library](ui-library/ui-library-overview.md) provides customizable, production-ready UI components that can be easily added into these applications. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
-<br>
-
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
 
@@ -67,14 +65,16 @@ To learn more about the functionality, join our TAP program for early access by 
 
 \* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
-## Meeting and call experiences
+## Teams meeting and calling experiences
 
-There are two ways that users can access the Teams calling experience:
+There are several ways that users can join a Teams meeting:
 
-- Via Teams clients as **Teams users**. This includes the desktop, mobile, and web Teams clients. 
-- Via your application's web experience as **Teams anonymous users**. 
+- Via Teams clients as authenticated **Teams users**. This includes the desktop, mobile, and web Teams clients.
+- Via Teams clients as unauthenticated **Anonymous users**. 
+- Via custom Communication Services applications as **Teams users** using the Teams identity authentication model.
+- Via custom Communication Services applications as **BYOI users** using the bring your own identity authentication model.
 
-Teams anonymous users don't have to be Teams users. Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
+Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
 ![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
 
 When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
