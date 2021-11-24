@@ -69,7 +69,7 @@ To register the app, perform the following steps:
 
     For a single-tenant app, you can use the default value, which is in the form the form `api://<application-client-id>`. You can also specify a more readable URI like `https://contoso.com/api` based on one of the verified domains for your tenant. For a multi-tenant app, you must provide a custom URI. To learn more about accepted formats for App ID URIs, see the [app registrations best practices reference](../active-directory/develop/security-best-practices-for-app-registration.md#appid-uri-configuration).
 
-    Once you have entered the value, click **Save**.
+    The value is automatically saved.
 
 1. Select **Add a scope**.
    1. In **Add a scope**, the **Application ID URI** is the value you set in a previous step.  Select **Save and continue**.
