@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/18/2021
+ms.date: 11/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -179,8 +179,11 @@ Perform the following steps to create an export job in the Azure portal using th
        * The name must start with a letter, and may not contain spaces.
 
    1. Select **Export from Azure**.
+   1. Select a **Source Azure region**. 
+   
+      If the new import/export experience is available in the selected region, you'll see a note inviting you to try the new experience. Select **Try now**, and follow the steps on the **Portal (Preview)** tab of this section to try the new experience with this order.
 
-    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Export From Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+    ![Screenshot of the Basics tab for an Azure Import Export job. Export From Azure is selected. The Try Now link for the new import/export experience is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
     Select **Next: Job Details >** to proceed.
 
