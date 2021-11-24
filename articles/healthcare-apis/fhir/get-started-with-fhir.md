@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/23/2021
+ms.date: 11/24/2021
 ms.author: zxue
 ---
 
@@ -26,7 +26,7 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 
 You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM](../dicom/deploy-dicom-services-in-azure.md) service and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
@@ -36,7 +36,7 @@ The FHIR service is secured by Azure Active Directory (Azure AD) that can't be d
 
 You can create or register a client application from the [Azure portal](../register-application.md), or using PowerShell and Azure CLI scripts. This client application can be used for one or more FHIR service instances. It can also be used for other services in Azure Healthcare APIs.
 
-If the client application is created with a certificate or client secret, make sure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
+If the client application is created with a certificate or client secret, ensure that you renew the certificate or client secret before expiration and replace the client credentials in your applications.
 
 You can delete a client application. Before you delete a client application, ensure that it's not used in production, dev, test, or quality assurance (QA) environments.
 
