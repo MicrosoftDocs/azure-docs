@@ -394,7 +394,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
         "errors": [],
         "createdDateTime": "2021-05-01T17:21:14Z",
         "expirationDateTime": "2021-05-01T17:21:14Z",
-        "jobId": "635c2741-15c4-4c2c-9f78-bfd30b6b2a4a",
+        "jobId": "{JOB-ID-GUID}",
         "lastUpdatedDateTime": "2021-05-01T17:21:14Z",
         "status": "succeeded"
       }
@@ -483,7 +483,7 @@ HTTP/2 202
 content-length: 0
 operation-location: https://southcentralus.api.cognitive.microsoft.com:443/language/query-knowledgebases/projects/sample-proj1/import/jobs/{JOB-ID-GUID}
 x-envoy-upstream-service-time: 417
-apim-request-id: 4f9fd57e-37f9-436b-acbb-c318538d3299
+apim-request-id: 
 strict-transport-security: max-age=31536000; includeSubDomains; preload
 x-content-type-options: nosniff
 date: Wed, 24 Nov 2021 00:35:11 GMT
@@ -629,7 +629,7 @@ date: Wed, 24 Nov 2021 02:47:53 GMT
 ### Example query
 
 ```bash
-curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '' 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/Sample-project/sources/jobs/{JOB-ID}?api-version=2021-10-01' 
+curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: application/json" -d '' 'https://{ENDPOINT}.api.cognitive.microsoft.com/language/query-knowledgebases/projects/{PROJECT-NAME}/sources/jobs/{JOB-ID}?api-version=2021-10-01' 
 ```
 
 ### Example response
@@ -803,4 +803,3 @@ strict-transport-security: max-age=31536000; includeSubDomains; preload
 x-content-type-options: nosniff
 date: Wed, 24 Nov 2021 04:02:56 GMT
 ```
-
