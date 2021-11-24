@@ -547,7 +547,7 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
 ]
 ```
 
-## List Projects
+## List projects
 
 Retrieve a list of all question answering projects your account has access to.
 
