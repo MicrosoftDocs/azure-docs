@@ -34,8 +34,8 @@ Backup operation failed because selective disk backup is currently not supported
 
 Error message: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
 
-Backup operation failed because the encrypted VMs does not have the required permissions to access the key vault. 
-Permissions can be set through the [Azure portal](./backup-azure-vms-encryption.md) or through [PowerShell](./backup-azure-vms-automation.md#enable-protection).
+Backup operation failed because the encrypted VMs do not have the required permissions to access the key vault. 
+Permissions can be set through [Azure portal](./backup-azure-vms-encryption.md#provide-permissions) or through [PowerShell](./backup-azure-vms-automation.md#enable-protection).
 
 ## DiskEncryptionInternalError
 
