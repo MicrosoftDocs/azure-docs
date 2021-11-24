@@ -13,6 +13,8 @@ ms.author: zxue
 
 This article outlines the basic steps to get started with the FHIR service in [Azure Healthcare APIs](../healthcare-apis-overview.md).
 
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
+
 [![Get started with the FHIR service flow diagram.](media/get-started-with-fhir.png)](media/get-started-with-fhir.png#lightbox)
 
 ## Create a workspace in your Azure subscription
@@ -70,9 +72,9 @@ You can load data directly using the POST or PUT method against the FHIR service
 
 You can find more details on interoperability and patient access, search, profile validation, and reindex in the [FHIR service](overview.md) documentation.
 
-### $export data
+### Export data
 
-Optionally, you can $export data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-id](../data-transformation/de-identified-export.md) in `ndjson` format. 
+Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-id](../data-transformation/de-identified-export.md) in `ndjson` format. 
 
 You can also export data to [Synapse](../data-transformation/move-to-synapse.md) using the Open Source project. In the future, this feature will be integrated to the managed service.
 

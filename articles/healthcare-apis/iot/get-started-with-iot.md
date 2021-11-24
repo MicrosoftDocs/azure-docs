@@ -39,7 +39,7 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 By design, the IoT connector retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the IoT connector from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-iot-connector-access).
 
-## Assign roles to allow IoT to access FHIR
+## Assign roles to allow IoT to access FHIR service
 
 The IoT connector persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the IoT connector from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-iot-connector-from-the-fhir-service).
 
