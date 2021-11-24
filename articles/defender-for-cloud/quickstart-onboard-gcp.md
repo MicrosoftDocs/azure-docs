@@ -7,6 +7,7 @@ ms.date: 11/09/2021
 ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
+ms.custom: mode-other
 ---
 
 #  Connect your GCP accounts to Microsoft Defender for Cloud

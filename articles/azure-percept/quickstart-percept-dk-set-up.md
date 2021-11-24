@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart, mode-other
 ---
 
 # Set up the Azure Percept DK device

@@ -1,7 +1,7 @@
 ---
 title: PowerShell functions for Azure IoT Edge for Linux on Windows | Microsoft Docs 
 description: Reference information for Azure IoT Edge for Linux on Windows PowerShell functions to deploy, provision, and status IoT Edge for Linux on Windows virtual machines.
-author: v-tcassi
+author: kgremban
 
 ms.author: fcabrera
 ms.date: 10/15/2021
@@ -111,6 +111,7 @@ For more information, use the command `Get-Help Get-EflowLogs -full`.
 The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four properties:
 
 * VmConfiguration
+* VmPowerState
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics

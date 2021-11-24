@@ -2,13 +2,13 @@
 title: "Quickstart: Search explorer query tool"
 titleSuffix: Azure Cognitive Search
 description: Search explorer is a query tool in the Azure portal that sends query requests to a search index in Azure Cognitive Search. Use it to learn syntax, test query expressions, or inspect a search document.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Use Search explorer to run queries in the portal

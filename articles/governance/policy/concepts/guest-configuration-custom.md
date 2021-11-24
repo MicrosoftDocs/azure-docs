@@ -291,8 +291,10 @@ following known compatibility issues.
 
 - Don't use resources from the `PSDesiredStateConfiguration` module that ships with Windows. Instead,
   switch to `PSDscResources`.
-- Don't use the `WindowsFeature` and `WindowsFeatureSet` resources in `PsDscResources`. Instead,
-  switch to the `WindowsOptionalFeature` and `WindowsOptionalFeatureSet` resources.
+- Don't use the `WindowsFeature`, `WindowsFeatureSet`, `WindowsOptionalFeature`, and
+  `WindowsOptionalFeatureSet` resources in `PsDscResources`. There's a known
+  issue loading the `DISM` module in PowerShell 7.1.3 on Windows Server,
+  that will require an update.
   
 The "nx" resources for Linux that were included in the
 [DSC for Linux](https://github.com/microsoft/PowerShell-DSC-for-Linux/tree/master/Providers)

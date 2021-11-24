@@ -67,7 +67,7 @@ Some organizations use the mail-contact object to show users in the GAL. This ap
 A better approach to achieve this goal is to:
 * Invite guest users
 * Unhide them from the GAL
-* Disable them by [blocking them from sign in](/powershell/module/azuread/set-azureaduser&preserve-view=true).
+* Disable them by [blocking them from sign in](/powershell/module/azuread/set-azureaduser).
 
 A mail-contact object cannot be converted to a user object. Therefore, any properties associated with a mail-contact object cannot be transferred. For example, group memberships and other resource access aren't transferred.  
 
