@@ -9,7 +9,7 @@ ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
 
-# OS Support #
+## OS Support
 OS Support is determined through underling requirements of Azure services and our ability to validate scenarios.
 
 The Edge Secured-core program for Linux is enabled through the IoT Edge runtime which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support?view=iotedge-2020-11.md).
