@@ -1,5 +1,5 @@
 ---
-title: Supported Spatial Analysis operations - Azure
+title: Supported Spatial Analysis operations
 description: This reference article details the different properties of the Spatial Analysis operations supported by Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
