@@ -4,7 +4,7 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/06/2021
+ms.date: 13/03/2021
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
@@ -86,6 +86,16 @@ The following sections provide report queries for various reports.
 **Report query**:
 
 `Date,OfferName,ReferralDomain,CountryName,PageVisits,GetItNow,ContactMe,TestDrive,FreeTrial FROM ISVMarketplaceInsights TIMESPAN LAST_6_MONTHS`
+
+## Revenue report query
+
+**Report description**: Revenue report for the last 6M
+
+**QueryID**: `6fd7624b-aa9f-42df-a61d-67d42fd00e92`
+
+**Report query**:
+
+`SELECT AssetId,SalesChannel,BillingAccountId,CustomerCity,CustomerCompanyName,CustomerCountry,CustomerEmail,CustomerId,CustomerName,CustomerState,EarningAmountCC,EarningAmountPC,EarningAmountUSD,EarningCurrencyCode,EarningExchangeRatePC,EstimatedPayoutMonth,Revenue,EstimatedRevenuePC,EstimatedRevenueUSD,ExchangeRateDate,ExchangeRatePC,ExchangeRateUSD,PayoutStatus,IncentiveRate,TrialDeployment,LineItemId,MonthStartDate,OfferName,OfferType,PaymentInstrumentType,PaymentSentDate,PurchaseRecordId,Quantity,SKU,TermEndDate,TermStartDate,TransactionAmountCC,TransactionAmountPC,TransactionAmountUSD,BillingModel,Units FROM ISVRevenue TIMESPAN LAST_6_MONTHS`
 
 ## Next steps
 
