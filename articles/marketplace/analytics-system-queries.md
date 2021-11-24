@@ -4,7 +4,7 @@ description: Learn about system queries you can use to programmatically get anal
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 13/03/2021
+ms.date: 12/03/2021
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
