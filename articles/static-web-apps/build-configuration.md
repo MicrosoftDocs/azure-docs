@@ -137,7 +137,7 @@ In this configuration:
 - The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
 
 > [!NOTE]
-> `app_location` and `api_location` must contain paths relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
+> `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
 
 ---
 
