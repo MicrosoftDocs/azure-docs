@@ -13,20 +13,20 @@ ms.author: zxue
 
 This article outlines the basic steps to get started with the DICOM service in [Azure Healthcare APIs](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow the steps one by one, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
 
 [![Get Started with DICOM](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
 ## Create a workspace in your Azure Subscription
 
-You can create a workspace from the [Azure portal](healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of DICOM service instances you can create in each Azure subscription.
 
 ## Create a DICOM service in the workspace
 
-You can create a DICOM service instance from the [Azure portal](dicom/deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a DICOM service instance from the [Azure portal](deploy-dicom-services-in-azure.md) or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
@@ -46,7 +46,7 @@ You can delete a client application. Before doing that, ensure that it's not use
 
 You can grant access permissions or assign roles from the [Azure portal](../configure-azure-rbac.md), or using PowerShell and Azure CLI scripts.
 
-### Perform create, read, update and delete (CRUD) transactions
+### Perform create, read, update, and delete (CRUD) transactions
 
 You can perform create, read (search), update and delete (CRUD) transactions against the DICOM service in your applications or by using tools such as Postman, REST Client, cURL, and Python. Because the DICOM service is secured by default, you must obtain an access token and include it in your transaction request.
 
