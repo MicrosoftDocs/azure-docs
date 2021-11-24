@@ -36,7 +36,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 
 Applications can implement both authentication models and leave the choice of authentication up to the end user.
 
-## Teams meeting and call experiences
+## Teams meeting and calling experiences
 
 There are two ways that users can access the Teams calling experience:
 
@@ -69,7 +69,7 @@ Teams users are authenticated via the MSAL library against Azure Active Director
 
 To learn more about the functionality, join our TAP program for early access by completing [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 
-## Teams meeting and calling experiences
+## Meeting and call experiences
 
 There are two ways that users can access the Teams calling experience:
 
