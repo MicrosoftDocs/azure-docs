@@ -30,11 +30,17 @@ Rate Limits for SMS:
 |---------|-----|-------------|-------------------|-------------------------|
 |Send Message|Per Number|60|200|200|
 
-## How does Azure Communication Services handle opt-outs for Toll-free numbers?
+## How does Azure Communication Services handle opt-outs for toll-free numbers?
 
-Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
-- STOP - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: "NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."
-- START/UNSTOP - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. The carrier sends the following default response for START/UNSTOP: “NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”
+Opt-outs for US toll-free numbers are mandated and enforced by US carriers and cannot be overridden. 
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the toll-free number. The carrier sends the following default response for STOP: *"NETWORK MSG: You replied with the word "stop" which blocks all texts sent from this number. Text back "unstop" to receive messages again."*
+- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. The carrier sends the following default response for START/UNSTOP: *“NETWORK MSG: You have replied “unstop” and will begin receiving messages again from this number.”*
+- Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
+- The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
+
+## How does Azure Communication Services handle opt-outs for short codes?
+- **STOP** - If a text message recipient wishes to opt-out, they can send ‘STOP’ to the short code. Azure Communication Services sends the following default response for STOP: *"You have successfully been unsubscribed to messages from this number. Reply START to resubscribe"*
+- **START/UNSTOP** - If the recipient wishes to resubscribe to text messages from a toll-free number, they can send ‘START’ or ‘UNSTOP to the toll-free number. Azure Communication Service sends the following default response for START/UNSTOP: *“You have successfully been re-subscribed to messages from this number. Reply STOP to unsubscribe.”*
 - Azure Communication Services will detect the STOP message and block all further messages to the recipient. The delivery report will indicate a failed delivery with status message as “Sender blocked for given recipient.”
 - The STOP, UNSTOP and START messages will be relayed back to you. Azure Communication Services encourages you to monitor and implement these opt-outs to ensure that no further message send attempts are made to recipients who have opted out of your communications.
 
@@ -43,7 +49,17 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
 Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to setup your event-grid to receive messages.
 
 ## What is the SMS character limit?
-The character limit for a single SMS is 160 characters. When sending messages, all messages over 160 characters are split into segments and delivered individually, which are then concatenated by the recipient's device. Similarly for receiving long messages, multiple segments of a long message are automatically concatenated and delivered as one message on the endpoint specified in Azure Event Grid. 
+ The size of a single SMS message is 140 bytes. The character limit per single message being sent depends on the message content and encoding used. Azure Communication Services supports both GSM-7 and UCS-2 encoding. 
+
+- **GSM-7** - A message containing text characters only will be encoded using GSM-7
+- **UCS-2** - A message containing unicode (emojis, international languages) will be encoded using UCS-2
+
+This table shows the maximum number of characters that can be sent per SMS segment to carriers:
+
+|Message|Type|Characters used in the message|Encoding|Maximum characters in a single segment|
+|-------|----|---------------|--------|--------------------------------------|
+|Hello world|Text|GSM Standard|GSM-7|160|
+|你好|Unicode|Unicode|UCS-2|70|
 
 ## Can I send/receive long messages (>2048 chars)?
 
@@ -60,3 +76,6 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 ##  I received a HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
+
+## What is the eligibility to apply for a short code?
+Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. 

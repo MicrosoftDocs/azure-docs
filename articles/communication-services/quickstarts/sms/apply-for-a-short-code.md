@@ -14,8 +14,7 @@ ms.subservice: sms
 ---
 # Quickstart: Apply for a short code
 
-> [!IMPORTANT]
-> Short code availability is currently restricted to Azure enterprise subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Short code cannot be acquired on trial accounts or using Azure free credits. 
+[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 ## Prerequisites
 
@@ -28,11 +27,11 @@ To begin provisioning a short code, go to your Communication Services resource o
 :::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Apply for a short code
-Navigate to the Short Codes blade in the resource menu and click on Get button to launch the short code program brief application wizard. 
+Navigate to the Short Codes blade in the resource menu and click on "Get" button to launch the short code program brief application wizard. 
 
-The wizard on short codes blade will walk you through a series of questions about the program as well as a description of content which helps carriers review and approve your short code program brief. For detailed guidance on how to fill the program brief application please check [program brief filling guidelines](TO BE ADDED)
+The wizard on the short codes blade will walk you through a series of questions about the program as well as a description of content which helps carriers review and approve your short code program brief. For detailed guidance on how to fill the program brief application please check [program brief filling guidelines](../../concepts/sms/program-brief-guidelines.md).
 
-Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements. A short code Program Brief application consists of the following 4 sections:
+The Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements. A short code Program Brief application consists of the following 4 sections:
  
 ### Program Details 
 You will first need to provide program name and choose the country/region where you would like to provision the phone number. 
@@ -69,9 +68,7 @@ This section requires you to provide an estimate of the number of messages you p
 ### Template Information
 This section captures sample messages related to opt-in, opt-out, and other message flows.
 
-
 :::image type="content" source="./media/apply-for-a-short-code/templates1.png" alt-text="Screenshot showing template details section.":::
-
 
 Once completed, review the Program Brief information provided and submit the completed application through the Azure Portal. 
  

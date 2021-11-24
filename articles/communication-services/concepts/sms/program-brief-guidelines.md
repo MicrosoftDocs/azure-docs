@@ -12,9 +12,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
-# Short Code Program Brief Filling Guidelines 
-> [!IMPORTANT]
-> Short code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Short code cannot be acquired on trial accounts or using Azure free credits. 
+[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 Azure Communication Services allows you to apply for a short code for SMS programs. In this document, we'll review the guidelines on how to fill program brief for short code registration. Program brief application consists of 4 sections:
 - Program details
@@ -43,7 +41,7 @@ Communication Services offers two types of short codes: random and vanity.
 #### Random short code
 A random short code is a 5–6-digit phone number that is randomly selected and assigned by the U.S. Common Short Codes Association (CSCA).
 #### Vanity short code
-A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in [US UShort Codes directory](https://usshortcodedirectory.com/).
+A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in the [US UShort Codes directory](https://usshortcodedirectory.com/).
 Additionally, you may pick a number that the customer can spell out on their phone dial pad as an alphanumeric equivalent – for example, Contoso can use OFFERS (633377). 
 
 When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. 
@@ -53,13 +51,15 @@ Example: 123456, 123457, 123458.
 This field captures the directionality of the SMS program – 1-way broadcast or 2-way SMS. In United States, 2-way SMS is mandated to honor opt-out requests from customers.
 
 ### Recurrence
-Programs are classified as Transactional programs or Subscription programs. **Transactional** programs deliver a one-time message in response to customers’ opt-in requests. Examples include one-time passcodes, informational alerts, and delivery notifications. **Subscription** programs send messages to customers on an ongoing basis. Examples include content/information alert subscriptions (news, weather, horoscopes, etc.), marketing, and loyalty promotions.
+Programs are classified as Transactional programs or Subscription programs: 
+- **Transactional** programs deliver a one-time message in response to customers’ opt-in requests. Examples include one-time passcodes, informational alerts, and delivery notifications. 
+- **Subscription** programs send messages to customers on an ongoing basis. Examples include content/information alert subscriptions (news, weather, horoscopes, etc.), marketing, and loyalty promotions.
 
 ### Estimated ramp up time
 This field captures the time duration in days until full production volume is reached.
 
 ### Political Campaign
-Short Code programs that solicit political donations are subject to additional best practices, available [here](https://www.ctia.org/the-wireless-industry/industry-commitments/guidelines-for-federal-political-campaign-contributions-via-wireless-carriers-bill). 
+Short Code programs that solicit political donations are subject to [additional best practices](https://www.ctia.org/the-wireless-industry/industry-commitments/guidelines-for-federal-political-campaign-contributions-via-wireless-carriers-bill). 
 
 ### Privacy Policy and Terms and Conditions URL
 Message Senders are required to maintain a privacy policy and terms and conditions for all short code programs and make it accessible to customers from the initial call-to-action. 
@@ -92,20 +92,19 @@ In these fields, you must provide a URL of the website where customers will disc
 > Additional information might be required for sweepstakes or other special programs. Please check the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf).
 
 
-:::image type="content" source= "../media/ShortCodes-web-optin@2x.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/ShortCodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
 
 :::image type="content" source= "../media/print-opt-in-mock.png" alt-text="Screenshot showing print opt-in mock up.":::
-
 
 ## Contact Details
 
 ### Point of contact email address
-You need to provide your company's and point of contact information. Status updates for your short code application will be sent to the point of contact email address.
+You need to provide information about your company and point of contact. Status updates for your short code application will be sent to the point of contact email address.
 
 ### Customer care
 Customer care contact information must be clear and readily available to help customers understand program details as well as their status with the program. Customer care information should result in customers receiving help.
 
-In these fields, you are required to provide the customer care email address and the customer care phone number where customers can reach out to receive help.
+In these fields, you are required to provide the customer care email address and a customer care phone number where customers can reach out to receive help.
 
 ## Volume 
 ### Messages sent per user
@@ -123,7 +122,7 @@ Example: Traffic spikes are expected for delivery notifications program around h
 
 ## Templates
 ### Opt-in confirmation message
-CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, etc., 
+CTIA requires that the customer must actively opt into short code programs by sending a keyword from their mobile device to the short code, providing consent on website, IVR, etc.
 
 In this field, you are required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
@@ -139,7 +138,7 @@ Message senders are required to have mechanisms to opt customers out of the prog
 
 In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. Example: Contoso Alerts: You’re opted out and will receive no further messages.
 
-Please see [here](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
+Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
 
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
@@ -163,6 +162,3 @@ In this field, you are required to provide sample message for each content type 
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
-
-
-

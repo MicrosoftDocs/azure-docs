@@ -41,7 +41,6 @@ Fees for short code leasing are charged after provisioning is complete and then 
 
 *Additional $500/mo would be charged for Vanity short codes
 
-
 ### Usage Fee
 SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Messages can be sent from a short code to phone numbers located within the United States. 
 
@@ -52,7 +51,7 @@ The following prices include required communications taxes and fees:
 |Send messages (per message segment*) |$0.0075 |
 |Receive messages (per message segment*) |$0.0075 |
 
-*Please see [here](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
+*Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
 An additional flat carrier surcharge of $0.0025/sent msg segment is also applicable. A carrier surcharge is subject to change. Click Link-To-be-added for details.
