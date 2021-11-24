@@ -34,13 +34,23 @@ This quickstart uses the [Creates a lab in Azure DevTest Labs with a claimed VM]
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
 
-For more ARM template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
+For more DevTest Labs ARM templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
 ## Deploy the template
 
-1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template lab creation screen:
+1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template to the lab creation screen:
 
-   [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
+[![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
+
+   Or, to deploy the template without using the button:
+
+   1. In the Azure portal, search for *arm template*, and then select **Deploy a custom template**.
+
+   1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
+
+   1. Type *devtestlab* in the filter box, and then select the ** ** template.
+
+   1. Select **Select template**.
 
 1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, fill out the following items:
 
@@ -55,9 +65,7 @@ For more ARM template samples, see [Azure Quickstart Templates](https://azure.mi
 
    :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Screenshot of the Create a lab page.":::
 
-1. Select **Review + create**, and when validation passes, select **Create**.
-
-During the deployment, you can select the **Notifications** icon at the top of your screen to see deployment progress on the template **Overview** page. Deployment, especially creating a VM, takes a while.
+During the deployment, you can select the **Notifications** icon at the top of the screen to see deployment progress on the template **Overview** page. Deployment, especially creating a VM, takes a while.
 
 ## Validate the deployment
 
@@ -65,7 +73,7 @@ During the deployment, you can select the **Notifications** icon at the top of y
 
    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Screenshot that shows deployment complete and the Go to resource group button.":::
 
-1. The **Resource group** page lists the resources in the resource group, including your lab and its dependent resources like virtual networks and VMs. Select the **DevTest Lab** resource to go to your lab's **Overview** page.
+1. The **Resource group** page lists the resources in the resource group, including your lab and its dependent resources like virtual networks and VMs. Select the **DevTest Lab** resource to go to the new lab's **Overview** page.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-overview.png" alt-text="Screenshot of resource group overview.":::
 
@@ -74,11 +82,11 @@ During the deployment, you can select the **Notifications** icon at the top of y
    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Screenshot that shows the lab Overview page with the virtual machine.":::
 
 > [!NOTE]
-> The deployment also creates a resource group for the VM. In the **Resource groups** list for your subscription, the resource group appears with the name **\<lab name>\<vm name>** plus a string of numbers.
+> The deployment also creates a resource group for the VM. The resource group contains VM resources like the IP address, network interface, and disk. The resource group appears In the **Resource groups** list for your subscription with the name **\<lab name>-\<vm name>-\<numerical string>**.
 
 ## Clean up resources
 
-Delete resources when you're finished with them to avoid charges for running the lab and VM.
+Delete the resources when you're finished with them, to avoid charges for running the lab and VM.
 
 1. On the lab overview page, select **Delete** from the top menu.
 
