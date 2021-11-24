@@ -343,12 +343,7 @@
             href: logs/api/errors.md
         - name: Tools
           href: logs/api/tools.md
-          items:
-          - name: "C# SDK"
-            href: logs/api/csharp-sdk.md
-          - name: PowerShell Cmdlets
-            href: logs/api/powershell-cmdlets.md
-    - name: Data export
+      - name: Data export
       items:
       - name: Workspace data export
         href: logs/logs-data-export.md
