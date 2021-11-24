@@ -77,10 +77,7 @@ There are several ways that users can join a Teams meeting:
 - Via custom Communication Services applications as **BYOI users** using the bring your own identity authentication model. 
 - Via custom Communication Services applications as **Teams users** using the Teams identity authentication model.
 
-Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
 ![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
-
-When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
 
 Using the Teams identity authentication model, a Communication Services application allows **Teams users** to join calls with other **Teams users** who are using the Teams clients:
 ![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-microsoft365-identity-interop-overview-v2.png)
