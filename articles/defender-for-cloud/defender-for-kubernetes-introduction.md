@@ -1,12 +1,8 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-author: memildin
-ms.author: memildin
 ms.date: 11/23/2021
 ms.topic: overview
-ms.service: defender-for-cloud
-manager: rkarlin
 ---
 
 # Introduction to Microsoft Defender for Kubernetes
@@ -83,7 +79,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
     :::image type="content" source="media/defender-for-kubernetes-intro/enable-containers-plan-on-aws-connector.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector.":::
 
-1. Optionally, to change the retention period for your audit logs, select **Configure** enter the desired timeframe and select **Save**.
+1. Optionally, to change the retention period for your audit logs, select **Configure**, enter the desired timeframe, and select **Save**.
 
     :::image type="content" source="media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="./media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png":::
 

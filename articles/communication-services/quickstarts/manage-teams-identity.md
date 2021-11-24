@@ -1,17 +1,17 @@
 ---
 title: Set up and create Teams access tokens
 titleSuffix: An Azure Communication Services quickstart
-description: Building service providing Teams access tokens 
+description: Building service providing Teams access tokens
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
-
 ms.author: tchladek
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
+ms.custom: mode-other
 ---
 # Quickstart: Set up and manage Teams access tokens
 

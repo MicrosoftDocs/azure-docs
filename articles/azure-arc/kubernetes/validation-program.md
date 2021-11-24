@@ -48,7 +48,6 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 1. Connect Kubernetes clusters to Azure Arc: 
     * Deploy Azure Arc-enabled Kubernetes agent Helm chart on cluster.
-    * Set up Managed System Identity (MSI) certificate on cluster.
     * Agents send cluster metadata to Azure.
 
 2. Configuration: 
@@ -58,6 +57,6 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 ## Next steps
 
-Learn how to connect a cluster to Azure Arc.
+Learn how to connect your existing Kubernetes cluster to Azure Arc.
 > [!div class="nextstepaction"]
-> [Connect a cluster to Azure Arc](./quickstart-connect-cluster.md)
+> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)

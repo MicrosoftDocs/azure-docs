@@ -4,7 +4,7 @@ description: This quickstart shows you how to use Bicep to deploy a Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: ssarwa
 ms.date: 11/12/2021
 ---
