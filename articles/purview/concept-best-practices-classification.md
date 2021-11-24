@@ -76,8 +76,8 @@ For example, if employee ID column follows EMPLOYEE{GUID} pattern  (e.g. EMPLOYE
 * Specific to classification, select relevant system classifications and/or custom classifications (if you have created one for the data being scanned). 
 
 For example, in the scenario below, only the specific selected system and custom classifications will be applied for the data source being scanned (e.g., Financial data)
-
-    :::image type="content" source="./media/concept-best-practices/classification-select-classification-rules-example-3.png" alt-text="Screen shot showing a selected classification rule." lightbox="./media/concept-best-practices/classification-select-classification-rules-example-3.png":::
+    
+:::image type="content" source="./media/concept-best-practices/classification-select-classification-rules-example-3.png" alt-text="Screen shot showing a selected classification rule." lightbox="./media/concept-best-practices/classification-select-classification-rules-example-3.png":::
 
 #### Annotation management:
 
@@ -97,8 +97,8 @@ For example, in the scenario below, only the specific selected system and custom
 * For the **name** of custom classification, it is a good practice to use a namespace convention, i.e.,**\<company name>.\<business unit>.\<custom classification name>**. 
 
 As an example, for the custom EMPLOYEE_ID classification for a company named Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID and the friendly name is stored in the system as HR.EMPLOYEE ID.
-
-    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a EMPLOYEE_ID custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
+    
+:::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a EMPLOYEE_ID custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
 
 * While creating and configuring the classification rule for a custom classification:
 
