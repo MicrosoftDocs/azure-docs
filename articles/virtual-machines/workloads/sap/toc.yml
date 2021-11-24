@@ -204,6 +204,8 @@
       items:                  
       - name: Scale-up with HSR and Pacemaker
         href: sap-hana-high-availability.md
+      - name: Scale-up with HSR and Pacemaker on Azure NetApp Files
+        href: sap-hana-high-availability-netapp-files-suse.md 
       - name: Scale-out  with standby node on Azure NetApp Files
         href: sap-hana-scale-out-standby-netapp-files-suse.md
       - name: Scale-out  with HSR and Pacemaker

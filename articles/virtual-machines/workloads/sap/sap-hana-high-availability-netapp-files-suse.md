@@ -1,4 +1,21 @@
-# High availability of SAP HANA Scale-up with Azure NetApp Files on SUSE Enterprise Linux #
+---
+title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| Microsoft Docs
+description: Establish high availability for SAP NW on Azure virtual machines (VMs) RHEL with NFS on Azure Files.
+services: virtual-machines-windows,virtual-network,storage
+documentationcenter: saponazure
+author: apmsft
+manager: juergent
+tags: azure-resource-manager
+ms.service: virtual-machines-sap
+ms.topic: tutorial
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 11/23/2021
+ms.author: ampatel
+
+---
+
+# High availability of SAP HANA Scale-up with Azure NetApp Files on SUSE Enterprise Linux
 
 This article describes how to configure SAP HANA System Replication in Scale-up deployment, when the HANA file systems are mounted via NFS using Azure NetApp Files (ANF). In the example configurations and installation commands, instance number 03, and HANA System ID HN1 are used. SAP HANA Replication consists of one primary node and at least one secondary node.
 
@@ -26,9 +43,9 @@ Read the following SAP Notes and papers first:
 - SAP Note [1900823](https://launchpad.support.sap.com/#/notes/1900823): Contains information about SAP HANA storage requirements
 - [SUSE SAP HA Best Practice Guides](https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/): Contains all required information to set up NetWeaver High Availability and SAP HANA System Replication on-premises (to be used as a general baseline; they provide much more detailed information)
 - [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
-- [Azure Virtual Machines planning and implementation for SAP on Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Azure Virtual Machines deployment for SAP on Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
-- [Azure Virtual Machines DBMS deployment for SAP on Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide)
+- [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
+- [Azure Virtual Machines deployment for SAP on Linux](./deployment-guide.md)
+- [Azure Virtual Machines DBMS deployment for SAP on Linux](./dbms-guide.md)
 - General SLES documentation
 	- [Setting up SAP HANA Cluster](https://documentation.suse.com/sles-sap/15-SP1/html/SLES4SAP-guide/cha-s4s-cluster.html).
 	- [SLES High Availability Extension 15 SP3 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/15-SP3/index.html)
@@ -40,12 +57,12 @@ Read the following SAP Notes and papers first:
 	- [Getting Started with SAP HANA High Availability Cluster Automation Operating on Azure](https://documentation.suse.com/sbp/all/html/SBP-SAP-HANA-PerOpt-HA-Azure/index.html)
 	- [SUSE and Microsoft Solution Templates for SAP Applications Simplified Deployment on Microsoft](https://documentation.suse.com/sbp/all/html/SBP-SAP-AzureSolutionTemplates/index.html)
 - [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
-- [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-netapp)
-- [Azure Virtual Machines planning and implementation for SAP on Linux](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+- [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+- [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 
-# Overview
+## Overview
 
-Traditionally in scale-up environment all file systems for SAP HANA are mounted from local storage. Setting up High Availability of SAP HANA System Replication on SUSE Enterprise Linux is published in guide [Set up SAP HANA System Replication on SLES](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability)
+Traditionally in scale-up environment all file systems for SAP HANA are mounted from local storage. Setting up High Availability of SAP HANA System Replication on SUSE Enterprise Linux is published in guide [Set up SAP HANA System Replication on SLES](./sap-hana-high-availability.md)
 
 To achieve SAP HANA High Availability of scale-up system on Azure NetApp Files NFS shares, we need some extra resource configuration in the cluster in order for HANA resources to recover, when one node loses access to the NFS shares on ANF.  The dependencies between the file system mounts and the SAP HANA resources are enforced.
 
@@ -185,7 +202,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
+		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
 		1.	Select **OK**.
 		1.	After the new front-end IP pool is created, note the pool IP address.
 	1.	Next, create a back-end pool:
@@ -213,7 +230,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 	1.	Configure the load balancer. First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
 		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.32.0.10**).
+		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
 		1.	Select **OK**.
 		1.	After the new front-end IP pool is created, note the pool IP address.
 	1.	Next, create a back-end pool:
