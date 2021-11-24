@@ -70,12 +70,10 @@ To learn more about the functionality, join our TAP program for early access by 
 
 ## Teams meeting and calling experiences
 
-There are several ways that users can join a Teams meeting:
+There are two ways that users can access the Teams calling experience:
 
-- Via Teams clients as authenticated **Teams users**. This includes the desktop, mobile, and web Teams clients.
-- Via Teams clients as unauthenticated **Anonymous users**. 
-- Via custom Communication Services applications as **Teams users** using the Teams identity authentication model.
-- Via custom Communication Services applications as **BYOI users** using the bring your own identity authentication model.
+- Via Teams clients as **Teams users**. This includes the desktop, mobile, and web Teams clients. 
+- Via your application's web experience as **Teams anonymous users**. 
 
 Teams anonymous users don't have to be Teams users. Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
 ![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
