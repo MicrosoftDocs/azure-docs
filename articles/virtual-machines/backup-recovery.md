@@ -42,13 +42,13 @@ For more information on creating snapshots, see:
 
 * [Create copy of VHD stored as a Managed Disk](./windows/snapshot-copy-managed-disk.md)
 
-## Virtual machine restore point API (preview)
+## Virtual machine restore points (preview)
 
-You can use Azure REST APIs to back up and restore your VMs. This approach is most often used by independent software vendor (ISVs) or organizations with a relatively small number of VMs to manage.
+At this time, you can use Azure REST APIs to back up and restore your VMs. This approach is most often used by independent software vendor (ISVs) or organizations with a relatively small number of VMs to manage.
 
-You can use the API to create a VM restore point collection. The restore point collection itself contains individual restore points for specific VMs. Each restore point stores a VM's configuration and a snapshot for each attached managed disk.
+You can use the API to create a VM restore point collection. The restore point collection itself contains individual restore points for specific VMs. Each restore point stores a VM's configuration and a snapshot for each attached managed disk. To save space and costs, you can exclude any disk from either local region or cross-region VM restore points.
 
-You can also specify a source VM, and create restore points for your source VM in other regions. Existing VM restore points can be copied between regions. The VM restore point can then be used to create VMs, and the disk restore point can be used to create individual disks.
+You can create restore points for your source VM in other regions as well as copy existing VM restore points between regions. Once created, VM restore points can then be used to restore individual disks. To restore a VM, restore all relevant disks and attach them to a new VM.
 
 Learn more about the [Restore Point Collections](/rest/api/compute/restore-point-collections) API.
 
