@@ -100,7 +100,7 @@ Create a runbook that will allow execution by either managed identity. The runbo
 
     1. Name the runbook `miTesting`.
     1. From the **Runbook type** drop-down, select **PowerShell**. 
-    1. From the **Runtime version** drop-down, select either **7.1(preview)** or **5.1**.
+    1. From the **Runtime version** drop-down, select either **7.1 (preview)** or **5.1**.
     1. Enter an applicable **Description**.
     
 1. Click **Create** to create the runbook.
