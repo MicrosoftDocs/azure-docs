@@ -59,4 +59,4 @@ The conformance tests run as part of the Azure Arc-enabled Kubernetes validation
 
 Learn how to connect your existing Kubernetes cluster to Azure Arc.
 > [!div class="nextstepaction"]
-> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)md)
+> [Connect an existing Kubernetes cluster to Azure Arc](./quickstart-connect-cluster.md)

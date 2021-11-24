@@ -1,5 +1,5 @@
 ---
-title: "Azure Arc-enabled Kubernetes Agent Architecture"
+title: "Azure Arc-enabled Kubernetes agent architecture"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -10,7 +10,7 @@ description: "This article provides an architectural overview of Azure Arc-enabl
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
 
-# Azure Arc-enabled Kubernetes Agent Overview
+# Azure Arc-enabled Kubernetes agent overview
 
 [Kubernetes](https://kubernetes.io/) can deploy containerized workloads consistently on hybrid and multi-cloud environments. Azure Arc-enabled Kubernetes provides a centralized, consistent control plane to manage policy, governance, and security across Kubernetes clusters on these heterogenous environments. This article provides an overview of the Azure Arc agents deployed on the Kubernetes clusters as part of connecting the cluster to Azure Arc.
 
