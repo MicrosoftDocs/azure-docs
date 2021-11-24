@@ -7,7 +7,7 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: javascript
-ms.custom: devx-track-js, mode-api
+ms.custom: devx-track-js, mode-other
 ---
 # Quickstart: Use JavaScript to create an App showing GitHub star count with Azure Functions and SignalR Service
 

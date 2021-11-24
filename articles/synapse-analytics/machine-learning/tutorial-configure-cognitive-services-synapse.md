@@ -9,7 +9,7 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Configure prerequisites for using Cognitive Services in Azure Synapse Analytics

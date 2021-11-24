@@ -1,10 +1,6 @@
 ---
 title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
