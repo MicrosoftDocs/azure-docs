@@ -20,9 +20,6 @@ This guide describes how to configure Azure Storage to enforce data access polic
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Limitations
-- Policy operations are only supported at root collection level and not child collection level.
-
 ## Prerequisites
 >[!Note]
 > The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
@@ -55,6 +52,10 @@ For Purview roles, check the section on managing role assignments in this guide:
 > - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
+>[!IMPORTANT]
+> **Limitations**
+> - Policy operations are only supported at root collection level and not child collection level.
+
 ### Register and scan data sources in Purview
 Register and scan each data source with Purview to later define access policies. You can follow these guides:
 
@@ -73,7 +74,7 @@ During registration, enable the data source for access policy through the **Data
 
 ### Data use governance best practices
 - We highly encourage you to register all data sources for *Data use governance* and manage all associated access policies from a single Azure Purview account.
-- However, in case you need to have multiple Purview accounts, be aware that all the data sources belonging to a subscription can only be registered for *Data use governance* in a single Purview account. That Purview account itself could be in any subscription in the tenant. The *Data use Governance* toggle will become greyed out when there are invalid configurations. Some examples follow in the diagram below:
+- However, in case you need to have multiple Purview accounts, be aware that all the data sources belonging to a subscription can only be registered for *Data use governance* in a single Purview account. That Purview account itself could be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
     - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are being registered to different Purview accounts. 
@@ -123,6 +124,10 @@ This section describes the steps to create a new policy in Azure Purview.
 1. Repeat the steps #5 to #11 to enter any more policy statements.
 
 1. Select the **Save** button to save the policy
+
+> [!IMPORTANT]
+> **Known issues** related to Policy creation
+> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets are still allowed after that.
 
 ### Update or delete a policy
 
