@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-java
+ms.custom: subject-armqs, devx-track-java, mode-arm
 ms.author: rhudson
 ms.date: 11/12/2021
 ---
