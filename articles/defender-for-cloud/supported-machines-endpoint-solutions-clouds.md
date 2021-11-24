@@ -5,7 +5,7 @@ author: memildin
 manager: rkarlin
 ms.service: defender-for-cloud
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 11/24/2021
 ms.custom: references_regions
 ms.author: memildin
 ---
@@ -85,9 +85,9 @@ For information about when recommendations are generated for each of these solut
 | Trend Micro – Deep Security                                         | Windows Server (all)         | No                              |
 | Symantec v12.1.1100+                                                | Windows Server (all)         | No                              |
 | McAfee v10+                                                         | Windows Server (all)         | No                              |
-| McAfee v10+                                                         | Linux (preview)              | No                              |
-| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (preview)              | Via extension                   |
-| Sophos V9+                                                          | Linux (preview)              | No                              |
+| McAfee v10+                                                         | Linux (GA)                   | No                              |
+| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA)                   | Via extension                   |
+| Sophos V9+                                                          | Linux (GA)                   | No                              |
 |                                                                     |                              |                                 |
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.

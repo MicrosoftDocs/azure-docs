@@ -257,14 +257,12 @@ To view all the active recommendations for your resources by resource type, use 
 
 ### What operating systems for my EC2 instances are supported?
 
-Supported OS for automatic onboarding to Azure Arc for AWS Machines
+For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
 
-- Ubuntu 16.04 - SSM Agent is preinstalled, by default
-- Ubuntu 18.04 - SSM Agent is preinstalled, by default
-- Windows server - SSM Agent is preinstalled, by default
-- CentOS Linux 7 – SSM should be installed manually or onboard separately
-- SUSE Linux Enterprise Server (SLES) 15 (x64) - SSM should be installed manually or onboarded separately
-- Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM should be installed manually or onboarded separately
+For other operating systems, the SSM Agent should be installed manually using the following instructions:
+
+- [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
+- [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
 
 ## Next steps
