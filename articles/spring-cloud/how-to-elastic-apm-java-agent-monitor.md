@@ -22,7 +22,9 @@ With the Elastic Observability Solution you can achieve unified observability fo
 * Monitor apps using the Elastic APM Java Agent by using persistent storage with Azure Spring Cloud
 * Leverage Diagnostic Settings to ship Azure Spring Cloud logs to Elastic [Analyze logs with Elastic(ELK) using diagnostics settings](https://github.com/hemantmalik/azure-docs/blob/master/articles/spring-cloud/how-to-elastic-diagnostic-settings.md)
 
-:::video source="https://www.youtube.com/embed/uCX24hRBULY":::
+<br>
+
+> [!VIDEO https://www.youtube.com/watch?v=uCX24hRBULY]
 
 ## Prerequisites
 
