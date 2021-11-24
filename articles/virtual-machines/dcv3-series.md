@@ -37,7 +37,7 @@ Base All-Core Frequency: 2.8 GHz<br>
 [Total Memory Encryption - Multi Key](https://itpeernetwork.intel.com/memory-encryption/): Enabled<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only initially)<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>

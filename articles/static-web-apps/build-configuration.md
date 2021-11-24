@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 08/23/2021
+ms.date: 11/23/2021
 ms.author: cshoe
 ms.custom: contperf-fy21q4
 ---
@@ -77,9 +77,9 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
           ###### Repository/Build Configurations ######
-          app_location: "src" # App source code path
-          api_location: "api" # Api source code path - optional
-          output_location: "public" # Built app content directory - optional
+          app_location: "src" # App source code path relative to repository root
+          api_location: "api" # Api source code path relative to repository root - optional
+          output_location: "public" # Built app content directory, relative to app_location - optional
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
@@ -100,9 +100,9 @@ In this configuration:
 - The `main` branch is monitored for commits.
 - A GitHub Actions workflow is [triggered](https://help.github.com/actions/reference/events-that-trigger-workflows) when a pull request on the `main` branch is: opened, synchronized, reopened, or closed.
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
-- The `app_location` points to the `src` folder that contains the source files for the web app.
-- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files.
+- The `app_location` points to the `src` folder that contains the source files for the web app. To set this value to the repository root, use `/`.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. To set this value to the repository root, use `/`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. It's relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 
 Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` as they're set for you by Azure Static Web Apps.
 
@@ -120,19 +120,24 @@ steps:
     submodules: true
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: 'src' # App source code path
-      api_location: 'api' # Api source code path - optional
-      output_location: 'public' # Built app content directory - optional
+      app_location: 'src' # App source code path relative to cwd
+      api_location: 'api' # Api source code path relative to cwd
+      output_location: 'public' # Built app content directory relative to app_location - optional
+      cwd: '$(System.DefaultWorkingDirectory)/myapp' # Working directory - optional
       azure_static_web_apps_api_token: $(deployment_token)
 ```
 
 In this configuration:
 
 - The `main` branch is monitored for commits.
-- The `app_location` points to the `src` folder that contains the source files for the web app.
-- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files.
+- The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
+- The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
 - The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
+
+> [!NOTE]
+> `app_location` and `api_location` must be relative to the working directory (`cwd`) and they must be subdirectories under `cwd`.
 
 ---
 

@@ -7,9 +7,8 @@ author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/24/2021
-ms.author: allensu 
-ms.custom: devx-track-azurepowershell
-
+ms.author: allensu
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 # Quickstart: Create a Private Link service using Azure PowerShell
 
@@ -311,4 +310,3 @@ In this quickstart, you:
 To learn more about Azure Private endpoint, continue to:
 > [!div class="nextstepaction"]
 > [Quickstart: Create a Private Endpoint using Azure Powershell](create-private-endpoint-powershell.md)
-

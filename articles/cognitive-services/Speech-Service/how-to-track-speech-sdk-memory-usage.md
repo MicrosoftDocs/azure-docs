@@ -91,7 +91,6 @@ Here's a sample error:
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
 The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
-See https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
 Handle table dump by object type:
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0
