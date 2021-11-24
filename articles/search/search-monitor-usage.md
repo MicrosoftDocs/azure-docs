@@ -8,12 +8,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 11/23/2021
 ---
 
 # Monitor operations and activity of Azure Cognitive Search
 
-This article is an overview of monitoring concepts and tools for Azure Cognitive Search. For holistic monitoring, you should use a combination of built-in functionality and add-on services like Azure Monitor.
+In Azure Cognitive Search, the monitoring of service health, operations, and activity is through platform integration with Azure Service Health and Azure Monitor. 
+
+The status of Azure regions, service health and outages, and the resource health of a search service itself is reported through [Azure Service Health](../service-health/overview.md) and can be found in shared and resource-specific pages in the Azure portal. Integration with Azure Service Health is almost transparent. The **Resource Health** link in the bottom of the left-navigation pane is a primary access point of free health information about your search service.
+
+[Azure Monitor](../azure-monitor/overview.md) integration adds metrics, logged operations, and alerts. It starts with free embedded reporting in the **Monitoring tab** of your search service's portal page, but you can opt-in for progressively richer levels of monitoring and reporting that pull in more storage, analytics, and alerting capabilities. The Azure Monitor billing model is consumption-based pricing (pay-as-you-go). If you enable diagnostic logging for your search service, the additional monitoring workload and storage will be reflected in your Azure Monitor bill.
+
+## Azure Monitor integration with Search
+
+monitor the health and availability of Azure resources across all services
+
+Azure Monitor provides a consistent set of tools and processes for collecting and analyzing monitoring data across all Azure services. Processes such as using metrics explorer to analyze metrics, configuring the collection of resource logs, or writing a log query are identical for all services.
+
+Resource monitoring at the platform level is based on integration with Azure Monitor, which provides the framework and infrastructure for metrics, alerts, and logged operations. Integration at the platform level means that you can monitor across all of the Azure resources in your solution, using the same tools and approach.
+
+Internal to Azure Cognitive Search itself are mechanisms that trigger either self-healing processes for search services that experience performance degradation, or direct intervention by DevOps teams for more serious problems.
+
+This article is primarily an overview of monitoring concepts and tooling at the platform level, as they relate to Azure Cognitive Search specifically.
 
 Altogether, you can track the following:
 
@@ -45,7 +61,7 @@ The following screenshot helps you locate monitoring information in the portal. 
 
 <a name="monitoring-apis"> </a>
 
-### REST APIs useful for monitoring
+## Query system information
 
 You can use [Postman](search-get-started-rest.md) and the following APIs to retrieve the same information found in the Monitoring and Usage tabs in the portal. You will need to provide an [admin API key](search-security-api-keys.md) to get system information.
 
@@ -54,7 +70,7 @@ You can use [Postman](search-get-started-rest.md) and the following APIs to retr
 * [GET Document Counts](/rest/api/searchservice/count-documents)
 * [GET Indexer Status](/rest/api/searchservice/get-indexer-status)
 
-### Activity logs and service health
+## Activity logs and service health
 
 The [**Activity log**](../azure-monitor/essentials/activity-log.md#view-the-activity-log) page in the portal collects information from Azure Resource Manager and reports on changes to service health. You can monitor the activity log for critical, error, and warning conditions related to service health.
 
@@ -62,7 +78,7 @@ Common entries include references to API keys - generic informational notificati
 
 You can access the **Activity log** from the left-navigation pane, or from Notifications in the top window command bar, or from the **Diagnose and solve problems** page.
 
-### Monitor storage in the Usage tab
+## Monitor storage in the Usage tab
 
 For visual monitoring in the portal, the **Usage** tab shows you resource availability relative to current [limits](search-limits-quotas-capacity.md) imposed by the service tier. If you are finalizing decisions about [which tier to use for production workloads](search-sku-tier.md), or whether to [adjust the number of active replicas and partitions](search-capacity-planning.md), these metrics can help you with those decisions by showing you how quickly resources are consumed and how well the current configuration handles the existing load.
 

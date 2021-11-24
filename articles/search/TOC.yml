@@ -126,21 +126,26 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Search indexes
-    href: search-what-is-an-index.md
-  - name: Full-text search
-    href: search-lucene-query-architecture.md
-  - name: Analyzers
-    href: search-analyzers.md
-  - name: Semantic search
-    href: semantic-search-overview.md
-  - name: Relevance scoring
-    href: index-similarity-and-scoring.md
-  - name: Indexers
-    href: search-indexer-overview.md
-  - name: AI enrichment
-    href: cognitive-search-concept-intro.md
+  - name: Search
     items:
+    - name: Full-text search
+      href: search-lucene-query-architecture.md
+    - name: Semantic search
+      href: semantic-search-overview.md
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md     
+  - name: Indexing
+    items:
+    - name: Search indexes
+      href: search-what-is-an-index.md
+    - name: Analyzers
+      href: search-analyzers.md
+    - name: Indexers
+      href: search-indexer-overview.md
+  - name: Enrichment
+    items:
+    - name: Enrichment overview
+      href: cognitive-search-concept-intro.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
     - name: Debug sessions
@@ -476,12 +481,10 @@
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
-    - name: Diagnostic logging
-      href: search-monitor-logs.md
+    - name: Monitoring Cognitive Search
+      href: search-monitor-usage.md
     - name: Visualize diagnostic logs
       href: search-monitor-logs-powerbi.md
-    - name: Monitoring overview
-      href: search-monitor-usage.md
     - name: Monitor queries
       href: search-monitor-queries.md
     - name: Monitor indexer-based indexing
@@ -490,12 +493,6 @@
       href: search-traffic-analytics.md  
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/search
-  - name: Azure PowerShell
-    href: /powershell/module/az.search 
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.search/searchservices
   - name: REST
     items:
     - name: Search API
@@ -526,6 +523,17 @@
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
       href: /python/api/overview/azure/search/management
+  - name: Azure CLI
+    href: /cli/azure/search
+  - name: Azure PowerShell
+    href: /powershell/module/az.search 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+  - name: Monitoring data reference
+    href: monitor-azure-cognitive-search-data-reference.md
   - name: OData language reference
     items:
     - name: Overview
@@ -603,9 +611,6 @@
         href: cognitive-search-skill-entity-recognition.md
       - name: Sentiment
         href: cognitive-search-skill-sentiment.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support
