@@ -11,13 +11,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 11/24/2021
 ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses
 
 This page provides troubleshooting information for Azure Load Balancer questions.
+
+## VMs behind Load Balancer are receving uneven traffic
+
+
+## Cause 1: You have session persistence configured
+
 
 ## VMs behind Load Balancer are not responding to traffic on the configured data port
 
