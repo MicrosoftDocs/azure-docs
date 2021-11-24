@@ -825,6 +825,13 @@ productDirectory:
         - devops
       url: /azure/devops/test/
     # Card
+    - title: Azure Load Testing
+      summary: Generate high-scale load and identify app performance bottlenecks
+      imageSrc: https://static.docs.com/ui/media/product/azure/load-testing.svg
+      azureCategories:
+        - devops
+      url: load-testing/index.yml
+    # Card
     - title: GitHub Actions for Azure
       summary: Build, test and deploy any app from GitHub to Azure
       imageSrc: ./media/index/github-actions-icon.svg
