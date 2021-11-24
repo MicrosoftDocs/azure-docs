@@ -1,13 +1,12 @@
 ---
 title: Configure forced tunneling
 description: Learn how to enable your App Service Environment to work when outbound traffic is forced tunneled in your virtual network.
-author: ccompy
-
+author: madsd
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
 ms.topic: quickstart
 ms.date: 05/29/2018
-ms.author: ccompy
-ms.custom: mvc, seodec18
+ms.author: madsd
+ms.custom: mvc, seodec18, mode-other
 ---
 
 # Configure your App Service Environment with forced tunneling

@@ -4,7 +4,7 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/03/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
@@ -91,7 +91,7 @@ After initiating a restore operation, select the **Notification** bell icon at t
 
 ### Get the restore details from the restored account
 
-After the restore operation completes, you may want to know the source account name from which you restored or the restore time. In some cases, the source account may be deleted and you can get these details from the restored account.
+After the restore operation completes, you may want to know the source account details from which you restored or the restore time.
 
 Use the following steps to get the restore details from Azure portal:
 
@@ -99,7 +99,7 @@ Use the following steps to get the restore details from Azure portal:
 
 1. Navigate to the **Export template** pane. It opens a JSON template, corresponding to the restored account.
 
-1. The **resources** > **properties** > **restoreParameters** object contains the restore details. The **restoreTimestampInUtc** gives you the time at which the account was restored and the **databasesToRestore** shows the database and container from which the account was restored.
+1. The **resources** > **properties** > **restoreParameters** object contains the restore details. The **restoreTimestampInUtc** gives you the time at which the account was restored and the **databasesToRestore** shows the specific database and container from which the account was restored.
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
@@ -162,7 +162,7 @@ Restore-AzCosmosDBAccount `
 
 ### Get the restore details from the restored account
 
-Import the `Az.CosmosDB` module and run the following command to get the restore details:
+Import the `Az.CosmosDB` module and run the following command to get the restore details. The restoreTimestamp will be under the restoreParameters object:
 
 ```azurepowershell
 Get-AzCosmosDBAccount -ResourceGroupName MyResourceGroup -Name MyCosmosDBDatabaseAccount 

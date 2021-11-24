@@ -5,11 +5,10 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 8/26/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 
 # Quickstart: Build a .NET web API using Azure Cosmos DB's API for MongoDB

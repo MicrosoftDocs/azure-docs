@@ -18,7 +18,7 @@ This article outlines how to register Azure Synapse Analytics workspaces and how
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-azure-synapse-analytics.md)|
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan)| [Yes](#scan)| No| [Yes- Synapse pipelines](how-to-lineage-azure-synapse-analytics.md)|
 
 
 <!-- 4. Prerequisites

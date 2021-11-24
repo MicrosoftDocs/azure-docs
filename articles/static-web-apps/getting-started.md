@@ -4,9 +4,10 @@ description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
-ms.topic:  quickstart
+ms.topic: quickstart
 ms.date: 06/16/2021
 ms.author: cshoe
+ms.custom: mode-other
 ---
 
 # Quickstart: Building your first static site with Azure Static Web Apps
@@ -74,9 +75,7 @@ Next, open Visual Studio Code and go to **File > Open Folder** to open the clone
 
     # [Angular](#tab/angular)
 
-    Although there is an Angular preset, select the **Custom** option so you can provide an appropriate output location for this application.
-
-    :::image type="content" source="media/getting-started/extension-presets-no-framework.png" alt-text="Application presets: Angular":::
+    :::image type="content" source="media/getting-started/extension-presets-angular.png" alt-text="Application presets: Angular":::
 
     Enter **/** as the location for the application files.
 

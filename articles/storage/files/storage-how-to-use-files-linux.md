@@ -83,7 +83,7 @@ uname -r
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
-        --query "primaryEndpoints.file" | tr -d '"')
+        --query "primaryEndpoints.file" --output tsv | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
     fileHost=$(echo $smbPath | tr -d "/")
 
@@ -125,13 +125,13 @@ Next, mount the file share using the `mount` command. In the following example, 
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$storageAccountKey,serverino
 ```
@@ -142,13 +142,13 @@ sudo mount -t cifs $smbPath $mntPath -o username=$storageAccountName,password=$s
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
@@ -159,13 +159,13 @@ sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,pa
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 sudo mount -t cifs $smbPath $mntPath -o vers=2.1,username=$storageAccountName,password=$storageAccountKey,serverino
 ```
@@ -203,7 +203,7 @@ sudo mkdir -p "/etc/smbcredentials"
 storageAccountKey=$(az storage account keys list \
     --resource-group $resourceGroupName \
     --account-name $storageAccountName \
-    --query "[0].value" | tr -d '"')
+    --query "[0].value" --output tsv | tr -d '"')
 
 # Create the credential file for this individual storage account
 smbCredentialFile="$credentialRoot/$storageAccountName.cred"
@@ -236,7 +236,7 @@ Finally, create a record in the `/etc/fstab` file for your Azure file share. In 
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
@@ -285,7 +285,7 @@ fileShareName="<file-share-name>"
 httpEndpoint=$(az storage account show \
     --resource-group $resourceGroupName \
     --name $storageAccountName \
-    --query "primaryEndpoints.file" | tr -d '"')
+    --query "primaryEndpoints.file" --output tsv | tr -d '"')
 smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
 echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath" > /etc/auto.fileshares

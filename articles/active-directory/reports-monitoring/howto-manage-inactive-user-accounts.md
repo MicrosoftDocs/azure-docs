@@ -4,7 +4,7 @@ description: Learn about how to detect and handle user accounts in Azure AD that
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -73,7 +73,7 @@ To access this property, you need an Azure Active Directory Premium edition.
 
 To read this property, you need to grant the following rights: 
 
-- AuditLogs.Read.All
+- AuditLog.Read.All
 - Organization.Read.All  
 
 

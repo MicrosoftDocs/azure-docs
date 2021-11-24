@@ -2,13 +2,13 @@
 title: "Quickstart: Create a search index in the Azure portal"
 titleSuffix: Azure Cognitive Search
 description: Create, load, and query your first search index using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
+ms.custom: mode-portal
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
@@ -129,10 +129,6 @@ To clearly understand what you can and cannot edit during index design, take a m
 Moving forward, you should now have a search index that's ready to query using the built-in [**Search explorer**](search-explorer.md) query page. It provides a search box so that you can test arbitrary query strings.
 
 **Search explorer** is only equipped to handle [REST API requests](/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](/rest/api/searchservice/search-documents#bkmk_examples) operations.
-
-> [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
->
 
 1. Click **Search explorer** on the command bar.
 

@@ -3,6 +3,7 @@ title: 'Use Azure Event Grid to send Blob storage events to web endpoint - porta
 description: 'Quickstart: Use Azure Event Grid and Azure portal to create Blob storage account, and subscribe its events. Send the events to a Webhook.'
 ms.date: 07/01/2021
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Use Azure Event Grid to route Blob storage events to web endpoint (Azure portal)
@@ -48,7 +49,7 @@ Before subscribing to the events for the Blob storage, let's create the endpoint
 
 1. Select **Deploy to Azure** to deploy the solution to your subscription. 
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to deploy to Azure."></a>
 2. On the **Custom deployment** page, do the following steps: 
     1. For **Resource group**, select the resource group that you created when creating the storage account. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.

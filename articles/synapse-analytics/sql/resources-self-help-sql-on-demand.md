@@ -431,9 +431,9 @@ This error indicates that there are some external tables with the columns contai
 
 ### Inserting value to batch for column type DATETIME2 failed
 
-The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian-proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julain calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
 
-Try to use Spark to update these values. The following sample shows how to update the values in Delta Lake:
+Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
 
 ```spark
 from delta.tables import *
@@ -442,6 +442,14 @@ from pyspark.sql.functions import *
 deltaTable = DeltaTable.forPath(spark, 
              "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
 deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
+
+Note this change will remove the values that cannot be represented. The other date values might be properly loaded but incorrectly represented because there is still a difference between Julian and Gregorian Proleptic calendars. You might see an unexpected date shifts even for the dates before `1900-01-01` if you are using Spark 3.0 or older versions.
+Consider [migrating to Spark 3.1 or higher](https://spark.apache.org/docs/latest/sql-migration-guide.html) where it is used Gregorian Proleptic calendar that is aligned with the calendar in the serverless SQL pool.
+You should reload your legacy data with the higher version of Spark, and use the following setting to correct the dates:
+
+```spark
+spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 ```
 
 ## Configuration
@@ -610,12 +618,6 @@ If the data set is valid, [create a support ticket](../../azure-portal/supportab
 Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this. Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
 ### Partitioning column returns NULL values
-
-**Status**: Resolved
-
-**Release**: August 2021
-
-### Query failed because of a topology change or compute container failure
 
 **Status**: Resolved
 

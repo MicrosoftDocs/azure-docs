@@ -1,17 +1,18 @@
 ---
-title: Create a lab
-description: This article walks you through the process of creating a lab using the Azure portal and Azure DevTest Labs. 
-ms.topic: how-to
-ms.date: 10/27/2021
+title: 'Quickstart: Create a lab in Azure portal'
+description: In this quickstart, you create a lab using the Azure portal and Azure DevTest Labs.
+ms.topic: quickstart
+ms.date: 11/04/2021
+ms.custom: mode-portal
 ---
 
-# Create a lab in Azure DevTest Labs
+# Quickstart: Create a lab in Azure DevTest Labs in Azure portal
 
-Azure DevTest Labs encompasses a group of resources, such as Azure virtual machines (VMs) and networks. This infrastructure lets you better manage those resources by specifying limits and quotas. This article walks you through the process of creating a lab using the Azure portal.
+Get started with Azure DevTest Labs by using the Azure portal to create a lab. Azure DevTest Labs encompasses a group of resources, such as Azure virtual machines (VMs) and networks. This infrastructure lets you better manage those resources by specifying limits and quotas. This quickstart walks you through the process of creating a lab using the Azure portal.
 
 ## Prerequisites
 
-An Azure subscription. To learn about Azure purchase options, see [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/) or [Free one-month trial](https://azure.microsoft.com/pricing/free-trial/). You must be the owner of the subscription to create the lab.
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You must be the owner of the subscription to create the lab.
 
 ## Sign in to the Azure portal
 
@@ -100,11 +101,24 @@ The **Review + create** tab validates all of your configurations. If all setting
 
     :::image type="content" source="./media/devtest-lab-create-lab/lab-home-page.png" alt-text="Screenshot of DevTest Labs overview page.":::
 
+## Clean up resources
+
+Delete resources to avoid charges for running the lab on Azure. If you plan to go through the next article to add a VM to the lab, you can clean up the resources after you finish that article. Otherwise, follow these steps:
+
+1. Return to the home page for the lab you created.
+
+1. From the top menu, select **Delete**.
+
+   :::image type="content" source="./media/devtest-lab-create-lab/portal-lab-delete.png" alt-text="Screenshot of lab delete button.":::
+
+1. On the **Are you sure you want to delete it** page, enter the lab name in the text box and then select **Delete**.
+
+1. During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while. Continue to the next step once the lab is deleted.
+
+1. If you created the lab in an existing resource group, then all of the lab resources have been removed. If you created a new resource group for this tutorial, it's now empty and can be deleted. It wouldn't have been possible to have deleted the resource group earlier while the lab was still in it.
+
 ## Next steps
+In this quickstart, you created a lab. To learn how to add a VM, advance to the next article:
 
-Once you've created your lab, here are some next steps to consider:
-
-* [Add a VM to a lab](devtest-lab-add-vm.md)
-* [Secure access to a lab](devtest-lab-add-devtest-user.md)
-* [Set lab policies](devtest-lab-set-lab-policy.md)
-
+> [!div class="nextstepaction"]
+> [Create and add virtual machines to a lab in Azure DevTest Labs](devtest-lab-add-vm.md)

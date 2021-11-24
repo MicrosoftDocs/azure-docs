@@ -4,8 +4,7 @@ description: Create a single database in Azure SQL Database using the Azure port
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang:
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.topic: quickstart
 author: MashaMSFT
 ms.author: mathoma
@@ -15,6 +14,9 @@ ms.date: 01/27/2021
 # Quickstart: Create an Azure SQL Database single database
 
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 
 ## Prerequisites
@@ -64,7 +66,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
   
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**. This creates an AdventureWorksLT sample database so there's some tables and data to query and experiment with, as opposed to an empty blank database.
-1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page:
 

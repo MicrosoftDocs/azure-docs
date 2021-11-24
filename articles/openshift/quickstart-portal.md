@@ -6,6 +6,7 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.date: 10/21/2021
+ms.custom: mode-portal
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift (ARO) cluster using the Azure portal

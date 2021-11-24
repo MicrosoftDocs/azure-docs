@@ -93,6 +93,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[earthdistance](https://www.postgresql.org/docs/12/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/12/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
 > |[hstore](https://www.postgresql.org/docs/12/hstore.html)                       | 1.6             | data type for storing sets of (key, value) pairs|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.2             | extension adding support for hypothetical indexes |
 > |[intagg](https://www.postgresql.org/docs/12/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/12/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/12/isn.html)                          | 1.2             | data types for international product numbering standards|
@@ -146,6 +147,7 @@ The following extensions are available in Azure Database for PostgreSQL - Flexib
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | calculate great-circle distances on the surface of the Earth|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/11/fuzzystrmatch.html)                | 1.1             | determine similarities and distance between strings|
 > |[hstore](https://www.postgresql.org/docs/11/hstore.html)                       | 1.5             | data type for storing sets of (key, value) pairs|
+> |[hypopg](https://github.com/HypoPG/hypopg)                                   |  1.1.2            | extension adding support for hypothetical indexes |
 > |[intagg](https://www.postgresql.org/docs/11/intagg.html)                     | 1.1             | integer aggregator and enumerator. (Obsolete)|
 > |[intarray](https://www.postgresql.org/docs/11/intarray.html)                     | 1.2             | functions, operators, and index support for 1-D arrays of integers|
 > |[isn](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data types for international product numbering standards|
@@ -209,6 +211,8 @@ To unschedule all tasks from pg_cron
 ```
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
+> [!NOTE]
+> pg_cron extension is preloaded in every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security.
 
 ## pg_stat_statements
 

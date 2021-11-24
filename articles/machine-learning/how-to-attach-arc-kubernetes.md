@@ -5,8 +5,8 @@ titleSuffix: Azure Machine Learning
 author: luisquintanilla
 ms.author: luquinta
 ms.service: machine-learning
-ms.subservice: mlops
-ms.date: 10/21/2021
+ms.subservice: core
+ms.date: 11/23/2021
 ms.topic: how-to
 ms.custom: ignite-fall-2021
 ---
@@ -25,9 +25,12 @@ Azure Arc-enabled machine learning lets you configure and use Azure Kubernetes S
 
 To use Azure Kubernetes Service clusters for Azure Machine Learning training and inference workloads, you don't have to connect them to Azure Arc.
 
-You have to configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
+Before deploying the Azure Machine Learning extension on Azure Kubernetes Service clusters, you have to:
 
-To deploy the Azure Machine Learning extension on Azure Kubernetes Service clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
+- Register the feature in your AKS cluster. For more information, see [Azure Kubernetes Service prerequisites](#aks-prerequisites).
+- Configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
+
+To deploy the Azure Machine Learning extension on AKS clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
 
 ## Prerequisites
 
@@ -37,7 +40,7 @@ To deploy the Azure Machine Learning extension on Azure Kubernetes Service clust
     > [!NOTE]
     > For AKS clusters, connecting them to Azure Arc is **optional**.
 
-* Fulfill [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
+* Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements)
 
     > [!IMPORTANT]
     > Clusters running behind an outbound proxy server or firewall need additional network configurations.
@@ -57,24 +60,36 @@ To deploy the Azure Machine Learning extension on Azure Kubernetes Service clust
     az account set --subscription <your-subscription-id>
     ```  
 
-* **Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only**
+### Azure Kubernetes Service (AKS) <a id="aks-prerequisites"></a>
 
-    * An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](/azure/openshift/tutorial-create-cluster) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
-    * Grant privileged access to AzureML service accounts.
+For AKS clusters, connecting them to Azure Arc is **optional**.
 
-        Run `oc edit scc privileged` and add the following 
+However, you have to register the feature in your cluster. Use the following commands to register the feature:
 
-        * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
-        * ```system:serviceaccount:azureml:{EXTENSION NAME}-kube-state-metrics``` **(Note:** ```{EXTENSION NAME}``` **here must match with the extension name used in** ```az k8s-extension create --name``` **step)**
-        * ```system:serviceaccount:azureml:cluster-status-reporter```
-        * ```system:serviceaccount:azureml:prom-admission```
-        * ```system:serviceaccount:azureml:default```
-        * ```system:serviceaccount:azureml:prom-operator```
-        * ```system:serviceaccount:azureml:csi-blob-node-sa```
-        * ```system:serviceaccount:azureml:csi-blob-controller-sa```
-        * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
-        * ```system:serviceaccount:azureml:azureml-fe```
-        * ```system:serviceaccount:azureml:prom-prometheus```
+```azurecli
+az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManager
+az provider register – namespace Microsoft.ContainerService
+az provider register – namespace Microsoft.KubernetesConfiguration
+```
+
+### Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only
+
+* An ARO or OCP Kubernetes cluster is up and running. For more information, see [Create ARO Kubernetes cluster](../openshift/tutorial-create-cluster.md) and [Create OCP Kubernetes cluster](https://docs.openshift.com/container-platform/4.6/installing/installing_platform_agnostic/installing-platform-agnostic.html)
+* Grant privileged access to AzureML service accounts.
+
+    Run `oc edit scc privileged` and add the following 
+
+    * ```system:serviceaccount:azure-arc:azure-arc-kube-aad-proxy-sa```
+    * ```system:serviceaccount:azureml:{EXTENSION NAME}-kube-state-metrics``` **(Note:** ```{EXTENSION NAME}``` **here must match with the extension name used in** ```az k8s-extension create --name``` **step)**
+    * ```system:serviceaccount:azureml:cluster-status-reporter```
+    * ```system:serviceaccount:azureml:prom-admission```
+    * ```system:serviceaccount:azureml:default```
+    * ```system:serviceaccount:azureml:prom-operator```
+    * ```system:serviceaccount:azureml:csi-blob-node-sa```
+    * ```system:serviceaccount:azureml:csi-blob-controller-sa```
+    * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
+    * ```system:serviceaccount:azureml:azureml-fe```
+    * ```system:serviceaccount:azureml:prom-prometheus```
 
 ## Deploy Azure Machine Learning extension
 
@@ -248,9 +263,11 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
 1. Enter a compute name and select your Azure Arc-enabled Kubernetes cluster from the dropdown.
 
-   **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
+    * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified kubernetes namespace in the cluster.
 
-   ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
+    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
+
+    ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
 1. Select **Attach**
 
@@ -264,7 +281,7 @@ You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Ku
 
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
 
-Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview) for more information.
+Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
 
 ```python
 from azureml.core.compute import KubernetesCompute

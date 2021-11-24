@@ -109,12 +109,12 @@ You will incur some compute, networking and storage costs when creating, buildin
 
 During the image creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which will incur a small storage costs. If you do not want to keep these, delete the **Image Template** after the image build.
  
-Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
+Image Builder creates a VM using the default D1v2 VM size for Gen1 images and D2ds V4 for Gen2 images, along with the storage, and networking needed for the VM. These resources last for the duration of the build process and are deleted once Image Builder has finished creating the image. 
  
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images in the Azure Compute Gallery. 
+Image Builder currently supports creating Hyper-V Gen1 and Gen2 images in the Azure Compute Gallery. 
  
 ## Next steps 
  

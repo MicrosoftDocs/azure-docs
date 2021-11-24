@@ -3,7 +3,7 @@ title: Enable debug logging
 description: Describes how to enable debug logging to troubleshoot Azure resources deployed with  Azure Resource Manager templates (ARM templates) or Bicep files.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 11/05/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -39,7 +39,7 @@ Get-AzResourceGroupDeploymentOperation `
   -ResourceGroupName examplegroup
 ```
 
-You can specify a property. For example, the `StatusMessage` property outputs the same data as the Azure CLI `response` property.
+You can specify a property, like `StatusMessage` or `StatusCode` to filter the output.
 
 ```azurepowershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -47,13 +47,11 @@ You can specify a property. For example, the `StatusMessage` property outputs th
   -ResourceGroupName examplegroup).StatusMessage
 ```
 
-Use Azure CLI to get the debug `request` and `response` information. In Az module versions 4.8 and later, `Get-AzResourceGroupDeploymentOperation` doesn't include those properties in output. For a list of available properties, see [outputs](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation#outputs).
-
 # [Azure CLI](#tab/azure-cli)
 
 You can't enable debug logging with Azure CLI but you can retrieve debug logging data.
 
-Get the deployment operations with the following command:
+Get the deployment operations with the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list) command:
 
 ```azurecli
 az deployment operation group list \

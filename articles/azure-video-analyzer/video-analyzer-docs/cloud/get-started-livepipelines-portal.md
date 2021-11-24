@@ -3,13 +3,16 @@ title: Get started with Azure Video Analyzer live pipelines - Azure portal
 description: This quickstart walks you through the steps to capture and record video from an RTSP camera using live pipelines in Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 10/16/2021
-ms.custom: ignite-fall-2021
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021, mode-portal
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![cloud icon](media/env-icon/cloud.png)  
+Alternatively, check out [get started with Video Analyzer on the edge using portal](../edge/get-started-detect-motion-emit-events-portal.md).
+
+---
 
 This quickstart walks you through the steps to capture and record video from a Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy an RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
@@ -57,7 +60,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. Start the RTSP server on the VM using the pre-built container image as follow
 

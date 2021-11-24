@@ -2,13 +2,13 @@
 title: "Quickstart: Create a knowledge store in the Azure portal"
 titleSuffix: Azure Cognitive Search
 description: Use the Import data wizard to create a knowledge store used for persisting enriched content. Connect to a knowledge store for analysis from other apps, or send enriched content to downstream processes.
-
 author: HeidiSteen
 ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/28/2021
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
@@ -93,9 +93,9 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
 
 1. Scroll down and expand **Save enrichments to knowledge store**.
 
-1. Select **Choose an existing connection** and then select an Azure Storage account. The Containers page will appear, but since we are only creating tables, you can close this page and the Azure Storage page, returning to the **Import data** wizard.
+1. Select **Choose an existing connection** and then select an Azure Storage account. The Containers page will appear so that you can create a container for projections. We recommend adopting a prefix naming convention, such as "kstore-hotel-reviews" to distinguish between source content and knowledge store content.
 
-1. Back in the wizard, select the following **Azure table projections**. The wizard always offers the **Documents** projection. Other projections will be offered depending on the skills you select (such as **Key phrases**), or the enrichment granularity (**Pages**):
+1. Returning to the Import data wizard, select the following **Azure table projections**. The wizard always offers the **Documents** projection. Other projections will be offered depending on the skills you select (such as **Key phrases**), or the enrichment granularity (**Pages**):
 
     + **Documents**
     + **Pages**
@@ -143,13 +143,13 @@ In the Azure portal, switch to your Azure Storage account and use **Storage Brow
 
 + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
 
-+ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consist of a sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
++ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
 
 All of these tables contain ID columns to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
 In this quickstart, the table for "hotelReviewssPages" should look similar to the following screenshot:
 
-   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the generated tables in Storage Explorer" border="true":::
+   :::image type="content" source="media/knowledge-store-create-portal/azure-table-hotel-reviews.png" alt-text="Screenshot of the generated tables in Storage Browser" border="true":::
 
 ## Clean up
 

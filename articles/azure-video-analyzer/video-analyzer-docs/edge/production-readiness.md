@@ -2,7 +2,7 @@
 title: Production readiness and best practices
 description: This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module in production environments.
 ms.topic: reference
-ms.date: 10/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Production readiness and best practices

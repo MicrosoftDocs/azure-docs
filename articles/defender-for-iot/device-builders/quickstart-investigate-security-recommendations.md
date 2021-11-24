@@ -2,7 +2,8 @@
 title: Investigate security recommendations
 description: Investigate security recommendations with the Defender for IoT security service.
 ms.topic: quickstart
-ms.date: 05/26/2021
+ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Investigate security recommendations
@@ -33,11 +34,11 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
 1. After reviewing recommendation specifics, use the **manual remediation step** instructions to help remediate and resolve the issue that caused the recommendation.
 
-    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Remediate security recommendations with ASC for IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
+    :::image type="content" source="media/quickstart/remediate-security-recommendations-inline.png" alt-text="Remediate security recommendations with Defender for IoT" lightbox="media/quickstart/remediate-security-recommendations-expanded.png":::
 
 1. Explore the recommendation details for a specific device by selecting the desired device in the drill-down page.
 
-    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with ASC for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
+    :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with Defender for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
 1. If further investigation is required, **Investigate the recommendation in Log Analytics** using the link. 
 

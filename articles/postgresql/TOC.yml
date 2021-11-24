@@ -146,7 +146,7 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Threat protection with Azure Defender
+      - name: Threat protection with Microsoft Defender for Cloud
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
@@ -457,7 +457,7 @@
       - name: Create a web app in a virtual network
         href: flexible-server/tutorial-webapp-server-vnet.md
       - name: Deploy a Django app on App Service
-        href: flexible-server/tutorial-django-app-service-postgres.md
+        href: ../app-service/tutorial-python-postgresql-app.md
   - name: Concepts
     items:
     - name: Servers
@@ -517,6 +517,8 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
+    - name: Azure Advisor recommendations
+      href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
     items:  
     - name: Troubleshoot CLI errors

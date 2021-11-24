@@ -54,6 +54,16 @@
       href: howto-websocket-connect.md
     - name: Configure event handler
       href: howto-develop-eventhandler.md
+    - name: Create `WebPubSubServiceClient` with Azure Identity
+      items:
+      - name: Create `WebPubSubServiceClient` with Azure Identity and .NET
+        href: howto-create-serviceclient-with-net-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and Java
+        href: howto-create-serviceclient-with-java-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and JavaScript
+        href: howto-create-serviceclient-with-javascript-and-azure-identity.md
+      - name: Create `WebPubSubServiceClient` with Azure Identity and Python
+        href: howto-create-serviceclient-with-python-and-azure-identity.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
@@ -127,7 +137,7 @@
     - name: Server SDK - Python
       href: reference-server-sdk-python.md
   - name: REST API
-    href: /rest/api/webpubsub
+    href: /rest/api/webpubsub/
 
 - name: Resources
   items:
