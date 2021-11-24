@@ -36,20 +36,6 @@ Azure Communication Services supports two types of Teams interoperability depend
 
 Applications can implement both authentication models and leave the choice of authentication up to the end user.
 
-## Teams meeting and calling experiences
-
-There are two ways that users can access the Teams calling experience:
-
-- Via Teams clients as **Teams users**. This includes the desktop, mobile, and web Teams clients. 
-- Via your application's web experience as **Teams anonymous users**. 
-
-Teams anonymous users don't have to be Teams users. Azure Communication Services allows you to build and customize new Teams calling endpoints for both Teams users and Teams anonymous users. You can use the Communication Services calling SDK and user interface library for customization and integration into any existing application or product. The following diagram demonstrates how a Teams meeting can be joined from multiple endpoints:
-![Overview of multiple interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-overview-v2.png)
-
-When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
-
-![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-microsoft365-identity-interop-overview-v2.png)
-
 ## Bring your own identity
 
 The bring your own identity (BYOI) authentication model allows you to build custom applications for non-Teams users to connect and communicate with Teams users. You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
