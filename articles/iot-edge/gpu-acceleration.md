@@ -24,7 +24,7 @@ Azure IoT Edge for Linux on Windows supports several GPU passthrough technologie
 
 * **GPU-Paravirtualization (GPU-PV)** - The GPU is shared between the Linux virtual machine and the host.
 
-The appropriate passthrough method must be selected during deployment to match the supported capabilities of your device's GPU hardware.
+You must select the appropriate passthrough method during deployment to match the supported capabilities of your device's GPU hardware.
 
 > [!IMPORTANT]
 > These features may include components developed and owned by NVIDIA Corporation or its licensors. The use of the components is governed by the NVIDIA End-User License Agreement located [on NVIDIA's website](https://www.nvidia.com/content/DriverDownload-March2009/licence.php?lang=us).
@@ -39,25 +39,26 @@ The supported GPUs and required Windows versions are listed below:
 
 * NVIDIA T4 (supports DDA)
 
-  * Windows Server 2019/2022, build 17763 or higher with all current cumulative updates installed
+  * Windows Server 2019 build 17763 or Windows Server 2022 or later, with all current cumulative updates installed
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
 * NVIDIA GeForce/Quadro (supports GPU-PV)
 
-  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or higher
+  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or later
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
 * Select Intel Integrated GPUs (supports GPU-PV)
 
-  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or higher
+  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or later
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
 Intel iGPU support is available for select processors. Please review Intel's driver documentation for more information.
 
-Windows 10 users must be on [the November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/). After installation, you can verify your build version number by running `winver` via command prompt.
+Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/). After installation, you can verify your build version by running `winver` at the command prompt.
 
-## System Setup and Installation
+## System setup and installation
 
+The following sections contain information related to setup and installation.
 
 ### NVIDIA T4 GPUs
 
@@ -70,13 +71,13 @@ For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from
 
 For **GeForce/Quadro GPUs**, download and install the [NVIDIA CUDA-enabled driver for Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) to use with your existing CUDA ML workflows. Originally developed for WSL, the CUDA for WSL drivers are also used for Azure IoT Edge for Linux on Windows.
 
-Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) as some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
+Windows 10 users must also [install WSL](/windows/wsl/install) because some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
 ### Intel iGPUs
 
 For **Intel iGPUs**, download and install the [Intel Graphics Driver with WSL GPU support](https://www.intel.com/content/www/us/en/download-center/home.html?wapkw=quicklink:download-center).
 
-Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) as some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
+Windows 10 users must also [install WSL](/windows/wsl/install) because some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
 ## Using GPU acceleration for your Linux on Windows deployment
 
