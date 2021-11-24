@@ -17,8 +17,6 @@ ms.date: 11/12/2021
 
 The assert transformation enables custom rules to be set inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
-
 ## Configuration
 
 In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
