@@ -9,6 +9,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+    - name: Get started with DICOM
+      href: get-started-with-dicom.md
     - name: Deploy DICOM Services using the Azure portal
       href: deploy-dicom-services-in-azure.md
 - name: Tutorials
