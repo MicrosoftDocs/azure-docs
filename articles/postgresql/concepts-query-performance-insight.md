@@ -14,9 +14,6 @@ ms.date: 08/21/2019
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
-## Permissions
-**Owner** or **Contributor** permissions required to view the text of the queries in Query Performance Insight. **Reader** can view charts and tables but not query text.
-
 ## Prerequisites
 For Query Performance Insight to function, data must exist in the [Query Store](concepts-query-store.md).
 

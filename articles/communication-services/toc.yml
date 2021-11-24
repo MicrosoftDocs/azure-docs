@@ -29,20 +29,24 @@ items:
         href: quickstarts/chat/get-started.md
       - name: Join your chat app to a Teams meeting
         href: quickstarts/chat/meeting-interop.md
-  - name: Telephony and SMS
+  - name: Telephony
     items:
       - name: Get and manage phone numbers
-        href: quickstarts/telephony-sms/get-phone-number.md
+        href: quickstarts/telephony/get-phone-number.md
       - name: Port a phone number into Azure
-        href: quickstarts/telephony-sms/port-phone-number.md
+        href: quickstarts/telephony/port-phone-number.md
       - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
+  - name: SMS
+    items:
       - name: Send an SMS message
-        href: quickstarts/telephony-sms/send.md
+        href: quickstarts/sms/send.md
       - name: Handle SMS events
-        href: quickstarts/telephony-sms/handle-sms-events.md
+        href: quickstarts/sms/handle-sms-events.md
       - name: Send an SMS in Azure Logic Apps
-        href: quickstarts/telephony-sms/logic-app.md
+        href: quickstarts/sms/logic-app.md
+      - name: Apply for a Short Code
+        href: quickstarts/sms/apply-for-short-code.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your client app
@@ -122,26 +126,36 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-  - name: Telephony and SMS
+  - name: Telephony
+    items:
+      - name: Telephony Concepts
+        href: concepts/telephony/telephony-concept.md
+      - name: Phone number types
+        href: concepts/telephony/plan-solution.md
+      - name: Azure direct routing infrastructure requirements
+        href: concepts/telephony/direct-routing-infrastructure.md
+      - name: Azure direct routing certified Session Border Controllers
+        href: concepts/telephony/certified-session-border-controllers.md
+      - name: Pair the Session Border Controller and configure voice routing
+        href: concepts/telephony/direct-routing-provisioning.md
+  - name: SMS
     items:
       - name: SMS SDK overview
-        href: concepts/telephony-sms/sdk-features.md
+        href: concepts/sms/sdk-features.md
       - name: SMS concepts
-        href: concepts/telephony-sms/concepts.md
-      - name: Telephony Concepts
-        href: concepts/telephony-sms/telephony-concept.md
-      - name: Phone number types
-        href: concepts/telephony-sms/plan-solution.md
-      - name: Azure direct routing infrastructure requirements
-        href: concepts/telephony-sms/direct-routing-infrastructure.md
-      - name: Azure direct routing certified Session Border Controllers
-        href: concepts/telephony-sms/certified-session-border-controllers.md
-      - name: Pair the Session Border Controller and configure voice routing
-        href: concepts/telephony-sms/direct-routing-provisioning.md
+        href: concepts/sms/concepts.md
       - name: SMS FAQ
-        href: concepts/telephony-sms/sms-faq.md
+        href: concepts/sms/sms-faq.md
       - name: Messaging policy
-        href: concepts/telephony-sms/messaging-policy.md
+        href: concepts/sms/messaging-policy.md
+      - name: Short Code Program Brief Filling Guidelines
+        href: concepts/sms/program-brief-guidelines.md
+  - name: Numbers
+    items:
+      - name: Number Types
+        href: concepts/numbers/number-types.md
+      - name: Subscription Eligibility and Number Types
+        href: concepts/numbers/sub-eligibility-number-capability.md
   - name: UI Library
     items:
       - name: UI Library overview
@@ -166,6 +180,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: User-facing diagnostics
         href: concepts/voice-video-calling/user-facing-diagnostics.md
+      - name: Media quality statistics
+        href: concepts/voice-video-calling/media-quality-sdk.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
@@ -184,6 +200,8 @@ items:
     href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
+  - name: SMS Pricing
+    href: concepts/sms-pricing.md
   - name: Push notifications
     href: concepts/notifications.md
   - name: Logging and diagnostics
@@ -192,6 +210,8 @@ items:
     href: concepts/metrics.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
+  - name: Service limits
+    href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides

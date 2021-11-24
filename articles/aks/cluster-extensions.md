@@ -120,6 +120,7 @@ az extension update --name k8s-extension
 | --------- | ----------- |
 | [Dapr][dapr-overview] | Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on cloud and edge. |
 | [Azure ML][azure-ml-overview] | Use Azure Kubernetes Service clusters to train, inference, and manage machine learning models in Azure Machine Learning. |
+| [Flux (GitOps)][gitops-overview] | Use GitOps with Flux to manage cluster configuration and application deployment. |
 
 ## Supported regions and Kubernetes versions
 
@@ -237,6 +238,7 @@ az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-g
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-ml-overview]: ../machine-learning/how-to-attach-arc-kubernetes.md
 [dapr-overview]: ./dapr.md
+[gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
 [k8s-extension-reference]: /cli/azure/k8s-extension
 
 <!-- EXTERNAL -->

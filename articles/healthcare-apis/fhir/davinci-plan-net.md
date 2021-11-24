@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Da Vinci Plan Net - Azure API for FHIR
+title: Tutorial - Da Vinci Plan Net - Azure Healthcare APIs
 description: This tutorial walks through setting up the Azure API for FHIR to pass Touchstone tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 08/03/2021
+ms.date: 11/29/2021
 ---
 
 # Da Vinci Plan Net
@@ -71,9 +71,9 @@ The next test we'll walk through is the [query capabilities test](https://touchs
 :::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution-failed.png" alt-text="Da Vinci plan net query test failed":::
 
 > [!NOTE]
-> With the sample resources provided, you should expect a 98% success rate of the query tests:
-
-> * There is an open GitHub issue against the FHIR Server that is causing one of these tests to fail: [Resource returned multiple times if it meets both base criteria and _include criteria · Issue #2037 · microsoft/fhir-server (github.com)](https://github.com/microsoft/fhir-server/issues/2037)
+> With the sample resources provided, you should expect a 98% success rate of the query tests.
+> There's an open GitHub issue against the FHIR Server that's causing one of these tests to fail.
+ Resource returned multiple times if it meets both base criteria and _include criteria. [#2037](https://github.com/microsoft/fhir-server/issues/2037)
 
 ## Next steps
 

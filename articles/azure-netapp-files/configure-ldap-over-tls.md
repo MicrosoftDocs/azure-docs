@@ -3,7 +3,7 @@ title: Configure ADDS LDAP over TLS for Azure NetApp Files | Microsoft Docs
 description: Describes how to configure ADDS LDAP over TLS for Azure NetApp Files, including root CA certificate management. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Configure ADDS LDAP over TLS for Azure NetApp Files
 

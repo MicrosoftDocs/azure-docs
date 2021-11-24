@@ -33,6 +33,12 @@ We managed to bypass that bug and now users will be able to join calls with vide
 
 This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505).
 
+### Android 12 causes video artifacts when user is sending video in a call
+
+Android 12 introduced a bug that affects outgoing video on all Chromium based browsers. Specifically, the problem occurs when a user joins a call using Communication Services on Android 12 with video turned on. The video will render on the receiver's end with artifacts. 
+
+This is a [known bug on Android 12](https://bugs.chromium.org/p/chromium/issues/detail?id=1237677).
+
 ### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.

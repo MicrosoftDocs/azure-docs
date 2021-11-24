@@ -3,7 +3,7 @@ title: Create volume replication for Azure NetApp Files | Microsoft Docs
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Create volume replication for Azure NetApp Files
 

@@ -58,13 +58,12 @@ For the best flexibility and usability, use the Microsoft Authenticator app. Thi
 
 You can control the authentication methods available in your tenant. For example, you may want to block some of the least secure methods, such as SMS.
 
-| Authentication method    | Manage from | Scoping |
+| Authentication method | Manage from | Scoping |
 |-----------------------|-------------|---------|
-| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or
-Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
+| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
 | FIDO2 security key | Authentication methods policy | Can be scoped to users and groups |
 | Software or Hardware OATH tokens | MFA settings |     |
-| SMS verification | MFA settings | Manage SMS sign-in for primary authentication in authentication policy.    SMS sign-in can be scoped to users and groups. |
+| SMS verification | MFA settings <br/>Manage SMS sign-in for primary authentication in authentication policy | SMS sign-in can be scoped to users and groups. |
 | Voice calls | Authentication methods policy |       |
 
 

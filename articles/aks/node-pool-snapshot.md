@@ -53,7 +53,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "SnapshotPre
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'microsoft.ContainerService/SnapshotPreview')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/SnapshotPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:

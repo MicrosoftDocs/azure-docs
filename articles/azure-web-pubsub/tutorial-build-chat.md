@@ -378,7 +378,7 @@ You may remember in the [publish and subscribe message tutorial](./tutorial-pub-
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 

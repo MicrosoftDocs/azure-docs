@@ -243,7 +243,7 @@
     items: 
     - name: Plan your offer
       href: marketplace-dynamics-365.md
-    - name: Create a Customer Engagement & Power Apps offer
+    - name: Create a Customer Engagement & PowerApps offer
       items: 
       - name: Create the offer
         href: dynamics-365-customer-engage-offer-setup.md
@@ -419,8 +419,6 @@
     href: gtm-how-to-get-featured.md
   - name: Configure lead management
     items:    
-    - name: Azure Blob
-      href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
     - name: Azure Table
       href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
     - name: Dynamics 365 for Customer Engagement
@@ -625,3 +623,5 @@
     href: reference-architecture-diagram.md
   - name: Customer documentation
     href: /marketplace/
+  - name: Azure Blob
+    href: partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md

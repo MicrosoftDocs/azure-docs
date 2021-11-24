@@ -2,14 +2,14 @@
 title: Authentication mechanisms with the COPY statement
 description: Outlines the authentication mechanisms to bulk load data
 services: synapse-analytics
-author: julieMSFT
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
-ms.author: jrasnick
+ms.author: wiassaf
 ms.reviewer: jrasnick
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, mode-other
 ---
 
 # Securely load data using Synapse SQL

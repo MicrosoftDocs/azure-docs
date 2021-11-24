@@ -83,11 +83,11 @@ If you define multiple filters in a rule, all of them apply. For example, if you
 Choose one of the following actions:
 
 * **Suppression**  
-Suppression removes all the action groups from a fired alert. While the fired alert will still be visible, it will not invoke any of its action groups.  
-Suppression action has a higher priority over "apply action groups" action - if a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
+This action removes all the action groups from the affected fired alerts. So, the fired alerts will not invoke any of their action groups (not even at the end of the maintenance window). Those fired alerts will still be visible when you list your alerts in the portal, Azure Resource Graph, API, PowerShell etc.
+The suppression action has a higher priority over the "apply action groups" action - if a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
 
 * **Apply action groups**  
-This action adds one or more action groups to the fired alert.
+This action adds one or more action groups to the affected fired alerts.
 
 ### When should this rule apply?
 

@@ -1,11 +1,11 @@
 ---
-title: Overview of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server (Preview)
+title: Overview of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server 
 description: Learn about the concepts of zone redundant high availability with Azure Database for PostgreSQL - Flexible Server
 author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/30/2021
 ---
 
 # High availability concepts in Azure Database for PostgreSQL - Flexible Server
@@ -274,7 +274,7 @@ Here are some failure scenarios that require user action to recover:
     Since the replication happens in synchronous mode, no data loss is expected.
 
 * **Do you offer SLA for the failover time?** <br>
-    For the failover time, we provide guidelines on how long it typically takes for the operation. The official SLA will be provided for the overall uptime when we GA the service. No SLAs are offered during public preview.
+    For the failover time, we provide guidelines on how long it typically takes for the operation. The official SLA is provided for the overall uptime. 
 
 * **Does the application automatically connect to the server after the failover?** <br>
     No. Applications should have retry mechanism to reconnect to the same endpoint (hostname).

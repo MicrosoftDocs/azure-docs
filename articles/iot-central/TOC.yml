@@ -116,6 +116,8 @@
       href: core/concepts-architecture.md
     - name: Scalability and high availability
       href: core/concepts-scalability-availability.md
+    - name: Quotas and limits
+      href: core/concepts-quotas-limits.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
@@ -125,8 +127,7 @@
     - name: Operator guide
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
-      href: core/concepts-app-templates.md
-        
+      href: core/concepts-app-templates.md        
     - name: What are device templates?
       href: core/concepts-device-templates.md
     - name: Device connectivity
@@ -156,6 +157,8 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
+        - name: Connect IoT Edge for Linux on Windows device 
+          href: core/howto-connect-eflow.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an Azure Sphere DevKit

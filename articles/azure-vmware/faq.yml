@@ -151,8 +151,8 @@ sections:
       - question: Why can't I see my Sentinel Management tab in the HCX Manager when using the Sentinel Appliance service?
         answer: The Sentinel Management tab provides you access to download the Sentinel software.  It appears in the HCX Interconnect interface when an HCX Enterprise license is activated, and you have deployed a service mesh with a Sentinel Gateway (SGW) and Sentinel Data Receiver (SDR) pair deployed. Also, in traditional on-premises to cloud deployments, the Sentinel tab is only visible in the Connector, not cloud manager.
 
-      - question: If we migrate a VM created with thin provisioning on the on-premises side to Azure VMware Solution, will the VM remain thin?
-        answer: No. However, if the VM is migrated as thick, you can change policies on the individual VMs and individual vmdks through a combination of UI and PowerCLI.  
+      - question: If we migrate a VM created with thick provisioning on the on-premises side to Azure VMware Solution, will the VM remain thick?
+        answer: No. Azure VMware Solution uses vSAN as the default storage datastore, which is always thin provisioned.  
 
 
 

@@ -123,7 +123,7 @@ Clients using Windows, or another supported OS, can access all VNets that are co
 
 ### Routes added
 
-* Routes added to Windows clients: 10.1.0.0/16
+* Routes added to Windows clients: 10.1.0.0/16, 192.168.0.0/24
 
 * Routes added to Non-Windows clients: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 

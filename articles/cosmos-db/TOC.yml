@@ -82,10 +82,10 @@
           href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Synapse Link use cases
           href: synapse-link-use-cases.md
-        - name: Synapse Link FAQ
-          href: synapse-link-frequently-asked-questions.yml
         - name: Custom partitioning - Overview
           href: custom-partitioning-analytical-store.md
+        - name: Synapse Link FAQ
+          href: synapse-link-frequently-asked-questions.yml     
     - name: Backup and restore
       items:
         - name: Backup and restore introduction
@@ -164,14 +164,14 @@
             - name: Spring Data app
               href: sql/create-sql-api-spring-data.md
             - name: Spark v3 app
-              href: sql/create-sql-api-spark.md              
+              href: sql/create-sql-api-spark.md
             - name: Node.js app
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
     - name: Tutorials
       items:
-        - name: 1 - Create and manage data
+        - name: Create and manage data
           items:
             - name: Build a console app
               items:
@@ -191,18 +191,20 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-        - name: 2 - Migrate data
+        - name: Migrate data
           items:
             - name: Using the Data Migration tool
               href: import-data.md
             - name: Using .NET bulk support
               href: sql/tutorial-sql-api-dotnet-bulk-import.md
-        - name: 3 - Query data
+        - name: Query data
           href: sql/tutorial-query-sql-api.md
-        - name: 4 - Create a notebook
+        - name: Create a notebook
           href: sql/create-notebook-visualize-data.md
-        - name: 5 - Distribute data globally
+        - name: Distribute data globally
           href: sql/tutorial-global-distribution-sql-api.md
+        - name: Spring Boot app on Azure Kubernetes Service
+          href: sql/tutorial-springboot-azure-kubernetes-service.md
     - name: Samples
       items:
         - name: .NET V3 SDK samples
@@ -948,7 +950,7 @@
             - name: Spring Data Connector v3
               href: sql/sql-api-sdk-java-spring-v3.md
             - name: Spark 3 OLTP Connector
-              href: sql/sql-api-sdk-java-spark-v3.md              
+              href: sql/sql-api-sdk-java-spark-v3.md
             - name: Spark 2 OLTP Connector
               href: sql/sql-api-sdk-java-spark.md
             - name: Java bulk executor library v2
@@ -1028,6 +1030,8 @@
               href: cassandra/oracle-migrate-cosmos-db-blitzz.md
             - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
               href: cassandra/migrate-data-blitzz.md
+            - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
+              href: cassandra/migrate-data-dual-write-proxy.md              
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
               href: cassandra/migrate-data-databricks.md
             - name: Migrate - PostgreSQL to Cassandra API using Apache Kafka
@@ -1087,6 +1091,8 @@
           href: cassandra/glowroot-cassandra.md
         - name: Error codes definitions
           href: cassandra/error-codes-solution.md
+        - name: Lightweight Transactions in Cassandra API
+          href: cassandra/lwt-cassandra-api.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1477,6 +1483,8 @@
           href: configure-synapse-link.md
         - name: Connect to Azure Synapse Link
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Synapse Link and integrated Power BI 
+          href: integrated-power-bi-synapse-link.md
         - name: Analytical store and private endpoints
           href: analytical-store-private-endpoints.md
         - name: Query with Azure Synapse Spark 3
@@ -1497,7 +1505,7 @@
               href: continuous-backup-restore-permissions.md
             - name: Provision account - Continuous backup
               href: provision-account-continuous-backup.md
-            - name: Get the latest restore timestamp
+            - name: Get the latest restorable timestamp
               href: get-latest-restore-timestamp.md
             - name: Restore an account - Continuous backup
               href: restore-account-continuous-backup.md

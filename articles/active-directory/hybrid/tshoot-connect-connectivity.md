@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 04/25/2019
+ms.date: 11/18/2021
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -24,7 +24,10 @@ ms.custom: has-adal-ref
 This article explains how connectivity between Azure AD Connect and Azure AD works and how to troubleshoot connectivity issues. These issues are most likely to be seen in an environment with a proxy server.
 
 ## Troubleshoot connectivity issues in the installation wizard
-Azure AD Connect is using Modern Authentication (using the ADAL library) for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these two are .NET applications.
+Azure AD Connect uses the MSAL library for authentication. The installation wizard and the sync engine proper require machine.config to be properly configured since these two are .NET applications.
+
+>[!NOTE]
+>Azure AD Connect v1.6.xx.x uses the ADAL library.  The ADAL library is being depricated and support will end in June 2022.  Microsot recommendeds that you upgrade to the latest version of [Azure AD Connect v2](whatis-azure-ad-connect-v2.md).
 
 In this article, we show how Fabrikam connects to Azure AD through its proxy. The proxy server is named fabrikamproxy and is using port 8080.
 

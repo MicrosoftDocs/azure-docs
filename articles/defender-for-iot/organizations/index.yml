@@ -30,8 +30,6 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: System prerequisites
-            url: quickstart-system-prerequisites.md
           - text: Get started with Defender for IoT for organizations
             url: concept-key-concepts.md
   - title: How-to

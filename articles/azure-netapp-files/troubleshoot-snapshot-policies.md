@@ -3,7 +3,7 @@ title: Troubleshoot snapshot policy errors for Azure NetApp Files | Microsoft Do
 description: Describes error messages and resolutions that can help you troubleshoot snapshot policy management issues for Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/23/2020
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Troubleshoot snapshot policy errors
 

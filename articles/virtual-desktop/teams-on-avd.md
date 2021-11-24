@@ -3,7 +3,7 @@ title: Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 12/02/2021
 ms.author: helohr
 manager: femila
 ---
@@ -45,7 +45,7 @@ To enable media optimization for Teams, set the following registry key on the ho
 
 ### Install the Teams WebSocket Service
 
-Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWNg9F) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
+Install the latest version of the [Remote Desktop WebRTC Redirector Service](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWQ1UW) on your VM image. If you encounter an installation error, install the [latest Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) and try again.
 
 #### Latest WebSocket Service versions
 
@@ -53,10 +53,18 @@ The following table lists the latest versions of the WebSocket Service:
 
 |Version        |Release date  |
 |---------------|--------------|
+|1.4.2111.18001 |12/02/2021    |
 |1.1.2110.16001 |10/15/2021    |
 |1.0.2106.14001 |07/29/2021    |
 |1.0.2006.11001 |07/28/2020    |
 |0.11.0         |05/29/2020    |
+
+#### Updates for version 1.4.2111.18001
+
+- Fixed a mute notification problem.
+- Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
+- Removed timeout that prevented the WebRTC redirector service from starting when the user connects.
+- Fixed setup problems that prevented side-by-side installation from working.
 
 #### Updates for version 1.1.2110.16001
 

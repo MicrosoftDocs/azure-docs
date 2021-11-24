@@ -20,7 +20,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
+> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
 
 ## Data redundancy options
 
@@ -93,11 +93,11 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - Maximum file size upload is limited by client message size. A few examples below: 
 
-  - 32k message (OpenSSH default) * 50k blocks = 1.52GB 
+  - 32KB message (OpenSSH default) * 50k blocks = 1.52GB 
 
-  - 100k message (OpenSSH Windows max) * 50k blocks = 4.77GB 
+  - 100KB message (OpenSSH Windows max) * 50k blocks = 4.77GB 
 
-  - 256k message (OpenSSH Linux max) * 50k blocks = 12.20GB 
+  - 256KB message (OpenSSH Linux max) * 50k blocks = 12.20GB 
 
 ## Other
 
@@ -107,4 +107,4 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## See also
 
-- [SSH File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)

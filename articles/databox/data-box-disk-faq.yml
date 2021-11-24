@@ -85,7 +85,7 @@ sections:
         answer: |
           No. Data Box Disk does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
           
-          In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South and Southeast Asia), Data Box Disk data is stored and replicated in a [paired region](../best-practices-availability-paired-regions.md) via a Geo-redundant Storage account to protect against data loss.  
+          In addition to the customer data, there is Data Box Disk data that includes metadata and monitoring logs. In all the regions (except Brazil South and Southeast Asia), Data Box Disk data is stored and replicated in a [paired region](../availability-zones/cross-region-replication-azure.md) via a Geo-redundant Storage account to protect against data loss.  
           
           Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box Disk data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box Disk data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
           
@@ -96,7 +96,7 @@ sections:
       - question: |
           How can I recover my data if an entire region fails?
         answer: |
-          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
           
       - question: |
           Whom should I contact if I encounter any issues  with Data Box Disks?

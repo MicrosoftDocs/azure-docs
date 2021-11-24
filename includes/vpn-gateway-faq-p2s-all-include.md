@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/14/2021
+ ms.date: 12/02/2021
  ms.author: cherylmc
  ms.custom: include file, devx-track-azurepowershell
 ---
@@ -43,11 +43,11 @@ Azure supports three types of Point-to-site VPN options:
 
 ### If I restart a client computer configured for Point-to-Site, will the VPN automatically reconnect?
 
-By default, the client computer will not reestablish the VPN connection automatically.
+Auto-reconnect is a function of the client being used. Windows supports auto-reconnect by configuring the **Always On VPN** client feature.
 
-### Does Point-to-Site support auto-reconnect and DDNS on the VPN clients?
+### Does Point-to-Site support DDNS on the VPN clients?
 
-Auto-reconnect and DDNS are currently not supported in Point-to-Site VPNs.
+DDNS is currently not supported in Point-to-Site VPNs.
 
 ### Can I have Site-to-Site and Point-to-Site configurations coexist for the same virtual network?
 

@@ -83,7 +83,7 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md] to set up a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -135,7 +135,10 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
 
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail. To this URL, append the path to the location where the SSL certificate is placed on your VM. You can [download the SSL certificate](../mysql/howto-configure-ssl.md). Remember to change the Windows path separator character from `\` to `/`. For example: If your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter: Change it from *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
+       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your VM. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+       >
+       > When you enter local file system paths in the Purview Studio scan configuration, remember to change the Windows path separator character from `\` to `/`. For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it is placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
+
 
        The **Metastore JDBC URL** will look like this example:
 

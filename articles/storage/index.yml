@@ -18,7 +18,10 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
   items:
     # Card
-    - title: Introduction to the core storage services
+    - title: Review options for storage in Azure
+      itemType: concept
+      url: /azure/cloud-adoption-framework/ready/considerations/storage-options.md
+    - title: Introduction to the core Azure Storage services
       itemType: concept
       url: ./common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - title: Learn about storage account types

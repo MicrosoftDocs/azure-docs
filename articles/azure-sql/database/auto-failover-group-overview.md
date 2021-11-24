@@ -239,7 +239,7 @@ For more information about creating the secondary SQL Managed Instance in the sa
 
 ### <a name="using-geo-paired-regions"></a> Use paired regions
 
-Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
+Deploy both managed instances to [paired regions](../../availability-zones/cross-region-replication-azure.md) for performance reasons. SQL Managed Instance failover groups in paired regions have better performance compared to unpaired regions.
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a> Enable geo-replication traffic between two managed instances
 

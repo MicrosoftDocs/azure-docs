@@ -37,7 +37,7 @@ groups:
   - id: postgres-single-server
     title: Single Server
   - id: postgres-flexible-server
-    title: Flexible Server (Preview)    
+    title: Flexible Server 
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -1472,6 +1472,15 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
+# Owner: prakulka
+- id: acs-tollfree-shortcode
+  title: Number Type
+  prompt: Choose a Number Type
+  pivots:
+  - id: tollfree
+    title: Toll-Free
+  - id: shortcode
+    title: Short Code
 # Owner: timlt
 - id: iot-develop-nxp-toolset
   title: IoT Devices
@@ -1483,3 +1492,12 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mcuxpresso
     title: MCUXpresso
+# Owner: cshoe
+- id: container-apps
+  title: Template language
+  prompt: Select a template language
+  pivots:
+  - id: container-apps-arm
+    title: Azure Resource Manager (ARM) template
+  - id: container-apps-bicep
+    title: Bicep

@@ -5599,6 +5599,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/availability-zones/index.md",
       "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
@@ -5731,11 +5736,6 @@
     {
       "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode.md",
       "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-direct-cli.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-prerequisites",
       "redirect_document_id": false
     },
     {
@@ -6849,6 +6849,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+      "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/index.md",
       "redirect_url": "/azure/azure-monitor",
       "redirect_document_id": false
@@ -7459,6 +7464,16 @@
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
       "redirect_document_id": false
     },
     {
@@ -24352,6 +24367,16 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-monitor-usage.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/search/search-monitor-logs.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search-data-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/search-filters-facets.md",
       "redirect_url": "/azure/search/search-faceted-navigation",
       "redirect_document_id": false
@@ -25934,6 +25959,11 @@
     {
       "source_path_from_root": "/articles/app-service-web/sendgrid-dotnet-how-to-send-email.md",
       "redirect_url": "/azure/sendgrid-dotnet-how-to-send-email",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/automate-playbook-watchlist.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917",
       "redirect_document_id": false
     },
     {
@@ -46913,7 +46943,77 @@
     },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
-      "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-infrastructure.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/certified-session-border-controllers.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/certified-session-border-controllers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-provisioning.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/plan-solution.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/plan-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/telephony-concept.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/telephony-concept",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/get-phone-number.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/get-phone-number",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/port-phone-number.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/messaging-policy.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/messaging-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sdk-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sms-faq.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sms-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/handle-sms-events.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/handle-sms-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/logic-app.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/logic-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/send.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/send",
       "redirect_document_id": false
     },
     {

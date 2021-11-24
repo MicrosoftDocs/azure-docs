@@ -41,6 +41,8 @@
   - name: Concepts
     expanded: true
     items: 
+    - name: App owner assignment
+      href: overview-assign-app-owners.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
     - name: Planning a cloud app integration
@@ -154,6 +156,10 @@
           href: f5-big-ip-forms-advanced.md
         - name: F5 BIG-IP with Azure AD SSO for header based authentication
           href: f5-big-ip-header-advanced.md
+        - name: Protect on-premises applications with F5 BIG-IP and Azure AD B2C
+          href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
+        - name: F5 BIG-IP for SSO to header-based and LDAP applications          
+          href: f5-big-ip-ldap-header-easybutton.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on

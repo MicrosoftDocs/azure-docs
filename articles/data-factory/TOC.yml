@@ -224,10 +224,15 @@ items:
             href: concepts-data-flow-performance-transformations.md
           - name: Using data flows in pipelines
             href: concepts-data-flow-performance-pipelines.md
+          - name: Memory optimized compute
+            href: memory-optimized-compute.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -639,10 +644,15 @@ items:
     - name: Exists
       href: data-flow-exists.md
       displayName: timeout
+    - name: External call
+      href: data-flow-external-call.md
     - name: Filter
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -945,6 +955,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview

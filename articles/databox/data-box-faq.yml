@@ -86,7 +86,7 @@ sections:
       - question: |
           How can I recover my data if an entire region fails?
         answer: |
-          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](../best-practices-availability-paired-regions.md).
+          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
           
       - question: |
           Who should I contact if I come across any issues with Data Box?

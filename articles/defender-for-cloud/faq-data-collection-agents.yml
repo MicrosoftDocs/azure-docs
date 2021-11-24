@@ -2,14 +2,13 @@
 metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
-  services: security-center
+  services: defender-for-cloud
   author: memildin
-  manager: rkarlin
-  ms.service: defender-for-cloud
+  ms.author: memildin
+  manager: raynew
   ms.topic: conceptual
   ms.date: 11/21/2021
-  ms.author: memildin
-  
+    
     
 title: 'FAQ - Questions about data collection, agents, and workspaces'
 summary: |
@@ -29,7 +28,7 @@ sections:
           
           - **All Microsoft Defender for Cloud plans enabled** – Defender for Cloud enables the "Security" solution on the default workspace.
           
-          For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+          For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
           
           > [!NOTE]
           > The log analytics pricing tier of workspaces created by Defender for Cloud does not affect Defender for Cloud billing.

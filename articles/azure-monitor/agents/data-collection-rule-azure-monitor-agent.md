@@ -1,5 +1,5 @@
 ---
-title: Configure data collection for the Azure Monitor agent (preview)
+title: Configure data collection for the Azure Monitor agent
 description: Describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
 author: bwren

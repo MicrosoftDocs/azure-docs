@@ -637,6 +637,8 @@
         href: ebsco-tutorial.md
       - name: Eccentex AppBase for Azure
         href: eccentex-appbase-for-azure-tutorial.md   
+      - name: EchoSpan
+        href: echospan-tutorial.md
       - name: eCornell
         href: ecornell-tutorial.md
       - name: E-days
@@ -2579,7 +2581,7 @@
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
-      - name: Introdus
+      - name: introDus Pre and Onboarding Platform
         href: introdus-pre-and-onboarding-platform-provisioning-tutorial.md  
       - name: Invision
         href: invision-provisioning-tutorial.md

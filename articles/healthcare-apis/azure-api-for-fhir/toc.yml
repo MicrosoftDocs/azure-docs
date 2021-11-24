@@ -59,13 +59,13 @@ items:
     - name: CMS Interoperability and Patient Access rule introduction
       href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
-      href: ../fhir/carin-implementation-guide-blue-button-tutorial.md
+      href: carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
-      href: ../fhir/davinci-drug-formulary-tutorial.md
+      href: davinci-drug-formulary-tutorial.md
     - name: Da Vinci PDex
-      href: ../fhir/davinci-pdex-tutorial.md
+      href: davinci-pdex-tutorial.md
     - name: Da Vinci Plan Net
-      href: ../fhir/davinci-plan-net.md
+      href: davinci-plan-net.md
 - name: How-to guides
   expanded: true
   items:

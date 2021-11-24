@@ -554,7 +554,7 @@ Push-OutputBinding -Name EmployeeDocument -Value @{
 
 # [Python](#tab/python)
 
-The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
+The following example demonstrates how to write a document to an Azure Cosmos DB database as the output of a function.
 
 The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
 

@@ -4,15 +4,14 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ms.topic: quickstart
-ms.date: 03/06/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Connect and query with Azure CLI  with Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is currently in public preview.
+
 
 This quickstart demonstrates how to connect to an Azure Database for PostgreSQL Flexible Server using Azure CLI with ```az postgres flexible-server connect``` and execute single query or sql file with ```az postgres flexible-server execute``` command. This command allows you test connectivity to your database server and run queries. You can also run multiple queries using the interactive mode. 
 
@@ -92,13 +91,6 @@ postgres> exit
 Goodbye!
 Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-```
-
-## Run Single Query
-You can execute a single query with the command using ```--querytext``` argument, ```-q```.
-
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
 **Example:** 

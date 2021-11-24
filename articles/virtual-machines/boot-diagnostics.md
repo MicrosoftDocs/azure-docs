@@ -23,7 +23,7 @@ When creating a VM in Azure portal, boot diagnostics is enabled by default. The 
 
 An alternative boot diagnostic experience is to use a user managed storage account. A user can either create a new storage account or use an existing one.
 > [!NOTE]
-> User managed storage accounts associated with boot diagnostics require the storage account and the associated virtual machines reside in the same region and subscription. 
+> User managed storage accounts associated with boot diagnostics require the storage account and the associated virtual machines reside in the same region and subscription and accessible from all networks.
 
 
 

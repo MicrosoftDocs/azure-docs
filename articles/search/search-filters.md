@@ -57,13 +57,9 @@ You can specify one filter for each **search** operation, but the filter itself 
 
 One of the limits on a filter expression is the maximum size limit of the request. The entire request, inclusive of the filter, can be a maximum of 16 MB for POST, or 8 KB for GET. There is also a limit on the number of clauses in your filter expression. A good rule of thumb is that if you have hundreds of clauses, you are at risk of running into the limit. We recommend designing your application in such a way that it does not generate filters of unbounded size.
 
-The following examples represent prototypical filter definitions in several APIs.
+The following examples represents prototypical filter definitions in several APIs.
 
 ```http
-# Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?api-version=2020-06-30&search=*&$filter=Rooms/any(room: room/BaseRate lt 150.0)&$select=HotelId, HotelName, Rooms/Description, Rooms/BaseRate
-
-# Option 2: Use filter for POST and pass it in the request body
 POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "*",

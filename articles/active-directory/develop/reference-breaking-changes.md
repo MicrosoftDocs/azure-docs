@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 11/24/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, has-adal-ref
@@ -31,7 +31,24 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-No upcoming changes to be aware of. 
+### ADFS users will see additional login prompts to ensure that the correct user is signed in. 
+
+**Effective date**: December 2021
+
+**Endpoints impacted**: Integrated Windows Authentication
+
+**Protocol impacted**: Integrated Windows Authentication
+
+**Change**
+
+Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in. 
+
+When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with. 
+
+This change will be rolled out in December 2021 over the course of several weeks. It does not change sign in behavior for:
+* Applications that use IWA directly
+* Applications using OAuth
+* Domains that are not federated to an ADFS instance
 
 ## October 2021
 
@@ -47,7 +64,7 @@ No upcoming changes to be aware of.
 
 Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment.  This is a common access control pattern, and users must often find an admin to request assignment to unblock access.  The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.  
 
-The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occuring. 
+The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occurring. 
 
 As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
 

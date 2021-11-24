@@ -26,6 +26,10 @@ sections:
         answer: |
           No. If the Virtual Network NAT gateway resource has multiple public IPs, it will load balance traffic between the assigned IPs. Removing one of the IPs won't cause any downtime. It's advised that if you decide to remove one of the public IP addresses from the NAT gateway resource, use a maintenance window for the removal.
 
+      - question: If multiple public IP addresses are assigned to a VNet NAT gateway resource, which public IPs will be used by my subnet resources?
+        answer: |
+          Any of your subnet resources can use any of the public IP addresses configured to your Virtual Network NAT gateway resource for outbound connectivity. Each time a new outbound connection is made through Virtual Network NAT, the outbound public IP may be different. 
+      
       - question: Can Virtual Network NAT be attached to multiple virtual networks?  
         answer: |
           No. Virtual Network NAT cannot be attached to multiple virtual networks.  

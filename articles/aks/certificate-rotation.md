@@ -67,7 +67,7 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 #### How to check whether current agent node pool is TLS Bootstrapping enabled?
 To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
 
-> [Note]
+> [!Note]
 > The file path may change as k8s version evolves in the future.
 
 > [!IMPORTANT]

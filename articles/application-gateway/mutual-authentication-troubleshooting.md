@@ -57,7 +57,7 @@ openssl s_client -connect <hostname:port> -cert <path-to-certificate> -key <clie
 
 The `-cert` flag is the leaf certificate, the `-key` flag is the client private key file. 
 
-For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/man1.0.2/man1/openssl-s_client.html).
+For more information on how to use the OpenSSL `s_client` command, check out their [manual page](https://www.openssl.org/docs/manmaster/man1/openssl-s_client.html).
 
 ### SslClientVerify is FAILED
 

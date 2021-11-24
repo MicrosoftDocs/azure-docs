@@ -31,7 +31,7 @@ Password Hash Sync also enables [leaked credential detection](../identity-protec
 > Only new leaked credentials found after you enable PHS will be processed against your tenant. Verifying against previously found credential pairs is not performed.
 
 
-Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect) as your sign-in method.
+Optionally, you can set up password hash synchronization as a backup if you decide to use [Federation with Active Directory Federation Services (AD FS)](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-whatis/) as your sign-in method.
 
 To use password hash synchronization in your environment, you need to:
 

@@ -1,11 +1,11 @@
 ---
 title: Azure PowerShell Samples - Create a basic virtual machine scale set
-description: This script creates an Azure virtual machine scale set running Windows Server 2016, which you can access through RDP. 
+description: This script creates an Azure virtual machine scale set running Windows Server 2016, which you can access through RDP.
 author: mimckitt
 ms.author: mimckitt
 ms.topic: sample
 ms.service: virtual-machine-scale-sets
-ms.date: 03/27/2018
+ms.date: 12/02/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurepowershell
 
@@ -21,12 +21,12 @@ This script creates a virtual machine scale set running Windows Server 2016. Aft
 ## Sample script
 
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-machine-scale-sets/simple-scale-set/simple-scale-set.ps1 "Create a simple virtual machine scale set")]
 
 ## Clean up deployment
 Run the following command to remove the resource group, scale set, and all related resources.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 

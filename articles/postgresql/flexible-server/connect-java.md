@@ -4,10 +4,10 @@ description: In this quickstart, you learn how to use Java and JDBC with an Azur
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 01/16/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server

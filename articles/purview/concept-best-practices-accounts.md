@@ -13,12 +13,6 @@ ms.date: 10/12/2021
 
 Azure Purview is a unified data governance solution. You deploy an Azure Purview account to centrally manage data governance across your data estate, spanning both cloud and on-prem environments. To use Azure Purview as your centralized data governance solution, you need to deploy one or more Purview accounts inside your Azure subscription. We recommend keeping the number of Purview instances as minimum, however, in some cases more Purview instances are needed to fulfill business security and compliance requirements.
 
-## Intended audience
-
-- Data architecture team
-- Data governance and management teams
-- Data security team
-
 ## Single Purview account
 
 Consider deploying minimum number of Purview accounts for the entire organization. This approach takes maximum advantage of the "network effects" where the value of the platform increases exponentially as a function of the data that resides inside the platform. 

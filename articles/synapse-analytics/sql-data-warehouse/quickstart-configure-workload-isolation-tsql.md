@@ -6,11 +6,11 @@ author: ronortloff
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: azure-synapse
+ms.custom: azure-synapse, mode-other
 ---
 
 # Quickstart: Configure workload isolation in a dedicated SQL pool using T-SQL

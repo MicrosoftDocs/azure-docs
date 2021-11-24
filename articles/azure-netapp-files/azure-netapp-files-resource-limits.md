@@ -3,7 +3,7 @@ title: Resource limits for Azure NetApp Files | Microsoft Docs
 description: Describes limits for Azure NetApp Files resources and how to request resource limit increase.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Resource limits for Azure NetApp Files
 

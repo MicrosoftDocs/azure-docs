@@ -3,7 +3,7 @@ title: Display health status of Azure NetApp Files replication relationship | Mi
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/11/2021
-ms.author: b-juche
+ms.date: 12/02/2021
+ms.author: b-hchen
 ---
 # Display health status of replication relationship 
 
@@ -41,7 +41,7 @@ You can view replication status on the source volume or the destination volume.
             A transfer operation is in progress and future transfers are not disabled.
     * **Replication schedule** – Shows how frequently incremental mirroring updates will be performed when the initialization (baseline copy) is complete.
 
-    * **Total progress** -- Shows the total amount of data in bytes transferred for the current transfer operation. This amount is the actual bits transferred, and it might differ from the logical space that the source and destination volumes report.  
+    * **Total progress** -- Shows the total amount of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bits transferred, and it might differ from the logical space that the source and destination volumes report.  
 
     ![Replication health status](../media/azure-netapp-files/cross-region-replication-health-status.png)
 

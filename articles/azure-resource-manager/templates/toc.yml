@@ -61,7 +61,7 @@
     - name: Use template reference
       href: template-tutorial-use-template-reference.md
     - name: Create multiple instances
-      displayName: iteration,copy
+      displayName: iteration,copy,loop
       href: template-tutorial-create-multiple-instances.md
     - name: Set resource deployment order
       displayName: dependent resources, dependency
@@ -347,16 +347,16 @@
     - name: Create multiple instances
       items:
       - name: Resources
-        displayName: iteration,copy
+        displayName: iteration,copy,loop
         href: copy-resources.md
       - name: Properties
-        displayName: iteration,copy
+        displayName: iteration,copy,loop
         href: copy-properties.md
       - name: Variables
-        displayName: iteration,copy
+        displayName: iteration,copy,loop
         href: copy-variables.md
       - name: Outputs
-        displayName: iteration,copy
+        displayName: iteration,copy,loop
         href: copy-outputs.md
   - name: Deploy templates
     items:
@@ -472,6 +472,8 @@
       href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
+    - name: Scope functions
+      href: template-functions-scope.md
     - name: String functions
       href: template-functions-string.md
   - name: REST

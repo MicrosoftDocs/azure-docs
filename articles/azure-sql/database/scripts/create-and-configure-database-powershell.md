@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
+author: WilliamDAssafMSFT 
+ms.author: wiassaf
 ms.reviewer:
 ms.date: 03/12/2019
 ---

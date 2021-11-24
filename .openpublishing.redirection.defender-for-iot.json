@@ -22,7 +22,12 @@
         },
         {
             "source_path_from_root": "/articles/defender-for-iot/quickstart-system-prerequisites.md",
-            "redirect_url": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites",
+            "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
+            "redirect_document_id": false
+        },
+	{
+            "source_path_from_root": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites.md",
+            "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
             "redirect_document_id": false
         },
         {

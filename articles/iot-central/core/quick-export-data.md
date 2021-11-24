@@ -7,7 +7,7 @@ ms.date: 11/10/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Export data from an IoT Central application
@@ -61,7 +61,7 @@ az kusto database create --cluster-name $clustername \
     --resource-group $resourcegroup
 
 # Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name spforiotcentral)
+SP_JSON=$(az ad sp create-for-rbac --skip-assignment --appId spforiotcentral)
 
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \

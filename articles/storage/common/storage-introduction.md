@@ -21,7 +21,11 @@ The Azure Storage platform is Microsoft's cloud storage solution for modern data
 - **Managed.** Azure handles hardware maintenance, updates, and critical issues for you.
 - **Accessible.** Data in Azure Storage is accessible from anywhere in the world over HTTP or HTTPS. Microsoft provides client libraries for Azure Storage in a variety of languages, including .NET, Java, Node.js, Python, PHP, Ruby, Go, and others, as well as a mature REST API. Azure Storage supports scripting in Azure PowerShell or Azure CLI. And the Azure portal and Azure Storage Explorer offer easy visual solutions for working with your data.
 
-## Core storage services
+## Review options for storage in Azure
+
+Azure provides a variety of storage tools and services, including Azure Storage. To determine which Azure technology is best suited for your scenario, see [Review your storage options](/azure/cloud-adoption-framework/ready/considerations/storage-options) in the Azure Cloud Adoption Framework.
+
+## About the core Azure Storage services
 
 The Azure Storage platform includes the following data services:
 

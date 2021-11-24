@@ -26,39 +26,39 @@ The recommended pattern is to call the `AcquireTokenSilent` method first.  If `A
 In the following example, the application first attempts to acquire a token from the token cache.  If a `MsalUiRequiredException` exception is thrown, the application acquires a token interactively. 
 
 ```csharp
-AuthenticationResult result = null;
 var accounts = await app.GetAccountsAsync();
 
+AuthenticationResult result = null;
 try
 {
- result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-        .ExecuteAsync();
+     result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
+                       .ExecuteAsync();
 }
 catch (MsalUiRequiredException ex)
 {
- // A MsalUiRequiredException happened on AcquireTokenSilent.
- // This indicates you need to call AcquireTokenInteractive to acquire a token
- System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+    // A MsalUiRequiredException happened on AcquireTokenSilent.
+    // This indicates you need to call AcquireTokenInteractive to acquire a token
+    Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
- try
- {
-    result = await app.AcquireTokenInteractive(scopes)
-          .ExecuteAsync();
- }
- catch (MsalException msalex)
- {
-    ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
- }
+    try
+    {
+        result = await app.AcquireTokenInteractive(scopes)
+                          .ExecuteAsync();
+    }
+    catch (MsalException msalex)
+    {
+        ResultText.Text = $"Error Acquiring Token:{System.Environment.NewLine}{msalex}";
+    }
 }
 catch (Exception ex)
 {
- ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
- return;
+    ResultText.Text = $"Error Acquiring Token Silently:{System.Environment.NewLine}{ex}";
+    return;
 }
 
 if (result != null)
 {
- string accessToken = result.AccessToken;
- // Use the token
+    string accessToken = result.AccessToken;
+    // Use the token
 }
 ```

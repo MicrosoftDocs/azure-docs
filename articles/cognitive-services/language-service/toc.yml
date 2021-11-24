@@ -533,6 +533,8 @@ items:
       href: question-answering/how-to/manage-knowledge-base.md
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Authoring API
+      href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
     - name: Troubleshooting
@@ -567,6 +569,16 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+  - name: Reference
+    items: 
+    - name: REST API
+      items:
+      - name: Answers API 
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
+      - name: Prebuilt API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Authoring API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -605,7 +617,7 @@ items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
       href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext
+      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
   - name: Reference
     items:
     - name: REST API

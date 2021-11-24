@@ -18,6 +18,11 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
 - `Docker`, `Moby`, and CRI compatible container runtimes such `CRI-O` and `containerd`.
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
 
+>[!NOTE]
+>If you are migrating from Container Insights on Azure Red Hat OpenShift v4.x, please also ensure that you have [disabled monitoring](./container-insights-optout-openshift-v4.md) before proceeding with configuring Container Insights on Azure Arc enabled Kubernetes to prevent any installation issues.
+>
+
+
 ## Prerequisites
 
 - You've met the pre-requisites listed under the [generic cluster extensions documentation](../../azure-arc/kubernetes/extensions.md#prerequisites).
@@ -162,10 +167,10 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     ```
 
 ## Verify extension installation status
-Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure Portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
+Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
 
-### Azure Portal
-1. In the Azure Portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
+### Azure portal
+1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
 2. Select the 'Extensions' item under the 'Settings' section of the resource blade
 3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
 ### Azure CLI

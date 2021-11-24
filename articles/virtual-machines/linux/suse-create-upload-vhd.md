@@ -73,7 +73,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 8. Edit /etc/default/grub file to ensure console logs are sent to serial port and then update the main configuration file with grub2-mkconfig -o /boot/grub2/grub.cfg
 
     ```config-grub
-    console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+    console=ttyS0 earlyprintk=ttyS0 
     ```
     This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues.
     
@@ -199,7 +199,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 6. Modify the kernel boot line in your grub configuration to include additional kernel parameters for Azure. To do this, open "/boot/grub/menu.lst" in a text editor and ensure that the default kernel includes the following parameters:
 
     ```config-grub
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+     console=ttyS0 earlyprintk=ttyS0 
     ```
 
    This will ensure all console messages are sent to the first serial port, which can assist Azure support with debugging issues. In addition, remove the following parameters from the kernel boot line if they exist:

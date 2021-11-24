@@ -3,6 +3,7 @@ title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
 ms.date: 11/02/2021
+ms.custom: mode-other
 ---
 
 # Create an App Service app on Azure Arc (Preview)
@@ -77,7 +78,7 @@ You can learn more about log queries in [getting started with Kusto](../azure-mo
 
 ## (Optional) Deploy a custom container
 
-To create a custom container app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
+To create a custom containerized app, run [az webapp create](/cli/azure/webapp#az_webapp_create) with `--deployment-container-image-name`. For a private repository, add `--docker-registry-server-user` and `--docker-registry-server-password`.
 
 For example, try:
 

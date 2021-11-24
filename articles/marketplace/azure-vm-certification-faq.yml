@@ -139,7 +139,7 @@ sections:
           |---|---|---|
           |1|Bash history|Bash history files should be cleared before you create the VM image.|
           |2|Linux Agent version|Azure Linux Agent 2.2.41 or later should be installed.|
-          |3|Required kernel parameters|Verifies that the following kernel parameters are set: <br>console=ttyS0<br>earlyprintk=ttyS0<br>rootdelay=300 |
+          |3|Required kernel parameters|Verifies that the following kernel parameters are set: <br>console=ttyS0<br>earlyprintk=ttyS0|
           |4|Swap partition on OS disk|Verifies that swap partitions aren't created on the OS disk.|
           |5|Root partition on OS disk|Create a single root partition for the OS disk.|
           |6|OpenSSL version|The OpenSSL version should be v0.9.8 or later.|

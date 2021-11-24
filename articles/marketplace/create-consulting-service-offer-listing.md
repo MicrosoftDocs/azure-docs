@@ -3,11 +3,11 @@ title: Configure consulting service offer listing details for the commercial mar
 description: Configure consulting service offer listing details in the Microsoft commercial marketplace using Partner Center. 
 author:  Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/30/2021
 ---
 
 # Configure consulting service offer listing details
@@ -46,29 +46,29 @@ Add at least one and up to three PDF documents to support your offer listing. Af
 
 ### Add logos
 
-Under **Logos**, upload a **Large** logo in PNG format between 216 x 216 and 350 x 350 pixels. Partner Center will automatically create a **Small** (48 x 48) logo, which you can replace later.
+Under **Logos**, upload a **Large** logo in PNG format between 216x216 and 350x350 pixels in size. Partner Center will automatically create a **Small** (48x48 pixels) logo, which you can replace later.
 
 The two logo sizes are used in different places in the online stores:
 
 * The **Large** logo appears on your offer listing page on Azure Marketplace or AppSource.
 * The **Small** logo appears on Azure Marketplace search results or on the AppSource main page and search result pages.
 
-### Add screenshots
+### Add promotional images
 
-Add at least one and up to five images that demonstrate your offer. All images must be 1280 x 720 pixels in size and in .PNG format.
+Add at least one and up to five images that highlight your service’s value proposition, differentiation, and customer success. This could include snapshots from a slide deck, fact sheet, case study, or marketing one-pager summarizing your service.  All images must be 1280x720 pixels in size and in PNG format.
 
-1. Under **Screenshots**, drag and drop your .PNG file onto the **Screenshot** box.
+1. Under **Promotional images**, drag and drop your PNG file onto the **Image** box.
 2.	Next to **Add image caption**, select the **Edit** icon.
 3.	In the dialog box that appears, enter a caption.
-4.	Repeat steps 1 through 3 to add additional screenshots
+4.	Repeat steps 1 through 3 to add additional images.
 
 ### Add videos (optional)
 
-You can add links to YouTube or Vimeo videos that demonstrate your offer. These videos are shown to customers along with your offer. You must enter a thumbnail image of the video, sized to 1280 x 720 pixels in size and in .PNG format. Add a maximum of four videos per offer.
+You can add links to YouTube or Vimeo videos that demonstrate your offer. These videos are shown to customers along with your offer. You must enter a thumbnail image of the video, sized to 1280x720 pixels in size and in PNG format. Add a maximum of four videos per offer.
 
 1.	Under **Videos**, select the **Add video** link.
 2.	In the boxes that appear, enter the name and link for your video.
-3.	Drag and drop a .PNG file (1280 x 720 pixels) onto the gray Thumbnail box.
+3.	Drag and drop a PNG file (1280x720 pixels) onto the gray Thumbnail box.
 4.	To add another video, repeat steps 1 through 3.
 
 Select **Save draft** before continuing to the next tab: **Pricing and availability**.

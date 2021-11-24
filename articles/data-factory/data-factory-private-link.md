@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/16/2021
+ms.date: 11/29/2021
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -59,7 +59,7 @@ Enabling the Private Link service for each of the preceding communication channe
    > Connecting to Azure Data Factory via private endpoint is only applicable to self-hosted integration runtime in data factory. It is not supported for Azure Synapse.
 
 > [!WARNING]
-> If you enable Private Link in Azure Data Factory and block public access at the same time, make sure when you create a linked service, your credentials are stored in an Azure key vault. Otherwise, the credentials won't work.
+> If you enable Private Link in Azure Data Factory and block public access at the same time, it is reccomended that you store your credentials in an Azure key vault to ensure they are secure.
 
 ## DNS changes for private endpoints
 When you create a private endpoint, the DNS CNAME resource record for the Data Factory is updated to an alias in a subdomain with the prefix 'privatelink'. By default, we also create a [private DNS zone](../dns/private-dns-overview.md), corresponding to the 'privatelink' subdomain, with the DNS A resource records for the private endpoints.

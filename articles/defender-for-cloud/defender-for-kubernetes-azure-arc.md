@@ -1,12 +1,8 @@
 ---
 title: Protect hybrid and multi-cloud Kubernetes deployments with Microsoft Defender for Kubernetes
 description: Use Microsoft Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
@@ -26,7 +22,8 @@ The extension can also protect Kubernetes clusters on other cloud providers, alt
 | Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 | Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
 | Pricing | Free (during preview) |
-| Supported Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
+| Supported Kubernetes distributions | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters |
+| Tested Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
 | Limitations | Azure Arc-enabled Kubernetes and the Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Defender for Cloud is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
 | Environments and regions | Availability for this extension is the same as availability for [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
 

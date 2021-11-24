@@ -8,8 +8,8 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: overview
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer:
 ms.date: 09/21/2020
 ---

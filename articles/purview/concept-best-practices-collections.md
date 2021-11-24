@@ -19,12 +19,6 @@ A collection also provides a security boundary for your metadata in the data map
 - Users have the minimum amount of access they need to do their jobs. 
 - Users don't have access to sensitive data that they don't need.
 
-## Intended audience
-
-- Data architecture team 
-- Data governance and management teams
-- Data security team
-
 ## Why do you need to define collections and an authorization model for your Azure Purview account? 
 
 Consider deploying collections in Azure Purview to fulfill the following requirements: 
@@ -37,6 +31,24 @@ Consider deploying collections in Azure Purview to fulfill the following require
  
 
 ## Define a collection hierarchy  
+
+### Design recommendations 
+
+- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-purview-instances) and define the adequate number of Purview accounts required in your organization before you plan the collection structure.  
+
+- We recommend that you design your collection architecture based on the security requirements and data management and governance structure of your organization. Review the recommended [collections archetypes](#collections-archetypes) in this article.
+
+- For future scalability, we recommend that you create a top-level collection for your organization below the root collection. Assign relevant roles at the top-level collection instead of at the root collection.  
+
+- Consider security and access management as part of your design decision-making process when you build collections in Azure Purview. 
+
+- Each collection has a name attribute and a friendly name attribute. If you use Azure [Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
+
+- When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
+
+- Automate deployment of collections by using the API if you're planning to deploy collections and role assignments in bulk.
+
+- Use a dedicated service principal name (SPN) to run operations on collections and role assignment by using the API. Using an SPN reduces the number of users who have elevated rights and follows least-privilege guidelines.
 
 ### Design considerations  
 
@@ -73,24 +85,6 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 -->
 
-### Design recommendations 
-
-- Review the [Azure Purview account best practices](./deployment-best-practices.md#determine-the-number-of-purview-instances) and define the adequate number of Purview accounts required in your organization before you plan the collection structure.  
-
-- We recommend that you design your collection architecture based on the security requirements and data management and governance structure of your organization. Review the recommended [collections archetypes](#collections-archetypes) in this article.
-
-- For future scalability, we recommend that you create a top-level collection for your organization below the root collection. Assign relevant roles at the top-level collection instead of at the root collection.  
-
-- Consider security and access management a part of your design decision-making process when you build collections in Azure Purview. 
-
-- Each collection has a name attribute and a friendly name attribute. If you use Azure [Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
-
-- When you can, avoid duplicating your organizational structure into a deeply nested collection hierarchy. If you can't avoid doing so, be sure to use different names for every collection in the hierarchy to make the collections easy to distinguish.
-
-- Automate deployment of collections by using the API if you're planning to deploy collections and role assignments in bulk.
-
-- Use a dedicated service principal name (SPN) to run operations on collections and role assignment by using the API. Using an SPN reduces the number of users who have elevated rights and follows least-privilege guidelines.
-
 ## Define an authorization model
 
 Azure Purview data-plane roles are managed in Azure Purview. After you deploy a Purview account, the creator of the Purview account is automatically assigned the following roles at the root collection. You can use [Purview Studio](https://web.purview.azure.com/resource/) or a programmatic method to directly assign and manage roles in Azure Purview.
@@ -99,22 +93,6 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
   - **Data Source Admins** can manage data sources and data scans.
   - **Data Curators** can create, read, modify, and delete catalog data assets and establish relationships between assets.
   - **Data Readers** can access but not modify catalog data assets.
-
-### Design considerations  
-
-- Azure Purview access management has moved into data plane. Azure Resource Manager roles aren't used anymore, so you should use Azure Purview to assign roles. 
-
-- In Azure Purview, you can assign roles to users, security groups, and service principals (including managed identities) from Azure Active Directory (Azure AD) on the same Azure AD tenant where the Purview account is deployed.
-  
-- You must first add guest accounts to your Azure AD tenant as B2B users before you can assign Purview roles to external users. 
-
-- By default, Collection Admins don't have access to read or modify assets. But they can elevate their access and add themselves to more roles.
-
-- By default, all role assignments are automatically inherited by all child collections. But you can enable **Restrict inherited permissions** on any collection except for the root collection. **Restrict inherited permissions** removes the inherited roles from all parent collections, except for the Collection Admin role. 
-
-- For Azure Data Factory connection: to connect to Azure Data Factory, you have to be a Collection Admin for the root collection.
-
-- If you need to connect to Azure Data Factory for lineage, grant the Data Curator role to the data factory's managed identity at your Purview root collection level. When you connect Data Factory to Purview in the authoring UI, Data Factory tries to add these role assignments automatically. If you have the Collection Admin role on the Purview root collection, this operation will work. 
 
 ### Design recommendations 
 
@@ -132,7 +110,23 @@ Azure Purview data-plane roles are managed in Azure Purview. After you deploy a 
 - Assign the service principal at the root collection for automation purposes.
 
 - To increase security, enable Azure AD Conditional Access with multifactor authentication for at least Collection Admins, Data Source Admins, and Data Curators. Make sure emergency accounts are excluded from the Conditional Access policy.
- 
+
+### Design considerations  
+
+- Azure Purview access management has moved into data plane. Azure Resource Manager roles aren't used anymore, so you should use Azure Purview to assign roles. 
+
+- In Azure Purview, you can assign roles to users, security groups, and service principals (including managed identities) from Azure Active Directory (Azure AD) on the same Azure AD tenant where the Purview account is deployed.
+  
+- You must first add guest accounts to your Azure AD tenant as B2B users before you can assign Purview roles to external users. 
+
+- By default, Collection Admins don't have access to read or modify assets. But they can elevate their access and add themselves to more roles.
+
+- By default, all role assignments are automatically inherited by all child collections. But you can enable **Restrict inherited permissions** on any collection except for the root collection. **Restrict inherited permissions** removes the inherited roles from all parent collections, except for the Collection Admin role. 
+
+- For Azure Data Factory connection: to connect to Azure Data Factory, you have to be a Collection Admin for the root collection.
+
+- If you need to connect to Azure Data Factory for lineage, grant the Data Curator role to the data factory's managed identity at your Purview root collection level. When you connect Data Factory to Purview in the authoring UI, Data Factory tries to add these role assignments automatically. If you have the Collection Admin role on the Purview root collection, this operation will work. 
+
 ## Collections archetypes
 
 You can deploy your Azure Purview collection based on centralized, decentralized, or hybrid data management and governance models. Base this decision on your business and security requirements.

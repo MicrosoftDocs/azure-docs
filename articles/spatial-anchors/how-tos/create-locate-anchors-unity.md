@@ -194,7 +194,7 @@ Learn more about the [CloudSpatialAnchor](/dotnet/api/microsoft.azure.spatialanc
     // you might show content at this anchor for a while, then save when
     // the user confirms placement.
     CloudNativeAnchor cloudNativeAnchor = this.localAnchor.GetComponent<CloudNativeAnchor>();
-    if (cloudNativeAnchor.CloudAnchor == null) { cloudNativeAnchor.NativeToCloud(); }  
+    if (cloudNativeAnchor.CloudAnchor == null) { await cloudNativeAnchor.NativeToCloud(); }  
     CloudSpatialAnchor cloudAnchor = cloudNativeAnchor.CloudAnchor;
     await this.cloudSession.CreateAnchorAsync(cloudAnchor);
     this.feedback = $"Created a cloud anchor with ID={cloudAnchor.Identifier}");

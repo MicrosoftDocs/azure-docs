@@ -2,7 +2,6 @@
 title: Software releases for Azure Percept DK OTA updates
 description: Information and download links for the Azure Percept DK over-the-air update packages
 author: EthanChangAED
-ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
@@ -65,7 +64,7 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
-|September Service Release (2109)|2021.106.111.115,<br>2021.107.129.116|[2021.109.129.108 OTA update package](https://go.microsoft.com/fwlink/?linkid=2174634)||
+|November Service Release (2111)|2021.106.111.115,<br>2021.107.129.116,<br>2021.109.129.108 |[2021.111.124.109 OTA update package](<https://download.microsoft.com/download/2/5/3/253f56fe-1a26-4fe7-b1b6-c03f070acc35/2021.111.124.109 OTA update package.zip>)||
 
 **Hard-stop releases:**
 

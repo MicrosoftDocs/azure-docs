@@ -3,7 +3,7 @@ title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.author: b-juche
+ms.author: b-hchen
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes
@@ -23,7 +23,7 @@ The Azure NetApp Files replication functionality provides data protection throug
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
-Azure NetApp Files volume replication is supported between various [Azure regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
+Azure NetApp Files volume replication is supported between various [Azure regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) and non-pairs. Azure NetApp Files volume replication is currently available between the following regions:  
 
 ### Azure regional pairs
 

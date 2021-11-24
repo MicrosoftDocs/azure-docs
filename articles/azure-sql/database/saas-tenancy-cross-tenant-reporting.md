@@ -7,8 +7,8 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 
 ms.reviewers: 
 ms.date: 01/25/2019

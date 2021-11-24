@@ -1,14 +1,15 @@
 ---
 title: 'Quickstart: Create a dedicated SQL pool using the Azure portal'
-description: Create a new dedicated SQL pool using the Azure portal by following the steps in this guide. 
-services: synapse-analytics 
-author: julieMSFT
+description: Create a new dedicated SQL pool using the Azure portal by following the steps in this guide.
+services: synapse-analytics
+author: WilliamDAssafMSFT
 ms.service: synapse-analytics
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
-ms.author: jrasnick
-ms.reviewer: jrasnick 
+ms.author: wiassaf
+ms.reviewer: jrasnick
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create a dedicated SQL pool using the Azure portal

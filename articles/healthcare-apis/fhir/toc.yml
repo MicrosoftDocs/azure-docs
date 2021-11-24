@@ -9,6 +9,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Get started with the FHIR service
+    href: get-started-with-fhir.md
   - name: Deploy FHIR service
     expanded: true
     items:

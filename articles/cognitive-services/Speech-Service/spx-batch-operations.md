@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
+ms.custom: mode-other
 ---
 
 # Speech CLI batch operations

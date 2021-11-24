@@ -100,7 +100,7 @@
   items:
   - name: Built-in roles
     href: permissions-reference.md
-  - name: Least-privileged roles by task   
+  - name: Least privileged roles by task   
     href: delegate-by-task.md
   - name: Default user permissions    
     href: ../fundamentals/users-default-permissions.md?context=%2fazure%2factive-directory%2froles%2fcontext%2fugr-context

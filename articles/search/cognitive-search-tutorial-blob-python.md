@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 12/01/2021
 ms.custom: devx-track-python
 ---
 

@@ -526,12 +526,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-java-cosmos-db",
-      "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "main",
@@ -822,6 +816,7 @@
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-percept.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",

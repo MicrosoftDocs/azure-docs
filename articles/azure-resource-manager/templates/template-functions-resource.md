@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/23/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,13 +15,13 @@ Resource Manager provides the following functions for getting resource values in
 * [pickZones](#pickzones)
 * [providers (deprecated)](#providers)
 * [reference](#reference)
-* [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [subscription](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
+
+To get deployment scope values, see [Scope functions](template-functions-scope.md).
 
 ## extensionResourceId
 
@@ -167,13 +167,13 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-connection-strings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-10-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-10-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
-| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
-| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2020-06-01/topics/listsharedaccesskeys) |
+| Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2021-12-01/domains/list-shared-access-keys) |
+| Microsoft.EventGrid/topics | [listKeys](/rest/api/eventgrid/version2021-12-01/topics/list-shared-access-keys) |
 | Microsoft.EventHub/namespaces/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/eventhub) |
 | Microsoft.EventHub/namespaces/eventhubs/authorizationRules | [listkeys](/rest/api/eventhub) |
@@ -594,69 +594,7 @@ The following example template references a storage account that isn't deployed 
 
 ## resourceGroup
 
-`resourceGroup()`
-
-Returns an object that represents the current resource group.
-
-### Return value
-
-The returned object is in the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-  "name": "{resourceGroupName}",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "{resourceGroupLocation}",
-  "managedBy": "{identifier-of-managing-resource}",
-  "tags": {
-  },
-  "properties": {
-    "provisioningState": "{status}"
-  }
-}
-```
-
-The **managedBy** property is returned only for resource groups that contain resources that are managed by another service. For Managed Applications, Databricks, and AKS, the value of the property is the resource ID of the managing resource.
-
-### Remarks
-
-The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group. You can use the `resourceGroup()` function in a [linked or nested template (with inner scope)](linked-templates.md) that targets a resource group, even when the parent template is deployed to the subscription. In that scenario, the linked or nested template is deployed at the resource group level. For more information about targeting a resource group in a subscription level deployment, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
-
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
-
-```json
-"parameters": {
-  "location": {
-    "type": "string",
-    "defaultValue": "[resourceGroup().location]"
-  }
-}
-```
-
-You can also use the `resourceGroup` function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
-
-When using nested templates to deploy to multiple resource groups, you can specify the scope for evaluating the `resourceGroup` function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
-
-### Resource group example
-
-The following example returns the properties of the resource group.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
-
-The preceding example returns an object in the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
-  "name": "examplegroup",
-  "type":"Microsoft.Resources/resourceGroups",
-  "location": "southcentralus",
-  "properties": {
-    "provisioningState": "Succeeded"
-  }
-}
-```
+See the [resourceGroup scope function](template-functions-scope.md#resourcegroup).
 
 ## resourceId
 
@@ -755,32 +693,7 @@ The output from the preceding example with the default values is:
 
 ## subscription
 
-`subscription()`
-
-Returns details about the subscription for the current deployment.
-
-### Return value
-
-The function returns the following format:
-
-```json
-{
-  "id": "/subscriptions/{subscription-id}",
-  "subscriptionId": "{subscription-id}",
-  "tenantId": "{tenant-id}",
-  "displayName": "{name-of-subscription}"
-}
-```
-
-### Remarks
-
-When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
-
-### Subscription example
-
-The following example shows the subscription function called in the outputs section.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
+See the [subscription scope function](template-functions-scope.md#subscription).
 
 ## subscriptionResourceId
 

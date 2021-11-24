@@ -8,7 +8,7 @@ ms.date: 09/02/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
 ---
-# Mount Azure Storage as a local share in a container app in App Service
+# Mount Azure Storage as a local share in a custom container in App Service
 
 ::: zone pivot="container-windows"
 
@@ -56,7 +56,7 @@ The following features are supported for Linux containers:
 
 ::: zone pivot="container-windows"
 
-- [An existing Windows Container app in Azure App Service](quickstart-custom-container.md)
+- [An existing Windows custom container in Azure App Service](quickstart-custom-container.md)
 - [Create Azure file share](../storage/files/storage-how-to-use-files-portal.md)
 - [Upload files to Azure File share](../storage/files/storage-how-to-create-file-share.md)
 
@@ -202,10 +202,10 @@ To validate that the Azure Storage is mounted successfully for the app:
 
 - To avoid potential issues related to latency, place the app and the Azure Storage account in the same Azure region. Note, however, if the app and Azure Storage account are in same Azure region, and if you grant access from App Service IP addresses in the [Azure Storage firewall configuration](../storage/common/storage-network-security.md), then these IP restrictions are not honored.
 ::: zone pivot="container-windows"
-- The mount directory in the container app should be empty. Any content stored at this path is deleted when the Azure Storage is mounted. If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+- The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted. If you are migrating files for an existing app, make a backup of the app and its content before you begin.
 ::: zone-end
 ::: zone pivot="container-linux"
-- The mount directory in the container app should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
+- The mount directory in the custom container should be empty. Any content stored at this path is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
 
 - Mounting the storage to `/home` is not recommended because it may result in performance bottlenecks for the app. 
 ::: zone-end

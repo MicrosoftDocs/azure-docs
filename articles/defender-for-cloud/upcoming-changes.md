@@ -1,12 +1,8 @@
 ---
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/21/2021
-ms.author: memildin
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -30,7 +26,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 | [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022             |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
 |                                                                                                                                                                                     |                           |
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses

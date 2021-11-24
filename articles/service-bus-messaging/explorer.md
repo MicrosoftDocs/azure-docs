@@ -2,7 +2,7 @@
 title: Use Azure Service Bus Explorer to perform data operations on Service Bus (Preview)
 description: This article provides information on how to use the portal-based Azure Service Bus Explorer to access Azure Service Bus data. 
 ms.topic: conceptual
-ms.date: 06/16/2021
+ms.date: 12/02/2021
 ---
 
 # Use Service Bus Explorer to perform data operations on Service Bus (Preview)
@@ -12,8 +12,12 @@ ms.date: 06/16/2021
 Azure Service Bus allows sender and receiver client applications to decouple their business logic with the use of familiar point-to-point (Queue) and publish-subscribe (Topic-Subscription) semantics.
 
 Operations performed on an Azure Service Bus namespace are of two kinds 
+
    * Management Operations - Create, Update, Delete of Service Bus Namespace, Queues, Topics, and Subscriptions.
    * Data Operations - Send to and Receive Messages from Queues, Topics, and Subscriptions.
+
+> [!IMPORTANT]
+> Service Bus Explorer doesn't support **sessions**. 
 
 The Azure Service Bus Explorer expands the portal functionality beyond the management operations to support data operations (Send, Receive, Peek) on the Queues, Topics, and Subscriptions (and their dead letter subentities) - right from the Azure portal itself.
 
@@ -21,7 +25,7 @@ The Azure Service Bus Explorer expands the portal functionality beyond the manag
 > This article highlights the functionality of the Azure Service Bus Explorer that lives on the Azure portal.
 >
 > The Azure Service Bus explorer tool is ***not*** the community owned OSS tool [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
->
+
 
 ## Prerequisites
 

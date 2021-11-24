@@ -11,12 +11,12 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/27/2021
+ms.date: 11/22/2021
 ms.author: danlep
 ---
 # Subscriptions in Azure API Management
 
-In Azure API Management, subscriptions are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
+In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 
 ## What are subscriptions?
 
@@ -53,9 +53,6 @@ Traditionally, subscriptions in API Management were associated with a single [AP
 
 Currently, the developer portal only shows the product scope subscriptions under the **User Profile** section. 
 
-> [!NOTE]
-> If you are using an API-scoped subscription key, any *policies* configured at the product scope are not applied to that subscription.
-
 ![Product subscriptions](./media/api-management-subscriptions/product-subscription.png)
 
 > [!TIP]
@@ -63,17 +60,20 @@ Currently, the developer portal only shows the product scope subscriptions under
 
 ### Subscriptions for all APIs or an individual API
 
-With the addition of the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, subscription key management become more streamlined. 
+With the addition of the [Consumption](https://aka.ms/apimconsumptionblog) tier of API Management, subscription key management is more streamlined. 
 
 #### Two more subscription scopes
 
-Now that subscription scopes are no longer limited to an API product, you can create keys that grant access to either:
+Subscription scopes aren't limited to an API product. You can create keys that grant access to either:
 * a single API, or 
 * All APIs within an API Management instance. 
 
-You won't need to create a product before adding APIs to it. 
+You don't need to create a product before adding APIs to it. 
 
-Each API Management instance now comes with an immutable, all-APIs subscription. This subscription makes it easier and more straightforward to test and debug APIs within the test console.
+Each API Management instance comes with an immutable, all-APIs subscription (also called an *all-access* subscription). This built-in subscription makes it straightforward to test and debug APIs within the test console.
+
+> [!NOTE]
+> If you're using an API-scoped subscription or the all-access subscription, any [policies](api-management-howto-policies.md) configured at the product scope aren't applied to that subscription.
 
 #### Standalone subscriptions
 
@@ -85,7 +85,7 @@ Creating a subscription without assigning an owner makes it a standalone subscri
 
 #### Creating subscriptions in Azure portal
 
-API publishers can now [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
+API publishers can [create subscriptions](api-management-howto-create-subscriptions.md) directly in the Azure portal:
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 

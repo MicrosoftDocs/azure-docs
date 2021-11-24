@@ -7,8 +7,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
-ms.author: rohink 
-ms.custom: devx-track-azurecli
+ms.author: rohink
+ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure CLI so I can use Azure DNS for my name resolution.
 ---
 
