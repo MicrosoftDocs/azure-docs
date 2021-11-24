@@ -19,7 +19,7 @@ As a prerequisite, you'll need an Azure subscription and have been granted prope
 
 ## Create a workspace in your Azure Subscription
 
-You can create a workspace from the [Azure portal](healthcare-apis-quickstart.md) or using PowerShell, Azure CLI and Rest API]. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI and Rest API]. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of IoT connector instances you can create in each Azure subscription.

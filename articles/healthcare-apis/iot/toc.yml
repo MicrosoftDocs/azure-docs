@@ -11,6 +11,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+    - name: Get started with IoT connector
+      href: get-started-with-iot.md
     - name: Deploy IoT connector
       expanded: true
       items:
