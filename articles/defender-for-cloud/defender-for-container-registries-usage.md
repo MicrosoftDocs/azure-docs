@@ -3,7 +3,6 @@ title: How to use Microsoft Defender for container registries
 description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
 ms.date: 11/09/2021
 ms.topic: how-to
-
 ---
 
 # Use Microsoft Defender for container registries to scan your images for vulnerabilities

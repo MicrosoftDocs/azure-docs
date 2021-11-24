@@ -1,7 +1,6 @@
 ---
 title: Alert response tutorial - Microsoft Defender for Cloud
 description: In this tutorial, you'll learn how to triage security alerts and determine the root cause & scope of an alert.
-services: security-center
 ms.assetid: 181e3695-cbb8-4b4e-96e9-c4396754862f
 ms.topic: tutorial
 ms.date: 11/09/2021

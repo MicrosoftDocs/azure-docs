@@ -1,7 +1,6 @@
 ---
 title: Access & application controls tutorial - Microsoft Defender for Cloud
 description: This tutorial shows you how to configure a just-in-time VM access policy and an application control policy.
-services: security-center
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/09/2021

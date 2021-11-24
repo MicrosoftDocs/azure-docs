@@ -1,7 +1,6 @@
 ---
 title: How to set up Microsoft Defender for SQL
 description: Learn how to enable Microsoft Defender for Cloud's optional Microsoft Defender for SQL plan
-services: security-center
 ms.topic: how-to
 ms.date: 11/09/2021
 ---

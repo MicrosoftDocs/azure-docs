@@ -1,11 +1,8 @@
 ---
 title: Defender for Cloud Planning and Operations Guide
 description: This document helps you to plan before adopting Defender for Cloud and considerations regarding daily operations.
-services: security-center
-
 ms.topic: tutorial
 ms.date: 11/09/2021
-
 ---
 # Planning and operations guide
 

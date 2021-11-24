@@ -1,11 +1,9 @@
 ---
 title: Endpoint protection recommendations in Microsoft Defender for Clouds
 description: How the endpoint protection solutions are discovered and identified as healthy.
-services: security-center 
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
-
 # Endpoint protection assessment and recommendations in Microsoft Defender for Cloud
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]

@@ -4,7 +4,6 @@ description: Learn about the benefits and features of Microsoft Defender for SQL
 ms.date: 11/09/2021
 ms.topic: overview
 ms.custom: references_regions
-
 ---
 
 # Introduction to Microsoft Defender for SQL

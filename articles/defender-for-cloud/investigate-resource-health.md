@@ -3,7 +3,6 @@ title: 'Tutorial: Investigate the health of your resources - Microsoft Defender 
 description: 'Tutorial: Learn how to investigate the health of your resources using Microsoft Defender for Cloud.'
 ms.topic: tutorial
 ms.date: 11/09/2021
-
 ---
 # Tutorial: Investigate the health of your resources
 

@@ -4,8 +4,6 @@ description: Learn how to create and automate workflows in Microsoft Defender fo
 ms.topic: how-to
 ms.date: 11/09/2021
 ---
-
-
 # Automate responses to Microsoft Defender for Cloud triggers
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]

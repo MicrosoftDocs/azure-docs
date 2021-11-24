@@ -1,7 +1,6 @@
 ---
 title: Microsoft Defender for Cloud's asset inventory  
 description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
-services: security-center
 ms.date: 11/09/2021
 ms.topic: how-to
 ---

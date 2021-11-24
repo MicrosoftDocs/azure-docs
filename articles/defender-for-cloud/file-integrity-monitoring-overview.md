@@ -3,7 +3,6 @@ title: File integrity monitoring in Microsoft Defender for Cloud
 description: Learn how to configure file integrity monitoring (FIM) in Microsoft Defender for Cloud using this walkthrough.
 ms.topic: how-to
 ms.date: 11/09/2021
-
 ---
 # File integrity monitoring in Microsoft Defender for Cloud
 
