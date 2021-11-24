@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 11/23/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -42,15 +42,15 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Configuration
 [!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-### Opt in to participate in Azure Purview data use policy preview
-This functionality is currently in preview. You will need to [Opt in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
+### Opt-in to participate in Azure Purview data access policy preview
+This functionality is currently in preview. You will need to [opt-in to Purview data access policies preview](https://aka.ms/opt-in-data-use-policy)
 
 ### Register Purview as a resource provider in other subscriptions
 Execute this step only if the Storage account you want to manage access to is in a different subscription from the one used for the Azure Purview account. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide:  
 [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 ### Configure permissions for policy management actions
-- User needs to have role *Owner* in the Azure Storage account to register this source for *Data use Governance* in Azure Purview. [You can follow this guide to configure this permission](../role-based-access-control/check-access.md)
+- User needs to have role *Owner* in the Azure Storage account to register this source for *Data use Governance* in Azure Purview. You can [follow this guide to configure this permission](../role-based-access-control/check-access.md)
 - User needs to be member of Purview *Data source admins* role at the root collection level to register a source for *Data use governance*.
 - User needs to be member of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
 - User needs to be member of Purview *Data source admin* role at the root collection level to publish the policy.
