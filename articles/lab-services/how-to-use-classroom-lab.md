@@ -2,7 +2,7 @@
 title: How to access a classroom lab in Azure Lab Services | Microsoft Docs
 description: Learn how to register to a classroom lab, view all the labs that you can access, start/stop a VM in the lab, and connect to the VM. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/24/2021
 ---
 
 # How to access a classroom lab in Azure Lab Services
@@ -72,14 +72,14 @@ After you register to the labs, you can view all the labs by taking the followin
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 
-    ![View all labs](./media/how-to-manage-classroom-labs/all-labs.png)
+    ![View all labs](./media/how-to-manage-classroom-labs-2/all-labs.png)
 
 
 ## Next steps
 See the following articles:
 
-- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs-2.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
  
