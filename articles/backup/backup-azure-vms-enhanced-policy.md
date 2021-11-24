@@ -40,7 +40,7 @@ Follow these steps:
 
 3. Click **+Add**.
 
-   :::image type="content" source="./media/backup-azure-vms-enhanced-policy/add-backup-policy.png" alt-text="Screenshot showing to add a backup policies.":::
+   :::image type="content" source="./media/backup-azure-vms-enhanced-policy/add-backup-policy.png" alt-text="Screenshot showing to add a backup policy.":::
 
 4. On **Select policy type**, select **Azure Virtual Machine**.
 
@@ -57,7 +57,7 @@ Follow these steps:
      Note that the Hourly backup frequency is in preview. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
    
    - **Instant Restore**: You can set the retention of recovery snapshot from 1 to 30 days. The default value is set to 7.
-   - **Retention range**: The retention of daily backup point is set to 180 days. You can modify the retention period as required.
+   - **Retention range**: The options for retention range are auto-selected based on the backup frequency you choose. The default, retention for daily, weekly, monthly, and yearly are set to 180 days, 12 weeks, 60 months, and 10 years respectively. You can customize the values as per the requirement.
    
    :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing to configure the enhanced backup policy.":::
    
