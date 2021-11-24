@@ -149,20 +149,6 @@ The following illustrates how you could express this kind of probe configuration
       },
 ```
 
-### <a name="guestagent"></a>Guest agent probe (Classic only)
-
-Cloud service roles (worker roles and web roles) use a guest agent for probe monitoring by default.  A guest agent probe is a last resort configuration.  Always use a health probe explicitly with a TCP or HTTP probe. A guest agent probe is not as effective as explicitly defined probes for most application scenarios.
-
-A guest agent probe is a check of the guest agent inside the VM. It then listens and responds with an HTTP 200 OK response only when the instance is in the Ready state. (Other states are Busy, Recycling, or Stopping.)
-
-For more information, see [Configure the service definition file (csdef) for health probes](/previous-versions/azure/reference/ee758710(v=azure.100)) or [Get started by creating a public load balancer for cloud services](/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services).
-
-If the guest agent fails to respond with HTTP 200 OK, the load balancer marks the instance as unresponsive. It then stops sending flows to that instance. The load balancer continues to check the instance. 
-
-If the guest agent responds with an HTTP 200, the load balancer sends new flows to that instance again.
-
-When you use a web role, the website code typically runs in w3wp.exe, which isn't monitored by the Azure fabric or guest agent. Failures in w3wp.exe (for example, HTTP 500 responses) aren't reported to the guest agent. Consequently, the load balancer doesn't take that instance out of rotation.
-
 <a name="health"></a>
 ## <a name="probehealth"></a>Probe up behavior
 
