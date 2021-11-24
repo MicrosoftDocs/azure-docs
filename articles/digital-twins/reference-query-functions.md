@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language functions
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/22/2021
+ms.date: 11/23/2021
 ms.topic: article
 ms.service: digital-twins
 
@@ -261,3 +261,26 @@ A Boolean value indicating whether the first string expression starts with the s
 The following query returns all digital twins whose IDs begin with `area1-`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="StartsWithExample":::
+
+## CONTAINS
+
+A string function used to determine whether a given string contains another specified string value.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsSyntax":::
+
+### Arguments
+
+* `<string-to-check>`: A string to check for the specified value
+* `<contained-string>`: A string representing the value to check for
+
+### Returns
+
+A Boolean value indicating whether the first string expression contains the sequence of characters defined in the second string expression.
+
+### Example
+
+The following query returns all digital twins whose IDs contain `-route`. The string to check is the `$dtId` of each twin in the collection, and the contained string is `-route`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsExample":::
