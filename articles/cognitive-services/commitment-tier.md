@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Cognitive Services resource with commitment tier pricing
-description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing. 
+description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021

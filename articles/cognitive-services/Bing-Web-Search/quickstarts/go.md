@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod
-ms.custom: seodec2018
+ms.custom: seodec2018, mode-other
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Go.
 ---
 
