@@ -49,11 +49,15 @@ Open the log file your application produced and look for `SessionId:`. The numbe
 
 If you use [Speech CLI](spx-overview.md), then you will see the Session ID in `SESSION STARTED` and `SESSION STOPPED` console messages.
 
-You can also enable logging for your sessions and get the Session ID from the log file as described above. Run the following Speech CLI command to get the information on using logs:
+You can also enable logging for your sessions and get the Session ID from the log file as described above. Run the appropriate Speech CLI command to get the information on using logs:
 
 ```console
 spx help recognize log
 ```
+```console
+spx help translate log
+```
+
 
 ### Provide Session ID using REST API for short audio
 
