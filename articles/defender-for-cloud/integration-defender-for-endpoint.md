@@ -32,7 +32,7 @@ Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security
 
 | Aspect                                       | Details                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                               | • Integration with Defender for Endpoint for Windows - General availability (GA)<br> • Integration with Defender for Endpoint for Linux - Preview                                                                                                                                     |
+| Release state:                               | • Integration with Defender for Endpoint for Windows - General availability (GA)<br> • Integration with Defender for Endpoint for Linux - General availability (GA)                                                                                                                                    |
 | Pricing:                                     | Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)                                                                                                                                                                                                           |
 | Supported environments:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Azure Arc machines running Windows/Linux<br>:::image type="icon" source="./media/icons/yes-icon.png":::Azure VMs running Linux ([supported versions](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux))<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure VMs running Windows Server 2022, 2019, 2016, 2012 R2, 2008 R2 SP1, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md), [Windows 10 Enterprise multi-session](../virtual-desktop/windows-10-multisession-faq.yml) (formerly Enterprise for Virtual Desktops (EVD)<br>:::image type="icon" source="./media/icons/no-icon.png"::: Azure VMs running Windows 10 (other than EVD or WVD)           |
 | Required roles and permissions:              | • To enable/disable the integration: **Security admin** or **Owner**<br>• To view Defender for Endpoint alerts in Defender for Cloud: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor** |
@@ -105,9 +105,9 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     Microsoft Defender for Cloud will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
-### [**Linux** (preview)](#tab/linux)
+### [**Linux**)](#tab/linux)
 
-During the preview period, you'll deploy Defender for Endpoint to your Linux machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
+You'll deploy Defender for Endpoint to your Linux machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
 - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
 - [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
@@ -125,10 +125,6 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
 
     > [!NOTE]
     > If it isn't selected, use the instructions in [New users who've never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows).
-
-    With this preview, a new button, **Enable for Linux machines**, has been added below this checkbox:
-
-    :::image type="content" source="./media/integration-defender-for-endpoint/deploy-to-linux.png" alt-text="The preview introduces a button to manually control when to deploy Defender for Endpoint for Linux":::
 
 1. To add your Linux machines to your integration
 

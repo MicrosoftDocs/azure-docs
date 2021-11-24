@@ -622,7 +622,7 @@ For instructions see [What are Azure Arc-enabled data services?](overview.md)
 > Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on AKS, AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM.
 
 - [Install the client tools](install-client-tools.md)
-- [Create the Azure Arc data controller](create-data-controller.md) (requires installing the client tools first)
+- [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) (requires installing the client tools first)
 - [Create an Azure SQL Managed Instance on Azure Arc](create-sql-managed-instance.md) (requires creation of an Azure Arc data controller first)
 - [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) (requires creation of an Azure Arc data controller first)
 - [Resource providers for Azure services](../../azure-resource-manager/management/azure-services-resource-providers.md)

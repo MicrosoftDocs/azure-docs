@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
+ms.custom: mode-other
 ---
 # Connect your non-Azure machines to Microsoft Defender for Cloud
 

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: mvc
+ms.custom: mvc, mode-other
 zone_pivot_groups: azure-maps-android
 ---
 

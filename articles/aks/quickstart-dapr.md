@@ -6,7 +6,7 @@ ms.author: nickoman
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, mode-other
 ---
 
 # Quickstart: Deploy an application using the Dapr cluster extension (preview) for Azure Kubernetes Service (AKS)

@@ -1,5 +1,5 @@
 ---
-title: Analyzing live video without recording - Azure
+title: Analyzing live video without recording
 description: A pipeline topology can be used to just extract analytics from a live video stream, without having to record it on the edge or in the cloud. This article discusses this concept.
 ms.topic: conceptual
 ms.date: 11/04/2021

@@ -6,7 +6,7 @@ ms.author: pariks
 ms.service: mysql
 ms.devlang: ruby
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.date: 5/26/2020
 ---
 

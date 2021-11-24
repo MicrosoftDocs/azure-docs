@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Send custom events to Event Hubs - Event Grid, Azure CLI'
-description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.' 
+description: 'Quickstart: Use Azure Event Grid and Azure CLI to publish a topic, and subscribe to that event. An event hub is used for the endpoint.'
 ms.date: 09/28/2021
-ms.topic: quickstart 
-ms.custom: devx-track-azurecli
+ms.topic: quickstart
+ms.custom: devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Route custom events to Azure Event Hubs with Azure CLI and Event Grid
