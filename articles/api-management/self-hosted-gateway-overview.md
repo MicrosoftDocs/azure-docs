@@ -27,7 +27,7 @@ Each API Management service is composed of the following key components:
 -   Gateway (or data plane) is responsible for proxying API requests, applying policies, and collecting telemetry
 -   Developer portal used by developers to discover, learn, and onboard to use the APIs
 
-By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the following picture ) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, additional data transfer fees.
+By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the following picture) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, additional data transfer fees.
 
 ![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
