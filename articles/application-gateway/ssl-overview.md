@@ -83,7 +83,7 @@ Application Gateway only communicates with known backend instances that have all
 
 To enable end-to-end TLS with the backend servers and for Application Gateway to route requests to them, the health probes must succeed and return healthy response.
 
-For HTTPS health probes, the Application Gateway v1 SKU uses an exact match of the authentication certificate (public key of the backend server certificate and not the root certificate) to be uploaded to the HTTP settings.
+For HTTPS health probes, the Application Gateway v1 SKU uses an exact match of the authentication certificate (public key of the backend server certificate and not the root certificate) to be uploaded to the HTTP settings. When this exact match certificate expires, the HTTPS health probes will fail.
 
 Only connections to known and allowed backends are then allowed. The remaining backends are considered unhealthy by the health probes. Self-signed certificates are for test purposes only and not recommended for production workloads. Such certificates must be allow listed with the application gateway as described in the preceding steps before they can be used.
 
