@@ -52,7 +52,7 @@ The supported GPUs and required Windows versions are listed below:
   * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or later
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
-Intel iGPU support is available for select processors. Please review Intel's driver documentation for more information.
+Intel iGPU support is available for select processors. For more information, see the Intel driver documentation.
 
 Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/). After installation, you can verify your build version by running `winver` at the command prompt.
 
