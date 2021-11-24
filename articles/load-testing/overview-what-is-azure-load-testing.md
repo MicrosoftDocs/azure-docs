@@ -6,7 +6,7 @@ ms.service: load-testing
 ms.topic: overview
 ms.author: nicktrog
 author: ntrogh
-ms.date: 10/19/2021
+ms.date: 11/30/2021
 adobe-target: true
 ---
 
@@ -31,6 +31,8 @@ The application can be hosted anywhere: in Azure, on-premises, or in other cloud
 - *Server-side metrics* provide information about your Azure application components. Azure Load Testing integrates with Azure Monitor, including Application Insights and Container insights, to capture details from the Azure services. Depending on the type of service, different metrics are available. For example, the number of database reads, the type of HTTP responses, or container resource consumption.
 
 Azure Load Testing automatically incorporates Azure networking best practices to make sure your tests run securely and reliably. Load tests are automatically aborted if the application endpoints or Azure components start throttling requests.
+
+Data stored in your Azure Load Testing resource is automatically and seamlessly encrypted with keys managed by Microsoft (service-managed keys). This data includes for example, your Apache JMeter script.
 
 :::image type="content" source="./media/overview-what-is-azure-load-testing/azure-load-testing-architecture.svg" alt-text="Diagram showing the Azure Load Testing architecture overview.":::
 
