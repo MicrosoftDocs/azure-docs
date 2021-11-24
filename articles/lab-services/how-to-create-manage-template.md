@@ -2,7 +2,7 @@
 title: Manage a template of a classroom lab in Azure Lab Services | Microsoft Docs
 description: Learn how to create and manage a classroom lab template in Azure Lab Services. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/24/2021
 ---
 
 # Create and manage a classroom template in Azure Lab Services
@@ -59,7 +59,7 @@ In this step, you publish the template VM. When you publish the template VM, Azu
 ## Next steps
 See the following articles:
 
-- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
+- [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
 - [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
 - [As a lab user, access labs](how-to-use-classroom-lab.md)

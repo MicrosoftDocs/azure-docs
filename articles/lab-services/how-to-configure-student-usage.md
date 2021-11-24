@@ -2,7 +2,7 @@
 title: Configure usage settings in labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
 ms.topic: how-to
-ms.date: 12/01/2020
+ms.date: 11/24/2021
 ---
 
 # Add and manage lab users
@@ -240,6 +240,6 @@ If they haven't yet linked their GitHub account to a Microsoft account, they can
 
 See the following articles:
 
-- For administrators: [Create and manage lab accounts](how-to-manage-lab-accounts.md)
+- For administrators: [Create and manage lab plans](how-to-manage-lab-plans.md)
 - For lab owners: [Create and manage labs](how-to-manage-classroom-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
 - For lab users: [Access labs](how-to-use-classroom-lab.md)
