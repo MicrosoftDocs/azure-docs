@@ -33,7 +33,7 @@ The appropriate passthrough method must be selected during deployment to match t
 
 ## Prerequisites
 
-The GPU acceleration features of Azure IoT Edge for Linux on Windows currently supports a select set of GPU hardware. Additionally, use of this feature may require the latest Windows Insider Dev Channel build, depending on your configuration.
+The GPU acceleration features of Azure IoT Edge for Linux on Windows currently supports a select set of GPU hardware. Additionally, use of this feature may require specific versions of Windows, depending on your configuration.
 
 The supported GPUs and required Windows versions are listed below:
 
@@ -47,10 +47,12 @@ The supported GPUs and required Windows versions are listed below:
   * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or higher
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
-* Intel Integrated GPUs (supports GPU-PV)
+* Select Intel Integrated GPUs (supports GPU-PV)
 
   * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or higher
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
+
+Intel iGPU support is available for select processors. Please review Intel's driver documentation for more information.
 
 Windows 10 users must be on [the November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/). After installation, you can verify your build version number by running `winver` via command prompt.
 
@@ -72,7 +74,7 @@ Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/window
 
 ### Intel iGPUs
 
-For **Intel iGPUs**, download and install the [Intel Graphics Driver with WSL GPU support](https://www.intel.com/content/www/us/en/download-center/home.html?wapkw=quicklink:download-center). GPU support is available for select Intel processors. Please review driver documentation for more information.
+For **Intel iGPUs**, download and install the [Intel Graphics Driver with WSL GPU support](https://www.intel.com/content/www/us/en/download-center/home.html?wapkw=quicklink:download-center).
 
 Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) as some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
