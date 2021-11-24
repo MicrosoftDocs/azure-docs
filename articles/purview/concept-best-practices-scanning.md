@@ -150,7 +150,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
     - **Delete and update scenarios**
         - If a field / column, table, or a file is removed from the source system after the scan ran, it will only be reflected (removed) in Purview after the next scheduled full / incremental scan.
         - An asset can be deleted from Azure Purview catalog using the **delete** icon under the name of the asset (this will not remove the object in the source). However, if you run full scan on the same source, it would get reingested in the catalog. If you have scheduled a weekly / monthly scan instead (incremental) the deleted asset will not be picked unless the object is modified at source (for example, a column is added / removed from the table).
-        - To understand the behavior of subsequent scans post **manually** editing a data asset or underlying schema through Purview Studio, refer [here] (./catalog-asset-details.md#scans-on-edited-assets)
+        - To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through Purview Studio, refer to [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
 
         For more details refer the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md)
 
