@@ -48,7 +48,7 @@ The Azure Communication Services Calling SDK can be used with Teams identities t
 
 The Teams identity model is ideal for use cases where a custom user interface is needed, where the Teams client is not available for your platform, or where the Teams client does not support a sufficient level of customization. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.
 
-When a Communication Services endpoint connects to a Teams meeting or call using a Teams identity, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than BYOI users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue.
+When a Communication Services endpoint connects to a Teams meeting or call using a Teams identity, the endpoint is treated like a Teams user with a Teams client, with access to more functionality than BYOI users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue.
 
 Calling and screen sharing functionality is available via the Communication Services Calling SDK. Calling management is available via Graph API, configuration in the Teams client or Teams Admin Portal. Chat functionality is available via Graph API.
 
