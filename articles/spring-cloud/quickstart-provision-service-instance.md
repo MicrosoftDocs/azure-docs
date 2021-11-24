@@ -1,12 +1,12 @@
 ---
-title:  "Quickstart - Provision an Azure Spring Cloud service"
+title: "Quickstart - Provision an Azure Spring Cloud service"
 description: Describes creation of an Azure Spring Cloud service instance for app deployment.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 

@@ -116,7 +116,7 @@ To create and run a new scan, do the following:
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Salesforce source to be scanned.
 
         > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="scan Salesforce" border="true":::
 
