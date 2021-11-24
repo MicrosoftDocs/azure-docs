@@ -14,7 +14,7 @@ ms.topic: how-to
 
 Learn how you can download the Azure Load Testing Preview logs in the Azure portal to troubleshoot problems with the Apache JMeter script.
 
-When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. The Apache JMeter log can help you to identify problems in the JMX file, issues during the test execution. For example, the application endpoint might be unavailable, or the JMX file contains invalid credentials.
+When you run a load test, the Azure Load Testing test engines execute your Apache JMeter test script. The Apache JMeter log can help you to identify problems in the JMX file, as well as issues during the test execution. For example, the application endpoint might be unavailable, or the JMX file might contain invalid credentials.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview.
