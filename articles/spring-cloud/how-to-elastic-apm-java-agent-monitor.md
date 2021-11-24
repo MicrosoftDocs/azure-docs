@@ -38,7 +38,7 @@ The following sections use Spring Petclinic service as an example to walk throug
 
 1. Follow the guide [here](https://github.com/Azure-Samples/spring-petclinic-microservices) to deploy Microservices based Spring Petclinic application to Azure Spring Cloud. Follow this guide until the [Deploy Spring Boot applications and set environment variables](https://github.com/Azure-Samples/spring-petclinic-microservices#deploy-spring-boot-applications-and-set-environment-variables) step.
 
-   You can use the Azure Spring Cloud extenstion for Azure CLI to create an Azure Spring Cloud application using CLI
+   You can use the Azure Spring Cloud extension for Azure CLI to create an Azure Spring Cloud application using CLI
 
    ```azurecli
    az spring-cloud app create \
@@ -48,7 +48,7 @@ The following sections use Spring Petclinic service as an example to walk throug
       --is-public true
    ```
 
-### Enable custom persistent storage for  Azure Spring Cloud service
+### Enable custom persistent storage for Azure Spring Cloud service
 
 1. Follow the steps [here](how-to-custom-persistent-storage.md) to enable your custom persistent storage.
 
@@ -67,13 +67,13 @@ The following sections use Spring Petclinic service as an example to walk throug
 
 ### Activate Elastic APM Java Agent
 
-1. Before proceeding ahead you would need Elastic APM server connectivity information handy. This assumes you have   [deployed Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement).
+1. Before proceeding ahead you would need Elastic APM server connectivity information handy. This assumes you have [deployed Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement).
 
 1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select **Manage Elastic Cloud Deployment**.
 
    ![Go to Elastic Cloud ](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png)
 
-1. Under your deployment on Elastic Cloud Console, click on APM & Fleet section to get Elastic APM Server endpoint and secret token
+1. Under your deployment on Elastic Cloud Console, select the APM & Fleet section to get Elastic APM Server endpoint and secret token.
 
    ![Elastic Cloud - Get APM Endpoint and token ](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png)
 
@@ -81,14 +81,15 @@ The following sections use Spring Petclinic service as an example to walk throug
 
    ![Download Elastic APM Agent](media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png)
 
-1. Upload Elastic APM Agent to custom persistent storage  enabled earlier. Go to Azure Fileshare and click on *Upload* to add the agent jar file.
+1. Upload Elastic APM Agent to custom persistent storage enabled earlier. Go to Azure Fileshare and select **Upload** to add the agent JAR file.
 
    ![Download Elastic APM Agent](media/how-to-elastic-apm-java-agent-monitor/upload-files-microsoft-azure.png)
 
 1. Once you have the Elastic APM endpoint and secret token, you can use following Azure CLI command to activate Elastic APM Java agent when deploying applications.
 
 ```azurecli
-az  spring-cloud app deploy --name <your-app-name> \
+az spring-cloud app deploy \
+    --name <your-app-name> \
     --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
     --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<elastic-apm-java-agent-location-from-mounted-storage>' \
     --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
@@ -146,7 +147,7 @@ Refer to documentation for [Upgrade versions](https://www.elastic.co/guide/en/cl
 
    ![Open Kibana from Azure](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png)
 
-1. Once Kibana is open, search for APM in the search bar and click on APM.
+1. Once Kibana is open, search for APM in the search bar and select **APM**.
 
    ![Open APM in Kibana](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-kibana-search-apm.png)
 
@@ -154,7 +155,7 @@ Refer to documentation for [Upgrade versions](https://www.elastic.co/guide/en/cl
 
    ![Kibana APM](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service.png)
 
-1. You can drill down in a specific transaction to understand the a transaction specific details such as the distributed tracing.
+1. You can drill down in a specific transaction to understand the transaction-specific details such as the distributed tracing.
 
    ![Kibana APM Latency Distribution](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-latency-distribution.png)
 
@@ -162,7 +163,7 @@ Refer to documentation for [Upgrade versions](https://www.elastic.co/guide/en/cl
 
    ![Kibana APM JVM Metrics](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-customer-service-jvm-metrics.png)
 
-1. Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Cloud Services and choose an appropriate action  - such as Teams notification, creation of a JIRA issue, a webhook based API call and others.
+1. Using the inbuilt AI engine in the Elastic solution, you can also enable Anomaly Detection on the Azure Spring Cloud Services and choose an appropriate action - such as Teams notification, creation of a JIRA issue, a webhook-based API call, and others.
 
    ![Kibana APM Machine Learning](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-alert-anomaly.png)
 

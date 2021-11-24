@@ -54,15 +54,15 @@ To learn more about deploying Elastic on Azure, see [How to deploy and manage El
 
 Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
 
-1. In Kibana in the Search bar at top type **Discover**, and click on the result
+1. In Kibana in the Search bar at top type *Discover*, then select the result.
 
    ![Elastic Kibana Discover](media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png)
 
-2. In **Discover** app select **logs-** index pattern if it's not already selected.
+2. In **Discover** app, select **logs-** index pattern if it's not already selected.
 
    ![Discover Index Pattern](media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png)
 
-To learn more about different queries , see [Guide to Kibana Query Language](https://www.elastic.co/guide/en/kibana/current/kuery-query.html).
+For more information about different queries, see [Guide to Kibana Query Language](https://www.elastic.co/guide/en/kibana/current/kuery-query.html).
 
 ### Show all logs from Azure Spring Cloud
 
@@ -131,15 +131,15 @@ azure.springcloudlogs.properties.type : "ServiceRegistry"
 
 ### Show the various log levels in your logs to assess overall health of the services
 
-Kibana allows you to visualize data with Dashboards and a rich ecosystem of visualizations. To learn more go to [Dashboard and Visualization](https://www.elastic.co/guide/en/kibana/current/dashboard.html)
+Kibana allows you to visualize data with Dashboards and a rich ecosystem of visualizations. For more information, see [Dashboard and Visualization](https://www.elastic.co/guide/en/kibana/current/dashboard.html).
 
 1. From the available fields list on left in **Discover**, search for log.level in the search box under **logs-** index pattern
 
-1. Select the **log.level** field. From the floating informational panel about **log.level**, click on **Visualize**
+1. Select the **log.level** field. From the floating informational panel about **log.level**, select **Visualize**.
 
    ![Discover to Visualize](media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png)
 
-1. From here you can choose to add more data from the left pane, or choose from multiple suggestions how you would like to visualize your data
+1. From here you can choose to add more data from the left pane, or choose from multiple suggestions how you would like to visualize your data.
 
    ![Discover to Visualize](media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png)
 
