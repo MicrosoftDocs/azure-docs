@@ -1,6 +1,6 @@
 ---
 
-title: How To: Access activity logs in Azure AD | Microsoft Docs
+title: Access activity logs in Azure AD | Microsoft Docs
 description: Learn how to choose the right method for accessing the activity logs in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -21,6 +21,8 @@ ms.reviewer: besiler
 
 ms.collection: M365-identity-device-management
 ---
+
+
 # How To: Access activity logs in Azure AD
 
 The data in your Azure AD logs enables you to assess how your Azure AD is doing. To cover a broad range of scenarios, Azure AD provides you with various options to access your log data. As an IT administrator, you need to understand the intended uses cases for these options, so that you can select the right access method for your scenario.  
@@ -97,7 +99,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 - **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
-- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub). 
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
  
 Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
@@ -123,7 +125,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 - **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
-- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub). 
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
  
 Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
