@@ -63,6 +63,8 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
         "lastModifiedDateTime": "2021-05-01T15:13:22Z",
         "lastDeployedDateTime": "2021-05-01T15:13:22Z"
       }
+ }
+}
 ```
 
 ## Delete Project
