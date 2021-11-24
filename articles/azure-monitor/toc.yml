@@ -311,8 +311,6 @@
         items:
         - name: Overview
           href: logs/api/overview.md
-        - name: Authentication
-          href: logs/api/authentication.md
         - name: Using the API
           items:
           - name: Set up AAD for the API
@@ -350,8 +348,6 @@
             href: logs/api/csharp-sdk.md
           - name: PowerShell Cmdlets
             href: logs/api/powershell-cmdlets.md
-          - name: "OpenAPI/Swagger"
-            href: logs/api/api-specifications.md
     - name: Data export
       items:
       - name: Workspace data export
