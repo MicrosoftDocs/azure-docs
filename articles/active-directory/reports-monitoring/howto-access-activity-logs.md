@@ -92,7 +92,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 **Use:**
 
-- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real-time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
 - **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
@@ -118,7 +118,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 **Use:**
 
-- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real-time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
 - **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
