@@ -2,7 +2,7 @@
 title: Get started with Azure Lab Services 
 description: This article describes how to get started with Azure Lab Services. 
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 11/24/2021
 ---
 
 # Get started with Lab Services 
@@ -31,7 +31,7 @@ To help keep down costs and save students' quota hours, automatic shutdowns are 
 
 Auto-shutdowns are an important cost-saving tool, however they do present a challenge for students in regard to saving their work and rendering large project files. If your students are frequently being disconnected or VMs are turning off too quickly, reach out to your CTE administrator. 
 
-For more information, see [Configure automatic shutdown of VMs for a lab account](how-to-configure-lab-accounts.md).
+For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-lab-plans.md).
 
 ### Managing Virtual Machines
 
@@ -114,4 +114,4 @@ If you're not going to continue to use resources that you created in this quicks
 
 ## Next steps
 
-[Set up a lab account](tutorial-setup-lab-account.md)
+[Set up a lab plan](tutorial-setup-lab-plan.md)
