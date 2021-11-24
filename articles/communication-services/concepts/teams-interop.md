@@ -97,4 +97,4 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate Microsoft 365 users](../quickstarts/manage-teams-identity.md)
+> [Enable Teams access tokens](../quickstarts/manage-teams-identity.md)
