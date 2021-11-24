@@ -55,4 +55,4 @@ The following prices include required communications taxes and fees:
 *Please see [here](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
-Additional flat carrier surcharge of $0.0025/sent msg segment would be applicable. Carrier surcharge is subject to change. Click Link-To-be-added for details.
+An additional flat carrier surcharge of $0.0025/sent msg segment is also applicable. A carrier surcharge is subject to change. Click Link-To-be-added for details.
