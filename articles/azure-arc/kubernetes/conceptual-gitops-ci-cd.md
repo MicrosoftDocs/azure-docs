@@ -9,6 +9,9 @@ keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Serv
 ---
 # CI/CD workflow using GitOps - Azure Arc-enabled Kubernetes
 
+>[!NOTE]
+>This workflow described in this document uses GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [learn about CI/CD workflow using GitOps with Flux v2](./conceptual-gitops-flux2-ci-cd).
+
 Modern Kubernetes deployments house multiple applications, clusters, and environments. With GitOps, you can manage these complex setups more easily, tracking the desired state of the Kubernetes environments declaratively with Git. Using common Git tooling to track cluster state, you can increase accountability, facilitate fault investigation, and enable automation to manage environments.
 
 This conceptual overview explains GitOps as a reality in the full application change lifecycle using Azure Arc, Azure Repos, and Azure Pipelines. [Jump to an example](#example-workflow) of a single application change to GitOps-controlled Kubernetes environments.
