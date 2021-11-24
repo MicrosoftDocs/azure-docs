@@ -15,7 +15,7 @@ ms.date: 11/24/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The assert transformation enables custom rules to be set inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define.
+The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams. 
 
 ## Configuration
 
