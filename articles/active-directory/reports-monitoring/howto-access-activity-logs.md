@@ -61,12 +61,7 @@ To **get started**, see [Analyze sign-ins with the Azure AD sign-ins log](quicks
 
 ## Access from code
 
-There are cases where you need to periodically access activity logs (user sign-in info) from an app or a script.
-For example, you need to: 
-
-- Ben example 1
-- Ben example 2
-- Ben example 3
+There are cases where you need to periodically access activity logs from an app or a script.
 
 ### Recommendation 
 
