@@ -151,7 +151,7 @@ A [chained search](https://www.hl7.org/fhir/search.html#chaining) allows you to 
 Similarly, you can do a reverse chained search. This allows you to get resources where you specify criteria on other resources that refer to them. For more examples of chained and reverse chained search, refer to the [FHIR search examples](search-samples.md) page. 
 
 > [!NOTE]
-> In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 100 items. If there are more than 100 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 100 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
+> In the Azure API for FHIR and the open source backed by Cosmos DB, there's a limitation where each subquery required for the chained and reverse chained searches will only return 1000 items. If there are more than 1000 items found, you’ll receive the following error message: “Subqueries in a chained expression can't return more than 1000 results, please use a more selective criteria.” To get a successful query, you’ll need to be more specific in what you are looking for.
 
 ## Pagination
 
