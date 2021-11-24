@@ -35,3 +35,10 @@ Use Rooms when you need:
 
 Note while you can use either Group CallID or Rooms if you just need an ephemeral coordinates. We recommend using Rooms API if you plan to add more modalities in the future to a room. While there is only calling supported now, we are looking into adding more modalities moving forward. 
 
+| Capability  | 1:N Call | 1:N Call <br>with ephemeral ID</br> |  Room call | 
+| ------ | :------: | :------: | :------: |
+| Interactive participants  | 350 | 350 | 350 |
+| Ephemeral ID to distribute to participants  | No  | Yes (Group ID) | Yes (Room ID) |
+| Invitee only participation   | No  | No | Yes <br>(Mandatory in private preview)</br> |
+| API to create. remove, update, delete the call   | No  | No | Rooms API |
+| Set validity period for a call   | No  | No | Yes <br> Up to six months </br> |
