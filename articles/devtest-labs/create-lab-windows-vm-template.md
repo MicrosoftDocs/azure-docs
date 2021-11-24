@@ -80,7 +80,7 @@ During the deployment, you can select the **Notifications** icon at the top of y
 
 Delete resources when you're finished with them to avoid charges for running the lab and VM.
 
-1. From the lab overview page, select **Delete**.
+1. On the lab overview page, select **Delete** from the top menu.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/portal-lab-delete.png" alt-text="Screenshot of lab delete button.":::
 
