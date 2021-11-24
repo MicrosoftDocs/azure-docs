@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
