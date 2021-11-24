@@ -1,13 +1,9 @@
 ---
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/24/2021
 ms.custom: references_regions
-ms.author: memildin
 ---
 
 # Feature coverage for machines

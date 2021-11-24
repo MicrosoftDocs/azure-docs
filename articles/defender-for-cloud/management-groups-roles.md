@@ -1,15 +1,9 @@
 ---
 title: Organize subscriptions into management groups and assign roles to users for Microsoft Defender for Cloud
 description: Learn how to organize your Azure subscriptions into management groups in Microsoft Defender for Cloud and assign roles to users in your organization
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.custom: subject-rbac-steps
-ms.author: memildin
-
 ---
 
 # Organize subscriptions into management groups and assign roles to users

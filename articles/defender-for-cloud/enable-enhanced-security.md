@@ -1,10 +1,6 @@
 ---
 title: Enable Microsoft Defender for Cloud's integrated workload protections
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multi-cloud resources
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.custom: mode-other
