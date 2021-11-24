@@ -1,7 +1,7 @@
 ---
-title: Download load test JMeter logs in Azure Load Testing
+title: Download Apache JMeter logs in Azure Load Testing
 titleSuffix: Azure Load Testing
-description: Learn how to download the Azure Load Testing JMeter logs.
+description: Learn how you can troubleshoot Apache JMeter script problems by downloading the Azure Load Testing logs in the Azure portal.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -10,7 +10,7 @@ ms.date: 11/30/2021
 ms.topic: how-to
 
 ---
-# Download Apache JMeter logs in the Azure portal
+# Troubleshoot JMeter problems by downloading Azure Load Testing Preview logs
 
 Learn how you can download the Azure Load Testing Preview logs in the Azure portal to troubleshoot problems with the Apache JMeter script.
 
