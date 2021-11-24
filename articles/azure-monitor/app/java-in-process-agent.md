@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Application Insights Java
-description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and Application Map.
+description: Application performance monitoring for Java applications running in any environment without requiring code modification. Distributed tracing and application map.
 ms.topic: conceptual
 ms.date: 06/24/2021
 ms.custom: devx-track-java
@@ -10,7 +10,7 @@ ms.author: mmcc
 
 # Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the steps in this article, you can use Azure Monitor Application Insights to monitor your application.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Java offering. After you finish the instructions in this article, you'll be able to use Azure Monitor Application Insights to monitor your application.
 
 ## Get started
 
@@ -32,19 +32,19 @@ Download the [applicationinsights-agent-3.2.3.jar](https://github.com/microsoft/
 
 > [!WARNING]
 > 
-> - If you're upgrading from 3.0 Preview:
+> If you're upgrading from 3.0 Preview:
 >
->    Review all [configuration options](./java-standalone-config.md) carefully. The JSON structure has completely changed. The file name is now all lowercase.
+>    - Review all [configuration options](./java-standalone-config.md) carefully. The JSON structure has completely changed. The file name is now all lowercase.
 > 
-> - If you're upgrading from 3.0.x:
+> If you're upgrading from 3.0.x:
 > 
->    The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
+>    - The operation names and request telemetry names are now prefixed by the HTTP method, such as `GET` and `POST`.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.1.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.1.0).
 >
-> - If you're upgrading from 3.1.x:
+> If you're upgrading from 3.1.x:
 > 
->    Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
+>    - Database dependency names are now more concise with the full (sanitized) query still present in the `data` field. HTTP dependency names are now more descriptive.
 >    This change can affect custom dashboards or alerts if they relied on the previous values.
 >    For details, see the [3.2.0 release notes](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.2.0).
 
@@ -87,7 +87,7 @@ Run your application and open your **Application Insights Resource** tab in the 
 :::image type="content" source="media/opentelemetry/server-requests.png" alt-text="Screenshot that shows the Application Insights Overview tab with server requests and server response time highlighted.":::
 
 > [!IMPORTANT]
-> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set Cloud Role Names](java-standalone-config.md#cloud-role-name) to represent them properly on the Application Map.
+> If you have two or more services that emit telemetry to the same Application Insights resource, you're required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the application map.
 
 As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable nonessential data collection. To learn more, see [Statsbeat in Azure Application Insights](./statsbeat.md).
 
@@ -95,19 +95,19 @@ As part of using Application Insights instrumentation, we collect and send diagn
 
 In the `applicationinsights.json` file, you can also configure these settings:
 
-* Cloud Role Name
-* Cloud Role Instance
+* Cloud role name
+* Cloud role instance
 * Sampling
 * JMX metrics
 * Custom dimensions
 * Telemetry processors (preview)
 * Autocollected logging
-* Autocollected Micrometer metrics, which includes Spring Boot Actuator metrics
+* Autocollected Micrometer metrics, which include Spring Boot Actuator metrics
 * Heartbeat
-* HTTP Proxy
+* HTTP proxy
 * Self-diagnostics
 
-For more information, see [configuration options](./java-standalone-config.md).
+For more information, see [Configuration options](./java-standalone-config.md).
 
 ## Instrumentation libraries
 
@@ -115,11 +115,11 @@ Java 3.x includes the following instrumentation libraries.
 
 ### Autocollected requests
 
-* JMS Consumers
-* Kafka Consumers
+* JMS consumers
+* Kafka consumers
 * Netty/WebFlux
 * Servlets
-* Spring Scheduling
+* Spring scheduling
 
 ### Autocollected dependencies
 
@@ -132,7 +132,7 @@ Autocollected dependencies plus downstream distributed trace propagation:
 * gRPC
 * java.net.HttpURLConnection
 * Java 11 HttpClient
-* JAX-RS Client
+* JAX-RS client
 * Jetty HttpClient
 * JMS
 * Kafka
@@ -161,32 +161,32 @@ Autocollected dependencies without downstream distributed trace propagation:
 
 Telemetry emitted by these Azure SDKs is autocollected by default:
 
-* [App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
+* [Azure App Configuration](/java/api/overview/azure/data-appconfiguration-readme) 1.1.10+
 * [Azure Cognitive Search](/java/api/overview/azure/search-documents-readme) 11.3.0+
-* [Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
-* [Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
-* [Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
-* [Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
-* [Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
+* [Azure Communication Chat](/java/api/overview/azure/communication-chat-readme) 1.0.0+
+* [Azure Communication Common](/java/api/overview/azure/communication-common-readme) 1.0.0+
+* [Azure Communication Identity](/java/api/overview/azure/communication-identity-readme) 1.0.0+
+* [Azure Communication Phone Numbers](/java/api/overview/azure/communication-phonenumbers-readme) 1.0.0+
+* [Azure Communication SMS](/java/api/overview/azure/communication-sms-readme) 1.0.0+
 * [Azure Cosmos DB](/java/api/overview/azure/cosmos-readme) 4.13.0+
 * [Azure Digital Twins - Core](/java/api/overview/azure/digitaltwins-core-readme) 1.1.0+
 * [Azure Event Grid](/java/api/overview/azure/messaging-eventgrid-readme) 4.0.0+
 * [Azure Event Hubs](/java/api/overview/azure/messaging-eventhubs-readme) 5.6.0+
-* [Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
-* [Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
-* [Identity](/java/api/overview/azure/identity-readme) 1.2.4+
+* [Azure Event Hubs - Azure Blob Storage Checkpoint Store](/java/api/overview/azure/messaging-eventhubs-checkpointstore-blob-readme) 1.5.1+
+* [Azure Form Recognizer](/java/api/overview/azure/ai-formrecognizer-readme) 3.0.6+
+* [Azure Identity](/java/api/overview/azure/identity-readme) 1.2.4+
 * [Azure Key Vault - Certificates](/java/api/overview/azure/security-keyvault-certificates-readme) 4.1.6+
-* [Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
-* [Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
+* [Azure Key Vault - Keys](/java/api/overview/azure/security-keyvault-keys-readme) 4.2.6+
+* [Azure Key Vault - Secrets](/java/api/overview/azure/security-keyvault-secrets-readme) 4.2.6+
 * [Azure Service Bus](/java/api/overview/azure/messaging-servicebus-readme) 7.1.0+
 * [Azure Storage - Blobs](/java/api/overview/azure/storage-blob-readme) 12.11.0+
-* [Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
-* [Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
-* [Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
-* [Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
-* [Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
-* [Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
-* [Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
+* [Azure Storage - Blobs Batch](/java/api/overview/azure/storage-blob-batch-readme) 12.9.0+
+* [Azure Storage - Blobs Cryptography](/java/api/overview/azure/storage-blob-cryptography-readme) 12.11.0+
+* [Azure Storage - Common](/java/api/overview/azure/storage-common-readme) 12.11.0+
+* [Azure Storage - Files Data Lake](/java/api/overview/azure/storage-file-datalake-readme) 12.5.0+
+* [Azure Storage - Files Shares](/java/api/overview/azure/storage-file-share-readme) 12.9.0+
+* [Azure Storage - Queues](/java/api/overview/azure/storage-queue-readme) 12.9.0+
+* [Azure Text Analytics](/java/api/overview/azure/ai-textanalytics-readme) 5.0.4+
 
 [//]: # "the above names and links scraped from https://azure.github.io/azure-sdk/releases/latest/java.html"
 [//]: # "and version sync'd manually against the oldest version in maven central built on azure-core 1.14.0"
@@ -239,10 +239,10 @@ Adding one or more custom dimensions populates the _customDimensions_ field in t
 
 #### Set the user ID
 
-Populate the user ID field in the requests, dependencies, or exceptions table.
+Populate the _user ID_ field in the requests, dependencies, or exceptions table.
 
 > [!IMPORTANT]
-> Consult applicable privacy laws before you set the Authenticated User ID.
+> Consult applicable privacy laws before you set Authenticated User ID.
 
 > [!NOTE]
 > This feature is only in 3.2.0 and later.
@@ -308,15 +308,15 @@ The following table represents currently supported custom telemetry types that y
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |---------------------|------------|---------------------|---------|-------------------|
-| **Custom Events**   |            |                     |  Yes    |                   |
-| **Custom Metrics**  |  Yes       |                     |  Yes    |                   |
-| **Dependencies**    |            |                     |  Yes    |  Yes              |
-| **Exceptions**      |            |  Yes                |  Yes    |  Yes              |
-| **Page Views**      |            |                     |  Yes    |                   |
-| **Requests**        |            |                     |  Yes    |  Yes              |
-| **Traces**          |            |  Yes                |  Yes    |                   |
+| Custom events       |            |                     |  Yes    |                   |
+| Custom metrics      |  Yes       |                     |  Yes    |                   |
+| Dependencies        |            |                     |  Yes    |  Yes              |
+| Exceptions          |            |  Yes                |  Yes    |  Yes              |
+| Page views          |            |                     |  Yes    |                   |
+| Requests            |            |                     |  Yes    |  Yes              |
+| Traces              |            |  Yes                |  Yes    |                   |
 
-We're not planning to release an SDK with Application Insights 3.x at this time.
+Currently, we're not planning to release an SDK with Application Insights 3.x.
 
 Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. It fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
 
@@ -355,7 +355,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 ### Send custom telemetry by using the 2.x SDK
 
-1. Add `applicationinsights-core-2.6.3.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x, but it's worth using the latest version if you have a choice:
+1. Add `applicationinsights-core-2.6.3.jar` to your application. All 2.x versions are supported by Application Insights Java 3.x. If you have a choice. it's worth using the latest version:
 
     ```xml
     <dependency>
@@ -424,19 +424,23 @@ For help with troubleshooting, see [Troubleshooting](java-standalone-troubleshoo
 
 ## Support
 
-- For help with troubleshooting, review the [Troubleshooting steps](java-standalone-troubleshoot.md).
-- For Azure support issues, open an [Azure Support Ticket](https://azure.microsoft.com/support/create-ticket/).
+To get support:
+
+- For help with troubleshooting, review the [troubleshooting steps](java-standalone-troubleshoot.md).
+- For Azure support issues, open an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/).
 - For OpenTelemetry issues, contact the [OpenTelemetry community](https://opentelemetry.io/community/) directly.
 
 ## OpenTelemetry feedback
 
+To provide feedback:
+
 - Fill out the OpenTelemetry community's [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
-- Engage with other Azure Monitor users at [Microsoft's Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
+- Engage with other Azure Monitor users in the  [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
 - Make a feature request at the [Azure Feedback Forum](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
 
 ## Next steps
 
-- To review the source code, see the [Azure Monitor Java Auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
+- To review the source code, see the [Azure Monitor Java auto-instrumentation GitHub repository](https://github.com/Microsoft/ApplicationInsights-Java).
 - To learn more about OpenTelemetry and its community, see the [OpenTelemetry Java GitHub repository](https://github.com/open-telemetry/opentelemetry-java-instrumentation).
 - To enable usage experiences, see [Enable web or browser user monitoring](javascript.md).
