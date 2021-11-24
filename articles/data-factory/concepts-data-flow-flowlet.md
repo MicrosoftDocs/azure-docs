@@ -19,7 +19,8 @@ ms.date: 11/11/2021
  
  With flowlets you can create logic to do things such as address cleaning or string trimming. You can then map the input and outputs to columns in the calling data flow for a dynamic code reuse experience.
 
-[!NOTE] The Flowlet feature in mapping data flow is currently in public preview
+> [!NOTE] 
+> The Flowlet feature in mapping data flow is currently in public preview
 
 ## Getting started
 To create a flowlet, click the new flowlet action from the mapping data flow menu options.
