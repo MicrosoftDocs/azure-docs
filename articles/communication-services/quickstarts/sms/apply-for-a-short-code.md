@@ -25,21 +25,19 @@ ms.subservice: sms
 ## Get a short code
 To begin provisioning a short code, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Apply for a short code
 Navigate to the Short Codes blade in the resource menu and click on Get button to launch the short code program brief application wizard. 
 
 The wizard on short codes blade will walk you through a series of questions about the program as well as a description of content which helps carriers review and approve your short code program brief. For detailed guidance on how to fill the program brief application please check [program brief filling guidelines](TO BE ADDED)
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
-
 Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements. A short code Program Brief application consists of the following 4 sections:
  
 ### Program Details 
 You will first need to provide program name and choose the country/region where you would like to provision the phone number. 
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-a-short-code/program-details.png" alt-text="Screenshot showing program details section.":::
 
 #### Select short code type
 Configuring your short code is broken down into two steps:
@@ -50,47 +48,34 @@ You can select from two short code types: Random, and Vanity. If you select a ra
 
 When you’ve selected a number type, you can then choose the message type, and target date.  Short code registration with carriers usually takes 8-12 weeks, so this target date should be selected considering this registration period.
 
-In our example, we’ve selected a Vanity short code with SMS feature.
-
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
-
 > [!Note]
 > Azure Communication Service currently only supports SMS. Please check [roadmap](TO BE ADDED) for MMS launch.
 
 #### Enter program information
 This section requires you to provide details about your program such as recurrence of the program, messaging content, type and description of program, privacy policy, and terms of the program.
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-a-short-code/program-details-contd.png" alt-text="Screenshot showing program details section.":::
 
 ### Contact Details
 This section requires you to provide information about your company and customer care in the case that end users need help or support with the program. 
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-a-short-code/contact-details.png" alt-text="Screenshot showing program details section.":::
 
 ### Volume Details
 This section requires you to provide an estimate of the number of messages you plan on sending per user per month and the disclose any expected traffic spikes as part of the program.
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-a-short-code/volume-details.png" alt-text="Screenshot showing program details section.":::
 
 ### Template Information
 This section captures sample messages related to opt-in, opt-out, and other message flows.
 
 
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
+:::image type="content" source="./media/apply-for-a-short-code/templates1.png" alt-text="Screenshot showing program details section.":::
 
 
 Once completed, review the Program Brief information provided and submit the completed application through the Azure Portal. 
  
 This program brief will now be automatically sent to the Azure Communication Services’ service desk for review. The service desk specifically is looking to ensure that the provided information is in the right format before sending to all US mobile carriers for approval. The carriers will then review the details of the short code program, a process that can typically take between 8-12 weeks. Once carriers approve the program brief, you will be notified via email. You can now start sending and receiving messages on this short code for your messaging programs.
-
-## Find your short code on the Azure Portal
-Navigate to your Azure Communication Services resource on the [Azure portal](https://portal.azure.com).
-
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
-
-Select the Short Codes blade in the resource menu to manage your short codes.
-
-:::image type="content" source="../../media/manage-phone-azure-portal-start.png" alt-text="Screenshot showing a Communication Services resource's main page.":::
 
 ## Troubleshooting
 Common questions and issues:
