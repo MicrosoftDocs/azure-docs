@@ -1,6 +1,6 @@
 ---
-title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| Microsoft Docs
-description: Establish high availability for SAP NW on Azure virtual machines (VMs) RHEL with NFS on Azure Files.
+title: High availability of SAP HANA Scale-up with ANF on SLES | Microsoft Docs
+description: Establish high availability of SAP HANA with ANF on SLES Azure virtual machines (VMs).
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: apmsft
@@ -410,9 +410,9 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    ```
 
 > [!TIP]
-> 		Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the 		sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+> Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more information, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-4.**[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files]([https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf).  
+4.**[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/17152-tr4746pdf.pdf).  
 
    ```
    vi /etc/modprobe.d/sunrpc.conf
@@ -492,7 +492,7 @@ Follow the steps in, [Setting up Pacemaker on SUSE Enterprise Linux](./high-avai
 
 ### Implement the Python system replication hook SAPHanaSR
 
-This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability#implement-the-python-system-replication-hook-saphanasr )
+This is an important step to optimize the integration with the cluster and improve the detection, when a cluster failover is needed. It is highly recommended to configure the SAPHanaSR python hook.  Follow the steps mentioned in, [Implement the Python System Replication hook SAPHanaSR](./sap-hana-high-availability.md#implement-the-python-system-replication-hook-saphanasr)
 
 
 ## Configure SAP HANA cluster resources
@@ -656,7 +656,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
 > The filesystem monitor is not related to HANA system replication. Thus on NFS failure the Linux cluster might decide to fence an HANA primary, even if the system replication is not in sync. Due to this srHook=SFAIL state, the HANA secondary will not get promoted to primary. Even if this useless fence could happen due to HANA monitor failure
 > anyway, it is more likely to happen with the intentionally shorter NFS monitor timeouts.
 >
-> In some environments NFS is used for /hana/data/<SID>/ and /hana/log/<SID>/ as well as for /hana/shared/<SID>/. In such cases usually all shares are provided by the same NFS server via the same network. If that server or network fails, all shares are affected. Thus the afore mentioned dummy resource will cover failures of all three HANA filesystem.
+> In some environments NFS is used for /hana/data/`SID`/ and /hana/log/`SID`/ as well as for /hana/shared/`SID`/. In such cases usually all shares are provided by the same NFS server via the same network. If that server or network fails, all shares are affected. Thus the afore mentioned dummy resource will cover failures of all three HANA filesystem.
 
 
 ## Test the cluster setup
@@ -819,7 +819,7 @@ This section describes how you can test your setup.
    	  # Started: [ hanadb1 hanadb2 ]
    ```
 
-We recommend testing the SAP HANA cluster configuration thoroughly, by also doing the tests described in [SAP HANA System Replication](.//sap-hana-high-availability#test-the-cluster-setup).
+We recommend testing the SAP HANA cluster configuration thoroughly, by also doing the tests described in [SAP HANA System Replication](./sap-hana-high-availability.md#test-the-cluster-setup).
 
 ## Next steps
 
