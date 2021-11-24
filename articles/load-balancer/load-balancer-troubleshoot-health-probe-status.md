@@ -51,7 +51,7 @@ If the firewall on the VM is blocking the probe port, or one or more network sec
 **Validation and resolution**
 
 1. If the firewall is enabled, check if it is configured to allow the probe port. If not, configure the firewall to allow traffic on the probe port, and test again.
-- Check that your VM firewall is not blocking probe traffic originating from IP address `168.63.129.16`
+- Check to make sure your VM firewall is not blocking probe traffic originating from IP address `168.63.129.16`
 - You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal
 - You can query your firewall profiles to check whether your policies are blocking incoming traffic by running `netsh advfirewall show allprofiles | more` from a Windows commands prompt or `sudo iptables -L` from a Linux terminal to see all configured firewall rules.
 - More details on troubleshooting firewall issues for Azure VMs, see [Azure VM Guest OS firewall is blocking inbound traffic](/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic).
