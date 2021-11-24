@@ -12,10 +12,14 @@ ms.custom: template-concept
 
 # Azure Load Balancer distribution modes
 
-Azure Load Balancer supports two distribution modes for routing connections to instances in the backend pool:
+Azure Load Balancer supports the following distribution modes for routing connections to instances in the backend pool:
 
-* Hash based
-* Session persistence
+| Distribution mode | Hash based | Session peristence: Client IP | Session peristence: Client IP and protocol |
+| --- | --- | --- | --- |
+| Overview | Traffic from the same client IP routed to any healthy instance in the backend pool | Traffic from the same client IP is routed to the same backend instance | Traffic from the same client IP and protocol is routed to the same backend instance |
+| Tuples | 5 tuple | 2 tuple | 3 tuple |
+| Azure Portal configuration | Session persistence: **None** | Session peristence: **Client IP** | Session persistence: **Client IP and protocol** |
+| [REST API](https://docs.microsoft.com/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```	| ```"loadDistribution":SourceIPProtocol```	|
 
 ## Hash based
 
@@ -46,6 +50,7 @@ Session persistence mode has two configuration types:
 The following figure illustrates a two-tuple configuration. Notice how the two-tuple runs through the load balancer to virtual machine 1 (VM1). VM1 is then backed up by VM2 and VM3.
 
 ![Two-tuple session affinity distribution mode](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+
 
 
 ## Use cases
