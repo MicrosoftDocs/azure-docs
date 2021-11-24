@@ -243,7 +243,7 @@
     items: 
     - name: Plan your offer
       href: marketplace-dynamics-365.md
-    - name: Create a Customer Engagement & Power Apps offer
+    - name: Create a Customer Engagement & PowerApps offer
       items: 
       - name: Create the offer
         href: dynamics-365-customer-engage-offer-setup.md
