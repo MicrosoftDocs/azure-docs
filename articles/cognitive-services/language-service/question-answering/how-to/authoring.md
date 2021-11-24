@@ -546,6 +546,8 @@ curl -X GET -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applicat
 
 Retrieve a list of all question answering projects your account has access to.
 
+|Variable name | Value |
+|--------------------------|-------------|
 | `ENDPOINT`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`. If this was your endpoint in the code sample below, you would only need to add the region specific portion of `southcentral` as the rest of the endpoint path is already present.|
 | `API-KEY` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys allows for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
 
