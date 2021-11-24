@@ -1,42 +1,44 @@
 ---
 title: Create a lab in Azure DevTest Labs by using an Azure Resource Manager template
-description: In this quickstart, you create a lab in Azure DevTest Labs by using an Azure Resource Manager template (ARM template). A lab admin sets up a lab, creates VMs in the lab, and configures policies.
+description: In this quickstart, you use an Azure Resource Manager (ARM) template to create a lab with a virtual machine in Azure DevTest Labs.
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 10/29/2021
+ms.date: 11/22/2021
 ---
 
 # Quickstart: Use an ARM template to create a lab in DevTest Labs
 
-This quickstart describes how to use an Azure Resource Manager template (ARM template) to create a lab in Azure DevTest Labs. The lab contains a Windows Server 2019 Datacenter virtual machine (VM).
+This quickstart uses an Azure Resource Manager (ARM) template to create a lab with a Windows Server 2019 Datacenter virtual machine (VM) in Azure DevTest Labs.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+In this quickstart, you take the following actions:
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
-
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
+> [!div class="checklist"]
+> * Review the ARM template.
+> * Deploy the ARM template to create a lab and VM.
+> * Verify the deployment.
+> * Clean up resources.
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+This quickstart uses the [Creates a lab in Azure DevTest Labs with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template. The template defines the following resources:
+
+- [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates a DevTest Labs lab.
+- [Microsoft.DevTestLab labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a DevTest Labs virtual network.
+- [Microsoft.DevTestLab labs/virtualmachines](/azure/templates/microsoft.devtestlab/labs/virtualmachines) creates a DevTest Labs VM.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
-
-Three Azure resources are defined in the template:
-
-- [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs): create a DevTest Labs lab.
-- [Microsoft.DevTestLab labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks): create a DevTest Labs virtual network.
-- [Microsoft.DevTestLab labs/virtualmachines](/azure/templates/microsoft.devtestlab/labs/virtualmachines): create a DevTest Labs virtual machine.
 
 For more ARM template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
 ## Deploy the template
 
-1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
+1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template lab creation screen:
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
 
