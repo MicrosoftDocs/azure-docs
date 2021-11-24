@@ -2,12 +2,8 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 

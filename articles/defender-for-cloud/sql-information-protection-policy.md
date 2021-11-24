@@ -1,18 +1,8 @@
 ---
 title: SQL information protection policy in Microsoft Defender for Cloud
 description: Learn how to customize information protection policies in Microsoft Defender for Cloud.
-services: security-center
-documentationcenter: na
-author: memildin
-manager: rkarlin
-ms.assetid: 2ebf2bc7-232a-45c4-a06a-b3d32aaf2500
-ms.service: defender-for-cloud
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
-ms.author: memildin
 
 ---
 # SQL information protection policy in Microsoft Defender for Cloud

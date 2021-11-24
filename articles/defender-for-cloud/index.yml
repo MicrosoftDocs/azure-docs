@@ -30,6 +30,8 @@ landingContent:
             url: security-center-os-coverage.md
           - text: How do I get started with Defender for Cloud?
             url: get-started.md
+          - text: What are security policies, initiatives, and recommendations?
+            url: security-policy-concept
 
  
   # Card
@@ -39,14 +41,14 @@ landingContent:
         links:
           - text: Release notes for Defender for Cloud
             url: release-notes.md
-          - text: Apply Azure security baselines to machines
-            url: apply-security-baseline.md
-          - text: Use the integrated workbooks reports
-            url: custom-dashboards-azure-workbooks.md
-          - text: Protect hybrid and multi-cloud Kubernetes clusters
-            url: defender-for-kubernetes-azure-arc.md
-          - text: Microsoft Defender for open-source relational databases
-            url: defender-for-databases-introduction.md
+          - text: Important upcoming changes
+            url: upcoming-changes.md
+          - text: Multi-cloud security - Defend AWS EKS clusters
+            url: defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters
+          - text: Connect AWS accounts with environment settings
+            url: quickstart-onboard-aws.md
+          - text: Threat and vulnerability management vulnerability assessment
+            url: deploy-vulnerability-assessment-tvm
  
   # Card
   - title: Get started
@@ -57,12 +59,12 @@ landingContent:
             url: get-started.md
           - text: Enable enhanced security features
             url: enable-enhanced-security.md
+          - text: Connect hybrid and multi-cloud machines
+            url: quickstart-onboard-machines.md
           - text: Configure auto provisioning
             url: enable-data-collection.md
           - text: Set up email notifications
             url: configure-email-notifications.md
-          - text: Connect non-Azure machines
-            url: quickstart-onboard-machines.md
 
   # Card
   - title: Improve your secure score

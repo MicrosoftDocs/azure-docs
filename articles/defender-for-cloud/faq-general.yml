@@ -4,17 +4,13 @@ metadata:
   description: Frequently asked general questions about Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: security-center
   documentationcenter: na
-  author: memildin
-  manager: rkarlin
-  ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
-  ms.service: defender-for-cloud
-  ms.devlang: na
+      ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
+    ms.devlang: na
   ms.topic: conceptual
   ms.tgt_pltfrm: na
   ms.workload: na
   ms.date: 11/09/2021
-  ms.author: memildin
-  
+    
     
 title: FAQ - General questions about Microsoft Defender for Cloud
 summary: |
