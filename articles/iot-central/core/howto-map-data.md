@@ -12,13 +12,17 @@ services: iot-central
 
 # Map telemetry on ingress to IoT Central
 
-Data mapping lets you transform complex device telemetry into structured data inside IoT Central. For each of your devices, you can map a specific JSON path in the device telemetry message to an _alias_. An alias is a friendly name for the target you're mapping to. IoT Central uses the mappings to transform telemetry on the way in to IoT Central. Use the transformed data to create device templates and device management experiences in IoT Central. When you map JSON paths on multiple devices to a common alias, you can normalize the telemetry and use it for device management. The mapped telemetry is available to export to destinations outside IoT Central.
+Data mapping lets you transform complex device telemetry into structured data inside IoT Central. For each of your devices, you can map a specific JSON path in the device telemetry message to an _alias_. An alias is a friendly name for the target you're mapping to. IoT Central uses the mappings to transform telemetry on the way in to IoT Central. You can use the mapped telemetry to:
+
+* Create device templates and device management experiences in IoT Central.
+* Normalize telemetry from different devices by mapping JSON paths on multiple devices to a common alias.
+* Export to destinations outside IoT Central.
 
 :::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Diagram that summarizes the mapping process in IoT Central." border="false":::
 
 ## Map telemetry for your device
 
-A mapping uses a [JSONPath](https://goessner.net/articles/JsonPath/) expression to identify the value in an incoming telemetry message to map to an alias.
+A mapping uses a [JSONPath](https://www.npmjs.com/package/jsonpath) expression to identify the value in an incoming telemetry message to map to an alias.
 
 A JSONPath expression begins with the `$` character, which refers to the root element of the message. The `$` is followed by a sequence of child elements separated using square brackets. For example:
 
@@ -26,7 +30,15 @@ A JSONPath expression begins with the `$` character, which refers to the root el
 $["messages"]["tmp"]
 
 $["opcua"]["payload"][0]["value"]
+
+$["Messages"]["Payload"]["nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1"]["Value"]
 ```
+
+IoT Central uses a subset of the JSONPath expression syntax:
+
+* Each segment can only be a non-negative number or a string enclosed in double quotation marks.
+* A segment can't contain backslash, square bracket, or double quotation marks.
+* A JSON path can't exceed 1,000 characters.
 
 To create a mapping in your IoT Central application, choose one of the following options to navigate to the **Map data** panel:
 
@@ -38,9 +50,15 @@ To create a mapping in your IoT Central application, choose one of the following
 
     :::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Screenshot that shows the **Add alias** option on the **Raw data** view.":::
 
-The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add your **Alias** name. Add as many mappings as you need and then select **Save**:
+The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add an **Alias** name with no more than 64 characters. Add as many mappings as you need and then select **Save**:
 
 :::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the Json path and alias.":::
+
+For a given device:
+
+* No two mappings can have the same JSON path.
+* No two mappings can have the same alias.
+
 
 > [!TIP]
 > If there's no data in left hand panel, you can manually enter a JSONPath expression in the **JSON path** field.
