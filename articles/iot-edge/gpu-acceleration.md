@@ -39,7 +39,8 @@ The supported GPUs and required Windows versions are listed below:
 
 * NVIDIA T4 (supports DDA)
 
-  * Windows Server 2019 build 17763 or Windows Server 2022 or later, with all current cumulative updates installed
+  * Windows Server 2019, build 17763 with all current cumulative updates installed
+  * Windows Server 2022
   * Windows 11 (Pro, Enterprise, IoT Enterprise)
 
 * NVIDIA GeForce/Quadro (supports GPU-PV)
