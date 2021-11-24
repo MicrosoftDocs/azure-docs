@@ -3091,7 +3091,7 @@ mod(<dividend>, <divisor>)
 | <*modulo-result*> | Integer or Float | The remainder from dividing the first number by the second number |
 ||||
 
-*Example*
+*Example 1*
 
 This example divides the first number by the second number:
 
@@ -3100,6 +3100,19 @@ mod(3, 2)
 ```
 
 And return this result: `1`
+ 
+*Example 2*
+
+If one or both of the values are negative, the result will match the sign of the dividend:
+
+```
+mod(-5, 2)
+mod(4, -3)
+```
+And return these results:
+
+* First example: `-1`
+* Second example `1`
 
 <a name="mul"></a>
 
