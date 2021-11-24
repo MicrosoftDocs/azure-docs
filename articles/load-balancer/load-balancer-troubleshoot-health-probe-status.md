@@ -55,10 +55,10 @@ If the firewall on the VM is blocking the probe port, or one or more network sec
 - You can check listening ports by running `netstat -a` from a Windows command prompt or `netstat -l` from a Linux terminal
 - You can query your firewall profiles to check whether your policies are blocking incoming traffic by running `netsh advfirewall show allprofiles | more` from a Windows commands prompt or `sudo iptables -L` from a Linux terminal to see all configured firewall rules.
 - More details on troubleshooting firewall issues for Azure VMs, see [Azure VM Guest OS firewall is blocking inbound traffic](/azure/virtual-machines/guest-os-firewall-blocking-inbound-traffic).
-3. From the list of network security groups, check if the incoming or outgoing traffic on the probe port has interference.
-4. Also, check if a **Deny All** network security groups rule on the NIC of the VM or the subnet that has a higher priority than the default rule that allows LB probes & traffic (network security groups must allow Load Balancer IP of 168.63.129.16).
-5. If any of these rules are blocking the probe traffic, remove and reconfigure the rules to allow the probe traffic.  
-6. Test if the VM has now started responding to the health probes.
+2. From the list of network security groups, check if the incoming or outgoing traffic on the probe port has interference.
+3. Also, check if a **Deny All** network security groups rule on the NIC of the VM or the subnet that has a higher priority than the default rule that allows LB probes & traffic (network security groups must allow Load Balancer IP of 168.63.129.16).
+4. If any of these rules are blocking the probe traffic, remove and reconfigure the rules to allow the probe traffic.  
+5. Test if the VM has now started responding to the health probes.
 
 ### Cause 4: Other misconfigurations in Load Balancer
 If all the preceding causes seem to be validated and resolved correctly, and the backend VM still does not respond to the health probe, then manually test for connectivity, and collect some traces to understand the connectivity.
