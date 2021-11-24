@@ -10,7 +10,7 @@ ms.date: 10/22/2021
 ms.custom: template-how-to
 ---
 
-# Create VM restore points using REST APIs (Preview)
+# Create VM restore points (Preview)
 
 Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies.
 
@@ -46,7 +46,7 @@ You can find more information in the [Restore Points](/rest/api/compute/restore-
 
 Before you create VM restore points, you must create a restore point collection. A restore point collection holds all of the restore points for a specific VM. Depending on your needs, you can create VM restore points in the same region as the VM, or in a different region.
 
-To create a restore point collection, call the restore point collection's [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API. If you're creating restore point collection in the same region as the VM, then specify the VM's region in the `location` property of the request body. If you're creating the restore point collection in a different region than the VM, specify the target region for the collection in the `location` property, but also specify the source restore point collection ARM ID in the request body.
+To create a restore point collection, call the restore point collection's [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API. If you're creating restore point collection in the same region as the VM, then specify the VM's region in the `location` property of the request body. If you're creating the restore point collection in a different region than the VM, specify the target region for the collection in the `location` property, but also specify the source restore point collection ARM resource ID in the request body.
 
 ### Step 2: Create a VM restore point
 
@@ -75,7 +75,7 @@ Refer to the [Restore Points - Create](/rest/api/compute/restore-points/create) 
 
 ### Step 3: Track copy status
 
-When you copy a VM restore point within your local region, the process should complete within a few seconds. It will take considerably longer to copy restore points to different regions. To track the status of the copy operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. This is only applicable for scenarios where the restore points are copied to a different region than the source VM.
+To track the status of the copy operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. This is only applicable for scenarios where the restore points are copied to a different region than the source VM.
 
 ## Get restore point copy or replication status
 
