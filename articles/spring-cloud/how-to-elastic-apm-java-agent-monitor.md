@@ -17,12 +17,12 @@ This article explains how to use Elastic APM Agent to monitor Spring Boot applic
 
 1. Activate Elastic APM Java agent for the Azure Spring Cloud applications.
 
-With the Elastic Observability Solution you can achieve unified observability for your Azure Spring Cloud Applications by 
+With the Elastic Observability Solution you can achieve unified observability for your Azure Spring Cloud Applications by
 
 * Monitor apps using the Elastic APM Java Agent by using persistent storage with Azure Spring Cloud
 * Leverage Diagnostic Settings to ship Azure Spring Cloud logs to Elastic [Analyze logs with Elastic(ELK) using diagnostics settings](https://github.com/hemantmalik/azure-docs/blob/master/articles/spring-cloud/how-to-elastic-diagnostic-settings.md)
 
-> [Introduction to Elastic Observability Solution](https://www.youtube.com/watch?v=uCX24hRBULY)
+:::video source="https://www.youtube.com/embed/uCX24hRBULY":::
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ The following sections use Spring Petclinic service as an example to walk throug
 
    ```azurecli
    az spring-cloud app create \
-      --resource-group "<your-resource-group-name>" \
-      --service "<your-Azure-Spring-Cloud-instance-name>" \
-      --name "<your-spring-app-name>" \
+      --resource-group <your-resource-group-name> \
+      --service <your-Azure-Spring-Cloud-instance-name> \
+      --name <your-app-name> \
       --is-public true
    ```
 
@@ -56,20 +56,20 @@ The following sections use Spring Petclinic service as an example to walk throug
 
    ```azurecli
    az spring-cloud app append-persistent-storage \
+      --resource-group <your-resource-group-name> \
+      --service <your-Azure-Spring-Cloud-instance-name> \
+      --name <your-app-name> \
       --persistent-storage-type AzureFileVolume \
-      --share-name <your-azure-fileshare-name> \
+      --share-name <your-Azure-file-share-name> \
       --mount-path <unique-mount-path> \
-      --storage-name <your-mounted-storage-name> \
-      -n <your-azure-spring-cloud-app-name> \
-      -g <your-resource-group-name> \
-      -s <your-azure-spring-cloud-service-name>
+      --storage-name <your-mounted-storage-name>
       ```
 
 ### Activate Elastic APM Java Agent
 
 1. Before proceeding ahead you would need Elastic APM server connectivity information handy. This assumes you have   [deployed Elastic on Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement).
 
-1. From Azure Portal, click on the **Manage Elastic Cloud Deployment** on the *Overview* blade  of your Elastic Deployment.
+1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select **Manage Elastic Cloud Deployment**.
 
    ![Go to Elastic Cloud ](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-link-from-microsoft-azure.png)
 
@@ -93,8 +93,8 @@ az  spring-cloud app deploy --name <your-app-name> \
     --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<elastic-apm-java-agent-location-from-mounted-storage>' \
     --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
           ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
-          ELASTIC_APM_SERVER_URL='<replace-with-your-Elastic-APM-server-url>' \
-          ELASTIC_APM_SECRET_TOKEN='<replace-with-your-Elastic-APM-secret-token>'
+          ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
+          ELASTIC_APM_SECRET_TOKEN='<your-Elastic-APM-secret-token>'
 ```
 
 ### Automate provisioning
@@ -113,8 +113,8 @@ resource "azurerm_spring_cloud_java_deployment" "example" {
     environment_variables = {
       "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
       "ELASTIC_APM_APPLICATION_PACKAGES"="<your-app-package>",
-      "ELASTIC_APM_SERVER_URL"="<replace-with-your-Elastic-APM-server-url>",
-      "ELASTIC_APM_SECRET_TOKEN"="<replace-with-your-Elastic-APM-secret-token>"
+      "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-url>",
+      "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   }
 }
 ```
@@ -128,8 +128,8 @@ To configure the environment variables in an ARM template, add the following cod
   "environmentVariables": {
     "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
     "ELASTIC_APM_APPLICATION_PACKAGES"="<your-app-package>",
-    "ELASTIC_APM_SERVER_URL"="<replace-with-your-Elastic-APM-server-url>",
-    "ELASTIC_APM_SECRET_TOKEN"="<replace-with-your-Elastic-APM-secret-token>"
+    "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-url>",
+    "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   },
   "jvmOptions": "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>",
   ...
@@ -138,11 +138,11 @@ To configure the environment variables in an ARM template, add the following cod
 
 ### Upgrading Elastic APM Java Agent
 
-Refer to documentation for [Upgrade versions](https://www.elastic.co/guide/en/cloud/current/ec-upgrade-deployment.html) for Elastic Cloud on Azure. [Breaking Changes](https://www.elastic.co/guide/en/apm/server/current/breaking-changes.html) for APM is another good starting point for planning your upgrade. Once APM Server is upgraded, you will upload the Elastic APM Java agent jar file in the custom persistent storage and restart apps with updated jvm options pointing to upgraded Elastic APM Java agent jar. 
+Refer to documentation for [Upgrade versions](https://www.elastic.co/guide/en/cloud/current/ec-upgrade-deployment.html) for Elastic Cloud on Azure. [Breaking Changes](https://www.elastic.co/guide/en/apm/server/current/breaking-changes.html) for APM is another good starting point for planning your upgrade. Once APM Server is upgraded, you will upload the Elastic APM Java agent jar file in the custom persistent storage and restart apps with updated jvm options pointing to upgraded Elastic APM Java agent jar.
 
 ### Monitoring Applications and metrics with Elastic APM
 
-1. From the Azure Portal, click on Kibana link from the overview blade of Elastic Deployment to open Kibana. 
+1. In the Azure portal, go to the **Overview** page of your Elastic deployment, then select the Kibana link.
 
    ![Open Kibana from Azure](media/how-to-elastic-apm-java-agent-monitor/elastic-apm-get-kibana-link.png)
 
