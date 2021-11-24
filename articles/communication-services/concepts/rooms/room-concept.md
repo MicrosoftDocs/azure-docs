@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Rooms Overview
 
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
+
 Azure Communication services provide a concept of rooms for developers who are building structured conversations. Rooms support voice and video calling with chat coming later.
 Here are main scenarios where Rooms are useful:
 
@@ -28,3 +30,8 @@ Use Rooms when you need:
 - Contol who can access a calling session on server side
 - Need coordinates that can be expired at a specific moment of time
 - Have a call to which only invited users can join
+
+ :::image type="content" source="../media/rooms/decision-tree.png" alt-text="Diagram showing decision tree to select a Room.":::
+
+Note while you can use either Group CallID or Rooms if you just need an ephemeral coordinates. We recommend using Rooms API if you plan to add more modalities in the future to a room. While there is only calling supported now, we are looking into adding more modalities moving forward. 
+
