@@ -12,15 +12,15 @@ ms.author: v-amallick
 
 This article explains how to back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service using the Enhanced policy. Backup for Trusted Launch VM is in preview.
 
-Azure Backup now provides an Enhanced policy through which you can enable all newer compute storage capabilities (for example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch). To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+Azure Backup now supports Enhanced policy that's needed to support new Azure offerings. For example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch) is supported with Enhanced policy only. To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 
 >[!Important]
->The [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support managing the newer compute storage capabilities, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
+>The existing [default policy](/azure/backup/backup-during-vm-creation#create-a-vm-with-backup-configured) won’t support protecting newer Azure offerings, such as Trusted Launch VM, UltraSSD, Shared disk, and Confidential Azure VMs.
 
 You must enable backup for Trusted Launch VM through enhanced policy only. The Enhanced policy provides the following features:
 
 - Supports multiple backups per day. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details page](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for full snapshots with ZRS created by Azure Backup](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
@@ -64,13 +64,13 @@ Follow these steps:
 6. Click **Create**.
 
 >[!Note]
->- We support the Enhanced policy configuration through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Managed blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
+>- We support the Enhanced policy configuration through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
 >
->- The last backup of the day is transferred to the vault. If the backup fails, the first backup of the next day is taken as a full backup.
+>- For hourly backups, the last backup of the day is transferred to the vault. If the backup fails, the first backup of the next day is transferred to the vault.
 
 ## Next steps
 
-- [Run a backup immediately](/backup/backup-azure-vms-first-look-arm#run-a-backup-immediately)
+- [Run a backup immediately](/azure/backup/backup-azure-vms-first-look-arm#run-a-backup-immediately)
 - [Verify Backup job status](/azure/backup/backup-azure-arm-vms-prepare#verify-backup-job-status)
 - [Restore Azure virtual machines](/azure/backup/backup-azure-arm-restore-vms#restore-disks)
 
