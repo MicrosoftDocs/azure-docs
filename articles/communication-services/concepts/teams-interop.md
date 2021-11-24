@@ -36,7 +36,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 
 Applications can implement both authentication models and leave the choice of authentication up to the end user.
 
-## Teams meeting and calling experiences
+## Teams meeting and call experiences
 
 There are two ways that users can access the Teams calling experience:
 
