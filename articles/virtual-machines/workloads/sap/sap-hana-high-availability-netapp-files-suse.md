@@ -161,12 +161,12 @@ The [Azure NetApp Files throughput limits](../../../azure-netapp-files/azure-net
 - Ultra Storage tier - 128 MiB/s.
 
 To meet the SAP minimum throughput requirements for /hana/data and /hana/log, and the guidelines for /hana/shared, the recommended sizes would be:
+
 |    Volume    | Size of Premium Storage Tier | Size of Ultra Storage Tier | Supported NFS Protocol |
 | :----------: | :--------------------------: | :------------------------: | :--------------------: |
 |  /hana/log   |            4 TiB             |           2 TiB            |          v4.1          |
 |  /hana/data  |           6.3 TiB            |          3.2 TiB           |          v4.1          |
 | /hana/shared |           1 x RAM            |          1 x RAM           |          v3 or v4.1    |
-
 
 > [!NOTE]
 > The Azure NetApp Files sizing recommendations stated here are targeted to meet the minimum requirements that SAP recommends for their infrastructure providers. In real customer deployments and workload scenarios, these sizes may not be sufficient. Use these recommendations as a starting point and adapt, based on the requirements of your specific workload.
@@ -209,7 +209,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Open the load balancer, select **backend pools**, and select **Add**.
 		1.	Enter the name of the new back-end pool (for example, **hana-backend**).
 		1.	Select **Add a virtual machine**.
-		1.	Select ** Virtual machine**.
+		1.	Select **Virtual machine**.
 		1.	Select the virtual machines of the SAP HANA cluster and their IP addresses.
 		1.	Select **Add**.
 	1.	Next, create a health probe:
@@ -282,7 +282,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
 1.**[A]** Create mount points for the HANA database volumes.
 
-  ```bash
+  ```
   mkdir -p /hana/data/HN1/mnt00001
   mkdir -p /hana/log/HN1/mnt00001
   mkdir -p /hana/shared/HN1
@@ -319,7 +319,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb2-data-mnt00001 /hana/data/HN1/mnt00001
    ```
 
-5.**[A]**Edit the /etc/fstab on both nodes to permanently mount the volumes relevant to each node.  Below is an example of how you mount the volumes permanently.
+5.**[A]** Edit the /etc/fstab on both nodes to permanently mount the volumes relevant to each node.  Below is an example of how you mount the volumes permanently.
 
    ```
    sudo vi /etc/fstab
@@ -503,10 +503,12 @@ This section describes the necessary steps required to configure the SAP HANA Cl
 
 First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
 
-sudo crm configure property maintenance-mode=true
-Replace the bold string with your instance number and HANA system ID
 
 ```
+sudo crm configure property maintenance-mode=true
+
+# Replace the bold string with your instance number and HANA system ID
+
 sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
 	operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
 	op monitor interval="10" timeout="600" \
@@ -515,7 +517,7 @@ sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:sus
 	params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
 
 sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  meta clone-node-max="1" target-role="Started" interleave="true"
+    meta clone-node-max="1" target-role="Started" interleave="true"
 ```
 
 Next, create the HANA resources:
@@ -537,35 +539,35 @@ Next, create the HANA resources:
 Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 
 sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
-  operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
-  op start interval="0" timeout="3600" \
-  op stop interval="0" timeout="3600" \
-  op promote interval="0" timeout="3600" \
-  op monitor interval="60" role="Master" timeout="700" \
-  op monitor interval="61" role="Slave" timeout="700" \
-  params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-  DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+    operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+    op start interval="0" timeout="3600" \
+    op stop interval="0" timeout="3600" \
+    op promote interval="0" timeout="3600" \
+    op monitor interval="60" role="Master" timeout="700" \
+    op monitor interval="61" role="Slave" timeout="700" \
+    params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
 sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
-  meta notify="true" clone-max="2" clone-node-max="1" \
-  target-role="Started" interleave="true"
+    meta notify="true" clone-max="2" clone-node-max="1" \
+    target-role="Started" interleave="true"
 
 sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
-  meta target-role="Started" \
-  operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
-  op monitor interval="10s" timeout="20s" \
-  params ip="<b>10.0.0.13</b>"
+    meta target-role="Started" \
+    operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+    op monitor interval="10s" timeout="20s" \
+    params ip="<b>10.0.0.13</b>"
 
 sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
-  meta resource-stickiness=0
+    meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
 sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+    msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
 
 sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> Optional: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-  msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+    msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
 
@@ -594,9 +596,6 @@ sudo crm_mon -r
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
 ```
 
-
-
-
 ### Create File System resources
 
 Create a dummy file system cluster resource, which will monitor and report failures, in case there is a problem accessing the NFS-mounted file system `/hana/shared`. That allows the cluster to trigger failover, in case there is a problem accessing `/hana/shared`. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904).
@@ -612,13 +611,13 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
    ```
    crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
-   device="/hana/shared/HN1/check/" \
-   directory="/hana/shared/check/" fstype=nfs4  \
-   options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,intr,noatime,_netdev,vers=4,minorversion=1,lock,sec=sys" \
-   op monitor interval=120 timeout=120 on-fail=fence \
-   op_params OCF_CHECK_LEVEL=20 \
-   op start interval=0 timeout=120 \
-   op stop interval=0 timeout=120
+       device="/hana/shared/HN1/check/" \
+       directory="/hana/shared/check/" fstype=nfs4  \
+       options="bind,defaults,rw,hard,rsize=262144,wsize=262144,proto=tcp,intr,noatime,_netdev,vers=4,minorversion=1,lock,sec=sys" \
+       op monitor interval=120 timeout=120 on-fail=fence \
+       op_params OCF_CHECK_LEVEL=20 \
+       op start interval=0 timeout=120 \
+       op stop interval=0 timeout=120
    ```
 
 3.**[1/2]** Clone and check the newly configured volume in the cluster
@@ -827,4 +826,3 @@ We recommend testing the SAP HANA cluster configuration thoroughly, by also doin
 * [Azure Virtual Machines deployment for SAP][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
-
