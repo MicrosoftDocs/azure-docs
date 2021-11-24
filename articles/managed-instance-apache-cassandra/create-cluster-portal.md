@@ -6,8 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
-
+ms.custom: ignite-fall-2021, mode-portal
 ---
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster from the Azure portal
 
@@ -57,7 +56,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Enter the following details:
 
-   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Data center name** - Type a data center name in the text field.
    * **Availability zone** - Check this box if you want availability zones to be enabled.
    * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
    * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
@@ -144,8 +143,8 @@ sudo apt-get install cassandra
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
-# Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
-host=("<IP>" "<IP>" "<IP>")
+# Connect to CQLSH (replace <IP> with the private IP addresses of a node in your Datacenter):
+host=("<IP>")
 initial_admin_password="Password provided when creating the cluster"
 cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```

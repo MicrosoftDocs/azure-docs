@@ -5,14 +5,13 @@ description: In this quickstart, you learn how an app leverages Microsoft.Identi
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 05/17/2021
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core"
+ms.custom: devx-track-csharp, aaddev, "scenarios:getting-started", "languages:aspnet-core", mode-other
 # Customer intent: As an application developer, I want to download and run a demo ASP.NET Core web app that can sign in users with personal Microsoft accounts (MSA) and work/school accounts from any Azure Active Directory instance, then access their data in Microsoft Graph on their behalf.
 ---
 

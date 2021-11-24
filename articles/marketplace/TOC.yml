@@ -223,8 +223,6 @@
         href: azure-vm-image-test.md
       - name: Get SAS URI
         href: azure-vm-get-sas-uri.md
-      - name: SAS failure messages
-        href: azure-vm-sas-failure-messages.md
       - name: VM creation FAQ
         href: azure-vm-faq.yml
       - name: VM certification troubleshooting
@@ -245,7 +243,7 @@
     items: 
     - name: Plan your offer
       href: marketplace-dynamics-365.md
-    - name: Create a Customer Engagement & Power Apps offer
+    - name: Create a Customer Engagement & PowerApps offer
       items: 
       - name: Create the offer
         href: dynamics-365-customer-engage-offer-setup.md

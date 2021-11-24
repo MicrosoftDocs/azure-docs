@@ -4,13 +4,12 @@ description: Learn how to port a phone number into your Communication Services r
 author: probableprime
 manager: mikben
 services: azure-communication-services
-
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: pstn
-ms.custom: references_regions
+ms.custom: references_regions, mode-other
 ---
 # Quickstart: Port a phone number
 

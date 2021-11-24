@@ -10,8 +10,6 @@ To avoid exposing sensitive information, delete any personal information you may
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Delete personal data in deployment history
 
 For deployments, Resource Manager retains parameter values and status messages in the deployment history. These values persist until you delete the deployment from the history. To see if you have provided personal data in these values, list the deployments. If you find personal data, delete the deployments from the history.
