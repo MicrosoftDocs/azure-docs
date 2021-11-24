@@ -130,9 +130,9 @@ steps:
 In this configuration:
 
 - The `main` branch is monitored for commits.
-- The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to `cwd`.
-- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to `cwd`.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value relative to `app_location`.
+- The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
 - The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
 
