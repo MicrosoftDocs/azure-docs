@@ -4,10 +4,10 @@ description: Understand when to use Azure Container Apps and how it compares to 
 services: container-apps
 author: jeffhollan
 ms.service: container-apps
-ms.topic:  quickstart
+ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Comparing Container Apps with other Azure container options

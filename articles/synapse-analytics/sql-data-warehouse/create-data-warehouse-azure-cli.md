@@ -5,10 +5,10 @@ services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 11/20/2020
 ms.author: jrasnick
-ms.custom: azure-synapse, devx-track-azurecli
+ms.custom: azure-synapse, devx-track-azurecli, mode-api
 ---
 # Quickstart: Create a Synapse SQL pool with Azure CLI
 

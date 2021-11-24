@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use Java and JDBC with an Azur
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-azurecli
+ms.custom: mvc, devcenter, devx-track-azurecli, mode-other
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020

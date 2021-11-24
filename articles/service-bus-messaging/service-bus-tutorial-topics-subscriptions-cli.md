@@ -4,7 +4,8 @@ description: In this quickstart, you learn how to create a Service Bus topic and
 ms.date: 09/28/2021
 ms.topic: quickstart
 author: spelluru
-ms.author: spelluru 
+ms.author: spelluru
+ms.custom: mode-other
 ---
 
 # Use Azure CLI to create a Service Bus topic and subscriptions to the topic

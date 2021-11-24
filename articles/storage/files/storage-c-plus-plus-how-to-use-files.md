@@ -2,12 +2,12 @@
 title: "Quickstart: Azure Storage Files Share library v12 - C++"
 description: In this quickstart, you learn how to use the Azure Storage Files Share client library version 12 for C++ to create a files share and a file. Next, you learn how to set and retrieve metadata, then download the file to your local computer.
 author: kyle-patterson
-
 ms.author: kylepa
 ms.date: 06/22/2021
 ms.service: storage
 ms.subservice: files
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Develop for Azure Files with C++

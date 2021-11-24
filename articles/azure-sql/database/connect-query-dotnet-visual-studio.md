@@ -1,11 +1,11 @@
 ---
-title: Use Visual Studio with .NET and C# to query
-description: Use Visual Studio to create a C# app that connects to a database in Azure SQL Database or Azure SQL Managed Instance and runs queries.
+title: "Use Visual Studio with .NET and C# to query"
+description: "Use Visual Studio to create a C# app that connects to a database in Azure SQL Database or Azure SQL Managed Instance and runs queries."
 titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: "devx-track-csharp, sqldbrb=2"
+ms.custom: devx-track-csharp, sqldbrb=2, mode-other
 ms.devlang: dotnet
 ms.topic: quickstart
 author: dzsquared
