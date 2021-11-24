@@ -6,12 +6,12 @@ summary: Microsoft Defender for Cloud provides unified security management and a
 metadata:
   title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
-  services: security-center
-  ms.service: defender-for-cloud #Required; service per approved list. service slug assigned to your service by ACOM.
+  services: defender-for-cloud
+  author: memildin
+  ms.author: memildin
+  manager: raynew
   ms.topic: landing-page # Required
   ms.collection: collection
-  author: memildin #Required; your GitHub user alias, with correct capitalization.
-  ms.author: memildin #Required; microsoft alias of author; optional team alias.
   ms.date: 10/21/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -31,7 +31,7 @@ landingContent:
           - text: How do I get started with Defender for Cloud?
             url: get-started.md
           - text: What are security policies, initiatives, and recommendations?
-            url: security-policy-concept
+            url: security-policy-concept.md
 
  
   # Card
@@ -48,7 +48,7 @@ landingContent:
           - text: Connect AWS accounts with environment settings
             url: quickstart-onboard-aws.md
           - text: Threat and vulnerability management vulnerability assessment
-            url: deploy-vulnerability-assessment-tvm
+            url: deploy-vulnerability-assessment-tvm.md
  
   # Card
   - title: Get started

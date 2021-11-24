@@ -2,8 +2,11 @@
 metadata:
   title: Microsoft Defender for Cloud FAQ - data collection and agents
   description: Frequently asked questions about data collection, agents, and workspaces for Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
-  services: security-center
-        ms.topic: conceptual
+  services: defender-for-cloud
+  author: memildin
+  ms.author: memildin
+  manager: raynew
+  ms.topic: conceptual
   ms.date: 11/21/2021
     
     
