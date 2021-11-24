@@ -30,7 +30,7 @@ Fees for short code provisioning are charged during short code provisioning peri
 *Additional $500/mo would be charged for Vanity short codes
 
 >[!Note] 
->Short Codes provisioning typically averages 8-12 weeks.
+>Short Codes provisioning typically takes on average 8-12 weeks.
 
 ### Leasing Fee
 Fees for short code leasing are charged after provisioning is complete and then recur on a month-to-month basis:
