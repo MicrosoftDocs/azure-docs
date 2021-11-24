@@ -4,7 +4,7 @@ description: This quickstart provides several Go code samples you can use to con
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020

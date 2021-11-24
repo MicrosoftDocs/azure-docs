@@ -5,12 +5,12 @@ description: This quickstart uses the Go language to call the Bing News Search A
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
+ms.custom: mode-other
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go

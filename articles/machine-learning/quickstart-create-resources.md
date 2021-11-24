@@ -10,7 +10,7 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 10/21/2021
 adobe-target: true
-ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: FY21Q4-aml-seo-hack, contperf-fy21q4, mode-other
 # Customer intent: As a data scientist, I want to create a workspace so that I can start to use Azure Machine Learning.
 ---
 
