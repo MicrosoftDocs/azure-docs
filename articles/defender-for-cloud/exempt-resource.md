@@ -1,13 +1,8 @@
 ---
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
-author: memildin
-ms.author: memildin
-ms.date: 11/18/2021
 ms.topic: how-to
-ms.service: defender-for-cloud
-manager: rkarlin
-
+ms.date: 11/18/2021
 ---
 
 # Exempting resources and recommendations from your secure score 

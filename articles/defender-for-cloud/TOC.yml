@@ -31,9 +31,9 @@
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
     href: get-started.md
-  - name: 2. Enable the enhanced protections
+  - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect your hybrid and multi-cloud machines
+  - name: 3. Connect hybrid and multi-cloud machines
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
