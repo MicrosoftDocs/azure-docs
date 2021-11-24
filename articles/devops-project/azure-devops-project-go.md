@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: gwallace
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Create a CI/CD pipeline for Go using Azure DevOps Starter

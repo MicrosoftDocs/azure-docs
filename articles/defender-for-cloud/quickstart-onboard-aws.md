@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: defender-for-cloud
 manager: rkarlin
 zone_pivot_groups: connect-aws-accounts
+ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
 
@@ -84,7 +85,7 @@ Follow the steps below to create your AWS cloud connector.
 
     - To extend Defender for Servers coverage to your AWS EC2, set the **Servers** plan to **On** and edit the configuration as required. 
 
-    - To extend Defender for Kubernetes coverage to your AWS EKS Linux clusters, set the **Containers** plan to **On** and edit the configuration as required.
+    - For Defender for Kubernetes to protect your AWS EKS clusters, Azure Arc-enabled Kubernetes and the Defender extension should be installed. Set the **Containers** plan to **On**, and use the dedicated Defender for Cloud recommendation to deploy the extension (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters).
 
 1. Complete the setup:
     1. Select **Next: Configure access**.

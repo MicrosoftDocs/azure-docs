@@ -6,6 +6,7 @@ ms.date: 08/31/2020
 author: IngridAtMicrosoft
 ms.author: inhenkel
 manager: femila
+ms.custom: mode-other
 ---
 # Quickstart: Upload, encode, and stream content with portal
 

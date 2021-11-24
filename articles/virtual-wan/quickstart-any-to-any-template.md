@@ -8,8 +8,7 @@ ms.service: virtual-wan
 ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create an any-to-any configuration using an ARM template

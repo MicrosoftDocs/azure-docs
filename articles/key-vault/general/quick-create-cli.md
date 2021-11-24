@@ -4,14 +4,13 @@ description: Quickstart showing how to create an Azure Key Vault using the Azure
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: mbaldwin
-
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+ms.custom: mode-api
 ---
 # Quickstart: Create a key vault using the Azure CLI
 
@@ -42,4 +41,3 @@ In this quickstart you created a Key Vault and deleted it. To learn more about K
 - Read an [Overview of Azure Key Vault](overview.md)
 - Review the [Azure Key Vault security overview](security-features.md)
 - See the reference for the [Azure CLI az keyvault commands](/cli/azure/keyvault)
-

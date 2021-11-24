@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-other
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 

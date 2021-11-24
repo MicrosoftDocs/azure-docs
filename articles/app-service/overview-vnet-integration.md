@@ -126,6 +126,7 @@ There are some limitations with using regional virtual network integration:
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.
 * The app and the virtual network must be in the same region.
 * The integration virtual network can't have IPv6 address spaces defined.
+* The integration subnet can't have [service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) enabled.
 * The integration subnet can be used by only one App Service plan.
 * You can't delete a virtual network with an integrated app. Remove the integration before you delete the virtual network.
 * You can have only one regional virtual network integration per App Service plan. Multiple apps in the same App Service plan can use the same virtual network.

@@ -5,7 +5,7 @@ services: automation
 ms.date: 10/26/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-ms.custom: mvc
+ms.custom: mvc, mode-other
 # Customer intent: As an administrator, I want to create an Automation account so that I can further use the Automation services.
 ---
 

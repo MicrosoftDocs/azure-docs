@@ -8,7 +8,7 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: rosouz
-ms.custom: [seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python]
+ms.custom: seodec18, seo-javascript-september2019, seo-python-october2019, devx-track-python, mode-other
 ---
 
 # Quickstart: Build a Python application using an Azure Cosmos DB SQL API account

@@ -9,7 +9,7 @@ ms.subservice: workspace
 ms.date: 10/19/2020
 ms.author: jroth
 ms.reviewer: jrasnick
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create an Azure synapse workspace with Azure PowerShell
