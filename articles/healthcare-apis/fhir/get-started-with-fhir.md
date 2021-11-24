@@ -26,7 +26,7 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 
 You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM](../dicom/deploy-dicom-services-in-azure.md) service and [IoT connector](./././iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM](../dicom/deploy-dicom-services-in-azure.md) service and [IoT connector](../iot/deploy-iot-connector-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
