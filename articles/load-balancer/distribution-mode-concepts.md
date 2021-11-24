@@ -36,9 +36,9 @@ Hash-based mode has one configuration type:
 
 * **None (hash-based)** - Specifies that successive requests from the same client may be handled by any virtual machine.
 
-## Source IP affinity
+## Session persistence 
 
-This distribution mode is also known as session affinity or client IP affinity. The mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. 
+Session persistence is also known session affinity, source IP affinity, or client IP affinity. The mode uses a two-tuple (source IP and destination IP) or three-tuple (source IP, destination IP, and protocol type) hash to map traffic to the available servers. 
 
 By using source IP affinity, connections that are started from the same client computer go to the same datacenter endpoint.
 
