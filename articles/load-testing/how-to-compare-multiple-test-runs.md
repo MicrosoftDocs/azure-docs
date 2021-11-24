@@ -15,9 +15,9 @@ ms.topic: how-to
 
 In this article, learn how to identify performance regressions by visually comparing multiple load test runs in the Azure Load Testing Preview dashboard.
 
-A test run contains client-side and server-side metrics. The test engine reports client-side metrics, such as the number of virtual users. The server-side metrics provide application-specific information.
+A test run contains client-side and server-side metrics. The test engine reports client-side metrics, such as the number of virtual users. The server-side metrics provide application- and resource-specific information.
 
-By overlaying multiple the metrics charts you can more easily pinpoint performance changes, and identify which application component is causing problems.
+By overlaying multiple metrics charts you can more easily pinpoint performance changes, and identify which application component is causing problems.
 
 There are two entry points for comparing load test runs in the Azure portal:
 
