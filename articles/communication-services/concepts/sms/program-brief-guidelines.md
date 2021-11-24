@@ -12,6 +12,8 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
+# Short Code Program Brief Filling Guidelines
+
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 Azure Communication Services allows you to apply for a short code for SMS programs. In this document, we'll review the guidelines on how to fill program brief for short code registration. Program brief application consists of 4 sections:
