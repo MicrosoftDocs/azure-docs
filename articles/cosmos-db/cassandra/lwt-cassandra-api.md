@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 Azure Cosmos DB Cassandra API already supports Light Weight Transaction (LWT) including DELETE and UPDATE conditions. Cassandra API now has full support for these features. For more information, see [Wire protocol support](cassandra-support.md) for more details. LWT helps perform a read before write, for operations that require the data insert or update must be unique. For details pn how consistency level works with LWT  see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md).
 
-## LWT Support within Azure Cosmos DB Cassandra API
+## LWT support within Azure Cosmos DB Cassandra API
 To use LWT within Azure Cosmos DB Cassandra API, we advise that the following flags are set at the create table level. 
 
 ```sql
@@ -63,7 +63,7 @@ VALUES (104, 'staticVendor') IF NOT EXISTS;
 ```
 The above query currently returns FALSE but should be TRUE.
 
-## LWT with flags disabled.
+## LWT with flags disabled
 Row delete combined with IF condition is not supported if the flags are not enabled.
 
 ```sql
