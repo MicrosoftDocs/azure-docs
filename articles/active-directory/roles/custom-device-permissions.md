@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 11/02/2021
+ms.date: 11/23/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -24,7 +24,7 @@ Device management permissions can be used in custom role definitions in Azure Ac
 
 - Enable or disable devices
 - Delete devices
-- Read BitLocker keys
+- Read BitLocker recovery keys
 - Read BitLocker metadata
 - Read device registration policies
 - Update device registration policies
@@ -38,13 +38,13 @@ The following permissions are available to toggle device states.
 - microsoft.directory/devices/enable
 - microsoft.directory/devices/disable
 
-## Read BitLocker keys
+## Read BitLocker recovery keys
 
 The following permission is available to read BitLocker metadata and recovery keys.
 
 - microsoft.directory/bitlockerKeys/key/read
 
-You can view the BitLocker recovery key by using the **All Devices** page or using the BitLocker (Preview) view in the **Device** page.
+You can view the BitLocker recovery key by selecting a device from the **All Devices** page, and then selecting **Show Recovery Key**. For more information about reading BitLocker recovery keys, see [View or copy BitLocker keys](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ![Screenshot showing Bitlocker keys in Azure portal.](./media/custom-device-permissions/bitlocker-keys.png)
 
