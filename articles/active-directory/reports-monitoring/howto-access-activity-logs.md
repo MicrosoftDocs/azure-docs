@@ -84,19 +84,14 @@ Another method for accessing activity logs from your code is to use **Azure Even
 - **Azure Event hubs** - For pulling large sets of sign-in data. For more information, see [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
 
-## Security monitoring 
+## Near real time security event detection 
 
-A security monitoring solution provides near real time security detection.
-Near real time security event detection includes scenarios, in which you need to:
-
-- Ben example 1
-- Ben example 2
-- Ben example 3
+To detect and stop threats before they can cause harm to your environment, you might have a security solution deployed in your environment that can process activity log data in real time.
 
 
 ### Recommendation
 
-For real-time security detection, you [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
+For real-time security detection, use [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
 **Use:**
 
@@ -117,12 +112,26 @@ Your independent security vendor should provide you with instructions on how to 
 
 
 The term *threat hunting* refers to a proactive approach to improve the security posture of your environment.  
-As opposed to classic protection, thread hunting tries to identify potential threats that might harm your system.
+As opposed to classic protection, thread hunting tries to proactively identify potential threats that might harm your system. Your activity log data might be part of your threat hunting solution.
 
 
-## Recommendation
+### Recommendation
 
-Because thread hunting requires real-time access to your activity logs, the same recommendations apply.
+For real-time security detection, use [Microsoft Sentinel](../../sentinel/overview.md), or [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
+
+**Use:**
+
+- **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
+
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub). 
+  
+ 
+Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
+
+- [ArcSight](howto-integrate-activity-logs-with-arcsight.md)
+- [Splunk](howto-integrate-activity-logs-with-splunk.md) 
+- [SumoLogic](howto-integrate-activity-logs-with-sumologic.md) 
+
 
 
 ## Export data for long term storage 
@@ -133,43 +142,33 @@ If you need to store your log information for a longer period due to compliance 
 
 ### Recommendation
 
-The right solution for your long term storage is tight to two ABC (pillars?):
+The right solution for your long term storage is tight to two pillars:
 
 - Your budget
 
 - What you plan on doing with the data
   
 
-The simplest method to create a long-term backup of your log data is a manual download. The user interface of the activity logs provides you with an option to download the data as **JSON** or **CSV**. For more information, see [How to download logs in Azure Active Directory](howto-download-logs.md). 
+If your budget is tight, and you need cheap method to create a long-term backup of your activity logs, you can do a manual download. The user interface of the activity logs provides you with an option to download the data as **JSON** or **CSV**. For more information, see [how to download logs in Azure Active Directory](howto-download-logs.md). 
 
-One trade off of the manual download is that it requires a lot of manual interaction. If you only need a more sophisticated backup method for your data, use Azure storage. 
+One trade off of the manual download is that it requires a lot of manual interaction. If you are looking for a more professional solution, use either Azure storage or Azure monitor.
+  
+[Azure storage](../../storage/common/storage-introduction.md) the right solution for you if you are not planning on querying your data often. For more information, see [archive directory logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
-    
-If you also plan to query the logs often, to run reports or analysis on the stored logs, you should store your data in Azure monitor. Azure monitor provides you with built-in reporting and alerting capabilities.
-
-
-## Export data for a logs analysis 
+If you also plan to query the logs often to run reports or analysis on the stored logs, you should store your data in Azure monitor. Azure monitor provides you with built-in reporting and alerting capabilities. For more information, see [integrate Azure Active Directory logs to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze activity logs using Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
 
 
+
+## Log analysis 
+
+One common requirement is export activity data to perform a log analysis.
 
 
 ### Recommendation
 
+If you are not planning on using an independent log analysis tool, use Azure monitor or event hubs. Azure monitor provides a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [integrate Azure Active Directory logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
 
-Azure Monitor provides you with a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [Azure AD activity logs in Azure Monitor](concept-activity-logs-azure-monitor.md).
-
-**To use:**
-
-- **Azure AD** - Use Azure Monitor or Event Hubs. For example, you can [export logs to Azure monitor]()
-
-- **Independent log analysis tools** - For an example, see [Integrate Azure Active Directory logs with Splunk using Azure Monitor](howto-integrate-activity-logs-with-splunk.md).
-
-
-
-
-: Stream Azure Active Directory logs to Azure Monitor logs | Microsoft Docs. Once you have integration set up, you can use Azure Monitor to query your logs: Analyze activity logs using Azure Monitor logs | Microsoft Docs. 
-
- 
+You can also export your logs to an independent log analysis tool, such as [Splunk](howto-integrate-activity-logs-with-splunk.md). 
 
 
 ## Next steps
