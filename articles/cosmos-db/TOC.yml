@@ -204,7 +204,7 @@
         - name: Distribute data globally
           href: sql/tutorial-global-distribution-sql-api.md
         - name: Spring Boot app on Azure Kubernetes Service
-          href: sql/tutorial-springboot-aks.md
+          href: sql/tutorial-springboot-azure-kubernetes-service.md
     - name: Samples
       items:
         - name: .NET V3 SDK samples
