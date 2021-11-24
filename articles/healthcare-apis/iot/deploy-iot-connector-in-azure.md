@@ -1,12 +1,13 @@
 ---
 title: Deploy IoT connector in the Azure portal - Azure Healthcare APIs
-description: In this article, you'll learn how to deploy IoT connector in the Azure portal. 
+description: In this article, you'll learn how to deploy IoT connector in the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/10/2021
 ms.author: jasteppe
+ms.custom: mode-portal
 ---
 
 # Deploy IoT connector in the Azure portal

@@ -9,7 +9,7 @@ ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: allensu
-
+ms.custom: mode-other
 ---
 # Quickstart: Create a public IP address using a Resource Manager template
 

@@ -7,7 +7,7 @@ ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Configure rules and actions for your device in Azure IoT Central

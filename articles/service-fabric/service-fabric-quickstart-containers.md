@@ -1,11 +1,10 @@
 ---
-title: Create a Windows container app on Service Fabric in Azure 
-description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
-
+title: Create a Windows container app on Service Fabric in Azure
+description: In this quickstart, you create your first Windows container application on Azure Service Fabric.
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: atsenthi
-ms.custom: mvc, devx-track-azurepowershell
+ms.custom: mvc, devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Deploy Windows containers to Service Fabric
