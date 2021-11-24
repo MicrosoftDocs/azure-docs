@@ -70,7 +70,7 @@ For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from
 
 For **GeForce/Quadro GPUs**, download and install the [NVIDIA CUDA-enabled driver for Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) to use with your existing CUDA ML workflows. Originally developed for WSL, the CUDA for WSL drivers are also used for Azure IoT Edge for Linux on Windows.
 
-Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) as some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows runtime. 
+Windows 10 users must also [install WSL](https://docs.microsoft.com/en-us/windows/wsl/install) as some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
 ### Intel iGPUs
 
