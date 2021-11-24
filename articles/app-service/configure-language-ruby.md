@@ -1,10 +1,10 @@
 ---
 title: Configure Ruby apps - Azure App Service
-description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks. 
+description: Learn how to configure a pre-built Ruby container for your app. This article shows the most common configuration tasks.
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-azurecli
+ms.custom: mvc, seodec18, devx-track-azurecli, mode-other
 ---
 
 # Configure a Linux Ruby app for Azure App Service

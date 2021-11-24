@@ -6,14 +6,13 @@ services: cognitive-services
 author: mrbullwinkle
 manager: nitinme
 zone_pivot_groups: anomaly-detector-quickstart
-
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
 ---
 
 # Quickstart: Use the Anomaly Detector univariate client library
@@ -41,4 +40,3 @@ ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-au
 [!INCLUDE [Python quickstart](../includes/quickstarts/anomaly-detector-rest-api.md)]
 
 ::: zone-end
-

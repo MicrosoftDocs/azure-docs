@@ -2,8 +2,7 @@
 title: "Quickstart: Azure Blob Storage library v12 - Java"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: normesta
-
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: normesta
 ms.date: 12/01/2020
 ms.service: storage

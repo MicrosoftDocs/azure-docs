@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub

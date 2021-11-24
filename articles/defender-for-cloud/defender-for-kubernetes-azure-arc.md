@@ -1,12 +1,8 @@
 ---
 title: Protect hybrid and multi-cloud Kubernetes deployments with Microsoft Defender for Kubernetes
 description: Use Microsoft Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 

@@ -1,13 +1,8 @@
 ---
 title: Defender for Cloud Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Defender for Cloud.
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Defender for Cloud readiness roadmap
 
