@@ -6,13 +6,12 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 zone_pivot_groups: programming-languages-set-ten
-
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 10/21/2020
 ms.author: aahi
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
 ---
 # Quickstart: Use the Bing Image Search client library
 

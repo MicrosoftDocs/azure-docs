@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python
+ms.custom: seo-python-october2019, sqldbrb=2, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 author: dzsquared

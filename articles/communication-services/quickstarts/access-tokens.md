@@ -5,13 +5,13 @@ description: Learn how to manage identities and access tokens using the Azure Co
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
-
 ms.author: tchladek
 ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
+ms.custom: mode-other
 ---
 
 # Quickstart: Create and manage access tokens

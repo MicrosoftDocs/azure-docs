@@ -6,6 +6,7 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 10/30/2020
+ms.custom: mode-portal
 ---
 # Quickstart: Share data using Azure Data Share in the Azure portal
 

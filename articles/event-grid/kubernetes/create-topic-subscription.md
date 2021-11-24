@@ -1,11 +1,12 @@
 ---
 title: Azure Event Grid on Kubernetes - Webhook as event handler
-description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic. 
+description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic.
 author: jfggdl
 ms.subservice: kubernetes
 ms.author: jafernan
 ms.date: 06/17/2021
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Route cloud events to Webhooks with Azure Event Grid on Kubernetes

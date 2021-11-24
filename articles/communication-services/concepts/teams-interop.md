@@ -22,11 +22,15 @@ ms.subservice: teams-interop
 Azure Communication Services can be used to build custom applications and experiences that enable interaction with Microsoft Teams users over voice, video, chat, and screen sharing. The following video demonstrates some of the capabilities of Teams interoperability:
 
 <br>
+<br>
+
+
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWGTqQ]
+
 
 Azure Communication Services supports two types of Teams interoperability depending on the identity of the end user:
 
-- **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses to join Teams meetings. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
+- **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **Teams user identity.** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the standard Teams client.
 
 Applications can implement both authentication models and leave the choice of authentication up to the end user.
@@ -47,7 +51,7 @@ When an endpoint connects to a Teams meeting using a Teams identity via the Azur
 
 ## Bring your own identity
 
-Bring your own identity (BYOI) is the common model for using Azure Communication Services and Teams interoperability. It supports any identity provider and authentication scheme. The first scenario that has been enabled allows your application to join Microsoft Teams meetings, and Teams will treat these users as anonymous external accounts, the same as users that join using the Teams anonymous web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application experience) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
+The bring your own identity (BYOI) authentication model allows you to build custom applications for non-Teams users to connect and communicate with Teams users. You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
 For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
@@ -68,7 +72,6 @@ To learn more about the functionality, join our TAP program for early access by 
 
 |Criteria|Bring your own identity| Teams identity|
 |---|---|---|
-|Applicable| In business-to-consumer scenarios for consumer applications | In business-to-business or business-to-consumer scenarios on business applications |
 |Identity provider|Any|Azure Active Directory|
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
 |Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
@@ -93,4 +96,4 @@ Azure Communication Services interoperability isn't compatible with Teams deploy
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Authenticate Microsoft 365 users](../quickstarts/manage-teams-identity.md)
+> [Enable Teams access tokens](../quickstarts/manage-teams-identity.md)

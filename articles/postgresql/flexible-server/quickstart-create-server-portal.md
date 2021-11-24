@@ -4,7 +4,7 @@ description: Quickstart guide to creating and managing an Azure Database for Pos
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 06/02/2021
 ---
