@@ -102,7 +102,7 @@ In this configuration:
 - The `build_and_deploy_job` executes when you push commits or open a pull request against the branch listed in the `on` property.
 - The `app_location` points to the `src` folder that contains the source files for the web app. To set this value to the repository root, use `/`.
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. To set this value to the repository root, use `/`.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files. It's relative to `app_location`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. It's relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 
 Don't change the values for `repo_token`, `action`, and `azure_static_web_apps_api_token` as they're set for you by Azure Static Web Apps.
 
@@ -132,7 +132,7 @@ In this configuration:
 - The `main` branch is monitored for commits.
 - The `app_location` points to the `src` folder that contains the source files for the web app. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
 - The `api_location` points to the `api` folder that contains the Azure Functions application for the site's API endpoints. This value is relative to the working directory (`cwd`). To set it to the working directory, use `/`.
-- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`.
+- The `output_location` points to the `public` folder that contains the final version of the app's source files. This value is relative to `app_location`. For .NET projects, the location is relative to the publish output folder.
 - The `cwd` is an absolute path pointing to the working directory. It defaults to `$(System.DefaultWorkingDirectory)`.
 - The `$(deployment_token)` variable points to the [generated Azure DevOps deployment token](./publish-devops.md).
 
