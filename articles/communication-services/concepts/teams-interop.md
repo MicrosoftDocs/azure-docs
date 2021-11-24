@@ -48,7 +48,7 @@ Teams anonymous users don't have to be Teams users. Azure Communication Services
 
 When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
 
-![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_m365_identity_interop_overview.png)
+![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams_interop_m365_identity_interop_overview_v2.png)
 
 ## Bring your own identity
 
