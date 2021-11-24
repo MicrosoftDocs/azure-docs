@@ -15,7 +15,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/08/2022
+ms.date: 11/24/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -78,7 +78,7 @@ The **Microsoft Graph API**:
 - Doesn't require an administrator or developer to set up additional infrastructure to support your script or app. 
 - Is **not** designed for pulling large amounts of activity data. Pulling large amounts of activity data using the API leads to issues with pagination and performance. 
 
-Another method for accessing activity logs from your code is to use **Azure Event Hubs**. Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
+Another method for accessing activity logs from your code is to use **Azure Event Hubs**. Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an Event Hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.
 
 **Use:**
 
@@ -86,9 +86,9 @@ Another method for accessing activity logs from your code is to use **Azure Even
 - **Azure Event hubs** - For pulling large sets of sign-in data. For more information, see [Azure Event Hubs](../../event-hubs/event-hubs-about.md).  
 
 
-## Near real time security event detection 
+## Near real-time security event detection 
 
-To detect and stop threats before they can cause harm to your environment, you might have a security solution deployed in your environment that can process activity log data in real time.
+To detect and stop threats before they can cause harm to your environment, you might have a security solution deployed in your environment that can process activity log data in real-time.
 
 
 ### Recommendation
@@ -99,7 +99,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 - **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
-- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
  
 Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
@@ -125,7 +125,7 @@ For real-time security detection, use [Microsoft Sentinel](../../sentinel/overvi
 
 - **Microsoft Sentinel** - To provide sign-in and audit data to your security operations center for a near real- time security detection. You can easily stream data to Azure Sentinel with the built in Azure AD to Azure Sentinel connector. For more information, see [connect Azure Active Directory data to Azure Sentinel](../../sentinel/connect-azure-active-directory.md). 
 
-- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an event hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
+- **Azure Event Hub** - If your security operations center uses another tool, you can stream Azure AD events using an Azure Event Hub. For more information, see [stream logs to an Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md). 
   
  
 Your independent security vendor should provide you with instructions on how to ingest data from Azure Event Hubs into their tool. You can find instructions for some commonly used SIEM tools in the Azure AD reporting documentation:
@@ -168,7 +168,7 @@ One common requirement is export activity data to perform a log analysis.
 
 ### Recommendation
 
-If you are not planning on using an independent log analysis tool, use Azure monitor or event hubs. Azure monitor provides a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [integrate Azure Active Directory logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
+If you are not planning on using an independent log analysis tool, use Azure monitor or Event Hubs. Azure monitor provides a very easy way to analyze logs from Azure AD, as well as other Azure services and independent tools. You can easily export logs to Azure Monitor using the built in connector. For more information, see [integrate Azure Active Directory logs with Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md). Once you have integration set up, you can use Azure Monitor to query your logs. For more information, see [analyze Azure AD activity logs with Azure Monitor logs](howto-analyze-activity-logs-log-analytics.md).
 
 You can also export your logs to an independent log analysis tool, such as [Splunk](howto-integrate-activity-logs-with-splunk.md). 
 
