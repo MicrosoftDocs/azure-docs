@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: memildin
 ms.date: 11/09/2021
 ---

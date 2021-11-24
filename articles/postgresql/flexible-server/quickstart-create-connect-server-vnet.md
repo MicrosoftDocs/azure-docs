@@ -4,7 +4,7 @@ description: This article shows how to create and connect to Azure Database for 
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 07/29/2021
 ---

@@ -7,6 +7,7 @@ ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: memildin
+ms.custom: mode-api
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
 

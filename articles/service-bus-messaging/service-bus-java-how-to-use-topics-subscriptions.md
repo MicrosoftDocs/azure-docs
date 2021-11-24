@@ -4,7 +4,7 @@ description: In this quickstart, you write Java code using the azure-messaging-s
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
-ms.custom: mode-api
+ms.custom: mode-other
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Java)

@@ -1,6 +1,6 @@
 ---
 title: Get started with Document Translation
-description: How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
+description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms"
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: mode-other
 ---
 
 # Get started with Document Translation

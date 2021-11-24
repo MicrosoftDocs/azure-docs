@@ -6,13 +6,12 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 zone_pivot_groups: programming-languages-set-fifteen
-
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 # Quickstart: Use the Bing Autosuggest client library
 
