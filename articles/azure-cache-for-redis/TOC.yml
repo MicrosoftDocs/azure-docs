@@ -184,7 +184,7 @@
     items:
     - name: Troubleshoot connectivity issues
       href: cache-troubleshoot-connectivity.md
-    - name: Troubleshoot timeouts
+    - name: Troubleshoot latency and timeouts
       href: cache-troubleshoot-timeouts.md
     - name: Troubleshoot client 
       href: cache-troubleshoot-client.md

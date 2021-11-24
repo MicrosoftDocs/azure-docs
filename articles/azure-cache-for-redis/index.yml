@@ -108,7 +108,7 @@ landingContent:
         links:
           - text: Troubleshoot connectivity issues
             url: cache-troubleshoot-connectivity.md
-          - text: Troubleshoot timeouts
+          - text: Troubleshoot latency and timeouts
             url: cache-troubleshoot-timeouts.md
           - text: Troubleshoot client issues
             url: cache-troubleshoot-client.md
