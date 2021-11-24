@@ -29,9 +29,6 @@ Health probes support multiple protocols. The availability of a specific health 
 
 
 >[!IMPORTANT]
->Review this document in its entirety, including important [design guidance](#design) below to create a reliable service.
-
->[!IMPORTANT]
 >Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details. To see this probe traffic within your backend instance, review [this FAQ](./load-balancer-faqs.yml).
 
 >[!IMPORTANT]
