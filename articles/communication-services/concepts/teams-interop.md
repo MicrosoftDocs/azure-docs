@@ -56,18 +56,6 @@ Teams users are authenticated via the MSAL library against Azure Active Director
 
 To learn more about the functionality, join our TAP program for early access by completing [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 
-### Comparison
-
-|Criteria|Bring your own identity| Teams identity|
-|---|---|---|
-|Identity provider|Any|Azure Active Directory|
-|Authentication & authorization|Custom*| Azure Active Directory and custom*|
-|Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
-|Chat available via | Communication Services Chat SDKs | Graph API |
-|PSTN support| Not supported for Communication Services users in Teams meetings | inbound call assigned to Teams identity, outbound call using calling plan|
-
-\* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
-
 ## Teams meeting and calling experiences
 
 There are two ways that users can access the Teams calling experience:
@@ -81,6 +69,18 @@ Teams anonymous users don't have to be Teams users. Azure Communication Services
 When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
 
 ![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-microsoft365-identity-interop-overview-v2.png)
+
+### Comparison
+
+|Criteria|Bring your own identity| Teams identity|
+|---|---|---|
+|Identity provider|Any|Azure Active Directory|
+|Authentication & authorization|Custom*| Azure Active Directory and custom*|
+|Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
+|Chat available via | Communication Services Chat SDKs | Graph API |
+|PSTN support| Not supported for Communication Services users in Teams meetings | inbound call assigned to Teams identity, outbound call using calling plan|
+
+\* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
