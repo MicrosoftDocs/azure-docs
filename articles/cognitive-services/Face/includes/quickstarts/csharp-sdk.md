@@ -157,8 +157,6 @@ The rest of the `DetectFaceExtract` method parses and prints the attribute data 
 
 The "QualityForRecognition" attribute is an indicator of the overall image quality regarding whether the image being used in the detection is of sufficient quality to attempt face recognition on. To leverage the quality attribute, users need to assign the model version with the detectionModel parameter to detection_01 or detection_03, recognitionModel parameter to recognition_03 or recognition_04, and include the QualityForRecognition attribute in the request as shown in the example above.    
 
-
-
 ## Identify a face
 
 The Identify operation takes an image of a person (or multiple people) and looks to find the stored person object associated with each face in the image (facial recognition search). It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial data is known. In order to do the Identify operation, you first need to create and train a **PersonGroup**
