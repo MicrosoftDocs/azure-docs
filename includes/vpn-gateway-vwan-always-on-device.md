@@ -115,12 +115,14 @@ After you have configured the virtual network gateway and installed the client c
 1. Download **PsExec** from [Sysinternals](/sysinternals/downloads/psexec) and extract the files to **C:\PSTools**.
 1. From an Admin CMD prompt, launch PowerShell by running:
    
-   For 32-bit Windows
+   For 32-bit Windows:
+   
    ```
    PsExec.exe -s -i powershell
    ```
    
    For 64-bit Windows:
+   
    ```
    PsExec64.exe -s -i powershell
    ```
