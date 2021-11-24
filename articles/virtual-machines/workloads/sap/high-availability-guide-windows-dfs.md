@@ -24,11 +24,11 @@ ms.author: stmuelle
 
 SAP instances like ASCS/SCS based on WSFC require SAP files being installed on a shared drive. SAP supports either a Cluster Shared Disks or a File Share Cluster to host these files.
 
-![SWPM screenshot](media/virtual-machines-shared-sap-high-availability-guide/swpm-01.png)SWPM selection screen for Cluster Share configuration
+![Screenshot Cluster Share configuration](media/virtual-machines-shared-sap-high-availability-guide/swpm-01.png)SWPM selection screen for Cluster Share configuration option
 
 For installations based on **Azure NetApp Files SMB** or **Azure Files Premium SMB** the option File Share Cluster needs to be selected. In the follow-up screen the File Share Host Name needs to be supplied.
 
-![SWPM screenshot](media/virtual-machines-shared-sap-high-availability-guide/swpm-02.png)SWPM selection screen for Cluster Share Host Name configuration
+![Screenshot Cluster Share Hostname selection](media/virtual-machines-shared-sap-high-availability-guide/swpm-02.png)SWPM selection screen for Cluster Share Host Name configuration
 
 The Cluster Share Host Name is based on the chosen installation option. For Azure NetApp Files SMB it is the used to join the NetApp account to the Active Directory of the installation. For Azure Files Premium SMB it is the FQDN name of the storage account hosting the share. In SAP terms this is the so called **SAPGLOBALHOST**.
 SWPM internally adds **sapmnt** to the host name resulting in the **\\\SAPGLOBALHOST\sapmnt**  share. Unfortunately **sapmnt** can only be created once per either NetApp account or storage account. This is quite restrictive. DFS-N can be used in this to create virtual share names which can be assigned to differently named shares. Rather than having to use **sapmnt** as the share name as mandated by SWPM, a unique name like **sapmnt-sid** can be used. The same is valid for the global transport directory. Since trans is the expected name of global transport directory, the **SAP DIR_TRANS** profile parameter in the **DEFAULT.PFL** profile needs to be adjusted.
@@ -42,7 +42,7 @@ with **DIR_TRANS = \\\contoso.local\sapmnt\trans-sc4 in the DEFAULT.PFL profile*
 
 ## Microsoft DFS-N
 
-An introduction and the installation instructions for DFS-N can be found [here](https://docs.microsoft.com/en-us/windows-server/storage/dfs-namespaces/dfs-overview)
+An introduction and the installation instructions for DFS-N can be found [here](windows-server/storage/dfs-namespaces/dfs-overview)
 
 Adding resiliency to DFS-N is described at the end of this documentation.
 
