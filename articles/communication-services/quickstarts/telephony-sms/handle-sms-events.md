@@ -5,12 +5,12 @@ description: Learn how to handle SMS events using Azure Communication Services.
 author: probableprime
 manager: chpalm
 services: azure-communication-services
-
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
+ms.custom: mode-other
 ---
 # Quickstart: Handle SMS events for Delivery Reports and Inbound Messages
 

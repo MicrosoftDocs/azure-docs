@@ -5,6 +5,7 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: spelluru
+ms.custom: mode-other
 ---
 
 # Use the Azure CLI to create a Service Bus namespace and a queue
@@ -56,4 +57,3 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [PHP](service-bus-php-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-

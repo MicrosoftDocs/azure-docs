@@ -9,6 +9,7 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
+ms.custom: mode-other
 ---
 
 # Deploy Azure SQL Edge with Docker

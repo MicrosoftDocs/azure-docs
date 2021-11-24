@@ -6,7 +6,7 @@ ms.author: nayenama
 ms.date: 11/15/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom: mode-portal
+ms.custom: mode-other
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account in the Azure portal
@@ -76,5 +76,3 @@ Follow these next articles to learn how to navigate the Purview Studio, create a
 * [Using the Purview Studio](use-purview-studio.md)
 * [Create a collection](quickstart-create-collection.md)
 * [Add users to your Azure Purview account](catalog-permissions.md)
-
-

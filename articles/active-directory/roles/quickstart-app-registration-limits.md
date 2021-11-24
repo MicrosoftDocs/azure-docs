@@ -11,8 +11,7 @@ ms.topic: quickstart
 ms.date: 05/14/2021
 ms.author: rolyon
 ms.reviewer: vincesm
-ms.custom: it-pro, devx-track-azurepowershell
-
+ms.custom: it-pro, devx-track-azurepowershell, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Grant permission to create unlimited app registrations

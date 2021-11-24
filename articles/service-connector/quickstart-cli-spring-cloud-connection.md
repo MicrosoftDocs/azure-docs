@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: quickstart
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Create a service connection in Spring Cloud with the Azure CLI
