@@ -208,6 +208,8 @@ Telemetry emitted by these Azure SDKs is autocollected by default:
 
 ## Modify telemetry
 
+This section gives guidance on how you can modify telemetry.
+
 ### Add span attributes
 
 You can use `opentelemetry-api` to add attributes to spans. These attributes can include adding a custom business dimension to your telemetry. You can also use attributes to set optional fields in the Application Insights schema, such as User ID or Client IP.
@@ -304,9 +306,9 @@ The following table represents currently supported custom telemetry types that y
 - Custom metrics are supported through micrometer.
 - Custom exceptions and traces can be enabled through logging frameworks.
 - Custom requests, dependencies, and exceptions can be enabled through `opentelemetry-api`.
-- Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-using-the-2x-sdk).
+- Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
-|                     | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
+| Custom telemetry type            | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
 |---------------------|------------|---------------------|---------|-------------------|
 | Custom events       |            |                     |  Yes    |                   |
 | Custom metrics      |  Yes       |                     |  Yes    |                   |
