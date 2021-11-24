@@ -124,7 +124,7 @@ To disable authorized IP ranges, use [az aks update][az-aks-update] and specify 
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges ""
+    --api-server-authorized-ip-ranges=""
 ```
 
 ## Find existing authorized IP ranges
