@@ -19,6 +19,29 @@ ms.service: digital-twins
 
 This document contains reference information on **functions** for the [Azure Digital Twins query language](concepts-query-language.md).
 
+## CONTAINS
+
+A string function to determine whether a string property of a twin contains another specified string value.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsSyntax":::
+
+### Arguments
+
+* `<string-to-check>`: A string-type twin property that you want to check for the specified value
+* `<contained-string>`: A string representing the value to check for
+
+### Returns
+
+A Boolean value indicating whether the first string expression contains the sequence of characters defined in the second string expression.
+
+### Example
+
+The following query returns all digital twins whose IDs contain `-route`. The string to check is the `$dtId` of each twin in the collection, and the contained string is `-route`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsExample":::
+
 ## ENDSWITH
 
 A string function to determine whether a string property of a twin ends in a certain other string. 
@@ -41,57 +64,6 @@ A Boolean value indicating whether the first string expression ends with the sec
 The following query returns all digital twins whose IDs end in `-small`. The string to check is the `$dtId` of each twin in the collection, and the ending string is `-small`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="EndsWithExample":::
-
-## IS_DEFINED
-
-A type checking and casting function to check whether a property is defined.
-
-This is only supported when the property value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedSyntax":::
-
-### Arguments
-
-`<property>`, a property to determine whether it is defined. The property must be of a primitive type.
-
-### Returns
-
-A Boolean value indicating if the property has been assigned a value.
-
-### Example
-
-The following query returns all digital twins who have a defined *Location* property.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedExample":::
-
-## IS_OF_MODEL
-
-A type checking and casting function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelSyntax":::
-
-### Arguments
-
-Required:
-* `<model-ID>`: The model ID to check for.
-
-Optional:
-* `<twin-collection>`: Specify a twin collection to search when there is more than one (like when a `JOIN` is used).
-* `exact`: Require an exact match. If this parameter is not set, the result set will include twins with models that inherit from the specified model.
-
-### Returns
-
-A Boolean value indicating if the specified twin matches the specified model type.
-
-### Example
-
-The following query returns twins from the DT collection that are exactly of the model type `dtmi:example:room;1`.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelExample":::
 
 ## IS_BOOL
 
@@ -121,53 +93,29 @@ The following query builds on the above example to select the digital twins that
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsBoolNotFalseExample":::
 
-## IS_NUMBER
+## IS_DEFINED
 
-A type checking and casting function for determining whether an expression has a number value.
+A type checking and casting function to check whether a property is defined.
 
-This function is often combined with other predicates if the program processing the query results requires a number value, and you want to filter out cases where the property is not a number.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNumberSyntax":::
-
-### Arguments
-
-`<expression>`, an expression to check whether it is a number.
-
-### Returns
-
-A Boolean value indicating if the type of the specified expression is a number.
-
-### Example
-
-The following query selects the digital twins that have a numeric `Capacity` property and its value is not equal to 0.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNumberExample":::
-
-## IS_STRING
-
-A type checking and casting function for determining whether an expression has a string value. 
-
-This function is often combined with other predicates if the program processing the query results requires a string value, and you want to filter out cases where the property is not a string.
+This is only supported when the property value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. `DateTime`, object types, and arrays are not supported.
 
 ### Syntax
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedSyntax":::
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is a string.
+`<property>`, a property to determine whether it is defined. The property must be of a primitive type.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is a string.
+A Boolean value indicating if the property has been assigned a value.
 
 ### Example
 
-The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
+The following query returns all digital twins who have a defined *Location* property.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsDefinedExample":::
 
 ## IS_NULL
 
@@ -191,29 +139,29 @@ The following query returns twins who do not have a null value for Temperature. 
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNullExample":::
 
-## IS_PRIMITIVE
+## IS_NUMBER
 
-A type checking and casting function for determining whether an expression's value is of a primitive type (string, Boolean, numeric, or `null`).
+A type checking and casting function for determining whether an expression has a number value.
 
-This function is often combined with other predicates if the program processing the query results requires a primitive-typed value, and you want to filter out cases where the property is not primitive.
+This function is often combined with other predicates if the program processing the query results requires a number value, and you want to filter out cases where the property is not a number.
 
 ### Syntax
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsPrimitiveSyntax":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNumberSyntax":::
 
 ### Arguments
 
-`<expression>`, an expression to check whether it is of a primitive type.
+`<expression>`, an expression to check whether it is a number.
 
 ### Returns
 
-A Boolean value indicating if the type of the specified expression is one of the primitive types (string, Boolean, numeric, or `null`).
+A Boolean value indicating if the type of the specified expression is a number.
 
 ### Example
 
-The following query returns the `area` property of the Factory with the ID of 'ABC,' only if the `area` property is a primitive type. For more about projecting certain columns in the query result (like this query does with `area`), see [Azure Digital Twins query language reference: SELECT clause](reference-query-clause-select.md#select-columns-with-projections).
+The following query selects the digital twins that have a numeric `Capacity` property and its value is not equal to 0.
 
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsPrimitiveExample":::
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsNumberExample":::
 
 ## IS_OBJECT
 
@@ -239,6 +187,81 @@ The following query selects all of the digital twins where this is an object cal
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectExample":::
 
+## IS_OF_MODEL
+
+A type checking and casting function to determine whether a twin is of a particular model type. Includes models that inherit from the specified model.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelSyntax":::
+
+### Arguments
+
+Required:
+* `<model-ID>`: The model ID to check for.
+
+Optional:
+* `<twin-collection>`: Specify a twin collection to search when there is more than one (like when a `JOIN` is used).
+* `exact`: Require an exact match. If this parameter is not set, the result set will include twins with models that inherit from the specified model.
+
+### Returns
+
+A Boolean value indicating if the specified twin matches the specified model type.
+
+### Example
+
+The following query returns twins from the DT collection that are exactly of the model type `dtmi:example:room;1`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsOfModelExample":::
+
+## IS_PRIMITIVE
+
+A type checking and casting function for determining whether an expression's value is of a primitive type (string, Boolean, numeric, or `null`).
+
+This function is often combined with other predicates if the program processing the query results requires a primitive-typed value, and you want to filter out cases where the property is not primitive.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsPrimitiveSyntax":::
+
+### Arguments
+
+`<expression>`, an expression to check whether it is of a primitive type.
+
+### Returns
+
+A Boolean value indicating if the type of the specified expression is one of the primitive types (string, Boolean, numeric, or `null`).
+
+### Example
+
+The following query returns the `area` property of the Factory with the ID of 'ABC,' only if the `area` property is a primitive type. For more about projecting certain columns in the query result (like this query does with `area`), see [Azure Digital Twins query language reference: SELECT clause](reference-query-clause-select.md#select-columns-with-projections).
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsPrimitiveExample":::
+
+## IS_STRING
+
+A type checking and casting function for determining whether an expression has a string value. 
+
+This function is often combined with other predicates if the program processing the query results requires a string value, and you want to filter out cases where the property is not a string.
+
+### Syntax
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringSyntax":::
+
+### Arguments
+
+`<expression>`, an expression to check whether it is a string.
+
+### Returns
+
+A Boolean value indicating if the type of the specified expression is a string.
+
+### Example
+
+The following query selects the digital twins that have a string property `Status` property and its value is not equal to `Completed`.
+
+:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsStringExample":::
+
 ## STARTSWITH
 
 A string function to determine whether a string property of a twin begins with a certain other string. 
@@ -261,26 +284,3 @@ A Boolean value indicating whether the first string expression starts with the s
 The following query returns all digital twins whose IDs begin with `area1-`. The string to check is the `$dtId` of each twin in the collection, and the beginning string is `area1-`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="StartsWithExample":::
-
-## CONTAINS
-
-A string function to determine whether a string property of a twin contains another specified string value.
-
-### Syntax
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsSyntax":::
-
-### Arguments
-
-* `<string-to-check>`: A string-type twin property that you want to check for the specified value
-* `<contained-string>`: A string representing the value to check for
-
-### Returns
-
-A Boolean value indicating whether the first string expression contains the sequence of characters defined in the second string expression.
-
-### Example
-
-The following query returns all digital twins whose IDs contain `-route`. The string to check is the `$dtId` of each twin in the collection, and the contained string is `-route`.
-
-:::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="ContainsExample":::
