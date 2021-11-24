@@ -59,28 +59,29 @@ The following is a list of all the Azure data source (data center) regions where
 
 ### Purview scanner regions
 
-- EastUs
-- EastUs2 
-- SouthCentralUS
-- WestUs
-- WestUs2
-- SoutheastAsia
-- WestEurope
-- NorthEurope
-- UkSouth
-- AustraliaEast
-- CanadaCentral
-- BrazilSouth
-- CentralIndia
-- JapanEast
-- SouthAfricaNorth
-- FranceCentral
-- KoreaCentral
-- CentralUS
-- NorthCentralUS
-- EastAsia
-- WestCentralUS
-- AustraliaSoutheast
+- Australia East
+- Australia Southeast
+- Brazil South
+- Canada Central
+- Central India
+- Central US
+- East Asia
+- East US
+- East US 2
+- France Central
+- Japan East
+- Korea Central
+- North Central US
+- North Europe
+- South Africa North
+- South Central US
+- Southeast Asia
+- UAE North
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: emuench
 ms.author: smannepalle
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ---
 
 # Quality of service (QoS) dashboard
@@ -32,10 +32,6 @@ This feature is currently applicable to all partners performing deployment of Az
 
 ## Access the Quality of service dashboard
 
-[!INCLUDE [preview interface note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
 
 1. On the Home page, select the **Insights** tile.
@@ -46,31 +42,15 @@ This feature is currently applicable to all partners performing deployment of Az
 
     [ ![Illustrates the left-nav on the Insights dashboard.](./media/quality-of-service/insights-overview-workspaces.png) ](./media/quality-of-service/insights-overview-workspaces.png#lightbox)
 
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home)
-
-1. In the left-nav, select **Commercial Marketplace** > [**Analyze**](https://partner.microsoft.com/dashboard/commercial-marketplace/quality-of-service/summary) > **Quality of Service**.
-
----
-
 ## Elements of the Quality of service dashboard
 
 The following sections describe how to use the Quality-of-Service (QoS) dashboard and how to read the data.
 
 ### Month range
 
-#### [Workspaces view](#tab/workspaces-view)
-
 There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
 
 [ ![Illustrates the filters on the Quality of Service dashboard.](./media/quality-of-service/qos-filters-workspaces.png) ](./media/quality-of-service/qos-filters-workspaces.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-There is a month range selection at the top-right corner of each page. Customize the output of the **Quality-of-Service** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (selection period) is six months.
-
----
 
 ### Quality by offers
 

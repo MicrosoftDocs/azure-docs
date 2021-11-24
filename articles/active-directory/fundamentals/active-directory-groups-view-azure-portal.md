@@ -4,14 +4,13 @@ description: Instructions about how to search for and view your organization's g
 services: active-directory
 author: ajburnle
 manager: daveba
-
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: ajburnle
-ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
+ms.custom: it-pro, seodec18, seo-update-azuread-jan, mode-other
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ---
