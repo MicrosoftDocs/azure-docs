@@ -36,7 +36,7 @@ Azure Communication Services supports two types of Teams interoperability depend
 
 Applications can implement both authentication models and leave the choice of authentication up to the end user.
 
-## Bring your own identity
+### Bring your own identity
 
 The bring your own identity (BYOI) authentication model allows you to build custom applications for non-Teams users to connect and communicate with Teams users. You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. The first scenario that has been enabled allows users of your application to join Microsoft Teams meetings as external accounts, similar to [anonymous users that join meetings](/microsoftteams/meeting-settings-in-teams#allow-anonymous-users-to-join-meetings) using the Teams web application. This is ideal for business-to-consumer applications that bring together employees (familiar with Teams) and external users (using a custom application) into a meeting experience. In the future we will be enabling additional scenarios including direct calling and chat which will allow your application to initiate calls and chats with Teams users outside the context of a Teams meeting.
 
@@ -44,7 +44,7 @@ For more information, see [Join a Teams meeting](join-teams-meeting.md).
 
 It is currently not possible for a Teams user to join a call that was initiated using the Azure Communication Services Calling SDK.
 
-## Teams identity
+### Teams identity
 The Azure Communication Services Calling SDK can be used with Teams identities to support Teams-like experiences for Teams interoperability. Teams identities are provided and authenticated by Azure Active Directory. Your app can make or accept calls with a regular Teams identity. All attributes and details about the user are bound to the Azure Active Directory user.
 
 This identity model is ideal for use cases where a custom user interface is needed, where the Teams client is not available for your platform, or where the Teams client does not support a sufficient level of customization. For example, an application can be used to answer phone calls on behalf of the end user's Teams provisioned PSTN number and have a user interface optimized for a receptionist or call center business process.  
@@ -80,18 +80,6 @@ Teams anonymous users don't have to be Teams users. Azure Communication Services
 When an endpoint connects to a Teams meeting using a Teams identity via the Azure Communication Services client libraries, the endpoint is treated like a Teams user with a Teams client. Teams users have access to more functionality than Teams anonymous users. Teams users can join Teams meetings, place calls to other Teams user, receive calls from phone numbers, and they can transfer ongoing calls to the Teams call queue. The connectivity of the Communication Services endpoint with Teams identity is shown in the following diagram.
 
 ![Overview of interoperability scenarios within Azure Communication Services](./media/teams-identities/teams-interop-microsoft365-identity-interop-overview-v2.png)
-
-## Comparison
-
-|Criteria|Bring your own identity| Teams identity|
-|---|---|---|
-|Identity provider|Any|Azure Active Directory|
-|Authentication & authorization|Custom*| Azure Active Directory and custom*|
-|Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
-|Chat available via | Communication Services Chat SDKs | Graph API |
-|PSTN support| Not supported for Communication Services users in Teams meetings | inbound call assigned to Teams identity, outbound call using calling plan|
-
-\* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
