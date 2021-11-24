@@ -1,5 +1,5 @@
 ---
-title: Azure Communication Services User Facing Diagnostics
+title: Azure Communication Services Media Quality metrics
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the ACS media quality statics SDK.
 author: sloanster
@@ -13,11 +13,10 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 
-# Media qualiy metrics 
+# Media quality statistics 
+When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help underedstand these details, we have a feature called "Media Quality metrics" that you can use to examine the low levey audi, video, and screen sharing metrics.
 
-When working with calls in Azure Communication Services, there will be times that you want to know the low level media quality metrics that are being generated within an ACS call. To help underedstand these details, we have a feature called "Media Quality staticis" that you can use to examine the low levey audi, video, and screen sharing metrics.
-
-### Media quality metrics for ongoing call
+### Media quality statistics for ongoing call
 > **NOTE**
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
 
@@ -36,13 +35,29 @@ const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
 };
 ```
 
-Then, get media stats colector by invoking `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
+where
+- `aggregationInterval` is the interval in seconds that the statistics will be aggregated. 
+- `dataPointsPerAggregation` defines how many data points are neededd for each aggregation.
+
+After getting media stats collector, you will receive `mediaStatsEmitted` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
+
+Example:
+- If you set `aggregatinInterval` == 1
+- `dataPointsPerAggregation` == 60
+
+The media stats `mediaStatsEmmitted` will be raised every 60 seconds and will contain 60 unique units for each stat recorded.
+
+- If you set `aggregatinInterval` == 60
+- `dataPointsPerAggregation` == 1
+The media stats `mediaStatsEmmitted` will be raised every 60 second and will contain 1 unique unit for each stat recorded.
+
+As a developer you can invoke the `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
 
 ```js
 const mediaStatsCollector = mediaStatsFeature.startCollector(mediaStatsSubscriptionOptions);
 ```
 
-After getting media stats collector, you will receive `mediaStatsEmitted` event with stats every `aggregationIntervalMs * dataPointsPerAggregation` milliseconds.
+
 
 ```js
 mediaStatsCollector.on('mediaStatsEmitted', (mediaStats) => {
@@ -63,6 +78,9 @@ To dispose all collectors, invoke `disposeAllCollectors` method of `mediaStatsAp
 ```js
 mediaStatsFeature.disposeAllCollectors();
 ```
+## Best Practices
+If you want to collect this data for off-line inspection it is best use available bandwith during an ACS call it is best to not send this data to your ingest pipeline. By doing so your client application could use up critically needed internet bandwidth for the ACS call. It is best to collect this data and send it to your pipeline ingest after your call has ended.
+
 ### Bandwidth Metrics
 | Metric Name    | Purpose              | Detailed explanation                                                    | Comments                                                                      |
 | -------------- | -------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
@@ -105,8 +123,8 @@ mediaStatsFeature.disposeAllCollectors();
 | videoRecvFrameHeightReceived   | Received height                  | Height of video currently received                                                                                                       | 1080, 720, 540, 360, 270, 240                                                                    |
 | videoRecvBitrate               | Received bitrate                 | Bitrate of video currently received (bits per second)                                                                                    | Information only,                                                                                |
 | videoRecvPackets               | Received packets                 | The number of packets received in last second                                                                                            | Information only                                                                                 |
-| VideoRecvPacketsLost           | Received packet loss             | The results of a bad network                                                                                                             | Lower is better                                                                                  |
-| videoSendPacketsLost           | Sent packet loss                 | The results of a bad network                                                                                                             | Lower is better                                                                                  |
+| VideoRecvPacketsLost           | Received packet loss             | The number of video packets that were to be received but were lost. Results are packets per second (over the last second).                                                                                                             | Lower is better                                                                                  |
+| videoSendPacketsLost           | Sent packet loss                 | The number of audio packets that were sent but were lost. Results are packets per second (over the last second).                                                                                                             | Lower is better                                                                                  |
 | videoSendFrameRateInput        | Sent framerate input             | Framerate measurements from the stream input into peerConnection                                                                         | Information only                                                                                 |
 | videoRecvFrameRateDecoded      | Received decoded framerate       | Framerate from decoder output. This takes  videoSendFrameRateInput as an input, might be some loss in decoding                           | Information only                                                                                 |
 | videoSendFrameWidthInput       | Sent frame width input           | Frame width of the stream input into peerConnection. This takes  videoRecvFrameRateDecoded as an input, might be some loss in rendering. | 1920, 1280, 960, 640, 480, 320                                                                   |
@@ -124,10 +142,10 @@ mediaStatsFeature.disposeAllCollectors();
 | screenSharingRecvFrameRateReceived     | Received frame rate              | Number of video frames received. Lower is better.                | 1-30 FPS                              |
 | screenSharingRecvFrameWidthReceived    | Received width                   | Video resolution received. Higher is better                      | 1920 pixels (content aware, variable) |
 | screenSharingRecvFrameHeightReceived   | Received height                  | Video resolution sent. Higher is better                          | 1080 pixels (content aware, variable) |
-| screenSharingRecvCodecName             | Received codec                   | Codec used for decoding your video camera feed                   | Information only                      |
-| screenSharingRecvJitterBufferMs        | Received Jitter                  | //TODO                                                           | //TODO                                |
-| screenSharingRecvPacketsLost           | Received packet loss             | The results of a bad network                                     | Lower is better                       |
-| screenSharingSendPacketsLost           | Received packet loss             | The results of a bad network                                     | Lower is better                       |
+| screenSharingRecvCodecName             | Received codec                   | Codec used for decoding video stream                             | Information only                      |
+| screenSharingRecvJitterBufferMs        | Received Jitter                  | Jitter is the amount of difference in packet delay (in milliseconds (ms))                                                                |                                 |
+| screenSharingRecvPacketsLost           | Received packet loss             | The number of screenshare packets that were to be received but were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
+| screenSharingSendPacketsLost           | Received packet loss             | The number of screenshare packets that were sent were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
 | screenSharingSendFrameRateInput        | Sent framerate input             | Framerate measurements from the stream input into peerConnection | Information only                      |
 | screenSharingRecvFrameRateDecoded      | Received decoded framerate       | Framerate from decoder output                                    | Information only                      |
 | screenSharingRecvFrameRateOutput       | Received framerate output        | Framerate of the stream that was sent to renderer                | Information only                      |
