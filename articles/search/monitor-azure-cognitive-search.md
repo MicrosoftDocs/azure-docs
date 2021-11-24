@@ -1,17 +1,16 @@
 ---
-title: Monitor operations and activity
-titleSuffix: Azure Cognitive Search
-description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
+title: Monitor Azure Cognitive Search
+description: Enable resource logging, get query metrics, resource usage, and other system data about an Azure Cognitive Search service.
 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/23/2021
+ms.topic: how-to
+ms.date: 11/24/2021
 ---
 
-# Monitor operations and activity of Azure Cognitive Search
+# Monitoring Azure Cognitive Search
 
 In Azure Cognitive Search, the monitoring of service health, operations, and activity is through platform integration with Azure Service Health and Azure Monitor. 
 
