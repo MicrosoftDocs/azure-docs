@@ -5,13 +5,12 @@ description: Learn how to send an SMS message using Azure Communication Services
 author: probableprime
 manager: chpalm
 services: azure-communication-services
-
 ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
-ms.custom: tracking-python, devx-track-js
+ms.custom: tracking-python, devx-track-js, mode-other
 zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Send an SMS message
