@@ -8,6 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.date: 11/24/2021
+ms.custom: subject-monitoring
 ---
 
 # Monitoring Azure Cognitive Search
