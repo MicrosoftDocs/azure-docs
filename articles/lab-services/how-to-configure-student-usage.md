@@ -166,7 +166,7 @@ You can set an hour quota for each student by doing the following:
 
     The changed values are now displayed on the **Quota per user: \<number of hours>** button on the toolbar and in the users list, as shown here:
 
-    ![Quota hours per user](./media/how-to-configure-student-usage/quot-per-user-after.png)
+    ![Quota hours per user](./media/how-to-configure-student-usage/quota-per-user-after.png)
 
     > [!IMPORTANT]
     > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota that's allotted to a student. The quota is for the time outside of scheduled hours that a student spends on VMs. 

@@ -39,7 +39,7 @@ In this release, there remain a few known issues:
 
 - PowerShell SDK will be released on 12/7/2021 as part of the monthly update for the Azure module.
 
-- C# SDK will be released on _______________
+- C# SDK is not yet released
 
 - When using VNet Injection, use caution in making changes to the virtual network and subnet because it can cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience, but for now make sure to delete labs before deleting networks.
 
