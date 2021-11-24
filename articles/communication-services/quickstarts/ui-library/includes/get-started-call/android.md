@@ -373,7 +373,7 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 
 ```kotlin
 val callComposite: CallComposite = CallCompositeBuilder().build()
-callComposite.addOnErrorHandler { errorEvent ->
+callComposite.setOnErrorHandler { errorEvent ->
     //...
 }
 ```
@@ -382,7 +382,7 @@ callComposite.addOnErrorHandler { errorEvent ->
 
 ```java
 CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.addOnErrorHandler(errorEvent -> {
+callComposite.setOnErrorHandler(errorEvent -> {
     //...
 });
 ```
