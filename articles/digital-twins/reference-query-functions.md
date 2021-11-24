@@ -21,7 +21,7 @@ This document contains reference information on **functions** for the [Azure Dig
 
 ## ENDSWITH
 
-A string function used to determine whether a given string ends in a certain other string. 
+A string function to determine whether a string property of a twin ends in a certain other string. 
 
 ### Syntax
 
@@ -29,7 +29,7 @@ A string function used to determine whether a given string ends in a certain oth
 
 ### Arguments
 
-* `<string-to-check>`: A string to check the ending of
+* `<string-to-check>`: A string-type twin property that you want to check the ending of
 * `<ending-string>`: A string representing the ending to check for
 
 ### Returns
@@ -38,7 +38,7 @@ A Boolean value indicating whether the first string expression ends with the sec
 
 ### Example
 
-The following query returns all digital twins whose IDs end in `-small`.
+The following query returns all digital twins whose IDs end in `-small`. The string to check is the `$dtId` of each twin in the collection, and the ending string is `-small`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="EndsWithExample":::
 
@@ -235,13 +235,13 @@ A Boolean value indicating if the type of the specified expression is a JSON obj
 
 ### Example
 
-The following query selects all of the digital twins where this is an object called `MapObject`, and does not have a child property `TemperatureReading`.
+The following query selects all of the digital twins where this is an object called `MapObject`, and it does not have a child property `TemperatureReading`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="IsObjectExample":::
 
 ## STARTSWITH
 
-A string function used to determine whether a given string begins with a certain other string. 
+A string function to determine whether a string property of a twin begins with a certain other string. 
 
 ### Syntax
 
@@ -249,7 +249,7 @@ A string function used to determine whether a given string begins with a certain
 
 ### Arguments
 
-* `<string-to-check>`: A string to check the beginning of
+* `<string-to-check>`: A string-type twin property that you want to check the beginning of
 * `<beginning-string>`: A string representing the beginning to check for
 
 ### Returns
@@ -258,13 +258,13 @@ A Boolean value indicating whether the first string expression starts with the s
 
 ### Example
 
-The following query returns all digital twins whose IDs begin with `area1-`.
+The following query returns all digital twins whose IDs begin with `area1-`. The string to check is the `$dtId` of each twin in the collection, and the beginning string is `area1-`.
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" ID="StartsWithExample":::
 
 ## CONTAINS
 
-A string function used to determine whether a given string contains another specified string value.
+A string function to determine whether a string property of a twin contains another specified string value.
 
 ### Syntax
 
@@ -272,7 +272,7 @@ A string function used to determine whether a given string contains another spec
 
 ### Arguments
 
-* `<string-to-check>`: A string to check for the specified value
+* `<string-to-check>`: A string-type twin property that you want to check for the specified value
 * `<contained-string>`: A string representing the value to check for
 
 ### Returns
