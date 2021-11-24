@@ -205,7 +205,7 @@ To find your Directory (tenant) ID, follow the steps listed below:
 1. From the left-pane, select Azure Active Directory.
 1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
 
-    ![Copy the directory (tenant ID](./media/troubleshooting/copy-aad-directory-id.png)
+    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
 
 ## Getting Application ID 
 To find your Application ID, follow the steps listed below:
@@ -215,7 +215,7 @@ To find your Application ID, follow the steps listed below:
 1. From **App registrations** in Azure AD, select your application.
 1. Copy the **Application ID** and store it in your application code.
 
-   ![Copy the application ID](./media/troubleshooting/copy-aad-application-id.png)
+   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
 
    The directory (tenant) ID can also be found in the application overview page.
 
@@ -227,7 +227,7 @@ To find your User ID, follow the steps listed below:
 1. From **Users** in Azure AD, select your user.
 1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
 
-   ![Copy the user ID](./media/troubleshooting/copy-aad-user-id.png)
+   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Calling SDK error codes
 
