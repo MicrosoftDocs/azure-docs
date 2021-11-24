@@ -361,6 +361,7 @@
         "articles/azure-monitor/**/*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0",
         "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
+        "articles/azure-percept/**/*.md": "https://feedback.azure.com/d365community/forum/4a4c60f9-4e4d-ec11-8f8e-0022481f2bb0,
         "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0",
         "articles/azure-portal/**/*.md": "https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0",
         "articles/azure-portal/supportability/**/*.md": "https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0",
