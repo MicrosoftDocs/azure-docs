@@ -70,7 +70,7 @@ curl -X PATCH -H "Ocp-Apim-Subscription-Key: {API-KEY}" -H "Content-Type: applic
 }
 ```
 
-## Delete Project
+## Delete project
 
 To delete a project/knowledge base programmatically:
 
