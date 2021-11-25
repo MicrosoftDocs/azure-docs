@@ -163,7 +163,7 @@ If the test configuration file is empty, the following content is written into t
 }
 ```
 
-The following example shows 2 test cases, on a query using 2 inputs. If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**. In this case the FilePath property must not be empty, but doesn't need to be valid.
+The following example shows two test cases, on a query using two inputs. If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**. In this case, the FilePath property must not be empty, but doesn't need to be valid.
 
 ```JSON
 {
