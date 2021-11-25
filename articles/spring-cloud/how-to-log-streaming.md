@@ -90,6 +90,8 @@ By default, `az spring-cloud app logs` prints only existing logs streamed to the
 az spring-cloud app logs -n auth-service -f
 ```
 
+When using `-f` to tail instant logs, if your application is not writing logs constantly, every 1 minute, the Azure Spring Cloud log streaming service will send heartbeat logs to client with message like `2020-01-15 04:27:13.473: No log from server`.
+
 To check all the logging options supported:
 
 ```azurecli
