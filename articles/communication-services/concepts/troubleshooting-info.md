@@ -230,7 +230,7 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 
 ## SMS SDK error codes
 
-The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the `error.code` property in the error response.
+The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
