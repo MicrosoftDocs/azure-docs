@@ -507,16 +507,16 @@ First, create the HANA topology. Run the following commands on one of the Pacema
 ```
 sudo crm configure property maintenance-mode=true
 
-# Replace the bold string with your instance number and HANA system ID
+# Replace the HN1 with your 'SID' and 03 with your instance number below
 
-sudo crm configure primitive rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
-	operations \$id="rsc_sap2_<b>HN1</b>_HDB<b>03</b>-operations" \
+sudo crm configure primitive rsc_SAPHanaTopology_HN1_HDB03 ocf:suse:SAPHanaTopology \
+	operations \$id="rsc_sap2_HN1_HDB03-operations" \
 	op monitor interval="10" timeout="600" \
 	op start interval="0" timeout="600" \
 	op stop interval="0" timeout="300" \
-	params SID="<b>HN1</b>" InstanceNumber="<b>03</b>"
+	params SID="HN1" InstanceNumber="03"
 
-sudo crm configure clone cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
+sudo crm configure clone cln_SAPHanaTopology_HN1_HDB03 rsc_SAPHanaTopology_HN1_HDB03 \
     meta clone-node-max="1" target-role="Started" interleave="true"
 ```
 
@@ -536,42 +536,42 @@ Next, create the HANA resources:
 > This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 ```
-Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
+# Replace HN1, 03 and 10.0.0.13 with your 'SID', instance number and front-end IP address respectively.
 
-sudo crm configure primitive rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> ocf:suse:SAPHana \
-    operations \$id="rsc_sap_<b>HN1</b>_HDB<b>03</b>-operations" \
+sudo crm configure primitive rsc_SAPHana_HN1_HDB03 ocf:suse:SAPHana \
+    operations \$id="rsc_sap_HN1_HDB03-operations" \
     op start interval="0" timeout="3600" \
     op stop interval="0" timeout="3600" \
     op promote interval="0" timeout="3600" \
     op monitor interval="60" role="Master" timeout="700" \
     op monitor interval="61" role="Slave" timeout="700" \
-    params SID="<b>HN1</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
+    params SID="HN1" InstanceNumber="03" PREFER_SITE_TAKEOVER="true" \
     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
-sudo crm configure ms msl_SAPHana_<b>HN1</b>_HDB<b>03</b> rsc_SAPHana_<b>HN1</b>_HDB<b>03</b> \
+sudo crm configure ms msl_SAPHana_HN1_HDB03 rsc_SAPHana_HN1_HDB03 \
     meta notify="true" clone-max="2" clone-node-max="1" \
     target-role="Started" interleave="true"
 
-sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \
+sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
     meta target-role="Started" \
-    operations \$id="rsc_ip_<b>HN1</b>_HDB<b>03</b>-operations" \
+    operations \$id="rsc_ip_HN1_HDB03-operations" \
     op monitor interval="10s" timeout="20s" \
-    params ip="<b>10.0.0.13</b>"
+    params ip="10.0.0.13"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+sudo crm configure primitive rsc_nc_HN1_HDB03 azure-lb port=62503 \
     meta resource-stickiness=0
 
-sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
+sudo crm configure group g_ip_HN1_HDB03 rsc_ip_HN1_HDB03 rsc_nc_HN1_HDB03
 
-sudo crm configure colocation col_saphana_ip_<b>HN1</b>_HDB<b>03</b> 4000: g_ip_<b>HN1</b>_HDB<b>03</b>:Started \
-    msl_SAPHana_<b>HN1</b>_HDB<b>03</b>:Master  
+sudo crm configure colocation col_saphana_ip_HN1_HDB03 4000: g_ip_HN1_HDB03:Started \
+    msl_SAPHana_HN1_HDB03:Master  
 
-sudo crm configure order ord_SAPHana_<b>HN1</b>_HDB<b>03</b> Optional: cln_SAPHanaTopology_<b>HN1</b>_HDB<b>03</b> \
-    msl_SAPHana_<b>HN1</b>_HDB<b>03</b>
+sudo crm configure order ord_SAPHana_HN1_HDB03 Optional: cln_SAPHanaTopology_HN1_HDB03 \
+    msl_SAPHana_HN1_HDB03
 
 # Clean up the HANA resources. The HANA resources might have failed because of a known issue.
 
-sudo crm resource cleanup rsc_SAPHana_<b>HN1</b>_HDB<b>03</b>
+sudo crm resource cleanup rsc_SAPHana_HN1_HDB03
 
 sudo crm configure property maintenance-mode=false
 sudo crm configure rsc_defaults resource-stickiness=1000
