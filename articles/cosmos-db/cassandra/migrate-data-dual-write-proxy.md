@@ -66,7 +66,7 @@ The following image illustrates the pattern.
 We recommend Azure Databricks. Use a runtime which supports Spark 3.0 or higher.
 
 >[!IMPORTANT]
-> You need to ensure that your Azure Databricks account has network connectivity with your source Apache Cassandra cluster. This may require VNet injection. See article [here](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) for more information.  
+> You need to ensure that your Azure Databricks account has network connectivity with your source Apache Cassandra cluster. This may require VNet injection. See article [here](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) for more information.  
 
 :::image type="content" source="./media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
