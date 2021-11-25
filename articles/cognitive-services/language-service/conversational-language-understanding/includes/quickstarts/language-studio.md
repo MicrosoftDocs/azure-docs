@@ -122,4 +122,4 @@ You can test other utterances such as:
 You can also test out utterances in other languages such as the following phrases:
 
 * "*Joindre le fichier PDF*" (in French: "*Attach the PDF file*"), 
-* "*lesen sie die e-mail von Macy*" (in German: "*Read Macy's e-mail*")
+* "*Lesen Sie die E-mail von Macy*" (in German: "*Read Macy's e-mail*")
