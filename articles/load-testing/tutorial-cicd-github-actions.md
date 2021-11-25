@@ -73,7 +73,7 @@ In this section, you update the Apache JMeter script with the URL of your sample
    <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app.
+    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow in the subsequent steps. For now, replace the placeholder text *`{your-app-name}`* in the previous previous XML snippet with a unique name you wish to provide to the App Service web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
@@ -149,7 +149,11 @@ To run a test with Azure Load Testing from a CI/CD workflow, you need a load tes
     |*`<your-azure-web-app>`*     | The Azure App Service web app name. This name should match the name used for the endpoint URL in the *SampleApp.jmx* test script. |
     |*`<your-azure-load-testing-resource-name>`*     | The name of your Azure Load Testing resource. |
     |*`<your-azure-load-testing-resource-group-name>`*     | The resource group name that contains the Azure Load Testing resource. |
-
+    
+    
+    > [!IMPORTANT]
+    > The name of Azure web app should match the name used for the endpoint URL in the *SampleApp.jmx* test script.
+    
     ```yaml
     env:
       AZURE_WEBAPP_NAME: "<your-azure-web-app>"
@@ -181,6 +185,9 @@ In this section, you'll view the load test results in the GitHub Actions workflo
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-completed.png" alt-text="Screenshot that shows the workflow logging information.":::
 
     Once the load test finishes, you can view the test summary information and the client-side metrics in the workflow logs. The log also shows the URL to navigate to the Azure Load Testing dashboard for this load test.
+    
+    > [!NOTE]
+    > GitHub may mask your subscription ID from the URL, in which case you will need to replace the asterisks *'*****'* in the URL with your *subscription ID* to navigate to the Azure Load Testing dashboard.
 
 1. In the workflow run details screen, select the **loadTestResults** artifact to download the load test result files.
 
@@ -262,8 +269,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
     
     ```json
     {
-        "enableSecretsFeature": true,
-        "secretHeaderValue": "1797669089"
+        "enableSecretsFeature": true
     }
     ```
     
@@ -281,7 +287,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
    <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app.
+    You'll deploy the secure sample application to an Azure App Service web app by using the GitHub Actions workflow in subsequent steps. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
@@ -303,7 +309,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
       [
           {
           "name": "appToken",
-          "value": "${{ secrets.MY_SECRET }}",
+          "value": "${{ secrets.MY_SECRET }}"
           }
       ]
     ```
