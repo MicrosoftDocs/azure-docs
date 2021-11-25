@@ -90,7 +90,7 @@ Operations can be called directly from the Azure portal, which provides a conven
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 >[!NOTE]
->Every Logic App has **manual-invoke** operation. To comprise your API of multiple logic apps and avoid collision, you need to rename the function.
+>Every Logic App has **manual-invoke** operation. To comprise your API of multiple logic apps and avoid collision, you need to rename the function. In order to rename the function/API, please navigate to the OpenAPI Specification editor and change the title value.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
