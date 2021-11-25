@@ -287,7 +287,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
    <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the secure sample application to an Azure App Service web app by using the GitHub Actions workflow in subsequent steps. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app.
+    You'll deploy the secure sample application to an Azure App Service web app by using the GitHub Actions workflow in subsequent steps. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app. You'll then use this same name to create the web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
