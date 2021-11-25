@@ -68,7 +68,7 @@ Roles with permission can be assigned to different scopes to achieve granular co
 Assign the `CosmosRestoreOperator` built-in role at subscription level
 
 ```azurecli-interactive
-az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope /subscriptions/<subscriptionId>
+az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
 ### Assign capability to restore from a specific account
@@ -78,7 +78,7 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 * Assign the *CosmosRestoreOperator* built-in role to the specific restorable database account that needs to be restored. In the following command, the scope for the *RestorableDatabaseAccount* is retrieved from the `ID` property in the output of `az cosmosdb restorable-database-account list` (if using CLI)  or  `Get-AzCosmosDBRestorableDatabaseAccount` (if using PowerShell).
 
   ```azurecli-interactive
-   az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
+   az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope <RestorableDatabaseAccount>
   ```
 
 ### Assign capability to restore from any source account in a resource group.
