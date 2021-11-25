@@ -26,7 +26,7 @@ $Location = "eastus"
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
 ```powershell
-$ResourceGroup = "MyResourceGroup"
+$ResourceGroup = 'MyResourceGroup'
 New-AzResourceGroup -Name $ResourceGroup -Location $Location
 ```
 
