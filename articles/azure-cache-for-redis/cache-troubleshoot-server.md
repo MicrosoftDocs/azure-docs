@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/20/2021
 ---
 
 # Troubleshoot Azure Cache for Redis server issues
