@@ -6,7 +6,7 @@ author: julieMSFT
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: jrasnick
 ms.date: 08/07/2020
 ---

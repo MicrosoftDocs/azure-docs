@@ -2,7 +2,10 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/25/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # What's new in Azure Backup
@@ -14,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2021
+  - [Multi-user authorization using Resource Guard (in preview)](#multi-user-authorization-using-resource-guard-in-preview)
   - [Multiple backups per day for Azure Files (in preview)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - July 2021
@@ -45,13 +49,19 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## Multi-user authorization using Resource Guard (in preview)
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more details, see [how to protect Recovery Services vault and manage critical operations with MUA](/azure/backup/multi-user-authorization).
+
 ## Multiple backups per day for Azure Files (in preview)
 
 Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss in the event of a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
 
 Using Azure Backup you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
 
-For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
+For more details, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
 ## Azure Backup metrics and metrics alerts (in preview)
 

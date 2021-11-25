@@ -99,6 +99,6 @@ If you find that you cannot see your data follow these troubleshooting steps:
 
 ## Next steps
 
-+ [Monitor search operations and activity](search-monitor-usage.md)
++ [Monitor search operations and activity](monitor-azure-cognitive-search.md)
 + [What is Power BI?](/power-bi/fundamentals/power-bi-overview)
 + [Basic concepts for designers in the Power BI service](/power-bi/service-basic-concepts)

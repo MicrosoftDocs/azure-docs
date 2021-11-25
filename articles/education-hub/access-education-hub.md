@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
+ms.custom: mode-other
 ---
 
 # Accessing the Azure Education Hub

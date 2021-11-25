@@ -28,6 +28,7 @@ The following file types are supported for scanning, for schema extraction and c
  > * Purview scanner supports scanning snappy compressed PARQUET types for schema extraction and classification. 
  > * For GZIP file types, the GZIP must be mapped to a single csv file within. 
  > Gzip files are subject to System and Custom Classification rules. We currently don't support scanning a gzip file mapped to multiple files within, or any file type other than csv. 
+ > * For delimited file types(CSV, PSV, SSV, TSV, TXT), we do not support data type detection. The data type will be listed as "string" for all columns. 
 - Document file formats supported by extension: DOC, DOCM, DOCX, DOT, ODP, ODS, ODT, PDF, POT, PPS, PPSX, PPT, PPTM, PPTX, XLC, XLS, XLSB, XLSM, XLSX, XLT
 - Purview also supports custom file extensions and custom parsers.
 

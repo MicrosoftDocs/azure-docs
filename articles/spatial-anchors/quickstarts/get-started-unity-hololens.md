@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to build a HoloLens app with Unit
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
 ms.author: parkerra
 ms.date: 03/18/2021
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Create a Unity HoloLens app that uses Azure Spatial Anchors
 
