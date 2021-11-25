@@ -1,8 +1,8 @@
 ---
-title: Back up Azure VMs with enhanced policy (in preview)
-description: Learn how to back up VMs with enhanced policies
+title: Back up Azure VMs with Enhanced policy (in preview)
+description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ms.reviewer: geg
 author: v-amallick
 ms.service: backup
@@ -10,7 +10,7 @@ ms.author: v-amallick
 ---
 # Back up an Azure VM using Enhanced policy (in preview)
 
-This article explains how to back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service using the Enhanced policy. Backup for Trusted Launch VM is in preview.
+This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with the Azure Backup service. Enhanced policy for backup of VMs is in preview.
 
 Azure Backup now supports Enhanced policy that's needed to support new Azure offerings. For example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch) is supported with Enhanced policy only. To enroll your subscription for backup of Trusted Launch VM, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
 
@@ -19,14 +19,17 @@ Azure Backup now supports Enhanced policy that's needed to support new Azure off
 
 You must enable backup for Trusted Launch VM through enhanced policy only. The Enhanced policy provides the following features:
 
-- Supports multiple backups per day. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for full snapshots with ZRS created by Azure Backup](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Supports _Multiple Backups Per Day_. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
+- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Enhanced policu storage here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
-The following figure shows multiple backups occurred in a day.
+The following screenshot shows _Multiple Backups_ occurred in a day.
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-inline.png" alt-text="Screenshot showing the multiple backup instances occurred in a day." lightbox="./media/backup-azure-vms-enhanced-policy/multiple-backups-per-day-expanded.png":::
+
+>[!Note]
+>The above screenshot shows that one of the backups is transferred to the Vault-Standard tier.
 
 ## Create an Enhanced policy and configure VM backup
 
@@ -50,7 +53,7 @@ Follow these steps:
    
      :::image type="content" source="./media/backup-azure-vms-enhanced-policy/select-enhanced-backup-policy-sub-type.png" alt-text="Screenshot showing to select backup policies sub-type as enhanced.":::
 	 
-   - **Backup schedule**: You can select frequency as **Hourly**/**Daily**/**Weekly**. 
+   - **Backup schedule**: You can select frequency as **Hourly**/Daily/Weekly. 
 	  
      By default, the enhanced backup schedule is set to **Hourly**, with **8 AM** as the start time, **Every 4 hours** as the schedule, and **24 Hours** as duration. You can choose to modify the settings as needed.
 
