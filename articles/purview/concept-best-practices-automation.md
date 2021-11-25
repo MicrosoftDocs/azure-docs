@@ -95,15 +95,15 @@ When to use?
 * [Docs](/java/api/com.azure.resourcemanager.purview?view=azure-java-preview&preserve-view=true) | [Maven](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-purview/1.0.0-beta.1/jar) com.azure.resourcemanager.purview
 
 **Azure SDK for JavaScript**
-* [Docs](/javascript/api/overview/azure/purview-account-rest-readme?view=azure-node-preview) | [npm](https://www.npmjs.com/package/@azure-rest/purview-account) @azure-rest/purview-account
-* [Docs](/javascript/api/overview/azure/purview-administration-rest-readme?view=azure-node-preview) | [npm](https://www.npmjs.com/package/@azure-rest/purview-administration) @azure-rest/purview-administration
-* [Docs](/javascript/api/overview/azure/purview-catalog-rest-readme?view=azure-node-preview) | [npm](https://www.npmjs.com/package/@azure-rest/purview-catalog) @azure-rest/purview-catalog
-* [Docs](/javascript/api/overview/azure/purview-scanning-rest-readme?view=azure-node-preview) | [npm](https://www.npmjs.com/package/@azure-rest/purview-scanning) @azure-rest/purview-scanning
-* [Docs](/javascript/api/@azure/arm-purview/?view=azure-node-preview) | [npm](https://www.npmjs.com/package/@azure/arm-purview) @azure/arm-purview
+* [Docs](/javascript/api/overview/azure/purview-account-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-account) @azure-rest/purview-account
+* [Docs](/javascript/api/overview/azure/purview-administration-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-administration) @azure-rest/purview-administration
+* [Docs](/javascript/api/overview/azure/purview-catalog-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-catalog) @azure-rest/purview-catalog
+* [Docs](/javascript/api/overview/azure/purview-scanning-rest-readme?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure-rest/purview-scanning) @azure-rest/purview-scanning
+* [Docs](/javascript/api/@azure/arm-purview/?view=azure-node-preview&preserve-view=true) | [npm](https://www.npmjs.com/package/@azure/arm-purview) @azure/arm-purview
 
 **Azure SDK for Python**
-* [Docs](/python/api/azure-purview-account/?view=azure-python-preview) | [PyPi](https://pypi.org/project/azure-purview-account/) azure-purview-account
-* [Docs](/python/api/azure-purview-administration/?view=azure-python-preview) | [PyPi](https://pypi.org/project/azure-purview-administration/) azure-purview-administration
-* [Docs](/python/api/azure-purview-catalog/?view=azure-python-preview) | [PyPi](https://pypi.org/project/azure-purview-catalog/) azure-purview-catalog
-* [Docs](/python/api/azure-purview-scanning/?view=azure-python-preview) | [PyPi](https://pypi.org/project/azure-purview-scanning/) azure-purview-scanning
-* [Docs](/python/api/azure-mgmt-purview/?view=azure-python) | [PyPi](https://pypi.org/project/azure-mgmt-purview/) azure-mgmt-purview
+* [Docs](/python/api/azure-purview-account/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-account/) azure-purview-account
+* [Docs](/python/api/azure-purview-administration/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-administration/) azure-purview-administration
+* [Docs](/python/api/azure-purview-catalog/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-catalog/) azure-purview-catalog
+* [Docs](/python/api/azure-purview-scanning/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-scanning/) azure-purview-scanning
+* [Docs](/python/api/azure-mgmt-purview/?view=azure-python&preserve-view=true) | [PyPi](https://pypi.org/project/azure-mgmt-purview/) azure-mgmt-purview
