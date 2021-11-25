@@ -59,13 +59,14 @@ For a given device:
 * No two mappings can have the same JSON path.
 * No two mappings can have the same alias.
 
-
 > [!TIP]
-> If there's no data in left hand panel, you can manually enter a JSONPath expression in the **JSON path** field.
+> You may need to wait for several minutes for your device to send a telemetry message to display in the left hand panel. If there's still no data in left hand panel, you can manually enter a JSONPath expression in the **JSON path** field.
 
 To verify that IoT Central is mapping the telemetry, navigate to **Raw data** view for your device and check the `_mappeddata` section:
 
 :::image type="content" source="media/howto-map-data/mapped-data.png" alt-text="Screenshot that shows the mapped data section in a message in the **Raw data** view.":::
+
+If you don't see your mapped data after refreshing the **Raw data** several times, check that the JSONPath expression you're using matches the structure of the telemetry message.
 
 For devices assigned to a device template, you can't map data for components or inherited interfaces. However, you can map any data from your device before you assign it to a device template.
 
