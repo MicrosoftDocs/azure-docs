@@ -24352,6 +24352,16 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-monitor-usage.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/search/search-monitor-logs.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search-data-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/search-filters-facets.md",
       "redirect_url": "/azure/search/search-faceted-navigation",
       "redirect_document_id": false
