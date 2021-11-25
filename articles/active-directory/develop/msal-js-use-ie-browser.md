@@ -50,7 +50,7 @@ If you want to run and debug your application locally in Internet Explorer, be 
 
   1. Select Internet Explorer **Tools** (the gear icon).
   1. Select **Internet Options** and then the **Security** tab.
-  1. Select on the **Internet** zone, and uncheck **Enable Protected Mode (requires restarting Internet Explorer)**. Internet Explorer warns that your computer is no longer protected. Select **OK**.
+  1. Select **Internet** zone, and uncheck **Enable Protected Mode (requires restarting Internet Explorer)**. Internet Explorer warns that your computer is no longer protected. Select **OK**.
   1. Restart Internet Explorer.
   1. Run and debug your application.
 
