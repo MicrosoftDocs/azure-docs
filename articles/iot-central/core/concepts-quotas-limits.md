@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central quotas and limits | Microsoft Docs
-description: This article lists the key quotas and limits that apply to an IoT CEntral application.
+description: This article lists the key quotas and limits that apply to an IoT Central application.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/28/2021
@@ -12,27 +12,101 @@ services: iot-central
 
 # Quotas and limits
 
-There are a number of quotas and recommended limits that apply to IoT Central applications. Quotas are enforced and can't be exceeded, however in some cases it's possible to change the quota. Recommended limits can be exceeded, but this isn't recommended as it may affect performance.
+There are various quotas and limits that apply to IoT Central applications. IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS), and these services also have quotas and limits. Where relevant, quotas and limits in the underlying services are called out in this article.
 
-IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS). These services also have quotas and limits that, where relevant, are called out in this article.
+## Device modeling
 
-| Area                | Item | Quota or limit | Notes |
-| ------------------- | ---- | -------------- | ----- |
-| Device modeling     |  |  |  |  |
-| Devices             |  |  |  |  |
-| Device groups       |  |  |  |  |
-| Rules               |  |  |  |  |
-| Jobs                |  |  |  |  |
-| Device provisioning |  |  |  |  |
-| Telemetry           |  |  |  |  |
-| Property updates    |  |  |  |  |
-| Commands            |  |  |  |  |
-| Data export         |  |  |  |  |
-| API                 |  |  |  |  |
-| Storage             |  |  |  |  |
-| ORganizations       |  |  |  |  |
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of device templates in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
+| Number of telemetry capabilities in a device template | 300 | For performance reasons, you shouldn't exceed this limit. |
+
+## Devices
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of devices in an application | 1,000,000 | Contact support to discuss increasing this quota for your application. |
+
+## Device groups
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of device groups in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
+| Number of filters in a device group | 100 | For performance reasons, you shouldn't exceed this limit. |
+
+## Rules
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
+| Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
+
+## Jobs
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
+
+## Device provisioning
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of devices registrations per minute | 200 | This quota is set by the underlying DPS instance. Contact support to discuss increasing this quota for your application. |
+
+## Telemetry
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of telemetry messages per second per device| 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Maximum size of a device-to-cloud message | 256 KB | This value is set by the IoT Hub service. |
+| Maximum size of a cloud-to-device message | 64 KB | This value is set by the IoT Hub service. |
+
+## Property updates
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+| Maximum size of a property | 32 KB | This value is set by the IoT Hub service. |
+
+## Commands
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+
+## Data export
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of data export jobs | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of data export destinations | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of data export destinations per job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of filters and enrichments per data export job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+
+## REST API calls
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Query API requests per second | 1 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Other API requests per second | 20 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+
+## Storage
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Maximum data retention in days | 30 | If you need to keep data for longer, use data export to export it to external storage. |
+
+## Organizations
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Maximum user role assignments per application | 200 | This isn't the same as the number of users per application. |
+| Maximum roles per application | 50 | This includes the default application and organization roles. |
+| Maximum organizations per application| 200 | |
+| Maximum organization hierarchy depth | 5 | |
+
+<sup>1</sup>IoT Central doesn't limit the amount of device-to-cloud, cloud-to-device, property, or command traffic. It has variable throttles based on the application's load profile. If your application starts sending more traffic, IoT Central autoscales to best suit the load profile. You might notice throttling messages for a short period of time until IoT Central completes the autoscale process.
 
 ## Next steps
 
-<!-- TODO: Fix the next steps -->
 Now that you've learned about the scalability and high availability of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.
