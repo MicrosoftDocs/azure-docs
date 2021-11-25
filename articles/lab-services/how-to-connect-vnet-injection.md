@@ -28,7 +28,7 @@ Before you configure a virtual network for your lab plan:
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab plan must all be in the same region.
 
 > [!NOTE]
-> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
+> If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide-2.md#content-filtering).
 
 ## Delegate the virtual network subnet for use with a lab plan
 
@@ -80,4 +80,4 @@ See the following articles:
 - [Attach a shared image gallery to a lab](how-to-attach-detach-shared-image-gallery.md)
 - [Add a user as a lab owner](how-to-add-user-lab-owner.md)
 - [View firewall settings for a lab](how-to-configure-firewall-settings.md)
-- [Configure other settings for a lab](how-to-configure-lab-accounts.md)
+- [Configure other settings for a lab](how-to-configure-lab-plans.md)

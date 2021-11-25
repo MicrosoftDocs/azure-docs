@@ -31,7 +31,7 @@ The first step in using Azure Lab Services is to create a lab plan in the Azure 
 
 ## Create and manage labs
 
-An educator, who is a member of the Lab Creator role in a lab plan, can create one or more labs in the lab plan. You create and configure a template VM with all the required software for doing exercises in your course. You pick a ready-made image from the available images for creating a classroom lab and then customize it by installing the software required for the lab. For details, see [Create and manage labs](how-to-manage-classroom-labs.md).
+An educator, who is a member of the Lab Creator role in a lab plan, can create one or more labs in the lab plan. You create and configure a template VM with all the required software for doing exercises in your course. You pick a ready-made image from the available images for creating a classroom lab and then customize it by installing the software required for the lab. For details, see [Create and manage labs](how-to-manage-classroom-labs-2.md).
 
 ## Configure usage settings and policies
 
