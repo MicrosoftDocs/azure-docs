@@ -19,15 +19,15 @@ Azure Synapse Analytics allows Apache Spark pools in the same workspace to share
 The feature works with both Spark 2.4 and Spark 3.0. The following table shows the supported Hive metastore service (HMS) versions for each Spark version.
 
 
-|Spark Version|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
-|--|--|--|--|--|
-|2.4|Yes|Yes|Yes|No|
-|3|Yes|Yes|Yes|Yes|
+|Spark Version|HMS 0.13|HMS 1.2.X|HMS 2.1.X|HMS 2.3.x|HMS 3.1.X|
+|--|--|--|--|--|--|
+|2.4|Yes|Yes|Yes|Yes|No|
+|3|Yes|Yes|Yes|Yes|Yes|
 
 ## Set up Hive metastore linked service
 
 > [!NOTE]
-> Only Azure SQL Database is supported as an external Hive metastore.
+> Only Azure SQL Database and Azure Database for MySQL are supported as an external Hive metastore.
 
 Follow below steps to set up a linked service to the external Hive metastore in Synapse workspace.
 
@@ -52,7 +52,7 @@ Some network security rule settings may block access from Spark pool to the exte
 
 You can also get your Hive metastore version from the output results. The Hive metastore version will be used in the Spark configuration.
 
-```
+```scala
 %%spark 
 import java.sql.DriverManager 
 /** this url could be copied from Azure portal > Azure SQL database > Connection strings > JDBC **/ 
@@ -77,8 +77,8 @@ Here are the configurations and descriptions:
 
 |Spark config|Description|
 |--|--|
-|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`1.2`</li><li>`2.1`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
-|`spark.sql.hive.metastore.jars`|<ul><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*`</li></ul>|
+|`spark.sql.hive.metastore.version`|Supported versions: <ul><li>`0.13`</li><li>`2.1`</li><li>`3.1`</li></ul> Make sure you use the first 2 parts without the 3rd part|
+|`spark.sql.hive.metastore.jars`|<ul><li>Version 0.13: `/opt/hive-metastore/lib-0.13/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 1.2: `/opt/hive-metastore/lib-1.2/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.1: `/opt/hive-metastore/lib-2.1/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 2.3: `/opt/hive-metastore/lib-2.3/*:/usr/hdp/current/hadoop-client/lib/*` </li><li>Version 3.1: `/opt/hive-metastore/lib-3.1/*:/usr/hdp/current/hadoop-client/lib/*`</li></ul>|
 |`spark.hadoop.hive.synapse.externalmetastore.linkedservice.name`|Name of your linked service created to the Azure SQL Database.|
 
 ### Configure Spark pool 
