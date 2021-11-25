@@ -1,5 +1,5 @@
 ---
-title: Live Migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
+title: Live migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
 description: Learn how to live migrate data from an Apache Cassandra database to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
 author: TheovanKraay
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.author: thvankra
 ms.reviewer: thvankra
 ---
 
-# Live Migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
+# Live migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
 
 Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
 
