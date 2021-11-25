@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Use GitOps with Flux v2 in Azure Arc or AKS clusters"
-description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc-enabled Kubernetes and Azure Kubernetes Service clusters."
+title: "Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters"
+description: "This tutorial shows how to use GitOps with Flux v2 to manage configuration and application deployment in Azure Arc and AKS clusters."
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, Azure Kubernetes Service, containers, devops"
 services: azure-arc, aks
 ms.service: azure-arc
@@ -13,7 +13,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters (Public Preview)
 
-GitOps with Flux v2 can be enabled in Azure Arc-enabled Kubernetes connected clusters or Azure Kubernetes Service (AKS) managed clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed you can then create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment in both your Azure Arc-enabled Kubernetes and AKS clusters.
+GitOps with Flux v2 can be enabled in Azure Arc-enabled Kubernetes connected clusters or Azure Kubernetes Service (AKS) managed clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can then create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
 This document contains a detailed tutorial of using Azure GitOps in a Kubernetes cluster. Before diving in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2).
 
@@ -26,16 +26,16 @@ To manage GitOps through the Azure CLI or portal you need:
 ### For Azure Arc-enabled Kubernetes clusters
 
 * An Azure Arc-enabled Kubernetes connected cluster that is up and running.
-  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster). If you need to connect through an outbound proxy then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
+  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
 * 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedClusters' resource type.
 
 ### For Azure Kubernetes Service (AKS) clusters
 
-* An AKS managed cluster that is up and running.
+* An AKS cluster that is up and running.
 
 >[!IMPORTANT]
 
->Ensure the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension will not work with SPN-based AKS clusters.
+>Ensure the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
 
 * 'Read' and 'Write' permissions on the 'Microsoft.ContainerService/managedClusters' resource type.
 
@@ -55,7 +55,7 @@ az provider register --namespace Microsoft.Kubernetes
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
-Registration is an asynchronous process. While registration should complete within 10 minutes, you may monitor the registration process. If you do not see the registration state progress to *Registered*, reach out to <haikueng@microsoft.com>.
+Registration is an asynchronous process. While registration should complete within 10 minutes, you may monitor the registration process. If you don't see the registration state progress to *Registered*, reach out to <haikueng@microsoft.com>.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
@@ -67,7 +67,7 @@ Microsoft.KubernetesConfiguration  RegistrationRequired  Registered
 
 ### Supported regions
 
-Azure GitOps is currently supported in the regions supported by Azure Arc-enabled Kubernetes, which is a subset of the regions supported by Azure Kubernetes Service (AKS). Thus, GitOps is currently not supported in all AKS regions.  [See the supported regions here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
+Azure GitOps is currently supported in the regions supported by Azure Arc-enabled Kubernetes, which is a subset of the regions supported by AKS. Thus, GitOps is currently not supported in all AKS regions.  [See the supported regions here](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=kubernetes-service,azure-arc). The GitOps service is adding new supported regions on a regular cadence.
 
 ### Network requirements
 
@@ -118,21 +118,21 @@ False          whl             k8s-extension          C:\Users\somename\.azure\c
 
 Use the `k8s-configuration` Azure CLI extension (or the Azure portal) to enable GitOps in an AKS or Arc-enabled Kubernetes cluster. For demonstration, use the public [https://github.com/fluxcd/flux2-kustomize-helm-example](https://github.com/fluxcd/flux2-kustomize-helm-example) repository. 
 
-The example below:
+In the example below:
 
-* indicates the resource group that contains the cluster to "flux-demo-rg"
-* indicates the name of the Arc cluster to "flux-demo-arc"
-* indicates that the cluster type is an Arc connected cluster (works just as well with AKS managed cluster)
-* sets the name of the Flux configuration to "gitops-demo"
-* sets the namespace for configuration installation to "gitops-demo"
-* sets the URL to the Git repository
-* sets the Git repository branch to "main"
-* sets the scope of the configuration to "cluster" (which gives the operators permissions to make changes throughout cluster)
-* creates two kustomizations with names "infra" and "apps", each associated with a different path in the repository
-* says that "apps" kustomization depends on "infra" kustomization (the "infra" kustomization must complete before the "apps" kustomization runs)
-* sets prune=true on both kustomizations (so that objects deployed to the cluster from the manifests in the repository will be cleaned up if they are removed from the repository or if the Flux configuration or kustomizations are deleted)
+* The resource group that contains the cluster is "flux-demo-rg".
+* The name of the Arc cluster is "flux-demo-arc".
+* The cluster type is Arc (connectedClusters), but this can also work with AKS (managedClusters).
+* The name of the Flux configuration is "gitops-demo".
+* The namespace for configuration installation is "gitops-demo".
+* The URL for the public Git repository is "https://github.com/fluxcd/flux2-kustomize-helm-example".
+* The Git repository branch is "main".
+* The scope of the configuration is "cluster" (which gives the operators permissions to make changes throughout cluster).
+* Two kustomizations are specified with names "infra" and "apps", each associated with a different path in the repository.
+* The "apps" kustomization depends on the "infra" kustomization (the "infra" kustomization must complete before the "apps" kustomization runs).
+* Set prune=true on both kustomizations. This assures that objects deployed to the cluster by Flux will be cleaned up if they're removed from the repository or if the Flux configuration or kustomizations are deleted.
 
-Note that if the Flux cluster extension is not already installed in the cluster, then it will be installed automatically prior to the installation of the Flux configuration.
+If the `microsoft.flux` extension isn't already  installed in the cluster, then it will be installed.
 
 ```console
 az k8s-configuration flux create -g flux-demo-rg -c flux-demo-arc -n gitops-demo --namespace gitops-demo -t connectedClusters --scope cluster -u https://github.com/fluxcd/flux2-kustomize-helm-example --branch main  --kustomization name=infra path=./infrastructure prune=true --kustomization name=apps path=./apps/staging prune=true dependsOn=["infra"]
@@ -425,7 +425,7 @@ These namespaces were created:
 
 * `flux-system`: holds the Flux extension controllers
 * `gitops-demo`: holds the Flux configuration objects
-* `nginx`, `podinfo`, `redis`: namespaces for workloads described in manifests in the git repository
+* `nginx`, `podinfo`, `redis`: namespaces for workloads described in manifests in the Git repository
 
 ```console
 kubectl get namespaces
@@ -535,7 +535,7 @@ statefulset.apps/redis-master   1/1     95m
 
 ### Delete the Flux configuration
 
-You can delete the Flux configuration. This deletes both the fluxConfigurations resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the git repository will be removed when the Flux configuration is removed.
+You can delete the Flux configuration. This deletes both the fluxConfigurations resource in Azure and the Flux configuration objects in the cluster. Because the Flux configuration was originally created with the `prune=true` parameter for the kustomization, all of the objects created in the cluster based on manifests in the Git repository will be removed when the Flux configuration is removed.
 
 ```console
 az k8s-configuration flux delete -g flux-demo-rg -c flux-demo-arc -n gitops-demo -t connectedClusters --yes
@@ -545,7 +545,7 @@ Note that this does NOT remove the Flux extension.
 
 ### Delete the Flux cluster extension
 
-You can delete the Flux extension using either the CLI or the portal. This will delete both the microsoft.flux extension resource in Azure and the Flux extension objects in the cluster.
+You can delete the Flux extension using either the CLI or the portal. The delete action removes both the microsoft.flux extension resource in Azure and the Flux extension objects in the cluster.
 
 If the Flux extension was created automatically when the Flux configuration was first created, then the extension name will be `flux`.
 
@@ -571,9 +571,9 @@ az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connec
 
 ## Parameters reference
 
-See the [official Flux documentation](https://fluxcd.io/docs/) for description of all parameters supported by Flux. Flux in Azure does not support all parameters yet; please let us know if a parameter you need is missing from the Azure implementation.
+See the [official Flux documentation](https://fluxcd.io/docs/) for description of all parameters supported by Flux. Flux in Azure doesn't support all parameters yet; let us know if a parameter you need is missing from the Azure implementation.
 
-You can see the full list of parameters supported by the `k8s-configuration flux` CLI command by leveraging the `-h` parameter.
+You can see the full list of parameters supported by the `k8s-configuration flux` CLI command by using the `-h` parameter.
 
 ```console
 az k8s-configuration flux -h
@@ -607,7 +607,7 @@ Command
         and support levels: https://aka.ms/CLI_refstatus
 Arguments
     --cluster-name -c   [Required] : Name of the Kubernetes cluster.
-    --cluster-type -t   [Required] : Specify Arc connected clusters or AKS managed clusters.
+    --cluster-type -t   [Required] : Specify Arc connectedClusters or AKS managedClusters.
                                      Allowed values: connectedClusters, managedClusters.
     --name -n           [Required] : Name of the flux configuration.
     --resource-group -g [Required] : Name of resource group. You can configure the default group
@@ -675,19 +675,19 @@ Examples
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--cluster-name` `-c` | string | The name of the cluster resource in Azure. |
+| `--cluster-name` `-c` | String | The name of the cluster resource in Azure. |
 | `--cluster-type` `-t` | *connectedClusters*, *managedClusters* | Use *connectedClusters* for Azure Arc-enabled Kubernetes cluster and *managedClusters* for Azure Kubernetes Service (AKS) cluster. |
-| `--resource-group` `-g` | string | The name of the Azure resource group that holds the Arc or AKS cluster resource. |
-| `--name` `-n`| string | The name of the Flux configuration in Azure. |
-| `--namespace` `--ns` | string | The name of the namespace to deploy the configuration.  Default: default. |
-| `--scope` `-s` | string | The permission scope for the operators. Possible values are 'cluster' (full access) or 'namespace' (restricted access). Default: cluster.
-| `--suspend` | flag | Suspends all source and kustomize reconciliations defined in this Flux configuration. Reconciliations active at the time this is set will continue.  |
+| `--resource-group` `-g` | String | The name of the Azure resource group that holds the Arc or AKS cluster resource. |
+| `--name` `-n`| String | The name of the Flux configuration in Azure. |
+| `--namespace` `--ns` | String | The name of the namespace to deploy the configuration.  Default: default. |
+| `--scope` `-s` | String | The permission scope for the operators. Possible values are 'cluster' (full access) or 'namespace' (restricted access). Default: cluster.
+| `--suspend` | flag | Suspends all source and kustomize reconciliations defined in this Flux configuration. Reconciliations active at the time of suspension will continue.  |
 
 ### Git repository arguments
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--kind` | string | The source kind to reconcile. Default: *git*. Currently, only *git* is supported.  |
+| `--kind` | String | The source kind to reconcile. Default: *git*. Currently, only *git* is supported.  |
 | `--timeout` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Maximum time to reconcile the source before timing out. Default: 10m |
 | `--sync-interval` `--interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Frequency of reconciliations of the Git source on the cluster. Default: 10m |
 
@@ -695,12 +695,12 @@ Examples
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--branch` | string | Branch within the git source to sync to the cluster. Default: *master*. Newer repositories may have root branch named *main*, in which case you need to set *--branch=main*.  |
-| `--tag` | string | Tag within the git source to sync to the cluster. Example: *--tag=3.2.0* |
-| `--semver` | string | Git tag semver range within the git source to sync to the cluster. Example: *--semver=">=3.1.0-rc.1 <3.2.0"* |
-| `--commit` | string | The Git commit SHA within the git source to sync to the cluster. Example: *--commit=363a6a8fe6a7f13e05d34c163b0ef02a777da20a* |
+| `--branch` | String | Branch within the git source to sync to the cluster. Default: *master*. Newer repositories may have root branch named *main*, in which case you need to set *--branch=main*.  |
+| `--tag` | String | Tag within the git source to sync to the cluster. Example: *--tag=3.2.0* |
+| `--semver` | String | Git tag semver range within the git source to sync to the cluster. Example: *--semver=">=3.1.0-rc.1 <3.2.0"* |
+| `--commit` | String | The Git commit SHA within the git source to sync to the cluster. Example: *--commit=363a6a8fe6a7f13e05d34c163b0ef02a777da20a* |
 
-For more information see the [Flux docs on Git repository checkout strategies](https://fluxcd.io/docs/components/source/gitrepositories/#checkout-strategies).
+For more information, see the [Flux docs on Git repository checkout strategies](https://fluxcd.io/docs/components/source/gitrepositories/#checkout-strategies).
 
 ### Use a public Git repository
 
@@ -725,28 +725,28 @@ Add the associated public key to the user account in your Git service provider.
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--url` `-u` | ssh://user@server/repo[.git] | `git@` should replace `user@` if the public key is associated with the repository instead of the user account |
-| `--ssh-private-key` | base64-encoded key in [PEM format](https://aka.ms/PEMformat) | Provide key directly |
-| `--ssh-private-key-file` | full path to local file | Provide full path to local file that contains the PEM-format key
+| `--ssh-private-key` | Base64 key in [PEM format](https://aka.ms/PEMformat) | Provide key directly |
+| `--ssh-private-key-file` | Full path to local file | Provide full path to local file that contains the PEM-format key
 
 ### Use a private Git host with SSH and user-provided known hosts
 
-The Flux operator maintains a list of common Git hosts in its known hosts file to authenticate the Git repository before establishing the SSH connection. If you are using an *uncommon* Git repository or your own Git host, you can supply the host key so that Flux can identify your repository.
+The Flux operator maintains a list of common Git hosts in its known hosts file to authenticate the Git repository before establishing the SSH connection. If you're using an *uncommon* Git repository or your own Git host, you can supply the host key so that Flux can identify your repository.
 
 Just like private keys, you can provide your known_hosts content directly or in a file. When providing your own content, use the [known_hosts content format specifications](https://aka.ms/KnownHostsFormat), along with either of the SSH key scenarios above.
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--url` `-u` | ssh://user@server/repo[.git] | `git@` may replace `user@` |
-| `--known-hosts` | base64 string | Provide known hosts content directly |
-| `--known-hosts-file` | full path to local file | Provide known hosts content in a local file |
+| `--known-hosts` | Base64 string | Provide known hosts content directly |
+| `--known-hosts-file` | Full path to local file | Provide known hosts content in a local file |
 
 ### Use a private Git repository with HTTPS user and key
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
 | `--url` `-u` | https://server/repo[.git] | HTTPS with basic auth |
-| `--https-user` | raw string | HTTPS username |
-| `--https-key` | raw string | HTTPS personal access token or password
+| `--https-user` | Raw string | HTTPS username |
+| `--https-key` | Raw string | HTTPS personal access token or password
 
 ### Use a private Git repository with HTTPS CA certificate
 
@@ -754,13 +754,13 @@ Just like private keys, you can provide your known_hosts content directly or in 
 | ------------- | ------------- | ------------- |
 | `--url` `-u` | https://server/repo[.git] | HTTPS with basic auth |
 | `--https-ca-cert` | Base64 string | CA certificate for TLS communication |
-| `--https-ca-cert-file` | full path to local file | Provide CA certificate content in a local file |
+| `--https-ca-cert-file` | Full path to local file | Provide CA certificate content in a local file |
 
 ### Using local secret for authentication
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--local-auth-ref`  | string | Local reference to a Kubernetes secret in the Flux configuration namespace to use for communication with the git source. |
+| `--local-auth-ref`  | String | Local reference to a Kubernetes secret in the Flux configuration namespace to use for communication with the Git source. |
 
 For HTTPS authentication, you create a secret (in the same namespace where the Flux configuration will be) with the username and password/key.
 
@@ -787,7 +787,7 @@ az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -
 
 ### Git Implementation
 
-To support various repository providers that implement git, Flux can be configured to use one of two git libraries: go-git or libgit2. See [the Flux docs for details](https://fluxcd.io/docs/components/source/gitrepositories/#git-implementation).
+To support various repository providers that implement Git, Flux can be configured to use one of two Git libraries: go-git or libgit2. See [the Flux docs for details](https://fluxcd.io/docs/components/source/gitrepositories/#git-implementation).
 
 The Azure GitOps implementation of Flux v2 automatically determines which library to use for public cloud repositories:
 
@@ -802,16 +802,16 @@ Using `az k8s-configuration flux create` you can create one or more kustomizatio
 
 | Parameter | Format | Notes |
 | ------------- | ------------- | ------------- |
-| `--kustomization` | no value | Indicate the start of a string of parameters that configure a kustomization. You can use this multiple times to create multiple kustomizations. |
-| `name` | string | The unique name for this kustomization. |
-| `path` | string | The path within the git repository to reconcile with the cluster. Default is the top level of the branch. |
-| `prune` | boolean | Default is *false*. Set *prune=true* to remove Kubernetes objects from the cluster when they are removed from the git repository or when the kustomization is removed. Setting *prune=true* is important for environments where users don't have access to the clusters and can make changes only through the git repository; this will assure that the resources will be cleaned up in the cluster when they are removed from the repository. |
-| `depends_on` | string | The name of one or more kustomizations (within this configuration) that must reconcile before this kustomization can reconcile. For example, *depends_on=["kustomization1","kustomization2"]* Note: if you remove a kustomization that has dependencies, the dependent kustomizations will get "DependencyNotReady" state, and will not continue with reconciliation.|
+| `--kustomization` | No value | Indicate the start of a string of parameters that configure a kustomization. You can use this multiple times to create multiple kustomizations. |
+| `name` | String | The unique name for this kustomization. |
+| `path` | String | The path within the Git repository to reconcile with the cluster. Default is the top level of the branch. |
+| `prune` | Boolean | Default is *false*. Set *prune=true* to remove Kubernetes objects from the cluster when they're removed from the Git repository or when the kustomization is removed. Setting *prune=true* is important for environments where users don't have access to the clusters and can make changes only through the Git repository; this setting will assure that the resources will be cleaned up in the cluster when they're removed from the repository. |
+| `depends_on` | String | The name of one or more kustomizations (within this configuration) that must reconcile before this kustomization can reconcile. For example, *depends_on=["kustomization1","kustomization2"]* Note: if you remove a kustomization that has dependencies, the dependent kustomizations will get "DependencyNotReady" state, and won't continue with reconciliation.|
 | `timeout` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: 10m  |
 | `sync_interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: 10m  |
 | `retry_interval` | [golang duration format](https://pkg.go.dev/time#Duration.String) | Default: 10m  |
-| `validation` | string | Values: *none*, *client*, *server*. Default: *none*.  See [Flux documentation](https://fluxcd.io/docs/) for details.|
-| `force` | boolean | Default is *false*. Set *force=true* to instruct the kustomize controller to recreate resources when patching fails due to an immutable field change. |
+| `validation` | String | Values: *none*, *client*, *server*. Default: *none*.  See [Flux documentation](https://fluxcd.io/docs/) for details.|
+| `force` | Boolean | Default is *false*. Set *force=true* to instruct the kustomize controller to recreate resources when patching fails because of an immutable field change. |
 
 You can also use `az k8s-configuration flux kustomization` to create, update, list, show, and delete kustomizations in a Flux configuration.
 
@@ -889,13 +889,13 @@ Examples
 
 ## Manage GitOps configurations using the Azure portal
 
-The Azure portal is useful for managing GitOps configurations and the Flux extension in Azure Arc-enabled Kubernetes or AKS clusters. The portal displays all Flux configurations associated with each Azure Arc-enabled and AKS Kubernetes cluster and enables drilling in to each Flux configuration to see the overall compliance state (if the cluster is in sync with the git repo declarations) and the list of Flux objects deployed to the cluster and their installation parameters, compliance state, and any errors.
+The Azure portal is useful for managing GitOps configurations and the Flux extension in Azure Arc-enabled Kubernetes or AKS clusters. The portal displays all Flux configurations associated with each cluster and enables drilling in to each. The overall compliance state of the cluster relative to the state declared in the Git repository is provided. In addition, the Flux objects that have been deployed to the cluster are shown along with their installation parameters, compliance state, and any errors.
 
 The portal can also be used to create and delete GitOps configurations.  Soon update of existing GitOps configuration will also be possible.
 
 ## Using Kustomize
 
-The Flux Kustomize controller is installed as part of the `microsoft.flux` cluster extension. It allows the declarative management of cluster configuration and application deployment using Kubernetes manifests synced from a Git repository. These Kubernetes manifests can include a kustomize.yaml file, but this is not required.
+The Flux Kustomize controller is installed as part of the `microsoft.flux` cluster extension. It allows the declarative management of cluster configuration and application deployment using Kubernetes manifests synced from a Git repository. These Kubernetes manifests can include a kustomize.yaml file, but it isn't required.
 
 For usage details see the following documents:
 
@@ -918,7 +918,7 @@ For usage details see the following documents:
 
 ## Migrating from Flux v1
 
-If you have been using Flux v1 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension will not install if there are `sourceControlConfigurations` resources installed in the cluster.
+If you have been using Flux v1 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters and want to migrate to using Flux v2 in the same clusters, you first need to delete the Flux v1 `sourceControlConfigurations` from the clusters.  The `microsoft.flux` cluster extension won't install if there are `sourceControlConfigurations` resources installed in the cluster.
 
 Use these az CLI commands to find and then delete existing `sourceControlConfigurations` in a cluster:
 
