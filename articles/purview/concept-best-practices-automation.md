@@ -34,7 +34,7 @@ This article provides a summary of the options available, and guidance on what t
 **SDK** | <ul><li><a href="/dotnet/api/overview/azure" target="_blank">.NET</a></li><li><a href="/java/api/overview/azure" target="_blank">Java</a></li><li><a href="/javascript/api/overview/azure" target="_blank">JavaScript</a></li><li><a href="/python/api/overview/azure" target="_blank">Python</a></li></ul> | Custom Development | ✓ | ✓ | ✓ |
 
 ## Resource Management
-[Azure Resource Manager (ARM)](/azure/azure-resource-manager/management/overview) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
+[Azure Resource Manager](/azure/azure-resource-manager/management/overview) is a deployment and management service, which enables customers to create, update, and delete resources in Azure. When deploying Azure resources repeatedly, ARM templates can be used to ensure consistency, this approach is referred to as Infrastructure as Code.
 
 To implement infrastructure as code, we can build [ARM templates](/azure/azure-resource-manager/templates/overview) using JSON or [Bicep](/azure/azure-resource-manager/bicep/overview), or open-source alternatives such as [Terraform](/azure/developer/terraform/overview). 
 
