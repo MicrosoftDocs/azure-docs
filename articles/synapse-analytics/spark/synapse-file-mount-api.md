@@ -221,7 +221,7 @@ Notice that if you mounted a blob storage account then want to access it using *
     ```python
     %%spark
     // mount blob storage container and then read file using mount path
-    val df = spark.read.text("synfs:/49/test/myFile.txt")
+    val df = spark.read.text("synfs://49/test/myFile.txt")
     df.show()
     ```
 
