@@ -32,11 +32,9 @@ Azure Communication Services supports two types of Teams interoperability depend
 - **Bring your own identity (BYOI).** You control user authentication and users of your custom applications don't need to have Azure Active Directory identities or Teams licenses. This model allows you to build custom applications for non-Teams users to connect and communicate with Teams users.
 - **Teams identity.** User authentication is controlled by Azure Active Directory and users of your custom application must have Teams licenses. This model allows you to build custom applications for Teams users to enable specialized workflows or experiences that are not possible with the standard Teams client.
 
-Applications can implement both authentication models and leave the choice of authentication up to the end user.
+Applications can implement both authentication models and leave the choice of authentication up to the end user. The following table shows how the two models compare.
 
-### Comparison
-
-|Criteria|Bring your own identity| Teams identity|
+|Feature|Bring your own identity| Teams identity|
 |---|---|---|
 |Identity provider|Any|Azure Active Directory|
 |Authentication & authorization|Custom*| Azure Active Directory and custom*|
@@ -70,7 +68,17 @@ Teams users are authenticated via the MSAL library against Azure Active Director
 
 To learn more about the functionality, join our TAP program for early access by completing [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8MfnD7fOYZEompFbYDoD4JUMkdYT0xKUUJLR001ODdQRk1ITTdOMlRZNSQlQCN0PWcu).
 
+### Comparison
 
+|Criteria|Bring your own identity| Teams identity|
+|---|---|---|
+|Identity provider|Any|Azure Active Directory|
+|Authentication & authorization|Custom*| Azure Active Directory and custom*|
+|Calling available via | Communication Services Calling SDKs | Communication Services Calling SDKs |
+|Chat available via | Communication Services Chat SDKs | Graph API |
+|PSTN support| Not supported for Communication Services users in Teams meetings | inbound call assigned to Teams identity, outbound call using calling plan|
+
+\* Server logic issuing access tokens can perform any custom authentication and authorization of the request.
 
 ## Teams meeting and calling experiences
 
