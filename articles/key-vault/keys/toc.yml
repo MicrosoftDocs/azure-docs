@@ -30,6 +30,8 @@ items:
 
 - name: Tutorials
   items:
+  - name: Configure key auto-rotation (preview)
+    href: how-to-configure-key-rotation.md
   - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
   - name: Import HSM-protected keys (BYOK)
@@ -47,6 +49,11 @@ items:
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
+
+- name: How-to guides
+  items:
+  - name: Configure automated key rotation (preview)
+    href: how-to-configure-key-rotation.md
 
 - name: Reference
   items:

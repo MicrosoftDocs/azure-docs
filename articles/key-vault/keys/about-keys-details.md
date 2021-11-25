@@ -82,6 +82,7 @@ Key Vault, including Managed HSM, supports the following operations on key objec
 -   **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
+-   **Rotate (preview)**: Rotate a existing key by generating new version of the key (Key Vault only).
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
@@ -99,6 +100,13 @@ Key Vault doesn't support EXPORT operations. Once a key is provisioned in the sy
 Users may restrict any of the cryptographic operations that Key Vault supports on a per-key basis using the key_ops property of the JWK object.  
 
 For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
+
+##  Key rotation policy operations (preview)
+
+Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
+
+-   **Get Rotation Policy (preview)**: Allows a client to retrieve rotation policy configuration
+-   **Set Rotation Policy (preview)**: Allows a client to set rotation policy configuration 
 
 ## Key attributes
 
