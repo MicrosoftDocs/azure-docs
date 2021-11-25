@@ -134,7 +134,7 @@ To access Azure resources, you'll create a service connection in Azure DevOps an
 
 In this section, you'll set up an Azure Pipelines workflow that triggers the load test.
 
-First, you'll install the Azure Load Testing extension from the Azure DevOps Marketplace, create a new pipeline and connect it to the sample application's forked repository.
+First, you'll install the Azure Load Testing extension from the Azure DevOps Marketplace, create a new pipeline, and then connect it to the sample application's forked repository.
 
 1. Install the Azure Load Testing task extension from the Azure DevOps Marketplace.
 
