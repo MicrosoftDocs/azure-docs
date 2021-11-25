@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 12/06/2021
 ms.author: dmwendia
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
 zone_pivot_groups: microsoft-identity-platform-dev-languages
@@ -19,14 +19,14 @@ zone_pivot_groups: microsoft-identity-platform-dev-languages
 
 # Quickstart: Sign in users in single-page apps (SPA) using the auth code flow
 
-::: zone pivot="programming-language-angular"
+::: zone pivot="devlang-angular"
 [!INCLUDE [angular](./includes/single-page-app/quickstart-angular.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-javascript"
+::: zone pivot="devlang-javascript"
 [!INCLUDE [javascript](./includes/single-page-app/quickstart-javascript.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-react"
+::: zone pivot="devlang-react"
 [!INCLUDE [react](./includes/single-page-app/quickstart-react.md)]
 ::: zone-end

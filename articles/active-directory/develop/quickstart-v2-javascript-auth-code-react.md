@@ -32,7 +32,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 #### Step 1: Configure your application in the Azure portal
 
-For the code sample in this quickstart to work, add a **Redirect URI** of `http://localhost:3000/`.
+This code samples requires a **Redirect URI** of `http://localhost:3000/`.
 > [!div class="nextstepaction"]
 > [Make these changes for me]()
 

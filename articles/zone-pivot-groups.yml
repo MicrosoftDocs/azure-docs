@@ -457,6 +457,23 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
+########### BEGIN MICROSOFT IDENTITY PLATFORM
+# Service:       Active Directory (active-directory)
+# Sub-service:   Microsoft identity platform (develop)
+# Referenced by: /articles/active-directory/develop/*
+# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo
+## SPA ##
+- id: single-page-app-quickstart
+  title: single-page-app-quickstart
+  prompt: Choose a language or framework
+  pivots:
+  - id: devlang-angular
+    title: Angular
+  - id: devlang-javascript
+    title: JavaScript
+  - id: devlang-react
+    title: React
+############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions
   title: Azure Functions version
@@ -1483,14 +1500,3 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mcuxpresso
     title: MCUXpresso
- # Owner: dmwendia
-- id: microsoft-identity-platform-dev-languages
-  title: Programming languages
-  prompt: Choose a programming language or framework 
-  pivots:
-  - id: programming-language-angular
-    title: Angular
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-react
-    title: React 

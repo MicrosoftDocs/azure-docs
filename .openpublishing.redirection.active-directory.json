@@ -3322,18 +3322,18 @@
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-angular.md",
-            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart",
-            "redirect_document_id": false
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart&pivots=devlang-angular",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code.md",
-            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart",
-            "redirect_document_id": false
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart&pivots=devlang-javascript",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/active-directory/develop/quickstart-v2-javascript-auth-code-react.md",
-            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart",
-            "redirect_document_id": false
+            "redirect_url": "/azure/active-directory/develop/single-page-app-quickstart&pivots=devlang-react",
+            "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-azureadjoin-user-frx.md",
