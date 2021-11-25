@@ -94,7 +94,7 @@ To access Azure resources, you'll create an Azure Active Directory service princ
                              --sdk-auth
     ```
 
-    In the previous command, replace the placeholder text *`<subscription-id>`* and *`<resource-group>`* with your Azure subscription ID and the Resource Group name of your Azure Load Testing resource.
+    In the previous command, replace the placeholder text *`<subscription-id>`* with your Azure subscription ID of your Azure Load Testing resource.
 
     The outcome of the Azure CLI command is a JSON string, which you'll add to your GitHub secrets in a later step.
 
