@@ -23,6 +23,9 @@ Use this quickstart for the question answering client library for Python to:
 
 ## Prerequisites
 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the Python API with the latest release consult the [question answering Python quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-python).
+
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
