@@ -167,7 +167,7 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## Telephony and SMS
+## Telephony
 
 ## Price
 
