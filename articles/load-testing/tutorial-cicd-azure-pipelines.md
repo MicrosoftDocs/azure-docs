@@ -77,7 +77,7 @@ In this section, you'll update the Apache JMeter script with the URL of your sam
    <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow. In the previous XML snippet, replace the placeholder text *`{your-app-name}`* with the unique name of the App Service web app.
+    You'll deploy the sample application to an Azure App Service web app by using Azure Pipelines in the subsequent steps. For now, replace the placeholder text *`{your-app-name}`* in the previous previous XML snippet with a unique name you wish to provide to the App Service web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.
@@ -130,17 +130,17 @@ To access Azure resources, you'll create a service connection in Azure DevOps an
         --subscription "<subscription-name-or-id>"
     ```
 
+## Configure the Azure Pipelines workflow to run a load test
+
+In this section, you'll set up an Azure Pipelines workflow that triggers the load test.
+
+First, you'll install the Azure Load Testing extension from the Azure DevOps Marketplace, create a new pipeline and connect it to the sample application's forked repository.
+
 1. Install the Azure Load Testing task extension from the Azure DevOps Marketplace.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/browse-marketplace.png" alt-text="Screenshot that shows how to browse the Visual Studio Marketplace for extensions.":::
     
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/marketplace-load-testing-extension.png" alt-text="Screenshot that shows how to install the Azure Load Testing extension from the Visual Studio Marketplace.":::
-
-## Configure the Azure Pipelines workflow to run a load test
-
-In this section, you'll set up an Azure Pipelines workflow that triggers the load test.
-
-First, you'll create a new pipeline and connect it to the sample application's forked repository.
 
 1. In your Azure DevOps project, select **Pipelines**, and then select **Create pipeline**.
 
@@ -165,6 +165,9 @@ First, you'll create a new pipeline and connect it to the sample application's f
     |*`<Azure subscriptionId>`*     | Your Azure subscription ID. |
     |*`<Name of your load test resource>`*     | The name of your Azure Load Testing resource. |
     |*`<Name of your load test resource group>`*     | The resource group name that contains the Azure Load Testing resource. |
+    
+    > [!IMPORTANT]
+    > The name of Azure web app should match the name used for the endpoint URL in the *SampleApp.jmx* test script.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when creating a pipeline.":::
 
@@ -276,8 +279,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
     
     ```json
     {
-        "enableSecretsFeature": true,
-        "secretHeaderValue": "1797669089"
+        "enableSecretsFeature": true
     }
     ```
     
@@ -323,7 +325,7 @@ In this tutorial, you'll reconfigure the sample application to only accept secur
       [
           {
           "name": "appToken",
-          "value": "$(mySecret)",
+          "value": "$(mySecret)"
           }
       ]
     ```
