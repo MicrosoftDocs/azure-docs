@@ -18,7 +18,7 @@ If you don't know which location you want to use, you can list the available loc
 
 ```azurepowershell-interactive
 Get-AzLocation | Select-Object -Property Location
-$Location = "eastus"
+$Location = 'eastus'
 ```
 
 ## Create a resource group
