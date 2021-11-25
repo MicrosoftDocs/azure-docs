@@ -167,7 +167,7 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
     |*`<Name of your load test resource group>`*     | The resource group name that contains the Azure Load Testing resource. |
     
     > [!IMPORTANT]
-    > The name of Azure web app should match the name used for the endpoint URL in the *SampleApp.jmx* test script.
+    > The name of Azure web app should match the name you used for the endpoint URL in the *SampleApp.jmx* test script.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/create-pipeline-review.png" alt-text="Screenshot that shows the Azure Pipelines Review tab when creating a pipeline.":::
 
