@@ -36,38 +36,48 @@ The following image illustrates the pattern.
 
 * [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview).
 
+* Ensure you have network connectivity between your source cluster and target Cassandra API endpoint.
+
 * Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra API account.
 
->[!IMPORTANT]
-> If you have a requirement to preserve Apache Cassandra `writetime` during migration, the following flags must be set when creating tables: 
->
-> ```sql
-> with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
-> ``` 
->
-> For example:
-> ```sql
-> CREATE KEYSPACE IF NOT EXISTS migrationkeyspace WITH REPLICATION= {'class': 'org.apache.> cassandra.locator.SimpleStrategy', 'replication_factor' : '1'};
-> ```
->
-> ```sql
-> CREATE TABLE IF NOT EXISTS migrationkeyspace.users (
->  name text,
->  userID int,
->  address text,
->  phone int,
->  PRIMARY KEY ((name), userID)) with cosmosdb_cell_level_timestamp=true and > cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true;
-> ```
+    >[!IMPORTANT]
+    > If you have a requirement to preserve Apache Cassandra `writetime` during migration, the following flags must be set when creating tables: 
+    >
+    > ```sql
+    > with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
+    > ``` 
+    >
+    > For example:
+    > ```sql
+    > CREATE KEYSPACE IF NOT EXISTS migrationkeyspace WITH REPLICATION= {'class': 'org.apache.> cassandra.locator.SimpleStrategy', 'replication_factor' : '1'};
+    > ```
+    >
+    > ```sql
+    > CREATE TABLE IF NOT EXISTS migrationkeyspace.users (
+    >  name text,
+    >  userID int,
+    >  address text,
+    >  phone int,
+    >  PRIMARY KEY ((name), userID)) with cosmosdb_cell_level_timestamp=true and > cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true;
+    > ```
 
 ## Provision a Spark cluster
 
 We recommend Azure Databricks. Use a runtime which supports Spark 3.0 or higher.
 
+>[!IMPORTANT]
+> You need to ensure that your Azure Databricks account has network connectivity with your source Apache Cassandra cluster. This may require VNet injection. See article [here](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject) for more information.  
+
 :::image type="content" source="./media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+
+
 
 ## Add Spark dependencies
 
 You need to add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
+
+> [!IMPORTANT]
+> If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in this sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](migrate-data-dual-write-proxy.md#run-the-historical-data-load)" and "[validate the source and target](migrate-data-dual-write-proxy.md#validate-the-source-and-target)" below for more details. 
 
 :::image type="content" source="./media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
@@ -75,9 +85,6 @@ Select **Install**, and then restart the cluster when installation is complete.
 
 > [!NOTE]
 > Be sure to restart the Azure Databricks cluster after the Cassandra Connector library is installed.
-
-> [!IMPORTANT]
-> If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in the sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](migrate-data-dual-write-proxy.md#run-the-historical-data-load)" and "[validate the source and target](migrate-data-dual-write-proxy.md#validate-the-source-and-target)" below for more details. 
 
 ## Install the dual-write proxy
 
