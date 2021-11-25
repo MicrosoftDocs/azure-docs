@@ -22,6 +22,9 @@ Use this quickstart for the question answering client library for .NET to:
 
 ## Prerequisites
 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp).
+
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
