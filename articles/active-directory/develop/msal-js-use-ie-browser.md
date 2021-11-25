@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 11/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -22,33 +22,40 @@ ms.custom: aaddev
 The Microsoft Authentication Library for JavaScript (MSAL.js) is generated for [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) so that it can run in Internet Explorer. There are, however, a few things to know.
 
 ## Run an app in Internet Explorer
-If you intend to use MSAL.js in applications that can run in Internet Explorer, you will need to add a reference to a promise polyfill before referencing the MSAL.js script.
+
+If you intend to use MSAL.js in applications that can run in Internet Explorer, you'll need to add a reference to a promise polyfill before referencing the MSAL.js script.
 
 ```html
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"
+  class="pre"
+></script>
 ```
 
-This is because Internet Explorer does not support JavaScript promises natively.
+Internet Explorer doesn't support JavaScript promises natively.
 
 ## Debugging an application running in Internet Explorer
 
 ### Running in production
+
 Deploying your application to production (for instance in Azure Web apps) normally works fine, provided the end user has accepted popups. We tested it with Internet Explorer 11.
 
 ### Running locally
-If you want to run and debug locally your application running in Internet Explorer, be aware of the following considerations (assume that you want to run your application as *http://localhost:1234*):
 
-- Internet Explorer has a security mechanism named "protected mode", which prevents MSAL.js from working correctly. Among the symptoms, after you sign in, the page can be redirected to http://localhost:1234/null.
+If you want to run and debug your application locally in Internet Explorer, be aware of the following considerations (assuming that you want to run your application at _http://localhost:1234_):
 
-- To run and debug your application locally, you'll need to disable this "protected mode". For this:
+- Internet Explorer has a security mechanism named "protected mode", which prevents MSAL.js from working correctly. Among the symptoms, after you sign in, the page can be redirected to _http://localhost:1234/null_.
 
-    1. Click Internet Explorer **Tools** (the gear icon).
-    1. Select **Internet Options** and then the **Security** tab.
-    1. Click on the **Internet** zone, and uncheck **Enable Protected Mode (requires restarting Internet Explorer)**. Internet Explorer warns that your computer is no longer protected. Click **OK**.
-    1. Restart Internet Explorer.
-    1. Run and debug your application.
+- To run and debug your application locally, you'll need to disable "protected mode". Follow these steps to disable "protected mode":
 
-When you are done, restore the Internet Explorer security settings.  Select **Settings** -> **Internet Options** -> **Security** -> **Reset all zones to default level**.
+  1. Select Internet Explorer **Tools** (the gear icon).
+  1. Select **Internet Options** and then the **Security** tab.
+  1. Select on the **Internet** zone, and uncheck **Enable Protected Mode (requires restarting Internet Explorer)**. Internet Explorer warns that your computer is no longer protected. Select **OK**.
+  1. Restart Internet Explorer.
+  1. Run and debug your application.
+
+When you're done, restore the Internet Explorer security settings. Select **Settings** -> **Internet Options** -> **Security** -> **Reset all zones to default level**.
 
 ## Next steps
-Learn more about [Known issues when using MSAL.js in Internet Explorer](msal-js-use-ie-browser.md).
+
+Learn more about [Known issues when using MSAL.js in Internet Explorer](msal-js-known-issues-ie-edge-browsers.md).
