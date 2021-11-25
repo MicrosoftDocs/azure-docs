@@ -1,12 +1,12 @@
 ### YamlMime:FAQ
 metadata:
-  title: Azure Cache for Redis monitoring and troubleshooting FAQs
-  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Cache for Redis
+  title: Azure Cache for Redis common error FAQs
+  description: Learn the answers to common questions that help you monitor and troubleshoot Azure Cache for Redis.
   author: curib
   ms.author: cauribeg
   ms.service: cache
   ms.topic: conceptual
-  ms.date: 08/06/2020
+  ms.date: 11/20/2021
     
 title: Azure Cache for Redis monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Cache for Redis.

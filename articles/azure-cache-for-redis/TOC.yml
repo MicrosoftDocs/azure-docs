@@ -172,8 +172,6 @@
       href: cache-how-to-monitor.md#operations-and-alerts
     - name: Monitor with diagnostic logs
       href: cache-monitor-diagnostic-settings.md
-    - name: Monitoring FAQs
-      href: cache-monitor-troubleshoot-faq.yml
   - name: Scale
     items:
     - name: Update to a different size and tier
