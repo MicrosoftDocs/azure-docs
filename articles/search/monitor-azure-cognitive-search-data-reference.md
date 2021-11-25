@@ -153,80 +153,11 @@ For the OperationName, specify any of the following operations.
 | Query.Autocomplete |  An autocomplete query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Lookup |  A lookup query against an index. See [Query types and composition](search-query-overview.md). |
 | Query.Search |  A full text search request against an index. See [Query types and composition](search-query-overview.md). |
-| Query.Suggest |  Type-ahead query against an index. See [Query types and composition](search-query-overview.md). |
+| Query.Suggest |  Type ahead query against an index. See [Query types and composition](search-query-overview.md). |
 | ServiceStats | This operation is a routine call to [Get Service Statistics](/rest/api/searchservice/get-service-statistics), either called directly or implicitly to populate a portal overview page when it is loaded or refreshed. |
-
-<!-- 
-
-## Query log information
-
-Two tables contain logs and metrics for Azure Cognitive Search: **AzureDiagnostics** and **AzureMetrics**.
-
-1. Under **Monitoring**, select **Logs**.
-
-1. In the query window, type **AzureMetrics**, check the scope (your search service) and time range, and then click **Run** to get acquainted with the data collected in this table.
-
-   Scroll across the table to view metrics and values. Notice the record count at the top. If your service has been collecting metrics for a while, you might want to adjust the time interval to get a manageable data set.
-
-   ![AzureMetrics table](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics table")
-
-1. Enter the following query to return a tabular result set.
-
-   ```kusto
-   AzureMetrics
-   | project MetricName, Total, Count, Maximum, Minimum, Average
-   ```
-
-1. Repeat the previous steps, starting with **AzureDiagnostics** to return all columns for informational purposes, followed by a more selective query that extracts more interesting information.
-
-   ```kusto
-   AzureDiagnostics
-   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
-   | where OperationName == "Query.Search" 
-   ```
-
-   ![AzureDiagnostics table](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics table")
-
-## Kusto query examples
-
-If you enabled diagnostic logging, you can query **AzureDiagnostics** for a list of operations that ran on your service and when. You can also correlate activity to investigate changes in performance.
-
-#### Example: List operations 
-
-Return a list of operations and a count of each one.
-
-```kusto
-AzureDiagnostics
-| summarize count() by OperationName
-```
-
-#### Example: Correlate operations
-
-Correlate query request with indexing operations, and render the data points across a time chart to see operations coincide.
-
-```kusto
-AzureDiagnostics
-| summarize OperationName, Count=count()
-| where OperationName in ('Query.Search', 'Indexing.Index')
-| summarize Count=count(), AvgLatency=avg(durationMs) by bin(TimeGenerated, 1h), OperationName
-| render timechart
-```
-
-## View raw log files
-
-Blob storage is used for archiving log files. You can use any JSON editor to view the log file. If you don't have one, we recommend [Visual Studio Code](https://code.visualstudio.com/download).
-
-1. In Azure portal, open your Storage account. 
-
-2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Cognitive Search when the log data is exported to Blob storage.
-
-3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
-
-Once the file is downloaded, open it in a JSON editor to view the contents.
- -->
 
 ## See also
 
 + See [Monitoring Azure Cognitive Search](monitor-azure-cognitive-search.md) for concepts and instructions.
 
-+ See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
++ See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
