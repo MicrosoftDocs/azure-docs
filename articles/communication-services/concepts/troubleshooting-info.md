@@ -228,7 +228,7 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
 
-## SMS SDK error codes
+## SMS error codes
 
 The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
 

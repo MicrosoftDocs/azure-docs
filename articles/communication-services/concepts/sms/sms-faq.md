@@ -15,7 +15,6 @@ ms.subservice: sms
 
 # SMS FAQ
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 ## Can a customer use Azure Communication Services for emergency purposes?
 
 Azure Communication Services does not support text-to-911 functionality in the United States, but it’s possible that you may have an obligation to do so under the rules of the Federal Communications Commission (FCC).  You should assess whether the FCC’s text-to-911 rules apply to your service or application. To the extent you're covered by these rules, you'll be responsible for routing 911 text messages to emergency call centers that request them. You're free to determine your own text-to-911 delivery model, but one approach accepted by the FCC involves automatically launching the native dialer on the user’s mobile device to deliver 911 texts through the underlying mobile carrier.
@@ -26,9 +25,11 @@ To ensure that we continue offering the high quality of service consistent with 
 
 Rate Limits for SMS:
 
-|Operation|Scope|Timeframe (s)| Limit (request #) | Message units per minute|
-|---------|-----|-------------|-------------------|-------------------------|
-|Send Message|Per Number|60|200|200|
+|Operation|Number Type |Scope|Timeframe (s)| Limit (request #) | Message units per minute|
+|---------|---|--|-------------|-------------------|-------------------------|
+|Send Message|Toll-Free|Per Number|60|200|200|
+|Send Message|Short Code |Per Number|60|6000|6000|
+
 
 ## How does Azure Communication Services handle opt-outs for toll-free numbers?
 
@@ -79,3 +80,12 @@ The 202 returned by the service means that your message has been queued to be se
 
 ## What is the eligibility to apply for a short code?
 Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. 
+
+## Can you text to a toll-free number from a short code?
+No. Texting to a toll-free number from a short code is not supported. You also wont be able to receive a message from a toll-free number to a short code.
+
+## How should a short code be formatted?
+Short codes do not fall under E.164 formatting guidelines and do not have a country code, or a "+" sign prefix. In the SMS API request, your short code should be passed as the 5-6 digit number you see in your short codes blade without any prefix. 
+
+## How long does it take to get a short code? What happens after a short code program brief application is submitted?
+Once you have submitted the short code program brief application in the Azure portal, Azure Communication Services works with the aggregators to get your application approved by each mobile carrier. This process generally takes 8-12 weeks.
