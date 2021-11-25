@@ -317,6 +317,8 @@ For more information, see the [Microsoft Defender for Cloud documentation](/azur
 
 ## Next steps
 
+Watch our demo! See [Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel](https://youtu.be/WEzteImYuDs)
+
 For more information, see:
 
 - [About Microsoft Sentinel solutions](sentinel-solutions.md)
