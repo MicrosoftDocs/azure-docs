@@ -152,7 +152,7 @@ To run a test with Azure Load Testing from a CI/CD workflow, you need a load tes
     
     
     > [!IMPORTANT]
-    > The name of Azure web app should match the name used for the endpoint URL in the *SampleApp.jmx* test script.
+    > The name of Azure web app should match the name you used for the endpoint URL in the *SampleApp.jmx* test script.
     
     ```yaml
     env:
