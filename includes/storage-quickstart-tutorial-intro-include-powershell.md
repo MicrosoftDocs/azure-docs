@@ -36,7 +36,7 @@ Create a standard, general-purpose storage account with LRS replication by using
 
 ```powershell
 $StorageHT = @{
-  ResourceGroupName = "$ResourceGroup"
+  ResourceGroupName = $ResourceGroup
   Name              = 'MyStorageAccount'
   SkuName           = 'Standard_LRS'
   Location          =  $Location
