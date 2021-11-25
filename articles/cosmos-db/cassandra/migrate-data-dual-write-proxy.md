@@ -197,6 +197,9 @@ After the dual-write proxy is running, you'll need to change the port on your ap
 
 To load the data, create a Scala notebook in your Azure Databricks account. Replace your source and target Cassandra configurations with the corresponding credentials, and replace the source and target keyspaces and tables. Add more variables for each table as required to the following sample, and then run. After your application starts sending requests to the dual-write proxy, you're ready to migrate historical data. 
 
+>[!IMPORTANT]
+> Before migrating the data, increase the container throughput to the amount required for your application to migrate quickly. Scaling the throughput before starting the migration will help you to migrate your data in less time. To help safeguard against rate-limiting during the historical data load, you may wish to enable server-side retries (SSR). See our article [here](prevent-rate-limiting-errors.md) for instructions on how to enabled SSR.
+
 ```scala
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql._
