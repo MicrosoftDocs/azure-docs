@@ -90,7 +90,7 @@ To access Azure resources, you'll create an Azure Active Directory service princ
 
     ```azurecli
     az ad sp create-for-rbac --name "my-load-test-cicd" --role contributor \
-                             --scopes /subscriptions/<subscription-id>/resourceGroups/<resource-group> \
+                             --scopes /subscriptions/<subscription-id> \
                              --sdk-auth
     ```
 
