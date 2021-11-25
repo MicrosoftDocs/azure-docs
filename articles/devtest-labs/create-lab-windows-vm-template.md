@@ -26,21 +26,24 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-This quickstart uses the [Creates a lab in Azure DevTest Labs with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template. The template defines the following resources:
+This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template, which is available in the [public Azure template repository](). The template defines the following resources:
 
 - [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates a DevTest Labs lab.
 - [Microsoft.DevTestLab labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a DevTest Labs virtual network.
 - [Microsoft.DevTestLab labs/virtualmachines](/azure/templates/microsoft.devtestlab/labs/virtualmachines) creates a DevTest Labs VM.
 
+<!--
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
-
+-->
 For more DevTest Labs ARM templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
+
+For more information about editing, writing, and distributing your own ARM templates, see []().
 
 ## Deploy the template
 
 1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template to the lab creation screen:
 
-[![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
+   [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
 
    Or, to deploy the template without using the button:
 
