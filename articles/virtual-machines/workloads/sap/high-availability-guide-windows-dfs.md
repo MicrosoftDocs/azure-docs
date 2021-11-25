@@ -42,7 +42,7 @@ with **DIR_TRANS = \\\contoso.local\sapmnt\trans-sc4 in the DEFAULT.PFL profile*
 
 ## Microsoft DFS-N
 
-An introduction and the installation instructions for DFS-N can be found [here](../../../windows-server/storage/dfs-namespaces/dfs-overview.md)
+An introduction and the installation instructions for DFS-N can be found [here](/windows-server/storage/dfs-namespaces/dfs-overview)
 
 Adding resiliency to DFS-N is described at the end of this documentation.
 
