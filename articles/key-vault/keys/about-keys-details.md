@@ -82,7 +82,7 @@ Key Vault, including Managed HSM, supports the following operations on key objec
 -   **Get**: Allows a client to retrieve the public parts of a given key in a Key Vault.  
 -   **Backup**: Exports a key in a protected form.  
 -   **Restore**: Imports a previously backed up key.  
--   **Rotate (preview)**: Rotate a existing key by generating new version of the key (Key Vault only).
+-   **Rotate (preview)**: Rotate an existing key by generating new version of the key (Key Vault only).
 
 For more information, see [Key operations in the Key Vault REST API reference](/rest/api/keyvault).  
 
