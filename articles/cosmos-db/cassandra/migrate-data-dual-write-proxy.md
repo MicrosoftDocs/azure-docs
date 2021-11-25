@@ -1,46 +1,75 @@
 ---
-title: Live migration to Azure Managed Instance for Apache Cassandra using Apache Spark and a dual-write proxy
-description: Learn how to migrate to Azure Managed Instance for Apache Cassandra by using Apache Spark and a dual-write proxy.
+title: Live Migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
+description: Learn how to live migrate data from an Apache Cassandra database to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
 author: TheovanKraay
+ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
+ms.topic: how-to
+ms.date: 11/25/2021
 ms.author: thvankra
-ms.service: managed-instance-apache-cassandra
-ms.topic: tutorial
-ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.reviewer: thvankra
 ---
 
-# Live migration to Azure Managed Instance for Apache Cassandra by using a dual-write proxy
+# Live Migrate data from Apache Cassandra to the Azure Cosmos DB Cassandra API by using dual-write proxy and Apache Spark
 
-Where possible, we recommend using the Apache Cassandra native capability to migrate data from your existing cluster into Azure Managed Instance for Apache Cassandra by configuring a [hybrid cluster](configure-hybrid-cluster.md). This capability uses Apache Cassandra's gossip protocol to replicate data from your source datacenter into your new managed-instance datacenter in a seamless way. However, there might be some scenarios where your source database version is not compatible, or a hybrid cluster setup is otherwise not feasible. 
+Cassandra API in Azure Cosmos DB has become a great choice for enterprise workloads running on Apache Cassandra for a variety of reasons such as: 
 
-This tutorial describes how to migrate data to Azure Managed Instance for Apache Cassandra in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. The benefits of this approach are:
+* **No overhead of managing and monitoring:** It eliminates the overhead of managing and monitoring a myriad of settings across OS, JVM, and yaml files and their interactions.
 
-- **Minimal application changes**. The proxy can accept connections from your application code with few or no configuration changes. It will route all requests to your source database and asynchronously route writes to a secondary target. 
-- **Client wire protocol dependency**. Because this approach is not dependent on back-end resources or internal protocols, it can be used with any source or target Cassandra system that implements the Apache Cassandra wire protocol.
+* **Significant cost savings:** You can save cost with Azure Cosmos DB, which includes the cost of VM’s, bandwidth, and any applicable licenses. Additionally, you don’t have to manage the data centers, servers, SSD storage, networking, and electricity costs. 
 
-The following image illustrates the approach.
+* **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-:::image type="content" source="./media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
+As Cosmos DB does not support the native Apache Cassandra gossip protocol for replication, a different approach is necessary where zero downtime is a requirement for migration. This tutorial describes how to live migrate data to Azure Cosmos DB Cassandra API from a native Apache Cassandra cluster in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. 
+
+The following image illustrates the pattern.
+
+:::image type="content" source="../../managed-instance-apache-cassandra/media/migration/live-migration.gif" alt-text="Animation that shows the live migration of data to Azure Managed Instance for Apache Cassandra." border="false":::
 
 ## Prerequisites
 
-* Provision an Azure Managed Instance for Apache Cassandra cluster by using the [Azure portal](create-cluster-portal.md) or the [Azure CLI](create-cluster-cli.md). Ensure that you can [connect to your cluster with CQLSH](./create-cluster-portal.md#connecting-to-your-cluster).
+* [Provision an Azure Cosmos DB Cassandra API account](manage-data-dotnet.md#create-a-database-account).
 
-* [Provision an Azure Databricks account inside your Managed Cassandra virtual network](deploy-cluster-databricks.md). Ensure that the account has network access to your source Cassandra cluster. We'll create a Spark cluster in this account for the historical data load.
+* [Review the basics of connecting to an Azure Cosmos DB Cassandra API](connect-spark-configuration.md).
 
-* Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra managed-instance database.
+* Review the [supported features in the Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
+
+* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview).
+
+* Ensure that you've already migrated the keyspace/table scheme from your source Cassandra database to your target Cassandra API account.
+
+>[!IMPORTANT]
+> If you have a requirement to preserve Apache Cassandra `writetime` during migration, the following flags must be set when creating tables: 
+>
+> ```sql
+> with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
+> ``` 
+>
+> For example:
+> ```sql
+> CREATE KEYSPACE IF NOT EXISTS migrationkeyspace WITH REPLICATION= {'class': 'org.apache.> cassandra.locator.SimpleStrategy', 'replication_factor' : '1'};
+> ```
+>
+> ```sql
+> CREATE TABLE IF NOT EXISTS migrationkeyspace.users (
+>  name text,
+>  userID int,
+>  address text,
+>  phone int,
+>  PRIMARY KEY ((name), userID)) with cosmosdb_cell_level_timestamp=true and > cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true;
+> ```
 
 ## Provision a Spark cluster
 
-We recommend selecting Azure Databricks runtime version 7.5, which supports Spark 3.0.
+We recommend Azure Databricks. Use a runtime which supports Spark 3.0 or higher.
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
+:::image type="content" source="./media/migrate-data-databricks/databricks-runtime.png" alt-text="Screenshot that shows finding the Azure Databricks runtime version.":::
 
 ## Add Spark dependencies
 
 You need to add the Apache Spark Cassandra Connector library to your cluster to connect to both native and Azure Cosmos DB Cassandra endpoints. In your cluster, select **Libraries** > **Install New** > **Maven**, and then add `com.datastax.spark:spark-cassandra-connector-assembly_2.12:3.0.0` in Maven coordinates.
 
-:::image type="content" source="../cosmos-db/cassandra/media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
+:::image type="content" source="./media/migrate-data-databricks/databricks-search-packages.png" alt-text="Screenshot that shows searching for Maven packages in Azure Databricks.":::
 
 Select **Install**, and then restart the cluster when installation is complete.
 
@@ -48,7 +77,7 @@ Select **Install**, and then restart the cluster when installation is complete.
 > Be sure to restart the Azure Databricks cluster after the Cassandra Connector library is installed.
 
 > [!IMPORTANT]
-> If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in the sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](dual-write-proxy-migration.md#run-the-historical-data-load)" and "[validate the source and target](dual-write-proxy-migration.md#validate-the-source-and-target)" below for more details. 
+> If you have a requirement to preserve Apache Cassandra `writetime` for each row during the migration, we recommend using [this sample](https://github.com/Azure-Samples/cassandra-migrator). The dependency jar in the sample also contains the Spark connector, so you should install this instead of the connector assembly above. This sample is also useful if you want to perform a row comparison validation between source and target after historic data load is complete. See sections "[run the historical data load](migrate-data-dual-write-proxy.md#run-the-historical-data-load)" and "[validate the source and target](migrate-data-dual-write-proxy.md#validate-the-source-and-target)" below for more details. 
 
 ## Install the dual-write proxy
 
@@ -104,13 +133,13 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> 
 
 ### Configure the credentials and port
 
-By default, the source credentials will be passed through from your client app. The proxy will use the credentials for making connections to the source and target clusters. As mentioned earlier, this process assumes that the source and target credentials are the same. If necessary, you can specify a different username and password for the target Cassandra endpoint separately when starting the proxy:
+By default, the source credentials will be passed through from your client app. The proxy will use the credentials for making connections to the source and target clusters. As mentioned earlier, this process assumes that the source and target credentials are the same. It will be necessary to specify a different username and password for the target Cassandra API endpoint separately when starting the proxy:
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
 ```
 
-The default source and target ports, when not specified, will be 9042. If either the target or the source Cassandra endpoint runs on a different port, you can use `--source-port` or `--target-port` to specify a different port number: 
+The default source and target ports, when not specified, will be 9042. In this case, Cassandra API runs on port `10350`, so you need to use `--source-port` or `--target-port` to specify port numbers: 
 
 ```bash
 java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar localhost <target-server> --source-port 9042 --target-port 10350 --proxy-jks-file <path to JKS file> --proxy-jks-password <keystore password> --target-username <username> --target-password <password>
@@ -180,7 +209,7 @@ val sourceCassandra = Map(
 //target cassandra configs
 val targetCassandra = Map( 
     "spark.cassandra.connection.host" -> "<Source Cassandra Host>",
-    "spark.cassandra.connection.port" -> "9042",
+    "spark.cassandra.connection.port" -> "10350",
     "spark.cassandra.auth.username" -> "<USERNAME>",
     "spark.cassandra.auth.password" -> "<PASSWORD>",
     "spark.cassandra.connection.ssl.enabled" -> "true",
@@ -231,4 +260,4 @@ After the historical data load is complete, your databases should be in sync and
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Manage Azure Managed Instance for Apache Cassandra resources using Azure CLI](manage-resources-cli.md)
+> [Introduction to the Azure Cosmos DB Cassandra API](cassandra-introduction.md)
