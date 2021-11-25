@@ -42,7 +42,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB restorable account resource | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. 
+The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --account-name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. 
 
 ## Permissions
 
@@ -75,7 +75,7 @@ az role assignment create --role "CosmosRestoreOperator" --assignee <email> –s
 
 * Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
 
-* Assign the *CosmosRestoreOperator* built-in role to the specific restorable database account that needs to be restored. In the following command, the scope for the *RestorableDatabaseAccount* is retrieved from the `ID` property in the output of `az cosmosdb restorable-database-account` (if using CLI)  or  `Get-AzCosmosDBRestorableDatabaseAccount` (if using PowerShell).
+* Assign the *CosmosRestoreOperator* built-in role to the specific restorable database account that needs to be restored. In the following command, the scope for the *RestorableDatabaseAccount* is retrieved from the `ID` property in the output of `az cosmosdb restorable-database-account list` (if using CLI)  or  `Get-AzCosmosDBRestorableDatabaseAccount` (if using PowerShell).
 
   ```azurecli-interactive
    az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
