@@ -187,7 +187,7 @@ In this section, you'll view the load test results in the GitHub Actions workflo
     Once the load test finishes, you can view the test summary information and the client-side metrics in the workflow logs. The log also shows the URL to navigate to the Azure Load Testing dashboard for this load test.
     
     > [!NOTE]
-    > GitHub may mask your subscription ID from the URL, in which case you will need to replace the asterisks *'*****'* in the URL with your *subscription ID* to navigate to the Azure Load Testing dashboard.
+    > GitHub may mask your subscription ID in the log. You'll need to replace the asterisks *'*****'* in the portal URL with your Azure subscription ID to navigate to the Azure Load Testing dashboard.
 
 1. In the workflow run details screen, select the **loadTestResults** artifact to download the load test result files.
 
