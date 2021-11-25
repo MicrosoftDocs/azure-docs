@@ -154,7 +154,7 @@ java -jar target/cassandra-proxy-1.0-SNAPSHOT-fat.jar <source-server> <destinati
 ```
 
 > [!WARNING]
-> If you don't install and run the proxy on all nodes in a native Apache Cassandra cluster, this will affect performance in your application while the live migration occurs. The client driver won't be able to open connections to all nodes within the cluster. 
+> Installing and running the proxy remotely on a separate machine (rather than running it on all nodes in your source Apache Cassandra cluster) will impact performance while the live migration occurs. While it will work functionally, the client driver won't be able to open connections to all nodes within the cluster, and will rely on the single co-ordinator node (where the proxy is installed) to make connections.  
 
 ### Allow zero application code changes
 
