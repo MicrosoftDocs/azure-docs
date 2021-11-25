@@ -20,7 +20,7 @@ Azure Backup now supports Enhanced policy that's needed to support new Azure off
 You must enable backup for Trusted Launch VM through enhanced policy only. The Enhanced policy provides the following features:
 
 - Supports _Multiple Backups Per Day_. To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Enhanced policu storage here](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Enhanced policy storage here](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
