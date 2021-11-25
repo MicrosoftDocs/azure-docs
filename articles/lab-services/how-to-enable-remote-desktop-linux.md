@@ -2,7 +2,7 @@
 title: Enable graphical remote desktop for Linux in Azure Lab Services | Microsoft Docs
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services.  
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/24/2021
 ---
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services

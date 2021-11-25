@@ -23,10 +23,10 @@ Detailed instructions to covering how to install a licensing server are availabl
 
 Assuming the license server is located in an on-premise network or a private network within Azure, don’t forget to [peer the virtual network](how-to-connect-peer-virtual-network.md) to your [lab account](tutorial-setup-lab-account.md).  The network peering must be done before creating the lab so the lab virtual machines can access the license server.
 
-## Lab configuration
-
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> In the November 2021 Update, lab plans replace lab accounts, and virtual networks replace peer virtual networks. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+
+## Lab configuration
 
 To set up this lab, you need an Azure subscription to get started.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account.  To create a new lab account, see the [setup a lab account tutorial](tutorial-setup-lab-account.md).
 

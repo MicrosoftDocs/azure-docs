@@ -25,7 +25,7 @@ We've made fundamental backend improvements for the service to boost performance
 
 [More built-in roles](administrator-guide-2.md#manage-identity). In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules. 
 
-**Improved cost tracking in Cost Management**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
+[Improved cost tracking in Cost Management](cost-management-guide.md#separate-the-costs). Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Need to track cost by a department or cost center? Just add a tag to the lab resource in Azure. We added the ability to propagate tags from labs to Azure Cost Management entries.  
 
 [Updates to lab owner experience](how-to-manage-classroom-labs-2.md). Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
 
@@ -39,7 +39,7 @@ In this release, there remain a few known issues:
 
 - PowerShell SDK will be released on 12/7/2021 as part of the monthly update for the Azure module.
 
-- C# SDK will be released on _______________
+- C# SDK is not yet released
 
 - When using VNet Injection, use caution in making changes to the virtual network and subnet because it can cause the lab VMs to stop working. For example, deleting your virtual network will cause all the lab VMs to stop working. We plan to improve this experience, but for now make sure to delete labs before deleting networks.
 
@@ -56,7 +56,7 @@ By moving to a sibling relationship between the lab plan and lab instead of a pa
 |Feature/area|Lab account (classic)|Lab plan|
 |-|-|-|
 |Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources. Administrators can now use existing tools in the Azure portal to manage labs.</br>Virtual machines will continue to be a child resource of labs.| 
-|Cost tracking|In Azure Cost Management, admins were able to track and analyze cost only at the service level and at the lab account level.|In Azure Cost Management, entries are for lab virtual machines. Automatic tags on each entry specify the lab plan id and the lab. Now you can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
+|Cost tracking|In Azure Cost Management, admins were able to track and analyze cost only at the service level and at the lab account level.|In Azure Cost Management, entries are for lab virtual machines. Automatic tags on each entry specify the lab plan ID and the lab. Now you can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
 |Selecting regions to create labs in|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners were not able to manage exactly which Azure region the labs resided in, only the geography.|In the lab plan, administrator now can manage the exact Azure regions to allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan they were created from. </br>Note that when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.| 
 |Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs are not deleted. Labs that were created from a deleted lab plan will continue to retain references to:</br>- A virtual network, if advanced networking was configured on the lab plan.</br>- An image from Shared Image Gallery, if a custom image was used to create the lab.</br>However, the labs will no longer be able to export an image to Shared Image Gallery.|
 |Connecting to a Vnet|The lab account provided an option to peer to a Vnet. If you already had labs in the lab account before you peered to a Vnet, the Vnet connection did not apply to existing labs. This created a situation where admins could not tell which labs in the lab account were peered to the Vnet.|In a lab plan, admins will have the ability to set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you will see and read-only connection to the connected virtual network.</br>If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
@@ -78,4 +78,26 @@ For each new lab plan, there are some settings that you will need to configure, 
 - Select regions that your labs will be deployed in.
 - Set auto-shutdown settings.
 
-With all the new enhancements in the public preview, this is a good time to revisit your overall lab structure. For example, you may decide to structure your lab plans differently than your lab accounts now that you can explicitly select the regions that labs are deployed in.
+With all the new enhancements in the November 2021 Update, this is a good time to revisit your overall lab structure. For example, you may decide to structure your lab plans differently than your lab accounts now that you can explicitly select the regions that labs are deployed in.
+
+### Configure a lab plan
+
+Once the lab plan is created, administrators can set up the following configurations:
+
+Restrictions that apply at lab creation:
+
+- Which region(s) the labs can be created in.
+- What marketplace images are allowed.
+- What custom images from a connected Azure Compute Gallery are allowed.
+- Default auto-shutdown settings that labs will inherit.
+- Specify your organization’s Azure Compute Gallery to export custom VM images to.
+- Provide internal support information for your organization when using Azure Lab Services.
+- Give access to educators to create and/or manage labs.
+
+Lab owners who were given access can create new labs, and these labs will inherit the configuration set in the lab plan.
+
+Here is an example of how admins can create multiple lab plans to manage different collections of configurations to apply to labs:
+
+:::image type="content" source="./media/lab-services-whats-new/multiple-lab-plans-example.png" alt-text="Lab plan page.":::
+ 
+Changes made to the lab settings from the lab plan will apply only to new labs created after the settings change.

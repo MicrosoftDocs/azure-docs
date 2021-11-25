@@ -1,5 +1,5 @@
 ---
-title: Accelerated lab plan setup guide for Azure Lab Services
+title: Accelerated lab plan setup guide
 description: This guide helps administrators quickly set up a lab plan for use within their school.
 ms.topic: how-to
 ms.date: 11/23/2021
