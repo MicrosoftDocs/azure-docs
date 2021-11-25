@@ -107,3 +107,6 @@ When to use?
 * [Docs](/python/api/azure-purview-catalog/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-catalog/) azure-purview-catalog
 * [Docs](/python/api/azure-purview-scanning/?view=azure-python-preview&preserve-view=true) | [PyPi](https://pypi.org/project/azure-purview-scanning/) azure-purview-scanning
 * [Docs](/python/api/azure-mgmt-purview/?view=azure-python&preserve-view=true) | [PyPi](https://pypi.org/project/azure-mgmt-purview/) azure-mgmt-purview
+
+## Next steps
+* [Azure Purview REST API](/rest/api/purview)
