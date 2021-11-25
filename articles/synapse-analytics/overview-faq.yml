@@ -61,7 +61,7 @@ sections:
       - question: |
           Can I link more than one Power BI workspace to a single Azure Synapse Workspace?
         answer: |
-          Currently, you can only link a single Power BI workspace to an Azure Synapse Workspace. 
+          Yes, as of June 10, 2021, Synapse Studio now allows you to add more than one Power BI workspace to a single Azure Synapse Workspace. 
 
       - question: |
           Is Synapse Link to Cosmos DB GA?
