@@ -110,7 +110,7 @@ On *Choose a certificate*, select *Create new* and then select *Choose a certifi
 
 For Cert name, specify a friendly name for the certificate to be referenced in Key Vault.  Choose your Managed identity, Key vault, and Certificate.
 
-Once selected, click the *Add* (if creating) or *Save* (if editting) button to apply the referenced Key Vault certificate to the listener.
+Once selected, click the *Add* (if creating) or *Save* (if editing) button to apply the referenced Key Vault certificate to the listener.
 
 #### Key Vault Azure role-based access control permission model
 Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model, however due to a limitation in the Azure portal, the first few steps to reference the key vault must be completed via ARM, Bicep, CLI, PowerShell, etc.
@@ -132,7 +132,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 Once the commands have been executed, you can navigate to your Application Gateway in the Azure Portal and select the Listeners tab.  Click Add Lister (or select an existing) and specify the Protocol to HTTPS.
 
-Under *Choose a certificate* select the certificate named in the previous steps.  Once selected, click the *Add* (if creating) or *Save* (if editting) button to apply the referenced Key Vault certificate to the listener.
+Under *Choose a certificate* select the certificate named in the previous steps.  Once selected, click the *Add* (if creating) or *Save* (if editing) button to apply the referenced Key Vault certificate to the listener.
 
 ## Investigating and resolving Key Vault errors
 
