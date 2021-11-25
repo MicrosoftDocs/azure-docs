@@ -20,7 +20,7 @@ Cassandra API in Azure Cosmos DB has become a great choice for enterprise worklo
 
 * **Ability to use existing code and tools:** Azure Cosmos DB provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility ensures you can use your existing codebase with Azure Cosmos DB Cassandra API with trivial changes.
 
-As Cosmos DB does not support the native Apache Cassandra gossip protocol for replication, a different approach is necessary where zero downtime is a requirement for migration. This tutorial describes how to live migrate data to Azure Cosmos DB Cassandra API from a native Apache Cassandra cluster in a live fashion by using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. 
+As Cosmos DB does not support the native Apache Cassandra gossip protocol for replication, a different approach is necessary where zero downtime is a requirement for migration. This tutorial describes how to live migrate data to Azure Cosmos DB Cassandra API from a native Apache Cassandra cluster using a [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) and Apache Spark. 
 
 The following image illustrates the pattern.
 
