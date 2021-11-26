@@ -158,7 +158,7 @@ Categorization is done for Linux updates as **Security** or **Others** based on 
 >[!NOTE]
 > During update assessment, the classification of missing updates as Security and Critical may not work correctly for Linux distros supported by Update Management. This is a result of an issue identified with the naming schema of the OVAL files, which the Update Management uses to classify updates during the assessment. This prevents Update Management from properly matching classifications based on filtering rules during the assessment of missing updates. </br>
 > **This doesn't affect the deployment of updates**. As a different logic is used in security update assessments, results might differ from the security updates applied during deployment. If you have classification set as **Critical** and **Security**, the update deployment will function as expected. Only the *classification of updates* during an assessment is affected.</br>
-> Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged.
+> **Update Management for Windows Server machines is unaffected; update classification and deployments are unchanged**.
 
 ## Integrate Update Management with Configuration Manager
 
