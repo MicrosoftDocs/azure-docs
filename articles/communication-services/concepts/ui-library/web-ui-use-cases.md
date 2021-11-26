@@ -1,5 +1,5 @@
 ---
-title: UI Library use cases
+title: Web UI Library use cases
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the Web UI Library and how it can help you build communication experiences
 author: ddematheu2
@@ -11,6 +11,8 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
+# Overview
 
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
