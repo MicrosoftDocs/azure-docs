@@ -12,7 +12,7 @@ ms.topic: how-to
 
 # Make configurable load tests with secrets and environment variables
 
-Learn how to change the behavior of a load test without making modifications to the Apache JMeter script. With Azure Load Testing Preview, you can use parameters to make a configurable test script. For example, turn the the application endpoint into a parameter to reuse your test script across multiple environments.
+Learn how to change the behavior of a load test without making modifications to the Apache JMeter script. With Azure Load Testing Preview, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
 
 Azure Load Testing service supports two types of parameters:
 
@@ -115,7 +115,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
     
     :::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Screenshot that shows how to add secret details to a load test.":::
 
-    Alternatively, you can specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
+    Instead, you can also specify a secret in the YAML configuration file. For more information about the syntax, see the [Test configuration YAML reference](./reference-test-config-yaml.md).
 
 ### <a name="cicd_secrets"></a> Use the CI/CD secret store
 
