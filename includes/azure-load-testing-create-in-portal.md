@@ -56,7 +56,7 @@ ms.date: 11/30/2021
 
     You need to assign the **Load Test Contributor** or **Load Test Owner** role to your Azure account. For details about how to assign roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal.md).
 
-    :::image type="content" source="media/azure-load-testing-create-in-portal/add-role-assignment.png" alt-text="Screenshot that shows the deployment completion screen.":::
+    :::image type="content" source="media/azure-load-testing-create-in-portal/add-role-assignment.png" alt-text="Screenshot that shows the role assignment screen.":::
 
     > [!IMPORTANT]
     > To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles.md#owner).
