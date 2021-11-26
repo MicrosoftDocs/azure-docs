@@ -63,7 +63,7 @@ You can enable [ExpressRoute Premium](expressroute-faqs.md) to extend connectivi
 ### Local connectivity with ExpressRoute Local
 You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge.
 
-For peering location and supported Azure local region see, [providers by locations](expressroute-locations-providers.md#partners).
+For peering location and supported Azure local region, see [providers by locations](expressroute-locations-providers.md#partners).
 
 ### Across on-premises connectivity with ExpressRoute Global Reach
 You can enable ExpressRoute Global Reach to exchange data across your on-premises sites by connecting your ExpressRoute circuits. For example, if you have a private data center in California connected to an ExpressRoute circuit in Silicon Valley and another private data center in Texas connected to an ExpressRoute circuit in Dallas. With ExpressRoute Global Reach, you can connect your private data centers together through these two ExpressRoute circuits. Your cross-data-center traffic will traverse through Microsoft's network.

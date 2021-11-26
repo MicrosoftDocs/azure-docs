@@ -23,7 +23,7 @@ This article outlines how to register DB2, and how to authenticate and interact 
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
 
-The supported IBM DB2 versions are 9.7 to 11.x.
+The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainframe) and iSeries (AS/400) are not supported now. 
 
 When scanning IBM DB2 source, Purview supports:
 
@@ -38,7 +38,7 @@ When scanning IBM DB2 source, Purview supports:
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md). The minimal supported Self-hosted Integration Runtime version is 5.12.7984.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
