@@ -98,7 +98,7 @@ To access Azure resources, you'll create a service connection in Azure DevOps an
 
 1. Select the **Service Principal (automatic)** authentication method, and then select **Next**.
 
-1. Select the **Subscription** scope level, select your Azure subscription, and then select the resource group that contains your Azure Load Testing resource.
+1. Select the **Subscription** scope level, select your Azure subscription that contains your Azure Load Testing resource.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-service-connection.png" alt-text="Screenshot that shows how to create a new service connection.":::
 
