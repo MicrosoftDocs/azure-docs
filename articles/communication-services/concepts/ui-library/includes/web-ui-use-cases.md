@@ -15,9 +15,6 @@ ms.service: azure-communication-services
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
-
-# Web UI Library use cases overview
-
 UI Library supports many cases across calling and chat experiences.
 These capabilities are available through UI Components and Composites.
 For Composites, these capabilities are built directly in and exposed when the composite is integrated into an application.
@@ -30,7 +27,7 @@ To take full advantage of these capabilities, we recommend using the UI Componen
 | ------------------- | ------------------------------------------------------ |
 | Call Types          | Join Teams Meeting                                     |
 |                     | Join Azure Communication Services call with Group Id   |
-| [Teams Interop](../teams-interop.md)      | Call Lobby                                             |
+| [Teams Interop](../../teams-interop.md)      | Call Lobby                                             |
 |                     | Transcription and recording alert banner               |
 | Call Controls       | Mute/unmute call                                       |
 |                     | Video on/off on call                                   |
@@ -63,17 +60,17 @@ To take full advantage of these capabilities, we recommend using the UI Componen
 ## Supported identities
 
 An Azure Communication Services identity is required to initialize the stateful client libraries and authenticate to the service.
-For more information on authentication, see [Authentication](../authentication.md) and [Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript)
+For more information on authentication, see [Authentication](../../authentication.md) and [Access Tokens](../../../quickstarts/access-tokens.md)
 
 ## Teams Interop Use Case
 
-For [Teams Interop](../teams-interop.md) scenarios, developers can use UI Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../../teams-interop.md) scenarios, developers can use UI Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can either use calling and chat composites directly or use UI Components to build a custom experience.
 When enabling applications with both calling and chat, its important to remember that the chat client can't be initialized until the participant has been admitted to the call.
 Once admitted, the chat client can be initialized to join the meeting chat thread.
 See the diagram below for guidance:
 
-:::image type="content" source="../media/teams-interop-pattern.png" alt-text="Teams Interop pattern for calling and chat":::
+:::image type="content" source="../../media/teams-interop-pattern.png" alt-text="Teams Interop pattern for calling and chat":::
 
 When using UI Components to deliver Teams Interop experiences, UI Library provides examples for key pieces of the experience.
 For example:
@@ -110,10 +107,10 @@ Developers can hook into the stateful client to read the state, handle events an
 
 ## Recommended architecture
 
-:::image type="content" source="../media/ui-library-architecture.png" alt-text="UI Library recommended client-server architecture":::
+:::image type="content" source="../../media/ui-library-architecture.png" alt-text="UI Library recommended client-server architecture":::
 
 Composite and Base Components are initialized using an Azure Communication Services access token. Access tokens should be procured from Azure Communication Services through a
-trusted service that you manage. See [Quickstart: Create Access Tokens](../../quickstarts/access-tokens.md?pivots=programming-language-javascript) and [Trusted Service Tutorial](../../tutorials/trusted-service-tutorial.md) for more information.
+trusted service that you manage. See [Quickstart: Create Access Tokens](../../../quickstarts/access-tokens.md) and [Trusted Service Tutorial](../../../tutorials/trusted-service-tutorial.md) for more information.
 
 These client libraries also require the context for the call or chat they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 

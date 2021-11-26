@@ -13,13 +13,14 @@ ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-mobile
 ---
 
-# Platforms
+# UI Library use cases
+
 ::: zone pivot="platform-web"
-[!INCLUDE [Web UI Library](web-ui-use-cases.md)]
+[!INCLUDE [Web UI Library](includes/web-ui-use-cases.md)]
 ::: zone-end
 
 ::: zone pivot="platform-mobile"
-[!INCLUDE [Mobile UI Library](mobile-ui-use-cases.md)]
+[!INCLUDE [Mobile UI Library](includes/mobile-ui-use-cases.md)]
 ::: zone-end
 
 ## Accessibility

@@ -12,8 +12,6 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Web UI Library overview
-
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
@@ -62,7 +60,7 @@ Understanding these requirements will help you choose the right client library:
 
 Details about feature availability in the [UI Library is available here](https://azure.github.io/communication-ui-library/?path=/story/use-cases--page), but key trade-offs are summarized below.
 
-| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../teams-interop.md) |
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](../../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   | ✔       | ✔    | ✔                                                                                                     |
 | Base Components       | Medium                    | Medium                | ✔       | ✔    | ✔                                                                                                     |

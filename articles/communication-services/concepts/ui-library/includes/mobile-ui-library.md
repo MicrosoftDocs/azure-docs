@@ -10,9 +10,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-# Mobile UI Library overview
+[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
 The Mobile UI Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
 
@@ -20,7 +18,7 @@ The Mobile UI Library's objective is to provide these capabilities to you in a t
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
+| [CallComposite](../../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
 
 ## Scenarios
 
@@ -32,23 +30,23 @@ Users can join easily over the call using the *Teams meeting URL* or they can se
 
 As a participant of the calls, you can provide a name and set up a default configuration for audio and video devices, and you're ready to jump into the call.
 
-:::image type="content" source="../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience.":::
+:::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience.":::
 
 ### Call experience
 
 The calling composite provide an end two end experience, optimizing development time, and focusing into a clean layout.  
 
-:::image type="content" source="../media/mobile-ui/calling-composite.png" alt-text="Meeting experience.":::
+:::image type="content" source="../../media/mobile-ui/calling-composite.png" alt-text="Meeting experience.":::
 
 **The calling experience provides all these capabilities in one single composite component, providing a clear path without complex code which leads to faster development time.**
 
 ### Quality and security
 
-Mobile Composites are initialized using [Azure Communication Services access tokens](../../quickstarts/access-tokens.md).
+Mobile Composites are initialized using [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md).
 
 ### More details
 
-If you need more details about mobile composites, please visit [use cases site](ui-library-use-cases.md) to discover more.
+If you need more details about mobile composites, please visit [use cases site](../ui-library-use-cases.md) to discover more.
 
 ## What UI Artifact is Best for my Project?
 
@@ -58,15 +56,15 @@ Understanding these requirements will help you choose the right client library:
 
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-Details about the feature availability in the [UI Library is available here](ui-library-use-cases.md?pivots=platform-mobile), but key trade-offs are summarized below.
+Details about the feature availability in the [UI Library is available here](../ui-library-use-cases.md), but key trade-offs are summarized below.
 
-| Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
-| [Core client libraries](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | High                      | High                  |         ✔    | ✔                                                                                               |
+| [Core client libraries](../../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | High                      | High                  |         ✔    | ✔                                                                                               |
 
 > [!div class="nextstepaction"]
-> [Quickstart guides](../../quickstarts/ui-library/get-started-call.md)
+> [Quickstart guides](../../../quickstarts/ui-library/get-started-call.md)
 
 ## Know issues
 
