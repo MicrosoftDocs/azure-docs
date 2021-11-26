@@ -191,6 +191,8 @@
         href: ms-confluence-jira-plugin-adminguide.md
       - name: Atomic Learning
         href: atomiclearning-tutorial.md
+      - name: ATP SpotLight and ChronicX
+        href: atp-spotlight-and-chronicx-tutorial.md  
       - name: Attendance Management Services
         href: attendancemanagementservices-tutorial.md
       - name: AuditBoard
