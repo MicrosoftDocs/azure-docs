@@ -68,7 +68,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 # [C#](#tab/csharp)
 
-1. First let's create a new folder `subscribe` for this project and install required dependencies:
+1. First let's create a new folder `subscriber` for this project and install required dependencies:
     * The package [Websocket.Client](https://github.com/Marfusios/websocket-client) is a third-party package supporting WebSocket connection. You can use any API/library that supports WebSocket to do so.
     * The SDK package `Azure.Messaging.WebPubSub` helps to generate the JWT token. 
 

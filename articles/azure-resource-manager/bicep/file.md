@@ -334,6 +334,7 @@ The preceding example is equivalent to the following JSON.
 
 - No support for the concept of apiProfile, which is used to map a single apiProfile to a set apiVersion for each resource type.
 - No support for user-defined functions.
+- Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available when all of the required updates have been deployed to global Azure. If you're using a different environment, such as Azure Stack, there may be a delay in the availability of the feature. The Bicep feature is only available when the intermediate language has also been updated in that environment.
 
 ## Next steps
 

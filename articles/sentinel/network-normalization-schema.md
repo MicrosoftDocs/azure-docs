@@ -1,25 +1,14 @@
 ---
 title: Microsoft Sentinel Network Session normalization schema reference (Public preview) | Microsoft Docs
 description: This article displays the Microsoft Sentinel Network Session normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 11/17/2021
 ms.author: ofshezaf
-ms.custom: ignite-fall-2021
+
 ---
 
 # Microsoft Sentinel Network Session normalization schema reference (Public preview)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Network Session normalization schema is used to describe an IP network activity. This includes network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems and web security gateways.
 
@@ -55,68 +44,82 @@ The following sections provide guidance on normalizing and using the schema for 
 | Task | Description|
 | --- | --- |
 | **Normalize Netflow events** | To normalize Netflow events, map them to [network session fields](#network-session-fields). Netflow telemetry supports aggregation, and the `EventCount` field value should reflect this, and be set to the Netflow *Flows* value. |
-| **Use Netflow events** | Netflow events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. When creating an aggregative query, make sure that you consider the `EventCount` field value, which may not always be set to `1`. |
+| **Use Netflow events** | Netflow events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. When creating an aggregative query, make sure that you consider the `EventCount` field value, which may not always be set to `1`. |
 | | |
 
 ### Firewall log sources
 
 | Task | Description |
 | --- | --- |
-| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [event](#event-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
-| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [inNetworkNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize firewall events** | To normalize events from firewalls, map relevant events to [common](#common-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Filter those events and add them to the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
+| **Use Firewall Events** | Firewall events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. Relevant events, identified by the firewall inspection engines, are also surfaced as part of the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
 | | |
 
 ### Intrusion Prevention Systems (IPS) log sources
 
 | Task | Description |
 | --- | --- |
-| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [event fields](#event-fields), [network session fields](#network-session-fields), and [session inspection fields](#inspection-fields). Make sure to include your source-specific parser in both both the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
-| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#use-parsers) and [inNetworkNotables](#use-parsers) source-agnostic parsers. |
+| **Normalize IPS events** | To normalize events from intrusion prevention systems, map [common](#common-fields), [network session](#network-session-fields), and [session inspection](#inspection-fields) fields. Make sure to include your source-specific parser in both both the [imNetworkSession](#source-agnostic-parsers) and [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
+| **Use IPS events** | IPS events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) and [inNetworkNotables](#source-agnostic-parsers) source-agnostic parsers. |
 | | |
 
 ### Web servers
 
 | Task | Description |
 | --- | --- |
-| **Normalize Web Servers Events** | To normalize events from a web server, map [Event fields](#event-fields), [Network Session fields](#network-session-fields), and [HTTP Session fields](#http-session-fields). Make sure to set the `EventType` value to `HTTP Session`, and follow the HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure to include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. |
-| **Use Web Server Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. However, to use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser. |
+| **Normalize Web Servers Events** | To normalize events from a web server, map [Common](#common-fields), [Network Session](#network-session-fields), and [HTTP Session](#http-session-fields) fields. Make sure to set the `EventType` value to `HTTP Session`, and follow the HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure to include your source-specific parser in both the [imNetworkSession](#source-agnostic-parsers) and [imWebSession](#source-agnostic-parsers) source-agnostic parsers. |
+| **Use Web Server Events** | Web Server events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. However, to use any HTTP-specific fields, use the [imWebSession](#source-agnostic-parsers) parser. |
 | | |
 
 ### Web security gateways
 
 | Task | Description |
 | --- | --- |
-| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [event fields](#event-fields), [network session fields](#network-session-fields), [HTTP session fields](#http-session-fields), [session inspection fields](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#use-parsers) and [imWebSession](#use-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [inNetworkNotables](#use-parsers) source-agnostic parser. |
-| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#use-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#use-parsers) parser.<br>- To analyze detected sessions, use the [inNetworkNotables](#use-parsers) source-agnostic parser. |
+| **Normalize Web Security Gateways Events** | To normalize events from a web server gateway, map [common](#common-fields), [network session](#network-session-fields), [HTTP session](#http-session-fields), [session inspection](#inspection-fields), and optionally the intermediary fields. <br><br>Make sure to set the `EventType` to `HTTP`, and follow HTTP session-specific guidance for the `EventResult` and `EventResultDetails` fields. <br><br>Make sure you include your source-specific parser in both the [imNetworkSession](#source-agnostic-parsers) and [imWebSession](#source-agnostic-parsers) source-agnostic parsers. Also, filter any events detected by the inspection engine and add them to the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
+| **Use Web Security Gateways Events** | Web Server events are surfaced as part of the [imNetworkSession](#source-agnostic-parsers) source-agnostic parser. <br><br>- To use any HTTP-specific fields, use the [imWebSession](#source-agnostic-parsers) parser.<br>- To analyze detected sessions, use the [inNetworkNotables](#source-agnostic-parsers) source-agnostic parser. |
 | | |
 
 
-## Use parsers
+## Parsers
 
-To use a source-agnostic parser that unifies all built-in parsers, and ensure that your analysis runs across all configured sources, use any of the following parsers:
+### Source-agnostic parsers
+
+To use the source-agnostic parsers that unify all of the out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the following KQL functions as the table name in your query:
+
+| Name | Description | Usage instructions |
+| ---- | --- | --- |
+| **imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
+| **imWebSession** | Aggregative parser that uses *union* to include normalized events from all *web session* sources, such as network sessions fields that support [HTTP session fields](#http-session-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
+| **inNetworkNotables** | Aggregative parser that uses *union* to include normalized events from all network sessions that include detection information and support the [session inspection fields](#inspection-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
+| **ASimNetworkSession**<br>**ASimWebSession**<br>**ASimNetworkNotables** | Similar to the `im*` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
+| **vimNetworkSession\<vendor\>\<product\><br>vimWebSession\<vendor\>\<product\><br>vimNetworkNotables\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *vimNetworkSessionSysmonLinux*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+| **ASimNetworkSession\<vendor\>\<product\><br>ASimWebSession\<vendor\>\<product\><br>ASimNetworkNotables\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
+| | | |
 
 
-- **imNetworkSession**, for all network sessions
-- **imWebSession**, for HTTP sessions, typically reported by web servers, web proxies, and web security gateways
-- **inNetworkNotables**, for sessions detected by a detection engine, usually as suspicious. Notable events are typically reported by intrusion prevention systems, firewalls, and web security gateways.
+The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
-
-### Built-in source-specific parsers
+### Out-of-the-box, source-specific parsers
 
 Microsoft Sentinel provides the following built-in, product-specific Network Session parsers:
 
-- Source specific parsers:
-  - **Microsoft 365 Defender for Endpoint** - vimNetworkSessionMicrosoft365Defender
-  - **Microsoft Defender for IoT - Endpoint (MD4IoT)** - vimNetworkSessionMD4IoT
-  - **Microsoft Sysmon for Linux** - vimNetworkSessionSysmonLinux
-  - **Windows Events Firewall** - Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table, vimNetworkSessionMicrosoftWindowsEventFirewall 
+| **Name** | **Description** |
+| --- | --- |
+| **Microsoft 365 Defender for Endpoint** | - Parametrized: vimNetworkSessionMicrosoft365Defender <br> - Regular: ASimNetworkSessionMicrosoft365Defender | 
+| **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: vimNetworkSessionMD4IoT <br> - Regular: ASimNetworkSessionMD4IoT  |
+| **Microsoft Sysmon for Linux** | - Parametrized: vimNetworkSessionSysmonLinux<br> - Regular: ASimNetworkSessionSysmonLinux  |
+| **Windows Events Firewall** | Windows firewall activity as collected using Windows Events 515x, collected using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
+| | |
 
-The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelNetworkSession).
 
 ### Add your own normalized parsers
 
-When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax: `imNetworkSession<vendor><Product>`. This function should map all fields relevant for the source.
+When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax:
+
+- `vimNetworkSession<vendor><Product>` for parametrized parsers
+- `ASimNetworkSession<vendor><Product>` for regular parsers
+
+Then, add the new parser to **all** relevant source agnostic parsers:
 
 Add your KQL function to the relevant source agnostic parsers as needed, depending on their log sources. For more information, see:
 
@@ -125,6 +128,32 @@ Add your KQL function to the relevant source agnostic parsers as needed, dependi
 - [Intrusion Prevention Systems (IPS) log sources](#intrusion-prevention-systems-ips-log-sources)
 - [Web Servers](#web-servers)
 - [Web Security Gateways](#web-security-gateways)
+
+### Filtering parser parameters
+
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+
+The following filtering parameters are available:
+
+| Name     | Type      | Description |
+|----------|-----------|-------------|
+| **starttime** | datetime | Filter only network sessions that **started** at or after this time. |
+| **endtime** | datetime | Filter only network sessions that **started** running at or before this time. |
+| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
+| **dstipaddr_has_any_ipv4_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr)  prefix is in one of the listed values. |
+| **dstportnum** | int | Filter only network sessions with the specified destination port number. |
+| **hostname_has_any** | dynamic | Filter only the network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
+| **dvcaction** | dynamic | filter only the network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
+| **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
+| **httpuseragent_has_any** | dynamic | Filter only Web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. |  
+| | | |
+
+For example, to filter only Web sessions for a specified list of domain names, use:
+
+```kql
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+imWebusrSession (hostname_has_any = torProxies)
+```
 
 ## Schema details
 
@@ -138,56 +167,22 @@ Fields that describe the user and application associated with the source and des
 
 Other ASIM schemas typically use **Target** instead of **Dst**.
 
-### Log Analytics fields
 
-The following fields are generated by Log Analytics for each record, and can be overridden when [creating a custom connector](create-custom-connector.md).
+### Common fields
 
+Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Process Events:
 
-| Field | Type | Discussion |
-|-------|------|------------|
-| <a name="timegenerated"></a>**TimeGenerated** | datetime | The time the event was generated by the reporting device. |
-| **\_ResourceId** | guid | The Azure Resource ID of the reporting device or service, or the log forwarder resource ID for events forwarded using Syslog, CEF or WEF. |
-| **Type** | String | The original table from which the record was fetched. This field is useful when the same event can be received through multiple channels to different tables, but have the same `EventVendor` and `EventProduct` values. <br><br>For example, a Sysmon event can be collected either to the **Event** table or to the **SecurityEvent** table. |
-| | | |
-
-> [!NOTE]
-> Log Analytics also adds other fields that are less relevant to security use cases. For more information, see [Standard columns in Azure Monitor Logs](../azure-monitor/logs/log-standard-columns.md).
->
-
-### Event fields
-
-Event fields are common to all schemas and describe the activity itself and the reporting device.
-
-| Field | Class | Type | Description |
-|-------|-------|------|-------------|
-| **EventMessage** | Optional | String | A general message or description, either included in or generated from the record. |
-| **EventCount** | Mandatory | Integer | The number of events described by the record. <br><br>This value is used when the source supports aggregation, and a single record may represent multiple events. <br><br>**Note**: Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
-| **EventStartTime** | Mandatory | Date/time | If the source supports aggregation and the record represents multiple events, this field specifies the time the that first event was generated. Otherwise, this field aliases the [TimeGenerated](#timegenerated) field. |
-| **EventEndTime** | Mandatory | Alias | Alias to the [TimeGenerated](#timegenerated) field. |
+| Field               | Class       | Type       |  Description        |
+|---------------------|-------------|------------|--------------------|
+| **EventCount** | Mandatory | Integer | Netflow sources support aggregation, and the **EventCount** field should be set to the value of the Netflow **FLOWS** field. For other sources, the value is typically set to `1`. |
 | **EventType** | Mandatory | Enumerated | Describes the operation reported by the record.<br><br> For Network Sessions records, supported values include:<br>- `NetworkConnection`<br>- `NetworkSession`<br>- `HTTPsession` |
 | **EventSubType** | Optional | String | Additional description of the event type, if applicable. <br> For Network Sessions records, supported values include:<br>- `Start`<br>- `End` |
 | **EventResult** | Mandatory | Enumerated | Describes the event result, normalized to one of the following values: <br> - `Success` <br> - `Partial` <br> - `Failure` <br> - `NA` (not applicable) <br><br>For an HTTP session, `Success` is defined as a status code lower than `400`, and `Failure` is defined as a status code higher than `400`. For a list of HTTP status codes refer to [W3 Org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).<br><br>The source may provide only a value for the [EventResultDetails](#eventresultdetails)  field, which must be analyzed to get the  **EventResult**  value. |
 | <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
-| **EventOriginalResultDetails**    | Optional    | String     |  The value provided in the original record for [EventResultDetails](#eventresultdetails), if provided by the source.|
-| **EventSeverity** | Mandatory | Enumerated | The severity of the event, if it represents a detected threat or an alert. Possible values include `Informational`, `Low`, `Medium`, and `High`. <br><br>If the event does not represent a threat, use the `Informational` value.<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
-| <a name="eventoriginalseverity"></a>**EventOriginalSeverity** | Optional | String | The original severity value provided in the source record. |
-| **EventOriginalUid** | Optional | String | A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b` |
-| **EventOriginalType** | Optional | String | The original event type or ID, if provided by the source. <br><br>Example: `5031` |
-| <a name="eventproduct"></a>**EventProduct** | Mandatory | String | The product generating the event.<br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser. |
-| **EventProductVersion** | Optional | String | The version of the product generating the event.<br><br>Example: `12.1` |
-| **EventVendor** | Mandatory | String | The vendor of the product generating the event.<br><br>Example: `Microsoft`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser. |
-| **EventSchema** | Mandatory | String | The name of the schema. The name of the schema documented here is `NetworkSession`. |
-| **EventSchemaVersion** | Mandatory | String | The version of the schema. The version of the schema documented here is `0.2`. |
-| **EventReportUrl** | Optional | String | A URL provided in the event for a resource that provides additional information about the event. |
-| **Dvc** | Alias | String | A unique identifier of the reporting or intermediary device.<br><br>Example: `ContosoDc.Contoso.Azure`<br><br>This field may alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is not apparent device, use the same value as the [Event Product](#eventproduct) field. |
-| <a name="dvcipaddr"></a>**DvcIpAddr** | Recommended | IP address | The IP address of the reporting or intermediary device.<br><br>Example: `2001:db8::ff00:42:8329` |
-| <a name="dvchostname"></a>**DvcHostname** | Mandatory | String | The hostname of the reporting or intermediary device, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D` |
-| <a name="dvcdomain"></a>**DvcDomain** | Recommended | String | The domain of the reporting or intermediary device.<br><br>Example: `Contoso` |
-| <a name="dvcdomaintype"></a>**DvcDomainType** | Recommended | Enumerated | The type of  [DvcDomain](#dvcdomain) , if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>**Note**: This field is required if the [DvcDomain](#dvcdomain) field is used. |
-| <a name="dvcfqdn"></a>**DvcFQDN** | Optional | String | The hostname of the reporting or intermediary device, including domain information when available. <br><br> Example: `Contoso\DESKTOP-1282V4D`<br><br>**Note**: This field supports both both traditional FQDN format and Windows domain\hostname format. The  [DvcDomainType](#dvcdomaintype) field reflects the format used.  |
-| <a name="dvcid"></a>**DvcId** | Optional | String | The ID of the reporting or intermediary device as reported in the record.<br><br>Example:  `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
-| **DvcIdType** | Optional | Enumerated | The type of [DvcId](#dvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the list, and store the others using the field names  **DvcAzureResourceId** and **DvcMDEid** respectively.<br><br>**Note**: This field is required if the [DvcId](#dvcid) field is used. |
-| **AdditionalFields** | Optional | Dynamic | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic  **AdditionalFields**  field, and add to it the extra information as key/value pairs. |
+| **EventSchema** | Mandatory | String | The name of the schema documented here is `NetworkSession`. |
+| **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.2.1`         |
+| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](normalization-about-schemas.md#dvcoriginalaction) field.<br><br>Example: `drop` |
+| **Dvc** fields|        |      | For Network Session  Events,  device fields refer to the system reporting the Network Session event.  |
 | | | | |
 
 ### Network session fields
@@ -196,10 +191,11 @@ The following fields are common to all network session activity logging:
 
 | Field | Class | Type | Description |
 |-------|-------|------|-------------|
+| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the server receiving the DNS request. <br><br>This field may alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
 |<a name="dstipaddr"></a> **DstIpAddr** | Recommended | IP address | The IP address of the connection or session destination. <br><br>Example: `2001:db8::ff00:42:8329`<br><br>**Note**: This value is mandatory if [DstHostname](#dsthostname) is specified. |
 | <a name="dstportnumber"></a>**DstPortNumber** | Optional | Integer | The destination IP port.<br><br>Example: `443` |
 | <a name="dsthostname"></a>**DstHostname** | Recommended | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
-| **Hostname** | Alias | | Alias to [DstHostname](#dsthostname) |
+| <a name="hostname"></a>**Hostname** | Alias | | Alias to [DstHostname](#dsthostname) |
 | <a name="dstdomain"></a>**DstDomain** | Recommended | String | The domain of the destination device.<br><br>Example: `Contoso` |
 | <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
 | **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
@@ -221,15 +217,18 @@ The following fields are common to all network session activity logging:
 | **DstInterfaceName** | Optional | String | The network interface used for the connection or session by the destination device.<br><br>Example: `Microsoft Hyper-V Network Adapter` |
 | **DstInterfaceGuid** | Optional | String | The GUID of the network interface used on the destination device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **DstMacAddr** | Optional | String | The MAC address of the network interface at used for the connection or session by the destination device.<br><br>Example: `06:10:9f:eb:8f:14` |
+| <a name="dstvlanid"></a>**DstVlanId** | Optional | String | The VLAN ID related to the destination device.<br><br>Examples: `130` |
+| **OuterVlanId** | Optional | Alias | Alias to [DstVlanId](#dstvlanid). <br><br>In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [DstVlanId](#dstvlanid) should be used when the VLAN is characterized as outer. |
 | **DstGeoCountry** | Optional | Country | The country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `USA` |
 | **DstGeoRegion** | Optional | Region | The region, or state, within a country associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Vermont` |
 | **DstGeoCity** | Optional | City | The city associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `Burlington` |
 | **DstGeoLatitude** | Optional | Latitude | The latitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `44.475833` |
 | **DstGeoLongitude** | Optional | Longitude | The longitude of the geographical coordinate associated with the destination IP address. For more information, see [Logical types](normalization-about-schemas.md#logical-types).<br><br>Example: `73.211944` |
+| <a name="src"></a>**Src** | Recommended       | String     |    A unique identifier of the source device. <br><br>This field may alias the [SrcDvcId](#srcdvcid), [SrcHostname](#srchostname), or [SrcIpAddr](#srcipaddr) fields. <br><br>Example: `192.168.12.1`       |
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. This value is mandatory if **SrcHostname** is specified.<br><br>Example: `77.138.103.108` |
 | **IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr) |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. May not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
-| **SrcHostname** | Recommended | String | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.This value is mandatory if [SrcIpAddr](#srcipaddr) is specified.<br><br>Example: `DESKTOP-1282V4D` |
+| <a name="srchostname"></a> **SrcHostname** | Recommended | String | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.This value is mandatory if [SrcIpAddr](#srcipaddr) is specified.<br><br>Example: `DESKTOP-1282V4D` |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | Enumerated | The type of  [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as: `contoso`)<br>- `FQDN` (such as: `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
 | **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
@@ -240,8 +239,8 @@ The following fields are common to all network session activity logging:
 | <a name="srcuseridtype"></a>**SrcUserIdType** | Optional | Enumerated | The type of the ID stored in the [SrcUserId](#srcuserid) field. Supported values include: `SID`, `UIS`, `AADID`, `OktaId`, and `AWSId`. |
 | <a name="srcusername"></a>**SrcUsername** | Optional | String | The Source username, including domain information when available. Use one of the following formats and in the following order of priority:<br>- **Upn/Email**: `johndow@contoso.com`<br>- **Windows**: `Contoso\johndow`<br>- **DN**: `CN=Jeff Smith,OU=Sales,DC=Fabrikam,DC=COM`<br>- **Simple**: `johndow`. Use the Simple form only if domain information is not available.<br><br>Store the Username type in the [SrcUsernameType](#srcusernametype) field. If other IDs are available, we recommend that you normalize the field names to **SrcUserUpn**, **SrcUserWindows** and **SrcUserDn**.<br><br>For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `AlbertE` |
 | <a name="srcusernametype"></a>**SrcUsernameType** | Optional | Enumerated | Specifies the type of the username stored in the [SrcUsername](#srcusername) field. Supported values are: `UPN`, `Windows`, `DN`, and `Simple`. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).<br><br>Example: `Windows` |
-| **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [EventOriginalSeverity](#eventoriginalseverity) field. |
-| **SrcOriginalUserType** | | | The original source user type, if provided by the source. |
+| **SrcUserType** | Optional | Enumerated | The type of Actor. Allowed values are:<br>- `Regular`<br>- `Machine`<br>- `Admin`<br>- `System`<br>- `Application`<br>- `Service Principal`<br>- `Other`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. Store the original value in the [SrcOriginalUserType](#srcoriginalusertype) field. |
+| <a name="srcoriginalusertype"></a>**SrcOriginalUserType** | | | The original source user type, if provided by the source. |
 | **SrcUserDomain** | Optional | String | This field is kept for backward compatibility only. ASIM requires domain information, if available, to be part of the [SrcUsername](#srcusername) field. |
 | <a name="srcappname"></a>**SrcAppName** | Optional | String | The name of the source application. <br><br>Example: `filezilla.exe` |
 | <a name="srcappid"></a>**SrcAppId** | Optional | String | The ID of the destination application, as reported by the reporting device.<br><br>Example: `124` |
@@ -250,6 +249,8 @@ The following fields are common to all network session activity logging:
 | **SrcIntefaceName** | Optional | String | The network interface used for the connection or session by the source device. <br><br>Example: `eth01` |
 | **SrcInterfaceGuid** | Optional | String | The GUID of the network interface used on the source device.<br><br>Example:<br>`46ad544b-eaf0-47ef-`<br>`827c-266030f545a6` |
 | **SrcMacAddr** | Optional | String | The MAC address of the network interface from which the connection or session originated.<br><br>Example: `06:10:9f:eb:8f:14` |
+| <a name="srcvlanid"></a>**SrcVlanId** | Optional | String | The VLAN ID related to the source device.<br><br>Examples: `130` |
+| **InnerVlanId** | Optional | Alias | Alias to [SrcVlanId](#srcvlanid). <br><br>In many cases the VLAN can not be determined as a source or a destination but are characterized as inner or outer. This alias to signifies that [SrcVlanId](#srcvlanid) should be used when the VLAN is characterized as inner.    |
 | **SrcGeoCountry** | Optional | Country | The country associated with the source IP address.<br><br>Example: `USA` |
 | **SrcGeoRegion** | Optional | Region | The region within a country associated with the source IP address.<br><br>Example: `Vermont` |
 | **SrcGeoCity** | Optional | City | The city associated with the source IP address.<br><br>Example: `Burlington` |
@@ -262,6 +263,7 @@ The following fields are common to all network session activity logging:
 | **Duration** | Alias | | Alias to [NetworkDuration](#networkduration) |
 | **NetworkIcmpCode** | Optional | Integer | For an ICMP message, the ICMP message type numeric value as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections. If a [NetworkIcmpType](#networkicmptype) value is provided, this field is mandatory. If the value is not available from the source, derive the value from the  [NetworkIcmpType](#networkicmptype) field instead.<br><br>Example: `34` |
 |<a name="networkicmptype"></a> **NetworkIcmpType** | Optional | String | For an ICMP message, the ICMP message type text representation, as described in [RFC 2780](https://datatracker.ietf.org/doc/html/rfc2780) for IPv4 network connections, or in [RFC 4443](https://datatracker.ietf.org/doc/html/rfc4443) for IPv6 network connections.<br><br>Example: `Destination Unreachable` |
+| NetworkConnectionHistory | Optional | String | TCP Flags and other potential IP header information. |
 | **DstBytes** | Recommended | Integer | The number of bytes sent from the destination to the source for the connection or session. If the event is aggregated, **DstBytes** should be the sum over all aggregated sessions.<br><br>Example: `32455` |
 | **SrcBytes** | Recommended | Integer | The number of bytes sent from the source to the destination for the connection or session. If the event is aggregated, **SrcBytes** should be the sum over all aggregated sessions.<br><br>Example: `46536` |
 | **NetworkBytes** | Optional | Integer | Number of bytes sent in both directions. If both **BytesReceived** and **BytesSent** exist, **BytesTotal** should equal their sum. If the event is aggregated, **NetworkBytes** should be the sum over all aggregated sessions.<br><br>Example: `78991` |
@@ -292,7 +294,7 @@ An HTTP session is a network session that uses the HTTP protocol. Such sessions 
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
-| **Url** | Recommended | String | For HTTP/HTTPS network sessions, the full HTTP request URL, including parameters. This field is mandatory when the event represents an HTTP session.<br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
+| <a name="url"></a>**Url** | Recommended | String | For HTTP/HTTPS network sessions, the full HTTP request URL, including parameters. This field is mandatory when the event represents an HTTP session.<br><br>Example: `https://contoso.com/fo/?k=v&amp;q=u#f` |
 | **UrlCategory** | Optional | String | The defined grouping of a URL or the domain part of the URL. The category is commonly provided by web security gateways and is based on the content of the site the URL points to.<br><br>Example: search engines, adult, news, advertising, and parked domains. |
 | **UrlOriginal** | Optional | String | The original value of the URL, when the URL was modified by the reporting device and both values are provided. |
 | **HttpVersion** | Optional | String | The HTTP Request Version for HTTP/HTTPS network connections.<br><br>Example: `2.0` |
@@ -330,8 +332,6 @@ The following fields are used to represent that inspection which a security devi
 | **NetworkRuleName** | Optional | String | The name or ID of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
 | **NetworkRuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](#dvcaction) was decided upon.<br><br>Example: `23` |
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber` |
-| <a name="dvcaction"></a>**DvcAction** | Optional | Enumerated | The action taken on the network session. Supported values are:<br>- `Allow`<br>- `Deny`<br>- `Drop`<br>- `Drop ICMP`<br>- `Reset`<br>- `Reset Source`<br>- `Reset Destination`<br>- `Encrypt`<br>- `Decrypt`<br>- `VPNroute`<br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the [DvcOriginalAction](#dvcoriginalaction) field.<br><br>Example: `drop` |
-| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the network session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the network session.<br><br>Example: `EICAR Test File` |
 | **ThreatCategory** | Optional | String | The category of the threat or malware identified in the network session.<br><br>Example: `Trojan` |
@@ -343,6 +343,11 @@ The following fields are used to represent that inspection which a security devi
 
 If the event is reported by one of the endpoints of the network session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
 
+### Schema updates
+
+These are the changes in version 0.2.1 of the schema:
+- Added `Src` and `Dst` as aliases to a leading identifier for the source and destination systems.
+- Added the fields `NetworkConnectionHistory`, `SrcVlanId`, `DstVlanId`, `InnerVlanId`, and `OuterVlanId` 
 ## Next steps
 
 For more information, see:
@@ -353,3 +358,4 @@ For more information, see:
 - [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
 - [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+

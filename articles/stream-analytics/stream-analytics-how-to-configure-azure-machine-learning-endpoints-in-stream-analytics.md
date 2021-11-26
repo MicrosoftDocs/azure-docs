@@ -9,6 +9,9 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ---
 # Machine Learning Studio (classic) integration in Stream Analytics
+
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 Stream Analytics supports user-defined functions that call out to Machine Learning Studio (classic) endpoints. REST API support for this feature is detailed in the [Stream Analytics REST API library](/rest/api/streamanalytics/). This article provides supplemental information needed for successful implementation of this capability in Stream Analytics. A tutorial has also been posted and is available [here](stream-analytics-machine-learning-integration-tutorial.md).
 
 ## Overview: Machine Learning Studio (classic) terminology

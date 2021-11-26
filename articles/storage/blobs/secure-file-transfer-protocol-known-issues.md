@@ -1,17 +1,17 @@
 ---
 title: Known issues with SFTP in Azure Blob Storage (preview) | Microsoft Docs
-description: Learn about limitations and known issues of Secure File Transfer Protocol (SFTP) support in Azure Blob Storage.
+description: Learn about limitations and known issues of SSH File Transfer Protocol (SFTP) support in Azure Blob Storage.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/15/2021
+ms.date: 11/22/2021
 ms.author: normesta
 ms.reviewer: ylunagaria
 
 ---
 
-# Known issues with Secure File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
+# Known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage (preview)
 
 This article describes limitations and known issues of SFTP support in Azure Blob Storage.
 
@@ -89,7 +89,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
   - For OpenSSH on Linux, you can increase buffer size to 262000: sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
 
-- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to hang and then disconnect. Some clients reconnect automatically. 
+- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
 
 - Maximum file size upload is limited by client message size. A few examples below: 
 
@@ -107,4 +107,4 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## See also
 
-- [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [SSH File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
