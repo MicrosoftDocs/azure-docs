@@ -26,18 +26,17 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template, which is available in the [public Azure template repository](). The template defines the following resources:
+This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template, which defines the following resources:
 
 - [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates a DevTest Labs lab.
 - [Microsoft.DevTestLab labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a DevTest Labs virtual network.
 - [Microsoft.DevTestLab labs/virtualmachines](/azure/templates/microsoft.devtestlab/labs/virtualmachines) creates a DevTest Labs VM.
 
-<!--
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
--->
-For more DevTest Labs ARM templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab).
 
-For more information about editing, writing, and distributing your own ARM templates, see []().
+This and other DevTest Labs ARM templates are available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and the public [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab). You can also use or edit these DevTest Labs templates directly from the Azure portal.
+
+Many more ARM templates are available at the public [Azure Lab Services Community GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master). For more information about creating and deploying ARM templates, see [Resource group deployments with ARM templates](/azure/azure-resource-manager/templates/deploy-to-resource-group).
 
 ## Deploy the template
 
@@ -51,24 +50,24 @@ For more information about editing, writing, and distributing your own ARM templ
 
    1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
 
-   1. Type *devtestlab* in the filter box, and then select the ** ** template.
+   1. Type *devtestlab* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template.
 
    1. Select **Select template**.
 
 1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, fill out the following items:
 
    - **Resource group**: Select an existing resource group from the dropdown list, or create a new resource group so it's easy to clean up later.
-   - **Region**: If you created a new resource group, select a location for the resource group.
+   - **Region**: If you created a new resource group, select a location for the resource group and lab.
    - **Lab Name**: Enter a name for the new lab.
    - **Vm Name**: Enter a name for the new VM.
    - **User Name**: Enter a name for the user who can access the VM.
-   - **Password**: Enter a password for the user.
+   - **Password**: Enter a password for the VM user.
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Screenshot of the Create a lab page.":::
 
-During the deployment, you can select the **Notifications** icon at the top of the screen to see deployment progress on the template **Overview** page. Deployment, especially creating a VM, takes a while.
+1. During the deployment, you can select the **Notifications** icon at the top of the screen to see deployment progress on the template **Overview** page. Deployment, especially creating a VM, takes a while.
 
 ## Validate the deployment
 
@@ -85,11 +84,11 @@ During the deployment, you can select the **Notifications** icon at the top of t
    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Screenshot that shows the lab Overview page with the virtual machine.":::
 
 > [!NOTE]
-> The deployment also creates a resource group for the VM. The resource group contains VM resources like the IP address, network interface, and disk. The resource group appears In the **Resource groups** list for your subscription with the name **\<lab name>-\<vm name>-\<numerical string>**.
+> The deployment also creates a resource group for the VM. The resource group contains VM resources like the IP address, network interface, and disk. The resource group appears in your subscription's **Resource groups** list with the name **\<lab name>-\<vm name>-\<numerical string>**.
 
 ## Clean up resources
 
-Delete the resources when you're finished with them, to avoid charges for running the lab and VM.
+To avoid charges, delete the resources when you're finished with them. You can't delete a resource group that has a lab in it, so delete the lab first:
 
 1. On the lab overview page, select **Delete** from the top menu.
 
@@ -97,11 +96,18 @@ Delete the resources when you're finished with them, to avoid charges for runnin
 
 1. On the **Are you sure you want to delete it** page, enter the lab name, and then select **Delete**.
 
-During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while.
+   During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while.
 
-If you created a new resource group for the lab, you can now delete the resource group. You can't delete a resource group that has a lab in it.
+You can now delete the resource group that contained the lab, which deletes all resources in the resource group.
+
+1. Select the resource group that contained the lab from your subscription's **Resource groups** list.
+
+1. At the top of the page, select **Delete resource group**.
+
+1. On the **Are you sure you want to delete "\<resource group name>"** page, enter the resource group name, and then select **Delete**.
 
 ## Next steps
+
 In this quickstart, you created a lab that has a VM. To learn how to access the lab and VM, advance to the next tutorial:
 
 > [!div class="nextstepaction"]
