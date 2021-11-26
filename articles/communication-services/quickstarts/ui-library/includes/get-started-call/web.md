@@ -11,7 +11,6 @@ ms.service: azure-communication-services
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
