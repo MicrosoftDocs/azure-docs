@@ -36,14 +36,19 @@ A typical database template addresses the core requirements of a specific indust
 
 ## Available database templates 
 
-Currently there are six database templates available within Azure Synapse Studio that customers can use to start creating their lake database. 
+Currently there are eleven (11) database templates available within Azure Synapse Studio that customers can use to start creating their lake database. 
 
+ - **Agriculture** - for companies engaged in growing crops, raising livestock, and dairy production.
  - **Banking** - for companies who are analyzing banking data.
  - **Consumer Goods** - for manufacturers or producers of goods bought and used by consumers.
+ - **Energy & Commodity Trading** - For traders of energy, commodities, or carbon credits.
+ - **Freight & Logistics** - for companies providing freight and logistics services.
  - **Fund Management** - for companies managing investment funds for investors.
  - **Life Insurance & Annuities** - for companies who provide life insurance, sell annuities, or both.
+ - **Oil & Gas** - for companies involved in various phases of the Oil & Gas value chain.
  - **Property & Casualty Insurance** - for companies who provide insurance against risks to property and various forms of liability coverage.
  - **Retail** - for sellers of consumer goods or services to customers through multiple channels.
+ - **Utilities** - for gas, electric, and water utilities and power generators and water desalinators.
 
 As emission and carbon management is an important discussion in all industries, we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
