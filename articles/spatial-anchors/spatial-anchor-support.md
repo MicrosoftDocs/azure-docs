@@ -33,7 +33,7 @@ To open a technical support ticket within the Azure portal for Azure Spatial Anc
    ![Azure portal support ticket fields](./media/spatial-anchor-support3.png)
 
 ## Team & community support
-### ASA general
+### Azure Spatial Anchors general
 For support from the Spatial Anchors team and the user community, see [Azure Spatial Anchors Q&A](https://docs.microsoft.com/answers/topics/azure-spatial-anchors.html).
 
 ### Azure Spatial Anchors samples 
