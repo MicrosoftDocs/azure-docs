@@ -27,7 +27,7 @@ This documentation contains the following types of articles:
 * [**How-to guides**](how-to/call-api.md) contain instructions for using the service in more specific or customized ways.
 * The [**conceptual articles**](concepts/health-entity-categories.md) provide in-depth explanations of the service's functionality and features.
 
-> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
+> [!VIDEO https://docs.microsoft.com/Shows/AI-Show/Introducing-Text-Analytics-for-Health/player]
 
 ## Features
 

@@ -25,7 +25,7 @@ A common challenge for developers is the management of secrets and credentials u
 
 Take a look at how you can use managed identities</br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/On-NET/Using-Azure-Managed-identities/player?format=ny]
 
 
 

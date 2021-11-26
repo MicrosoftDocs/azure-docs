@@ -17,7 +17,7 @@ We've introduced a new language named Bicep that's used to develop ARM template 
 
 To learn about how you can get started with ARM templates, see the following video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 

@@ -27,7 +27,7 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/shows/azure-friday/Parameterize-connections-to-your-data-stores-in-Azure-Data-Factory/player]
 
 ## Supported linked service types
 

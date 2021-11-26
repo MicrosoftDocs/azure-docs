@@ -27,7 +27,7 @@ This quickstart describes how to use the Azure Data Factory UI to create and mon
 
 ### Video 
 Watching this video helps you understand the Data Factory UI: 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
+>[!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
 ## Create a data factory
 

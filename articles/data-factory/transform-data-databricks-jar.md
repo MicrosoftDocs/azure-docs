@@ -19,7 +19,7 @@ The Azure Databricks Jar Activity in a [pipeline](concepts-pipelines-activities.
 
 For an eleven-minute introduction and demonstration of this feature, watch the following video:
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## Databricks Jar activity definition
 
@@ -123,4 +123,4 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 ## Next steps
 
-For an eleven-minute introduction and demonstration of this feature, watch the [video](https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
+For an eleven-minute introduction and demonstration of this feature, watch the [video](https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
