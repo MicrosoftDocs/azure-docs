@@ -82,6 +82,7 @@ Here is the flow of events in a typical scenario:
 
 -  The Resource Guard and the Recovery Services vault must be in the same Azure region.
 -  As stated in the previous section, ensure the Backup admin does **not** have **Contributor** permissions on the Resource Guard. You can choose to have the Resource Guard in another subscription of the same directory or in another directory to ensure maximum isolation.
+-  You must register the Microsoft.RecoveryServices resource provider on the subscription you plan to deploy the Resource Guard to. See [Azure resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
 
 ## Usage scenarios
 
