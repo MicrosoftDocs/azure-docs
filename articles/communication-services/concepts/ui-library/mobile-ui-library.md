@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Overview
+## Mobile UI Library overview
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
@@ -48,7 +48,7 @@ Mobile Composites are initialized using [Azure Communication Services access tok
 
 ### More details
 
-If you need more details about mobile composites, please visit [use cases site](mobile-ui-use-cases.md) to discover more.
+If you need more details about mobile composites, please visit [use cases site](ui-library-use-cases.md) to discover more.
 
 ## What UI Artifact is Best for my Project?
 
@@ -58,7 +58,7 @@ Understanding these requirements will help you choose the right client library:
 
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
-Details about the feature availability in the [UI Library is available here](mobile-ui-use-cases.md), but key trade-offs are summarized below.
+Details about the feature availability in the [UI Library is available here](ui-library-use-cases.md?pivots=platform-mobile), but key trade-offs are summarized below.
 
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
