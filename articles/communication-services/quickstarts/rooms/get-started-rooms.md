@@ -125,6 +125,18 @@ Response<RoomResult> updateRoomResponse = await roomsClient.UpdateRoomAsync(crea
 RoomResult updateRoomResult = updateRoomResponse.Value;
 ```
 
+### Join a rooms call
+
+To join a Rooms call, set up your web application using the [Add voice calling to your client app](../voice-video-calling/getting-started-with-calling) guide. Once you have an initialized and authenticated `callAgent`, you may specify a context object with the `roomId` property as the `Room` identifier. To join the call, use the `join` method and pass the context instance.
+
+```js
+
+const context = { roomId: '<RoomId>' }
+
+const call = callAgent.join(context);
+
+```
+
 ### Delete Room
 If you wish to disband an existing `Room`, you may issue an explicit delete request. All `Rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
