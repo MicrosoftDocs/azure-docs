@@ -1,7 +1,7 @@
 ---
-title: UI Mobile Library use cases scenarios
-titleSuffix: An Azure Communication Services - UI Mobile Library use cases scenarios
-description: In this document, introduce the UI Mobile Library capabilities and how is going to work in your applications
+title: Mobile UI Library use cases scenarios
+titleSuffix: An Azure Communication Services - Mobile UI Library use cases scenarios
+description: In this document, introduce the Mobile UI Library capabilities and how is going to work in your applications
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -10,11 +10,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# UI Library (iOS and Android) capabilities
-
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-UI Library for iOS and Android supports calling use cases by using the **calling composite**.
+Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
 
 ## Calling
@@ -47,7 +45,7 @@ For more information on authentication, see [Authentication](../authentication.m
 
 ![Teams Interop pattern for calling and chat](../media/mobile-ui/teams-interop-diagram.png)
 
-For [Teams Interop](../teams-interop.md) scenarios, developers can use the UI Mobile Library Components to join Teams meetings through Azure Communication Services.
+For [Teams Interop](../teams-interop.md) scenarios, developers can use the Mobile UI Library Components to join Teams meetings through Azure Communication Services.
 To enable Teams Interop, developers can use the calling composite, which will take care of the lifecycle of joining a Teams Interop call.
 
 :::image type="content" source="../media/mobile-ui/teams-meet.png" alt-text="Pre-meeting experience":::

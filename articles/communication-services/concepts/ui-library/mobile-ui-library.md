@@ -1,7 +1,7 @@
 ---
-title: UI Mobile Library
-titleSuffix: An Azure Communication Services - UI Mobile Library
-description: In this document, introduce the UI Mobile Library
+title: Mobile UI Library
+titleSuffix: An Azure Communication Services - Mobile UI Library
+description: In this document, introduce the Mobile UI Library
 author: jorgegarc
 
 ms.author: jorgegarc
@@ -10,11 +10,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# UI Mobile Library
-
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-The UI Mobile Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
+The Mobile UI Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
 
 ## Composites
 

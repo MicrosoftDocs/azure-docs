@@ -1,7 +1,7 @@
 ---
 title: UI Library overview
 titleSuffix: An Azure Communication Services concept document
-description: Learn about the Azure Communication Services UI Library.
+description: Learn about the Azure Communication Services Web UI Library.
 author: ddematheu2
 manager: chrispalm
 services: azure-communication-services
@@ -11,8 +11,6 @@ ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
-
-# UI Library Overview
 
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
