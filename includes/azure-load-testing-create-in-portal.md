@@ -47,3 +47,16 @@ ms.date: 11/30/2021
 1. To view the new resource, select **Go to resource**.
     
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing-goto-resource.png" alt-text="Screenshot that shows the deployment completion screen.":::
+
+1. In the Azure Load Testing resource page, select **Access Control (IAM)**, and then select **Add role assignment**.
+
+    Before you can manage load tests in the Azure Load Testing resource, you need to have the right access permissions.
+
+    :::image type="content" source="media/azure-load-testing-create-in-portal/load-test-access-control.png" alt-text="Screenshot that shows how to configure access control.":::
+
+    You need to assign the **Load Test Contributor** or **Load Test Owner** role to your Azure account. For details about how to assign roles, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+
+    :::image type="content" source="media/azure-load-testing-create-in-portal/add-role-assignment.png" alt-text="Screenshot that shows the role assignment screen.":::
+
+    > [!IMPORTANT]
+    > To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
