@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/23/2021
+ms.date: 11/26/2021
 ms.author: jeedes
 
 ---
@@ -81,15 +81,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://app.crowdlog.jp/login.cgi?auth_code=<auth_code>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Crowd Log Client support team](mailto:crowdlog@crowdworks.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Check the actual Identifier, Reply URL and Sign-on URL on the "Company Settings > Security > SAML Auth" on Crowd Log. You can also refer to the patterns shown in the Basic SAML Configuration section in the Azure portal. 
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificatebase64.png)
-
-1. On the **Set up Crowd Log** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![The Certificate download link](common/metadataxml.png)
 
 ### Create an Azure AD test user
 
@@ -117,11 +113,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Crowd Log SSO
 
-To configure single sign-on on **Crowd Log** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Crowd Log support team](mailto:crowdlog@crowdworks.co.jp). They set this setting to have the SAML SSO connection set properly on both sides. Learn [how](https://support.crowdlog.jp/portal/ja/kb/articles/admin-settings-saml).
+To perform the Single Sign-On configuration on the Crowd Log side, please follow [this](https://support.crowdlog.jp/portal/ja/kb/articles/admin-settings-saml) link.
 
 ### Create Crowd Log test user
 
-In this section, you create a user called Britta Simon in Crowd Log. Work with [Crowd Log support team](mailto:crowdlog@crowdworks.co.jp) to add the users in the Crowd Log platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Crowd Log. For more information on how to create a user, please refer [this](https://support.crowdlog.jp/portal/ja/kb/articles/admin-memberadmin-member-create) link.  
 
 ## Test SSO 
 
