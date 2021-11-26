@@ -8,6 +8,7 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
 ## Prerequisites
 
