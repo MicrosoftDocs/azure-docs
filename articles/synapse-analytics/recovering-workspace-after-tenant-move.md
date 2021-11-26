@@ -1,5 +1,5 @@
 ---
-title: Recovering Synapse Workspace after transferring an subscription to a different Azure AD directory 
+title: Recovering Synapse Workspace after transferring a subscription to a different Azure AD directory 
 description: This article provides steps to recover the Synapse workspace after moving a subscription to a different Azure AD directory(Tenant)
 services: synapse-analytics 
 author:  phanir
@@ -11,14 +11,14 @@ ms.author: phanir
 ms.reviewer: 
 ---
 
-# Recovering Synapse Workspace after transferring an subscription to a different Azure AD directory (Tenant)
+# Recovering Synapse Workspace after transferring a subscription to a different Azure AD directory (Tenant)
 
-Synapse workspace is not accessible immediately after transferring a subscription to a different Azure AD directory(tenant). When you try to launch the Synapse studio after the move, you will see the below error.
+Synapse workspace will not accessible after transferring a subscription to a different Azure AD directory(tenant). When you try to launch the Synapse studio after the move, you will see the below error.
 :::image type="content" source="media/how-to-tenant-move/403Error-TenantMove.png" alt-text="SynapseStudioError":::
 
-There are set of steps mentioned in this article which should be followed after transferring an subscription across tenant to recover the Synapse workspace. 
+There are set of steps mentioned in this article, which should be followed after transferring a subscription across tenant to recover the Synapse workspace. 
 
-Transferring an subscription to a different Azure AD directory(tenant) is a complex process that must be carefully planned and executed. Azure Synapse Analytics require security principals (identities) to operate normally. When a subscription is moved to a different tenant, then all principal id's changes, role assignments are deleted from Azure resource and System assigned managed identity will be dropped as well.
+Transferring a subscription to a different Azure AD directory(tenant) is a complex process that must be carefully planned and executed. Azure Synapse Analytics require security principals (identities) to operate normally. When a subscription is moved to a different tenant, then all principal Id's changes, role assignments are deleted from Azure resource and System assigned managed identity will be dropped as well.
 
 To understand the impact of transferring a subscription to another tenant see [Transfer an Azure subscription to a different Azure AD directory](../role-based-access-control/transfer-subscription.md)
 
@@ -27,13 +27,13 @@ This article covers the steps involved in recovering a Synapse Workspace after m
 ## Pre-requisites
 
 - To know more about service or resources impacted by tenant move see [Transfer an Azure subscription to a different Azure AD directory](../role-based-access-control/transfer-subscription.md) .
-- Save all the role assignment for AAD users, groups and Managed Identities. This information can be used to assign the required permissions on Azure resources like Azure Synapse Analytics, ADLS gen-2 after tenant move. See [Step 1: Prepare for the transfer](../role-based-access-control/transfer-subscription.md#step-1-prepare-for-the-transfer)
+- Save all the role assignment for AAD users, groups, and Managed Identities. This information can be used to assign the required permissions on Azure resources like Azure Synapse Analytics, ADLS gen-2 after tenant move. See [Step 1: Prepare for the transfer](../role-based-access-control/transfer-subscription.md#step-1-prepare-for-the-transfer)
 - Save all the permissions give to AAD users in dedicated and serverless SQL pool. AAD users will be deleted from the dedicated and Serverless SQL pool after tenant move.
 
 
 ## Steps for recovering Synapse Workspace
 
-After transferring the subscription to another tenant you need to perform following steps on Azure Synapse workspace.
+After transferring the subscription to another tenant, follow the below steps to recover the Azure Synapse workspace.
 
 1. Disable  System Assigned Managed Identity.
 1. Re-enable System Assigned Managed Identity.
@@ -62,7 +62,7 @@ az rest --method patch --headers  Content-Type=application/json   `
 --url  $url `
 --body '{ \"identity\":{\"type\":\"None\"}}'
 ```
-Workspace ProvisioningState should be **Succeeded** and the identity type should **None** after preceding command is executed. If you execute the following command provisioningState value might be shown as Provisioning and will take few minutes to change the status as Succeeded. You should wait until the provisioningState value is shown as Succeeded before re-enabling the System Assigned Managed Identity for the workspace.
+Workspace ProvisioningState should be **Succeeded** and the identity type should **None** after preceding command is executed. If you execute the following command, provisioningState value might be shown as Provisioning and will take few minutes to change the status to Succeeded. Value of the provisioningState should be Succeeded before re-enabling the System Assigned Managed Identity for the workspace.
 
 ```azurecli
 # Get the status of the workspace to get the provisioning status and identity type.
@@ -189,7 +189,7 @@ Invoke-RestMethod -Method PATCH -Uri $url -ContentType $contentType -Headers $he
 ``` 
 :::image type="content" source="media/how-to-tenant-move/Workspace_Put_None.png" alt-text="Disable SAMI PowerShell":::
 
-As you can see from the above screenshot that the ProvisioningState value is Provisioning and not Succeeded and it takes few mins to change the status to Succeeded. Before re-enabling the System Assigned Managed Identity for the workspace, the ProvisioningState value should be Succeeded.
+As you can see from the above screenshot that the ProvisioningState value is Provisioning and not Succeeded. It takes few minutes to change the status to Succeeded. Before re-enabling the System Assigned Managed Identity for the workspace, the ProvisioningState value should be Succeeded.
 
 Run the following command to re-enable the System Assigned Managed Identity for the workspace.
 
@@ -209,14 +209,14 @@ Execute the following command to check the ProvisioningState value and the Ident
 
 After recovering the Synapse workspace perform the following steps.
 
-- Assign RBAC to AAD users, groups to Synapse Workspace. This steps should be first step after recovering the workspace. Without this step, launching the Synapse studio will throw 403 messages due to AAD users not having permissions on the workspace. 
+- Assign RBAC to AAD users, groups to Synapse Workspace. This step should be first step after recovering the workspace. Without this step, launching the Synapse studio will throw 403 messages due to AAD users not having permissions on the workspace. 
 ``` Error
 {"error":{"code":"Unauthorized","message":"The principal '94bcefe7-5fe0-4327-9ab7-3044f469d238' does not have the required Synapse RBAC permission to perform this action. Required permission: Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
 ```
 - Assign RBAC to AAD users, groups, service principals to all the resources used in the workspace artifacts like ADLS Gen-2. For RBAC on ADLS Gen-2 see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
-- Add Synapse RBAC role assignments to AAD users, groups. For more information see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
-- Recreate all the AAD logins and Users in dedicated and Serverless SQL pool. For more information see [SQL Authentication](sql/sql-authentication.md)
-- Recreate all user assigned managed identity and assign user-assigned managed identity to the Synapse workspace. For more details see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md)
+- Add Synapse RBAC role assignments to AAD users, groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 
+- Recreate all the AAD logins and Users in dedicated and Serverless SQL pool. For more information, see [SQL Authentication](sql/sql-authentication.md)
+- Recreate all user assigned managed identity and assign user-assigned managed identity to the Synapse workspace. For more details,see [Credentials in Azure Data Factory and Azure Synapse](../data-factory/credentials.md)
 
 
 
