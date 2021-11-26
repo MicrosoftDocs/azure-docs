@@ -19,9 +19,9 @@ The assert transformation enables custom rules to be set inside your mapping dat
 
 ## Configuration
 
-In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional decription, and define the expression and optional filter.
 
-:::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
+:::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert settings":::
 
 ### Column
 
