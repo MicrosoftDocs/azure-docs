@@ -22,8 +22,8 @@ landingContent:
             url: validation-program.md
       - linkListType: concept
         links:
-          - text: Agent architecture
-            url: conceptual-agent-architecture.md
+          - text: Agent overview
+            url: conceptual-agent-overview.md
           - text: Configurations and GitOps
             url: conceptual-configurations.md
           - text: CI/CD workflow using GitOps

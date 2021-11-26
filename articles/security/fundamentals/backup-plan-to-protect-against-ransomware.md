@@ -168,7 +168,7 @@ Microsoft Azure:
 
 - [Help protect from ransomware with Microsoft Azure Backup](https://www.youtube.com/watch?v=VhLOr2_1MCg) (26 minute video)
 - [Recovering from systemic identity compromise](./recover-from-identity-compromise.md)
-- [Advanced multistage attack detection in Azure Sentinel](../../sentinel/fusion.md#fusion-for-ransomware)
+- [Advanced multistage attack detection in Microsoft Sentinel](../../sentinel/fusion.md#fusion-for-ransomware)
 
 Microsoft 365:
 

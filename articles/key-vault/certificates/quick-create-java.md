@@ -1,8 +1,8 @@
 ---
 title: Quickstart for Azure Key Vault Certificate client library - Java
-description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart. 
+description: Learn about the the Azure Key Vault Certificate client library for Java with the steps in this quickstart.
 author: msmbaldwin
-ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-java, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.author: mbaldwin
 ms.date: 12/18/2020
 ms.service: key-vault

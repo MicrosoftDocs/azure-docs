@@ -3,13 +3,13 @@ title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -752,7 +752,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 **Syntax**
 
 ```xml
-<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+<say-as interpret-as="string" format="digit string" detail="string"> </say-as>
 ```
 
 **Attributes**

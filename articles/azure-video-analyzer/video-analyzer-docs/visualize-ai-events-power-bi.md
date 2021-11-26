@@ -3,7 +3,7 @@ title: Real-time visualization of AI inference events with Power BI
 description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This tutorial walks through the steps for real-time to visualization AI inference events from IoT Hub in Microsoft Power BI.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 09/08/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -36,7 +36,7 @@ In this tutorial, you will:
   > [!TIP]
   >
   > - The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).
-  > - Refer Configuration and deployment section in [FAQs](faq-edge.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
+  > - Refer Configuration and deployment section in [FAQs](https://github.com/MicrosoftDocs/azure-docs-pr/pull/edge/faq.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
   > - If you followed the Line Crossing sample and are using the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp), then edit operations.json file at properties -> parameters -> value to `"rtsp://rtspsim:554/media/camera-3600s.mkv"` to change video source to 60-minute recording.
 
 - A [Power BI](https://powerbi.microsoft.com/) account.

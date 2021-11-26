@@ -8,8 +8,7 @@ ms.service: virtual-wan
 ms.topic: quickstart
 ms.date: 02/02/2021
 ms.author: cherylmc
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create an any-to-any configuration using an ARM template
@@ -63,7 +62,7 @@ To find more templates, see [Azure Quickstart Templates](https://azure.microsoft
 
 ## <a name="deploy"></a>Deploy the template
 
-To deploy this template properly, you must use the button to Deploy to Azure button and the Azure portal, rather than other methods, for the following reasons:
+To deploy this template properly, you must use **Deploy to Azure** button in the Azure portal, rather than other methods, for the following reasons:
 
 * In order to create the P2S configuration, you need to upload the root certificate data. The data field does not accept the certificate data when using PowerShell or CLI.
 * This template does not work properly using Cloud Shell due to the certificate data upload.

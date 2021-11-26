@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Google BigQuery projects in Azure Purview
+# Connect to and manage Google BigQuery projects in Azure Purview (Preview)
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
@@ -93,8 +93,8 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
     1. **Credential**: While configuring BigQuery credential, make sure to:
 
         * Select **Basic Authentication** as the Authentication method
-        * Provide the email ID of the service account in the User name field. For example, xyz\@developer.gserviceaccount.com
-        * Save your Private key file of the service account in the JSON format in the key vault's secret
+        * Provide the email ID of the service account in the User name field. For example, `xyz\@developer.gserviceaccount.com`
+        * Follow below steps to generate the private key, copy the JSON then store it as the value of a Key Vault secret.
 
         To create a new private key from Google's cloud platform:
         1. In the navigation menu, select IAM & Admin -\> Service Accounts -\> Select a project -\> 

@@ -61,7 +61,7 @@ Within each of these five stages, there are several device operator requirements
     * [How to use device twin properties](tutorial-device-twins.md)
     * [IoT Hub query language for device twins, jobs, and message routing](iot-hub-devguide-query-language.md)
     * [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md)
-    * [Azure Defender for IoT for organizations to provide comprehensive threat detection](../defender-for-iot/organizations/overview.md)
+    * [Microsoft Defender for IoT for organizations to provide comprehensive threat detection](../defender-for-iot/organizations/overview.md)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
 * **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime.  Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.

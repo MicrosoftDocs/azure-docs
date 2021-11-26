@@ -11,7 +11,7 @@ author: dzsquared
 ms.author: drskwier
 ms.reviewer: mathoma, v-masebo
 ms.date: 05/29/2020
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2 , mode-other
 ---
 # Quickstart: Use PHP to query a database in Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: devplatv2
 author: wenxwei
 ms.author: wenxwei
-ms.date: 06/22/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ---
 
@@ -23,7 +23,7 @@ There are many ways to create a training job with Azure Machine Learning. You ca
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Understanding of what a job is in Azure Machine Learning. See [Introducing jobs](how-to-train-cli.md#introducing-jobs).
+* Understanding of what a job is in Azure Machine Learning. See [how to train models with the CLI (v2)](how-to-train-cli.md).
 
 ## Get started
 
@@ -115,7 +115,7 @@ The command is run from the root directory of the uploaded code folder. After yo
 
 If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
 
-If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) is:
+If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/word-language-model) is:
 
 ```tree
 .

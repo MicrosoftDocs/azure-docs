@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 # Azure Purview scanning best practices
 
-Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security and Compliance Center(SCC). 
+Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security & Compliance Center.
 
 ## Intended audience
 
@@ -94,6 +94,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - Account key or Basic Authentication (for example, for SAP S/4HANA sources)
             > [!Note]
             > If you have firewall enabled for the storage account, you must use Managed Identity authentication method when setting up a scan.
+            > While setting up a new credential, the credential name can only contain _letters, numbers, underscores and hyphens_. 
 
     - **Integration runtime**
         - Use Azure Auto Resolve Integration runtime, where feasible.
@@ -149,8 +150,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
     - **Delete and update scenarios**
         - If a field / column, table, or a file is removed from the source system after the scan ran, it will only be reflected (removed) in Purview after the next scheduled full / incremental scan.
         - An asset can be deleted from Azure Purview catalog using the **delete** icon under the name of the asset (this will not remove the object in the source). However, if you run full scan on the same source, it would get reingested in the catalog. If you have scheduled a weekly / monthly scan instead (incremental) the deleted asset will not be picked unless the object is modified at source (for example, a column is added / removed from the table).
-        - If you make an asset level update such as adding a description, asset level classification, glossary term, or a contact to an asset, then subsequent scans will update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
-        - If you make a column level update, such as adding a description, column level classification, glossary term, or updating the data type or column name, then subsequent scans will not update the asset schema (new columns and classifications will not be detected by the scanner in subsequent scan runs).
+        - To understand the behavior of subsequent scans after *manually* editing a data asset or an underlying schema through Purview Studio, refer to [Catalog asset details](./catalog-asset-details.md#scans-on-edited-assets).
 
         For more details refer the tutorial on [how to view, edit, and delete assets](./catalog-asset-details.md)
 

@@ -3,7 +3,7 @@ title: How to track Speech SDK memory usage - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech Service SDK supports numerous programming languages for speech-to-text and text-to-speech conversion, along with speech translation. This article discusses memory management tooling built into the SDK.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -91,8 +91,7 @@ Here's a sample error:
 ```terminal
 Runtime error: The maximum object count of 500 has been exceeded.
 The threshold can be adjusted by setting the SPEECH-ObjectCountErrorThreshold property on the SpeechConfig object.
-See https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-object-tracking-speech-sdk for more detailed information.
-Handle table dump by ojbect type:
+Handle table dump by object type:
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognitionResult 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxRecognizer 0
 class Microsoft::CognitiveServices::Speech::Impl::ISpxAudioConfig 0

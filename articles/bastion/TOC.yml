@@ -57,6 +57,8 @@
     href: upgrade-sku.md
   - name: Configure host scaling
     href: configure-host-scaling.md
+  - name: Connect to VM via native Windows client
+    href: connect-native-client-windows.md
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
@@ -82,9 +84,9 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.network
+    href: /powershell/module/az.network/
   - name: REST
-    href: /rest/api/virtualnetwork/bastionhosts
+    href: /rest/api/virtualnetwork/bastion-hosts
   - name: Azure CLI
     href: /cli/azure/network/bastion
 - name: Resources
@@ -92,9 +94,9 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/topics/networking/
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-bastion
+    href: https://azure.microsoft.com/pricing/details/azure-bastion/
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA

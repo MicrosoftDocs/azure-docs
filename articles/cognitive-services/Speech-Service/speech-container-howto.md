@@ -3,13 +3,13 @@ title: Install and run Docker containers for the Speech service APIs
 titleSuffix: Azure Cognitive Services
 description: Use the Docker containers for the Speech service to perform speech recognition, transcription, generation, and more on-premises.
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/11/2021
-ms.author: aahi
+ms.author: eur
 ms.custom: cog-serv-seo-aug-2020
 keywords: on-premises, Docker, container
 ---
@@ -25,11 +25,11 @@ Speech containers enable customers to build a speech application architecture th
 
 | Container | Features | Latest | Release status |
 |--|--|--|--|
-| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.15.0 | Generally Available |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.15.0 | Generally Available |
+| Speech-to-text | Analyzes sentiment and transcribes continuous real-time speech or batch audio recordings with intermediate results.  | 2.16.0 | Generally Available |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.16.0 | Generally Available |
 | Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.15.0 | Generally Available |
-| Speech Language Identification | Detect the language spoken in audio files. | 1.3.0 | preview |
-| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.9.0 | Generally Available |
+| Speech Language Identification | Detect the language spoken in audio files. | 1.5.0 | preview |
+| Neural Text-to-speech | Converts text to natural-sounding speech using deep neural network technology, allowing for more natural synthesized speech. | 1.10.0 | Generally Available |
 
 ## Prerequisites
 

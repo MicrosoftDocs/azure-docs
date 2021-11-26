@@ -10,7 +10,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Frequently asked questions for conversational language understanding

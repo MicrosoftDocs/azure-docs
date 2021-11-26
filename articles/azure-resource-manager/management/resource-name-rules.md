@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/09/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -170,7 +170,7 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | availabilitySets | resource group | 1-80 | Alphanumerics, underscores, periods, and hyphens.<br><br>Start with alphanumeric. End with alphanumeric or underscore. |
 > | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
-> | diskEncryptionSets | resource group | 1-80 | Alphanumerics and underscores. |
+> | diskEncryptionSets | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens. |
 > | galleries | resource group | 1-80 | Alphanumerics and periods.<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods.<br><br>Start and end with alphanumeric. |

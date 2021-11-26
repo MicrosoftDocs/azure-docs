@@ -273,14 +273,13 @@ If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://l
 
 ## Customization and tuning
 
-Azure App Service for Linux supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
+Azure App Service supports out of the box tuning and customization through the Azure portal and CLI. Review the following articles for non-Java-specific web app configuration:
 
 - [Configure app settings](configure-common.md#configure-app-settings)
 - [Set up a custom domain](app-service-web-tutorial-custom-domain.md)
 - [Configure TLS/SSL bindings](configure-ssl-bindings.md)
 - [Add a CDN](../cdn/cdn-add-to-web-app.md)
 - [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
-
 
 ### Set Java runtime options
 
@@ -298,6 +297,13 @@ To configure the app setting from the Maven plugin, add setting/value tags in th
     </property>
 </appSettings>
 ```
+
+::: zone pivot="platform-windows"
+
+> [!NOTE]
+> You do not need to create a web.config file when using Tomcat on Windows App Service. 
+
+::: zone-end
 
 Developers running a single application with one deployment slot in their App Service plan can use the following options:
 
@@ -899,11 +905,11 @@ Alternatively, you can use an FTP client to upload the JDBC driver. Follow these
 
 These instructions apply to all database connections. You will need to fill placeholders with your chosen database's driver class name and JAR file. Provided is a table with class names and driver downloads for common databases.
 
-| Database   | Driver Class Name                             | JDBC Driver                                                                      |
+| Database   | Driver Class Name                             | JDBC Driver                                                                              |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Download](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Download](https://dev.mysql.com/downloads/connector/j/) (Select "Platform Independent") |
-| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)                                                           |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [Download](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server#download)     |
 
 To configure Tomcat to use Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first customize the `CATALINA_OPTS` environment variable that is read in by Tomcat at start-up. Set these values through an app setting in the [App Service Maven plugin](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md):
 

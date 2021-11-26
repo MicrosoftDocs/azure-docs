@@ -1,153 +1,156 @@
 ---
 title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.topic: include
+author: mrbullwinkle
+ms.author: mbullwin
 ms.custom: ignite-fall-2021
 ---
+
 ## Prerequisites
 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest).
+
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
-* Custom question and answering requires a [language resource](../../../qnamaker/how-to/set-up-qnamaker-service-azure.md?tabs=v2#create-a-new-qna-maker-service) with the custom question answering feature enabled to generate an API key and endpoint. The **Name** you chose when creating your resource is used as the subdomain for your endpoint. To retrieve the key and your resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL: <!--TODO: Change link-->
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
+	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
-    `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2`
+## Query a knowledge base
 
-> [!CAUTION]
-> The following BASH examples use the `\` line continuation character. If you console or terminal uses a different line continuation character, use this character.
+### Generate an answer from a knowledge base
 
-## Create a knowledge base
+To query a question answering project/knowledge base with the REST APIs and cURL, you need to  information:
 
-To create a knowledge base with the REST APIs and cURL, you need to have the following information:
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|Language resource name (Custom question answering feature enabled)|URL|used to construct URL|
-|Language resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to language service|
-|JSON describing knowledge base|`-d` param|[Examples](/rest/api/cognitiveservices/qnamaker/knowledgebase/create#examples) of JSON|
-|Size of the JSON in bytes|`-h` param for `Content-Size` header||
+|Variable name | Value |
+|--------------------------|-------------|
+| `Endpoint`               | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. An example endpoint is: `https://southcentralus.api.cognitive.microsoft.com/`|
+| `API-Key` | This value can be found in the **Keys & Endpoint** section when examining your resource from the Azure portal. You can use either Key1 or Key2. Always having two valid keys always for secure key rotation with zero downtime. Alternatively you can find the value in **Language Studio** > **question answering** > **Deploy knowledge base** > **Get prediction URL**. The key value is part of the sample request.|
+| `Project` | The name of your question answering project.|
+| `Deployment`             | There are two possible values: `test`, and `production`. `production` is dependent on you having deployed your knowledge base from **Language Studio** > **question answering** > **Deploy knowledge base**.|
 
 The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and JSON values and size of JSON.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/create \
--X POST \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
--H "Content-Type:application/json" \
--H "Content-Size:107" \
--d '{ name: "QnA Maker FAQ",urls: [ "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs"]}'
+curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+  "question": "How much battery life do I have left?"
+  }'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com/language/:query-knowledgebases?projectName={YOUR_PROJECT_NAME}&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
 ```
 
-The cURL response from custom question answering includes the `operationId` , which is required to [get status of the operation](#get-status-of-operation).
+When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows:
 
 ```json
 {
-  "operationState": "NotStarted",
-  "createdTimestamp": "2020-02-27T04:11:22Z",
-  "lastActionTimestamp": "2020-02-27T04:11:22Z",
-  "userId": "9596077b3e0441eb93d5080d6a15c64b",
-  "operationId": "95a4f700-9899-4c98-bda8-5449af9faef8"
+"answers": [
+    {
+      "questions": [
+        "Check battery level"
+      ],
+      "answer": "If you want to see how much battery you have left, go to **Start  **> **Settings  **> **Devices  **> **Bluetooth & other devices  **, then find your pen. The current battery level will appear under the battery icon.",
+      "confidenceScore": 0.9185,
+      "id": 101,
+      "source": "https://support.microsoft.com/en-us/surface/how-to-use-your-surface-pen-8a403519-cd1f-15b2-c9df-faa5aa924e98",
+      "metadata": {},
+      "dialog": {
+        "isContextOnly": false,
+        "prompts": []
+      }
+    }
+  ]
 }
 ```
 
-## Get status of operation
+The `confidenceScore` returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
 
-When you create a knowledge base, because the operation is async, the response includes information to determine the status.
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|Language resource name (Custom question answering feature enabled)|URL|used to construct URL|
-|Operation Id|URL route|`/operations/REPLACE-WITH-YOUR-OPERATION-ID`|
-|Language resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to Language service|
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and operation ID.
+If you want to exclude answers where the confidence score falls below a certain threshold, you can add the `confidenceScoreThreshold` parameter.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/operations/REPLACE-WITH-YOUR-OPERATION-ID \
--X GET \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
+curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+  "question": "How much battery life do I have left?",
+  "confidenceScoreThreshold": "0.95",
+  }'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com//language/:query-knowledgebases?projectName=Sample-project&api-version=2021-10-01&deploymentName={DEPLOYMENT_NAME}'
 ```
 
-The cURL response includes the status. If the operation state is succeeded, then the `resourceLocation` includes the knowledge base ID.
+Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```json
 {
-   "operationState": "Succeeded",
-   "createdTimestamp": "2020-02-27T04:54:07Z",
-   "lastActionTimestamp": "2020-02-27T04:54:19Z",
-   "resourceLocation": "/knowledgebases/fe3971b7-cfaa-41fa-8d9f-6ceb673eb865",
-   "userId": "f596077b3e0441eb93d5080d6a15c64b",
-   "operationId": "f293f218-d080-48f0-a766-47993e9b26a8"
+  "answers": [
+    {
+      "questions": [],
+      "answer": "No good match found in KB",
+      "confidenceScore": 0.0,
+      "id": -1,
+      "metadata": {}
+    }
+  ]
 }
 ```
 
-## Publish knowledge base
+## Query text without a knowledge base
 
-Before you query the knowledge base, you need to Publish the knowledge base.
+You can also use question answering without a knowledge base with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|Language resource name (Custom question answering feature enabled)|URL|used to construct URL|
-|Language resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to language service|
-|Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
+For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
 ```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
--v \
--X POST \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" \
---data-raw ''
+curl -X POST -H "Ocp-Apim-Subscription-Key: {YOUR_API_KEY}" -H "Content-Type: application/json" -d '{
+"question":"How long does it takes to charge a surface?",
+"records":[
+{"id":"doc1","text":"Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. It can take longer if you\u0027re using your Surface for power-intensive activities like gaming or video streaming while you\u0027re charging it"},
+{"id":"doc2","text":"You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. The USB port on the power supply is only for charging, not for data transfer. If you want to use a USB device, plug it into the USB port on your Surface."}],
+"language":"en",
+"stringIndexType":"Utf16CodeUnit"
+}'  'https://{YOUR_ENDPOINT}.api.cognitive.microsoft.com/language/:query-text?&api-version=2021-10-01'
 ```
 
-The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
+This example will return a result of:
 
-## Query for answer from published knowledge base
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|Language resource name (Custom question answering feature enabled)|URL|used to construct URL|
-|Language resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to language service|
-|Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-|JSON describing query|`-d` param|[Request body parameters](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#request-body) and [examples](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#examples) of JSON|
-|Size of the JSON in bytes|`-h` param for `Content-Size` header||
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID/generateAnswer \
--X POST \
--H "Content-Type:application/json" \
--H "Content-Size:159" \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
--d '{"question": "How are QnA Maker and LUIS used together?","top": 6,"isTest": true,  "scoreThreshold": 20, "strictFilters": [], "userId": "sd53lsY="}'
+```json
+{  
+"answers": [
+    {
+      "answer": "Power and charging.It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it",
+      "confidenceScore": 0.9118788838386536,
+      "id": "doc1",
+      "answerSpan": {
+        "text": "two to four hours",
+        "confidenceScore": 0.9850527,
+        "offset": 27,
+        "length": 18
+      },
+      "offset": 0,
+      "length": 243
+    },
+    {
+      "answer": "It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it",
+      "confidenceScore": 0.052793052047491074,
+      "id": "doc1",
+      "answerSpan": {
+        "text": "longer",
+        "confidenceScore": 0.6694634,
+        "offset": 11,
+        "length": 7
+      },
+      "offset": 109,
+      "length": 134
+    },
+    {
+      "answer": "You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. The USB port on the power supply is only for charging, not for data transfer. If you want to use a USB device, plug it into the USB port on your Surface.",
+      "confidenceScore": 0.017600709572434425,
+      "id": "doc2",
+      "answerSpan": {
+        "text": "USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. The USB port on the power supply is only for charging",
+        "confidenceScore": 0.1544854,
+        "offset": 15,
+        "length": 165
+      },
+      "offset": 0,
+      "length": 280
+    }
+  ]
+}
 ```
-
-A successful response includes the top answer along with other information a client application, such as a chat bot, needs to display an answer to the user.
-
-## Delete knowledge base
-
-When you are done with the knowledge base, delete it.
-
-|Information|cURL configuration|Purpose|
-|--|--|--|
-|Language resource name (Custom question answering feature enabled)|URL|used to construct URL|
-|Language resource key|`-h` param for `Ocp-Apim-Subscription-Key` header|Authenticate to language service|
-|Knowledge base Id|URL route|`/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID`|
-
-The cURL command is executed from a BASH shell. Edit this command with your own resource name, resource key, and knowledge base ID.
-
-```bash
-curl https://REPLACE-WITH-YOUR-RESOURCE-NAME.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/REPLACE-WITH-YOUR-KNOWLEDGE-BASE-ID \
--X DELETE \
--v \
--H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY"
-```
-
-The response status is 204 with no results. Use the `-v` command-line parameter to see verbose output for the cURL command. This will include the HTTP status.
-
-## Additional resources
-
-* [Authoring](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase) Reference documentation
-* [Runtime](/rest/api/cognitiveservices/qnamaker4.0/runtime) Reference documentation
-* [Sample BASH scripts using cURL](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/curl/QnAMaker)

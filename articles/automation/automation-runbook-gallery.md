@@ -14,27 +14,36 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 > The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation) For more information, see [Azure Automation Runbooks moving to GitHub](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## Import runbooks from GitHub with the Azure portal
+
 > [!NOTE]
-> The **Browse gallery** option in the Azure portal has an enhanced user experience: 
-
-**Browse gallery** is available on  **Process Automation** > **Runbook** blade. 
-The Runbooks page displays two new columns - **Runtime version** and **Runbook type** 
-Also, the **Import runbook** page has additional properties supported as detailed below: 
-
+>- The **Browse gallery** option in the Azure portal has an enhanced user experience.
+>- In **Process Automation** > **Runbook** blade, you can import runbooks either by **Import a runbook** or **Browse gallery**  option and the **Runbooks** page displays two new columns - **Runtime version** and **Runbook type**.
+ 
 1. In the Azure portal, open your Automation account.
-2. Select **Runbooks** under **Process Automation**.
+1. Select **Runbooks** blade under **Process Automation**.
+1. Click **Import a runbook** in the **Runbooks** page.
+
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook.png" alt-text="Screenshot of selecting a runbook from import runbook option.":::
+
+1. In the **Import a runbook** page, you can either import a file stored on your local machine or from GitHub using **Browse for file** or **Browse from gallery** respectively.
+1. Select the file.
+1. Enter the **Name**, **Runtime version**, and **Description**.
+1. Click **Import**.
+   
+   :::image type="content" source="./media/automation-runbook-gallery/import-runbook-upload-runbook-file.png" alt-text="Screenshot of selecting a runbook from file or gallery.":::
+
+1. Alternatively,  Select **Browse Gallery** in the **Runbooks** page to browse the available runbooks.
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-option.png" alt-text="Screenshot of selecting browsing gallery option from runbook blade.":::
 
-3. Select **Browse Gallery** to browse the existing runbooks available.
-   
-   You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
+1. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
-4. Click **Select** to select a chosen runbook. The **Runtime version**, **description** and **Runbook time** are auto populated.
-5. Enter the name.
-6. Click **Import**.
+1. Click **Select** to select a chosen runbook. 
+1. In the **Import a runbook** page, enter the **Name** and select the **Runtime versions**.
+1. The  **Runbook type** and **Description** are auto populated.
+1. Click **Import**.
 
    :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import.png" alt-text="Gallery item import.":::
 
@@ -59,7 +68,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 PowerShell modules contain cmdlets that you can use in your runbooks. Existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install the modules directly into Azure Automation, or you can manually download and install them.
 
-You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules gallery** under **Shared resources**.
+You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules** under **Shared resources**.
 
 > [!IMPORTANT] 
 > Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
@@ -102,7 +111,8 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 ## Import a module from the Modules gallery in the Azure portal
 
 1. In the Azure portal, open your Automation account.
-1. Under **Shared Resources**, select **Modules gallery** to open the list of modules.
+1. Under **Shared Resources**, select **Modules**.
+1. In **Modules** page, select **Browse gallery**  to open the list of modules.
 
       :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 

@@ -228,6 +228,9 @@ items:
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -643,6 +646,9 @@ items:
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -741,6 +747,8 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Pipeline failure and error handling
+      href: tutorial-pipeline-failure-error-handling.md
     - name: Monitor pipelines with email notifications
       href: how-to-send-email.md
     - name: Monitor pipelines with Microsoft Teams notifications
@@ -943,6 +951,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -1073,5 +1083,7 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Request quota increases from support
+    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

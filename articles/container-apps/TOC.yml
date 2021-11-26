@@ -4,11 +4,18 @@
   items:
     - name: About Azure Container Apps
       href: overview.md
+    - name: Compare container options in Azure
+      href: compare-options.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
     - name: Deploy your first container app
-      href: get-started.md
+      expanded: true
+      items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Azure CLI
+          href: get-started.md  
 - name: Concepts
   items:
     - name: Environment
@@ -35,6 +42,8 @@
       href: ingress.md
     - name: Connect multiple apps
       href: connect-apps.md
+    - name: Publish revisions with GitHub Actions
+      href: github-actions-cli.md
 - name: Tutorials
   items:
     - name: Microservices with Dapr using the CLI
@@ -53,3 +62,5 @@
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs

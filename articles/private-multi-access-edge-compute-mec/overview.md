@@ -55,7 +55,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 ### Azure Stack hardware and services
 **Azure Stack Edge**: Azure Stack Edge offers a portfolio of devices that bring compute, storage, and intelligence to the edge right where data is created. The devices are 1U rack-mountable appliances that come with 1-2 NVIDIA T4 GPUs. Azure IoT Edge allows you to deploy and manage containers from IoT Hub and integrate with Azure IoT solutions on the Azure Stack Edge. The Azure Stack Edge Pro SKU is certified to run Network Functions at the edge. For more information, see [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/).
 
-**Azure Stack HCI**: Azure Stack HCI is a new hyper-converged infrastructure (HCI) operating system delivered as an Azure service that provides the latest security, performance, and feature updates. Deploy and run Windows and Linux virtual machines (VMs) in your datacenter, or, at the edge using your existing tools and processes. Extend your datacenter to the cloud with Azure Backup, Azure Monitor, and Azure Security Center. For more information, see [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/).
+**Azure Stack HCI**: Azure Stack HCI is a new hyper-converged infrastructure (HCI) operating system delivered as an Azure service that provides the latest security, performance, and feature updates. Deploy and run Windows and Linux virtual machines (VMs) in your datacenter, or, at the edge using your existing tools and processes. Extend your datacenter to the cloud with Azure Backup, Azure Monitor, and Microsoft Defender for Cloud. For more information, see [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/).
 
 ### Application services
 

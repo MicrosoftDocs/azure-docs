@@ -5,10 +5,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: quickstart
-
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, mode-other
 ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.
 ---

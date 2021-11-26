@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 08/03/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 11/15/2021
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -217,8 +217,8 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 1. Deploy the JAR files built in the previous step.
 
     ```azurecli
-    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+    az spring-cloud app deploy --name api-gateway --jar-path spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+    az spring-cloud app deploy --name customers-service --jar-path spring-petclinic-customers-service/target/spring-petclinic-customers-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
     ```
 
 1. Query app status after deployments with the following command.
@@ -251,9 +251,9 @@ To get the PetClinic app functioning with all features like Admin Server, Visits
 az spring-cloud app create --name admin-server --instance-count 1 --memory 2 --assign-endpoint
 az spring-cloud app create --name vets-service --instance-count 1 --memory 2
 az spring-cloud app create --name visits-service --instance-count 1 --memory 2
-az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
-az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.3.6.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name admin-server --jar-path spring-petclinic-admin-server/target/spring-petclinic-admin-server-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name vets-service --jar-path spring-petclinic-vets-service/target/spring-petclinic-vets-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
+az spring-cloud app deploy --name visits-service --jar-path spring-petclinic-visits-service/target/spring-petclinic-visits-service-2.5.1.jar --jvm-options="-Xms2048m -Xmx2048m"
 ```
 
 #### [Maven](#tab/Maven)
@@ -355,7 +355,7 @@ In order to deploy to Azure you must sign in with your Azure account with Azure 
     ![Deploy to Azure 1](media/spring-cloud-intellij-howto/deploy-to-azure-1-pet-clinic.png)
 
 1. In the **Name** field, append *:api-gateway* to the existing **Name**.
-1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.3.6*.
+1. In the **Artifact** textbox, select *spring-petclinic-api-gateway-2.5.1*.
 1. In the **Subscription** textbox, verify your subscription.
 1. In the **Spring Cloud** textbox, select the instance of Azure Spring Cloud that you created in [Provision Azure Spring Cloud instance](./quickstart-provision-service-instance.md).
 1. Set **Public Endpoint** to *Enable*.

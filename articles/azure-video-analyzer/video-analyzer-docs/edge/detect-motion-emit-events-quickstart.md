@@ -2,9 +2,9 @@
 title: Detect motion and emit events from the edge - Azure
 description: This quickstart shows you how to use Azure Video Analyzer to detect motion and emit events, by programmatically calling direct methods.
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Detect motion and emit events

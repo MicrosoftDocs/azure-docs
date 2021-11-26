@@ -2,7 +2,7 @@
 title: Enable preview images
 description: This article explains how to enable and access preview images when recording video using Azure Video Analyzer
 ms.topic: how-to
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 

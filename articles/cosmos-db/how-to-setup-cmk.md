@@ -269,6 +269,9 @@ Because a system-assigned managed identity can only be retrieved after the creat
 
 ### To use a user-assigned managed identity
 
+> [!IMPORTANT]
+> When using a user-assigned managed identity, firewall rules on the Azure Key Vault account aren't currently supported. You must keep your Azure Key Vault account accessible from all networks.
+
 1.	When creating the new access policy in your Azure Key Vault account as described [above](#add-access-policy), use the `Object ID` of the managed identity you wish to use instead of Azure Cosmos DB's first-party identity.
 
 1.	When creating your Azure Cosmos DB account, you must enable the user-assigned managed identity and specify that you want to use this identity when accessing your encryption keys in Azure Key Vault. You can do this:
@@ -393,11 +396,28 @@ From the Azure portal, go to your Azure Cosmos account and watch for the **Data 
 
 You can also programmatically fetch the details of your Azure Cosmos account and look for the presence of the `keyVaultKeyUri` property. See above for ways to do that [in PowerShell](#using-powershell) and [using the Azure CLI](#using-azure-cli).
 
-### How do customer-managed keys affect a backup?
+### How do customer-managed keys affect periodic backups?
 
-Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data. The following conditions are necessary to successfully restore a backup:
+Azure Cosmos DB takes [regular and automatic backups](./online-backup-and-restore.md) of the data stored in your account. This operation backs up the encrypted data.
+
+The following conditions are necessary to successfully restore a periodic backup:
 - The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
-- If you [used managed identities in the Azure Key Vault access policy](#using-managed-identity), the identity configured on the source account must not have been deleted and must still be declared in the access policy of the Azure Key Vault instance.
+- If you [used managed identities in the Azure Key Vault access policy](#using-managed-identity) of the source account, you must ensure that the target account will be allowed to access Key Vault as well.
+  - If you used a system-assigned managed identity on the source account, the same identity can't be assigned to the target account. You should enable a system-assigned or user-assigned managed identity on the destination account, set this identity as the destination account's default identity, and declare this identity in the Azure Key Vault access policy.
+  - If you used a user-assigned managed identity on the source account, assign the same identity to the destination account and set this identity as the destination account's default identity.
+
+### How do customer-managed keys affect continuous backups?
+
+Azure Cosmos DB gives you the option to configure [continuous backups](./continuous-backup-restore-introduction.md) on your account. With continuous backups, you can restore your data to any point in time within the past 30 days. To use continuous backups on an account where customer-managed keys are enabled, you must [use a user-assigned managed identity](#to-use-a-user-assigned-managed-identity) in the Key Vault access policy; the Azure Cosmos DB first-party identity or a system-assigned managed identity aren't currently supported.
+
+The following conditions are necessary to successfully perform a point-in-time restore:
+- The encryption key that you used at the time of the backup is required and must be available in Azure Key Vault. This means that no revocation was made and the version of the key that was used at the time of the backup is still enabled.
+- You must ensure that the target account will be allowed to access Key Vault as well.
+  - If you used a system-assigned managed identity on the source account, the same identity can't be assigned to the target account. You should enable a system-assigned or user-assigned managed identity on the destination account, set this identity as the destination account's default identity, and declare this identity in the Azure Key Vault access policy.
+  - If you used a user-assigned managed identity on the source account, assign the same identity to the destination account and set this identity as the destination account's default identity.
+
+> [!IMPORTANT]
+> If you revoke the encryption key before deleting your account, your account's backup may miss the data written after the revocation has been made.
 
 ### How do I revoke an encryption key?
 

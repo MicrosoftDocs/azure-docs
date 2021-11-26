@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: sqldbrb=2 
+ms.custom: sqldbrb=2 , mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 author: dzsquared
