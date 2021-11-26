@@ -19,7 +19,7 @@ Azure Static Web Apps automatically provides a free SSL/TLS certificate for the 
 
 ## Walkthrough Video
 
-> [!VIDEO https://channel9.msdn.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
+> [!VIDEO https://docs.microsoft.com/Shows/5-Things/Configuring-a-custom-domain-with-Azure-Static-Web-Apps/player?format=ny]
 
 ## Prerequisites
 

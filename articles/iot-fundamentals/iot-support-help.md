@@ -73,7 +73,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=iot).
 
-News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](https://channel9.msdn.com/Shows/Internet-of-Things-Show).
+News and information about Azure IoT is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/internet-of-things/) and on the [Internet of Things Show on Channel 9](/Shows/Internet-of-Things-Show).
 
 Also, share your experiences, engage and learn from experts in the [Internet of Things Tech Community](https://techcommunity.microsoft.com/t5/Internet-of-Things-IoT/ct-p/IoT).
 

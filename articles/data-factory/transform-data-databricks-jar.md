@@ -123,4 +123,4 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
 
 ## Next steps
 
-For an eleven-minute introduction and demonstration of this feature, watch the [video](https://docs.microsoft.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
+For an eleven-minute introduction and demonstration of this feature, watch the [video](/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).
