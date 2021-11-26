@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 
 # UI Library (iOS and Android) capabilities
 
-[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
@@ -93,18 +93,6 @@ These client libraries also require the context for the call they will join. Sim
 | iOS     | iOS 13+ |
 | Android | v23+    |
 
-## Accessibility
-
-- Accessibility by design is a principle across Microsoft products.
-- UI Library follows this principle in making sure that all UI Components are fully accessible.
-- During public preview, the UI Library will continue to improve and add accessibility feature to the UI Components.
-
-## Localization
-
-- Localization is a key to making products that can be used across the world and by people who speak different languages.
-- UI Library will provide out of the box support for some languages and capabilities such as RTL.
-- Developers can provide their own localization files to be used for the UI Library.
 
 > [!div class="nextstepaction"]
-
-For more information about how to start with the UI Mobile library composites, please follow [our Quickstart guide](../../quickstarts/ui-library/get-started-call.md).
+> [Quickstart guides](../../quickstarts/ui-library/get-started-call.md)

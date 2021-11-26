@@ -12,17 +12,11 @@ ms.service: azure-communication-services
 
 # UI Mobile Library
 
-[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
-
-Our UI Mobile Library is an Azure Communication Services capability focused on providing UI components for common business-to-consumer and business-to-business calling interactions. The core focus of the Mobile UI Library are components for [video and voice calling](../voice-video-calling/calling-sdk-features.md). We build on Azure's calling primitives to deliver a complete user experience for calling and meeting experiences on mobile.
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 The UI Mobile Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
 
 ## Composites
-
-Composites are higher-level components composed of smaller components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
-
-Developers can easily instantiate the Composites using an Azure Communication Services access token and the required configuration attributes for call.
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -69,11 +63,10 @@ Details about the feature availability in the [UI Library is available here](mob
 | Client library / SDK  | Implementation Complexity | Customization Ability | Calling |  [Teams Interop](../../concepts/teams-interop.md) |
 | --------------------- | ------------------------- | --------------------- |  ---- | ----------------------------------------------------------------------------------------------- |
 | Composite Components  | Low                       | Low                   |         ✔    | ✔                                                                                               |
-| Core client libraries | High                      | High                  |         ✔    | ✔                                                                                               |
+| [Core client libraries](../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | High                      | High                  |         ✔    | ✔                                                                                               |
 
 > [!div class="nextstepaction"]
-
-For more information about how to start with the UI Mobile library composites, please follow [our Quickstart guide](../../quickstarts/ui-library/get-started-call.md).
+> [Quickstart guides](../../quickstarts/ui-library/get-started-call.md)
 
 ## Know issues
 
