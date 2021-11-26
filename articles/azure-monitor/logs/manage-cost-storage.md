@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2021
+ms.date: 11/26/2021
 ms.author: bwren
 ms.custom: devx-track-azurepowershell
 ---
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 # Manage usage and costs with Azure Monitor Logs
 
 > [!NOTE]
-> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](../usage-estimated-costs.md), describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. All prices and costs in this article are for example purposes only. 
+> This article describes how to understand and control your costs for Azure Monitor Logs. A related article, [Monitoring usage and estimated costs](..//usage-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features using [Azure Cost Management + Billing](../logs/manage-cost-storage.md#viewing-log-analytics-usage-on-your-azure-bill). All prices and costs in this article are for example purposes only. 
 
 Azure Monitor Logs is designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure.  Although this might be a primary driver for your organization, cost-efficiency is ultimately the underlying driver. To that end, it's important to understand that the cost of a Log Analytics workspace isn't based only on the volume of data collected; it's also dependent on the selected plan, and how long you stored data generated from your connected sources.  
 
@@ -66,7 +66,7 @@ If you're not yet using Azure Monitor Logs, you can use the [Azure Monitor prici
 
 ## Viewing Log Analytics usage on your Azure bill 
 
-The easiest way to view your billed usage for a partciular Log Analytics workspace is to go to the **Overview** page of the workspace and click **View Cost** in the upper right corner of the Essentials section at the top of the page. This will launch the Cost Analysis from Azure Cost Management + Billing already scoped to this workspace.  
+The easiest way to view your billed usage for a partciular Log Analytics workspace is to go to the **Overview** page of the workspace and click **View Cost** in the upper right corner of the Essentials section at the top of the page. This will launch the Cost Analysis from Azure Cost Management + Billing already scoped to this workspace.  You might need additional access to Cost Management data ([learn more](../cost-management-billing/costs/assign-access-acm-data.md))
 
 Alternatively, you can start in the [Azure Cost Management + Billing](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json) hub. here you can use the "Cost analysis" functionality to view your Azure resource expenses. To track your Log Analytics expenses, you can add a filter by "Resource type" (to microsoft.operationalinsights/workspace for Log Analytics and microsoft.operationalinsights/cluster for Log Analytics Clusters). For **Group by**, select **Meter category** or **Meter**. Other services, like Microsoft Defender for Cloud and Microsoft Sentinel, also bill their usage against Log Analytics workspace resources. To see the mapping to the service name, you can select the Table view instead of a chart. 
 
