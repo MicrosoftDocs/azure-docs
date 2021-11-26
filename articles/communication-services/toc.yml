@@ -57,11 +57,13 @@ items:
       href: quickstarts/voice-video-calling/call-recording-sample.md
   - name: UI Library
     items:
-    - name: Get started with Composites
+    - name: Get started with UI Library
+      href: quickstarts/ui-library/get-started-call.md
+    - name: Get started with Web Composites
       href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
     - name: Get started with Stateful Client
       href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-    - name: Get started with UI Components
+    - name: Get started with Web UI Components
       href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
