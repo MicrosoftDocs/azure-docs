@@ -91,7 +91,7 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 > [!NOTE]
 > If you run a load test as part of your CI/CD process, you might also use the related secret store. Skip to [Use the CI/CD secret store](#cicd_secrets).
 
-1. [Add the secret to Azure Key Vault](/azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if it doesn't exist yet.
+1. [Add the secret to Azure Key Vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if it doesn't exist yet.
 
 1. Retrieve the Key Vault secret identifier for your secret. You'll use this secret identifier to configure your load test.
 
@@ -119,14 +119,14 @@ When you create a load test in the Azure portal, or you use a [YAML test configu
 
 ### <a name="cicd_secrets"></a> Use the CI/CD secret store
 
-If you're using Azure Load Testing in your CI/CD workflow, you can also use the associated secret store. For example, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets), or [secret variables in Azure Pipelines](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
+If you're using Azure Load Testing in your CI/CD workflow, you can also use the associated secret store. For example, you can use [GitHub repository secrets](https://docs.github.com/actions/security-guides/encrypted-secrets), or [secret variables in Azure Pipelines](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
 
 > [!NOTE]
 > If you already use Azure Key Vault, you might also use it to store the load test secrets. Skip to [Use Azure KeyVault](#akv_secrets).
 
 1. Add the secret value to the CI/CD secret store, if it doesn't exist yet.
 
-    In Azure Pipelines, you can edit the pipeline and [add a variable](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
+    In Azure Pipelines, you can edit the pipeline and [add a variable](/azure/devops/pipelines/process/variables?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true).
 
     :::image type="content" source="media/how-to-parameterize-load-tests/new-variable.png" alt-text="Screenshot that shows how to add a variable to Azure Pipelines.":::
 
