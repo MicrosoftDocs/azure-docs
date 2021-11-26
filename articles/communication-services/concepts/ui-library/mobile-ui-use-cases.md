@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-## Mobile UI Library use cases overview
-
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+# Mobile UI Library use cases overview
 
 Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.

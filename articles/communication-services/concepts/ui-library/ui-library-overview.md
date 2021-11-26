@@ -31,7 +31,6 @@ In conjunction to the UI components, the UI Library exposes a stateful client li
 This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
 This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/story/stateful-client-what-is-stateful--page).
 
-
 ::: zone pivot="platform-web"
 [!INCLUDE [Web UI Library](web-ui-library.md)]
 ::: zone-end
