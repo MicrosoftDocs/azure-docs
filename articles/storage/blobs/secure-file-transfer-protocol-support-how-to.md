@@ -26,7 +26,7 @@ To learn more about SFTP support in Azure Blob Storage, see [SSH File Transfer P
 
 ## Prerequisites
 
-- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 - The account redundancy option of the storage account is set to either locally-redundant storage (LRS) or zone-redundant storage (ZRS).
 
