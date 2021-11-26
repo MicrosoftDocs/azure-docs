@@ -34,7 +34,7 @@ To open a technical support ticket within the Azure portal for Azure Spatial Anc
 
 ## Team & Community support
 ### ASA General
-For support from the Spatial Anchors team and the user community, see [Azure Spatial Anchors Q&A](https://docs.microsoft.com/en-us/answers/topics/azure-spatial-anchors.html).
+For support from the Spatial Anchors team and the user community, see [Azure Spatial Anchors Q&A](https://docs.microsoft.com/answers/topics/azure-spatial-anchors.html).
 
 ### ASA Samples 
 If you are unable to run the samples, please file an issue in the [ASA samples repository](https://github.com/Azure/azure-spatial-anchors-samples/issues) by clicking _New issue_ then _Get started_
