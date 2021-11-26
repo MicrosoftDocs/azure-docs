@@ -3,7 +3,7 @@ title: Restore VMs by using the Azure portal
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal, including the Cross Region Restore feature.
 ms.reviewer: geg
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 11/26/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -111,8 +111,12 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 1. Select **Restore** to trigger the restore operation.
 
-When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
-When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn't use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group. When your virtual machine uses unmanaged disks, they're restored as blobs to the storage account.
+
+While you restore disks for a Managed VM from a Vault-Standard tier recovery point, it restores the Managed disk and Azure Resource Manager (ARM) templates, along with the VHD files of the disks in the staging location. If you restore a disk from a snapshot tier recovery point, it restores the Managed disk and ARM templates only.
+
+>[!Note]
+>For restore of VM disks from a Vault-Standard tier recovery point that is/was greater than 4097 GiB, Azure Backup doesn't restore the VHD files.
 
 ### Use templates to customize a restored VM
 
