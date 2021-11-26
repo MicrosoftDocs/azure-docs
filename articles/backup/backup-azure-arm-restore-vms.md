@@ -116,7 +116,7 @@ When your virtual machine uses managed disks and you select the **Create virtual
 While you restore disks for a Managed VM from a Vault-Standard tier recovery point, it restores the Managed disk and Azure Resource Manager (ARM) templates, along with the VHD files of the disks in the staging location. If you restore a disk from a snapshot tier recovery point, it restores the Managed disk and ARM templates only.
 
 >[!Note]
->For restore of a VM disk from a Vault-Standard tier recovery point that is/was greater than 4097 GiB, Azure Backup doesn't restore the VHD files.
+>For restore of VM disk from a Vault-Standard tier recovery point that is/was greater than 4097 GiB, Azure Backup doesn't restore the VHD files.
 
 ### Use templates to customize a restored VM
 
