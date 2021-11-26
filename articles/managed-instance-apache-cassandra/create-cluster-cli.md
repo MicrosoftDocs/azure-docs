@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI
@@ -22,7 +22,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 > [!IMPORTANT]
-> This article requires the Azure CLI version 2.17.1 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
+> This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 ## <a id="create-cluster"></a>Create a managed instance cluster
 
@@ -82,20 +82,43 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
      --debug
    ```
 
-1. Finally, create a datacenter for the cluster, with three nodes by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) command:
+1. Finally, create a datacenter for the cluster, with three nodes, Standard D8s v4 VM SKU, with 4 P30 disks attached for each node, by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_create) command:
 
    ```azurecli-interactive
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-    
+   virtualMachineSKU='Standard_D8s_v4'
+   noOfDisksPerNode=4
+     
    az managed-cassandra datacenter create \
      --resource-group $resourceGroupName \
      --cluster-name $clusterName \
      --data-center-name $dataCenterName \
      --data-center-location $dataCenterLocation \
      --delegated-subnet-id $delegatedManagementSubnetId \
-     --node-count 3 
+     --node-count 3 \
+     --sku $virtualMachineSKU \
+     --disk-capacity $noOfDisksPerNode \
+     --availability-zone false
    ```
+
+   > [!NOTE]
+   > The value for `--sku` can be chosen from the following available SKUs:
+   >
+   > - Standard_E8s_v4
+   > - Standard_E16s_v4 
+   > - Standard_E20s_v4
+   > - Standard_E32s_v4 
+   > - Standard_DS13_v2
+   > - Standard_DS14_v2
+   > - Standard_D8s_v4
+   > - Standard_D16s_v4
+   > - Standard_D32s_v4 
+   > 
+   > Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
+
+   > [!WARNING]
+   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
 1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. Change the value of `node-count` parameter to the desired value:
 
@@ -131,9 +154,10 @@ sudo apt-get install cassandra
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
-# Connect to CQLSH (replace <IP> with the private IP addresses of the nodes in your Datacenter):
-host=("<IP>" "<IP>" "<IP>")
-cqlsh $host 9042 -u cassandra -p cassandra --ssl
+# Connect to CQLSH (replace <IP> with the private IP addresses of a node in your Datacenter):
+host=("<IP>")
+initial_admin_password="Password provided when creating the cluster"
+cqlsh $host 9042 -u cassandra -p $initial_admin_password --ssl
 ```
 
 ## Troubleshooting

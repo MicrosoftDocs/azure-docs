@@ -16,20 +16,16 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 # Pronunciation assessment
 
-Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio.
-With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence.
- Educators can use the capability to evaluate pronunciation of multiple speakers in real-time.
+Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real-time.
 
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
 
 > [!NOTE]
-> The pronunciation assessment feature currently supports `en-US` language, which is available on all [speech-to-text regions](regions.md#speech-to-text-text-to-speech-and-translation). The support for `en-GB` and `zh-CN` languages is under preview.
+> Pronunciation assessment for the `en-US` locale is available in all [speech-to-text regions](regions.md#speech-to-text-text-to-speech-and-translation). Support for `en-GB` and `zh-CN` locales is in preview.
 
 ## Pronunciation assessment with the Speech SDK
 
-In the samples below, you'll create a `PronunciationAssessmentConfig`, then apply it to a `SpeechRecognizer`.
-
-The following snippets illustrate how to use language identification in your apps:
+The following snippet illustrates how to create a `PronunciationAssessmentConfig`, then apply it to a `SpeechRecognizer`.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -108,8 +104,8 @@ result.close();
 ```Python
 pronunciation_assessment_config = \
         speechsdk.PronunciationAssessmentConfig(reference_text='reference text',
-                grading_system=msspeech.PronunciationAssessmentGradingSystem.HundredMark,
-                granularity=msspeech.PronunciationAssessmentGranularity.Phoneme)
+                grading_system=speechsdk.PronunciationAssessmentGradingSystem.HundredMark,
+                granularity=speechsdk.PronunciationAssessmentGranularity.Phoneme)
 speech_recognizer = speechsdk.SpeechRecognizer(
         speech_config=speech_config, \
         audio_config=audio_config)
@@ -186,8 +182,8 @@ This table lists the result parameters of pronunciation assessment.
 | `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy score is aggregated from phoneme level accuracy score. |
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
 | `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
-| `PronunciationScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore` and `CompletenessScore` with weight. |
-| `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion` and `Mispronunciation`. |
+| `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
+| `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, and `Mispronunciation`. |
 
 ### Sample responses
 

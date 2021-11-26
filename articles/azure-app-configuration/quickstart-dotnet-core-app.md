@@ -5,10 +5,9 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 09/28/2020
 ms.author: alkemper
-
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a .NET Core app with App Configuration

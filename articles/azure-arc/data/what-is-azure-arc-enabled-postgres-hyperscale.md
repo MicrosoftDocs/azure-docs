@@ -1,4 +1,4 @@
---- 
+---
 title: What is Azure Arc-enabled PostgreSQL Hyperscale?
 description: What is Azure Arc-enabled PostgreSQL Hyperscale?
 services: azure-arc
@@ -128,7 +128,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 - **Deploy it, create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
-   2. [Create the Azure Arc data controller](create-data-controller.md)
+   2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
    3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**

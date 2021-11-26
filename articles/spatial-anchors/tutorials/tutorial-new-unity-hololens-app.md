@@ -560,6 +560,9 @@ We can use the Update() loop to check if there is an Action queued. If so, we wi
 
 ## Get the Azure Spatial Anchors SDK
 
+### Choose ASA version
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
+
 ### Download packages
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]
 

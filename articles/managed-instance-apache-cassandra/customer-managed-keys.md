@@ -16,9 +16,11 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
 
 ## Prerequisites
 
-- Set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](/azure/key-vault/secrets/about-secrets).
+- Set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](../key-vault/secrets/about-secrets.md).
 - Deployed a virtual network in your resource group, and applied the network contributor role with the Azure Cosmos DB service principal as a member. See [Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI](create-cluster-cli.md) for more detail. 
 
+> [!IMPORTANT]
+> This article requires the Azure CLI version 2.30.0 or higher. If you are using Azure Cloud Shell, the latest version is already installed.
 
 ## <a id="create-cluster"></a>Create a cluster with system assigned identity
 

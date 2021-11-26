@@ -6,7 +6,7 @@ ms.author: ebnkruma
 ms.date: 03/30/2021
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure portal."
 ---
 

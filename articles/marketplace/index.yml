@@ -117,7 +117,7 @@ landingContent:
       - text: API prerequisites
         url: cloud-partner-portal-api-prerequisites.md
       - text: SaaS fulfillment APIs
-        url: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        url: partner-center-portal/pc-saas-fulfillment-apis.md
       - text: Marketplace metering service APIs
         url: marketplace-metering-service-apis-faq.yml
       - text: Reporting API (PDF)

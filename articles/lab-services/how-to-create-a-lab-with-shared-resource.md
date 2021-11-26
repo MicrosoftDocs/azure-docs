@@ -37,7 +37,7 @@ By default virtual machines have a dynamic private ip, [before you setup any sof
 
 #### Control Access
 Controlling access to the license server is key.  Once the VM is setup access will still be needed for maintenance, troubleshooting, and updating.  Here are a few different ways to do this.
-- [Setting up Just in Time (JIT) access within Azure Security Center.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
+- [Setting up Just in Time (JIT) access within Microsoft Defender for Cloud.](../security-center/security-center-just-in-time.md?tabs=jit-config-asc%252cjit-request-asc)
 - [Setting up a Network Security Group to restrict access.](../virtual-network/network-security-groups-overview.md)
 - [Setup Bastion to allow secure access to the license server.](https://azure.microsoft.com/services/azure-bastion/)
 
@@ -46,7 +46,8 @@ Controlling access to the license server is key.  Once the VM is setup access wi
 To use a shared resource, the lab account must be set up to use a [peered virtual network](how-to-connect-peer-virtual-network.md).  In this case, we will be peering to the virtual network that holds the shared resource.
 
 >[!WARNING]
->The lab for your class must be created **after** the lab account is peered to the shared resource virtual network.  
-Template machine
+>The lab for your class must be created **after** the lab account is peered to the shared resource virtual network.
+
+## Template machine
 
 Once your lab account is peered to the virtual network, the template machine should now have access to the shared resource.  You may have to update the firewall rules, depending on the shared resource being accessed.

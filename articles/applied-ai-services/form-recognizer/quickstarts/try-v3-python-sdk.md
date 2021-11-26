@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Python client library SDK v3.0 | Preview
@@ -318,7 +318,7 @@ def analyze_invoice():
     )
 
     poller = document_analysis_client.begin_analyze_document_from_url(
-            "prebuilt-document", formUrl)
+            "prebuilt-invoice", formUrl)
     invoices = poller.result()
 
     for idx, invoice in enumerate(invoices.documents):

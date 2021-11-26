@@ -1,13 +1,14 @@
 ---
 title: 'Quickstart: System prerequisites'
-description: In this quickstart, get the system prerequisites needed to run Azure Defender for IoT.
-ms.date: 11/30/2020
+description: In this quickstart, get the system prerequisites needed to run Microsoft Defender for IoT.
+ms.date: 11/09/2021
 ms.topic: quickstart
+ms.custom: mode-other
 ---
 
 # Quickstart: System prerequisites
 
-This article lists the system prerequisites for running Azure Defender for IoT.
+This article lists the system prerequisites for running Microsoft Defender for IoT.
 
 ## Prerequisites
 
@@ -17,8 +18,8 @@ This article lists the system prerequisites for running Azure Defender for IoT.
 
 - Network switches that support traffic monitoring via SPAN port.
 - Hardware appliances for NTA sensors.
-- The Azure Subscription Contributor role. It's required only during onboarding for defining committed devices and connection to Azure Sentinel.
-- Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Azure Defender for IoT** feature is enabled.
+- The Azure Subscription Contributor role. It's required only during onboarding for defining committed devices and connection to Microsoft Sentinel.
+- Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
 ## Supported service regions
 

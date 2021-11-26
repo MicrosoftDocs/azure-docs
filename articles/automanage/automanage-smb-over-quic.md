@@ -12,14 +12,14 @@ ms.author: jol
 
 # SMB over QUIC with Automanage machine best practices
 
-SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and branch offices, providing secure, reliable connectivity to edge file servers over untrusted networks like the Internet. To learn more about SMB over QUIC and how to configure SMB over QUIC, see [SMB over QUIC](https://aka.ms/smboverquic).
+SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and branch offices, providing secure, reliable connectivity to edge file servers over untrusted networks like the Internet. To learn more about SMB over QUIC and how to configure SMB over QUIC, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
 
 Additionally, SMB over QUIC is integrated with Automanage machine best practices to help make SMB over QUIC management easier. QUIC uses certificates to provide its encryption and organizations often struggle to maintain complex public key infrastructures. Automanage machine best practices ensures that certificates do not expire without warning and that SMB over QUIC stays enabled for maximum continuity of service.
 
 ## How to get started
 
 > [!NOTE]
-> For prerequisites on using Automanage machine best practices, see [Enable on VMs in the Azure portal](quick-create-virtual-machines-portal.md). 
+> For prerequisites on using Automanage machine best practices, see [Enable on VMs in the Azure portal](quick-create-virtual-machines-portal.md).
 
 > [!NOTE]
 > During the preview phase, you can get started in the Azure portal using [this link](https://aka.ms/automanage-ws-portal-preview).
@@ -29,10 +29,12 @@ Additionally, SMB over QUIC is integrated with Automanage machine best practices
 To enable Automanage machine best practices for SMB over QUIC on a VM, follow these steps:
 
 1. Sign in to the Azure portal using the preview link above.
+
 2. Create an Azure VM with the _Windows Server 2022 Datacenter: Azure Edition_ image to get the Automanage for Windows Server capabilities, including SMB over QUIC.
+
 3. In the **Management** tab, for the Azure Automanage Environment setting, either choose **Dev/Test** or **Production** to enable Automanage machine best practices.
 
-:::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="Enable Automanage when creating a VM.":::
+    :::image type="content" source="media\automanage-smb-over-quic\create-vm-automanage-setting.png" alt-text="Enable Automanage when creating a VM.":::
 
 4. Configure any additional settings as needed and create the VM.
 
@@ -43,7 +45,7 @@ You can also enable Automanage machine best practices for a VM you have previous
 1. Navigate to the VM you have previously created.
 2. Select the Automanage menu, choose either the **Dev/Test** or **Production** environment, then click **Enable**.
 
-:::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="Enable Automanage for an existing VM.":::
+    :::image type="content" source="media\automanage-smb-over-quic\vm-enable-automanage.png" alt-text="Enable Automanage for an existing VM.":::
 
 ## Viewing Automanage best practice compliance
 
@@ -54,4 +56,4 @@ It may take a couple of hours for machine best practices to be configured and th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about SMB over QUIC](https://aka.ms/smboverquic)
+> [Learn more about SMB over QUIC](/windows-server/storage/file-server/smb-over-quic)

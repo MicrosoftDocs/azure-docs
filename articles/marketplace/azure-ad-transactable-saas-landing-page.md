@@ -76,7 +76,7 @@ This enables the solution to work in scenarios that observe the [separation of c
 
 ## Resolve the marketplace purchase identification token
 
-When the buyer is sent to your landing page, a token is added to the URL parameter. This token is different from both the Azure AD-issued token and the access token used for service-to-service authentication, and is used as an input for the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) resolve call to get the details of the subscription. As with all calls to the SaaS fulfillment APIs, your service-to-service request will be authenticated with an access token that is based on the app's Azure AD Application ID user for service-to-service authentication.
+When the buyer is sent to your landing page, a token is added to the URL parameter. This token is different from both the Azure AD-issued token and the access token used for service-to-service authentication, and is used as an input for the [SaaS fulfillment APIs](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) resolve call to get the details of the subscription. As with all calls to the SaaS fulfillment APIs, your service-to-service request will be authenticated with an access token that is based on the app's Azure AD Application ID user for service-to-service authentication.
 
 > [!NOTE]
 > In most cases, it's preferable to make this call from a second, single-tenant application. See [Use two Azure AD apps to improve security in production](#use-two-azure-ad-apps-to-improve-security-in-production) earlier in this article.
@@ -87,7 +87,7 @@ To authenticate your application with the SaaS fulfillment APIs, you need an acc
 
 ### Call the resolve endpoint
 
-The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription.
+The SaaS fulfillment APIs implement the [resolve](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#resolve-a-purchased-subscription) endpoint that can be called to confirm the validity of the marketplace token and to return information about the subscription.
 
 ## Read information from claims encoded in the ID token
 

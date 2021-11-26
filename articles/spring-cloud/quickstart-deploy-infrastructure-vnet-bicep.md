@@ -4,9 +4,9 @@ description: This quickstart shows you how to use Bicep to deploy a Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: ssarwa
-ms.date: 10/12/2021
+ms.date: 11/12/2021
 ---
 
 # Quickstart: Provision Azure Spring Cloud using Bicep
@@ -167,5 +167,5 @@ In this quickstart, you deployed an Azure Spring Cloud instance into an existing
    - [Pet Clinic App with MySQL Integration](https://github.com/azure-samples/spring-petclinic-microservices) (Microservices with MySQL backend).
    - [Simple Hello World](./quickstart.md?pivots=programming-language-java&tabs=Azure-CLI).
 - Use [custom domains](tutorial-custom-domain.md) with Azure Spring Cloud.
-- Expose Azure Spring Cloud applications to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
+- Expose applications in Azure Spring Cloud to the internet using [Azure Application Gateway](expose-apps-gateway-azure-firewall.md).
 - View the secure end-to-end [Azure Spring Cloud reference architecture](reference-architecture.md), which is based on the [Microsoft Azure Well-Architected Framework](/azure/architecture/framework/).

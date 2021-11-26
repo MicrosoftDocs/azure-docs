@@ -18,10 +18,11 @@ This article outlines how to register Oracle, and how to authenticate and intera
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-oracle.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-oracle.md)|
 
-> [!Important]
-> Supported Oracle server versions are 6i to 19c
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+The supported Oracle server versions are 6i to 19c
 
 Proxy server is not supported when scanning Oracle source.
 
@@ -102,8 +103,8 @@ On the **Register sources (Oracle)** screen, do the following:
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
 1. Enter the **Host** name to connect to an Oracle source. This can either be:
-    * A host name used by JDBC to connect to the database server. For example: MyDatabaseServer.com
-    * An IP address. For example: 192.169.1.2
+    * A host name used by JDBC to connect to the database server. For example: `MyDatabaseServer.com`
+    * An IP address. For example: `192.169.1.2`
     * Its fully qualified JDBC connection string. For example:
 
          ```
@@ -148,27 +149,27 @@ To create and run a new scan, do the following:
         * Provide the user name used by JDBC to connect to the database server in the User name input field.
         * Store the user password used by JDBC to connect to the database server in the secret key.
 
-    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, schema1; schema2. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %.
-        For example: A%; %B; %C%; D
-           - start with A or
-           - end with B or
-           - contain C or
-           - equal D
+    1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
+
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
 
         Usage of NOT and special characters are not acceptable.
 
-1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
+    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+        > [!Note]
+        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
-1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of SAP S/4HANA source to be scanned.
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Oracle source to be scanned.
 
-    > [!Note]
-    > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > [!Note]
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
-    :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
+        :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
 1. Select **Continue**.
 
