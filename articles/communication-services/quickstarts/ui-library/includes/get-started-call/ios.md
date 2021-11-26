@@ -8,6 +8,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -30,6 +32,7 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 ### Install the package and dependencies with CocoaPods
 
 1. Create a Podfile in your project root directory by running `pod init`.
+    - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
 2. Add the following to your Podfile:
 
 ```

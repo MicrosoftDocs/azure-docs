@@ -62,6 +62,8 @@ landingContent:
             url: concepts-logical.md
           - text: Intelligent tuning
             url: concepts-intelligent-tuning.md
+          - text: Azure Advisor recommendations
+            url: concepts-azure-advisor-recommendations.md
       - linkListType: how-to-guide
         links:
           - text: Manage server

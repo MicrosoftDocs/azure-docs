@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 11/17/2021
 
 ms.author: justinha
 author: mjsantani
@@ -21,11 +21,12 @@ ms.collection: M365-identity-device-management
 This topic covers how to enable number matching in Microsoft Authenticator push notifications to improve user sign-in security.  
 
 >[!NOTE]
->Number matching is a key security upgrade to traditional second factor notifications in the Microsoft Authenticator app that will be enabled by default for all tenants at some point after general availability (GA). We highly recommend enabling number matching in the near-term for improved sign-in security.
+>Number matching is a key security upgrade to traditional second factor notifications in the Microsoft Authenticator app that will be enabled by default for all tenants a few months after general availability (GA).<br> 
+>We highly recommend enabling number matching in the near-term for improved sign-in security.
 
 ## Prerequisites
 
-Your organization will need to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. For a consistent experience, upgrade to the latest versions of the AD FS adapter and NPS extension. 
+Your organization will need to enable Microsoft Authenticator (traditional second factor) push notifications for some users or groups using the new Authentication Methods Policy API. If your organization is using ADFS adapter or NPS extensions, please upgrade to the latest versions for a consistent experience. 
 
 ## Number matching
 
@@ -52,7 +53,7 @@ When a user responds to an MFA push notification using Microsoft Authenticator, 
 During self-service password reset, Microsoft Authenticator notification will show a number that the user will need to type in their Authenticator app notification. This number will only be seen to users who have been enabled for number matching.
 
 >[!NOTE]
->Number matching for admin roles during SSPR is initially pending and unavailable for a couple days.
+>Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ### Combined registration
 
@@ -246,7 +247,7 @@ To enable number matching in the Azure AD portal, complete the following steps:
 
 ## Known issues
 
-- Number matching for admin roles during SSPR is initially pending and unavailable for a couple days.
+- Number matching for admin roles during SSPR is pending and unavailable for a couple days.
 
 ## Next steps
 

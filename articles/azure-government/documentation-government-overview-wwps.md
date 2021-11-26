@@ -367,7 +367,7 @@ For top secret data, you can deploy Azure Stack Hub, which can operate disconnec
 
 Listed below are key enabling technologies and services that you may find helpful when deploying confidential data and workloads on Azure:
 
-- All recommended technologies used for Unclassified data, especially services such as [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet), [Microsoft Defender for Cloud](../security-center/index.yml), and [Azure Monitor](../azure-monitor/index.yml).
+- All recommended technologies used for Unclassified data, especially services such as [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet), [Microsoft Defender for Cloud](../defender-for-cloud/index.yml), and [Azure Monitor](../azure-monitor/index.yml).
 - Public IP addresses are disabled allowing only traffic through private connections, including [ExpressRoute](../expressroute/index.yml) and [Virtual Private Network](../vpn-gateway/index.yml) (VPN) gateway.
 - Data encryption is recommended with customer-managed keys (CMK) in [Azure Key Vault](../key-vault/index.yml) backed by multi-tenant hardware security modules (HSMs) that have FIPS 140 Level 2 validation.
 - Only services that support [VNet integration](../virtual-network/virtual-network-for-azure-services.md) options are enabled. Azure VNet enables you to place Azure resources in a non-internet routable network, which can then be connected to your on-premises network using VPN technologies. VNet integration gives web apps access to resources in the virtual network.
@@ -489,7 +489,7 @@ When deploying applications that are subject to regulatory compliance obligation
 - Cloud Security Alliance (CSA) Cloud Controls Matrix (CCM) assessment report, including Azure Stack Hub control mapping to CCM domains and controls.
 - FedRAMP High System Security Plan (SSP) precompiled template to demonstrate how Azure Stack Hub addresses applicable controls, Customer Responsibility Matrix for the FedRAMP High baseline, and FedRAMP assessment report produced by an accredited third-party assessment organization (3PAO).
 
-**[Azure Blueprints](https://azure.microsoft.com/services/blueprints/)** is a service that helps automate compliance and cybersecurity risk management in cloud environments. For more information on Azure Blueprints, including production-ready blueprint solutions for ISO 27001, NIST SP 800-53, PCI DSS, HITRUST, and other standards, see the [Azure Blueprint guidance](../governance/blueprints/overview.md).
+**[Azure Blueprints](https://azure.microsoft.com/services/blueprints/)** is a service that helps automate compliance and cybersecurity risk management in cloud environments. For more information on Azure Blueprints, including production-ready blueprint solutions for ISO 27001, NIST SP 800-53, PCI DSS, HITRUST, and other standards, see the [Azure Blueprints guidance](../governance/blueprints/overview.md).
 
 Azure compliance and certification resources are intended to help you address your own compliance obligations with various standards and regulations. You may have an established cloud adoption mandate in your country and the corresponding regulation to facilitate cloud onboarding. Or you may still operate traditional on-premises datacenters and are in the process of formulating your cloud adoption strategy. Azure’s extensive compliance portfolio can help you irrespective of your cloud adoption maturity level.
 

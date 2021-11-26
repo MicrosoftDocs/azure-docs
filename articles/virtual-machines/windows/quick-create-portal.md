@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 03/15/2021
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ---
 
 # Quickstart: Create a Windows virtual machine in the Azure portal

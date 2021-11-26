@@ -9,7 +9,7 @@
  ms.custom: include file
 ---
 
-[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/javascript/pnp)
+[![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
 
@@ -89,7 +89,7 @@ In this section, you configure your local environment, install the Azure IoT Nod
     cd azure-iot-sdk-node/device/samples/javascript
     ```
 
-1. Install the Azure IoT Node.js SDK and necessary dependencies:
+2. Install the Azure IoT Node.js SDK and necessary dependencies:
     ```console
     npm install
     ```

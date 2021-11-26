@@ -15,12 +15,15 @@ Use this quickstart for the question answering client library for .NET to:
 
  [API reference documentation][questionanswering_refdocs]|[Source code][questionanswering_client_src] | [Package (NuGet)][questionanswering_nuget_package]  | [Samples][questionanswering_samples] |
 
-[questionanswering_nuget_package]: https://nuget.org/packages/Azure.AI.Language.
+[questionanswering_nuget_package]: https://www.nuget.org/packages/Azure.AI.Language.QuestionAnswering/
 [questionanswering_refdocs]: /dotnet/api/Azure.AI.Language.QuestionAnswering/
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/src/
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/samples/README.md
 
 ## Prerequisites
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).

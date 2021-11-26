@@ -7,7 +7,7 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: java
-ms.custom: devx-track-java, mode-api
+ms.custom: devx-track-java, mode-other
 ---
 
 # Quickstart: Use Java to create an App showing GitHub star count with Azure Functions and SignalR Service

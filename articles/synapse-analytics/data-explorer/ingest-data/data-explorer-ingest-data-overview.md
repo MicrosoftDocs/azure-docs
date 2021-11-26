@@ -100,7 +100,7 @@ There are a number of methods by which data can be ingested directly to the engi
 
   * **Ingest from query**: A control command [.set, .append, .set-or-append, or .set-or-replace](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-query?context=/azure/synapse-analytics/context/context) is sent to the engine, with the data specified indirectly as the results of a query or a command.
 
-  * **Ingest from storage (pull)**: A control command [.ingest into](/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context) is sent to the engine, with the data stored in some external storage (for example, Azure Blob Storage) accessible by the engine and pointed-to by the command.
+  * **Ingest from storage (pull)**: A control command [.ingest into](/azure/data-explorer/kusto/management/data-ingestion/ingest-from-storage?context=/azure/synapse-analytics/context/context) is sent to the engine, with the data stored in some external storage (for example, Azure Blob Storage) accessible by the engine and pointed-to by the command.
 
 For an example of using ingest control commands, see [Analyze with Data Explorer](../../get-started-analyze-data-explorer.md).
 

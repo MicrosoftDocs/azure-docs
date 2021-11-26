@@ -1,17 +1,8 @@
 ---
 title: Create custom analytics rules to detect threats with Microsoft Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Microsoft Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -90,7 +81,7 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
-    Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).
+    Learn more about [entities in Microsoft Sentinel](entities.md).
 
     See [Map data fields to entities in Microsoft Sentinel](map-data-fields-to-entities.md) for complete entity mapping instructions, along with important information about [backward compatibility](map-data-fields-to-entities.md#notes-on-the-new-version).
 
@@ -295,7 +286,7 @@ For more information, see:
 For more information, see:
 
 - [Tutorial: Investigate incidents with Microsoft Sentinel](investigate-cases.md)
-- [Classify and analyze data using entities in Microsoft Sentinel](entities-in-azure-sentinel.md)
+- [Classify and analyze data using entities in Microsoft Sentinel](entities.md)
 - [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
 
 Also, learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
