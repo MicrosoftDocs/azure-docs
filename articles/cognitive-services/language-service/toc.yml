@@ -571,10 +571,12 @@ items:
       href: question-answering/tutorials/multiple-domains.md
   - name: Reference
     items: 
-    - name: Query REST API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering
-    - name: Authoring REST API
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+    - name: REST API
+      items:
+      - name: Answers API 
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering
+      - name: Authoring API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
