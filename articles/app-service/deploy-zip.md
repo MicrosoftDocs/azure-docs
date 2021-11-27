@@ -174,19 +174,19 @@ The CLI command uses the [Kudu publish API](#kudu-publish-api-reference) to depl
 ### Deploy a startup script
 
 ```bash
-az webapp deploy --resource group <group-name> --name <app-name> --src-path scripts/startup.sh --type=startup
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path scripts/startup.sh --type=startup
 ```
 
 ### Deploy a library file
 
 ```bash
-az webapp deploy --resource group <group-name> --name <app-name> --src-path driver.jar --type=lib
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path driver.jar --type=lib
 ```
 
 ### Deploy a static file
 
 ```bash
-az webapp deploy --resource group <group-name> --name <app-name> --src-path config.json --type=static
+az webapp deploy --resource-group <group-name> --name <app-name> --src-path config.json --type=static
 ```
 
 # [Azure PowerShell](#tab/powershell)
