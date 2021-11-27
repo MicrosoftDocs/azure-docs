@@ -36,11 +36,11 @@ This quickstart uses the [Creates a lab with a claimed VM](https://azure.microso
 
 This and other DevTest Labs ARM templates are available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and the public [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab). You can also use or edit these DevTest Labs templates directly from the Azure portal.
 
-Many more ARM templates are available at the public [Azure Lab Services Community GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master). For more information about creating and deploying ARM templates, see [Resource group deployments with ARM templates](/azure/azure-resource-manager/templates/deploy-to-resource-group).
+Many more ARM templates are available at the public [Azure Lab Services Community GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master). For more information about creating and deploying ARM templates, see the [ARM template documentation](/azure/azure-resource-manager/templates).
 
 ## Deploy the template
 
-1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template to the lab creation screen:
+1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the ARM template in the lab creation screen:
 
    [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
 
@@ -108,7 +108,7 @@ You can now delete the resource group that contained the lab, which deletes all 
 
 ## Next steps
 
-In this quickstart, you created a lab that has a VM. To learn how to access the lab and VM, advance to the next tutorial:
+In this quickstart, you created a lab that has a Windows VM. To learn how to connect to the VM, see the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Access the lab](tutorial-use-custom-lab.md)
