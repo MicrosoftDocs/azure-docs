@@ -23,13 +23,15 @@ In the parse transformation configuration panel, you will first pick the type of
 
 :::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
 
-### Column
+### Settings
 
-Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you will want to define a new column that parses the incoming embedded document field.
+Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for explanations of the settings properties.
 
-### Expression
+### Mapping
 
 Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
+
+### Output
 
 #### Example expressions
 
