@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
-```azurepowershell-interactive
+```azurepowershell
 Connect-AzAccount
 ```
 
