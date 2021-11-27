@@ -148,6 +148,8 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
     "endTime": "2021-08-04T18:40:34.9371480Z"
    }
    ```
+> [!NOTE]
+> We cannot migrate blobs with any lease state associated with it. 
 
 8. After your account has been successfully validated, start the upgrade by running the following command.
    
