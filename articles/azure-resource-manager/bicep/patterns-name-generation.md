@@ -4,7 +4,7 @@ description: Describes the name generation pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 11/29/2021
 ---
 # Name generation pattern
 

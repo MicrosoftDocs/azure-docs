@@ -4,7 +4,7 @@ description: Describes how to manage secrets by using Bicep and Azure Key Vault.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/29/2021
 ---
 # Manage secrets by using Bicep
 

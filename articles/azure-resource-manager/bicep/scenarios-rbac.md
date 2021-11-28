@@ -4,7 +4,7 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 11/29/2021
 ---
 # Create Azure RBAC resources by using Bicep
 
