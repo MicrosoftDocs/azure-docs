@@ -38,13 +38,25 @@ Create an ExportPipeline resource for your AzureCloud container registry using t
 Create an export pipeline with no options and a system-assigned identity:
 
 ```azurecli
-az acr export-pipeline create --resource-group $MyRG --registry $MyReg --name $MyPipeline --secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret --storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer
+az acr export-pipeline create \
+--resource-group $MyRG \
+--registry $MyReg \
+--name $MyPipeline \
+--secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret \
+--storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer
 ```
 
 Create an export pipeline with all possible options and a user-assigned identity:
 
 ```azurecli
-az acr export-pipeline create --resource-group $MyRG --registry $MyReg --name $MyPipeline --secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret --storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer --options OverwriteBlobs ContinueOnErrors --assign-identity /subscriptions/$MySubID/resourceGroups/$MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$MyIdentity
+az acr export-pipeline create \
+--resource-group $MyRG \
+--registry $MyReg \
+--name $MyPipeline \
+--secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret \
+--storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer \
+--options OverwriteBlobs ContinueOnErrors \
+--assign-identity /subscriptions/$MySubID/resourceGroups/$MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$MyIdentity
 ```
 
 ### Export options
@@ -82,13 +94,26 @@ Create an ImportPipeline resource in your target container registry using the ac
 Create an import pipeline with no options and a system-assigned identity:
 
 ```azurecli
-az acr import-pipeline create --resource-group $MyRG --registry $MyReg --name $MyPipeline --secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret --storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer
+az acr import-pipeline create \
+--resource-group $MyRG \
+--registry $MyReg \
+--name $MyPipeline \
+--secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret \
+--storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer
 ```
 
 Create an import pipeline with all possible options, source-trigger disabled, and a user-assigned identity:
 
 ```azurecli
-az acr import-pipeline create --resource-group $MyRG --registry $MyReg --name $MyPipeline --secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret --storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer --options DeleteSourceBlobOnSuccess OverwriteTags ContinueOnErrors --assign-identity /subscriptions/$MySubID/resourceGroups/$MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$MyIdentity --source-trigger-enabled False
+az acr import-pipeline create \
+--resource-group $MyRG \
+--registry $MyReg \
+--name $MyPipeline \
+--secret-uri https://$MyKV.vault.azure.net/secrets/$MySecret \
+--storage-container-uri https://$MyStorage.blob.core.windows.net/$MyContainer \
+--options DeleteSourceBlobOnSuccess OverwriteTags ContinueOnErrors \
+--assign-identity /subscriptions/$MySubID/resourceGroups/$MyRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$MyIdentity \
+--source-trigger-enabled False
 ```
 
 ### Import options
@@ -126,7 +151,15 @@ Create a PipelineRun resource for your container registry using the acrtransfer 
 Create an export pipeline-run:
 
 ```azurecli
-az acr pipeline-run create --resource-group $MyRG --registry $MyReg --pipeline $MyPipeline --name $MyPipelineRun --pipeline-type export --storage-blob $MyBlob --artifacts hello-world:latest hello-world@sha256:90659bf80b44ce6be8234e6ff90a1ac34acbeb826903b02cfa0da11c82cbc042 --force-redeploy
+az acr pipeline-run create \
+--resource-group $MyRG \
+--registry $MyReg \
+--pipeline $MyPipeline \
+--name $MyPipelineRun \
+--pipeline-type export \
+--storage-blob $MyBlob \
+--artifacts hello-world:latest hello-world@sha256:90659bf80b44ce6be8234e6ff90a1ac34acbeb826903b02cfa0da11c82cbc042 \
+--force-redeploy
 ```
 
 If redeploying a PipelineRun resource with identical properties, you must use the --force-redeploy flag.
@@ -158,7 +191,14 @@ Create a PipelineRun resource for your container registry using the acrtransfer 
 Create an import pipeline-run:
 
 ```azurecli
-az acr pipeline-run create --resource-group $MyRG --registry $MyReg --pipeline $MyPipeline --name $MyPipelineRun --pipeline-type import --storage-blob $MyBlob --force-redeploy
+az acr pipeline-run create \
+--resource-group $MyRG \
+--registry $MyReg \
+--pipeline $MyPipeline \
+--name $MyPipelineRun \
+--pipeline-type import \
+--storage-blob $MyBlob \
+--force-redeploy
 ```
 
 If redeploying a PipelineRun resource with identical properties, you must use the --force-redeploy flag.
@@ -183,7 +223,7 @@ Delete an ImportPipeline:
 az acr import-pipeline delete --resource-group $MyRG --registry $MyReg --name $MyPipeline
 ```
 
-Delete a PipelineRun reosurce. Note that this does not reverse the action taken by the PipelineRun. This is more like deleting the log of the PipelineRun.
+Delete a PipelineRun resource. Note that this does not reverse the action taken by the PipelineRun. This is more like deleting the log of the PipelineRun.
 
 ```azurecli
 az acr pipeline-run delete --resource-group $MyRG --registry $MyReg --name $MyPipelineRun
