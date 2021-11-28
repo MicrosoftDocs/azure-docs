@@ -40,13 +40,13 @@ The following example generates the names for an App Service app and plan. It fo
 
 Although App Service plans don't require globally unique names, the plan name is constructed using the same format to ensure compliance with the organization's policy.
 
-::: code language="bicep" source="code/patterns-name-generation/app-service.bicep" range="1-8, 13-17, 23" highlight="3-4" ::: <!-- TODO move to correct repo -->
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-name-generation/app-service.bicep" range="1-8, 13-17, 23" highlight="3-4" :::
 
 ## Example 2
 
 The following example generates the names for two storage accounts for a different organization without a naming convention. This example again uses the `uniqueString()` function with the resource group's ID. A short string is prepended to the generated names to ensure that each of the two storage accounts has a distinct name. This also helps to ensure that the names begin with a letter, which is a requirement for storage accounts.
 
-::: code language="bicep" source="code/patterns-name-generation/storage.bicep" range="3-8, 14-18, 24" highlight="1-2" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-name-generation/storage.bicep" range="3-8, 14-18, 24" highlight="1-2" :::
 
 ## Considerations
 

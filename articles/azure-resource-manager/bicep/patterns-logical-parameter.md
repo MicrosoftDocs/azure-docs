@@ -30,17 +30,17 @@ This example illustrates how you can use the pattern to simplify the definition 
 
 In this example, you define a parameter that specifies the list of subnets that should be created in a virtual network. Each subnet's definition also includes a property called `allowRdp`. This property indicates whether the subnet should be associated with a network security group that allows inbound remote desktop traffic:
 
-::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="4-15" ::: <!-- TODO move to correct repo -->
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/virtual-network.bicep" range="4-15" :::
 
 The Bicep file then defines a variable to convert each of the logical subnet definitions to the subnet definition required by Azure. The network security group is assigned to the subnet when the `allowRdp` property is set to `true`.
 
-::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="17-25" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/virtual-network.bicep" range="17-25" :::
 
 Finally, the Bicep file defines the virtual network and uses the variable to configure the subnets:
 
-::: code language="bicep" source="code/patterns-logical-parameter/virtual-network.bicep" range="51-62" highlight="10" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/virtual-network.bicep" range="51-62" highlight="10" :::
 
-[Refer to the complete example.](TODO)
+[Refer to the complete example.](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/patterns-logical-parameter/virtual-network.bicep?azure-portal=true)
 
 ## Example 2: Service Bus queue
 
@@ -48,13 +48,13 @@ This example demonstrates how you can use the pattern to apply a consistent set 
 
 In this example, you define a parameter with a list of queue names for an Azure Service Bus queue:
 
-::: code language="bicep" source="code/patterns-logical-parameter/service-bus.bicep" range="5-8" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/service-bus.bicep" range="5-8" :::
 
 You then define the queue resources by using a loop, and configure every queue to automatically forward dead-lettered messages to another centralized queue:
 
-::: code language="bicep" source="code/patterns-logical-parameter/service-bus.bicep" range="30-32, 36-39" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/service-bus.bicep" range="30-32, 36-39" :::
 
-[Refer to the complete example.](TODO)
+[Refer to the complete example.](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/patterns-logical-parameter/service-bus.bicep?azure-portal=true)
 
 ## Example 3: Resources for a multitenant solution
 
@@ -62,15 +62,15 @@ This example illustrates how you might use the pattern when building a multitena
 
 In this example, you define a parameter that specifies the list of tenants. The definition of a tenant is simply the tenant identifier and their custom domain name:
 
-::: code language="bicep" source="code/patterns-logical-parameter/resources.bicep" range="15-24" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/resources.bicep" range="15-24" :::
 
 The main Bicep file defines the shared resources, and then uses a module to loop through the tenants:
 
-::: code language="bicep" source="code/patterns-logical-parameter/all-tenant-resources.bicep" range="8-16" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/patterns-logical-parameter/all-tenant-resources.bicep" range="8-16" :::
 
 Within the module, the tenant-specific resources are deployed.
 
-[Refer to the complete example.](TODO)
+[Refer to the complete example.](https://github.com/Azure/azure-docs-bicep-samples/blob/main/samples/patterns-logical-parameter/all-tenant-resources.bicep?azure-portal=true)
 
 ## Considerations
 

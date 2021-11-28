@@ -10,8 +10,6 @@ ms.date: 11/29/2021
 
 Azure has a powerful role-based access control (RBAC) system. By using Bicep, you can programmatically define your RBAC role assignments and role definitions.
 
-<!-- TODO move all code samples into the azure-docs-bicep-samples repo -->
-
 ## Role assignments
 
 To define a role assignment, create a resource with type [`Microsoft.Authorization/roleAssignments`](/azure/templates/microsoft.authorization/roleassignments?tabs=bicep). A role definition has multiple properties, including a scope, a name, a role definition ID, a principal ID, and a principal type.
@@ -20,11 +18,11 @@ To define a role assignment, create a resource with type [`Microsoft.Authorizati
 
 Role assignments are [extension resources](scope-extension-resources.md), which means they apply to another resource. The following example shows how to create a storage account and a role assignment scoped to that storage account:
 
-::: code language="bicep" source="code/scenarios-rbac/scope.bicep" highlight="17" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope.bicep" highlight="17" :::
 
 If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. In the following example, no `scope` property is specified, so the role assignment applies to the subscription:
 
-::: code language="bicep" source="code/scenarios-rbac/scope-default.bicep" highlight="4" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope-default.bicep" highlight="4" :::
 
 > [!TIP]
 > Ensure you use the smallest scope required for your requirements.
@@ -48,7 +46,7 @@ The role you assign can be a built-in role definition or a [custom role definiti
 
 When you create the role assignment resource, you need to specify a fully qualified resource ID. Built-in role definition IDs are subscription-scoped resources. It's a good practice to use an `existing` resource to refer to the built-in role, and to access its fully qualified resource ID by using the `.id` property:
 
-::: code language="bicep" source="code/scenarios-rbac/built-in-role.bicep" highlight="3-7, 12" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/built-in-role.bicep" highlight="3-7, 12" :::
 
 ### Principal
 
@@ -61,7 +59,7 @@ The `principalType` property specifies whether the principal is a user, a group,
 
 The following example shows how to create a user-assigned managed identity and a role assignment:
 
-::: code language="bicep" source="code/scenarios-rbac/managed-identity.bicep" highlight="15-16" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/managed-identity.bicep" highlight="15-16" :::
 
 ## Custom role definitions
 

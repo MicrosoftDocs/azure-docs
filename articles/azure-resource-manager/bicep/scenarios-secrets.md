@@ -30,7 +30,7 @@ Sometimes, you need to access a secret from one resource to configure another re
 
 For example, you might have created a storage account in another deployment, and need to access its primary key to configure an Azure Functions app. You can use the `existing` keyword to obtain a strongly typed reference to the pre-created storage account, and then use the storage account's `listKeys()` method to create a connection string with the primary key:
 
-::: code language="bicep" source="code/scenarios-secrets/function-app.bicep" range="8-46" highlight="1-3, 5, 22, 34" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/function-app.bicep" range="8-46" highlight="1-3, 5, 22, 34" :::
 
 By using this approach, you avoid passing secrets into or out of your Bicep file.
 
@@ -48,7 +48,7 @@ When you create a vault, you need to determine who and what can access its data.
 
 Secrets are a [child resource](child-resource-name-type.md) and can be created by using the type [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep). The following example demonstrates how to create a vault and a secret:
 
-::: code language="bicep" source="code/scenarios-secrets/key-vault-secret.bicep" range="4-25" :::
+::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-secrets/key-vault-secret.bicep" range="4-25" :::
 
 > [!TIP]
 > When you use automated deployment pipelines, it can sometimes be challenging to determine how to bootstrap key vault secrets for your deployments. For example, if you've been provided with an API key to use when communicating with an external API, then the secret needs to be added to a vault before it can be used in your deployments.
