@@ -29,7 +29,7 @@ Choose the inline dataset type and associated linked service. Today, only REST i
 
 ### Mapping
 
-Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
+You can choose auto-mapping to pass all input columns to the endpoint. Optionally, you can manually set the columns and rename the columns that are sent to the target endpoint here.
 
 ### Output
 
