@@ -34,9 +34,9 @@ This quickstart uses the [Creates a lab with a claimed VM](https://azure.microso
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
 
-This and other DevTest Labs ARM templates are available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and the public [Azure Quickstart Templates GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab). You can also use or edit these DevTest Labs templates directly from the Azure portal.
+This and other DevTest Labs ARM templates are available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and the [Azure Quickstart Templates public GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab). You can also use or edit these DevTest Labs templates directly from the Azure portal.
 
-Many more ARM templates are available at the public [Azure Lab Services Community GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master). For more information about creating and deploying ARM templates, see the [ARM template documentation](/azure/azure-resource-manager/templates).
+Many more ARM templates are available at the [Azure Lab Services Community public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master). For more information about creating and deploying ARM templates, see the [ARM template documentation](/azure/azure-resource-manager/templates).
 
 ## Deploy the template
 
@@ -50,7 +50,7 @@ Many more ARM templates are available at the public [Azure Lab Services Communit
 
    1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
 
-   1. Type *devtestlab* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template.
+   1. Type *devtest labs* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template.
 
    1. Select **Select template**.
 
@@ -108,7 +108,7 @@ You can now delete the resource group that contained the lab, which deletes all 
 
 ## Next steps
 
-In this quickstart, you created a lab that has a Windows VM. To learn how to connect to the VM, see the next tutorial:
+In this quickstart, you created a lab that has a Windows VM. To learn how to connect to and manage lab VMs, see the next tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Access the lab](tutorial-use-custom-lab.md)
+> [Tutorial: Work with lab VMs](tutorial-use-custom-lab.md)
