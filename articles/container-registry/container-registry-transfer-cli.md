@@ -8,6 +8,8 @@ ms.custom:
 
 # ACR Transfer with Az CLI
 
+This article shows how to use the ACR Transfer feature with the acrtransfer Az CLI extension.
+
 ## Complete prerequisites
 
 Please complete the prerequisites outlined [here](./container-registry-transfer-prereqs.md) prior to attempting the actions in this article. This means that:
