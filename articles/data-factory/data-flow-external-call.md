@@ -19,9 +19,9 @@ The external call transformation enables data engineers to call out to external 
 
 ## Configuration
 
-In the parse transformation configuration panel, you will first pick the type of data contained in the columns that you wish to parse inline. The parse transformation also contains the following configuration settings.
+In the external call transformation configuration panel, you will first pick the type of external endpoint you wish to connect to, then map incoming columns, and finally define an output data structure which will be consumed by downstream transformations.
 
-:::image type="content" source="media/data-flow/data-flow-parse-1.png" alt-text="Parse settings":::
+:::image type="content" source="media/data-flow/external-call-001.png" alt-text="External call":::
 
 ### Settings
 
@@ -33,98 +33,72 @@ You can choose auto-mapping to pass all input columns to the endpoint. Optionall
 
 ### Output
 
-#### Example expressions
+Here is where you will define the data structure for the output of the external call, which will be consumed by downstream data transformations. You can define the data structure manually using ADF data flow syntax to define the column names and data types or click on "import projection" and allow ADF to detect the schema output from the external call. Here is an example schema definition structure as output from a weather REST API GET call:
 
-* Source string data: ```chrome|steel|plastic```
-  * Expression: ```(desc1 as string, desc2 as string, desc3 as string)```
-
-* Source JSON data: ```{"ts":1409318650332,"userId":"309","sessionId":1879,"page":"NextSong","auth":"Logged In","method":"PUT","status":200,"level":"free","itemInSession":2,"registration":1384448}```
-  * Expression: ```(level as string, registration as long)```
-
-* Source XML data: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
-  * Expression: ```(Customers as (Customer as integer, CompanyName as string))```
-
-### Output column type
-
-Here is where you will configure the target output schema from the parsing that will be written into a single column.
-
-:::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
-
-In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
-
-`(trade as boolean, customers as string[])`
-
-Refer to the inspect tab and data preview to verify your output is mapped properly.
+```
+({@context} as string[],
+		geometry as (coordinates as string[][][],
+		type as string),
+		properties as (elevation as (unitCode as string,
+		value as string),
+		forecastGenerator as string,
+		generatedAt as string,
+		periods as (detailedForecast as string, endTime as string, icon as string, isDaytime as string, name as string, number as string, shortForecast as string, startTime as string, temperature as string, temperatureTrend as string, temperatureUnit as string, windDirection as string, windSpeed as string)[],
+		units as string,
+		updateTime as string,
+		updated as string,
+		validTimes as string),
+		type as string)
+```
 
 ## Examples
 
 ```
 source(output(
-		name as string,
-		location as string,
-		satellites as string[],
-		goods as (trade as boolean, customers as string[], orders as (orderId as string, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as string)[]))[])
+		id as string
 	),
 	allowSchemaDrift: true,
 	validateSchema: false,
-	ignoreNoFilesFound: false,
-	documentForm: 'documentPerLine') ~> JsonSource
-source(output(
-		movieId as string,
-		title as string,
-		genres as string
+	ignoreNoFilesFound: false) ~> source1
+Filter1 call(mapColumn(
+		id
+	),
+	skipDuplicateMapInputs: false,
+	skipDuplicateMapOutputs: false,
+	output(
+		headers as [string,string],
+		body as (name as string)
 	),
 	allowSchemaDrift: true,
+	store: 'restservice',
+	format: 'rest',
+	timeout: 30,
+	httpMethod: 'POST',
+	entity: 'api/Todo/',
+	requestFormat: ['type' -> 'json'],
+	responseFormat: ['type' -> 'json', 'documentForm' -> 'documentPerLine']) ~> ExternalCall1
+source1 filter(toInteger(id)==1) ~> Filter1
+ExternalCall1 sink(allowSchemaDrift: true,
 	validateSchema: false,
-	ignoreNoFilesFound: false) ~> CsvSource
-JsonSource derive(jsonString = toString(goods)) ~> StringifyJson
-StringifyJson parse(json = jsonString ? (trade as boolean,
-		customers as string[]),
-	format: 'json',
-	documentForm: 'arrayOfDocuments') ~> ParseJson
-CsvSource derive(csvString = 'Id|name|year\n\'1\'|\'test1\'|\'1999\'') ~> CsvString
-CsvString parse(csv = csvString ? (id as integer,
-		name as string,
-		year as string),
-	format: 'delimited',
-	columnNamesAsHeader: true,
-	columnDelimiter: '|',
-	nullValue: '',
-	documentForm: 'documentPerLine') ~> ParseCsv
-ParseJson select(mapColumn(
-		jsonString,
-		json
-	),
 	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedJson
-ParseCsv select(mapColumn(
-		csvString,
-		csv
-	),
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedCsv
+	skipDuplicateMapOutputs: true,
+	store: 'cache',
+	format: 'inline',
+	output: false,
+	saveOrder: 1) ~> sink1
 ```
 
 ## Data flow script
 
-### Syntax
-
-### Examples
-
 ```
-parse(json = jsonString ? (trade as boolean,
-                                customers as string[]),
-                format: 'json|XML|delimited',
-                documentForm: 'singleDocument') ~> ParseJson
-
-parse(csv = csvString ? (id as integer,
-                                name as string,
-                                year as string),
-                format: 'delimited',
-                columnNamesAsHeader: true,
-                columnDelimiter: '|',
-                nullValue: '',
-                documentForm: 'documentPerLine') ~> ParseCsv
+ExternalCall1 sink(allowSchemaDrift: true,
+	validateSchema: false,
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true,
+	store: 'cache',
+	format: 'inline',
+	output: false,
+	saveOrder: 1) ~> sink1
 ```    
 
 ## Next steps
