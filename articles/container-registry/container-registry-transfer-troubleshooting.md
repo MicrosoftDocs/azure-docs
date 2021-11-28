@@ -6,7 +6,7 @@ ms.date: 11/18/2021
 ms.custom:
 ---
 
-# ACR Transfer Troubleshooting
+# ACR Transfer troubleshooting
 
 * **Template deployment failures or errors**
   * If a pipeline run fails, look at the `pipelineRunErrorMessage` property of the run resource.

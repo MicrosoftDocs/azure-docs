@@ -6,7 +6,7 @@ ms.date: 10/07/2020
 ms.custom:
 ---
 
-# ACR Transfer with ARM Templates
+# ACR Transfer with ARM templates
 
 ## Complete Prerequisites
 
@@ -17,7 +17,7 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 - You have an existing Keyvault with a secret containing a valid SAS token with the necessary permissions in both clouds.
 - You have a recent version of Az CLI installed in both clouds.
 
-## Consider using the Az CLI Extension
+## Consider using the Az CLI extension
 
 For most non-automated use-cases, we recommend using the Az CLI Extension if possible. You can view documentation for the Az CLI Extension [here](./container-registry-transfer-cli.md).
 

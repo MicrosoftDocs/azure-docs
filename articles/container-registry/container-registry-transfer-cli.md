@@ -8,7 +8,7 @@ ms.custom:
 
 # ACR Transfer with Az CLI
 
-## Complete Prerequisites
+## Complete prerequisites
 
 Please complete the prerequisites outlined [here](./container-registry-transfer-prereqs.md) prior to attempting the actions in this article. This means that:
 
@@ -17,7 +17,7 @@ Please complete the prerequisites outlined [here](./container-registry-transfer-
 - You have an existing Keyvault with a secret containing a valid SAS token with the necessary permissions in both clouds.
 - You have a recent version of Az CLI installed in both clouds.
 
-## Install the CLI Extension
+## Install the Az CLI extension
 
 In AzureCloud, you can install the extension with the following command:
 
@@ -31,7 +31,7 @@ In AzureCloud and other clouds, you can install the blob directly from a public 
 az extension add --source https://acrtransferext.blob.core.windows.net/dist/acrtransfer-1.0.0-py2.py3-none-any.whl
 ```
 
-## Create ExportPipeline with the acrtransfer Az CLI Extension
+## Create ExportPipeline with the acrtransfer Az CLI extension
 
 Create an ExportPipeline resource for your AzureCloud container registry using the acrtransfer Az CLI extension.
 
@@ -75,7 +75,7 @@ Then, you will run the following command to give this principal the appropriate 
 az keyvault set-policy --name $MyKeyvault --secret-permissions get --object-id $MyPrincipalID
 ```
 
-## Create ImportPipeline with the acrtransfer Az CLI Extension
+## Create ImportPipeline with the acrtransfer Az CLI extension
 
 Create an ImportPipeline resource in your target container registry using the acrtransfer Az CLI extension. By default, the pipeline is enabled to create an Import PipelineRun automatically when the attached storage account container receives a new artifact blob.
 

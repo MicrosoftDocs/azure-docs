@@ -36,7 +36,8 @@ Transfer is ideal for copying content between two Azure container registries in 
 
   If needed, create the storage accounts with the [Azure CLI](../storage/common/storage-account-create.md?tabs=azure-cli) or other tools.
 
-  Create a blob container for artifact transfer in each account. For example, create a container named *transfer*. Two or more transfer pipelines can share the same storage account, but should use different storage container scopes.
+  Create a blob container for artifact transfer in each account. For example, create a container named *transfer*.
+
 * **Key vaults** - Key vaults are needed to store SAS token secrets used to access source and target storage accounts. Create the source and target key vaults in the same Azure subscription or subscriptions as your source and target registries. For demonstration purposes, the templates and commands used in this article also assume that the source and target key vaults are located in the same resource groups as the source and target registries, respectively. This use of common resource groups isn't required, but it simplifies the templates and commands used in this article.
 
    If needed, create key vaults with the [Azure CLI](../key-vault/secrets/quick-create-cli.md) or other tools.
@@ -71,6 +72,8 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 ## Create and store SAS keys
 
 Transfer uses shared access signature (SAS) tokens to access the storage accounts in the source and target environments. Generate and store tokens as described in the following sections.
+> [!IMPORTANT]
+> While ACR Transfer will work with a manually generated SAS token stored in a Keyvault Secret, for production workloads we *strongly* recommend using [Keyvault Managed Storage SAS Definition Secrets](az-storage-sas-definitions) instead.
 
 ### Generate SAS token for export
 
@@ -135,7 +138,7 @@ az keyvault secret set \
 * Follow one of the below tutorials to create your ACR Transfer resources. For most non-automated use-cases, we recommend using the Az CLI Extension.
 
   * [ACR Transfer with Az CLI](./container-registry-transfer-cli.md)
-  * [ACR Transfer with ARM Templates](./container-registry-transfer-images.md)
+  * [ACR Transfer with ARM templates](./container-registry-transfer-images.md)
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
@@ -154,3 +157,4 @@ az keyvault secret set \
 [az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
 [az-acr-import]: /cli/azure/acr#az_acr_import
 [az-resource-delete]: /cli/azure/resource#az_resource_delete
+[az-storage-sas-definitions]: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
