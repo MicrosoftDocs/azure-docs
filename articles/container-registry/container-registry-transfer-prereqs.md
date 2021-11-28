@@ -73,7 +73,7 @@ Storage authentication uses SAS tokens, managed as secrets in key vaults. The pi
 
 Transfer uses shared access signature (SAS) tokens to access the storage accounts in the source and target environments. Generate and store tokens as described in the following sections.
 > [!IMPORTANT]
-> While ACR Transfer will work with a manually generated SAS token stored in a Keyvault Secret, for production workloads we *strongly* recommend using [Keyvault Managed Storage SAS Definition Secrets](az-storage-sas-definitions) instead.
+> While ACR Transfer will work with a manually generated SAS token stored in a Keyvault Secret, for production workloads we *strongly* recommend using [Keyvault Managed Storage SAS Definition Secrets][storage-sas-def] instead.
 
 ### Generate SAS token for export
 
@@ -142,6 +142,7 @@ az keyvault secret set \
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[storage-sas-def]: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
@@ -157,4 +158,3 @@ az keyvault secret set \
 [az-acr-repository-list]: /cli/azure/acr/repository#az_acr_repository_list
 [az-acr-import]: /cli/azure/acr#az_acr_import
 [az-resource-delete]: /cli/azure/resource#az_resource_delete
-[az-storage-sas-definitions]: https://docs.microsoft.com/en-us/azure/key-vault/secrets/overview-storage-keys
