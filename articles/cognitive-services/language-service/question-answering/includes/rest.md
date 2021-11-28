@@ -10,9 +10,6 @@ ms.custom: ignite-fall-2021
 
 ## Prerequisites
 
-> [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest).
-
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
