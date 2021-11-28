@@ -102,7 +102,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
     > [!TIP]
     > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
 
-1. To use the **Defender for Cloud** filter, select one or more options (Off, On, or Partial):
+1. <a id="onoffpartial">To use the **Defender for Cloud** filter, select one or more options (Off, On, or Partial):</a>
 
     - **Off** - Resources that aren't protected by a Microsoft Defender plan. You can right-click on any of these and upgrade them:
 
