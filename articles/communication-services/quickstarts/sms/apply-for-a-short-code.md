@@ -31,7 +31,7 @@ To begin provisioning a short code, go to your Communication Services resource o
 ## Apply for a short code
 Navigate to the Short Codes blade in the resource menu and click on "Get" button to launch the short code program brief application wizard. 
 
-The wizard on the short codes blade will walk you through a series of questions about the program as well as a description of content which helps carriers review and approve your short code program brief. For detailed guidance on how to fill the program brief application please check [program brief filling guidelines](../../concepts/sms/program-brief-guidelines.md).
+The wizard on the short codes blade will walk you through a series of questions about the program as well as a description of content which helps carriers review and approve your short code program brief. For detailed guidance on how to fill out the program brief application please check [program brief filling guidelines](../../concepts/sms/program-brief-guidelines.md).
 
 The Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements. A short code Program Brief application consists of the following 4 sections:
  
