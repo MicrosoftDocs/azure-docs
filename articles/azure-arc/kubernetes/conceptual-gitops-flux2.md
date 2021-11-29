@@ -28,7 +28,7 @@ Azure GitOps uses [Flux](https://fluxcd.io/docs/), a popular open-source tool se
 
 ![flux extension install diagram](./media/gitops/flux2-extension-install.png)
 
-GitOps is enabled in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions) resource.  You can install the `microsoft.flux` extension manually using the portal or the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*) or have it installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in the cluster. The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.
+GitOps is enabled in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  You can install the `microsoft.flux` extension manually using the portal or the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*) or have it installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in the cluster. The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.
 
 The `microsoft.flux` extension installs the [Flux controllers](https://fluxcd.io/docs/components/) (Source, Kustomize, Helm, Notification) and the FluxConfig CRD, fluxconfig-agent, and fluxconfig-controller. You can optionally install the Flux image-automation and image-reflector controllers, which provide functionality around updating and retrieving Docker images.
 
