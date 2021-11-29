@@ -1490,8 +1490,5 @@ groups:
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
-<<<<<<< HEAD
-=======
   - id: iot-toolset-mcuxpresso
     title: MCUXpresso
->>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521
