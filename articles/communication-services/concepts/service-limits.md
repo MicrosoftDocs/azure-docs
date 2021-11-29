@@ -23,7 +23,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 - Reduce the frequency of calls.
 - Avoid immediate retries, because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](https://docs.microsoft.com/azure/architecture/) documentation for [Throttling patterns](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](https://docs.microsoft.com/azure/architecture/) documentation for [throttling patterns](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 
 ## Acquiring phone numbers
 Before trying to acquire a phone number, make sure your sbuscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
