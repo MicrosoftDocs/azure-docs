@@ -320,7 +320,7 @@ items:
             href: logs/api/oath2.md
           - name: API keys
             href: logs/api/api-keys.md
-          - name: Accessing the API
+          - name: Access the API
             href: logs/api/access-api.md
           - name: Request format
             href: logs/api/request-format.md

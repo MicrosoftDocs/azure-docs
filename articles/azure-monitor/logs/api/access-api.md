@@ -1,7 +1,7 @@
 ---
 title: Access the API
 description: There are two endpoints through which you can communicate with the Log Analytics API.
-author: bwren
+author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/18/2021
 ms.topic: article
@@ -36,7 +36,7 @@ The ARM API format is:
 ```
 where:
 
-1.  **hostname**: [management.azure.com](https://management.azure.com/)
-1.  **resource**: The Azure path of your Application Insights resource: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`
-1.  **parameters**: The data required for this query
-1.  **api-version**: The API version. The current version is "2017-01-01"
+ - **hostname**: [management.azure.com](https://management.azure.com/)
+ - **resource**: The Azure path of your Application Insights resource: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`
+ - **parameters**: The data required for this query
+ - **api-version**: The API version. The current version is "2017-01-01".
