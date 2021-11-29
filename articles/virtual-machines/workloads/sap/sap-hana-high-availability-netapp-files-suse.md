@@ -85,7 +85,7 @@ Mounted on node2 (**hanadb2**)
 > [!NOTE]
 > File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.   
 
-SAP HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
+SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
 
 - Front-end configuration: IP address 10.3.0.50 for hn1-db
 - Back-end configuration: Connected to primary network interfaces of all virtual machines that should be part of HANA System Replication
@@ -200,8 +200,8 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
 8.	If using standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
-		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
-		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+		1.	Open the load balancer, select **frontend IP configuration**, and select **Add**.
+		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
 		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
 		1.	Select **OK**.
 		1.	After the new front-end IP pool is created, note the pool IP address.
@@ -228,8 +228,8 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
 9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
 	1.	Configure the load balancer. First, create a front-end IP pool:
-		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
-		1.	Enter the name of the new front-end IP pool (for example, **hana-frontend**).
+		1.	Open the load balancer, select **frontend IP Configuration**, and select **Add**.
+		1.	Enter the name of the new front-end IP (for example, **hana-frontend**).
 		1.	Set the **Assignment** to **Static** and enter the IP address (for example, **10.3.0.50**).
 		1.	Select **OK**.
 		1.	After the new front-end IP pool is created, note the pool IP address.
@@ -652,10 +652,10 @@ Create a dummy file system cluster resource, which will monitor and report failu
 > `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
 >
 > [!IMPORTANT]
-> The filesystem monitor is not related to HANA system replication. Thus on NFS failure the Linux cluster might decide to fence an HANA primary, even if the system replication is not in sync. Due to this srHook=SFAIL state, the HANA secondary will not get promoted to primary. Even if this useless fence could happen due to HANA monitor failure
+> The filesystem monitor is not related to HANA system replication. Thus on NFS failure the Linux cluster might decide to fence a HANA primary, even if the system replication is not in sync. Due to this srHook=SFAIL state, the HANA secondary will not get promoted to primary. Even if this useless fence could happen due to HANA monitor failure
 > anyway, it is more likely to happen with the intentionally shorter NFS monitor timeouts.
 >
-> In some environments NFS is used for /hana/data/`SID`/ and /hana/log/`SID`/ as well as for /hana/shared/`SID`/. In such cases usually all shares are provided by the same NFS server via the same network. If that server or network fails, all shares are affected. Thus the afore mentioned dummy resource will cover failures of all three HANA filesystem.
+> In some environments NFS is used for /hana/data/`SID`/ and /hana/log/`SID`/ as well as for /hana/shared/`SID`/. In such cases usually all shares are provided by the same NFS server via the same network. If that server or network fails, all shares are affected. Thus the aforementioned dummy resource will cover failures of all three HANA filesystem.
 
 
 ## Test the cluster setup
