@@ -29,7 +29,7 @@ items:
         href: quickstarts/chat/get-started.md
       - name: Join your chat app to a Teams meeting
         href: quickstarts/chat/meeting-interop.md
-  - name: Telephony and SMS
+  - name: Telephony
     items:
       - name: Get and manage phone numbers
         href: quickstarts/telephony/get-phone-number.md
@@ -37,12 +37,16 @@ items:
         href: quickstarts/telephony/port-phone-number.md
       - name: Add phone calling to your app
         href: quickstarts/voice-video-calling/pstn-call.md
+  - name: SMS
+    items:
       - name: Send an SMS message
         href: quickstarts/sms/send.md
       - name: Handle SMS events
         href: quickstarts/sms/handle-sms-events.md
       - name: Send an SMS in Azure Logic Apps
         href: quickstarts/sms/logic-app.md
+      - name: Apply for a Short Code
+        href: quickstarts/sms/apply-for-a-short-code.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your client app
@@ -122,7 +126,7 @@ items:
         href: concepts/teams-interop.md
       - name: Join a Teams meeting
         href: concepts/join-teams-meeting.md
-  - name: Telephony and SMS
+  - name: Telephony
     items:
       - name: Telephony Concepts
         href: concepts/telephony/telephony-concept.md
@@ -146,7 +150,7 @@ items:
         href: concepts/sms/messaging-policy.md
       - name: Shoer Code Program Brief Filling Guidelines
         href: concepts/sms/program-brief-guidelines.md
-   - name: Numbers
+  - name: Numbers
     items:
       - name: Number Types
         href: concepts/numbers/number-types.md
