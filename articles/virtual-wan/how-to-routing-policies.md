@@ -68,11 +68,11 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 1. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall** or the relevant Internet Security provider from the dropdown for **Internet Traffic**. If not, select **None**
 1. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network traffic) via Azure Firewall, select **Azure Firewall** from the dropdown for **Private Traffic**. If not, select **Bypass Azure Firewall**.
 
-:::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
+    :::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
 
 7. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
-:::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
+    :::image type="content" source="./media/routing-policies/private-prefixes.png"alt-text="Screenshot showing how to edit private traffic prefixes."lightbox="./media/routing-policies/private-prefixes.png":::
 
 8. Select **Inter-hub** to be **Enabled**. Enabling this option ensures your Routing Policies are applied to the Routing Intent of this Virtual WAN Hub. 
 9. Select **Save**. This operation will take around 10 minutes to complete. 
