@@ -175,7 +175,7 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
    Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
    ```
 
-To learn about other ways you can deploy and provision an EFLOW device, see [Install and provision Azure IoT Edge for Linux on a Windows device.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-on-windows)
+To learn about other ways you can deploy and provision an EFLOW device, see [Install and provision Azure IoT Edge for Linux on a Windows device](../../iot-edge/how-to-install-iot-edge-on-windows.md).
 
 Go to the **Device Details** page in your IoT Central application and you can see telemetry flowing from your EFLOW device:
 
