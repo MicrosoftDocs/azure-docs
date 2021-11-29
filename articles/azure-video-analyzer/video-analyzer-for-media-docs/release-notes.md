@@ -32,7 +32,7 @@ When indexing a video through the advanced video settings, you can view the new 
 
 ### Face bounding box (preview)
 
-You can now turn on a bounding box for deteted faces during indexing of the media file. The face bounding box feature is available when indexing your file by choosing the standard, basic, or **advanced** indexing presets.
+You can now turn on a bounding box for detected faces during indexing of the media file. The face bounding box feature is available when indexing your file by choosing the standard, basic, or **advanced** indexing presets.
 
 You can enable the bounding boxes through the player.
 
