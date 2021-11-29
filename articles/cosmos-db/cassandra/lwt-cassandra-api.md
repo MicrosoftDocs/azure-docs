@@ -41,10 +41,26 @@ CREATE TABLE IF NOT EXISTS lwttesting.users (
   name text,
   userID int,
   address text,
-  phone int,
+  phoneCode int,
+  vendorName text STATIC,
   PRIMARY KEY ((name), userID)) with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true; 
 ```
 
+This query below returns TRUE.
+```sql
+INSERT INTO lwttesting.users(name, userID, phoneCode, vendorName)
+VALUES('Sara', 103, 832, 'vendor21') IF NOT EXISTS; 
+``` 
+
+There are some known limitations with flag enabled. If a row has been inserted into the table, an attempt to insert a static row will return FALSE. 
+```sql
+INSERT INTO lwttesting.users (userID, vendorName)
+VALUES (104, 'staticVendor') IF NOT EXISTS;
+```
+The above query currently returns FALSE but should be TRUE.
+
+## LWT with flags disabled
+Row delete combined with IF condition is not supported if the flags are not enabled.
 
 ```sql
 CREATE TABLE IF NOT EXISTS lwttesting.vendor_users (
@@ -56,22 +72,6 @@ CREATE TABLE IF NOT EXISTS lwttesting.vendor_users (
 );
 ```
 
-This query below returns TRUE.
-```sql
-INSERT INTO lwttesting.vendor_users(name, userID, areaCode, vendor)
-VALUES('Sara', 103, 832, 'vendor21') IF NOT EXISTS; 
-``` 
-
-There are some known limitations with flag enabled. If a row has been inserted into the table, an attempt to insert a static row will return FALSE. 
-```sql
-INSERT INTO lwttesting.vendor_users (userID, vendor)
-VALUES (104, 'staticVendor') IF NOT EXISTS;
-```
-The above query currently returns FALSE but should be TRUE.
-
-## LWT with flags disabled
-Row delete combined with IF condition is not supported if the flags are not enabled.
-
 ```sql
 DELETE FROM lwttesting.vendor_users 
 WHERE userID =103 AND name = 'Sara' 
@@ -81,15 +81,15 @@ An error message: Conditional delete of an entire row is not supported.
 
 ## LWT with flags enabled or disabled
 Any request containing assignment and condition combination of a static and regular column is unsupported with the IF condition.
-The query will not return an error message as both columns are regular.
+This query will not return an error message as both columns are regular.
 ```sql
 DELETE areaCode 
 FROM lwttesting.vendor_users 
 WHERE name= 'Sara' 
 AND userID = 103 IF areaCode = 832;   
 ```
-However, the query below returns an error
-`Error message: Conditions and assignments containing combination of Static and Regular columns are not supported.`
+However, the query below returns an error message
+`Conditions and assignments containing combination of Static and Regular columns are not supported.`
 ```sql
 DELETE areaCode 
 FROM lwttesting.vendor_users 
