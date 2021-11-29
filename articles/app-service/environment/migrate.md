@@ -57,7 +57,7 @@ The App Service platform will review your App Service Environment to confirm mig
 
 ## Overview of migration process
 
-Migration consists of two steps. For this version of the preview, your new App Service Environment will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
+Migration consists of three steps. For this version of the preview, your new App Service Environment will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment cannot be migrated to an ILB App Service Environment v3 and vice versa.
 
 ### Step 1 of migration (pre-migration)
 
@@ -65,9 +65,13 @@ During this step, the platform creates the [new inbound IP (if you're migrating 
 
 When complete, you'll have the new default outbound to the internet public addresses so you can adjust any external firewalls, DNS routing, network security groups, and so on, in preparation for the migration. For public internet facing App Service Environments, you'll also have the new inbound IP address that you can use to set up new endpoints with services like [Traffic Manager](../../traffic-manager/traffic-manager-overview.md) or [Azure Front Door](../../frontdoor/front-door-overview.md). Scaling or modifying you existing App Service Environment will also be available again if needed.
 
-### Step 2 of migration (full migration)
+### Step 2 of migration (dependent resource updates)
 
-After Step 1 completes, you should continue with Step 2 as soon as possible after updating your resources with the new IPs. It's recommended that you move on within one week. Step 2 shuts down the existing App Service Environment and replaces it with the new App Service Environment v3. All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
+When pre-migration finishes, you'll have new IP addresses that will be used by your new App Service Environment v3. These new IPs have no effect on your existing environment. The IPs used by your existing environment will continue to be used up until your existing environment is shut down during the next step. **It's your responsibility to update any and all resources that will be impacted by the IP address change. Don't move on to the next step until you've made all required updates.**
+
+### Step 3 of migration (full migration)
+
+After updating all dependent resources with your new IPs, you should continue with Step 3 as soon as possible. It's recommended that you move on within one week. Step 3 shuts down the existing App Service Environment and replaces it with the new App Service Environment v3. All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
 
 During this step, **the old App Service Environment is removed and all of the apps that are on it are temporarily down**. You should expect about one hour of downtime. If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration). Also, during this step, the public addresses that are used by the App Service Environment will change to the IPs identified during Step 1. As in Step 1, you won't be able to scale or modify you App Service Environment or deploy apps to it during this process. When the migration is complete, the apps that were on the old App Service Environment will be running on the new environment.
 
