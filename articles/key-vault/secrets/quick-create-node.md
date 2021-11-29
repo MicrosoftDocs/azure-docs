@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/13/2021
+ms.date: 11/29/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -50,7 +50,7 @@ This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli
 
 ## Create new Node.js application
 
-Create a Node.js application that uses your . 
+Create a Node.js application that uses your key vault. 
 
 1. In a terminal, create a folder named `key-vault-node-app` and change into that folder:
 
