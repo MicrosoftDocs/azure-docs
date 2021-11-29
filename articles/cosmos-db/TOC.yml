@@ -1091,6 +1091,8 @@
           href: cassandra/glowroot-cassandra.md
         - name: Error codes definitions
           href: cassandra/error-codes-solution.md
+        - name: Lightweight Transactions in Cassandra API
+          href: cassandra/lwt-cassandra-api.md
     - name: Reference
       items:
         - name: REST resource provider
