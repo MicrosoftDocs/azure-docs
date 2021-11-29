@@ -4,7 +4,7 @@ description: Learn how to recover an Azure File Sync equipped server from a serv
 author: mtalasila
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 11/29/2021
 ms.author: mtalasila
 ms.subservice: files
 ---
@@ -28,7 +28,7 @@ While the namespace is being synced, don't copy data manually, since that will i
 If there is data on your original server that didn't upload to the cloud before it went offline, you can potentially recover it. You would do this by copying its contents into the new server's volume. If you would like to do this, use the following robocopy command.
 
 > [!IMPORTANT]
-> If you are recovering more than one VM/machine, don't run this command.
+> If you're recovering more than one VM/machine, don't run this command.
 > 
 > Wait for this copy to complete before moving to the next step.
 
