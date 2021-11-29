@@ -247,8 +247,6 @@
           maintainContext: true
         - name: Rotate certificates
           href: certificate-rotation.md
-        - name: Create a private cluster
-          href: private-clusters.md
         - name: BYOK for disks
           href: azure-disk-customer-managed-keys.md
         - name: Enable host-based encryption
@@ -263,6 +261,12 @@
             href: csi-secrets-store-nginx-tls.md
           - name: Troubleshooting
             href: csi-secrets-store-troubleshooting.md
+    - name: Configure private clusters
+      items:
+      - name: Create a private cluster
+        href: private-clusters.md
+      - name: Access a private cluster remotely
+        href: command-invoke.md
     - name: Configure networking
       items:
         - name: Create or use existing virtual network
