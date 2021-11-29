@@ -91,6 +91,5 @@ These client libraries also require the context for the call they will join. Sim
 | iOS     | iOS 13+ |
 | Android | v23+    |
 
-
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

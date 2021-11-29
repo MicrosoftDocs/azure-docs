@@ -136,3 +136,14 @@ is only supported on desktop iOS.
 
 > [!div class="nextstepaction"]
 > [Visit UI Library Storybook](https://azure.github.io/communication-ui-library)
+
+## Accessibility
+
+Accessibility by design is a principle across Microsoft products.
+UI Library follows this principle in making sure that all UI Components are fully accessible.
+
+## Localization
+
+Localization is a key to making products that can be used across the world and by people who who speak different languages.
+UI Library will provide out of the box support for some languages and capabilities such as RTL.
+Developers can provide their own localization files to be used for the UI Library.
