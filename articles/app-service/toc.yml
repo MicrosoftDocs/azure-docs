@@ -235,7 +235,7 @@
               href: configure-authentication-provider-google.md
             - name: Authenticate with Twitter
               href: configure-authentication-provider-twitter.md
-            - name: Authenticate with an OpenID Connect provider (Preview)
+            - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
             - name: Authenticate using Sign in with Apple (Preview)
               href: configure-authentication-provider-apple.md
@@ -251,7 +251,7 @@
           href: configure-authentication-file-based.md
     - name: Secure app
       items:
-        - name: Add TSL/SSL cert
+        - name: Add TLS/SSL cert
           href: configure-ssl-certificate.md
         - name: Restrict access
           href: app-service-ip-restrictions.md
@@ -334,10 +334,10 @@
           href: how-to-zone-redundancy.md
     - name: Automate provisioning
       items:
-        - name: Bicep
-          href: provision-resource-bicep.md
-        - name: Terraform
-          href: provision-resource-terraform.md
+      - name: Bicep
+        href: provision-resource-bicep.md
+      - name: Terraform
+        href: provision-resource-terraform.md
 - name: Reference
   items:
     - name: Monitoring data
@@ -386,7 +386,7 @@
         - name: Reference Architectures
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
-          href: https://azure.microsoft.com/documentation/scripts/
+          href: /azure/automation/automation-runbook-gallery
     - name: Troubleshooting
       items:
         - name: Troubleshoot intermittent outbound connection errors
@@ -403,21 +403,21 @@
           href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
-        - name: Availability, performance, and application FAQ
-          href: faq-availability-performance-application-issues.yml
-        - name: Deployment FAQ
-          href: faq-deployment.yml
-        - name: Open-source technologies FAQ
-          href: faq-open-source-technologies.yml
-        - name: Configuration and management FAQ
-          href: faq-configuration-and-management.yml
-        - name: App Service on Linux
-          href: faq-app-service-linux.yml
+      - name: Availability, performance, and application FAQ
+        href: faq-availability-performance-application-issues.yml
+      - name: Deployment FAQ
+        href: faq-deployment.yml
+      - name: Open-source technologies FAQ
+        href: faq-open-source-technologies.yml
+      - name: Configuration and management FAQ
+        href: faq-configuration-and-management.yml
+      - name: App Service on Linux
+        href: faq-app-service-linux.yml
     - name: IP address change
       items:
-        - name: Inbound IP address
-          href: ip-address-change-inbound.md
-        - name: Outbound IP address
-          href: ip-address-change-outbound.md
-        - name: TLS/SSL address
-          href: ip-address-change-ssl.md
+      - name: Inbound IP address
+        href: ip-address-change-inbound.md
+      - name: Outbound IP address
+        href: ip-address-change-outbound.md
+      - name: TLS/SSL address
+        href: ip-address-change-ssl.md
