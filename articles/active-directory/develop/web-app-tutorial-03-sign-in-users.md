@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Prepare Azure AD by registering your app"
+title: "Tutorial: Add login support to your web application"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you learn how to configure Azure AD to provide identity services to your web app so it can sign in your organization's users and get authorization for accessing resources.
+description: In this tutorial, you add support to your single-page application to sign in Azure AD users..
 author: henrymbuguakiarie
 manager: CelesteDG
 
@@ -18,6 +18,6 @@ ms.reviewer: marsma, dhruvmu
 # the Microsoft Authentication Library (MSAL).
 ---
 
-# Tutorial: Prepare Azure AD by registering your app
+# Tutorial: Add login support to your web application
 
-[!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-03-prepare-azure-ad.md)]
+[!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-03-sign-in-users.md)]

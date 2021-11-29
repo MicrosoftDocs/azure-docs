@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Call the Microsoft Graph API from a single-page application"
+title: "Tutorial: Prepare Azure AD by registering your app"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you will use a React single-page application to call the Microsoft Graph API
+description: In this tutorial, you learn how to configure Azure AD to provide identity services to your web app so it can sign in your organization's users and get authorization for accessing resources.
 author: henrymbuguakiarie
 manager: CelesteDG
 
@@ -18,6 +18,6 @@ ms.reviewer: marsma, dhruvmu
 # the Microsoft Authentication Library (MSAL).
 ---
 
-# Tutorial: Call the Microsoft Graph API from a single-page application
+# Tutorial: Prepare Azure AD by registering your app
 
-[!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-05-call-web-api-graph.md)]
+[!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-02-prepare-azure-ad.md)]
