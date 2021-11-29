@@ -29,14 +29,11 @@ These dimensions are measured independently, but they interact with each other a
 - Happiness is an outcome of the other dimensions and not a stand-alone measurement. Users who have progressed down the funnel and are showing a higher level of activity should ideally be happier.   
 
 
-
-
-
 ## Get Started
 ### Prerequisites
-- Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
-- Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
-- Instrument the below attributes to calculate HEART metrics:
+ - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
+ - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
+ - Instrument the below attributes to calculate HEART metrics:
 
   | Source          | Attribute            | Description                                |
   |-----------------|----------------------|--------------------------------------------|
@@ -60,11 +57,11 @@ These dimensions are measured independently, but they interact with each other a
 *Instrument the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
 ### Open the Workbook
-The workbook can be found in the gallery under 'public templates' (shown below). The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"**.
+The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
 
 ![workbookgallery](./media/usage-overview/gallery.png)
 
-Users will notice that there are seven workbooks in this section (Below image).  
+Users will notice that there are seven workbooks as shown in the following image:
 
 ![Workbooktabs](./media/usage-overview/heartworkbooktemplates.png)  
 
@@ -90,6 +87,8 @@ A brief description of the tabs can be seen below:
 - **Happiness** -  We recommend using a survey tool to measure customer satisfaction score (CSAT) over a 5-point scale. In this tab, we've provided the likelihood of happiness by using usage and performance metrics. 
 - **Feature Metrics** - Enables understanding of HEART metrics at feature granularity. 
 
+> ⚠️ **Warning**:
+> The HEART Workbook is currently built on logs and effectively are [log-based metrics](pre-aggregated-metrics-log-metrics.md). The accuracy of these metrics will be negatively affected by sampling and filtering.
 ## How HEART dimensions are defined and measured
 
 ### Happiness
