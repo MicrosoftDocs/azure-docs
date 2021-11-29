@@ -26,7 +26,7 @@ To manage GitOps through the Azure CLI or portal you need:
 ### For Azure Arc-enabled Kubernetes clusters
 
 * An Azure Arc-enabled Kubernetes connected cluster that is up and running.
-  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
+  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
 * 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedClusters' resource type.
 
 ### For Azure Kubernetes Service (AKS) clusters
@@ -788,7 +788,7 @@ az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -
 ```
 
 >[!NOTE]
->If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
+>If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
 
 ### Git Implementation
 

@@ -494,7 +494,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 | Secret | Value |
 | -------- | ----- |
-| AZURE_CREDENTIALS | Credentials for Azure in the following format {"clientId":"GUID","clientSecret":"GUID","subscriptionId":"GUID","tenantId":"<GUID>"} |
+| AZURE_CREDENTIALS | Credentials for Azure in the following format {"clientId":"GUID","clientSecret":"GUID","subscriptionId":"GUID","tenantId":"GUID"} |
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
