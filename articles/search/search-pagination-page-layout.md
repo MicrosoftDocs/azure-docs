@@ -165,4 +165,4 @@ To quickly generate a search page for your client, consider these options:
 
 + [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial and code sample that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
 
-+ [Add search to web apps](tutorial-csharp-overview) is a tutorial and code sample that uses the React JavaScript libraries for front-end code. The app is deployed using Azure Static Web Apps.
++ [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps.
