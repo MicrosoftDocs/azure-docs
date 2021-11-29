@@ -77,7 +77,7 @@ For more detail on the specific attributes of a public IP address during creatio
 
 ## Virtual Machine Scale Sets
 
-When using a virtual machine scale set with Public IPs, there are not separate Public IP objects associated with the individual virtual machine instances. However, a Public IP Prefix object [can be used to generate the instance IPs](https://azure.microsoft.com/resources/templates/vmms-with-public-ip-prefix/).
+When using a virtual machine scale set with Public IPs, there are not separate Public IP objects associated with the individual virtual machine instances. However, a Public IP Prefix object [can be used to generate the instance IPs](https://azure.microsoft.com/resources/templates/vmss-with-public-ip-prefix/).
 
 To list the Public IPs on a virtual machine scale set, you can use PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) or CLI ([az virtual machine scale set list-instance-public-ips](/cli/azure/vmss#az_vmss_list_instance_public_ips)).
 
