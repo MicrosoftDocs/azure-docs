@@ -8,11 +8,11 @@ ms.topic: article
 ---
 # PowerShell Cmdlets
 
-A cmdlet for querying is available as part of [Azure PowerShell](/powershell/azure/overview?view=azurermps-5.4.0&preserve-view=true). You can follow the instructions for installing them [here](/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0&preserve-view=true). Before attempting to run the query cmdlet, you should login to Azure PowerShell using `Login-AzureRmAccount` or `Add-AzureRmAccount`. See the [Azure PowerShell documentation](/powershell/module/azurerm.operationalinsights/Invoke-AzureRmOperationalInsightsQuery?view=azurermps-5.4.0&preserve-view=true) on this cmdlet for more information.
+A cmdlet for querying is available as part of [Azure PowerShell](/powershell/azure/overview?view=azurermps-5.4.0&preserve-view=true). You can follow the instructions for installing them [here](/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0&preserve-view=true). Before attempting to run the query cmdlet, you have to log in to Azure PowerShell using `Login-AzureRmAccount` or `Add-AzureRmAccount`. See the [Azure PowerShell documentation](/powershell/module/azurerm.operationalinsights/Invoke-AzureRmOperationalInsightsQuery?view=azurermps-5.4.0&preserve-view=true) on this cmdlet for more information.
 
-## Github
+## GitHub
 
-Azure PowerShell is developed in a [public Github repo](https://github.com/Azure/azure-powershell). Within the repo, our cmdlet may be found [here](https://github.com/Azure/azure-powershell/blob/preview/src/ResourceManager/OperationalInsights/Commands.OperationalInsights/Query/InvokeOperationalInsightsQuery.cs). If you find an issue, feel free to file an [issue](https://github.com/Azure/azure-powershell/issues)\!
+Azure PowerShell is developed in a [public GitHub repo](https://github.com/Azure/azure-powershell). Within the repo, our cmdlet may be found [here](https://github.com/Azure/azure-powershell/blob/preview/src/ResourceManager/OperationalInsights/Commands.OperationalInsights/Query/InvokeOperationalInsightsQuery.cs). If you find an issue, feel free to file an [issue](https://github.com/Azure/azure-powershell/issues)\!
 
 ## Basics
 
@@ -95,7 +95,7 @@ PARAMETERS
     ...
 ```
 
-Once invoked, $queryResults.Results will contain all of the resulting rows from your query.
+Once invoked, $queryResults. Results will contain all of the resulting rows from your query.
 
 ``` 
     Example 2: Convert $results.Result IEnumberable to an array
@@ -106,7 +106,7 @@ Once invoked, $queryResults.Results will contain all of the resulting rows from 
     ...
 ```
 
-Some queries can result in very large data sets being returned. Because of this, the default behavior of the cmdlet is to return an IEnumerable to reduce memory costs. If you'd prefer to have an array of results, you can use the LINQ Enumerable.ToArray() extension method to convert the IEnumerable to an array.
+The default behavior of the cmdlet is to return an IEnumerable to reduce memory costs, since some queries can return large data sets. If you'd prefer to have an array of results, you can use the LINQ Enumerable.ToArray() extension method to convert the IEnumerable to an array.
 
 ``` 
     Example 3: Get search results using a query over a specific timeframe

@@ -11,7 +11,7 @@ ms.topic: article
 There are several tools available to help you interact with the API.
 ## C\# SDK
 
-Query the Log Analytics Workspace using the  [C\# SDK](https://www.nuget.org/packages/Microsoft.Azure.OperationalInsights/). The SDK supports the full query language.
+Query the Log Analytics Workspace using the [C\# SDK](https://www.nuget.org/packages/Microsoft.Azure.OperationalInsights/). The SDK supports the full query language.
 
 > [!NOTE]
 > Due to the limitations of OpenAPI Specification 2.0, all row values are interpreted as strings. When processing query data, you may need to leverage the column definitions for each column, which indicate the type that can be parsed from each row. You can find the list of data types at <https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/operationalinsights/Microsoft.Azure.OperationalInsights/src>
@@ -63,11 +63,11 @@ Query the Log Analytics Workspace using the  [C\# SDK](https://www.nuget.org/pac
 
 ## PowerShell Cmdlets
 
-A cmdlet for querying is available as part of [Azure PowerShell](/powershell/azure/overview?view=azurermps-5.4.0&preserve-view=true). Follow the instructions for installing the cmdlets [here](/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0&preserve-view=true). Login to Azure PowerShell using `Login-AzureRmAccount` or `Add-AzureRmAccount` before running the query cmdlet. See the [Azure PowerShell documentation](/powershell/module/azurerm.operationalinsights/Invoke-AzureRmOperationalInsightsQuery?view=azurermps-5.4.0&preserve-view=true) on this cmdlet for more information.
+A cmdlet for querying is available as part of [Azure PowerShell](/powershell/azure/overview?view=azurermps-5.4.0&preserve-view=true). Follow the instructions for installing the cmdlets [here](/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0&preserve-view=true). Sign in to Azure PowerShell using `Login-AzureRmAccount` or `Add-AzureRmAccount` before running the query cmdlet. See the [Azure PowerShell documentation](/powershell/module/azurerm.operationalinsights/Invoke-AzureRmOperationalInsightsQuery?view=azurermps-5.4.0&preserve-view=true) on this cmdlet for more information.
 
-### Github
+### GitHub
 
-Azure PowerShell is developed in a [public Github repo](https://github.com/Azure/azure-powershell). Within the repo, our cmdlet may be found [here](https://github.com/Azure/azure-powershell/blob/preview/src/ResourceManager/OperationalInsights/Commands.OperationalInsights/Query/InvokeOperationalInsightsQuery.cs). If you find an issue, feel free to file an [issue](https://github.com/Azure/azure-powershell/issues)\!
+Azure PowerShell is developed in a [public GitHub repo](https://github.com/Azure/azure-powershell). Within the repo, our cmdlet may be found [here](https://github.com/Azure/azure-powershell/blob/preview/src/ResourceManager/OperationalInsights/Commands.OperationalInsights/Query/InvokeOperationalInsightsQuery.cs). If you find an issue, feel free to file an [issue](https://github.com/Azure/azure-powershell/issues)\!
 
 ### Basics
 

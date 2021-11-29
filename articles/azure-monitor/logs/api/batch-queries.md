@@ -73,11 +73,16 @@ Example:
 ## Response Format
 
 The response format is a similar array of objects. Each object contains:
- - the id
- - the HTTP status code of the particular query
- - the body of the returned response for that query. 
+ - The id
+ - The HTTP status code of the particular query
+ - The body of the returned response for that query. 
  
-If a query does not return successfully, the body contains the relevant error messages. This only applies to the individual queries in the batch; the batch itself returns a status code independent of the return values of its members. As long as a well-formed, authenticated, authorized batch is received, the batch itself will return successfully even when the results of its member queries may be a mix of success and failure.
+If a query doesn't return successfully, the response body contains error messages. The error messages only apply to the individual queries in the batch; the batch itself returns a status code independent of the return values of its members. 
+The batch returns successfully if the batch is:
+ - Well-formed and properly formatted
+ - Authenticated
+ - Authorized
+ The batch returns successfully even when the results of its member queries may be a mix of successes and failures.
 
 Example
 
@@ -122,19 +127,18 @@ Example
 ```
 
 ## Behavior and Errors
+The order of responses inside the returned object isn't related to the order in the request. It is determined by time it takes each individual query to complete. Use IDs to map the query response objects to the original requests. Don't assume that the query responses are in order.
 
- The order of responses inside the returned object is determined by time to completion of each individual query, and are not related to the order in the request.  Use IDs to map the contained query response objects to the original requests. Do not assume that the query responses are in order.
+An entire batch request only fails if:
 
-An entire batch request only fails under specific conditions:
-
-1.  The outer payload is not valid JSON format.
-2.  The user provides no authentication token, or the token is invalid.
-3.  Individual request objects in the batch do not all have the necessary properties, or there are duplicate IDs.
+1.  The JSON format of the outer payload isn't valid.
+2.  Authentication fails: The user doesn't provide an authentication token, or the token is invalid.
+3.  Individual request objects in the batch don't have required properties, or there are duplicate IDs.
 
 Under these conditions, the shape of the response will be different from the normal container. The objects contained within the batch object may each fail or succeed independently. See below for an example. 
 ## Example Errors
 
-The following is a non exhaustive list of examples of possible errors and their meanings.
+This list is a non-exhaustive list of examples of possible errors and their meanings.
 
 1.  400 - Malformed request. The outer request object was not valid JSON.
 

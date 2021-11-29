@@ -23,7 +23,7 @@ For either implicit or explicit cross-workspace queries, you need to specify the
 
 ## Implicit Cross Workspace Queries
 
-For the implicit syntax, you specify the workspaces that you would like for your queries to be scoped over and the API will perform a single query over each application provided in your list. The syntax for a cross-workspace POST is as follows:
+For implicit syntax, specify the workspaces that you want to include in your query scope. The API performs a single query over each application provided in your list. The syntax for a cross-workspace POST is:
 
 Example:
 
@@ -53,7 +53,7 @@ This query would run over AIFabrikamDemo1, AIFabrikamDemo2, and the workspace re
 
 ## Explicit Cross Workspace Queries
 
-In some cases you might want the query to operate over a more targeted subset of the data in the workspaces of interest, combining data from multiple workspaces. For these scenarios, it is possible to explicitly mention a workspace and table in the query, similar to how one makes cross-cluster or cross-database queries or joins between tables today.
+In some cases, you might want the query to operate over a more targeted subset of the data in the workspaces of interest, combining data from multiple workspaces. For these scenarios, explicitly mention a workspace and table in the query, similar to making cross-cluster or cross-database queries or joins between tables.
 
 The syntax to reference another application is: workspace('identifier').table.
 
@@ -69,8 +69,8 @@ Example:
     }
 ```
 
-Similarly to implicit, you could URL encode this query and make it a GET request as well. Here, there would be no query parameter for additional workspaces since the workspaces will get referenced from inside the query itself.
+Similar to the implicit syntax, you can also URL encode this query and make it a GET request. In this case, there is no query parameter for other workspaces since the workspaces will get referenced from inside the query itself.
 
 ## Throttling
 
-For the purposes of rate limiting, 1 cross-resource query counts as 1 API query, regardless of the number of resources in the query.
+For the purposes of rate limiting, one cross-resource query counts as one API query, regardless of the number of resources in the query.
