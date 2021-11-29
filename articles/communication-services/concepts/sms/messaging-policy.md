@@ -48,7 +48,7 @@ Regardless of how consent is obtained, you and your customers must ensure that t
 ### Consent requirements:
 
 - Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
-- Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third-party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
+- Consent isn't transferable or assignable. Any consent that an individual provides to you cannot be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent Is limited in purpose. An individual who provides their number for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you'll send recurring messages or messages from an affiliate.
 
 ### Consent best practices:
