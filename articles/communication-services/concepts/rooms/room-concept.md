@@ -44,7 +44,7 @@ Note while you can use either Group CallID or Rooms if you just need an ephemera
 | Set validity period for a call   | No  | No | Yes <br> Up to six months </br> |
 
 
-# Managing the Rooms
+## Managing the Rooms
 
 Rooms are managed via Rooms SDK or Rooms API. In the initial release, the Rooms allows only have voice and video calls within the Room. 
 
@@ -65,7 +65,7 @@ The picture below illustrates the concept of managing and joining the rooms.
  ## Runtime operations
  
  Most actions available in regular one-to-one or group calls in JS Calling SDK are also available in Rooms. You cannot promote the existing one-to-one or group call to a Room call or Invite an ad hoc user to join a Room (you need to add the user using the Rooms API)
-Full list of capabilities that are available in JS SDK are listed in the [Calling SDK Overview](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#detailed-capabilities).
+Full list of capabilities that are available in JS SDK are listed in the [Calling SDK Overview](../voice-video-calling/calling-sdk-features.md#detailed-capabilities).
 
 | Capability | JS Calling SDK | Rooms API/SDK |
 |----------------------------------------------| :--------: | :---------: |
@@ -78,7 +78,7 @@ Full list of capabilities that are available in JS SDK are listed in the [Callin
 Next actions:
 -	Use the Rooms QuickStart to create and manage a room. TBC
 -	Use the JS Calling SDKs to join the Rooms. TBC
--	Review the [Network requirements for media and signaling](https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/network-requirements)
+-	Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md)
 
 
 
