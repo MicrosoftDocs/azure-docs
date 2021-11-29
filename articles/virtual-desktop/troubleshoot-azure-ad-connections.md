@@ -27,7 +27,7 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 If you come across an error saying **Your account is configured to prevent you from using this device. For more information, contact your system administrator**, ensure the user account was given the [Virtual Machine User Login role](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#azure-role-not-assigned) on the VMs. 
 
-### Sign in failed. Incorrect username and password or your credentials did not work
+### I can't sign in even though I'm using the right credentials
 
 If you experience a login problem presented by incorrect user credentials and have verified they are correct and have ruled out other errors verify that Conditional Access policies excludes multifactor authentication requirements on the **Azure Windows VM Sign-in** cloud application. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms)
 
