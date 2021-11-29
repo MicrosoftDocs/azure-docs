@@ -1,5 +1,5 @@
 ---
-title: Azure Purview Classification best practices
+title: Azure Purview classification best practices
 description: This article provides best practices for Classification in Azure Purview.
 author: amberz
 ms.author: amberz
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 11/18/2021
 ---
 
-# Azure Purview Classification best practices
+# Azure Purview classification best practices
 
 Data classification, in the context of Azure Purview, is a way of categorizing data assets by assigning unique logical labels or class to the data assets based on the business context of data, for example, Passport Number, Driving License Number, Credit Card Number, SWIFT code, Person’s Name, etc.
 When data assets are classified, you can understand, search and govern it better. Most importantly it helps to understand the risks associated with data and implement measures to  protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate. 
@@ -42,11 +42,11 @@ In the example above, Person’s Name is a system classification.
 **Custom classifications**: Custom classifications can be created when you want to classify assets based on a pattern or a specific column name which is not available as a default system classification. 
 Custom classifications rules can be based on a **regular expression** pattern or **dictionary**. 
 
-For example, if employee ID column follows EMPLOYEE{GUID} pattern  (e.g. EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55), in this case, you can use a regular expression such as , \^EMPLOYEE\[A-Za-z0-9\]{8}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{12}\$ to create your own custom classification
+For example, if employee ID column follows EMPLOYEE{GUID} pattern  (e.g. EMPLOYEE9c55c474-9996-420c-a285-0d0fc23f1f55), in this case, you can use a regular expression such as , `\^Employee\[A-Za-z0-9\]{8}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{4}-\[A-Za-z0-9\]{12}\$`to create your own custom classification
 
 
 > [!NOTE]
-> Sensitivity labels are different from classifications. Sensitivity labels are categorization in the context of data security and privacy, such as Highly Confidential, Restricted, Public, etc. To use sensitivity labels in Azure Purview, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (AAD) tenant as your Azure Purview account. Read the [differences](sensitivity-labels-frequently-asked-questions.yml#what-is-the-difference-between-classifications-and-sensitivity-labels-in-azure-purview) between the two for more details.
+> Sensitivity labels are different from classifications. Sensitivity labels are categorization in the context of data security and privacy, such as Highly Confidential, Restricted, Public, etc. To use sensitivity labels in Azure Purview, you'll need at least one Microsoft 365 license/account within the same Azure Active Directory (Azure AD) tenant as your Azure Purview account. Read the [differences](sensitivity-labels-frequently-asked-questions.yml#what-is-the-difference-between-classifications-and-sensitivity-labels-in-azure-purview) between the two for more details.
 
 ## Classification best practice and considerations
 
@@ -89,7 +89,7 @@ For example, in the scenario below, only the specific selected system and custom
 
     * Create custom classification name, if necessary, first from this blade and then move to **Data Map>Annotation management>classification rules** and create the classification rule for the custom classification name created in the previous step
 
-:::image type="content" source="./media/concept-best-practices/classification-classification-rules-example-2.png" alt-text="Screen shot showing a classification rule." lightbox="./media/concept-best-practices/classification-classification-rules-example-2.png":::
+    :::image type="content" source="./media/concept-best-practices/classification-classification-rules-example-2.png" alt-text="Screen shot showing a classification rule." lightbox="./media/concept-best-practices/classification-classification-rules-example-2.png":::
 
 #### Custom classification:
 
@@ -107,9 +107,9 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
     * Purview supports two methods for custom classification rule – Regular Expression and Dictionary 
 
     * Select appropriate method for the classification rule:
-
-        1. Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
-        2. Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
+        
+        * Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
+        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
  
             :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing setting of regular expression and dictionary." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
 
@@ -127,7 +127,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
     * The option to set Minimum match rule is automatically disabled, if more than one data pattern is added to the classification rule.
 
-    * Use the “**Test classification rule**” and test with a sample data to verify if the classification rule is working as expected. Ensure that in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
+    * Use the "**Test classification rule**" and test with a sample data to verify if the classification rule is working as expected. Ensure that in the sample data (e.g., .csv file) at least 3 columns are present including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column (example below)
    
         :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screen shot showing classification when test classification is successful." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
 
@@ -139,29 +139,29 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
 #### Custom Classification Archetypes
 
-1.	**How “threshold” parameter works in the regular expression?**
+* **How "threshold" parameter works in the regular expression?**
 
-    * Consider below sample source data for example, where there are five columns and custom classification rule should be applied to columns ‘Sample_col1, Sample_col2, Sample_col3’ for the data pattern “N{Digit}{Digit}{Digit}AN”
+    * Consider below sample source data for example, where there are five columns and custom classification rule should be applied to columns 'Sample_col1, Sample_col2, Sample_col3' for the data pattern "N{Digit}{Digit}{Digit}AN"
     
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png" alt-text="Screen shot showing example source data." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png":::
 
-    * The custom classification is named as ‘NDDDAN’
+    * The custom classification is named as 'NDDDAN'
 
     * The classification rule (regex for data pattern) is: ^N[0-9]{3}AN$
      
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-ndddan-10.png" alt-text="Screen shot showing a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-ndddan-10.png":::
 
-    * The threshold would be computed as below for the “N[0-9]{3}AN” pattern:
+    * The threshold would be computed as below for the "^N[0-9]{3}AN$" pattern:
      
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png" alt-text="Screen shot showing threshold of custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-threshold-11.png":::
 
     * If you have a threshold of 55%, only Sample_col1 and Sample_col2 will be classified. Sample_col3 will not be classified as it does not meet 55% threshold criteria as shown above.
       
-        :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing result of high threshold criteria" lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
+        :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screen shot showing result of high threshold criteria." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
-2.	**How to use both data and column patterns?**
+* **How to use both data and column patterns?**
 
-    * For the given sample data, where column B and Column C both have similar data patterns, if you would like to classify on column B based on the data pattern “P[0-9]{3}[A-Z]{2}”. 
+    * For the given sample data, where column B and Column C both have similar data patterns, if you would like to classify on column B based on the data pattern "^P[0-9]{3}[A-Z]{2}$". 
        
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screen shot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
 
@@ -176,7 +176,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screen shot showing column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
 
-3.	**How to use multiple column patterns?**
+*	**How to use multiple column patterns?**
 
     If there are multiple column patterns to be classified for the same classification rule, use pipe (|) separated column names. For example, for columns Product ID, Product_ID, ProductID, etc. use as indicated below:
         
