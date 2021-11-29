@@ -25,7 +25,6 @@ Before you start installing Azure AD Connect, make sure to [download Azure AD Co
 If express settings does not match your topology, see [related documentation](#related-documentation) for other scenarios.
 
 ## Express installation of Azure AD Connect
-You can see these steps in action in the [videos](#videos) section.
 
 1. Sign in as a local administrator to the server you wish to install Azure AD Connect on. You should do this on the server you wish to be the sync server.
 2. Navigate to and double-click **AzureADConnect.msi**.
