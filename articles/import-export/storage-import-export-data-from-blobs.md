@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/24/2021
+ms.date: 11/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -48,7 +48,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)<!--Border fixed manually. Check for issues.-->
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)
 
 1. Select **Create**.  
 
@@ -179,13 +179,13 @@ Perform the following steps to create an export job in the Azure portal using th
        * The name must start with a letter, and may not contain spaces.
 
    1. Select **Export from Azure**.
-   1. Select a **Source Azure region**. 
+   1. Select a **Source Azure region**.
    
       If the new import/export experience is available in the selected region, you'll see a note inviting you to try the new experience. Select **Try now**, and follow the steps on the **Portal (Preview)** tab of this section to try the new experience with this order.
 
-    ![Screenshot of the Basics tab for an Azure Import Export job. Export From Azure is selected. The Try Now link for the new import/export experience is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+   ![Screenshot of the Basics tab for an Azure Import Export job. Export From Azure is selected. The Try Now link for the new import/export experience is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Select **Next: Job Details >** to proceed.
+   Select **Next: Job Details >** to proceed.
 
 5. In **Job details**:
 
