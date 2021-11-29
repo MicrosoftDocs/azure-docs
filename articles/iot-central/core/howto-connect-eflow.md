@@ -169,9 +169,9 @@ You've now finished configuring your IoT Central application to enable an IoT Ed
    Deploy-Eflow
    ```
 
-Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously.
+1. Use the **ID scope**, **Device ID** and the **Primary Key** you made a note of previously.
 
- ```azurepowershell-interactive
+ ```powershell
    Provision-EflowVm -provisioningType DpsSymmetricKey -​scopeId <ID_SCOPE_HERE> -registrationId <DEVCIE_ID_HERE> -symmKey <PRIMARY_KEY_HERE>
    ```
 
