@@ -58,34 +58,6 @@ The following sample creates a new empty Log Analytics workspace.
         },
         "location": {
           "type": "string",
-          "allowedValues": [
-          "australiacentral", 
-          "australiaeast", 
-          "australiasoutheast", 
-          "brazilsouth",
-          "canadacentral", 
-          "centralindia", 
-          "centralus", 
-          "eastasia", 
-          "eastus", 
-          "eastus2", 
-          "francecentral", 
-          "japaneast", 
-          "koreacentral", 
-          "northcentralus", 
-          "northeurope", 
-          "southafricanorth", 
-          "southcentralus", 
-          "southeastasia",
-          "switzerlandnorth",
-          "switzerlandwest",
-          "uksouth", 
-          "ukwest", 
-          "westcentralus", 
-          "westeurope", 
-          "westus", 
-          "westus2" 
-          ],
           "metadata": {
               "description": "Specifies the location for the workspace."
               }
