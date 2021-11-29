@@ -53,6 +53,10 @@ Here is where you will define the data structure for the output of the external 
 
 ## Examples
 
+### Samples including data flow script
+
+:::image type="content" source="media/data-flow/external-call-002.png" alt-text="External call sample":::
+
 ```
 source(output(
 		id as string
@@ -104,4 +108,5 @@ ExternalCall1 sink(allowSchemaDrift: true,
 ## Next steps
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
-* Use the [Derived column transformation](data-flow-derived-column.md) to pivot columns to rows.
+* Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.
+* See the [REST source](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for more information on REST settings.
