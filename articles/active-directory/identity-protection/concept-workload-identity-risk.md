@@ -22,12 +22,12 @@ A key component to any organization’s Zero Trust approach must include securin
 Organizations can now view risky application or service principal accounts and risk detection events using two new Graph API collections:
 
 1.	One new detection, entitled Suspicious Sign-ins. This risk detection indicates sign-in properties or patterns that are unusual for this service principal and may be an indicator of compromise. The detection baselines sign-in behavior between 2 and 60 days, and fires if one or more of the following unfamiliar properties occur during a later sign-in:
-   1. IP address / ASN
-   1. Target resource
-   1. User agent
-   1. Hosting/non-hosting IP change
-   1. IP country
-   1. Credential type
+    1. IP address / ASN
+    1. Target resource
+    1. User agent
+    1. Hosting/non-hosting IP change
+    1. IP country
+    1. Credential type
 
       > [!IMPORTANT]
       > We mark accounts at high risk when this detection fires because this can indicate account takeover for the subject application. Legitimate changes to an application’s configuration sometimes trigger this detection. 
