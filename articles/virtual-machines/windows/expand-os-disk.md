@@ -132,8 +132,11 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 Remote into the VM, open **Computer Management** (or **Disk Management**) and expand the drive using the newly allocated space.
 
+## Expand the volume in the operating system
 
-## Expand the volume using Diskpart
+When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using [Using Diskpart](#using-diskpart) or [Using Disk Manager](#using-disk-manager).
+
+### Using Diskpart
 
 When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
@@ -147,7 +150,7 @@ When you have expanded the disk for the VM, you need to go into the OS and expan
 
 1. At the **DISKPART** prompt, type `extend [size=<size>]`. This extends the selected volume by *size* in megabytes (MB).
 
-## Expand the volume within the OS using Disk Manager
+### Using Disk Manager
 
 1. Start a remote desktop session with the VM.
 2. Open **Disk Management**.
