@@ -39,13 +39,12 @@ The key rotation policy allows users to configure rotation interval, expiration 
 Key rotation policy settings:
 
 -   Expiry time: key expiration interval. It is used to set expiration date on newly rotated key. It does not affect a current key.
--   Enable auto rotation: flag to enable/disable rotation for the key
--   Rotation Types:
+-   Enabled/disabled: flag to enable or disable rotation for the key
+-   Rotation types:
     -   Automatically renew at a given time after creation (default)
     -   Automatically renew at a given time before expiry. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key.
--   Rotation Time -- key rotation interval, he minimum value is 7 days from creation and 7 days from expiration time
--   Notification time -- near expiry event interval for event grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. For more information about event grid notifications in Key Vault, see
-[Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
+-   Rotation time: key rotation interval, he minimum value is 7 days from creation and 7 days from expiration time
+-   Notification time: key near expiry event interval for event grid notification. It requires 'Expiry Time' set on rotation policy and 'Expiration Date' set on the key. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
 
@@ -59,21 +58,29 @@ Automated key rotation policy can be configured during key creation.
 
 Key rotation policy can be set or updated on existing keys.
 
-:::image type="content" source="../media/keys/key-rotation/key-rotation-2.png" alt-text="Configure rotation on existing key":::
+:::image type="content" source="../media/keys/key-rotation/key-rotation-3.png" alt-text="Configure rotation on existing key":::
 
 ## Rotation on demand
 
-Rotation of the key can also be invoked manually.
+You can invoke rotation of the key manually.
 
 ### Portal
 Click 'Rotate Now' to invoke rotation
 
-:::image type="content" source="../media/keys/key-rotation/key-rotation-2.png" alt-text="Rotation on-demand":::
+:::image type="content" source="../media/keys/key-rotation/key-rotation-4.png" alt-text="Rotation on-demand":::
 
 ### Azure CLI
 ```azurecli
 az keyvault key rotate --vault-name <vault-name> --name <key-name>
 ```
+
+## Configure key near expiry notification
+Configuration of expiry notification for event grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
+
+:::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Rotation on-demand":::
+
+For more information about event grid notifications in Key Vault, see
+[Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
 
 ## Configure automated key rotation with ARM template
 
