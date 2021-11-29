@@ -34,7 +34,7 @@ If you experience a login problem presented by incorrect user credentials and ha
 > [!WARNING] 
 > VM sign-ins don't support per-user enabled or enforced Azure AD multifactor authentication. If you try to sign in with multifactor authentication on a VM, then you won't be able to sign in and will receive an error message.
 
-If you are able to access your AAD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactice user login event that is performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses AAD from. 
+If you are able to access your Azure AD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactive user login events that are performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses Azure AD from. 
 
 ```kusto
 let UPN = "userupn";
