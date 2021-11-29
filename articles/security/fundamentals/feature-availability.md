@@ -417,18 +417,18 @@ Microsoft Azure Attestation is a unified solution for remotely verifying the tru
 
 Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
 
-For more information, see Azure Attestation [public documentation](/azure/attestation/overview). 
+For more information, see Azure Attestation [public documentation](../../attestation/overview.md). 
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [Portal experience](/azure/attestation/quickstart-portal) to perform control-plane and data-plane operations | GA | - |
-| [PowerShell experience](/azure/attestation/quickstart-powershell) to perform control-plane and data-plane operations  | GA | GA |
+| [Portal experience](../../attestation/quickstart-portal.md) to perform control-plane and data-plane operations | GA | - |
+| [PowerShell experience](../../attestation/quickstart-powershell.md) to perform control-plane and data-plane operations  | GA | GA |
 | TLS 1.2 enforcement   | GA | GA |
 | BCDR support   | GA | - |
-| [Service tag integration](/azure/virtual-network/service-tags-overview) | GA | GA |
-| [Immutable log storage](/azure/attestation/audit-logs) | GA | GA |
+| [Service tag integration](../../virtual-network/service-tags-overview.md) | GA | GA |
+| [Immutable log storage](../../attestation/audit-logs.md) | GA | GA |
 | Network isolation using private link | Public Preview | - |
-| [FedRAMP High certification](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | GA | - |
+| [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
 | Customer lockbox | GA | - |
 
 ## Next steps

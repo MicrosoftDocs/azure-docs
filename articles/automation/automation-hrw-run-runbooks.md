@@ -29,7 +29,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 >[!NOTE]
 >  To run PowerShell 7.x on a Windows Hybrid Runbook Worker, See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install) 
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md) 
 
 Make sure the path where the *pwsh.exe* executable is located and is added to the PATH environment variable. Restart the Hybrid Runbook Worker after installation completes.
 
@@ -37,7 +37,7 @@ Make sure the path where the *pwsh.exe* executable is located and is added to th
 
 >[!NOTE]
 > To run PowerShell 7.x on a Linux Hybrid Runbook Worker, See [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install)
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md)
 
 
 Service accounts **nxautomation** and **omsagent** are created. The creation and permission assignment script can be viewed at [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.

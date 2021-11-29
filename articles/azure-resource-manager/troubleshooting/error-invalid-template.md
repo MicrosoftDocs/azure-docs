@@ -1,18 +1,19 @@
 ---
 title: Invalid template errors
-description: Describes how to resolve invalid template errors when deploying Azure Resource Manager templates.
+description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 11/11/2021
+ms.date: 11/15/2021
 ---
+
 # Resolve errors for invalid template
 
-This article describes how to resolve invalid template errors.
+This article describes how to resolve invalid template errors for Bicep files and Azure Resource Manager templates (ARM templates).
 
 ## Symptom
 
-When deploying a template, you receive an error indicating:
+When a template is deployed, you receive an error that indicates:
 
-```
+```Output
 Code=InvalidTemplate
 Message=<varies>
 ```
@@ -29,20 +30,29 @@ This error can result from several different types of errors. They usually invol
 
 If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
-```
+```Output
 Code=InvalidTemplate
 Message=Deployment template validation failed
 ```
 
-This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account has one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
+Syntax errors can occur because template expressions have many elements. For example, the name assignment for a storage account includes pairs of single or double quotes, curly braces, square brackets, and parentheses. Expressions also contain functions and characters like dollar signs, commas, and dots.
+
+
+# [Bicep](#tab/bicep)
+
+```bicep
+name: 'storage${uniqueString(resourceGroup().id)}'
+```
+
+# [JSON](#tab/json)
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 ```
 
-If you don't provide the matching syntax, the template produces a value that is different than your intention.
+---
 
-When you receive this type of error, carefully review the expression syntax. Consider using a JSON editor like [Visual Studio](../templates/create-visual-studio-deployment-project.md) or [Visual Studio Code](../templates/quickstart-create-templates-use-visual-studio-code.md), which can warn you about syntax errors.
+When you receive this type of error, review the expression's syntax. To identify template errors, you can use [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) or [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools).
 
 <a id="incorrect-segment-lengths"></a>
 
@@ -54,22 +64,22 @@ Another invalid template error occurs when the resource name isn't in the correc
 
 ## Solution 3 - parameter isn't valid
 
-If you provide a parameter value that isn't one of the allowed values, you receive a message similar to the following error:
+You can specify a parameter's allowed values in a template. During deployment, if you provide a value that isn't an allowed value, you receive a message similar to the following error:
 
-```
+```Output
 Code=InvalidTemplate;
 Message=Deployment template validation failed: 'The provided value {parameter value}
 for the template parameter {parameter name} is not valid. The parameter value is not
 part of the allowed values
 ```
 
-Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](../templates/syntax.md#parameters).
+Check the template for the parameter's allowed values, and use an allowed value during deployment. For more information, see allowed values for [Bicep](../bicep/parameters.md#allowed-values) or [ARM templates](../templates/parameters.md#allowed-values).
 
 <a id="too-many-resource-groups"></a>
 
 ## Solution 4 - Too many target resource groups
 
-You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see [Deploy Azure resources to more than one subscription or resource group](../templates/deploy-to-resource-group.md).
+You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see how to deploy to multiple resource groups for [Bicep](../bicep/deploy-to-resource-group.md#deploy-to-multiple-resource-groups) or [ARM templates](../templates/deploy-to-resource-group.md#deploy-to-multiple-resource-groups).
 
 <a id="circular-dependency"></a>
 
@@ -77,26 +87,28 @@ You may see this error in earlier deployments because you were limited to five t
 
 You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
 
+Bicep creates an implicit dependency when one resource uses the symbolic name of another resource. An explicit dependency using `dependsOn` usually isn't necessary. For more information, see Bicep [dependencies](../bicep/resource-declaration.md#dependencies).
+
 To solve a circular dependency:
 
 1. In your template, find the resource identified in the circular dependency.
-2. For that resource, examine the **dependsOn** property and any uses of the **reference** function to see which resources it depends on.
-3. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-5. For the resources involved in the circular dependency, carefully examine all uses of the **dependsOn** property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
-6. Redeploy the template.
+1. For that resource, examine the `dependsOn` property and any uses of the `reference` function to see which resources it depends on.
+1. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
+1. For the resources involved in the circular dependency, carefully examine all uses of the `dependsOn` property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
+1. Redeploy the template.
 
-Removing values from the **dependsOn** property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
+Removing values from the `dependsOn` property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
 
 If that approach doesn't solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 
 1. vm1
-2. vm2
-3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
-4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
+1. vm2
+1. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
+1. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
 The same approach works for App Service apps. Consider moving configuration values into a child resource of the app resource. You can deploy two web apps in the following order:
 
 1. webapp1
-2. webapp2
-3. config for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
-4. config for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
+1. webapp2
+1. Configuration for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
+1. Configuration for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
