@@ -81,8 +81,8 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
 
 Select one of the following tabs, depending on whether you'll be using a public or private endpoint.
 
-- We recommend using a [[public endpoint](#tab/public-endpoint)](#public-endpointtabpublic-endpoint) if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
-- If you want to use an Azure ML workspace in a virtual network, use a [private endpoint(#tab/private-endpoint)](#private-endpointtabprivate-endpoint).
+- We recommend using a *public endpoint* if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
+- If you want to use an Azure ML workspace in a virtual network, use a *private endpoint*.
 
 # [Public endpoint](#tab/public-endpoint)
 
@@ -113,7 +113,7 @@ Select one of the following tabs, depending on whether you'll be using a public 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
 
-# [Private endpoint](#tab/windows)
+# [Private endpoint](#tab/private-endpoint)
 
 The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure ML workspace](/azure/machine-learning/tutorial-create-secure-workspace).
 
