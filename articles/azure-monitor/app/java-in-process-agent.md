@@ -208,7 +208,7 @@ Telemetry emitted by these Azure SDKs is autocollected by default:
 
 ## Modify telemetry
 
-This section gives guidance on how you can modify telemetry.
+This section explains how to modify telemetry.
 
 ### Add span attributes
 
