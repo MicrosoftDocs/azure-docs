@@ -74,7 +74,7 @@ This feature is available only when the spending limit has been removed indefini
     > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
 1. In the Subscription overview, select the banner at the top of the page to turn the spending limit back on.  
     :::image type="content" source="./media/spending-limit/turn-on-spending-limit.png" alt-text="Screenshot showing the enable spending limit banner." lightbox="./media/spending-limit/turn-on-spending-limit.png" :::
-1. When prompted, with **Are you sure you want to turn the spending limit on**, select **Yes**.
+1. When prompted with **Are you sure you want to turn the spending limit on**, select **Yes**.
 
 ## Custom spending limit
 
