@@ -6,16 +6,14 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/18/2021
-
+ms.date: 11/30/2021
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 ## Release: November 2021
 
@@ -78,7 +76,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
 * Support for [built-in PgBouncer](./concepts-pgbouncer.md) connection pooler. 
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
-* [Intelligent performance](concepts-query-store.md) in public preview.
+* [Intelligent performance](concepts-query-store.md) .
 * Several bug fixes, stability and performance improvements.
 
 ## Release: October 2020 - March 2021
