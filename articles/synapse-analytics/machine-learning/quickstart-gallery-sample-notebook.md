@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: 
 ms.date: 06/11/2021
-author: garyericson
-ms.author: garye
+author: rothja
+ms.author: jroth
 ms.custom: mode-other
 ---
 
