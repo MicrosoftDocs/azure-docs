@@ -14,7 +14,7 @@ ms.service: azure-communication-services
 ---
 
 # Number Types
-Azure Communication Services offers three types of Numbers–Toll-Free, Local, and Short Codes.
+Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
 -	**To send or receive an SMS**, choose a Toll-Free Number or a Short Code
 -	**To make or receive phone calls**, choose a Toll-Free Number or a Local Number
 
