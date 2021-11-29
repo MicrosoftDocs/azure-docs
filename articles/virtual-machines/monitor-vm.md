@@ -54,7 +54,7 @@ After VM insights is enabled, install the [Azure Monitor agent](../azure-monitor
 ## Analyze metrics
 Metrics are numerical values that describe some aspect of a system at a particular point in time. Platform metrics for the virtual machine host are collected automatically, while you must [install the Azure Monitor agent](#collect-guest-metrics-and-logs) to collect guest metrics. 
 
-The **Overview** page includes the most common host metrics, you can access others using metrics explorer.  This tool allows you to create charts from metric values and visually correlate trends. You can create also create a metric alert rule or pin a chart to an Azure dashboard. See [Analyze metrics for an Azure resource](/azure-monitor/essentials/tutorial-metrics) for a tutorial on using this tool.
+The **Overview** page includes the most common host metrics, you can access others using metrics explorer.  This tool allows you to create charts from metric values and visually correlate trends. You can create also create a metric alert rule or pin a chart to an Azure dashboard. See [Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics) for a tutorial on using this tool.
 
 :::image type="content" source="media/monitor-vm/metrics-explorer.png" lightbox="media/monitor-vm/metrics-explorer.png" alt-text="Metrics explorer":::
 
