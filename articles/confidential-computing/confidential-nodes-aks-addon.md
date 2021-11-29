@@ -142,4 +142,4 @@ spec:
 - [DCsv2 SKU List](../virtual-machines/dcv2-series.md)
 - [DCSv3 SKU List](../virtual-machines/dcv3-series.md)
 - [Azure Attestation](../attestation/index.yml)
-- [Intel SGX Confidential Virtual Machines on Azure](/virtual-machine-solutions-sgx.md)
+- [Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)
