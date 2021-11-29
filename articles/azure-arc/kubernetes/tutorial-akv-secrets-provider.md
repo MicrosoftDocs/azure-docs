@@ -378,4 +378,4 @@ Additional troubleshooting steps that are specific to the Secrets Store CSI Driv
 ## Next steps
 
 > **Just want to try things out?**  
-> Get started quickly with an [Azure Arc Jumpstart]() scenario using Cluster API.
+> Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
