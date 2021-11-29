@@ -40,9 +40,9 @@ This quickstart uses the [Creates a lab with a claimed VM](https://azure.microso
 
 - For more information about creating and deploying ARM templates, see:
 
-  - [Create your first Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-  - [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md)
-  - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+  - [Create your first Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+  - [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md).
+  - [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## Deploy the template
 
@@ -56,9 +56,11 @@ This quickstart uses the [Creates a lab with a claimed VM](https://azure.microso
 
    1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
 
-   1. Type *devtest labs* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template.
+   1. Type *devtest* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template from the popup list.
 
    1. Select **Select template**. You can also select **Edit template** to make your own modifications to the template.
+
+      :::image type="content" source="./media/create-lab-windows-vm-template/custom-deployment.png" alt-text="Screenshot of selecting the template on the Custom deployment page.":::
 
 1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, fill out the following items:
 
