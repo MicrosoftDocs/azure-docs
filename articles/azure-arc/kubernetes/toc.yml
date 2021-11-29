@@ -81,6 +81,8 @@
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Deploy Azure Arc-enabled Open Service Mesh
       href: tutorial-arc-enabled-open-service-mesh.md
+    - name: Access secrets from Azure Key Vault
+      href: tutorial-akv-secrets-provider.md
   - name: Deploy Arc-enabled services
     items:
       - name: Create custom locations
