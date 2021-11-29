@@ -20,7 +20,7 @@ Key Vault client library resources:
 
 For more information about Key Vault and certificates, see:
 - [Key Vault Overview](../general/overview.md)
-- [Certificates Overview](about-certificates.md).
+- [Certificates Overview](about-certificates.md)
 
 ## Prerequisites
 
