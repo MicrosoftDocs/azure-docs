@@ -19,19 +19,19 @@ This table shows which listing options are available for each offer type:
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (Managed app) |   | &#10004; |   | &#10004; |
 | Azure Application (Solution template) |  |  |  | &#10004; |
-| Consulting service |  |  | &#10004; |  |
 | Azure Container |  |  |  | &#10004; |
-| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| Consulting service |  |  | &#10004; |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
 | Dynamics 365 Customer Engagement & Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 for Operations | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge module |  |  |  | &#10004; |
 | Managed Service |  |  |  | &#10004; |
 | Power BI App |  |  |  | &#10004; |
-| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-&#42; The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
+\* The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
 
 ## Change the offer type
 

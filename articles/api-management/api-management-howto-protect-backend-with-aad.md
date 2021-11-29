@@ -3,11 +3,11 @@ title: Protect API backend in API Management using OAuth 2.0 and Azure Active Di
 titleSuffix: Azure API Management
 description: Learn how to secure user access to a web API backend in Azure API Management and the developer portal with OAuth 2.0 user authorization and Azure Active Directory.
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 09/17/2021
-ms.author: apimpm
+ms.author: danlep
 ms.custom: contperf-fy21q1
 ---
 
@@ -132,7 +132,7 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, you enable OAuth 2.0 user authorization in the Developer Console (the client app).
 
-1. In the Azure portal, find and the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
+1. In the Azure portal, find the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
     1. Open the **App registrations** page. 
     1. Select **Endpoints**.
     1. Copy the **OAuth 2.0 Authorization Endpoint** and the **OAuth 2.0 Token Endpoint**. 
@@ -241,7 +241,7 @@ The following example policy, when added to the `<inbound>` policy section, chec
     <openid-config url="https://login.microsoftonline.com/{aad-tenant}/v2.0/.well-known/openid-configuration" />
     <required-claims>
         <claim name="aud">
-            <value>insert aud claim value expected in the token</value>
+            <value>{backend-api-application-client-id}</value>
         </claim>
     </required-claims>
 </validate-jwt>

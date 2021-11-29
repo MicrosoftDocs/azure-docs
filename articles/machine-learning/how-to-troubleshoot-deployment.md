@@ -4,10 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Learn how to work around, solve, and troubleshoot some common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: gvashishtha
-ms.author:  gopalv
-ms.date: 11/25/2020
+ms.subservice: mlops
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.

@@ -16,6 +16,8 @@ ms.date: 09/09/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
 Use the rank transformation to generate an ordered ranking based upon sort conditions specified by the user. 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GGJo]

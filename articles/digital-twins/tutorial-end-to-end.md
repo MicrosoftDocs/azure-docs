@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
-description: Tutorial to build out an end-to-end Azure Digital Twins solution that's driven by device data.
+description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/23/2021
+ms.date: 10/19/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Tutorial: Build out an end-to-end solution
 
-To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
+This Azure Digital Twins tutorial describes how to build out an end-to-end solution that demonstrates the functionality of the service. To set up a full end-to-end solution driven by live data from your environment, you can connect your Azure Digital Twins instance to other Azure services for management of devices and data.
 
 In this tutorial, you will...
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Here are the components implemented by the building scenario *AdtSampleApp* samp
 * [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * *SampleClientApp* - A sample Azure Digital Twins solution
-* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph as a result of telemetry from IoT Hub and Azure Digital Twins events
+* *SampleFunctionsApp* - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 
@@ -85,12 +85,7 @@ You can verify the twins that were created by running the following command, whi
 Query
 ```
 
->[!TIP]
-> This simplified method is provided as part of the _**AdtE2ESample**_ project. Outside the context of this sample code, you can query for all the twins in your instance at any time, using the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
->
-> Here is the full query body to get all digital twins in your instance:
-> 
-> :::code language="sql" source="~/digital-twins-docs-samples/queries/examples.sql" id="GetAllTwins":::
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 You can now stop running the project. Keep the solution open in Visual Studio, though, as you'll continue using it throughout the tutorial.
 
@@ -400,7 +395,7 @@ Back on the *Create Event Subscription* page, select **Create**.
 
 ## Run the simulation and see the results
 
-Now, events should be able to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
+Now, events should have the capability to flow from the simulated device into Azure Digital Twins, and through the Azure Digital Twins graph to update twins as appropriate. In this section, you'll run the device simulator again to kick off the full event flow you've set up, and query Azure Digital Twins to see the live results
 
 Go to your Visual Studio window where the _**DeviceSimulator**_ project is open, and run the project.
 

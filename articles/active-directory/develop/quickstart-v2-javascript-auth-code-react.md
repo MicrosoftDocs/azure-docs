@@ -5,14 +5,13 @@ description: In this quickstart, learn how a JavaScript React single-page applic
 services: active-directory
 author: j-mantu
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/09/2021
 ms.author: jamesmantu
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
@@ -46,7 +45,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. When the **Register an application** page appears, enter a name for your application.

@@ -5,8 +5,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang:
 ms.topic: how-to
-author: JasonMAnderson
-ms.author: janders
+author: rothja
+ms.author: jroth
 ms.reviewer: vanto
 ms.date: "09/09/2021"
 ---

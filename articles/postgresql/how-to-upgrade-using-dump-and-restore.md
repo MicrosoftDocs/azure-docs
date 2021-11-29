@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 11/30/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
 
 >[!NOTE]
-> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview). 
+> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
@@ -94,7 +94,7 @@ To dump all the roles from the source server:
 pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
-and restore it using psql to the target server:
+Edit the `roles.sql` and remove references of `NOSUPERUSER` and `NOBYPASSRLS` before restoring the content using psql in the target server:
 
 ```azurecli-interactive
 psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser

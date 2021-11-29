@@ -5,14 +5,13 @@ description: In this quickstart, learn how a JavaScript Angular single-page appl
 services: active-directory
 author: j-mantu
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/09/2021
 ms.author: jamesmantu
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript Angular app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
@@ -47,7 +46,7 @@ This quickstart uses MSAL Angular v2 with the authorization code flow.
 > #### Step 1: Register your application
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.

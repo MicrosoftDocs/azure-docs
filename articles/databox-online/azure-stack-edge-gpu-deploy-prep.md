@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -67,7 +67,7 @@ Before you begin, make sure that:
 - You have owner or contributor access at resource group level for the Azure Stack Edge Pro, IoT Hub, and Azure Storage resources.
 
     - To create any Azure Stack Edge resource, you should have permissions as a contributor (or higher) scoped at resource group level. 
-    - You also need to make sure that the `Microsoft.DataBoxEdge` and `MicrosoftKeyVault` resource providers are registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. 
+    - You also need to make sure that the `Microsoft.DataBoxEdge` and `Microsoft.KeyVault` resource providers are registered. To create any IoT Hub resource, `Microsoft.Devices` provider should be registered. 
         - To register a resource provider, in the Azure portal, go to **Home > Subscriptions > Your-subscription > Resource providers**. 
         - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
@@ -133,6 +133,9 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
    ![Screenshot of Get Started screen in Azure Stack Edge. The "Order using classic ordering experience" link is highlighted.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
+
+    >[!NOTE] 
+    > Classic experience will soon be removed. Beginning December 2021, orders can be created only using the Azure Edge Hardware Center.
 
     ![Screenshot of "Select device type" screen to select a subscription and ship to region for an Azure Stack Edge resource. The Show Devices button is highlighted.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 

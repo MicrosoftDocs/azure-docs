@@ -3,12 +3,12 @@ title: Update Azure PowerShell modules in Azure Automation
 description: This article tells how to update common Azure PowerShell modules provided by default in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/16/2021
+ms.date: 09/24/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Update Azure Automation PowerShell modules
+# Update Azure PowerShell modules in Automation
 
 The most common PowerShell modules are provided by default in each Automation account. See [Default modules](shared-resources/modules.md#default-modules). As the Azure team updates the Azure modules regularly, changes can occur with the included cmdlets. These changes, for example, renaming a parameter or deprecating a cmdlet entirely, can negatively affect your runbooks. 
 
@@ -25,6 +25,26 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
+
+## Update Az modules
+
+Currently, updating AZ modules is only available through the portal. Updates through PowerShell and ARM template will be available in the future. Only default Az modules will be updated when performing the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
+1. Under **Shared Resources**, select **Modules**.
+1. Select **Update Az modules**.
+1. Select **Module to Update**. By default, it will show Az module.  
+1. From the drop-down list, select **Module Version** and **Runtype version**
+1. Select **Update** to update the Az module to the version that you’ve selected.
+   On the **Modules** page, you can view the list as shown below:
+
+   :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="Update AZ modules page with selections.":::
+
+If you select a version lower than the existing Az module version imported in the Automation account, the update operation will perform a rollback to the selected lower version.  
+
+You can verify the update operation by checking the Module version and Status property of the updated modules shown in the list of **modules** under **PowerShell modules**. 
+
+The Azure team will regularly update the module version and provide an option to update the **default** Az modules by selecting the module version from the drop-down list.  
 
 ## Obtain a runbook to use for updates
 

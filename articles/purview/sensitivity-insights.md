@@ -4,17 +4,21 @@ description: This how-to guide describes how to view and use Purview Sensitivity
 author: batamig
 ms.author: bagol
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-insights
 ms.topic: how-to
-ms.date: 01/17/2021
+ms.date: 09/27/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+ms.custom: ignite-fall-2021
 ---
 
 # Sensitivity label insights about your data in Azure Purview
 
 This how-to guide describes how to access, view, and filter security insights provided by sensitivity labels applied to your data.
 
-Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets
+> [!IMPORTANT]
+> Azure Purview Sensitivity Label Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, SQL Server, Azure SQL Database, Azure SQL Managed Instance, Amazon S3 buckets, Amazon RDS databases (public preview), Power BI
 
 In this how-to guide, you'll learn how to:
 
@@ -23,11 +27,7 @@ In this how-to guide, you'll learn how to:
 > - View sensitivity labeling insights on your data
 > - Drill down for more sensitivity labeling details on your data
 
-> [!NOTE]
-> Sensitivity labels found on [Power BI assets](register-scan-power-bi-tenant.md) that are scanned by Purview are not currently shown in the Sensitivity labeling Insights report. 
->
-> To view sensitivity labels on Power BI assets, view the asset in the [Purview Data Catalog](how-to-search-catalog.md).
-> 
+ 
 ## Prerequisites
 
 Before getting started with Purview insights, make sure that you've completed the following steps:
@@ -36,11 +36,11 @@ Before getting started with Purview insights, make sure that you've completed th
 
 - [Extended Microsoft 365 sensitivity labels to assets in Azure Purview](create-sensitivity-label.md), and created or selected the labels you want to apply to your data.
 
-- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
+- Set up and completed a scan on the test data in each data source. For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Create a scan rule set](create-a-scan-rule-set.md).
 
 - Signed in to Purview with account with a [Data Reader or Data Curator role](catalog-permissions.md#roles).
 
-For more information, see [Manage data sources in Azure Purview (Preview)](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
+For more information, see [Manage data sources in Azure Purview](manage-data-sources.md) and [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
 ## Use Purview Sensitivity labeling insights
 
@@ -70,7 +70,7 @@ Purview uses the same classifications, also known as [sensitive information type
     > [!NOTE]
     > If this report is empty, you may not have extended your sensitivity labels to Azure Purview. For more information, see [Automatically label your data in Azure Purview](create-sensitivity-label.md).
 
-   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights" lightbox="media/insights/sensitivity-labeling-insights.png":::
+   :::image type="content" source="media/insights/sensitivity-labeling-insights-small.png" alt-text="Sensitivity labeling insights":::
 
    The main **Sensitivity labeling insights** page displays the following areas:
 
@@ -95,7 +95,7 @@ In any of the following **Sensitivity labeling insights** graphs, select the **V
 
 For example:
 
-:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown" lightbox="media/insights/sensitivity-label-drilldown.png":::
+:::image type="content" source="media/insights/sensitivity-label-drilldown-small.png" alt-text="Sensitivity label drilldown":::
 
 Do any of the following to learn more:
 
@@ -123,4 +123,3 @@ Learn more about these Azure Purview insight reports:
 - [Glossary insights](glossary-insights.md)
 - [Scan insights](scan-insights.md)
 - [Classification insights](./classification-insights.md)
-- [File extension insights](file-extension-insights.md)

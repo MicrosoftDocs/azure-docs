@@ -47,6 +47,7 @@ The following table lists the currently available versions of the default *Micro
 | --- | --- | --- |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v2.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
+| 3.x | `[3.3.0, 4.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v3.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle |
 
 > [!NOTE]
 > While you can a specify custom version range in host.json, we recommend you use a version value from this table.
@@ -65,7 +66,7 @@ The following items describe some reasons you might need to install extensions m
 * You need to access a specific combination of extensions not available in a single bundle.
 
 > [!NOTE]
-> To manually install extensions by using Core Tools, you must have the [.NET Core 2.x SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
+> To manually install extensions by using Core Tools, you must have the [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) installed. The .NET Core SDK is used by Azure Functions Core Tools to install extensions from NuGet. You don't need to know .NET to use Azure Functions extensions.
 
 When you explicitly install extensions, a .NET project file named extensions.csproj is added to the root of your project. This file defines the set of NuGet packages required by your functions. While you can work with the [NuGet package references](/nuget/consume-packages/package-references-in-project-files) in this file, Core Tools lets you install extensions without having to manually edit the file.
 
@@ -88,7 +89,7 @@ If your function app uses bindings that Core Tools does not recognize, you must 
 Use the following command to install a specific extension package at a specific version, in this case the Storage extension:
 
 ```command
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 4.0.2
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.Storage --version 5.0.0
 ```
 
 To learn more, see the [`func extensions install` command](functions-core-tools-reference.md#func-extensions-install).

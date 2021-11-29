@@ -170,8 +170,8 @@ To configure your NTFS permissions:
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
 
-     - Replace <mounted-drive-letter> with the letter of the drive you used to map the drive.
-     - Replace <user-email> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
+     - Replace \<mounted-drive-letter\> with the letter of the drive you used to map the drive.
+     - Replace \<user-email\> with the UPN of the user or Active Directory group that contains the users that will require access to the share.
 
      For example:
 

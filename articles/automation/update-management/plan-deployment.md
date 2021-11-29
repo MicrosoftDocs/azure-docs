@@ -3,7 +3,7 @@ title: Azure Automation Update Management Deployment Plan
 description: This article describes the considerations and decisions to be made to prepare deployment of Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.topic: conceptual
 ---
 
@@ -51,9 +51,9 @@ If your IT security policies do not allow machines on the network to connect to 
 
 To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access - Update Management](../automation-role-based-access-control.md#update-management-permissions).
 
-## Step 7 - Windows Update client
+## Step 7 - Windows Update Agent
 
-Azure Automation Update Management relies on the Windows Update client to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
+Azure Automation Update Management relies on the Windows Update Agent to download and install Windows updates. There are specific group policy settings that are used by Windows Update Agent (WUA) on machines to connect to Windows Server Update Services (WSUS) or Microsoft Update. These group policy settings are also used to successfully scan for software update compliance, and to automatically update the software updates. To review our recommendations, see [Configure Windows Update settings for Update Management](configure-wuagent.md).
 
 ## Step 8 - Linux repository
 
@@ -80,7 +80,7 @@ Enable Update Management and select machines to be managed using one of the foll
 
 - Using an Azure [Resource Manager template](enable-from-template.md) to deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
-- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc-enabled servers.
+- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc-enabled servers.
 
 - Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) to automate onboarding Azure VMs.
 

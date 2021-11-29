@@ -19,6 +19,9 @@ Azure Communication Services is committed to helping our customers meet their pr
 
 When creating an Communication Services resource, you specify a **geography** (not an Azure data center). All chat messages, and resource data stored by Communication Services at rest will be retained in that geography, in a data center selected internally by Communication Services. Data may transit or be processed in other geographies. These global endpoints are necessary to provide a high-performance, low-latency experience to end-users no matter their location.
 
+> [!NOTE]
+> For PSTN & SMS, call and message data records required for the operation and billing of the service, may be stored in the United States.
+
 ## Data collection
 
 Azure Communication Services only collects diagnostic data required to deliver the service. 
@@ -39,7 +42,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
@@ -56,7 +59,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. A fully idle thread with no participants will be automatically deleted after 30 days. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
+Chat threads and messages are retained until explicitly deleted. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
@@ -71,11 +74,11 @@ Sent and received SMS messages are ephemerally processed by the service and not 
 
 ### PSTN voice calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
 
 ### Internet voice and video calling
 
-Audio and video communication is ephemerally processed by the service and no data is retained in your resource other than Azure Monitor logs.
+Audio and video communication is ephemerally processed by the service and no call processing data is retained in your resource other than Azure Monitor logs.
 
 ### Call Recording
 

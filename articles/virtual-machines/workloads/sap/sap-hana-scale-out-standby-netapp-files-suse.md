@@ -1,13 +1,9 @@
 ---
 title: SAP HANA scale-out with standby with Azure NetApp Files on SLES | Microsoft Docs
 description: Learn how to deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on SUSE Linux Enterprise Server.
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -556,7 +552,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
      * For **Root User Password**: enter the root user's password
      * For roles for host hanadb2: enter **1**  (for worker)
      * For **Host Failover Group** for host hanadb2 [default]: press Enter to accept the default
-     * For **Storage Partition Number** for host hanadb2 [<<assign automatically>>]: press Enter to accept the default
+     * For **Storage Partition Number** for host hanadb2 [\<\<assign automatically\>\>]: press Enter to accept the default
      * For **Worker Group** for host hanadb2 [default]: press Enter to accept the default
      * For **Select roles** for host hanadb3: enter **2** (for standby)
      * For **Host Failover Group** for host hanadb3 [default]: press Enter to accept the default

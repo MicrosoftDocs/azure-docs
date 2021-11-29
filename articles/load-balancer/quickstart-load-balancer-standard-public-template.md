@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
-ms.custom: mvc,subject-armqs
-
+ms.custom: mvc, subject-armqs, mode-other
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs by using an ARM template
@@ -51,7 +50,7 @@ Multiple Azure resources have been defined in the template:
 - [**Microsoft.Network/bastionHosts**](/azure/templates/microsoft.network/bastionhosts)
 - [**Microsoft.Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines) (3).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3).
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3): use to configure the Internet Information Server (IIS), and the web pages.
 

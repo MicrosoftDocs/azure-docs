@@ -3,7 +3,7 @@ title: How to delegate user registration and product subscription
 description: Learn how to delegate user registration and product subscription to a third party in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2021
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # How to delegate user registration and product subscription
@@ -149,7 +149,7 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
 These code samples show how to:
 
-* Take the *delegation validation key*, which is set in the **Delegation** screen of the publisher portal.
+* Take the *delegation validation key*, which is set in the **Delegation** screen of the Azure portal.
 * Create an HMAC, which validates the signature, proving the validity of the passed returnUrl.
 
 With slight modification, you can use the same code for the **productId** and **userId**.

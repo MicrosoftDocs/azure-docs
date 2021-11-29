@@ -1,16 +1,15 @@
 ---
-title: Quickstart - Create a blob with Azure CLI
+title: 'Quickstart: Upload, download, and list blobs - Azure CLI'
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure CLI upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
-
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.author: tamram 
-ms.custom: devx-track-azurecli
+ms.author: tamram
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create, download, and list blobs with Azure CLI
@@ -64,7 +63,7 @@ az storage account create \
 
 Blobs are always uploaded into a container. You can organize groups of blobs in containers similar to the way you organize your files on your computer in folders. Create a container for storing blobs with the [az storage container create](/cli/azure/storage/container) command.
 
-The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even if you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).  
+The following example uses your Azure AD account to authorize the operation to create the container. Before you create the container, assign the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role to yourself. Even if you are the account owner, you need explicit permissions to perform data operations against the storage account. For more information about assigning Azure roles, see [Assign an Azure role for access to blob data](assign-azure-role-data-access.md).
 
 Remember to replace placeholder values in angle brackets with your own values:
 

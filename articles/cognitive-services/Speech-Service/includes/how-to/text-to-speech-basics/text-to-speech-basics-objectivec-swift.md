@@ -1,9 +1,9 @@
 ---
-author: v-demjoh
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 9/22/2020
-ms.author: v-demjoh
+ms.author: eric-urban
 ---
 
 You can synthesize speech from text using the Speech SDK for Swift and Objective-C.

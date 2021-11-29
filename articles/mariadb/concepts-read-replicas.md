@@ -18,7 +18,7 @@ Replicas are new servers that you manage similar to regular Azure Database for M
 To learn more about GTID replication, see the [MariaDB replication documentation](https://mariadb.com/kb/en/library/gtid/).
 
 > [!NOTE]
-> This article contains references to the term _slave_, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 ## When to use a read replica
 

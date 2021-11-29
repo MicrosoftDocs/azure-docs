@@ -3,7 +3,7 @@ title: Azure Arc-enabled Kubernetes
 summary: Learn how to manage Kubernetes clusters with Azure Arc
 
 metadata:
-  title: Azure Arc–enabled Kubernetes
+  title: Azure Arc-enabled Kubernetes
   description: Learn about how to manage on-premises machines in Azure
   author: shashankbarsin
   ms.service: azure-arc
@@ -22,8 +22,8 @@ landingContent:
             url: validation-program.md
       - linkListType: concept
         links:
-          - text: Agent architecture
-            url: conceptual-agent-architecture.md
+          - text: Agent overview
+            url: conceptual-agent-overview.md
           - text: Configurations and GitOps
             url: conceptual-configurations.md
           - text: CI/CD workflow using GitOps

@@ -107,7 +107,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     `http://<company name>.my.salesforce.com`
     
     > [!NOTE] 
-    > This value is not real. Update this value with the actual Sign-On URL. Get this value by [Jobscience Client support team](http://www.jobscience.com/support) or from the SSO profile you will create which is explained later in the tutorial. 
+    > This value is not real. Update this value with the actual Sign-On URL. Get this value by [Jobscience Client support team](https://www.bullhorn.com/technical-support/) or from the SSO profile you will create which is explained later in the tutorial. 
  
 1. On the **SAML Signing Certificate** section, click **Certificate (Base64)** and then save the certificate file on your computer.
 

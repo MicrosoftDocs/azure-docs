@@ -10,14 +10,14 @@ ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: mathoma
-ms.date: 09/25/2018
+ms.date: 10/18/2021
 ---
 # Manage historical data in Temporal tables with retention policy
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Temporal tables may increase database size more than regular tables, especially if you retain historical data for a longer period of time. Hence, retention policy for historical data is an important aspect of planning and managing the lifecycle of every temporal table. Temporal tables in Azure SQL Database and Azure SQL Managed Instance come with easy-to-use retention mechanism that helps you accomplish this task.
 
-Temporal history retention can be configured at the individual table level, which allows users to create flexible aging polices. Applying temporal retention is simple: it requires only one parameter to be set during table creation or schema change.
+Temporal history retention can be configured at the individual table level, which allows users to create flexible aging policies. Applying temporal retention is simple: it requires only one parameter to be set during table creation or schema change.
 
 After you define retention policy, Azure SQL Database and Azure SQL Managed Instance starts checking regularly if there are historical rows that are eligible for automatic data cleanup. Identification of matching rows and their removal from the history table occur transparently, in the background task that is scheduled and run by the system. Age condition for the history table rows is checked based on the column representing end of SYSTEM_TIME period. If retention period, for example, is set to six months, table rows eligible for cleanup satisfy the following condition:
 
@@ -179,7 +179,5 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 ## Next steps
 
 To learn how to use temporal tables in your applications, check out [Getting Started with Temporal Tables](../temporal-tables.md).
-
-Visit Channel 9 to hear a [customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 For detailed information about temporal tables, review [Temporal tables](/sql/relational-databases/tables/temporal-tables).

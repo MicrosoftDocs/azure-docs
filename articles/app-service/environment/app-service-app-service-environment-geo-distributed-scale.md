@@ -1,19 +1,18 @@
 ---
 title: Geo distributed scale
 description: Learn how to horizontally scale apps using geo-distribution with Traffic Manager and App Service Environments.
-author: stefsch
+author: madsd
 
 ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
-ms.author: stefsch
+ms.author: madsd
 ms.custom: seodec18, references_regions, devx-track-azurepowershell
 
 ---
 # Geo Distributed Scale with App Service Environments
 ## Overview
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Application scenarios that require very high scale can exceed the compute resource capacity available to a single deployment of an app.  Voting applications, sporting events, and televised entertainment events are all examples of scenarios that require extremely high scale. High scale requirements can be met by horizontally scaling out apps. To handle extreme load requirements, many app deployments can be made within a single region and across regions.
 

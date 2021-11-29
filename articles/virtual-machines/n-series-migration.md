@@ -1,12 +1,10 @@
 ---
 title: Migration Guide for GPU Compute Workloads in Azure
 description: NC, ND, NCv2-series migration guide.
-author: iafinder
 ms.service: virtual-machines
 ms.subservice: vm-sizes-gpu
 ms.topic: conceptual
 ms.date: 08/15/2020
-ms.author: iafinder
 ---
  
 # Migration Guide for GPU Compute Workloads in Azure

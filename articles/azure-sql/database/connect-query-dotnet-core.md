@@ -5,7 +5,7 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: connect
-ms.custom: "sqldbrb=2, devx-track-csharp"
+ms.custom: sqldbrb=2, devx-track-csharp, mode-other
 ms.devlang: dotnet
 ms.topic: quickstart
 author: dzsquared

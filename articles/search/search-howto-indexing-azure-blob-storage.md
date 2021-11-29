@@ -3,9 +3,10 @@ title: Index data from Azure Blob Storage
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Blob indexer to automate indexing of blob content for full text search operations and knowledge mining in Azure Cognitive Search.
 
+author: gmndrg
+ms.author: gimondra
 manager: nitinme
-author: MarkHeff
-ms.author: maheff
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/14/2021
@@ -28,7 +29,7 @@ This article uses the REST APIs.
 
 ## Supported access tiers
 
-Blob storage [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
+Blob storage [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers. 
 
 <a name="SupportedFormats"></a>
 

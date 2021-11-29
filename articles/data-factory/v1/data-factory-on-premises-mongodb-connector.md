@@ -4,8 +4,9 @@ description: Learn about how to move data from MongoDB database using Azure Data
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 10/22/2021
 ---
 
 # Move data From MongoDB using Azure Data Factory

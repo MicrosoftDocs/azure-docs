@@ -5,12 +5,12 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 11/30/2021
 ---
 
-# Networking overview for Azure Database for PostgreSQL - Flexible Server (preview)
+# Networking overview for Azure Database for PostgreSQL - Flexible Server 
 
-This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. The Flexible Server deployment option is in preview.
+This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 
 When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses)**. 
 
@@ -69,7 +69,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
   At this time, we don't support NSGs where an ASG is part of the rule with Azure Database for PostgreSQL - Flexible Server. We currently advise using [IP-based source or destination filtering](../../virtual-network/network-security-groups-overview.md#security-rules) in an NSG. 
 
   > [!IMPORTANT]
-  > High availability Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to destination ports 5432, 6432 within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to Azure storage for log archival. If you create [Network Security Groups (NSG)](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview) to deny  traffic flow  to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please make sure to allow traffic to  destination ports 5432 and 6432 within the subnet, and also to Azure storage by using [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) Azure Storage as destination. 
+  > High availability Features of Azure Database for PostgreSQL - Flexible Server require ability to send\receive traffic to destination ports 5432, 6432 within Azure virtual network subnet where Azure Database for PostgreSQL - Flexible Server is deployed , as well as to Azure storage for log archival. If you create [Network Security Groups (NSG)](../../virtual-network/network-security-groups-overview.md) to deny traffic flow to or from your Azure Database for PostgreSQL - Flexible Server within the subnet where its deployed, please make sure to allow traffic to  destination ports 5432 and 6432 within the subnet, and also to Azure storage by using [service tag](../../virtual-network/service-tags-overview.md) Azure Storage as a destination.
 
 * **Private DNS zone integration**. Azure private DNS zone integration allows you to resolve the private DNS within the current virtual network or any in-region peered virtual network where the private DNS zone is linked. 
 
@@ -95,7 +95,7 @@ The custom DNS server should be inside the virtual network or reachable via the 
 Private DNS zone settings and virtual network peering are independent of each other. If you want to connect to the flexible server from a client that's provisioned in another virtual network from the same region or a different region, you have to link the private DNS zone with the virtual network. For more information, see [Link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
-> Only private DNS zone names that end with `postgres.database.azure.com` can be linked.
+> Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
 
 ### Unsupported virtual network scenarios
 

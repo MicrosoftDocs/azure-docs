@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 11/11/2021
 ms.author: makromer
 ---
 
@@ -18,8 +18,8 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 
 The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
-- **REST connector** specifically supports copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **REST connector** specifically supports copying data from RESTful APIs.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, for example, to download file. Before this REST connector you may happen to use HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
@@ -506,6 +506,9 @@ This generic REST connector supports the following pagination patterns:
 | AbsoluteUrl | Indicates the URL to issue the next request. It can be **either absolute URL or relative URL**. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. |
 | Headers.*request_header* OR Headers['request_header'] | "request_header" is user-defined, which references one header name in the next HTTP request. |
+| EndCondition:*end_condition* | "end_condition" is user-defined, which indicates the condition that will end the pagination loop in the next HTTP request. |
+| MaxRequestNumber | Indicates the maximum pagination request number. Leave it as empty means no limit. |
+| SupportRFC5988 | RFC 5988 is supported in the pagination rules. By default, this is set to true. It will only be honored if no other pagination rules are defined.
 
 **Supported values** in pagination rules:
 

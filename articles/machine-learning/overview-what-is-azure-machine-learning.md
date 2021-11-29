@@ -65,7 +65,7 @@ If you're a ML Studio (classic) user, [learn about Studio (classic) deprecation 
 
 ## Enterprise-readiness and security
 
-Azure Machine Learning integrates with te Azure cloud platform to add security to ML projects. 
+Azure Machine Learning integrates with the Azure cloud platform to add security to ML projects. 
 
 Security integrations include:
 

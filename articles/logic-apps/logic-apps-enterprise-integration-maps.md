@@ -1,6 +1,6 @@
 ---
-title: Add XSLT maps for XML transforms in workflows
-description: Create and add XSLT maps to transform XML for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+title: Add XSLT maps to transform XML in workflows
+description: Add XSLT maps to transform XML in workflows with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/14/2021
 ---
 
-# Add XSLT maps for XML transformation in Azure Logic Apps
+# Add XSLT maps to transform XML in workflows with Azure Logic Apps
 
 To convert XML between formats, your logic app workflow can use maps with the **Transform XML** action. A map is an XML document that uses Extensible Stylesheet Language Transformation (XSLT) language to describe how to convert data from XML to another format. The map consists of a source XML schema as input and a target XML schema as output. You can define a basic transformation, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations. You can manipulate or control data by using different built-in functions, such as string manipulations, conditional assignments, arithmetic expressions, date time formatters, and even looping constructs.
 
@@ -63,7 +63,11 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * If you use the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you need an existing logic app resource because you don't store maps in your integration account. Instead, you can directly add maps to your logic app resource using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
 
-    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+
+    > [!NOTE]
+    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
 * While **Logic App (Consumption)** supports referencing external assemblies from maps, **Logic App (Standard)** currently doesn't support this capability. Referencing an assembly enables direct calls from XSLT maps to custom .NET code.
 
@@ -71,7 +75,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * You have to upload *both the assembly and the map* in a specific order to your integration account. Make sure you [*upload your assembly first*](#add-assembly), and then upload the map that references the assembly.
 
-  * If your assembly is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal. However, if your assembly or map is bigger than 2 MB but not bigger than the [size limit for assemblies or maps](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), you can use an Azure blob container where you can upload your assembly and that container's location. That way, you can provide that location later when you add the assembly to your integration account. For this task, you need these items:
+  * If your assembly is [2 MB or smaller](#smaller-map), you can add your assembly and map to your integration account *directly* from the Azure portal. However, if your assembly or map is bigger than 2 MB but not bigger than the [size limit for assemblies or maps](logic-apps-limits-and-config.md#artifact-capacity-limits), you can use an Azure blob container where you can upload your assembly and that container's location. That way, you can provide that location later when you add the assembly to your integration account. For this task, you need these items:
 
     | Item | Description |
     |------|-------------|
@@ -86,7 +90,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 * With **Logic App (Standard)**, no limits exist for map file sizes.
 
-* With **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as maps. For more information, review [Limits and configuration information for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+* With **Logic App (Consumption)**, limits exist for integration accounts and artifacts such as maps. For more information, review [Limits and configuration information for Azure Logic Apps](logic-apps-limits-and-config.md#integration-account-limits).
 
 <a name="add-assembly"></a>
 
@@ -102,7 +106,7 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
 1. On the **Assemblies** pane toolbar, select **Add**.
 
-Based on your assembly file's size, follow the steps for uploading an assembly that's either [up to 2 MB](#smaller-assembly) or [more than 2 MB but only up to 8 MB](#larger-assembly). For limits on assembly quantities in integration accounts, review [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+Based on your assembly file's size, follow the steps for uploading an assembly that's either [up to 2 MB](#smaller-assembly) or [more than 2 MB but only up to 8 MB](#larger-assembly). For limits on assembly quantities in integration accounts, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
 > If you change your assembly, you must also update your map whether or not the map has changes.
@@ -226,7 +230,7 @@ The following example shows a map that references an assembly named `XslUtilitie
 
 ## Add maps
 
-### [Consumption resource](#tab/consumption-1)
+### [Consumption](#tab/consumption)
 
 After you upload any assemblies that your map references, you can now upload your map.
 
@@ -262,7 +266,7 @@ After you upload any assemblies that your map references, you can now upload you
 
 Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
-### [Standard resource](#tab/standard-1)
+### [Standard](#tab/standard)
 
 #### Azure portal
 
@@ -292,7 +296,7 @@ Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/
 
 To update an existing map, you have to upload a new map file that has the changes you want. However, you can first download the existing map for editing.
 
-### [Consumption resource](#tab/consumption-2)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -306,7 +310,7 @@ To update an existing map, you have to upload a new map file that has the change
 
    After your map file finishes uploading, the updated map appears in the **Maps** list.
 
-### [Standard resource](#tab/standard-2)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 
@@ -330,7 +334,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 ## Delete a map
 
-### [Consumption resource](#tab/consumption-3)
+### [Consumption](#tab/consumption)
 
 1. In the [Azure portal](https://portal.azure.com), open your integration account, if not already open.
 
@@ -340,7 +344,7 @@ To update an existing map, you have to upload a new map file that has the change
 
 1. To confirm you want to delete the map, select **Yes**.
 
-### [Standard resource](#tab/standard-3)
+### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app resource, if not already open.
 

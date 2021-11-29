@@ -60,14 +60,13 @@ To build and deploy your module image, you need Docker to build the module image
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6/3.7/3.8) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
 
 > [!NOTE]
-> Currently, iotedgehubdev uses a docker-py library that is not compatible with Python 3.8.
 >
 > If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
 
@@ -293,22 +292,22 @@ When debugging modules using this method, your modules are running on top of the
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
+     For example, if you want to debug the `receive_message_handler` function, you would insert that line of code as shown below:
 
-      ```python
-      def receive_message_listener(client):
-          ptvsd.break_into_debugger()
-          global RECEIVED_MESSAGES
-          while True:
-              message = client.receive_message_on_input("input1")   # blocking call
-              RECEIVED_MESSAGES += 1
-              print("Message received on input1")
-              print( "    Data: <<{}>>".format(message.data) )
-              print( "    Properties: {}".format(message.custom_properties))
-              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
-              print("Forwarding message to output1")
-              client.send_message_to_output(message, "output1")
-              print("Message successfully forwarded")
+    ```python
+    def receive_message_handler(message):
+        ptvsd.break_into_debugger()
+        global RECEIVED_MESSAGES
+        RECEIVED_MESSAGES += 1
+        if message.input_name == "input1":
+            print("Message received on input1")
+            print( "    Data: <<{}>>".format(message.data) )
+            print( "    Properties: {}".format(message.custom_properties))
+            print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+            print("Forwarding message to output1")
+            client.send_message_to_output(message, "output1")
+            print("Message successfully forwarded")
+
       ```
 
 1. In the Visual Studio Code command palette:
