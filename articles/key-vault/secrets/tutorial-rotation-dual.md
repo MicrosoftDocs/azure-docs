@@ -109,7 +109,7 @@ After you complete the preceding steps, you'll have a storage account, a server 
 
 You can find deployment templates and code for the rotation function in [Azure Samples](https://github.com/Azure-Samples/KeyVault-Rotation-StorageAccountKey-PowerShell).
 
-## Add the storage account access keys to Key Vault
+### Add the storage account access keys to Key Vault secrets
 
 First, set your access policy to grant **manage secrets** permissions to your user principal:
 # [Azure CLI](#tab/azure-cli)
@@ -207,7 +207,7 @@ Notice that `value` of the key is same as secret in key vault:
 
 ![Screenshot that shows the output of the A Z storage account keys list command for the first storage account.](../media/secrets/rotation-dual/dual-rotation-5.png)
 
-## Add storage accounts for rotation
+## Use existing rotation function for multiple storage accounts
 
 You can reuse the same function app to rotate keys for multiple storage accounts. 
 
@@ -231,7 +231,7 @@ To add storage account keys to an existing function for rotation, you need:
 
    ![Screenshot that shows how to create an additional storage account.](../media/secrets/rotation-dual/dual-rotation-7.png)
 
-### Add another storage account access key to Key Vault
+### Add storage account access key to Key Vault secrets
 
 Determine the storage account resource ID. You can find this value in the `id` property.
 # [Azure CLI](#tab/azure-cli)
