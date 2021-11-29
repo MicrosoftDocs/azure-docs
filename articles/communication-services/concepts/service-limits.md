@@ -70,8 +70,9 @@ If you require sending an amount of messages that exceeds the rate-limits, pleas
 For more information on the SMS SDK and service, see the [SMS SDK overview](./telephony-sms/sdk-features.md) page or the [SMS FAQ](./telephony-sms/sms-faq.md) page.
 
 ## Chat
+When using the chat APIs, you might receive a ```429``` error. This indicates you are hitting the service limitations and your requests will be queued to be sent once the number of requests is below the threshold.
 
-| **Operation**         | **Scope**                 | Timeframe (seconds) | Limit (number of requests) |
+| **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
 |--|--|--|--|
 |Send Message 	        | Per Thread 	        |60 	        |2000 
 |                       | Per User per Thread 	|60 	        |50 
@@ -88,15 +89,17 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./te
 |	                |Per User               |60 	        |25
 | 	                |Per User Per Thread 	|1 	        |-
 
-### Service maximum limitations
+### Other maximum limitations
 
 | **Name**         | Limit  |
-|---|--|
-|Number of participants in thread | 250 |
-|Batch of participants - CreateThread | 200 |
-|Batch of participants - AddParticipant | 200 |
+|--|--|
+|Number of participants in thread|250 
+|Batch of participants - CreateThread|200 
+|Batch of participants - AddParticipant|200 
 
 ### Action to take
+
+All chat SDKs have retry policies in place, with exponential back-off set by default (you can override this if you'd like). The API returns a retry-after header that indicates teh number of seconds suggested to wait before retrying to send the message.
 
 For more information about the chat SDK and service, see the [chat SDK overview](./chat/sdk-features.md) page.
 
