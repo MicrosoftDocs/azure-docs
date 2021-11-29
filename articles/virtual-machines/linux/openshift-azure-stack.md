@@ -47,11 +47,25 @@ Make sure you have a valid Red Hat Subscription Manager (RHSM) username, passwor
 
 An RHEL image (OpenShift Container Platform) or CentOS image (OKD) needs to be added to your Azure Stack Hub environment to deploy an OpenShift cluster. Contact your Azure Stack Hub cloud operator to add these images. Instructions can be found here:
 
-- [Add and remove a custom VM image to Azure Stack Hub](/azure-stack/operator/azure-stack-add-vm-image)
-- [Azure Marketplace items available for Azure Stack Hub](/azure-stack/operator/azure-stack-marketplace-azure-items)
-- [Offer a Red Hat-based virtual machine for Azure Stack Hub](/azure-stack/operator/azure-stack-redhat-create-upload-vhd)
+A Red Hat subscription is required. During the deployment, the RHEL instance is registered to the Red Hat subscription and attached to the Pool ID that contains the entitlements for OpenShift Container Platform.
 
-### Deploy by using the OpenShift Container Platform or OKD Azure Resource Manager template
+Make sure you have a valid Red Hat Subscription Manager (RHSM) username, password, and Pool ID. Alternatively, you can use an Activation Key, Org ID, and Pool ID.  You can verify this information by at https://access.redhat.com.
+
+### Red Hat Enterprise Linux CoreOS (RHCOS) 4.9 available in Azure Stack Hub
+
+Red Hat Enterprise Linux CoreOS (RHCOS) 4.9 is not available in the Azure Stack Hub Marketplace. Your cloud operator doesn't need to create an marketplace offering for the RHEL CoreOS 4.9, but the image does not need to be available.
+
+The cloud operator for your Azure Stack Hub instance will need to get the .VHD from Red Hat and load it into a storage container in the Azure Stack Hub environment. Then, the operator can reference the VHD location in the Azure Resource Manager template used to deploy OpenShift. The image is used for deployment and will be used for all control plane. The image can also be used for worker nodes in the cluster. You can also the image or Red Hat Enterprise Linux (RHEL) 7.9 or 8.4 images for worker nodes.
+
+The operator can follow the steps in the OpenShift documentation at:
+1. [Uploading the RHCOS cluster image and bootstrap Ignition config file](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html#installation-azure-user-infra-uploading-rhcos_installing-azure-stack-hub-user-infra)
+2. [Deploying the RHCOS cluster image for the Azure Stack Hub infrastructure](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html#installation-azure-user-infra-deploying-rhcos_installing-azure-stack-hub-user-infra)
+
+Contact your Azure Stack Hub cloud operator to add this image using these instructions.
+
+> [!WARNING]
+If you have an issue with OpenShift, please contact Red Hat for support.
+## Deploy by using the OpenShift Container Platform or OKD Resource Manager template
 
 To deploy by using the Azure Resource Manager template, you use a parameters file to supply the input parameters. To further customize the deployment, fork the GitHub repo and change the appropriate items.
 
@@ -67,7 +81,7 @@ For the steps to deploy using the Azure CLI, follow the appropriate section in t
 
 Red Hat manages the Red Hat Enterprise Linux CoreOS (RHCOS) image for OpenShift 4.x. The deployment process gets the image from a Red Hat endpoint. As a result, the user (tenant) doesn't need to get an image from the Azure Stack hub Marketplace.
 
-You can follow the steps in the Open Shift documentation at [Installing a cluster on Azure Stack Hub using ARM templates](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html).
+You can follow the steps in the OpenShift documentation at [Installing a cluster on Azure Stack Hub using ARM templates](https://docs.openshift.com/container-platform/4.9/installing/installing_azure_stack_hub/installing-azure-stack-hub-user-infra.html).
 
 ## Next steps
 
