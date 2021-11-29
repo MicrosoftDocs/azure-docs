@@ -30,7 +30,7 @@ As part of the C4BB IG, you'll need to define three [new search parameters](how-
 > [!NOTE]
 > In the raw JSON for these search parameters, the name is set to `ExplanationOfBenefit_<SearchParameter Name>`. The Touchstone test is expecting that the name for these will be **type**, **service-date**, and **insurer**.  
  
-The rest of the search parameters needed for the C4BB IG are defined by the base specification and are already available in the FHIR service without any additional updates.
+The rest of the search parameters needed for the C4BB IG are defined by the base specification and are already available in Azure API for FHIR without any additional updates.
  
 ### Store profiles
 

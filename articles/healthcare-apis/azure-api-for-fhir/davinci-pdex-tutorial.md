@@ -15,7 +15,7 @@ ms.date: 11/29/2021
 In this tutorial, we'll walk through setting up Azure API for FHIR to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci Payer Data Exchange Implementation Guide](http://hl7.org/fhir/us/davinci-pdex/toc.html) (PDex IG).
 
 > [!NOTE]
-> Azure API for FHIR only supports JSON. The Microsoft open-source Azure API for FHIR supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
+> Azure API for FHIR only supports JSON. The Microsoft open-source FHIR server supports both JSON and XML, and in open-source you can use the _format parameter to view the XML capability statement: `GET {fhirurl}/metadata?_format=xml`
 
 ## Touchstone capability statement
 
