@@ -10,7 +10,7 @@ ms.author: sadas
 ms.date: 11/28/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: numbers
+ms.subservice: azure-communication-services
 
 ---
 
@@ -23,6 +23,10 @@ The table below summarizes these number types with supported capabilities:
 
 |Type |Example|Send SMS   | Receive SMS |Make Calls   |Receive Calls|Typical Use Case|Restrictions|
 |:-------------|:-------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------|:-------------|
-|Toll-Free|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, SMS Notifications|SMS in US only|
-|Local (Geographic)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Georgaphy Specific Number|Calling Only|
-|[Short-Codes](../includes/sms-shortcode-pricing.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
+|[Toll-Free](../../quickstarts/telephony/get-phone-number.md)|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, SMS Notifications|SMS in US only|
+|[Local (Geographic)](../../quickstarts/telephony/get-phone-number.md)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Georgaphy Specific Number|Calling Only|
+|[Short-Codes](../../quickstarts/sms/apply-for-a-short-code.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
+
+## Next Steps
+- Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
+- Get a [Short-Code](../../quickstarts/sms/apply-for-a-short-code.md)
