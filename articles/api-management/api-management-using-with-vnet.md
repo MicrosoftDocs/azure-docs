@@ -246,7 +246,7 @@ When adding virtual machines running Windows to the VNET, allow outbound connect
 
 ## Control plane IP addresses
 
-The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.  In some cases, two IP addresses are listed.  You must permit both IP addresses.
+The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.  In some cases, two IP addresses are listed.  Permit both IP addresses.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
@@ -273,8 +273,8 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| Germany West Central| 51.116.96.0, 20.52.94.112|
 | Azure Public| Japan East| 52.140.238.179|
 | Azure Public| Japan West| 40.81.185.8|
-| Azure Public| Jio India Central| 20.192.234.160|
-| Azure Public| Jio India West| 20.193.202.160|
+| Azure Public| India Central| 20.192.234.160|
+| Azure Public| India West| 20.193.202.160|
 | Azure Public| Korea Central| 40.82.157.167, 20.194.74.240|
 | Azure Public| Korea South| 40.80.232.185|
 | Azure Public| North Central US| 40.81.47.216|
