@@ -109,7 +109,7 @@ Migrating data by using Spark jobs is a recommended option if you have data resi
 
 ### Live migration
 
-Where a zero-downtime migration from a native Apache Cassandra cluster is required, we recommend configuring dual-writes, and a separate bulk data load to migrate historical data. We've made implementing this pattern more straightforward by providing an open-source dual-write proxy to allow for minimal application code changes. Take a look at our how-to article [here](migrate-data-dual-write-proxy.md) on implementing this pattern. 
+Where a zero-downtime migration from a native Apache Cassandra cluster is required, we recommend configuring dual-writes, and a separate bulk data load to migrate historical data. We've made implementing this pattern more straightforward by providing an open-source [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) to allow for minimal application code changes. Take a look at our how-to article on [live migration using dual-write proxy and Apache Spark](migrate-data-dual-write-proxy.md) for more detail on implementing this pattern. 
 
 ## Clean up resources
 
