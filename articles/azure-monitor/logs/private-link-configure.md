@@ -94,7 +94,7 @@ Go to the Azure portal. In your resource's menu, there's a menu item called **Ne
 
 
 > [!NOTE]
-> Starting September, 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
+> Starting September 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
 
 ![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
@@ -257,7 +257,10 @@ The Private Endpoint you created should now have an five DNS zones configured:
 * privatelink-blob-core-windows-net
 
 > [!NOTE]
-> Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses showns in the below images are only examples. Your configuration should instead show private IPs from your own network.
+> Each of these zones maps specific Azure Monitor endpoints to private IPs from the VNet's pool of IPs. The IP addresses shown in the below images are only examples. Your configuration should instead show private IPs from your own network.
+
+> [!IMPORTANT]
+> AMPLS and Private Endpoint resources created starting December 1, 2021, use a mechanism called Endpoint Compression. This means resource-specific endpoints (such as the OMS, ODS and AgentSVC endpoints) share the same IP address, per region and per DNS zone. This mechanism means less IPs are taken from the VNet's IP pool, and many more resources can be added to the AMPLS.
 
 #### Privatelink-monitor-azure-com
 This zone covers the global endpoints used by Azure Monitor, meaning these endpoints serve requests considering all resources, not a specific one. This zone should have endpoints mapped for:
@@ -284,7 +287,7 @@ This zone covers workspace-specific mapping to the agent service automation endp
 This zone configures connectivity to the global agents' solution packs storage account. Through it, agents can download new or updated solution packs (also known as management packs). Only one entry is required to handle to Log Analytics agents, no matter how many workspaces are used.
 [![Screenshot of Private DNS zone blob-core-windows-net.](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net.png)](./media/private-link-security/dns-zone-privatelink-blob-core-windows-net-expanded.png#lightbox)
 > [!NOTE]
-> This entry is only added to Private Links setups created at or after April 19, 2021 (or starting June, 2021 on Azure Sovereign clouds).
+> This entry is only added to Private Links setups created at or after April 19, 2021 (or starting June 2021, on Azure Sovereign clouds).
 
 
 ### Validating you are communicating over a Private Link
