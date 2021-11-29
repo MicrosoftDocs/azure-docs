@@ -15,11 +15,11 @@ ms.date: 11/29/2021
 
 This article explains how to work with a query response in Azure Cognitive Search. 
 
-The structure of a response is determined by parameters in the query itself: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK. Parameters on the query determine:
+The structure of a response is determined by parameters in the query itself: [Search Documents (REST)](/rest/api/searchservice/Search-Documents) or [SearchResults Class (Azure for .NET)](/dotnet/api/azure.search.documents.models.searchresults-1). Parameters on the query determine:
 
-+ Number of results in the response (50 by default)
++ Number of results in the response (up to 50, by default)
 + Fields in each result
-+ Order of results
++ Order of items in results
 + Highlighting of terms within a result, matching on either the whole or partial term in the body of the result
 
 ## Result composition
@@ -38,7 +38,7 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
 > [!NOTE]
-> If want to include image files in a result, such as a product photo or logo, store them outside of Azure Cognitive Search, but include a field in your index to reference the image URL in the search document. Sample indexes that support images in the results include the **realestate-sample-us** demo, featured in this [quickstart](search-create-app-portal.md), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
+> If want to include image files in a result, such as a product photo or logo, store them outside of Azure Cognitive Search, but include a field in your index to reference the image URL in the search document. Sample indexes that support images in the results include the **realestate-sample-us** demo (a built-in sample dataset that you can build easily in the Import Data wizard), and the [New York City Jobs demo app](https://aka.ms/azjobsdemo).
 
 ### Tips for unexpected results
 
@@ -50,15 +50,15 @@ Occasionally, the substance and not the structure of results are unexpected. Whe
 
 ## Paging results
 
-By default, the search engine returns up to the first 50 matches, as determined by search score if the query is full text search, or in an arbitrary order for exact match queries.
+By default, the search engine returns up to the first 50 matches. The top 50 is determined by search score, assuming the query is full text search or semantic search, or in an arbitrary order for exact match queries (where "@searchScore=1.0").
 
-To return a different number of matching documents, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
+To control the paging of all documents returned in a result set, add `$top` and `$skip` parameters to the query request. The following list explains the logic.
 
-+ Add `$count=true` to get a count of the total number of matching documents within an index.
++ Add `$count=true` to get a count of the total number of matching documents found within an index. Depending on your query and the content of your documents, the count could be as high as every document in the index.
 
 + Return the first set of 15 matching documents plus a count of total matches: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Do the same for the third set of 15: `$top=15&$skip=30`
++ Return the second set, skipping the first 15 to get the next 15: `$top=15&$skip=15`. Repeat for the third set of 15: `$top=15&$skip=30`
 
 The results of paginated queries are not guaranteed to be stable if the underlying index is changing. Paging changes the value of `$skip` for each page, but each query is independent and operates on the current view of the data as it exists in the index at query time (in other words, there is no caching or snapshot of results, such as those found in a general purpose database).
  
@@ -89,7 +89,9 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-Results can be ranked by a search score, a semantic score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request. A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a filter expression. If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
+In Azure Cognitive Search, results can be ranked by a search score, a semantic score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
+
+A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a filter expression. If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
