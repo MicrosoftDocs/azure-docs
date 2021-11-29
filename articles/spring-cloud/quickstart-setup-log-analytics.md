@@ -143,7 +143,7 @@ Azure Spring Cloud supports you leverage Azure Monitor Logs to collect logs and 
 > [!TIP]
 > You could also setup Log Analytics during creating Azure Spring Cloud service instance.<br />
 > In Azure Spring Cloud creating service wizard form, you could create or specify **Log Analytics workspace**.<br />
-> [ ![Logs Analytics entry](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting2.png) ](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting2.png#lightbox)
+> [ ![setup diagnostic settings during provisioning](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting2.png) ](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting2.png#lightbox)
 
 ## Next steps
 
