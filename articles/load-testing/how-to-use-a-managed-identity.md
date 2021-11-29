@@ -1,7 +1,7 @@
 ---
 title: Use a managed identity for Azure Load Testing
 titleSuffix: Azure Load Testing
-description: Use a managed identity for Azure Load Testing
+description: Learn how to enable managed identity for Azure Load Testing and use it to read secrets from Azure Key Vault.
 services: load-testing
 ms.service: load-testing
 ms.author: ninallam
@@ -12,11 +12,11 @@ ms.topic: how-to
 
 # Use managed identities for Azure Load Testing Preview
 
-This topic shows you how to create a managed identity for Azure Load Testing Preview resource and how to use it to access other resources.
+This topic shows how you can create a managed identity for an Azure Load Testing Preview resource and how to use it to read secrets from Azure Key Vault.
 
 A managed identity from Azure Active Directory (Azure AD) allows your resource to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform. For more about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Currently, Azure Load Testing supports only system-assigned identity. A system-assigned identity is tied to your Azure Load Testing resource and is deleted if your resource is deleted. A resource can only have one system-assigned identity.
+Currently, Azure Load Testing supports only system-assigned identity. The system-assigned identity is tied to your Azure Load Testing resource and is deleted if your resource is deleted. A resource can only have one system-assigned identity.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -26,25 +26,25 @@ Currently, Azure Load Testing supports only system-assigned identity. A system-a
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
 
-- An Azure Load Testing Resource already created. If you need to create an Azure Load Testing Resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
+- An Azure Load Testing resource. If you need to create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
 ## Add a system-assigned identity  
 
-Creating a system-assigned identity requires an additional property to be set on the resource.
+To create a system-assigned identity for Azure Load Testing, requires that you set a property on the resource. You can enable the system-assigned identity by using the Azure portal, or by using an Azure Resource Manager (ARM) template.
 
-### Using the Azure portal
+### Set a system-assigned identity by using the Azure portal
 
-To set up a managed identity in the portal, you will first create an Azure Load Testing resource and then enable the feature.
+To set up a managed identity in the portal, you'll first create an Azure Load Testing resource and then enable the feature.
 
-1. Navigate to your Azure Load Testing resource in the portal.
+1. Navigate to your Azure Load Testing resource in the [Azure portal](https://portal.azure.com).
 
 1. Select **Identity**.
 
 1. Switch on the system assigned identity, and then select **Save**.
 
-:::image type="content" source="media/how-to-use-a-managed-identity/system-assigned-managed-identity.png" alt-text="Screenshot that shows how to turn on system assigned managed identity for Azure Load Testing.":::
+    :::image type="content" source="media/how-to-use-a-managed-identity/system-assigned-managed-identity.png" alt-text="Screenshot that shows how to turn on system assigned managed identity for Azure Load Testing.":::
 
-### Using an Azure Resource Manager template
+### Set a system-assigned identity by using an ARM template
 
 An Azure Resource Manager template can be used to automate deployment of your Azure resources. Any resource of type `Microsoft.LoadTestService/loadtests` can be created with an identity by including the following property in the resource definition:
 
@@ -69,7 +69,7 @@ Adding the system-assigned type tells Azure to create and manage the identity fo
 }
 ```
 
-When the resource is created, it has the following additional properties:
+When the resource is created, it gets the following additional properties:
 
 ```json
 "identity": {
@@ -79,11 +79,11 @@ When the resource is created, it has the following additional properties:
 }
 ```
 
-The tenantId property identifies what Azure AD tenant the identity belongs to. The principalId is a unique identifier for the resource's new identity. Within Azure AD, the service principal has the same name that you gave to your Azure Load Testing resource.
+The `tenantId` property identifies which Azure AD tenant the identity belongs to. The `principalId` is a unique identifier for the resource's new identity. Within Azure AD, the service principal has the same name as the Azure Load Testing resource.
 
-## Grant permissions to managed identity
+## Grant access to Azure Key Vault
 
-Managed Identity allows the Azure Load testing resource to access other Azure resources. In this section, you'll grant access for the Azure Load Testing service to read secret values from an Azure Key Vault.
+Managed Identity allows the Azure Load testing resource to access other Azure resources. In this section, you'll grant the Azure Load Testing service access to read secret values from an Azure Key Vault.
 
 If you don't have an Azure Key Vault yet, see [Azure Key Vault quick-start](/azure/key-vault/secrets/quick-create-cli) to create it.
 
@@ -97,9 +97,11 @@ If you don't have an Azure Key Vault yet, see [Azure Key Vault quick-start](/azu
 
 1. Select **Select principal** and select your Azure Load Testing resource system-assigned principal.
 
+    The name of the system-assigned principal is the same name as the Azure Load Testing resource.
+
 1. Select **Add**.
 
-You now have granted access to your Azure Load Testing resource to read the secret values from the Azure Key Vault.
+You've now granted access to your Azure Load Testing resource to read the secret values from the Azure Key Vault.
 
 ## Next steps
 
