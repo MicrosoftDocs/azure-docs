@@ -1,8 +1,31 @@
+---
+title: Subscription Eligibility and Number Capabilities in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Subscription Eligibility and Number Capabilities for PSTN and SMS Numbers in Communication Services.
+author: sadas
+manager: rcole
+services: azure-communication-services
+
+ms.author: sadas
+ms.date: 11/28/2021
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: numbers
+
+---
+
 # Subscription Eligibility and Number Capabilities
 
 ## Subscription Eligibility
 
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
+
+Additional details on eligible subscription types are as follows:
+
+|Number Type   |Eligible Azure Agreement Type|
+|:---|:---|
+|Toll-Free and Local (Geographic)|Modern Customer Agreement (Field and Customer Led), Modern Partner Agreement (CSP), Enterprise Agreement|
+|Short-Codes   |Enterprise Agreement Only|
 
 ## Number Capabilities
 
