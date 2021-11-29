@@ -6,7 +6,7 @@ description: Evaluates unstructured text, and for each record, returns a list of
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 #	Key Phrase Extraction cognitive skill
