@@ -44,7 +44,7 @@ Communication Services offers two types of short codes: random and vanity.
 #### Random short code
 A random short code is a 5–6-digit phone number that is randomly selected and assigned by the U.S. Common Short Codes Association (CSCA).
 #### Vanity short code
-A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in the [US UShort Codes directory](https://usshortcodedirectory.com/).
+A vanity short code is a 5–6-digit phone number that is chosen by you for your program. You can look up the list of available short codes in the [US Short Codes directory](https://usshortcodedirectory.com/).
 Additionally, you may pick a number that the customer can spell out on their phone dial pad as an alphanumeric equivalent – for example, Contoso can use OFFERS (633377). 
 
 When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. 
