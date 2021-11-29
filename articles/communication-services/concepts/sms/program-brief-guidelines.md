@@ -146,7 +146,7 @@ Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-ser
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
 
-In this field, you are required to provide sample message for each content type you intend on using the short code for. 
+In this field, you are required to provide a sample message for each content type you intend on using the short code for. 
 
 #### Example flow:
 - **Contoso**: Contoso: Your reservation has been confirmed for 30th February 2022. Txt R to reschedule. Txt HELP or STOP. Msg&Data rates may apply.
