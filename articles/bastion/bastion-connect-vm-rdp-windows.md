@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 11/29/2021
 ms.author: cherylmc
 
 ---
@@ -26,7 +26,7 @@ Before you begin, verify that you have met the following criteria:
 
   * Make sure that you have set up an Azure Bastion host for the virtual network in which the VM is located. Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in the virtual network. 
   * To set up an Azure Bastion host, see [Create a bastion host](tutorial-create-host-portal.md#createhost). If you plan to configure custom port values, be sure to select the Standard SKU when configuring Bastion.
-
+f
 * A Windows virtual machine in the virtual network.
 
 ### Required roles
@@ -43,7 +43,7 @@ To connect to the Windows VM, you must have the following ports open on your Win
 *	Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
 > [!NOTE]
-> If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports. The Standard SKU is currently in Preview.
+> If you want to specify a custom port value, Azure Bastion must be configured using the Standard SKU. The Basic SKU does not allow you to specify custom ports.
 >
 
 ## <a name="rdp"></a>Connect
