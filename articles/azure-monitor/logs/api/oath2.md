@@ -8,17 +8,17 @@ ms.topic: article
 ---
 # Request an Authorization Token
 
-Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require your:
-- your AAD tenant
-- your workspace ID (with [workspace linked to your AAD app](aad-setup.md))
-- your client ID for the AAD app
-- a client secret for the AAD App (referred to as "keys" in the AAD App menu bar).
+Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
+- Your AAD tenant
+- Your workspace ID (with [workspace linked to your AAD app](aad-setup.md))
+- Your client ID for the AAD app
+- A client secret for the AAD app (referred to as "keys" in the AAD App menu bar).
 
 
 ## Client Credentials Flow
 
-In the client credentials flow, we use the token with the ARM endpoint. This flow requires a single request to receive a token, using the application permissions provided during the AAD application setup.
-The resource we request is <https://management.azure.com/>. 
+In the client credentials flow, the token is used with the ARM endpoint. A single request is made to receive a token, using the application permissions provided during the AAD application setup.
+The resource requested is: <https://management.azure.com/>. 
 You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/), simply replace the "resource" in the example.
 
 ### Client Credentials Token URL (POST request)
@@ -35,7 +35,7 @@ You can also use this flow to request a token to [https://api.loganalytics.io](h
     &client_secret=YOUR_CLIENT_SECRET
 ```
 
-A successful request will receive an access token:
+A successful request receives an access token:
 
 ```
     {
@@ -49,7 +49,7 @@ A successful request will receive an access token:
     }
 ```
 
-This token may be used for authorization against the ARM API endpoint:
+The token can be used for authorization against the ARM API endpoint:
 
 ```
     GET https://management.azure.com/subscriptions/6c3ac85e-59d5-4e5d-90eb-27979f57cb16/resourceGroups/demo/providers/Microsoft.OperationalInsights/workspaces/demo-ws/api/query
@@ -100,7 +100,7 @@ Example Response:
 
 ## Authorization Code Flow
 
-The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Log Analytics API. There are two URLs, one endpoint per request. Their formats are as follows:
+The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Log Analytics API. There are two URLs, one endpoint per request. Their formats are:
 
 ### Authorization Code URL (GET request):
 
@@ -135,7 +135,7 @@ At this point you will have obtained an authorization code, which you need now t
     &client_secret=YOUR_CLIENT_SECRET
 ```
 
-All values are as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. We now combine it with the key we previously obtained from our AAD App, or if you did not save the key you can delete it and create a new one from the keys tab of the AAD App menu. The response will be JSON containing the token with the following schema. Exact values are indicated where they should not vary, with types indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. We now combine it with the key we previously obtained from our AAD App, or if you did not save the key you can delete it and create a new one from the keys tab of the AAD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
 
 Response example:
 
@@ -153,7 +153,7 @@ Response example:
     }
 ```
 
-The access token portion of this response is what you present to the Log Analytics API in the `Authorization: Bearer` header. You may also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are as follows.
+The access token portion of this response is what you present to the Log Analytics API in the `Authorization: Bearer` header. You may also use the refresh token in the future to acquire a new access\_token and refresh\_token when yours have gone stale. For this request, the format and endpoint are:
 
 ```
     POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
@@ -182,7 +182,7 @@ Response example:
 
 ## Implicit Code Flow
 
-The Log Analytics API also supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token may be acquired.
+The Log Analytics API also supports the OAuth2 [implicit flow](/azure/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant). For this flow, only a single request is required but no refresh token can be acquired.
 
 ### Implicit Code Authorize URL
 
@@ -204,7 +204,7 @@ This access\_token can be used as the `Authorization: Bearer` header value when 
 
 ## More Information
 
-Additional documentation on OAuth2 with Azure AD is availble from the following sources.
+Additional documentation on OAuth2 with Azure AD is available from the following sources.
 
 [Azure AD Authorization Code flow](/azure/active-directory/develop/active-directory-protocols-oauth-code)
 

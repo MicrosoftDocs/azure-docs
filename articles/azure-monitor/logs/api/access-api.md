@@ -1,12 +1,12 @@
 ---
-title: Accessing the API
+title: Access the API
 description: There are two endpoints through which you can communicate with the Log Analytics API.
 author: bwren
 ms.author: abbyweisberg
 ms.date: 11/18/2021
 ms.topic: article
 ---
-# Accessing the API
+# Access the API
 
 There are two endpoints through which you can communicate with the Log Analytics API. While the URLs are different, the query parameters are the same for each endpoint, Both endpoints require authorization through Azure Active Directory (AAD). 
 

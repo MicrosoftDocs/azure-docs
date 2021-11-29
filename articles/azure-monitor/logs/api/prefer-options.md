@@ -1,18 +1,18 @@
 ---
 title: Prefer Options
-description: The API supports setting various request options using the Prefer header. This section describes how to set each preference and their values.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+description: The API supports setting some request options using the Prefer header. This section describes how to set each preference and their values.
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.date: 11/29/2021
 ms.topic: article
 ---
 # Prefer Options
 
-The API supports setting various request options using the `Prefer` header. This section describes how to set each preference and their values.
+The API supports setting some request options using the `Prefer` header. This section describes how to set each preference and their values.
 
 ## Visualization information
 
-In the query language, it is possible to specify different [render options](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator). By default, the API does not return information regarding the type of visualization to show. If your client requires this information, specify the preference
+In the query language, you can specify different [render options](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator). By default, the API does not return information regarding the type of visualization to show. To include a specific visualization, include this header:
 
 ```
     Prefer: include-render=true
@@ -20,7 +20,7 @@ In the query language, it is possible to specify different [render options](http
 
 This will include a `render` property in the response that specifies the type of visualization selected by the query and any properties for that visualization.
 
-For example, the following request specifies a visualization of barchart with title "Perf events in the last day"
+For example, the following request specifies a visualization of a barchart with title "Perf events in the last day":
 
 ```
     POST https://api.loganalytics.io/v1/workspaces/{workspace-id}/query
@@ -56,7 +56,7 @@ The response contains a `render` property which describes the metadata for the s
 
 ## Query statistics
 
-To get information about query statistics, specify the preference
+To get information about query statistics, include this header:
 
 ```
     Prefer: include-statistics=true

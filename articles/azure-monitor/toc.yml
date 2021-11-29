@@ -321,7 +321,7 @@ items:
           - name: API keys
             href: logs/api/api-keys.md
           - name: Accessing the API
-            href: logs/api/api-endpoints.md
+            href: logs/api/access-api.md
           - name: Request format
             href: logs/api/request-format.md
           - name: Response format
