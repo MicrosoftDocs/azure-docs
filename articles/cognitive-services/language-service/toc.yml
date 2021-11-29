@@ -569,6 +569,16 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+  - name: Reference
+    items: 
+    - name: REST API
+      items:
+      - name: Answers API 
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
+      - name: Prebuilt API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Authoring API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview

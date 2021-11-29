@@ -218,6 +218,10 @@
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
       href: troubleshoot-rhc.md
+    - name: Common error codes for Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
+    - name: Common deployment errors
+      href: load-balancer-common-deployment-errors.md
 - name: Reference
   items:
   - name: Code samples
@@ -241,10 +245,6 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/loadbalancers
     displayName: ARM
-  - name: Common error codes for Azure Instance Metadata Service (IMDS)
-    href: troubleshoot-load-balancer-imds.md
-  - name: Common deployment errors
-    href: load-balancer-common-deployment-errors.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
