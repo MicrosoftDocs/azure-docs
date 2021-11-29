@@ -328,16 +328,16 @@
           href: webjobs-sdk-get-started.md
         - name: Use WebJobs SDK
           href: webjobs-sdk-how-to.md
-    - name: Zone redundancy
+    - name: High availability
       items:
-        - name: Configuring zone redundancy
+        - name: Configuring high availability
           href: how-to-zone-redundancy.md
     - name: Automate provisioning
       items:
-        - name: Bicep
-          href: provision-resource-bicep.md
-        - name: Terraform
-          href: provision-resource-terraform.md
+      - name: Bicep
+        href: provision-resource-bicep.md
+      - name: Terraform
+        href: provision-resource-terraform.md
 - name: Reference
   items:
     - name: Monitoring data
@@ -403,7 +403,6 @@
           href: troubleshoot-domain-ssl-certificates.md
     - name: FAQ
       items:
-<<<<<<< HEAD
       - name: Availability, performance, and application FAQ
         href: faq-availability-performance-application-issues.yml
       - name: Deployment FAQ
@@ -414,23 +413,11 @@
         href: faq-configuration-and-management.yml
       - name: App Service on Linux
         href: faq-app-service-linux.yml
-=======
-        - name: Availability, performance, and application FAQ
-          href: faq-availability-performance-application-issues.yml
-        - name: Deployment FAQ
-          href: faq-deployment.yml
-        - name: Open-source technologies FAQ
-          href: faq-open-source-technologies.yml
-        - name: Configuration and management FAQ
-          href: faq-configuration-and-management.yml
-        - name: App Service on Linux
-          href: faq-app-service-linux.yml
->>>>>>> 4f1227871fb3 (updates)
     - name: IP address change
       items:
-        - name: Inbound IP address
-          href: ip-address-change-inbound.md
-        - name: Outbound IP address
-          href: ip-address-change-outbound.md
-        - name: TLS/SSL address
-          href: ip-address-change-ssl.md
+      - name: Inbound IP address
+        href: ip-address-change-inbound.md
+      - name: Outbound IP address
+        href: ip-address-change-outbound.md
+      - name: TLS/SSL address
+        href: ip-address-change-ssl.md
