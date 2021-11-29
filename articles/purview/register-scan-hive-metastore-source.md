@@ -20,7 +20,7 @@ This article outlines how to register Hive Metastore databases, and how to authe
 |---|---|---|---|---|---|---|
 | [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
 
-\** Lineage is supported if the dataset is used as a source/sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
+\** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
 
 > [!Important]
 > The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks.
@@ -64,13 +64,13 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 
 1. On the **Register sources (Hive Metastore)** screen, do the following:
 
-   1. For **Name**, enter a name that the data source will be listed as within the catalog.
+   1. For **Name**, enter a name that the catalog will list as the data source.
 
    1. For **Hive Cluster URL**, enter a value that you get from the Ambari URL or the Azure Databricks workspace URL. For example, enter **hive.azurehdinsight.net** or **adb-19255636414785.5.azuredatabricks.net**.
 
    1. For **Hive Metastore Server URL**, enter a URL for the server. For example, enter **sqlserver://hive.database.windows.net** or **jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443**.
 
-   1. For **Select a collection**, select a collection from the list or create a new one. This step is optional.
+   1. For **Select a collection**, choose a collection from the list or create a new one. This step is optional.
 
    :::image type="content" source="media/register-scan-hive-metastore-source/configure-sources.png" alt-text="Screenshot that shows boxes for registering Hive sources." border="true":::
 
@@ -84,7 +84,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
 1. Go to **Sources**.
 
-1. Select the registered **Hive Metastore** database.
+1. Select the registered Hive Metastore database.
 
 1. Select **+ New scan**.
 
@@ -97,12 +97,12 @@ Use the following steps to scan Hive Metastore databases to automatically identi
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
 
        * Select Basic Authentication while creating a credential.
-       * Provide the metastore username in the appropriate box.
-       * Store the metastore password in the secret key.
+       * Provide the Metastore username in the appropriate box.
+       * Store the Metastore password in the secret key.
 
        For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
-       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**.
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
        You can also access the username and password from the following two properties:
 
@@ -117,51 +117,51 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
     1. **Metastore JDBC Driver Class**: Provide the class name for the connection driver. For example, enter **\com.microsoft.sqlserver.jdbc.SQLServerDriver**.
 
-       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**.
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
        You can access the driver class from the following property:
 
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="Screenshot that shows a driver class as a property value." border="true":::
 
-    1. **Metastore JDBC URL**: Provide the Connection URL value and define connection to Metastore DB server URL. For example: `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
+    1. **Metastore JDBC URL**: Provide the connection URL value and define the connection to the URL of the Metastore database server. For example: `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
 
-       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
-       You can access the JDBC URL from the Connection URL property, as shown in the following screenshot:
+       You can access the JDBC URL from the connection URL property, as shown in the following screenshot:
 
-       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="Screenshot that shows an example Connection U R L property." border="true":::
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="Screenshot that shows an example connection U R L property." border="true":::
 
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail. To this URL, append the path to the location where the SSL certificate is placed on your VM. You can [download the SSL certificate](../mysql/howto-configure-ssl.md). Remember to change the Windows path separator character from `\` to `/`. For example: If your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter: Change it from *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
+       > When you copy the URL from *hive-site.xml*, be sure to remove `amp;` from the string or the scan will fail. To this URL, append the path to the location where the SSL certificate is placed on your VM. You can [download the SSL certificate](../mysql/howto-configure-ssl.md). 
+       >
+       > Remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example: if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter: change it from *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem* to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
-       The **Metastore JDBC URL** will look like this example:
+       The **Metastore JDBC URL** value will look like this example:
 
        `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
-    1. **Metastore database name**: Provide the Hive Metastore Database name.
+    1. **Metastore database name**: Provide the Hive Metastore database name.
 
-       If you are scanning Azure Databricks, refer to the section on Azure Databricks below.
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
-       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
-
-       You can access the database name from the JDBC URL property, as shown in the following screenshot. For Example: organization1829255636414785
+       You can access the database name from the JDBC URL property, as shown in the following screenshot.
 
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="Screenshot that shows an example database name as a J D B C property." border="true":::
 
-    1. **Schema**: Specify a list of Hive schemas to import. For example, schema1; schema2.
+    1. **Schema**: Specify a list of Hive schemas to import. For example: **schema1; schema2**.
 
         All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: A%; %B; %C%; D
+        When the list is empty, all available schemas are imported. Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
 
         * Start with A or
-        * end with B or
-        * contain C or
-        * equal D
+        * End with B or
+        * Contain C or
+        * Equal D
 
-        Usage of NOT and special characters are not acceptable.
+        Usage of `NOT` and special characters are not acceptable.
 
-    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Hive Metastore database to be scanned.
+    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's VM to be used by the scanning processes. This value is dependent on the size of Hive Metastore database to be scanned.
 
     :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
 
@@ -177,4 +177,4 @@ Now that you've registered your source, use the following guides to learn more a
 
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
-- [Search Data Catalog](how-to-search-catalog.md)
+- [Search the data catalog](how-to-search-catalog.md)
