@@ -206,7 +206,6 @@ The following properties are supported for FTP under `storeSettings` settings in
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 | disableChunking | When copying data from FTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. Specify whether your FTP server supports getting file length or seeking to read from a certain offset. <br/>Allowed values are: **false** (default), **true**. | No |
 
-
 **Example:**
 
 ```json
