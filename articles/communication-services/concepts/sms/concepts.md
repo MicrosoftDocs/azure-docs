@@ -37,10 +37,5 @@ Key features of Azure Communication Services SMS SDKs include:
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
-<<<<<<< HEAD
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
-=======
-- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)
->>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521

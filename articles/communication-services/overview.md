@@ -39,11 +39,7 @@ To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com
 | Resource                               |Description                           |
 |---                                    |---                                   |
 |**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|Begin using Azure Communication Services by using the Azure portal or Communication Services SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
-<<<<<<< HEAD
 |**[Get a phone number](./quickstarts/telephony/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
-=======
-|**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
->>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521
 |**[Send an SMS from your app](./quickstarts/sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
 
 After creating a Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:

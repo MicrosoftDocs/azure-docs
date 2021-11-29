@@ -77,8 +77,6 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 ##  I received a HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
-<<<<<<< HEAD
-=======
 
 ## What is the eligibility to apply for a short code?
 Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. 
@@ -91,4 +89,3 @@ Short codes do not fall under E.164 formatting guidelines and do not have a coun
 
 ## How long does it take to get a short code? What happens after a short code program brief application is submitted?
 Once you have submitted the short code program brief application in the Azure portal, Azure Communication Services works with the aggregators to get your application approved by each mobile carrier. This process generally takes 8-12 weeks.
->>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521

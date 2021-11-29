@@ -140,12 +140,7 @@ Message senders are required to have mechanisms to opt customers out of the prog
 
 In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. Example: Contoso Alerts: You’re opted out and will receive no further messages.
 
-<<<<<<< HEAD
-> [!Note]
-> Please click [here]( https://docs.microsoft.com/en-us/azure/communication-services/concepts/sms/sms-faq#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
-=======
 Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
->>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521
 
 ### Example messages
 Message senders are required to disclose all the types/categories of messages with samples that will be sent over the short code.
