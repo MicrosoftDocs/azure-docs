@@ -27,7 +27,7 @@ The application repository contains the application code that developers work on
 
 ### Container Registry
 
-The container registry holds all the first- and third-party images used in the Kubernetes environments. Tag first-party application images with human readable tags and the Git commit used to build the image. Cache third-party images for security, speed, and resilience. Set a plan for timely testing and integration of security updates. For more information, see the [ACR Consume and maintain public content](../../container-registry/tasks-consume-public-content.md) guide for an example.
+The container registry holds all the first and third party images used in the Kubernetes environments. Tag first party application images with human readable tags and the Git commit used to build the image. Cache third-party images for security, speed, and resilience. Set a plan for timely testing and integration of security updates. For more information, see the [ACR Consume and maintain public content](../../container-registry/tasks-consume-public-content.md) guide for an example.
 
 ### PR Pipeline
 
@@ -35,15 +35,25 @@ Pull requests to the application repository are gated on a successful run of the
 
 ### CI Pipeline
 
-The application CI pipeline runs all the PR pipeline steps and expands the testing and deployment checks. The pipeline can be run for each commit or at a regular cadence with a group of commits. At this stage, do the application testing that is too time consuming for a PR pipeline. Push the built Docker images to the container registry. The replaced template can be linted with a set of testing values. Images used at service runtime should be linted, built, and tested at this point. In the CI build, artifacts are published for the CD step to consume in preparation for deployment.
+The application CI pipeline runs all the PR pipeline steps, expanding the testing and deployment checks. The pipeline can either be run for each commit to main or run at a regular cadence with a group of commits.
+
+At this stage, application tests which are too consuming to perform in the PR pipeline can be performing, including:
+
+* Pushing images to container registry
+* Image building, linting, and testing
+* Template generation of raw yamls
+
+By the end of the CI build, artifacts are generated which can be used by the CD step to consume in preparation for deployment.
 
 ### Flux
 
-Flux is a service that runs in each cluster and is responsible for maintaining the desired state. The service frequently polls the GitOps repository for changes to its cluster and applies them.
+Flux is an agent that runs in each cluster and is responsible for maintaining the desired state. The agent polls the GitOps repository at a user-defined interval and reconciles the cluster state with the state declared in the git repository.
+
+For more information, see the [Flux tutorial](./tutorial-use-gitops-flux2).
 
 ### CD Pipeline
 
-The CD pipeline is automatically triggered by successful CI builds. In this pipeline environment values are substituted into the previously published templates and a pull request is created to the GitOps repository. This pull request contains the proposed changes to the desired state of one or more Kubernetes clusters. Cluster administrators review the pull request and approve the merge to the GitOps repository. The pipeline waits for the pull request to merge, after which Flux syncs and applies the state changes.
+The CD pipeline is automatically triggered by successful CI builds. In this pipeline environment, environment-specific values are substituted into the previously published templates, and a new pull request is raised against the GitOps repository with these values. This pull request contains the proposed changes to the desired state of one or more Kubernetes clusters. Cluster administrators review the pull request and approve the merge to the GitOps repository. The pipeline waits for the pull request to merge, after which Flux syncs and applies the state changes.
 
 ### GitOps repository
 

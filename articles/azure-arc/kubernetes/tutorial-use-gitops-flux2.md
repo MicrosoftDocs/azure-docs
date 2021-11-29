@@ -34,10 +34,14 @@ To manage GitOps through the Azure CLI or portal you need:
 * An AKS cluster that is up and running.
 
 >[!IMPORTANT]
-
 >Ensure the AKS cluster is created with MSI (not SPN), because the `microsoft.flux` extension won't work with SPN-based AKS clusters.
 
 * 'Read' and 'Write' permissions on the 'Microsoft.ContainerService/managedClusters' resource type.
+* Register your subscription with the AKS-ExtensionManager feature flag.
+
+```console
+az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionManager
+```
 
 ### Common to both cluster types
 
@@ -52,6 +56,7 @@ az upgrade
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
+az provider register --namespace Microsoft.ContainerService
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
@@ -463,7 +468,7 @@ source-controller-df7dc97cd-4drh2         1/1     Running   0          21m
 Namespace `gitops-demo` has the Flux configuration objects.
 
 ```console
-kubectl get crds -n gitops-demo
+kubectl get crds
 
 NAME                                                   CREATED AT
 alerts.notification.toolkit.fluxcd.io                  2021-11-23T22:57:49Z
