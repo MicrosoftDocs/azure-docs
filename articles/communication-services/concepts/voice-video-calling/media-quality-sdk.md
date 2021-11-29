@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 
 # Media quality statistics 
-When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help underedstand these details, we have a feature called "Media Quality metrics" that you can use to examine the low levey audi, video, and screen sharing metrics.
+When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low level audio, video, and screen sharing quality metrics.
 
 ### Media quality statistics for ongoing call
 > **NOTE**
@@ -37,7 +37,7 @@ const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
 
 where
 - `aggregationInterval` is the interval in seconds that the statistics will be aggregated. 
-- `dataPointsPerAggregation` defines how many data points are neededd for each aggregation.
+- `dataPointsPerAggregation` defines how many data points are needed for each aggregation.
 
 After getting media stats collector, you will receive `mediaStatsEmitted` event with stats every `aggregationInterval * dataPointsPerAggregation` seconds.
 
@@ -79,7 +79,7 @@ To dispose all collectors, invoke `disposeAllCollectors` method of `mediaStatsAp
 mediaStatsFeature.disposeAllCollectors();
 ```
 ## Best practices
-If you want to collect this data for off-line inspection it is best use available bandwith during an ACS call it is best to not send this data to your ingest pipeline. By doing so your client application could use up critically needed internet bandwidth for the ACS call. It is best to collect this data and send it to your pipeline ingest after your call has ended.
+If you want to collect this data for off-line inspection (after a call ends) it is recommended to collect this data and send it to your pipeline ingest after your call has ended. If you transmit this data during an current all you could use needed internet bandwidth that could be needed to help continue an ACS call (in cases when available bandwidth is low).
 
 ### Bandwidth metrics
 | Metric Name    | Purpose              | Detailed explanation                                                    | Comments                                                                      |
@@ -98,9 +98,9 @@ If you want to collect this data for off-line inspection it is best use availabl
 | audioSendPacketsLost      | Sent packet loss             | The number of audio packets sent that were lost (not received) in the last second.  Results are packets per second (over the last second).                                            | Lower is better.                                             |
 | audioRecvPackets          | Received packets             | The number of audio packets received in the last second. Results are packets per second (over the last second).                                                                       | Information only.                                            |
 | audioSendCodecName        | Sent codec                   | Audio CODEC used.                                                                                                                                                                     | Information only.                                            |
-| audioSendRtt              | Send Round Trip Time         | Response time between your system and ACS server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
-| audioSendPairRtt          | Send Pair Round Trip Time    | Rtt for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
-| audioRecvPairRtt          | Receive Pair Round Trip Time | Rtt for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
+| audioSendRtt              | Send Round Trip Time         | Rount trip time between your system and ACS server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
+| audioSendPairRtt          | Send Pair Round Trip Time    | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
+| audioRecvPairRtt          | Receive Pair Round Trip Time | Round trip time for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
 | audioSendAudioInputLevel  | Input level for microphone   | Sent audio playout level. If source data is between 0-1,  media stack multiplies it with 0xFFFF. Depends on microphone. Used to confirm if microphone is silent (no incoming energy). | Microphone input level.                                      |
 | audioRecvAudioOutputLevel | Speaker output level.        | Received audio playout level.  If source data is between 0-1,  media stack multiplies it with 0xFFFF.                                                                                 | Speaker output level.                                        |
 
@@ -144,8 +144,8 @@ If you want to collect this data for off-line inspection it is best use availabl
 | screenSharingRecvFrameHeightReceived   | Received height                  | Video resolution sent. Higher is better                          | 1080 pixels (content aware, variable) |
 | screenSharingRecvCodecName             | Received codec                   | Codec used for decoding video stream                             | Information only                      |
 | screenSharingRecvJitterBufferMs        | Received Jitter                  | Jitter is the amount of difference in packet delay (in milliseconds (ms))                                                                |                                 |
-| screenSharingRecvPacketsLost           | Received packet loss             | The number of screenshare packets that were to be received but were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
-| screenSharingSendPacketsLost           | Received packet loss             | The number of screenshare packets that were sent were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
+| screenSharingRecvPacketsLost           | Received packet loss             | The number of screen share packets that were to be received but were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
+| screenSharingSendPacketsLost           | Received packet loss             | The number of screen share packets that were sent were lost. Results are packets per second (over the last second).                                     | Lower is better                       |
 | screenSharingSendFrameRateInput        | Sent framerate input             | Framerate measurements from the stream input into peerConnection | Information only                      |
 | screenSharingRecvFrameRateDecoded      | Received decoded framerate       | Framerate from decoder output                                    | Information only                      |
 | screenSharingRecvFrameRateOutput       | Received framerate output        | Framerate of the stream that was sent to renderer                | Information only                      |
