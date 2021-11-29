@@ -18022,6 +18022,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/devtest-labs/devtest-lab-use-arm-and-powershell-for-lab-resources.md",
+      "redirect_url": "/azure/devtest-labs/devtest-lab-vm-powershell",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sql-database/sql-database-migrate-your-sql-server-database.md",
       "redirect_url": "/azure/dms/tutorial-sql-server-to-azure-sql",
       "redirect_document_id": false

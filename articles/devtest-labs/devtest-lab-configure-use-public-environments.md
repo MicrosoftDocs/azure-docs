@@ -11,7 +11,7 @@ Azure DevTest Labs has a [public repository of Azure Resource Manager (ARM) temp
 
 The environment repository provides pre-authored ARM templates with minimum input parameters. The templates create frequently used environments such as Azure Web Apps, Service Fabric cluster, and development SharePoint farms. Lab users can create environments with these templates for a smooth getting started experience with platform-as-a-service (PaaS) resources.
 
-As a lab owner, you can enable and configure access to the public environment repository for your labs. You don't have to connect to the GitHub environment repository separately to get the templates. You can enable the repository and access the templates from the portal, during or after lab creation.
+As a lab owner, you can enable and configure access to the public environment repository for your labs. You don't have to connect to the GitHub environment repository separately to get the templates. You can enable repository and template access from the portal, during or after lab creation.
 
 ## Configure public environments
 
@@ -22,7 +22,7 @@ To enable the public environment repository for your lab users, make sure to sel
 Existing labs, and labs you create with ARM templates, might not have public environments enabled. To enable or disable the public environment repository for existing labs:
 
 1. From your lab's **Overview** page, select **Configuration and policies** in the left navigation.
-1. Select **Public environments** from the **Virtual machine bases** section.
+1. On the **Configuration and policies** page, select **Public environments** under **Virtual machine bases** in the left navigation.
 1. Under **Enable Public Environments for this lab**, select **Yes** to enable or **No** to disable public environments.
 
 If you enable public environments, all the environments in the repository are available by default. Deselect specific environments to make them unavailable to lab users.
@@ -41,4 +41,4 @@ For more information about creating the environment, see [Create environments fr
 
 - The [public environment repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) is an open-source repository that you can contribute to. To suggest revisions or add your own ARM templates, submit a pull request against the repository.
 
-- You can also create your own private template repositories and add them to your labs. For more information, see [Create multi-VM environments and PaaS resources with Azure Resource Manager templates](devtest-lab-create-environment-from-arm.md).
+- You can also create your own private template repositories and add them to your labs. For more information, see [Create your own template repositories](devtest-lab-create-environment-from-arm.md#create-your-own-template-repositories) and [Add a Git repository to store custom artifacts and Resource Manager templates](devtest-lab-add-artifact-repo.md).
