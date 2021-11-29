@@ -304,8 +304,8 @@ We currently support Micrometer, popular logging frameworks, and the Application
 The following table represents currently supported custom telemetry types that you can enable to supplement the Java 3.x agent. To summarize:
 
 - Custom metrics are supported through micrometer.
-- Custom exceptions and traces can be enabled through logging frameworks.
-- Custom requests, dependencies, and exceptions can be enabled through `opentelemetry-api`.
+- Custom exceptions and traces are supported through logging frameworks.
+- Custom requests, dependencies, and exceptions are supported through `opentelemetry-api`.
 - Any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#send-custom-telemetry-by-using-the-2x-sdk).
 
 | Custom telemetry type            | Micrometer | Log4j, logback, JUL | 2.x SDK | opentelemetry-api |
@@ -320,7 +320,7 @@ The following table represents currently supported custom telemetry types that y
 
 Currently, we're not planning to release an SDK with Application Insights 3.x.
 
-Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. It fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
+Application Insights Java 3.x is already listening for telemetry that's sent to the Application Insights Java 2.x SDK. This functionality is an important part of the upgrade story for existing 2.x users. And it fills an important gap in our custom telemetry support until the OpenTelemetry API is generally available.
 
 ### Send custom metrics by using Micrometer
 
