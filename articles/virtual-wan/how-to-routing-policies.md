@@ -99,11 +99,11 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 5. If you want to configure a Internet Traffic Routing Policy, under **Internet traffic** select **Network Virtual Appliance** and under **Next Hop Resource** select the Network Virtual Appliance you want to send internet-bound traffic to. 
 
-:::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public prefixes for NVA routing policies."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
+:::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
 6. To apply your routing intent and routing policies configuration, click **Save**.
 
-:::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to configure public prefixes for NVA routing policies."lightbox="./media/routing-policies/save-nva.png":::
+:::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations" "lightbox="./media/routing-policies/save-nva.png":::
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
