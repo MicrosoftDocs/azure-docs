@@ -3,7 +3,6 @@ title: Quickstart for Microsoft Azure Data Box| Microsoft Docs
 description: In this quickstart, learn how to deploy Azure Data Box using the Azure portal for an import order. Configure Azure Data Box and copy data to upload to Azure.
 services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
@@ -11,6 +10,7 @@ ms.date: 07/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
+ms.custom: mode-other
 ---
 
 # Get started with Azure Data Box to import data into Azure

@@ -7,6 +7,7 @@ ms.service: static-web-apps
 ms.topic:  quickstart
 ms.date: 11/17/2021
 ms.author: cshoe
+ms.custom: mode-api
 ---
 
 # Quickstart: Building your first static site using the Azure CLI
