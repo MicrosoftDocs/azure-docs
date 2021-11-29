@@ -12,7 +12,7 @@ ms.author: csand
 
 # GitOps in Azure
 
-Azure provides managed GitOps in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters. You can easily enable and use GitOps in these clusters.
+Azure provides configuration management capability using GitOps in Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters. You can easily enable and use GitOps in these clusters.
 
 With GitOps, you declare the desired state of your Kubernetes clusters in files in Git repositories. The Git repositories may contain the following files:
 
@@ -72,13 +72,8 @@ Each `fluxConfigurations` resource in Azure will be associated in a Kubernetes c
 > * `fluxconfig-agent` monitors for new or updated fluxConfiguration resources in Azure. Thus, agents require connectivity to Azure public cloud for the desired state to be applied to the cluster. If agents are unable to connect to Azure, there will be a delay in propagating the desired state to the cluster until the agents can connect.
 > * Sensitive customer inputs like private key, known hosts content, HTTPS username, and token/password are stored for less than 48 hours in the Azure Arc enabled Kubernetes service. If you update any of these values in Azure, assure that your clusters connect with Azure within 48 hours.
 
-## Apply GitOps configurations at scale
-
-You can use Azure Policy to automate the creation of GitOps configurations in Azure Arc-enabled Kubernetes and AKS clusters. Create a Policy assignment scoped to a subscription or resource groups, then all Kubernetes clusters located within that scope will get GitOps enabled automatically. This enforcement ensures all new Kubernetes clusters can be bootstrapped with a common baseline configuration.
-
-> [!NOTE]
-> The built-in Azure policy that enables Flux v2 GitOps is being worked on.
-
 ## Next steps
 
-* [Create Flux configurations](./tutorial-use-gitops-flux2.md) on your Azure Arc enabled Kubernetes cluster.
+Advance to the next tutorial to learn how to enable GitOps on your Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters
+> [!div class="nextstepaction"]
+* [Enable GitOps with Flux](./tutorial-use-gitops-flux2.md)

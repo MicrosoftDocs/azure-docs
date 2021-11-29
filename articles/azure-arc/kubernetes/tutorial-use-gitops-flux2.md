@@ -11,7 +11,7 @@ ms.author: csand
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 
-# Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters (Public Preview)
+# Tutorial: Use GitOps with Flux v2 in Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters (Public Preview)
 
 GitOps with Flux v2 can be enabled in Azure Arc-enabled Kubernetes connected clusters or Azure Kubernetes Service (AKS) managed clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can then create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
@@ -19,7 +19,7 @@ This document contains a detailed tutorial of using Azure GitOps in a Kubernetes
 
 General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
 
-## Before you begin
+## Prerequisites
 
 To manage GitOps through the Azure CLI or portal you need:
 

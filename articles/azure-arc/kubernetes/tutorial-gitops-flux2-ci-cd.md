@@ -11,7 +11,6 @@ ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
 
-
 In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
@@ -27,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-## Before you begin
+## Prerequisites
 
 * Complete the [previous tutorial](./tutorial-use-gitops-flux2.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
@@ -259,7 +258,8 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 You're now ready to deploy to the `dev` and `stage` environments.
 
-### Give More Permissions to the Build Service
+### Give more permissions to the build service
+
 The CD pipeline uses the security token of the running build to authenticate to the GitOps repository. More permissions are needed for the pipeline to create a new branch, push changes, and create pull requests.
 
 1. Go to `Project settings` from the Azure DevOps project main page.
@@ -275,6 +275,7 @@ For more information, see:
 - [Manage Build Service Account Permissions](/azure/devops/pipelines/process/access-tokens?preserve-view=true&tabs=yaml&view=azure-devops#manage-build-service-account-permissions)
 
 ### Deploy the dev environment for the first time
+
 With the CI and CD pipelines created, run the CI pipeline to deploy the app for the first time.
 
 #### CI pipeline
@@ -291,6 +292,7 @@ The CI pipeline:
 * Verifies the Docker image has changed and the new image is pushed.
 
 #### CD pipeline
+
 During the initial CD pipeline run, you'll be asked to give the pipeline access to the GitOps repository. Select View when prompted that the pipeline needs permission to access a resource. Then, select Permit to grant permission to use the GitOps repository for the current and future runs of the pipeline.
 
 The successful CI pipeline run triggers the CD pipeline to complete the deployment process. You'll deploy to each environment incrementally.
@@ -321,6 +323,7 @@ Once the template and manifest changes to the GitOps repository have been genera
 1. Vote for your favorites and get ready to make some changes to the app.
 
 ### Set up environment approvals
+
 Upon app deployment, you can not only make changes to the code or templates, but you can also unintentionally put the cluster into a bad state.
 
 If the dev environment reveals a break after deployment, keep it from going to later environments using environment approvals.
@@ -388,7 +391,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
 
 Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
 
-## Implement CI/CD with GitHub 
+## Implement CI/CD with GitHub
 
 This tutorial assumes familiarity with GitHub, GitHub Actions.
 
@@ -488,9 +491,9 @@ EOF
 
 For the details on installation, refer to the [GitOps Connector](https://github.com/microsoft/gitops-connector#installation) repository.
 
-### Create GitHub Secrets
+### Create GitHub secrets
 
-#### Create GitHub Repository Secrets
+#### Create GitHub repository secrets
 
 | Secret | Value |
 | -------- | ----- |
@@ -504,7 +507,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | AKS_NAME | AKS Name. Needed for automated testing. |
 | PAT | GitHub PAT token with the permission to PR to the GitOps repository |
 
-#### Create GitHub Environment Secrets
+#### Create GitHub environment secrets
 
 1. Create `az-vote-app-dev` environment with the following secrets:
 
@@ -594,4 +597,4 @@ In this tutorial, you have set up a full CI/CD workflow that implements DevOps f
 Advance to our conceptual article to learn more about GitOps and configurations with Azure Arc-enabled Kubernetes.
 
 > [!div class="nextstepaction"]
-> [Conceptual CI/CD Workflow using GitOps](./conceptual-gitops-ci-cd.md)
+> [Conceptual CI/CD Workflow using GitOps](./conceptual-gitops-flux2-ci-cd.md)

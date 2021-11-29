@@ -11,8 +11,8 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 # Tutorial: Deploy configurations using GitOps on an Azure Arc-enabled Kubernetes cluster 
 
->[!NOTE]
->This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
+> [!NOTE]
+> This tutorial is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
 
 In this tutorial, you will apply configurations using GitOps on an Azure Arc-enabled Kubernetes cluster. You'll learn how to:
 
