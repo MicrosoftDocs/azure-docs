@@ -120,17 +120,15 @@ In this step, you associate the NAT rules with each connection resource.
 
 After completing these steps, you will have a setup that matches the topology shown in [Diagram 1](#diagram).
 
-## <a name ="limits"></a>Preview limitations
+## <a name ="limits"></a>Limitations
 
 > [!IMPORTANT] 
-> There are a few constraints during the NAT feature preview. Some of these will be addressed before GA.
+> There are a few constraints for the NAT feature.
 >
 
-* Azure VPN gateway NAT supports static, 1:1 NAT rules only. Dynamic NAT rules are not supported.
 * NAT is supported on the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 * NAT is supported for IPsec/IKE cross-premises connections only. VNet-to-VNet connections or P2S connections are not supported.
 * NAT rules cannot be associated with connection resources during the create connection process. Create the connection resource first, then associate the NAT rules in the Connection Configuration page.
-* For preview, use **BGP** and leave the local network gateway address space **blank** if the local network gateway address space is the same or part of the VNet address space. Static routing (non-BGP) is **not** supported with the address conflict between local network gateways and VNet.
 * Address spaces for different local network gateways (on-premises networks or branches) can be the same with *IngressSNAT* rules to map to non-overlapping prefixes as shown in [Diagram 1](#diagram).
 * NAT rules are not supported on connections that have *Use Policy Based Traffic Selectors* enabled.
 
