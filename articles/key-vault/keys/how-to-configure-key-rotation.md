@@ -77,7 +77,7 @@ az keyvault key rotate --vault-name <vault-name> --name <key-name>
 ## Configure key near expiry notification
 Configuration of expiry notification for event grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
 
-:::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Rotation on-demand":::
+:::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
 
 For more information about event grid notifications in Key Vault, see
 [Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
