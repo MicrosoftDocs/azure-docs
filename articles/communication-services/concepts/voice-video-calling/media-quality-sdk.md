@@ -78,16 +78,16 @@ To dispose all collectors, invoke `disposeAllCollectors` method of `mediaStatsAp
 ```js
 mediaStatsFeature.disposeAllCollectors();
 ```
-## Best Practices
+## Best practices
 If you want to collect this data for off-line inspection it is best use available bandwith during an ACS call it is best to not send this data to your ingest pipeline. By doing so your client application could use up critically needed internet bandwidth for the ACS call. It is best to collect this data and send it to your pipeline ingest after your call has ended.
 
-### Bandwidth Metrics
+### Bandwidth metrics
 | Metric Name    | Purpose              | Detailed explanation                                                    | Comments                                                                      |
 | -------------- | -------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | SentBWEstimate | Bandwidth estimation | Average video bandwidth allocated for the channel bps (bits per second) | 1.5 MBps or higher is recommended for high quality video for upload/download. |
 
 
-### Audio Quality Metrics
+### Audio quality metrics
 | Metric Name               | Purpose                      | Details                                                                                                                                                                               | Comments                                                     |
 | ------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | audioSendBitrate          | Sent bitrate                 | Send bitrate of audio (bits per second)                                                                                                                                               | General values are in the 24 kbps range (36-128kbps typical) |
@@ -105,7 +105,7 @@ If you want to collect this data for off-line inspection it is best use availabl
 | audioRecvAudioOutputLevel | Speaker output level.        | Received audio playout level.  If source data is between 0-1,  media stack multiplies it with 0xFFFF.                                                                                 | Speaker output level.                                        |
 
 
-### Video Quality Metrics
+### Video quality metrics
 | Metric Name                    | Purpose                          | Details                                                                                                                                  | Comments                                                                                         |
 | ------------------------------ | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | videoSendFrameRateSent         | Sent frame rate                  | Number of video frames sent. Results are frames per second                                                                               | Higher is better:<br>25-30 fps (360p or better)<br>8-15 fps (270p or lower)<br>Frames/second<br> |
@@ -132,7 +132,7 @@ If you want to collect this data for off-line inspection it is best use availabl
 | videoRecvLongestFreezeDuration | Received longest freeze duration | How long was the longest freeze                                                                                                          | Lower is better                                                                                  |
 | videoRecvTotalFreezeDuration   | Received total freeze duration   | Total freeze duration in seconds                                                                                                         | Lower is better                                                                                  |
 
-### Screen Share Quality Metrics
+### Screen share quality metrics
 | Metric Name                            | Purpose                          | Details                                                          | Comments                              |
 | -------------------------------------- | -------------------------------- | ---------------------------------------------------------------- | ------------------------------------- |
 | screenSharingSendFrameRateSent         | Sent frame rate                  | Number of video frames sent. Higher is better                    | 1-30 FPS (content aware, variable)    |
