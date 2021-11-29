@@ -198,6 +198,8 @@ items:
     href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
+  - name: SMS Pricing
+    href: concepts/sms-pricing.md
   - name: Push notifications
     href: concepts/notifications.md
   - name: Logging and diagnostics
