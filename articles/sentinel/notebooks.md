@@ -112,11 +112,6 @@ Select one of the following tabs, depending on whether you'll be using a public 
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1. After your deployment is complete, you can go back to the Microsoft Sentinel **Notebooks** and launch notebooks from your new Azure ML workspace.
-
-    If you have multiple notebooks, make sure to select a default AML workspace to use when launching your notebooks. For example:
-
-    :::image type="content" source="media/notebooks/default-machine-learning.png" alt-text="Select a default AML workspace for your notebooks.":::
 
 # [Private endpoint](#tab/windows)
 
@@ -160,7 +155,7 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
 Continue with one of the following sets of steps:
 
-- **If you have one private link only**: You can now do any of the following:
+- **If you have one private link only**: You can now access the notebooks via any of the following methods:
 
     - Clone and launch notebooks from Microsoft Sentinel to Azure Machine Learning
     - Upload notebooks to Azure Machine Learning manually
