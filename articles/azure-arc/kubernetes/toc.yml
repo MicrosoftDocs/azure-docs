@@ -13,11 +13,13 @@
 - name: Tutorials
   items:
   - name: GitOps (Flux v1)
+    items:
     - name: Deploy configurations using GitOps (Flux v1)
       href: tutorial-use-gitops-connected-cluster.md
     - name: Implement CI/CD with GitOps (Flux v1)
       href: tutorial-gitops-ci-cd.md
   - name: GitOps (Flux v2)
+    items:
     - name: Deploy configurations using GitOps (Flux v2)
       href: tutorial-use-gitops-flux2.md
     - name: Implement CI/CD with GitOps (Flux v2)
