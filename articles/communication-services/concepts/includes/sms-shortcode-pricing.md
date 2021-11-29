@@ -20,7 +20,7 @@ The Short Code service requires provisioning a short code through the Azure port
 ## Short Codes Pricing
 
 ### Provisioning Fee
-Fees for short code provisioning are charged during short code provisioning period:
+Fees for short code provisioning are charged during the short code provisioning period:
 
 |Fee type   | Description |Fee|
 |-----------|-------------|---|
@@ -54,4 +54,4 @@ The following prices include required communications taxes and fees:
 *Please see our guide on [SMS character limits](../sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments.
 
 ## Carrier surcharge
-An additional flat carrier surcharge of $0.0025/sent msg segment is also applicable. A carrier surcharge is subject to change. Click Link-To-be-added for details.
+An additional flat carrier surcharge of $0.0025/sent msg segment is also applicable. A carrier surcharge is subject to change. Please see our guide on [Carrier surcharges](https://github.com/Azure/Communication/blob/master/shortcode-carrier-surcharge.md) for details.
