@@ -149,8 +149,8 @@ Key Features:
 - Actionable recommendations: Remediate security vulnerabilities quickly with prioritized, actionable security recommendations. 
 - Centralized policy management: Ensure compliance with company or regulatory security requirements by centrally managing security policies across all your hybrid cloud workloads.
 - Industry's most extensive threat intelligence: Tap into the Microsoft Intelligent Security Graph, which uses trillions of signals from Microsoft services and systems around the globe to identify new and evolving threats. 
-- Advanced analytics and machine learning: Use built-in behavioural analytics and machine learning to identify known attack patterns and post-breach activity.
-- Adaptive application control: Block malware and other unwanted applications by applying whitelisting recommendations adapted to your specific workloads and powered by machine learning.
+- Advanced analytics and machine learning: Use built-in behavioral analytics and machine learning to identify known attack patterns and post-breach activity.
+- Adaptive application control: Block malware and other unwanted applications by applying allowlist recommendations adapted to your specific workloads and powered by machine learning.
 - Prioritized alerts and attack timelines: Focus on the most critical threats first with prioritized alerts and incidents that are mapped into a single attack campaign.
 - Streamlined investigation: Quickly investigate the scope and impact of an attack with a visual, interactive experience. Use ad hoc queries for deeper exploration of security data. 
 - Automation and orchestration: Automate common security workflows to address threats quickly using built-in integration with Azure Logic Apps. Create security playbooks that can route alerts to existing ticketing system or trigger incident response actions. 
@@ -399,9 +399,24 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 
 We look forward to partnering with you in addressing ransomware protection, detection and prevention in a holistic manner.
 
-## Additional resources
+Additional resources
+- Bunch
+- Of
+- Links
 
-## Connect with us
+Connect with us
+
+AskAzureSecurity@microsoft.com 
+
+www.microsoft.com/services
+
+
+For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
+
+
+## What's next
+
+
 
 
 
