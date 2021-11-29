@@ -86,6 +86,41 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
+### Content of directory on the path cannot be listed
+
+This error indicates that the user who is querying Azure Data Lake cannot list the files on a storage. There are several scenarios where this error might happen:
+- Azure AD user who is using [Azure AD pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) do not have permissions to list the files on Azure Data Lake storage.
+- Azure AD or SQL user is reading data using [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), and that key/identity do not have permission to list the files on the storage.
+- User who is accessing DataVerse data does not have permission to query data in DataVerse. This might happen if you are using SQL users.
+- User who is accessing Delta Lake might not have permission to read Delta Lake transaction log.
+ 
+The easiest way is to resolve this issue is grant yourself `Storage Blob DataContributor` role on the storage account you're trying to query.
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md).
+- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+ 
+#### Content of DataVerse table cannot be listed
+
+If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the serverless SQL pool.
+The SQL login that tried to read an external table that is referencing the DataVerse table will get the following error: `External table '???' is not accessible because content of directory cannot be listed. `
+
+#### Content of Delta Lake transaction log cannot be listed
+
+The following error is returned when a serverless SQL pool cannot read the Delta Lake transaction log folder.
+
+```Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders. Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
+
+```sql
+select top 10 *
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b',ROWTERMINATOR = '0x0b') 
+with (line varchar(max)) as logs
+```
+
+If this query fails, the caller does not have permission to read the underlying storage files.  
+
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
 This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
@@ -568,32 +603,6 @@ There are some limitations and known issues that you might see in Delta Lake sup
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
-
-### Content of directory on path cannot be listed
-
-The following error is returned when serverless SQL pool cannot read the Delta Lake transaction log folder.
-
-```
-Msg 13807, Level 16, State 1, Line 6
-Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
-```
-
-Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format).
-
-If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
-Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
-
-```sql
-select top 10 * 
-from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
-FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
-```
-
-If this query fails, the caller does not have permission to read the underlying storage files. 
-
-The easiest way is to grant yourself `Storage Blob Data Contributor` role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
-- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
 ### JSON text is not properly formatted
 
