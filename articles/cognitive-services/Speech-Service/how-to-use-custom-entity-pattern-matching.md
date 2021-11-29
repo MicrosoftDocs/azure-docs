@@ -17,7 +17,7 @@ ms.custom: devx-track-cpp
 
 The Cognitive Services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
-In this guide, you use the Speech SDK to develop a C++ console application that derives intents from user utterances through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a C++ console application that derives intents from speech utterances spoken through your device's microphone. You'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -31,10 +31,10 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 
 Use this sample code if: 
 * You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
-* You do not have access to a LUIS app, but still want intents. This can be helpful since it is embedded within the SDK.
+* You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
 * You cannot or do not want to create a LUIS app but you still want some voice commanding capability.
 
-If you do not have access to a LUIS app, but still want intents, this can be helpful since it is embedded within the SDK.
+If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
 
 
 ## Prerequisites
@@ -44,19 +44,13 @@ Be sure you have the following items before you begin this guide:
 - A [Cognitive Services Azure resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
+## Pattern Matching Model overview
+
 [!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ## Create a speech project in Visual Studio
 
 [!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-Open your project in Visual Studio
-Next, open your project in Visual Studio.
-
-Launch Visual Studio 2019.
-Load your project and open helloworld.cpp.
-Start with some boilerplate code
-Let's add some code that works as a skeleton for our project. Make note that you've created an async method called recognizeIntent().
 
 ## Open your project in Visual Studio
 
@@ -86,7 +80,7 @@ Let's add some code that works as a skeleton for our project.
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your Cognitive Services prediction resource.
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and Azure region for your Cognitive Services prediction resource.
 
 * Replace `"YOUR_SUBSCRIPTION_KEY"` with your Cognitive Services prediction key.
 * Replace `"YOUR_SUBSCRIPTION_REGION"` with your Cognitive Services resource region.
@@ -153,14 +147,16 @@ When the recognition result is returned by the Speech service, let's just print 
 Insert this code below `auto result = intentRecognizer->RecognizeOnceAsync().get();`:
 
 ```cpp
-auto entities = result->GetEntities();
-
 switch (result->Reason)
 {
 case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
 case ResultReason::RecognizedIntent:
     std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
     std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+    auto entities = result->GetEntities();
     if (entities.find("floorName") != entities.end())
     {
         std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -238,14 +234,17 @@ int main()
     std::cout << "Say something ..." << std::endl;
 
     auto result = intentRecognizer->RecognizeOnceAsync().get();
-    auto entities = result->GetEntities();
 
     switch (result->Reason)
     {
     case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
     case ResultReason::RecognizedIntent:
         std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
         std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+        auto entities = result->GetEntities();
         if (entities.find("floorName") != entities.end())
         {
             std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -314,8 +313,7 @@ Another example if you say "Take me to floor 7", this should be the output:
 ```
 Say something ...
 RECOGNIZED: Text = Take me to floor 7.
-  Intent Id =
-  Floor name: =
+NO INTENT RECOGNIZED!
 ```
 
 The Intent Id is empty because 7 was not in our list.

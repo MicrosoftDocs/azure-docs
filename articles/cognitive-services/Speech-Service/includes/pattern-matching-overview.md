@@ -29,7 +29,7 @@ The PatternMatchingModel contains an Id to reference that model by, a list of Pa
 
 #### Pattern Matching Intents
 
-PatternMatchingIntent objects represent a collection of phrases that will be used to evaluate utterances in the IntentRecognizer. If the phrases are matched, the IntentRecognitionResult returned will have the Id of the PatternMatchingIntent that was matched.
+PatternMatchingIntent objects represent a collection of phrases that will be used to evaluate speech or text in the IntentRecognizer. If the phrases are matched, the IntentRecognitionResult returned will have the Id of the PatternMatchingIntent that was matched.
 
 #### Pattern Matching Entities
 

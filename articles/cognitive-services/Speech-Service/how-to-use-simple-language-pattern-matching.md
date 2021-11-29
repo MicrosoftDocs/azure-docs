@@ -147,14 +147,16 @@ When the recognition result is returned by the Speech service, let's just print 
 Insert this code below `auto result = intentRecognizer->RecognizeOnceAsync().get();`:
 
 ```cpp
-auto entities = result->GetEntities();
-
 switch (result->Reason)
 {
 case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
 case ResultReason::RecognizedIntent:
     std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
     std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+    auto entities = result->GetEntities();
     if (entities.find("floorName") != entities.end())
     {
         std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -224,14 +226,17 @@ int main()
     std::cout << "Say something ..." << std::endl;
 
     auto result = intentRecognizer->RecognizeOnceAsync().get();
-    auto entities = result->GetEntities();
 
     switch (result->Reason)
     {
     case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
     case ResultReason::RecognizedIntent:
         std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
         std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+        auto entities = result->GetEntities();
         if (entities.find("floorName") != entities.end())
         {
             std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
