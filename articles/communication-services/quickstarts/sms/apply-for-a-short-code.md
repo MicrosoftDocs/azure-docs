@@ -36,7 +36,7 @@ The wizard on the short codes blade will walk you through a series of questions 
 The Short Code Program Brief registration requires details about your messaging program, including the user experience (e.g., call to action, opt-in, opt-out, and message flows) and information about your company. This information helps mobile carriers ensure that your program meets the CTIA (Cellular Telecommunications Industry Association) guidelines as well as regulatory requirements. A short code Program Brief application consists of the following 4 sections:
  
 ### Program Details 
-You will first need to provide program name and choose the country/region where you would like to provision the phone number. 
+You will first need to provide the program name and choose the country/region where you would like to provision the phone number. 
 
 :::image type="content" source="./media/apply-for-a-short-code/program-details.png" alt-text="Screenshot showing program details section.":::
 
