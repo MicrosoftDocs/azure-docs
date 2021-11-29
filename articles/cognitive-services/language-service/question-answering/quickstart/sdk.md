@@ -36,8 +36,13 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
+## Explore the REST API
+
+To learn about automating your question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
+
+* [Authoring API Reference](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [Authoring API cURL Examples](../how-to/authoring.md)
+
 ## Next steps
 
 * [Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
-* [Authoring API](../how-to/authoring.md)
-

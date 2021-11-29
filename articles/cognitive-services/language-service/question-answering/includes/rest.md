@@ -20,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 ### Generate an answer from a knowledge base
 
-To query a question answering project/knowledge base with the REST APIs and cURL, you need to  information:
+To [query a question answering project/knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -89,7 +89,7 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also [use question answering without a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
