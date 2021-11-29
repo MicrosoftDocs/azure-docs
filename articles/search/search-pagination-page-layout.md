@@ -121,17 +121,17 @@ By default, Azure Cognitive Search returns up to five highlights per field. You 
 
 Formatting is applied to whole term queries. The type of formatting is determined by tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font or a yellow background).
 
-In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Individual terms, single or consecutive, are enclosed in formatting mark up code.
+In the following query request example, the terms "divine", "secrets", and "secret" found within the Description field are tagged for highlighting.
 
 ```http
-POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
+POST /indexes/good-books/docs/search?api-version=2020-06-30 
     {  
-      "search": "sandy beaches",  
+      "search": "divine secrets",  
       "highlight": "Description"
     }
 ```
 
-The following screenshot illustrates the results of phrase query highlighting.
+The following portal screenshot illustrates the results of phrase query highlighting. Results are returned in the "@search.highlights" field. Individual terms, single or consecutive, are marked up in the result.
 
 :::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
