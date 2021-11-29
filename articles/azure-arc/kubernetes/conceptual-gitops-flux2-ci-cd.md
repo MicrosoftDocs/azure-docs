@@ -4,10 +4,10 @@ description: "This article provides a conceptual overview of a CI/CD workflow us
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Helm, Arc, CI/CD, Azure DevOps"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/03/2021
+ms.date: 11/29/2021
 ms.topic: conceptual
-author: tcare
-ms.author: tcare
+author: eedorenko
+ms.author: iefedore
 ---
 # CI/CD workflow using GitOps (Flux v2) - Azure Arc enabled Kubernetes
 
@@ -49,7 +49,7 @@ By the end of the CI build, artifacts are generated which can be used by the CD 
 
 Flux is an agent that runs in each cluster and is responsible for maintaining the desired state. The agent polls the GitOps repository at a user-defined interval and reconciles the cluster state with the state declared in the git repository.
 
-For more information, see the [Flux tutorial](./tutorial-use-gitops-flux2).
+For more information, see the [Flux tutorial](./tutorial-use-gitops-flux2.md).
 
 ### CD Pipeline
 

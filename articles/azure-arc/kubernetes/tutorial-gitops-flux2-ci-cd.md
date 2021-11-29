@@ -2,11 +2,11 @@
 title: 'Tutorial: Implement CI/CD with GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters'
 description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
 keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, ci/cd, devops"
-author: tcare, eedorenko
-ms.author: tcare, iefedore
+author: eedorenko
+ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 11/29/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
@@ -73,10 +73,9 @@ kubectl create secret docker-registry <secret-name> \
 
 To avoid having to set an imagePullSecret for every Pod, consider adding the imagePullSecret to the Service account in the `dev` and `stage` namespaces. See the [Kubernetes tutorial](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#add-imagepullsecrets-to-a-service-account) for more information.
 
+Depending on the CI/CD orchestrator you prefer, you can proceed with instructions either for Azure DevOps or for GitHub.
 
-Depending on the CI/CD orchestrator you prefer, you can proceed with instructions either for [Azure DevOps](#implement-ci-cd-with-azure-devops) or for [GitHub](#implement-ci-cd-with-github).
-
-## Implement CI/CD with Azure DevOps 
+## Implement CI/CD with Azure DevOps
 
 This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, and Azure CLI.
 
@@ -495,11 +494,11 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 | Secret | Value |
 | -------- | ----- |
-| AZURE_CREDENTIALS | Credentials for Azure in the following format {"clientId":"<GUID>","clientSecret":"<GUID>","subscriptionId":"<GUID>","tenantId":"<GUID>"} |
+| AZURE_CREDENTIALS | Credentials for Azure in the following format {"clientId":"GUID","clientSecret":"GUID","subscriptionId":"GUID","tenantId":"<GUID>"} |
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
-| MANIFESTS_REPO | https://github.com/<your-organization>/arc-cicd-demo-gitops |
+| MANIFESTS_REPO | https://github.com/your-organization/arc-cicd-demo-gitops |
 | VOTE_APP_TITLE | Voting Application |
 | AKS_RESOURCE_GROUP | AKS Resource group. Needed for automated testing. |
 | AKS_NAME | AKS Name. Needed for automated testing. |
