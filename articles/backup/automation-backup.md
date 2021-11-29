@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Automation in Azure Backup
 
-As your Azure estate expands to span a large and diverse workload, it becomes increasingly necessary to automate key tasks (such as configuring backups for the right machines, monitoring their health, and taking timely corrective action) to ensure that your backup goals are met. The robust automation for Azure Backup operations helps you achieve efficiencies while managing at scale; also, reduces the possibility of human error.
+As your Azure estate expands to span a large and diverse set of workloads, it becomes increasingly necessary to automate key tasks (such as configuring backups for the right machines, monitoring their health, and taking timely corrective action) to ensure that your backup goals are met. Having robust automation in place for backup operations helps you achieve efficiencies while managing at scale; also, it reduces the possibility of human error.
 
 Azure Backup allows you to automate most backup related tasks using programmatic methods. This article talks about the different automation clients supported by Azure Backup. Also, it walks you through some end-to-end Azure Backup automation scenarios that are commonly seen in enterprise-scale deployments.
 
