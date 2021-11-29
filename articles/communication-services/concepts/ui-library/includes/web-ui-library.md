@@ -33,7 +33,7 @@ Stateful clients are found as part of the `@azure/communication-react` package.
 npm i --save @azure/communication-react
 ```
 
-## Composites overview
+## Web UI Composites overview
 
 Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
 Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
