@@ -9,8 +9,7 @@
   - name: Tutorials
     items:
     - name: Create order
-      href: azure-edge-hardware-center.md
-      displayName: Azure CLI, az databoxedge device, az databoxedge order
+      href: azure-edge-hardware-center-create-order.md
   - name: Concepts
     items:
     - name: FAQ
@@ -24,7 +23,7 @@
     - name: Track your order
       href: azure-edge-hardware-center-track-order.md
     - name: Troubleshoot issues
-      href: azure-stack-edge-troubleshoot.md
+      href: azure-edge-hardware-center-troubleshoot.md
     - name: Contact Microsoft Support
       href: azure-stack-edge-contact-microsoft-support.md 
   - name: References
