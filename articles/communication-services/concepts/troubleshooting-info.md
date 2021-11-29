@@ -24,7 +24,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
-* **Short Code Program Brief ID**: This ID is used to identify short code program brief application.
+* **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
 

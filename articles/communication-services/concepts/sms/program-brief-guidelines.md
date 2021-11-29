@@ -48,7 +48,10 @@ A vanity short code is a 5–6-digit phone number that is chosen by you for your
 Additionally, you may pick a number that the customer can spell out on their phone dial pad as an alphanumeric equivalent – for example, Contoso can use OFFERS (633377). 
 
 When you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. 
-Example: 123456, 123457, 123458.
+Example: 234567, 234578, 234589.
+
+> [!Note]
+> Short codes in the US cannot start with 1.
 
 ### Message Directionality 
 This field captures the directionality of the SMS program – 1-way broadcast or 2-way SMS. In United States, 2-way SMS is mandated to honor opt-out requests from customers.

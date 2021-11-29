@@ -45,7 +45,7 @@ Configuring your short code is broken down into two steps:
 - The selection of short code type
 - The selection of the short code features
 
-You can select from two short code types: Random, and Vanity. If you select a random short code, you will get a short code that is randomly selected by the U.S. Common Short Codes Association (CSCA). If you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. Example: 123456, 123457, 123458. You can look up the list of available short codes in the [US Short Codes Directory](https://usshortcodedirectory.com/).
+You can select from two short code types: Random, and Vanity. If you select a random short code, you will get a short code that is randomly selected by the U.S. Common Short Codes Association (CSCA). If you select a vanity short code, you are required to input a prioritized list of vanity short codes that you’d like to use for your program. The alternatives in the list will be used if the first short code in your list is not available to lease. Example: 234567, 234578, 234589. You can look up the list of available short codes in the [US Short Codes Directory](https://usshortcodedirectory.com/).
 
 When you’ve selected a number type, you can then choose the message type, and target date.  Short code registration with carriers usually takes 8-12 weeks, so this target date should be selected considering this registration period.
 
@@ -63,7 +63,7 @@ This section requires you to provide information about your company and customer
 :::image type="content" source="./media/apply-for-a-short-code/contact-details.png" alt-text="Screenshot showing contact details section.":::
 
 ### Volume Details
-This section requires you to provide an estimate of the number of messages you plan on sending per user per month and the disclose any expected traffic spikes as part of the program.
+This section requires you to provide an estimate of the number of messages you plan on sending per user per month and disclose any expected traffic spikes as part of the program.
 
 :::image type="content" source="./media/apply-for-a-short-code/volume-details.png" alt-text="Screenshot showing volume details section.":::
 
@@ -91,4 +91,3 @@ Common questions and issues:
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md)
-
