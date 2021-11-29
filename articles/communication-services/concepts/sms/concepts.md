@@ -32,10 +32,10 @@ Key features of Azure Communication Services SMS SDKs include:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/telephony-sms/send.md)
+> [Get started with sending sms](../../quickstarts/sms/send.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with the [SMS SDK](../telephony-sms/sdk-features.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Phone number types in Azure Communication Services](../telephony/plan-solution.md)

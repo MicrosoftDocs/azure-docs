@@ -39,10 +39,10 @@ The following list presents the set of features which are currently available in
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with sending sms](../../quickstarts/telephony-sms/send.md)
+> [Get started with sending sms](../../quickstarts/sms/send.md)
 
 The following documents may be interesting to you:
 
-- Familiarize yourself with general [SMS concepts](../telephony-sms/concepts.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)
+- Familiarize yourself with general [SMS concepts](../sms/concepts.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+- [Phone number types in Azure Communication Services](../telephony/plan-solution.md)

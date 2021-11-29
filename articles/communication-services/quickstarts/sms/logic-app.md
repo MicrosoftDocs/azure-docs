@@ -116,6 +116,6 @@ In this quickstart, you learned how to send SMS messages by using Azure Logic Ap
 
 For more information about SMS in Azure Communication Services, see these articles:
 
-- [SMS concepts](../../concepts/telephony-sms/concepts.md)
-- [Phone number types](../../concepts/telephony-sms/plan-solution.md)
-- [SMS SDK](../../concepts/telephony-sms/sdk-features.md)
+- [SMS concepts](../../concepts/sms/concepts.md)
+- [Phone number types](../../concepts/telephony/plan-solution.md)
+- [SMS SDK](../../concepts/sms/sdk-features.md)

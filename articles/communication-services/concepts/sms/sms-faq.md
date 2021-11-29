@@ -40,7 +40,7 @@ Opt-outs for US toll-free numbers are mandated and enforced by US carriers.
 
 ## How can I receive messages using Azure Communication Services?
 
-Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/telephony-sms/handle-sms-events.md) to setup your event-grid to receive messages.
+Azure Communication Services customers can use Azure Event Grid to receive incoming messages. Follow this [quickstart](../../quickstarts/sms/handle-sms-events.md) to setup your event-grid to receive messages.
 
 ## What is the SMS character limit?
 The character limit for a single SMS is 160 characters. When sending messages, all messages over 160 characters are split into segments and delivered individually, which are then concatenated by the recipient's device. Similarly for receiving long messages, multiple segments of a long message are automatically concatenated and delivered as one message on the endpoint specified in Azure Event Grid. 
@@ -55,8 +55,8 @@ In the United States, Azure Communication Services does not check for landline n
 
 ## Can I send messages to multiple recipients?
 
-Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/telephony-sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
+Yes, you can make one request with multiple recipients. Follow this [quickstart](../../quickstarts/sms/send.md?pivots=programming-language-csharp) to send messages to multiple recipients.
 
 ##  I received a HTTP Status 202 from the Send SMS API but the SMS didn't reach my phone, what do I do now?
 
-The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/telephony-sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
+The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.

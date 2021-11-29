@@ -84,7 +84,7 @@ Then select **Confirm Selection**.
 To view event triggers, we must generate events in the first place.
 
 - `SMS Received` events are generated when the Communication Services phone number receives a text message. To trigger an event, just send a message from your phone to the phone number attached to your Communication Services resource.
-- `SMS Delivery Report Received` events are generated when you send an SMS to a user using a Communication Services phone number. To trigger an event, you are required to enable `Delivery Report` in the options of the [sent SMS](../telephony-sms/send.md). Try sending a message to your phone with `Delivery Report`. Completing this action incurs a small cost of a few USD cents or less in your Azure account.
+- `SMS Delivery Report Received` events are generated when you send an SMS to a user using a Communication Services phone number. To trigger an event, you are required to enable `Delivery Report` in the options of the [sent SMS](../sms/send.md). Try sending a message to your phone with `Delivery Report`. Completing this action incurs a small cost of a few USD cents or less in your Azure account.
 
 Check out the full list of [events supported by Azure Communication Services](../../../event-grid/event-schema-communication-services.md).
 
@@ -107,7 +107,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 In this quickstart, you learned how to consume SMS events. You can receive SMS messages by creating an Event Grid subscription.
 
 > [!div class="nextstepaction"]
-> [Send SMS](../telephony-sms/send.md)
+> [Send SMS](../sms/send.md)
 
 You may also want to:
 
