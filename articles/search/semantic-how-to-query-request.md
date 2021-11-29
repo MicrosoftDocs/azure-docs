@@ -99,7 +99,7 @@ The following table summarizes the parameters used in a semantic query. For a li
 | queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. For more information, see [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | searchFields | String | A comma-delimited list of searchable fields. Specifies the fields over which semantic ranking occurs, from which captions and answers are extracted. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
-| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of five. The default is one. This example shows a count of three answers: "extractive\|count3"`. For more information, see [Return semantic answers](semantic-answers.md).|
+| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of ten. The default is one. This example shows a count of three answers: `extractive\|count-3`. For more information, see [Return semantic answers](semantic-answers.md).|
 
 ### Formulate the request
 
@@ -164,7 +164,7 @@ Several query capabilities in Cognitive Search do not undergo relevance scoring,
 
 + Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
 
-+ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will case an HTTP 400 error to be returned.
++ Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
 
 #### Step 4: Add answers
 

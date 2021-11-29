@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
+          - text: What's new?
+            url: whats-new.md
           - text: Terminology
             url: overview-terminology.md
           - text: FAQ
@@ -72,6 +74,30 @@ landingContent:
             url: get-started-knowledge-center.md
 
   # Card
+  - title: Data Explorer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Data Explorer in Azure Synapse Analytics
+            url: data-explorer/data-explorer-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create a Data Explorer pool using the Synapse Studio
+            url: data-explorer/data-explorer-create-pool-studio.md
+
+  # Card
+  - title: Database templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Database templates in Azure Synapse Analytics
+            url: database-designer/overview-database-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Lake database leveraging database templates
+            url: database-designer/quick-start-create-lake-database.md
+
+  # Card
   - title: Apache Spark
     linkLists:
       - linkListType: overview
@@ -89,7 +115,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Synapse Link for Azure Cosmos DB
-            url: ../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            url: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
       - linkListType: quickstart
         links:
           - text: Connect to Azure Synapse Link for Azure Cosmos DB
@@ -117,7 +143,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Pipeline and activities
-            url: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            url: ../data-factory/concepts-pipelines-activities.md?context=/azure/synapse-analytics/context/context
       - linkListType: quickstart
         links:
           - text: Transform data

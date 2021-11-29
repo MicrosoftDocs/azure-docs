@@ -57,7 +57,10 @@ For other methods of authenticating, see [Sign in with Azure CLI](/cli/azure/aut
 
 ## Install the extension
 
-The extension is automatically installed when you first try to use a command that begins with `az ml`.
+To install the CLI (v1) extension:
+```azurecli-interactive
+az extension add -n azure-cli-ml
+```
 
 ## Update the extension
 
@@ -360,7 +363,7 @@ If you used the `az ml environment scaffold` command, it generates a template `a
     },
     "docker": {
         "enabled": false,
-        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "baseImage": "mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1",
         "baseDockerfile": null,
         "sharedVolumes": true,
         "shmSize": "2g",

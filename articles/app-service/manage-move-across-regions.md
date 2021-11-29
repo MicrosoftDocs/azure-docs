@@ -32,7 +32,7 @@ Identify all the App Service resources that you're currently using. For example:
 - [Deployment slots](deploy-staging-slots.md)
 - [Custom domains purchased in Azure](manage-custom-dns-buy-domain.md)
 - [TLS/SSL certificates](configure-ssl-certificate.md)
-- [Azure Virtual Network integration](web-sites-integrate-with-vnet.md)
+- [Azure Virtual Network integration](./overview-vnet-integration.md)
 - [Hybrid connections](app-service-hybrid-connections.md).
 - [Managed identities](overview-managed-identity.md)
 - [Backup settings](manage-backup.md)

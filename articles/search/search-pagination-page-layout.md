@@ -8,17 +8,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 11/29/2021
 ---
 
 # How to work with search results in Azure Cognitive Search
 
-This article explains how to formulate a query response in Azure Cognitive Search. The structure of a response is determined by parameters in the query: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK. Parameters on the query can be used to structure the result set in the following ways:
+This article explains how to work with a query response in Azure Cognitive Search. 
 
-+ Limit or batch the number of documents in the results (50 by default)
-+ Select fields to include in the results
-+ Order results
-+ Highlight a matching whole or partial term in the body of the search results
+The structure of a response is determined by parameters in the query itself: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK.
+
+Parameters on the query determine:
+
++ Number of results in the response (50 by default)
++ Fields in each result
++ Order of results
++ Highlighting of terms within a result, matching on either the whole or partial term in the body of the result
 
 ## Result composition
 
@@ -105,7 +109,7 @@ Another approach that promotes consistency is using a [custom scoring profile](i
 
 ## Hit highlighting
 
-Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents). 
+Hit highlighting refers to text formatting (such as bold or yellow highlights) applied to matching terms in a result, making it easy to spot the match. Hit highlighting instructions are provided on the [query request](/rest/api/searchservice/search-documents).  Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
 
 To enable hit highlighting, add `highlight=[comma-delimited list of string fields]` to specify which fields will use highlighting. Highlighting is useful for longer content fields, such as a description field, where the match is not immediately obvious. Only field definitions that are attributed as **searchable** qualify for hit highlighting.
 
@@ -113,7 +117,7 @@ By default, Azure Cognitive Search returns up to five highlights per field. You 
 
 Formatting is applied to whole term queries. The type of formatting is determined by tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font or a yellow background).
 
-In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Queries that trigger query expansion in the engine, such as fuzzy and wildcard search, have limited support for hit highlighting.
+In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. 
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
@@ -127,13 +131,20 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
     }
 ```
 
-### New behavior (starting July 15)
+### Highlighting behavior on older search services
 
-Services created after July 15, 2020 will provide a different highlighting experience. Services created before that date will not change in their highlighting behavior. 
+Search services that were created before July 15, 2020 implement a different highlighting experience for phrase queries.
 
-With the new behavior:
+Before July 2020, any term in the phrase is highlighted:
 
-+ Only phrases that match the full phrase query will be returned. The query phrase "super bowl" will return highlights like this:
+  ```json
+  "@search.highlights": {
+      "sentence": [
+          "The <em>super</em> <em>bowl</em> is <em>super</em> awesome with a <em>bowl</em> of chips"
+     ]
+  ```
+
+After July 2020, only phrases that match the full phrase query will be returned:
 
   ```json
   "@search.highlights": {
@@ -142,15 +153,16 @@ With the new behavior:
      ]
   ```
 
-  Note that other instances of *super* and *bowl* do not have any highlighting because those instances do not match the full phrase.
+The following screenshot illustrates the results of phrase query highlighting.
 
-When you are writing client code that implements hit highlighting, be aware of this change. Note that this will not impact you unless you create a completely new search service.
+:::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
 ## Next steps
 
 To quickly generate a search page for your client, consider these options:
 
 + [Application Generator](search-create-app-portal.md), in the portal, creates an HTML page with a search bar, faceted navigation, and results area that includes images.
-+ [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
 
-Several code samples include a web front-end interface, which you can find here: [New York City Jobs demo app](https://aka.ms/azjobsdemo), [JavaScript sample code with a live demo site](https://github.com/liamca/azure-search-javascript-samples), and [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
++ [Create your first app in C#](tutorial-csharp-create-first-app.md) is a tutorial and code sample that builds a functional client. Sample code demonstrates paginated queries, hit highlighting, and sorting.
+
++ [Add search to web apps](tutorial-csharp-overview.md) is a tutorial and code sample that uses the React JavaScript libraries for the user experience. The app is deployed using Azure Static Web Apps.

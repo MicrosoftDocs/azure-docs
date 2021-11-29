@@ -2,7 +2,7 @@
 title: Azure Key Vault as Event Grid source
 description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/11/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Key Vault as Event Grid source
@@ -45,8 +45,8 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },
@@ -72,8 +72,8 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "VaultName":"sample-kv",
          "ObjectType":"Secret",
-         "ObjectName ":"newsecret",
-         "Version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "ObjectName":"newsecret",
+         "Version":"ee059b2bb5bc48398a53b168c6cdcb10",
          "NBF":"1559081980",
          "EXP":"1559082102"
       },

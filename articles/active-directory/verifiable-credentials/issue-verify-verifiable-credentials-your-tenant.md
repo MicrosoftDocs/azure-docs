@@ -3,13 +3,14 @@ title: Tutorial - Issue and verify verifiable credentials using your Azure tenan
 description: Change the Verifiable Credential code sample to work with your Azure tenant
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 07/20/2021
 ms.author: barclayn
 ms.reviewer: 
+ROBOTS: NOINDEX
 
 #Customer intent: As an administrator, I want the high-level steps that I should follow so that I can quickly start using verifiable credentials in my own Azure AD
 
@@ -193,7 +194,7 @@ There are a few other values we need to get before we can make the changes one t
 
     - Tenant identifier 
     - Issuer identifier (your DID)
-    - Key vault (uri)
+    - Key vault (URI)
 
 1. Under the Signing key identifier, there is a URI but we only need a portion of it. Copy from the part that says **issuerSigningKeyION** as highlighted by the red rectangle in the image below.
 
@@ -216,7 +217,7 @@ There are a few other values we need to get before we can make the changes one t
 
 Now we have everything we need to make the changes in our sample code.
 
-- **Issuer:** app.js update const credential with your new contract uri
+- **Issuer:** app.js update const credential with your new contract URI
 - **Verifier:** app.js update the issuerDid with your Issuer Identifier
 - **Issuer and Verifier** update the didconfig.json with the following values:
 
@@ -316,7 +317,7 @@ Now that we've issued the verifiable credential from your own tenant with claims
     node app.js
     ```
 
-4. Open the ngrok url in your browser and scan the QR code using Authenticator in your mobile device.
+4. Open the ngrok URL in your browser and scan the QR code using Authenticator in your mobile device.
 5. On your mobile device, choose **Allow** at the **New permission request** screen.
 
    >[!IMPORTANT]

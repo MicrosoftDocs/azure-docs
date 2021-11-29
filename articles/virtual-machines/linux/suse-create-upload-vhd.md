@@ -13,6 +13,7 @@ ms.author: danis
 ---
 # Prepare a SLES or openSUSE Leap virtual machine for Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets **Applies to:** :heavy_check_mark: Uniform scale sets
 
 This article assumes that you have already installed a SUSE or openSUSE Leap Linux operating system to a virtual hard disk. Multiple tools exist to create .vhd files, for example a virtualization solution such as Hyper-V. For instructions, see [Install the Hyper-V Role and Configure a Virtual Machine](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh846766(v=ws.11)).
 
@@ -149,7 +150,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
 
     # logout
     ```
-16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+16. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ---
 ## Prepare openSUSE 15.2+
@@ -247,7 +248,7 @@ As an alternative to building your own VHD, SUSE also publishes BYOS (Bring Your
     # sudo systemctl enable waagent.service
     ```
 
-13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+13. Click **Action -> Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ## Next steps
 You're now ready to use your SUSE Linux virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).

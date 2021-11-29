@@ -5,9 +5,10 @@ services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart 
-ms.date: 03/15/2020
+ms.topic: quickstart
+ms.date: 08/05/2021
 ms.author: zxue
+ms.custom: mode-portal
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal
@@ -38,7 +39,7 @@ Select **Create** to create a new Azure API for FHIR account:
 
 Select an existing resource group or create a new one, choose a name for the account, and finally click **Review + create**:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="New healthcare api details":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcare-apis-details.png" alt-text="New healthcare api details":::
 
 Confirm creation and await FHIR API deployment.
 

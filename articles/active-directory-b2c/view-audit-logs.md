@@ -3,14 +3,14 @@ title: Access and review audit logs
 titleSuffix: Azure AD B2C
 description: How to access Azure AD B2C audit logs programmatically and in the Azure portal.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---

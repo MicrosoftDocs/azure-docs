@@ -1,102 +1,97 @@
 ---
-title: "Use Cluster Connect to connect to Azure Arc enabled Kubernetes clusters"
+title: "Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 04/05/2021
+ms.date: 10/31/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
-description: "Use Cluster Connect to securely connect to Azure Arc enabled Kubernetes clusters"
+description: "Use Cluster Connect to securely connect to Azure Arc-enabled Kubernetes clusters"
 ---
 
-# Use Cluster Connect to connect to Azure Arc enabled Kubernetes clusters
+# Use Cluster Connect to connect to Azure Arc-enabled Kubernetes clusters
 
-With Cluster Connect, you can securely connect to Azure Arc enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Arc enabled Kubernetes cluster enables the following scenarios:
+With Cluster Connect, you can securely connect to Azure Arc-enabled Kubernetes clusters without requiring any inbound port to be enabled on the firewall. Access to the `apiserver` of the Azure Arc-enabled Kubernetes cluster enables the following scenarios:
 * Enable interactive debugging and troubleshooting.
 * Provide cluster access to Azure services for [custom locations](custom-locations.md) and other resources created on top of it.
 
-A conceptual overview of this feature is available in [Cluster connect - Azure Arc enabled Kubernetes](conceptual-cluster-connect.md) article.
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
+A conceptual overview of this feature is available in [Cluster connect - Azure Arc-enabled Kubernetes](conceptual-cluster-connect.md) article.
 
 ## Prerequisites   
 
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
-- Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
+- Install the `connectedk8s` Azure CLI extension of version >= 1.2.0:
 
-    ```azurecli
+    ```console
     az extension add --name connectedk8s
     ```
   
     If you've already installed the `connectedk8s` extension, update the extension to the latest version:
     
-    ```azurecli
+    ```console
     az extension update --name connectedk8s
     ```
 
-- An existing Azure Arc enabled Kubernetes connected cluster.
+- An existing Azure Arc-enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
-
-- Enable the Cluster Connect on any Azure Arc enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
-
-    ```azurecli
-    az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>
-    ```
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
 
 - Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
 
     | Endpoint | Port |
     |----------------|-------|
     |`*.servicebus.windows.net` | 443 |
-    |`*.guestnotificationservice.azure.com` | 443 |
+    |`guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com` | 443 |
 
-## Usage
+- Replace the placeholders and run the below command to set the environment variables used in this document:
 
-Two authentication options are supported with the Cluster Connect feature: 
-* Azure Active Directory (Azure AD) 
-* Service account token
-
-### Option 1: Azure Active Directory
-
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the Azure AD entity (service principal or user) requiring access:
-
-    **For user:**
-    
     ```console
-    kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=<testuser>@<mytenant.onmicrosoft.com>
+    CLUSTER_NAME=<cluster-name>
+    RESOURCE_GROUP=<resource-group-name>
+    ARM_ID_CLUSTER=$(az connectedk8s show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query id -o tsv)
     ```
 
-    **For Azure AD application:**
 
-    1. Get the `objectId` associated with your Azure AD application:
+## Enable Cluster Connect feature
 
-        ```azurecli
-        az ad sp show --id <id> --query objectId -o tsv
-        ```
+You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
-    1. Create a ClusterRoleBinding or RoleBinding to the Azure AD entity (service principal or user) that needs to access this cluster:
-       
+```console
+az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
+```
+
+## Azure Active Directory authentication option
+
+1. Get the `objectId` associated with your Azure AD entity:
+
+    - For Azure AD user account:
+
         ```console
-        kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=<objectId>
+        AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
         ```
 
-1. After logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+    - For Azure AD application:
 
-    ```azurecli
-    az connectedk8s proxy -n <cluster-name> -g <resource-group-name>
-    ```
+        ```console
+        AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
+        ```
 
-1. Use `kubectl` to send requests to the cluster:
+1. Authorize the AAD entity with appropriate permissions:
 
-    ```console
-    kubectl get pods
-    ```
+    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
     
-    You should now see a response from the cluster containing the list of all pods under the `default` namespace.
+        ```console
+        kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+        ```
 
-### Option 2: Service Account Bearer Token
+    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
+
+        ```console
+        az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
+        ```
+
+## Service account token authentication option
 
 1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a service account in any namespace (following command creates it in the default namespace):
 
@@ -104,7 +99,7 @@ Two authentication options are supported with the Cluster Connect feature:
     kubectl create serviceaccount admin-user
     ```
 
-1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding):
+1. Create ClusterRoleBinding or RoleBinding to grant this [service account the appropriate permissions on the cluster](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#kubectl-create-rolebinding). Example:
 
     ```console
     kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --serviceaccount default:admin-user
@@ -120,18 +115,28 @@ Two authentication options are supported with the Cluster Connect feature:
     TOKEN=$(kubectl get secret ${SECRET_NAME} -o jsonpath='{$.data.token}' | base64 -d | sed $'s/$/\\\n/g')
     ```
 
-1. Get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+## Access your cluster
 
-    ```azurecli
-    az connectedk8s proxy -n <cluster-name> -g <resource-group-name> --token $TOKEN
-    ```
+1. Set up the Cluster Connect based kubeconfig needed to access your cluster based on the authentication option used:
+
+    - If using Azure Active Directory authentication option, after logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
+
+        ```console
+        az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
+        ```
+
+    - If using the service account authentication option, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere:
+
+        ```console
+        az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
+        ```
 
 1. Use `kubectl` to send requests to the cluster:
 
     ```console
     kubectl get pods
     ```
-
+    
     You should now see a response from the cluster containing the list of all pods under the `default` namespace.
 
 ## Known limitations

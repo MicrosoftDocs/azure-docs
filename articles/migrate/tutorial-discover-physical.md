@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 11/12/2021
 ms.custom: mvc
 #Customer intent: As a server admin I want to discover my on-premises server inventory.
 ---
@@ -36,9 +36,12 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Appliance** | You need a server on which to run the Azure Migrate appliance. The server should have:<br/><br/> - Windows Server 2016 installed.<br/> _(Currently the deployment of appliance is only supported on Windows Server 2016.)_<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.
+**Appliance** | You need a server on which to run the Azure Migrate appliance. The server should have:<br/><br/> - Windows Server 2016 installed.<br/> _(Currently the deployment of appliance is only supported on Windows Server 2016.)_<br/><br/> - 16-GB RAM, 8 vCPUs, around 80 GB of disk storage<br/><br/> - A static or dynamic IP address, with internet access, either directly or through a proxy.<br/><br/> - Outbound internet connectivity to the required [URLs](migrate-appliance.md#url-access) from the appliance.
 **Windows servers** | Allow inbound connections on WinRM port 5985 (HTTP), so that the appliance can pull configuration and performance metadata.
 **Linux servers** | Allow inbound connections on port 22 (TCP).
+
+> [!NOTE]
+> It is unsupported to install the Azure Migrate Appliance on a server that has the [replication appliance](migrate-replication-appliance.md) or mobility service agent installed.  Ensure that the appliance server has not been previously used to set up the replication appliance or has the mobility service agent installed on the server.
 
 ## Prepare an Azure user account
 
@@ -178,7 +181,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 15a94b637a39c53ac91a2d8b21cc3cca8905187e4d9fb4d895f4fa6fd2f30b9f
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 > [!NOTE]
 > The same script can be used to set up Physical appliance for either Azure public or Azure Government cloud with public or private endpoint connectivity.
@@ -187,26 +190,28 @@ Check that the zipped file is secure, before you deploy it.
 ### 3. Run the Azure Migrate installer script
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
-2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Launch PowerShell on the above server with administrative (elevated) privilege.
+
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+
+4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **physical servers** _(or servers running on other clouds like AWS, GCP, Xen etc.)_ to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
+   :::image type="content" source="./media/tutorial-discover-physical/script-physical-default-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration" lightbox="./media/tutorial-discover-physical/script-physical-default-expanded.png":::
 
 6. The installer script does the following:
 
- - Installs agents and a web application.
- - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
- - Download and installs an IIS rewritable module.
- - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
- - Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+   - Installs agents and a web application.
+   - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+   - Download and installs an IIS rewritable module.
+   - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+   - Creates the following files under the path:
+     - **Config Files:** `%ProgramData%\Microsoft Azure\Config`
+     - **Log Files:** `%ProgramData%\Microsoft Azure\Logs`
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
@@ -224,15 +229,15 @@ Set up the appliance for the first time.
 1. Open a browser on any server that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
-2. Accept the **license terms**, and read the third-party information.
+1. Accept the **license terms**, and read the third-party information.
 1. In the web app > **Set up prerequisites**, do the following:
-    - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
-        - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
-        - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
-    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
-    - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
+   - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
+     - Click on **Set up proxy** to and specify the proxy address (in the form http://ProxyIPAddress or http://ProxyFQDN) and listening port.
+     - Specify credentials if the proxy needs authentication.
+     - Only HTTP proxy is supported.
+     - If you have added proxy details or disabled the proxy and/or authentication, click on **Save** to trigger connectivity check again.
+   - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
+   - **Install updates**: Azure Migrate: Discovery and assessment checks that the appliance has the latest updates installed. After the check completes, you can click on **View appliance services** to see the status and versions of the components running on the appliance.
 
 ### Register the appliance with Azure Migrate
 
@@ -242,14 +247,11 @@ Set up the appliance for the first time.
     ![Modal showing the device code](./media/tutorial-discover-vmware/device-code.png)
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-1. On the new tab, paste the device code and sign-in by using your Azure username and password.
-   
-   Sign-in with a PIN isn't supported.
-3. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
+1. On the new tab, paste the device code and sign-in by using your Azure username and password. Sign-in with a PIN isn't supported.
+1. In case you close the login tab accidentally without logging in, you need to refresh the browser tab of the appliance configuration manager to enable the Login button again.
 1. After you successfully logged in, go back to the previous tab with the appliance configuration manager.
-4. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
+1. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
-
 
 ## Start continuous discovery
 
@@ -282,8 +284,7 @@ Now, connect from the appliance to the physical servers to be discovered, and st
 1. You can **revalidate** the connectivity to servers anytime before starting the discovery.
 1. Click on **Start discovery**, to kick off discovery of the successfully validated servers. After the discovery has been successfully initiated, you can check the discovery status against each server in the table.
 
-
-This starts discovery. It takes approximately 2 minutes per server for metadata of discovered server to appear in the Azure portal.
+It takes approximately 2 minutes to complete discovery of 100 servers and their metadata to appear in the Azure portal.
 
 ## Verify servers in the portal
 
@@ -291,6 +292,13 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 1. Open the Azure Migrate dashboard.
 2. In **Azure Migrate - Servers** > **Azure Migrate: Discovery and assessment** page, click the icon that displays the count for **Discovered servers**.
+
+## Delete servers
+After the discovery has been initiated, you can delete any of the added servers from the appliance configuration manager by searching for the server name in the **Add discovery source** table and by clicking **Delete**.
+
+>[!NOTE]
+> If you choose to delete a server where discovery has been initiated, it will stop the ongoing discovery and assessment which may impact the confidence rating of the assessment that includes this server. [Learn more](./common-questions-discovery-assessment.md#why-is-the-confidence-rating-of-my-assessment-low)
+
 ## Next steps
 
 - [Assess physical servers](tutorial-assess-physical.md) for migration to Azure VMs.

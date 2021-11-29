@@ -2,11 +2,11 @@
 title: Upload large data set to Azure Data Lake Storage Gen1 - offline methods
 description: Use the Import/Export service to copy data from Azure Blob storage to Azure Data Lake Storage Gen1
 
-author: twooley
+author: normesta
 ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
-ms.author: twooley 
+ms.author: normesta 
 ms.custom: devx-track-azurepowershell
 
 ---

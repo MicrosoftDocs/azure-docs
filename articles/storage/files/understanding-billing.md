@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 08/17/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -65,40 +65,44 @@ For more information on how to purchase storage reservations, see [Optimize cost
 ## Provisioned model
 Azure Files uses a provisioned model for premium file shares. In a provisioned business model, you proactively specify to the Azure Files service what your storage requirements are, rather than being billed based on what you use. This is similar to buying hardware on-premises, in that when you provision an Azure file share with a certain amount of storage, you pay for that storage regardless of whether you use it or not, just like you don't start paying the costs of physical media on-premises when you start to use space. Unlike purchasing physical media on-premises, provisioned file shares can be dynamically scaled up or down depending on your storage and IO performance characteristics.
 
-When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
-
-- Baseline IOPS = 400 + 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
-- Burst Limit = MAX(4000, 3 * Baseline IOPS).
-- Egress rate = 60 MiB/s + 0.06 * provisioned GiB.
-- Ingress rate = 40 MiB/s + 0.04 * provisioned GiB.
-
 The provisioned size of the file share can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/throughput scale changes will be effective within a few minutes after the provisioned size change.
 
 It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
 
+### Provisioning method
+When you provision a premium file share, you specify how many GiBs your workload requires. Each GiB that you provision entitles you to additional IOPS and throughput on a fixed ratio. In addition to the baseline IOPS for which you are guaranteed, each premium file share supports bursting on a best effort basis. The formulas for IOPS and throughput are as follows:
+
+| Item | Value |
+|-|-|
+| Minimum size of a file share | 100 GiB |
+| Provisioning unit | 1 GiB |
+| Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
+| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
+| Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
+| Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-|Capacity (GiB) | Baseline IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
-|---------|---------|---------|---------|---------|
-|100         | 500     | Up to 4,000     | 66   | 44   |
-|500         | 900     | Up to 4,000  | 90   | 60   |
-|1,024       | 1,424   | Up to 4,000   | 122   | 81   |
-|5,120       | 5,520   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,640  | Up to 30,720  | 675   | 450   |
-|33,792      | 34,192  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,600  | Up to 100,000 | 3,132 | 2,088   |
-|102,400     | 100,000 | Up to 100,000 | 6,204 | 4,136   |
+| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Ingress (MiB/sec) | Egress (MiB/sec) |
+|-|-|-|-|-|-|
+| 100 | 500 | Up to 4,000 | 12,600,000 | 44 | 66 |
+| 500 | 900 | Up to 4,000 | 11,160,000 | 60 | 90 |
+| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 81 | 122 |
+| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 245 | 368 |
+| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 450 | 675 |
+| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 1,392 | 2,088 |
+| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 2,088 | 3,132 |
+| 102,400 | 100,000 | Up to 100,000 | 0 | 4,136 | 6,204 |
 
-Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s
-ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB
-Multichannel](storage-files-enable-smb-multichannel.md) and spread the load across multiple VMs. Refer to [SMB multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
-If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above share baseline IOPS limit to offer share performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit for a max duration of 60 minutes.
+If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above share baseline IOPS limit to offer share performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee.
 
 Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share, accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst at the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining, up to max 60 minutes duration but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
+Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst up to the max allowed peak burst rate. Shares can continue to burst as long as credits are remaining but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to the baseline IOPS.
 
 Share credits have three states:
 
@@ -109,7 +113,7 @@ Share credits have three states:
 New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## Pay-as-you-go model
-Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of data stored on disk, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements or deprovision if your workload is data footprint varies over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
+Azure Files uses a pay-as-you-go business model for standard file shares. In a pay-as-you-go business model, the amount you pay is determined by how much you actually use, rather than based on a provisioned amount. At a high level, you pay a cost for the amount of logical data stored, and then an additional set of transactions based on your usage of that data. A pay-as-you-go model can be cost-efficient, because you don't need to overprovision to account for future growth or performance requirements or deprovision if your workload is data footprint varies over time. On the other hand, a pay-as-you-go model can also be difficult to plan as part of a budgeting process, because the pay-as-you-go billing model is driven by end-user consumption.
 
 ### Differences in standard tiers
 When you create a standard file share, you pick between the transaction optimized, hot, and cool tiers. All three tiers are stored on the exact same standard storage hardware. The main difference for these three tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. This means:
@@ -124,18 +128,57 @@ Similarly, if you put a highly accessed workload in the cool tier, you will pay 
 
 Your workload and activity level will determine the most cost efficient tier for your standard file share. In practice, the best way to pick the most cost efficient tier involves looking at the actual resource consumption of the share (data stored, write transactions, etc.).
 
+### Logical size versus physical size
+The data at-rest capacity charge for Azure Files is billed based on the logical size, often called colloquially called "size" or "content length", of the file. The logical size of the file is distinct from the physical size of the file on disk, often called "size on disk" or "used size". The physical size of the file may be large or smaller than the logical size of the file.
+
 ### What are transactions?
 Transactions are operations or requests against Azure Files to upload, download, or otherwise manipulate the contents of the file share. Every action taken on a file share translates to one or more transactions, and on standard shares that use the pay-as-you-go billing model, that translates to transaction costs.
 
 There are five basic transaction categories: write, list, read, other, and delete. All operations done via the REST API or SMB are bucketed into one of these 4 categories as follows:
 
-| Operation type | Write transactions | List transactions | Read transactions | Other transactions | Delete transactions |
-|-|-|-|-|-|-|
-| Management operations | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`ListShares`</li></ul> | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | | <ul><li>`DeleteShare`</li></ul> |
-| Data operations | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul>  | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |
+| Transaction bucket | Management operations | Data operations |
+|-|-|-|
+| Write transactions | <ul><li>`CreateShare`</li><li>`SetFileServiceProperties`</li><li>`SetShareMetadata`</li><li>`SetShareProperties`</li><li>`SetShareACL`</li></ul> | <ul><li>`CopyFile`</li><li>`Create`</li><li>`CreateDirectory`</li><li>`CreateFile`</li><li>`PutRange`</li><li>`PutRangeFromURL`</li><li>`SetDirectoryMetadata`</li><li>`SetFileMetadata`</li><li>`SetFileProperties`</li><li>`SetInfo`</li><li>`Write`</li><li>`PutFilePermission`</li></ul> |
+| List transactions | <ul><li>`ListShares`</li></ul> | <ul><li>`ListFileRanges`</li><li>`ListFiles`</li><li>`ListHandles`</li></ul> |
+| Read transactions | <ul><li>`GetFileServiceProperties`</li><li>`GetShareAcl`</li><li>`GetShareMetadata`</li><li>`GetShareProperties`</li><li>`GetShareStats`</li></ul> | <ul><li>`FilePreflightRequest`</li><li>`GetDirectoryMetadata`</li><li>`GetDirectoryProperties`</li><li>`GetFile`</li><li>`GetFileCopyInformation`</li><li>`GetFileMetadata`</li><li>`GetFileProperties`</li><li>`QueryDirectory`</li><li>`QueryInfo`</li><li>`Read`</li><li>`GetFilePermission`</li></ul> |
+| Other transactions | | <ul><li>`AbortCopyFile`</li><li>`Cancel`</li><li>`ChangeNotify`</li><li>`Close`</li><li>`Echo`</li><li>`Ioctl`</li><li>`Lock`</li><li>`Logoff`</li><li>`Negotiate`</li><li>`OplockBreak`</li><li>`SessionSetup`</li><li>`TreeConnect`</li><li>`TreeDisconnect`</li><li>`CloseHandles`</li><li>`AcquireFileLease`</li><li>`BreakFileLease`</li><li>`ChangeFileLease`</li><li>`ReleaseFileLease`</li></ul> |
+| Delete transactions | <ul><li>`DeleteShare`</li></ul> | <ul><li>`ClearRange`</li><li>`DeleteDirectory`</li></li>`DeleteFile`</li></ul> |  
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
+
+## Value-add services
+
+### Azure File Sync
+If you are thinking about using Azure File Sync, consider the following when evaluating cost:
+
+#### Server fee
+For each server that you have connected to a sync group, there is an additional $5 fee. This is independent of the number of server endpoints. For example, if you had one server that contained three different server endpoints, you would only have one $5 charge. One sync server is free per Storage Sync Service. 
+
+#### Data cost
+The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
+
+#### Cloud enumeration scans cost
+Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of two LIST transactions per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+
+> [!Tip]  
+> If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.
+
+#### Churn and tiering costs
+As files change on server endpoints, the changes are uploaded to the cloud share, which generates transactions. When cloud tiering is enabled, additional transactions are generated for managing tiered files, including I/O happening on tiered files, in addition to egress costs. The quantity and type of transactions is difficult to predict due to churn rates and cache efficiency, but you can use your previous transaction patterns to predict future costs if you only have one file share in your storage account. See [Choosing a billing tier](#choosing-a-billing-tier) for details on how to view previous transactions.  
+
+#### Choosing a billing tier
+For Azure File Sync customers, we recommend choosing standard file shares over premium file shares. This is because with Azure File Sync, customers get that low latency on-premises that they always had, so the higher performance provided by premium file shares isn’t necessary. When first migrating to Azure Files via Azure File Sync, we recommend the Transaction Optimized tier due to the large number of transactions incurred during migration. Once migration is complete, you can plug in your previous transactions into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+
+To see previous transactions:
+1. Go to your storage account and select **Metrics** in the left navigation bar.
+2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+3. Select **Apply Splitting**.
+4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+5. Select your desired time period.
+
+> [!Note]  
+> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
 
 ## File storage comparison checklist
 To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:

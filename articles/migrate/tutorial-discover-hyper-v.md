@@ -5,7 +5,7 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/25/2021
+ms.date: 11/12/2021
 ms.custom: mvc
 #Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
 ---
@@ -87,7 +87,7 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
 ### Run the script
 
 1. Download the script from the [Microsoft Download Center](https://aka.ms/migrate/script/hyperv). The script is cryptographically signed by Microsoft.
-2. Validate the script integrity using either MD5, or SHA256 hash files. Hashtag values are below. Run this command to generate the hash for the script:
+2. Validate the script integrity using SHA256 hash file. Hashtag value is below. Run this command to generate the hash for the script:
 
     ```powershell
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
@@ -102,11 +102,10 @@ Delegate credentials if server disks are located on remote SMB shares | Delegate
     ```powershell
     PS C:\Users\Administrators\Desktop> MicrosoftAzureMigrate-Hyper-V.ps1
     ```
-Hash values are:
+Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-MD5 | 0ef418f31915d01f896ac42a80dc414e
 SHA256 | 0ad60e7299925eff4d1ae9f1c7db485dc9316ef45b0964148a3c07c80761ade2
 
 ## Set up a project
@@ -134,7 +133,8 @@ Set up a new project.
 Azure Migrate uses a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate. The appliance can be set up by deploying a VHD file that can be downloaded from the project.
 
 > [!NOTE]
-> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
+> If for some reason you can't set up the appliance using the template, you can set it up using a PowerShell script on an existing Windows Server 2016 server. [Learn more](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/>
+> The option to deploy an appliance using an VHD template isn't supported in Azure Government cloud. [Learn more](./deploy-appliance-script-government.md) on how to deploy an appliance for Azure Government cloud.
 
 This tutorial sets up the appliance on a server running in Hyper-V environment, as follows:
 
@@ -172,13 +172,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc102f61b910d6136e02324dc8d8a14f47772da351b46d9127
+        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140422) |  91A435962F0DC9C7032DE0288D578171A76CC07563AC543C5E1EB25CD31BB231
 
     - For Azure Government:
 
         **Scenario*** | **Download** | **SHA256**
         --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc3507116bae330b257f
+        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140424) |  3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### 3. Create an appliance
 

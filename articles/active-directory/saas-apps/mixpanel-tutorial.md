@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Mixpanel
@@ -32,6 +32,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Mixpanel supports **SP** initiated SSO.
+
+* Mixpanel supports [Automated user provisioning](mixpanel-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -151,6 +153,9 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 > [!Note]
 > The user will get an email to set up the profile.
 
+> [!NOTE]
+> Mixpanel also supports automatic user provisioning, you can find more details [here](./mixpanel-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -159,8 +164,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Mixpanel Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Mixpanel tile in the My Apps, this will redirect to Mixpanel Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Mixpanel tile in the My Apps, this will redirect to Mixpanel Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Mixpanel you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Mixpanel you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

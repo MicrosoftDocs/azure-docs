@@ -10,7 +10,7 @@ ms.date: 06/15/2020
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to choose the best device integration methods for my organization.
@@ -47,7 +47,7 @@ The key benefits of giving your devices an Azure AD identity:
 
 * Improve user experience – With device identities in Azure AD, you can provide your users with easy access to your organization’s cloud-based resources from both personal and corporate devices. Administrators can enable [Enterprise State Roaming](enterprise-state-roaming-overview.md) for a unified experience across all Windows devices.
 
-* Simplify deployment and management – Device identity management simplifies the process of bringing devices to Azure AD with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), and [self-service: Out of Box Experience (OOBE)](../user-help/user-help-join-device-on-network.md). You can manage these devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in [Azure portal](https://portal.azure.com/).
+* Simplify deployment and management – Device identity management simplifies the process of bringing devices to Azure AD with [Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot), [bulk provisioning](/mem/intune/enrollment/windows-bulk-enroll), and [self-service: Out of Box Experience (OOBE)](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). You can manage these devices with Mobile Device Management (MDM) tools like [Microsoft Intune](/mem/intune/fundamentals/what-is-intune), and their identities in [Azure portal](https://portal.azure.com/).
 
 ### Training resources
 
@@ -119,8 +119,8 @@ iOS and Android devices may only be Azure AD registered. The following table pre
 | SSO to on-premises resources| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Conditional Access <br> (Require devices be marked as compliant) <br> (Must be managed by MDM)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) | ![Checkmark for these values.](./media/plan-device-deployment/check.png)|![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 Conditional Access <br>(Require hybrid Azure AD joined devices)| | | ![Checkmark for these values.](./media/plan-device-deployment/check.png)
-| Self-service password reset from windows login screen| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
-| Windows hello PIN reset| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Self-service password reset from the Windows login screen| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
+| Windows Hello PIN reset| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 | Enterprise state roaming across devices| | ![Checkmark for these values.](./media/plan-device-deployment/check.png)| ![Checkmark for these values.](./media/plan-device-deployment/check.png) |
 
 
@@ -148,7 +148,7 @@ If registering your devices is the best option for your organization, see the fo
 
 * This overview of [Azure AD registered devices](concept-azure-ad-register.md).
 
-* This end-user documentation on [Register your personal device on your organization’s network](../user-help/user-help-register-device-on-network.md).
+* This end-user documentation on [Register your personal device on your organization’s network](https://support.microsoft.com/account-billing/register-your-personal-device-on-your-work-or-school-network-8803dd61-a613-45e3-ae6c-bd1ab25bf8a8).
 
 ## Azure AD join
 
@@ -170,7 +170,7 @@ To provision Azure AD Join, you have the following approaches:
 
 If you have either Windows 10 Professional or Windows 10 Enterprise installed on a device, the experience defaults to the setup process for company-owned devices.
 
-* [Windows Out of Box Experience (OOBE) or from Windows Settings](../user-help/user-help-join-device-on-network.md)
+* [Windows Out of Box Experience (OOBE) or from Windows Settings](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 * [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot)
 

@@ -124,7 +124,7 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 
-1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
+1. In Solution Explorer, open the **\<logic-app-name\>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
    ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 

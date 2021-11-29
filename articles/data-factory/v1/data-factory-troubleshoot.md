@@ -2,8 +2,9 @@
 title: Troubleshoot Azure Data Factory issues
 description: Learn how to troubleshoot issues with using Azure Data Factory.
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel 
@@ -122,7 +123,7 @@ See [Monitor Data Factory pipelines using Azure PowerShell](data-factory-monitor
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md
 [developer-reference]: /previous-versions/azure/dn834987(v=azure.100)
-[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
+[cmdlet-reference]: /powershell/resourcemanager/Azurerm.DataFactories/v2.2.0/Azurerm.DataFactories
 [json-scripting-reference]: /previous-versions/azure/dn835050(v=azure.100)
 
 [azure-portal]: https://portal.azure.com/

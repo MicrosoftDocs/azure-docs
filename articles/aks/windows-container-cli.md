@@ -267,7 +267,7 @@ spec:
         app: sample
     spec:
       nodeSelector:
-        "beta.kubernetes.io/os": windows
+        "kubernetes.io/os": windows
       containers:
       - name: sample
         image: mcr.microsoft.com/dotnet/framework/samples:aspnetapp
@@ -338,7 +338,7 @@ To see the sample app in action, open a web browser to the external IP address o
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the windows container will not be started by the time your external IP address is available.
+> If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the Windows container will not be started by the time your external IP address is available.
 
 ## Delete cluster
 

@@ -3,7 +3,7 @@ title: Configure Azure Load Balancer a failover cluster instance VNN
 description: Learn to configure an Azure Load Balancer to route traffic to the virtual network name (VNN) for your failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: rajeshsetlem
 manager: jroth
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -12,13 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.date: 11/10/2021
+ms.author: rsetlem
+ms.reviewer: mathoma
 
 ---
 # Configure Azure Load Balancer for an FCI VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for failover cluster instance by creating your SQL Server VMs in multiple subnets within the same Azure virtual network.
 
 On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
 
@@ -73,7 +76,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 
 1. Associate the backend pool with the availability set that contains the VMs.
 
-1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI.
+1. Under **Target network IP configurations**, select **VIRTUAL MACHINE** and choose the virtual machines that will participate as cluster nodes. Be sure to include all virtual machines that will host the FCI. Only add the primary IP address of each VM, do not add any secondary IP addresses. 
 
 1. Select **OK** to create the backend pool.
 

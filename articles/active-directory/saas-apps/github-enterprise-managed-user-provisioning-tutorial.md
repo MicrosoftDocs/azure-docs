@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/05/2021
 ms.author: thwimmer
 ---
@@ -42,6 +42,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md)
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
 * Enterprise Managed Users enabled GitHub Enterprise and configured to login with SAML SSO through your Azure AD tenant.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).

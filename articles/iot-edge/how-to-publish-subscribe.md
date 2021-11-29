@@ -391,7 +391,7 @@ The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let
 Sending telemetry data to IoT Hub is similar to publishing on a user-defined topic, but using a specific IoT Hub topic:
 
 - For a device, telemetry is sent on topic: `devices/<device_name>/messages/events/`
-- For a module, telemetry is sent on topic: `devices/<device_name>/<module_name>/messages/events/`
+- For a module, telemetry is sent on topic: `devices/<device_name>/modules/<module_name>/messages/events/`
 
 Additionally, create a route such as `FROM /messages/* INTO $upstream` to send telemetry from the IoT Edge MQTT broker to IoT hub. To learn more about routing, see [Declare routes](module-composition.md#declare-routes).
 
@@ -413,7 +413,7 @@ Receiving a direct method is similar to receiving full twins with the addition t
 
 ### Send direct methods
 
-Sending a direct method is an HTTP call and thus does not go through the MQTT broker. To send a direct method to IoT hub, see [Understand and invoke direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To send a direct method locally to another module, see this [Azure IoT C# SDK direct method invocation example](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/ModuleClient.cs#L597).
+Sending a direct method is an HTTP call and thus does not go through the MQTT broker. To send a direct method to IoT hub, see [Understand and invoke direct methods](../iot-hub/iot-hub-devguide-direct-methods.md). To send a direct method locally to another module, see this [Azure IoT C# SDK direct method invocation example](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/ModuleClient.cs#L597).
 
 ## Publish and subscribe between MQTT brokers
 

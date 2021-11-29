@@ -132,7 +132,9 @@ Grant Azure Front Door permission to access the  certificates in your Azure Key 
     - The available secret versions.
 
     > [!NOTE]
-    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed. 
+    >  In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, please set the secret version to 'Latest'. If a specific version is selected, you have to re-select the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
+    >
+    > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
  
 5. When you use your own certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
 
@@ -165,7 +167,7 @@ Automatic validation typically takes a few mins. If you don't see your domain va
 
 If the CNAME record entry for your endpoint no longer exists or it contains the afdverify subdomain, follow the rest of the instructions in this step.
 
-After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. 
+After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. DigiCert domain validation works at the subdomain level. You'll need to prove ownership of each subdomain separately.
 
 ![WHOIS record](./media/front-door-custom-domain-https/whois-record.png)
 
@@ -177,7 +179,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add no-reply@digitalcertvalidation.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add no-reply@digitalcertvalidation.com to its allowlist. Under certain scenarios, DigiCert may be unable to fetch the domain contacts from the WHOIS registrant information to send you an email. If you don't receive an email within 24 hours, contact Microsoft support.
 
 When you select the approval link, you're directed to an online approval form. Follow the instructions on the form; you have two verification options:
 

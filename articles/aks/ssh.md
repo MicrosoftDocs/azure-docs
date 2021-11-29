@@ -73,13 +73,17 @@ node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx   1/1     Running   0     
 
 In the above example, *node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx* is the name of the pod started by `kubectl debug`.
 
-Copy your private SSH key into the pod created by `kubectl debug`. This private key is used to create the SSH to the Windows Server AKS node. If needed, change `~/.ssh/id_rsa` to location of your private SSH key:
+Using `kubectl port-forward`, you can open a connection to the deployed pod:
 
-```azurecli-interactive
-kubectl cp ~/.ssh/id_rsa node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx:/id_rsa
+```
+$ kubectl port-forward node-debugger-aks-nodepool1-12345678-vmss000000-bkmmx 2022:22
+Forwarding from 127.0.0.1:2022 -> 22
+Forwarding from [::1]:2022 -> 22
 ```
 
-Use `kubectl get nodes` to show the internal IP address of the Windows Server node:
+The above example begins forwarding network traffic from port 2022 on your development computer to port 22 on the deployed pod. When using `kubectl port-forward` to open a connection and forward network traffic, the connection remains open until you stop the `kubectl port-forward` command.
+
+Open a new terminal and use `kubectl get nodes` to show the internal IP address of the Windows Server node:
 
 ```output
 $ kubectl get nodes -o wide
@@ -92,16 +96,10 @@ aksnpwin000000                      Ready    agent   87s     v1.19.9   10.240.0.
 
 In the above example, *10.240.0.67* is the internal IP address of the Windows Server node.
 
-Return to the terminal started by `kubectl debug` and update the permission of the private SSH key you copied to the pod.
-
-```azurecli-interactive
-chmod 0400 id_rsa
-```
-
 Create an SSH connection to the Windows Server node using the internal IP address. The default username for AKS nodes is *azureuser*. Accept the prompt to continue with the connection. You are then provided with the bash prompt of your Windows Server node:
 
 ```output
-$ ssh -i id_rsa azureuser@10.240.0.67
+$ ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' azureuser@10.240.0.67
 
 The authenticity of host '10.240.0.67 (10.240.0.67)' can't be established.
 ECDSA key fingerprint is SHA256:1234567890abcdefghijklmnopqrstuvwxyzABCDEFG.
@@ -115,9 +113,18 @@ Microsoft Windows [Version 10.0.17763.1935]
 azureuser@aksnpwin000000 C:\Users\azureuser>
 ```
 
+The above example connects to port 22 on the Windows Server node through port 2022 on your development computer.
+
+> [!NOTE]
+> If you prefer to use password authentication, use `-o PreferredAuthentications=password`. For example:
+>
+> ```console
+>  ssh -o 'ProxyCommand ssh -p 2022 -W %h:%p azureuser@127.0.0.1' -o PreferredAuthentications=password azureuser@10.240.0.67
+> ```
+
 ## Remove SSH access
 
-When done, `exit` the SSH session and then `exit` the interactive container session. When this container session closes, the pod used for SSH access from the AKS cluster is deleted.
+When done, `exit` the SSH session, stop any port forwarding, and then `exit` the interactive container session. After the interactive container session closes, the pod used for SSH access from the AKS cluster is deleted.
 
 ## Next steps
 

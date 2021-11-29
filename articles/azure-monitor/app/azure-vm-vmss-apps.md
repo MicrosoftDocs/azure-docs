@@ -53,7 +53,7 @@ There are two ways to enable application monitoring for Azure virtual machines a
 
 #### Java 
 
-If you need additional custom telemetry for Java applications, see what [is available](./java-in-process-agent.md#send-custom-telemetry-from-your-application), add [custom dimensions](./java-standalone-config.md#custom-dimensions), or use [telemetry processors](./java-standalone-telemetry-processors.md). 
+If you need additional custom telemetry for Java applications, see what [is available](./java-in-process-agent.md#custom-telemetry), add [custom dimensions](./java-standalone-config.md#custom-dimensions), or use [telemetry processors](./java-standalone-telemetry-processors.md). 
 
 #### Node.js
 
@@ -149,7 +149,7 @@ $privateCfgHashtable = @{};
 
 $vmss = Get-AzVmss -ResourceGroupName "<myResourceGroup>" -VMScaleSetName "<myVmssName>"
 
-Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoring" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "ApplicationMonitoringWindows" -Publisher "Microsoft.Azure.Diagnostics" -Type "ApplicationMonitoringWindows" -TypeHandlerVersion "2.8" -Setting $publicCfgHashtable -ProtectedSetting $privateCfgHashtable
 
 Update-AzVmss -ResourceGroupName $vmss.ResourceGroupName -Name $vmss.Name -VirtualMachineScaleSet $vmss
 

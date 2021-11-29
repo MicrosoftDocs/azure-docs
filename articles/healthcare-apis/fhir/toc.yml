@@ -9,15 +9,15 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Get started with the FHIR service
+    href: get-started-with-fhir.md
   - name: Deploy FHIR service
     expanded: true
     items:
     - name: Using Portal
       href: fhir-portal-quickstart.md
     - name: Using ARM template
-      href: fhir-arm-template-quickstart.md
-  - name: Access FHIR service using Postman
-    href: using-postman.md
+      href: fhir-service-resource-manager-template.md
 
 - name: Tutorials
   expanded: true
@@ -26,7 +26,7 @@ items:
     expanded: true
     items:
     - name: CMS Interoperability and Patient Access rule introduction
-      href: cms-tutorial-introduction.md
+      href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary
@@ -39,6 +39,13 @@ items:
 - name: How-to guides
   expanded: true
   items:
+  - name: Access using Postman
+    href: ../use-postman.md  
+  - name: Access using cURL
+    href: ../using-curl.md
+  - name: Access using REST Client
+    href: ../using-rest-client.md
+    
   - name: Search
     expanded: true
     items:
@@ -50,7 +57,7 @@ items:
       href: how-to-run-a-reindex.md
     - name: Search examples
       href: search-samples.md
-
+    
   - name: Operations
     expanded: true
     items:  
@@ -64,29 +71,25 @@ items:
   - name: Configure settings
     expanded: true
     items:
-    - name: Configure RBAC
-      href: configure-azure-rbac-for-fhir.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-  
-  - name: Using Azure Active Directory (AAD) for FHIR service
+
+  - name: Diagnostic logging
     expanded: true
     items:
-    - name: AAD for FHIR service
-      href: azure-ad-hcapi.md
-    - name: Access token validation
-      href: azure-ad-hcapi-token-validation.md
-    - name: Get access token using CLI
-      href: get-healthcare-apis-access-token-cli.md
+    - name: Enable diagnostic settings in the FHIR service
+      href: fhir-service-diagnostic-logs.md
 
 - name: Concepts
   items:
-  - name: Security controls by Azure Policy
-    href: ./security-controls-policy.md
+  - name: FHIR service autoscale
+    href: fhir-service-autoscale.md
+  - name: FHIR Rest API capabilities
+    href: fhir-rest-api-capabilities.md
 
 - name: Resources
   items:
-  - name: FAQ
+  - name: FAQs
     href: fhir-faq.md
   - name: Supported features
     href: fhir-features-supported.md

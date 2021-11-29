@@ -1,3 +1,4 @@
+items:
 - name: Azure Arc-enabled data services documentation
   href: index.yml
 - name: Overview
@@ -12,8 +13,10 @@
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan Azure Arc-enabled data services deployment 
+    - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
+    - name: Create AKS cluster
+      href: create-aks-cluster-data-controller.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -50,8 +53,6 @@
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
-            href: create-data-controller-direct-cli.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -84,6 +85,10 @@
           href: retrieve-the-username-password-for-data-controller.md
         - name: Update service principal credentials
           href: update-service-principal-credentials.md
+    - name: Upgrade
+      items:
+        - name: Data controller indirect - CLI
+          href: upgrade-data-controller-indirect-cli.md
     - name: Troubleshooting
       items:
         - name: Guide
@@ -164,6 +169,8 @@
           href: managed-instance-overview.md
         - name: Features
           href: managed-instance-features.md
+        - name: Limitations
+          href: limitations-managed-instance.md
         - name: Service tiers
           href: service-tiers.md
     - name: Quickstarts
@@ -186,22 +193,32 @@
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: High availability
               href: managed-instance-high-availability.md
-            - name: Point in time restore
-              href: point-in-time-restore.md
+            - name: Reserved capacity
+              href: reserved-capacity-overview.md
             - name: Delete
               href: delete-managed-instance.md
+        - name: Upgrade
+          items:
+            - name: Upgrade via CLI
+              href: upgrade-sql-managed-instance-cli.md
         - name: Migrate
           items:
             - name: Migrate to SQL Managed Instance (Azure Arc)
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Configure business continuity
+          items:
+            - name: Point in time restore
+              href: point-in-time-restore.md
 - name: Reference
   items:
+  - name: Release version log
+    href: version-log.md
   - name: az arcdata extension
     items:
-    - name: Overview
-      href: ./reference/overview.md
+    - name: arcdata
+      href: ./reference/reference-az-arcdata.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
@@ -224,9 +241,9 @@
       href: ./reference/reference-az-sql-mi-arc-config.md
     - name: sql mi-arc dag
       href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql midb-arc 
+      href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

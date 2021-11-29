@@ -47,11 +47,11 @@ The benefits of accelerated networking only apply to the VM that it's enabled on
 
 ## Supported operating systems
 
-The following distributions are supported directly from the Azure Gallery:
+The following versions of Windows are supported:
 
-- **Windows Server 2019 Datacenter**
-- **Windows Server 2016 Datacenter** 
-- **Windows Server 2012 R2 Datacenter**
+- **Windows Server 2019 Standard/Datacenter**
+- **Windows Server 2016 Standard/Datacenter** 
+- **Windows Server 2012 R2 Standard/Datacenter**
 
 ## Limitations and constraints
 
