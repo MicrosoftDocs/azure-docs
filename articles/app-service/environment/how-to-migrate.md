@@ -58,7 +58,7 @@ If there are no errors, your migration is supported and you can continue to the 
 
 ### Pre-migration
 
-Pre-migration refers to [Step 1 of the migration process](migrate.md#step-1-of-migration-\(pre\-migration\)). Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this step.
+Pre-migration refers to [Step 1 of the migration process](migrate.md#step-1-of-migration-pre-migration)). Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration"
@@ -82,12 +82,12 @@ az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2018
 ```
 
 > [!IMPORTANT]
-> Do not move on to full migration immediately after pre-migration. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. For more information, see [Step 2 of the migration process](migrate.md#step-2-of-migration-\(dependent-resource-updates\)).
+> Do not move on to full migration immediately after pre-migration. Using the new IPs, update any resources and networking components to ensure your new environment functions as intended once migration is complete. For more information, see [Step 2 of the migration process](migrate.md#step-2-of-migration-dependent-resource-updates).
 >
 
 ### Full migration
 
-Full migration refers to [Step 3 of the migration process](migrate.md#step-3-of-migration-\(full-migration\)). Be sure to read the details of this step and understand what running the following command will do to your apps and your App Service Environment. Only start this step once you've completed all pre-migration actions and understand the implications of moving on. There will be about one hour of downtime during this step. Don't scale or make changes to your existing App Service Environment during this step.
+Full migration refers to [Step 3 of the migration process](migrate.md#step-3-of-migration-full-migration). Be sure to read the details of this step and understand what running the following command will do to your apps and your App Service Environment. Only start this step once you've completed all pre-migration actions and understand the implications of moving on. There will be about one hour of downtime during this step. Don't scale or make changes to your existing App Service Environment during this step.
 
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration"
