@@ -279,7 +279,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 1. On the ARM template's **Deception Solution Policy Deployment** > **Basics** tab, select your management group value and region. Then, select **Next: Deployment Target >** to continue.
 
-1. On the **Deployment Target** tab, select your management group again, and then select **Nex: Management Workbook >**.
+1. On the **Deployment Target** tab, select your management group again, and then select **Next: Management Workbook >**.
 
 1. On the **Management Workbook** tab, paste the link to your **SOCHTManagement** workbook.
 

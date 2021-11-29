@@ -1,12 +1,8 @@
 ---
 title: How to prevent misconfigurations with Microsoft Defender for Cloud
 description: Learn how to use Defender for Cloud's 'Enforce' and 'Deny' options on the recommendations details pages
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Prevent misconfigurations with Enforce/Deny recommendations

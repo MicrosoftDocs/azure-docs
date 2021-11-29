@@ -10,11 +10,34 @@ ms.custom: references_regions
 
 The primary [What's new in Azure Arc-enabled servers agent?](agent-release-notes.md) article contains updates for the last six months, while this article contains all the older information.
 
-The Azure Arc-enabled servers Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
+The Azure Connected Machine agent receives improvements on an ongoing basis. This article provides you with information about:
 
 - Previous releases
 - Known issues
 - Bug fixes
+
+## June 2021
+
+Version 1.7
+
+### New features
+
+- Improved reliability during onboarding:
+  - Improved retry logic when HIMDS is unavailable
+  - Onboarding continues instead of aborting if OS information cannot be obtained
+- Improved reliability when installing the Log Analytics agent for Linux extension on Red Hat and CentOS systems
+
+## May 2021
+
+Version 1.6
+
+### New features
+
+- Added support for SUSE Enterprise Linux 12
+- Updated Guest Configuration agent to version 1.26.12.0 to include:
+  - Policies are executed in a separate process.
+  - Added V2 signature support for extension validation.
+  - Minor update to data logging.
 
 ## April 2021
 
@@ -26,7 +49,7 @@ Version 1.5
 - New `-useStderr` parameter to direct error and verbose output to stderr.
 - New `-json` parameter to direct output results in JSON format (when used with -useStderr).
 - Collect other instance metadata - Manufacturer, model, and cluster resource ID (for Azure Stack HCI nodes).
- 
+
 ## March 2021
 
 Version 1.4

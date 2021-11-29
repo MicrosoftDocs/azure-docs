@@ -58,6 +58,9 @@ Requirements for training data in machine learning:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
+> [!IMPORTANT]
+> Automated ML experiments do not support training with datasets that use [identity-based data access](how-to-identity-based-data-access.md).
+
 **For remote experiments**, training data must be accessible from the remote compute. Automated ML only accepts [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset) when working on a remote compute. 
 
 Azure Machine Learning datasets expose functionality to:
@@ -132,7 +135,7 @@ Next determine where the model will be trained. An automated ML training experim
 
     See [this notebook](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) for a remote example using Azure Machine Learning Managed Compute. 
 
-* An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) for examples of notebooks with Azure Databricks.
+* An **Azure Databricks cluster** in your Azure subscription. You can find more details in [Set up an Azure Databricks cluster for automated ML](how-to-configure-databricks-automl-environment.md). See this [GitHub site](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-databricks) for examples of notebooks with Azure Databricks.
 
 <a name='configure-experiment'></a>
 

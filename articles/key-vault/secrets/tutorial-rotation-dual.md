@@ -150,7 +150,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 ```
 ---
 
-Add secret to key vault with expiration date set to tomorrow, validity period for 60 days and storage account resource id. Run this command, using your retrieved values for `key1Value` and `storageAccountResourceId`:
+Add secret to key vault with validity period for 60 days, storage account resource id, and for demonstration purpose to trigger rotation immmediately set expiration date to tomorrow. Run this command, using your retrieved values for `key1Value` and `storageAccountResourceId`:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -257,7 +257,7 @@ Get-AzStorageAccountKey -Name vaultrotationstorage2 -ResourceGroupName vaultrota
 ```
 ---
 
-Add secret to key vault with expiration date set to tomorrow, validity period for 60 days and storage account resource id. Run this command, using your retrieved values for `key2Value` and `storageAccountResourceId`:
+Add secret to key vault with validity period for 60 days, storage account resource id, and for demonstration purpose to trigger rotation immmediately set expiration date to tomorrow. Run this command, using your retrieved values for `key2Value` and `storageAccountResourceId`:
 
 # [Azure CLI](#tab/azure-cli)
 ```azurecli
@@ -309,6 +309,11 @@ Get-AzStorageAccountKey -Name vaultrotationstorage -ResourceGroupName vaultrotat
 Notice that `value` of the key is same as secret in key vault:
 
 ![Screenshot that shows the output of the A Z storage account keys list command for the second storage account.](../media/secrets/rotation-dual/dual-rotation-9.png)
+
+## Disable rotation for secret
+
+You can disable rotation of a secret simply by deleting event grid subscription for that secret. Use the Azure PowerShell [Remove-AzEventGridSubscription](https://docs.microsoft.com/powershell/module/az.eventgrid/remove-azeventgridsubscription) cmdlet or Azure CLI [az event grid event--subscription delete](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?#az_eventgrid_event_subscription_delete) command.
+
 
 ## Key Vault rotation functions for two sets of credentials
 

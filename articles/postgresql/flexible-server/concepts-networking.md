@@ -95,7 +95,7 @@ The custom DNS server should be inside the virtual network or reachable via the 
 Private DNS zone settings and virtual network peering are independent of each other. If you want to connect to the flexible server from a client that's provisioned in another virtual network from the same region or a different region, you have to link the private DNS zone with the virtual network. For more information, see [Link the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
-> Only private DNS zone names that end with `postgres.database.azure.com` can be linked.
+> Only private DNS zone names that end with `postgres.database.azure.com` can be linked. Your DNS zone name cannot be the same as your flexible server(s) otherwise name resolution will fail. 
 
 ### Unsupported virtual network scenarios
 

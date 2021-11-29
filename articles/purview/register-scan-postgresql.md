@@ -116,7 +116,7 @@ To create and run a new scan, do the following:
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. When the list is empty, all available schemas are imported.
         
-        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For Example: `A%; %B; %C%; D`
+        Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: `A%; %B; %C%; D`
         * Start with A or
         * End with B or
         * Contain C or
@@ -127,7 +127,7 @@ To create and run a new scan, do the following:
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of PostgreSQL source to be scanned.
 
         > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-postgresql/scan.png" alt-text="scan PostgreSQL" border="true":::
 

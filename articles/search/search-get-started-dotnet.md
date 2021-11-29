@@ -1,8 +1,7 @@
 ---
 title: 'Quickstart: Create a search index in .NET'
 titleSuffix: Azure Cognitive Search
-description: In this C# quickstart, learn how to create an index, load data, and run queries using the Azure.Search.Documents client library.
-
+description: "In this C# quickstart, learn how to create an index, load data, and run queries using the Azure.Search.Documents client library."
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,8 +9,7 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-csharp
-
+ms.custom: devx-track-csharp, mode-other
 ---
 # Quickstart: Create a search index using the Azure.Search.Documents client library
 
