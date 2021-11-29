@@ -38,6 +38,8 @@ If you are able to access your Azure AD Sign-in logs through Log Analytics you c
 
 You can access your sign-in logs by running the following Kusto query:
 
+You can access your sign-in logs by running the following Kusto query:
+
 ```kusto
 let UPN = "userupn";
 AADNonInteractiveUserSignInLogs
