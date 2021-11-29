@@ -18,23 +18,23 @@ Your secure score is based on the number of security recommendations you've comp
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 
-## <a name='recs-compute'></a>Compute recommendations
+## <a name='recs-aws-compute'></a> AWS Compute recommendations
 
 [!INCLUDE [asc-recs-aws-compute](../../includes/asc-recs-aws-compute.md)]
 
-## <a name='recs-container'></a>Container recommendations
+## <a name='recs-aws-container'></a> AWS Container recommendations
 
 [!INCLUDE [asc-recs-aws-container](../../includes/asc-recs-aws-container.md)]
 
-## <a name='recs-data'></a>Data recommendations
+## <a name='recs-aws-data'></a> AWS Data recommendations
 
 [!INCLUDE [asc-recs-aws-data](../../includes/asc-recs-aws-data.md)]
 
-## <a name='recs-identityandaccess'></a>IdentityAndAccess recommendations
+## <a name='recs-aws-identityandaccess'></a> AWS IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-aws-identityandaccess](../../includes/asc-recs-aws-identityandaccess.md)]
 
-## <a name='recs-networking'></a>Networking recommendations
+## <a name='recs-aws-networking'></a> AWS Networking recommendations
 
 [!INCLUDE [asc-recs-aws-networking](../../includes/asc-recs-aws-networking.md)]
 
