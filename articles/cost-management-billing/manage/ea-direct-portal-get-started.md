@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/16/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -19,6 +19,12 @@ This article helps direct Azure Enterprise Agreement (Azure EA) customers start 
 - Roles used to manage the Enterprise billing account in the Azure portal.
 - Subscription creation.
 - Cost analysis in the Azure portal.
+
+We have several videos that walk you through getting started with the Azure portal for direct Enterprise Agreements. Check out the series at [Direct Enterprise Customer Billing Experience in the Azure portal](https://www.youtube.com/playlist?list=PLeZrVF6SXmsoHSnAgrDDzL0W5j8KevFIm).
+
+Here's the first video.
+
+>[!VIDEO https://www.youtube.com/embed/sfJyTZZ6RxQ]
 
 ## Understanding EA user roles and introduction to user hierarchy
 

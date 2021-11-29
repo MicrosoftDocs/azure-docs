@@ -25,7 +25,7 @@ Java auto-instrumentation can be enabled without any code changes.
 
 #### 1. Download jar file
 
-Download the [applicationinsights-agent-3.2.2.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.2/applicationinsights-agent-3.2.2.jar) file.
+Download the [applicationinsights-agent-3.2.3.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.3/applicationinsights-agent-3.2.3.jar) file.
 
 > [!WARNING]
 > 
@@ -47,7 +47,7 @@ Download the [applicationinsights-agent-3.2.2.jar](https://github.com/microsoft/
 
 #### 2. Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.2.jar` to your application's JVM args. 
+Add `-javaagent:path/to/applicationinsights-agent-3.2.3.jar` to your application's JVM args. 
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -60,7 +60,7 @@ Point the jar file to your Application Insights resource either by setting an en
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.2.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.3.jar`, with the following content:
 
 ```json
 {
@@ -420,6 +420,7 @@ See the [Troubleshooting](java-standalone-troubleshoot.md) article.
 - Fill out the OpenTelemetry community’s [customer feedback survey](https://docs.google.com/forms/d/e/1FAIpQLScUt4reClurLi60xyHwGozgM9ZAz8pNAfBHhbTZ4gFWaaXIRQ/viewform).
 - Tell Microsoft a bit about yourself by joining our [OpenTelemetry Early Adopter Community](https://aka.ms/AzMonOTel/).
 - Engage with other Azure Monitor users at [Microsoft's Tech Community](https://techcommunity.microsoft.com/t5/azure-monitor/bd-p/AzureMonitor).
+- Make a feature request at the [Azure Feedback Forum](https://feedback.azure.com/d365community/forum/8849e04d-1325-ec11-b6e6-000d3a4f09d0).
 
 ## Next steps
 

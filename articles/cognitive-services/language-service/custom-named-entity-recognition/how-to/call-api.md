@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/16/2021
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
@@ -78,13 +78,14 @@ See the [application development lifecycle](../overview.md#application-developme
 
 3. Submit the `GET` cURL request in your terminal or command prompt. You'll receive a 202 response and JSON similar to the below, if the request was successful.
 
-You can find more details about the results in the next section.
+[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
 
-# [Using the API](#tab/api)
 
-### Using the API
+# [Using the REST API](#tab/rest-api)
 
-### Get your resource keys endpoint
+## Use the REST API
+
+First you will need to get your resource key and endpoint
 
 1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
 
@@ -94,154 +95,85 @@ You can find more details about the results in the next section.
 
 ### Submit custom NER task
 
-> [!NOTE]
-> The project name is-case sensitive.
+1. Start constructing a POST request by updating the following URL with your endpoint.
+    
+    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
 
-Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
+2. In the header for the request, add your key to the `Ocp-Apim-Subscription-Key` header.
 
-`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
+3. In the JSON body of your request, you will specify The documents you're inputting for analysis, and the parameters for the custom entity recognition task. `project-name` is case-sensitive.
+ 
+    > [!tip]
+    > See the [quickstart article](../quickstart.md?pivots=rest-api#submit-custom-ner-task) and [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze) for more information about the JSON syntax.
 
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your subscription key that provides access to this API.|
-
-#### Body
-
-```json
-    {
-    "displayName": "MyJobName",
-    "analysisInput": {
-        "documents": [
-            {
-                "id": "doc1", 
-                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc tempus, felis sed vehicula lobortis, lectus ligula facilisis quam, quis aliquet lectus diam id erat. Vivamus eu semper tellus. Integer placerat sem vel eros iaculis dictum. Sed vel congue urna."
-            },
-            {
-                "id": "doc2",
-                "text": "Mauris dui dui, ultricies vel ligula ultricies, elementum viverra odio. Donec tempor odio nunc, quis fermentum lorem egestas commodo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
-            }
-        ]
-    },
-    "tasks": {
-        "customEntityRecognitionTasks": [      
-            {
-                "parameters": {
-                      "project-name": "MyProject",
-                      "deployment-name": "MyDeploymentName"
-                      "stringIndexType": "TextElements_v8"
-                }
-            }
-        ]
-    }
-}
-```
-
-|Key|Sample Value|Description|
-|--|--|--|
-|displayName|"MyJobName"|Your job Name|
-|documents|[{},{}]|List of documents to run tasks on|
-|ID|"doc1"|a string document identifier|
-|text|"Lorem ipsum dolor sit amet"| You document in string format|
-|"tasks"|[]| List of tasks we want to perform.|
-|--|customEntityRecognitionTasks|Task identifer for task we want to perform. |
-|parameters|[]|List of parameters to pass to task|
-|project-name| "MyProject"| Your project name. The project name is case sensitive.|
-|deployment-name| "MyDeploymentName"| Your deployment name|
-
-#### Response
-
-You will receive a 202 response indicating success. In the response **headers**, extract `operation-location`.
-`operation-location` is formatted like this:
-
- `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
-
-You will use this endpoint in the next step to get the custom recognition task results.
-
-### Get task status and results
-
-Use the following **GET** request to query the status/results of the custom recognition task. You can use the endpoint you received from the previous step.
-
-`{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`.
-
-#### Headers
-
-|Key|Value|
-|--|--|
-|Ocp-Apim-Subscription-Key| Your Subscription key that provides access to this API.|
-
-You can find more details about the results in the next section.
-
----
-
-#### Custom Extraction task results
-
-The response returned from the Get result call will be a JSON document with the following parameters:
-
-```json
-{
-    "createdDateTime": "2021-05-19T14:32:25.578Z",
-    "displayName": "MyJobName",
-    "expirationDateTime": "2021-05-19T14:32:25.578Z",
-    "jobId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "lastUpdateDateTime": "2021-05-19T14:32:25.578Z",
-    "status": "completed",
-    "errors": [],
-    "tasks": {
-        "details": {
-            "name": "MyJobName",
-            "lastUpdateDateTime": "2021-03-29T19:50:23Z",
-            "status": "completed"
-        },
-        "completed": 1,
-        "failed": 0,
-        "inProgress": 0,
-        "total": 1,
-        "tasks": {
-    "customEntityRecognitionTasks": [
+    ```json
         {
-            "lastUpdateDateTime": "2021-05-19T14:32:25.579Z",
-            "name": "MyJobName",
-            "status": "completed",
-            "results": {
-               "documents": [
-                        {
-                            "id": "doc1",
-                            "entities": [
-                                {
-                                    "text": "Government",
-                                    "category": "restaurant_name",
-                                    "offset": 23,
-                                    "length": 10,
-                                    "confidenceScore": 0.0551877357
-                                }
-                            ],
-                            "warnings": []
-                        },
-                        {
-                            "id": "doc2",
-                            "entities": [
-                                {
-                                    "text": "David Schmidt",
-                                    "category": "artist",
-                                    "offset": 0,
-                                    "length": 13,
-                                    "confidenceScore": 0.8022353
-                                }
-                            ],
-                            "warnings": []
-                        }
-                    ],
-                "errors": [],
-                "statistics": {
-                    "documentsCount":0,
-                    "erroneousDocumentsCount":0,
-                    "transactionsCount":0
+        "displayName": "MyJobName",
+        "analysisInput": {
+            "documents": [
+                {
+                    "id": "doc1", 
+                    "text": "This is a document."
                 }
+            ]
+        },
+        "tasks": {
+            "customEntityRecognitionTasks": [      
+                {
+                    "parameters": {
+                          "project-name": "MyProject",
+                          "deployment-name": "MyDeploymentName"
+                          "stringIndexType": "TextElements_v8"
                     }
                 }
             ]
         }
     }
-```
+    ```
+
+4. You will receive a 202 response indicating success. In the response headers, extract `operation-location`.
+`operation-location` is formatted like this:
+
+    `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId>`
+
+    You will use this endpoint in the next step to get the custom recognition task results.
+
+5. Use the URL from the previous step to create a **GET** request to query the status/results of the custom recognition task. Add your key to the `Ocp-Apim-Subscription-Key` header for the request.
+
+[!INCLUDE [JSON result for entity recognition](../includes/recognition-result-json.md)]
+
+# [Using the client libraries](#tab/client)
+
+## Use the client libraries
+
+1. Go to your resource overview page in the [Azure portal](https://ms.portal.azure.com/#home)
+
+2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
+
+    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
+
+3. Download and install the client library package for your language of choice:
+    
+    |Language  |Package version  |
+    |---------|---------|
+    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
+    |Java     | [5.2.0-beta.2](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.2.0-beta.2)        |
+    |JavaScript     |  [5.2.0-beta.2](https://www.npmjs.com/package/@azure/ai-text-analytics/v/5.2.0-beta.2)       |
+    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    
+4. After you've installed the client library, use the following samples on GitHub to start calling the API.
+    
+    * [C#](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/tests/samples/Sample9_RecognizeCustomEntitiesConvenience.cs)
+    * [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics/lro/RecognizeCustomEntities.java)
+    * [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/samples/v5/javascript/customText.js)
+    * [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/samples/sample_recognize_custom_entities.py)
+    
+5. See the following reference documentation for more information on the client, and return object:
+    
+    * [C#](/dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true)
+    * [Java](/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true)
+    * [JavaScript](/javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true)
+    * [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true)
+    
+---
+

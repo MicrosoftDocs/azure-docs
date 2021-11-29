@@ -15,6 +15,8 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
+    - name: Create AKS cluster
+      href: create-aks-cluster-data-controller.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -51,8 +53,6 @@ items:
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
-            href: create-data-controller-direct-cli.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
         - name: Monitor with dashboards (Azure Data Studio)
@@ -245,7 +245,5 @@ items:
       href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

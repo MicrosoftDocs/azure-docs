@@ -1,5 +1,5 @@
---- 
-title:  Create an iOS app
+---
+title: Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
 author: stevemunk
 ms.author: v-munksteve
@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: eriklind
+ms.custom: mode-other
 ---
 
 # Create an iOS app (Public Preview)
@@ -67,7 +68,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 
 ## Create a project in Xcode
 
-First, create a new iOS App project. Complete these steps to create an Xcode project:
+First, create a new iOS App project. Complete these steps to create a Xcode project:
 
 1. Under **File**, select **New** -> **Project**.
 
@@ -75,7 +76,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 3. Enter app name, bundle ID then select **Next**.
 
-See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
+See the [Creating a Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
 ![Create the first iOS application.](./media/ios-sdk/quick-ios-app/create-app.png)
 

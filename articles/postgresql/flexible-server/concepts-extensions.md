@@ -212,7 +212,8 @@ To unschedule all tasks from pg_cron
 SELECT cron.unschedule(jobid) FROM cron.job;
 ```
 > [!NOTE]
-> pg_cron is preloaded n every Azure Database for PostgreSQL flexible server in postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security. 
+> pg_cron extension is preloaded in every Azure Database for PostgreSQL -Flexible Server inside postgres database to provide you with ability to schedule jobs to run in other databases within your PostgreSQL DB instance without compromising security.
+
 ## pg_stat_statements
 
 The [pg_stat_statements extension](https://www.postgresql.org/docs/current/pgstatstatements.html) is preloaded on every Azure Database for PostgreSQL flexible server to provide you a means of tracking execution statistics of SQL statements.

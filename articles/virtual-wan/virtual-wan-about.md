@@ -94,7 +94,7 @@ The router can have four routing statuses: Provisioned, Provisioning, Failed, or
 
 Every virtual hub router supports an aggregate throughput up to 50 Gbps. 
 
-Connectivity between the virtual network connections assumes, by default, a maximum total of 2000 VM workload across all VNets connected to a single virtual Hub. This [limit](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
+Connectivity between the virtual network connections assumes, by default, a maximum total of 2000 VM workload across all VNets connected to a single virtual Hub. This [limit](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
 
 #### <a name="transit-er"></a>Transit connectivity between VPN and ExpressRoute
 
@@ -138,4 +138,3 @@ Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the
 
 - [Tutorial: Create a site-to-site connection using Virtual WAN](virtual-wan-site-to-site-portal.md)
 - [Learn module: Introduction to Azure Virtual WAN](/learn/modules/introduction-azure-virtual-wan/)
-
