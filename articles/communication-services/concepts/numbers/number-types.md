@@ -1,3 +1,19 @@
+---
+title: Number Type concepts in Azure Communication Services
+titleSuffix: An Azure Communication Services concept document
+description: Learn about Number Type concepts.
+author: sadas
+manager: rcole
+services: azure-communication-services
+
+ms.author: sadas
+ms.date: 11/28/2021
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: numbers
+
+---
+
 # Number Types
 Azure Communication Services offers three types of Numbers–Toll-Free, Local, and Short Codes.
 -	**To send or receive an SMS**, choose a Toll-Free Number or a Short Code
