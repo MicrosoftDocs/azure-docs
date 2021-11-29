@@ -23,7 +23,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 - Reduce the frequency of calls.
 - Avoid immediate retries, because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](https://docs.microsoft.com/azure/architecture/) documentation for [throttling patterns](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture.md) documentation for [throttling patterns](/azure/architecture/patterns/throttling.md).
 
 ## Acquiring phone numbers
 Before trying to acquire a phone number, make sure your sbuscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -74,28 +74,28 @@ When using the chat APIs, you might receive a ```429``` error. This indicates yo
 
 | **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
 |--|--|--|--|
-|Send Message 	        | Per Thread 	        |60 	        |2000 
-|                       | Per User per Thread 	|60 	        |50 
-|Get Message 	        | Per User Per Thread   |-              |-
-|Get Messages 	        |Per User Per Thread    |5              |15
-|                       |Per Thread	        |5	        |250
-|Update Message 	|Per User per Thread 	|5 	        |3 
-|                       | 	 	        |60             |30 
-|                       | 	                |180            |60 
-|Get Thread             |Per User Per Thread    |5              |10 
-||Per User 	        |                       |5 	        |20 
-|Get Threads 	        |Per User 	        |5              |40 
-|UpdateThreadRoster 	|Per Thread 	        |300 	        |25
-|	                |Per User               |60 	        |25
-| 	                |Per User Per Thread 	|1 	        |-
+|Send Message 	        | Per Thread 	        |60 	        |2000 |
+|Send Message            | Per User per Thread 	|60 	        |50 |
+|Get Message 	        | Per User Per Thread   |-              |- |
+|Get Messages 	        |Per User Per Thread    |5              |15 |
+|Get Messages           |Per Thread	        |5	        |250 |
+|Update Message 	|Per User per Thread 	|5 	        |3 |
+|Update Message         | 	 	        |60             |30 |
+|Update Message         | 	                |180            |60 | 
+|Get Thread             |Per User Per Thread    |5              |10 |
+|Get Thread             |Per User 	        |5 	        |20 |
+|Get Threads 	        |Per User 	        |5              |40 |
+|UpdateThreadRoster 	|Per Thread 	        |300 	        |25 |
+|UpdateThreadRoster   |Per User               |60 	        |25 |
+|UpdateThreadRoster   |Per User Per Thread 	|1 	        |- |
 
 ### Other maximum limitations
 
 | **Name**         | Limit  |
 |--|--|
-|Number of participants in thread|250 
-|Batch of participants - CreateThread|200 
-|Batch of participants - AddParticipant|200 
+|Number of participants in thread|250 |
+|Batch of participants - CreateThread|200 |
+|Batch of participants - AddParticipant|200 |
 
 ### Action to take
 
@@ -141,14 +141,14 @@ The following timeouts apply to the Communication Services Calling SDKs:
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
 
 ## Teams Interoperability and Microsoft Graph
-If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](https://docs.microsoft.com/graph/cloud-communications-online-meetings).  
+If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings.md).  
 
-Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](https://docs.microsoft.com/graph/throttling#service-specific-limits) in more detail.
+Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling.md) in more detail.
 
 ### Action to take
 When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
-You can find more information on Microsoft Graph [throttling](https://docs.microsoft.com/graph/throttling) limits in the [Microsoft Graph](https://docs.microsoft.com/graph/overview) documentation.
+You can find more information on Microsoft Graph [throttling](/graph/throttling.md) limits in the [Microsoft Graph](/graph/overview.md) documentation.
 
 ## Network Traversal
 
