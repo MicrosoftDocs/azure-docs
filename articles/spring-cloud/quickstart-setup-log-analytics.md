@@ -11,9 +11,9 @@ ms.custom: devx-track-java, fasttrack-edit, mode-other
 
 # Quickstart: Set up Log Analytics workspace
 
-Log Analytics is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide a variety of insights into your data.
+Log Analytics is a tool in the Azure portal to edit and run log queries from data collected by Azure Monitor Logs and interactively analyze their results. You can use Log Analytics queries to retrieve records that match particular criteria, identify trends, analyze patterns, and provide various insights into your data.
 
-Azure Spring Cloud supports you leverage Azure Monitor Logs to collect logs and edit and run log queries via Log Analytics.
+Azure Spring Cloud supports you apply Azure Monitor Logs to collect logs and edit and run log queries via Log Analytics.
 
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Azure Spring Cloud supports you leverage Azure Monitor Logs to collect logs and 
 
    [ ![diagnostic settings menu](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png#lightbox) 
 
-1. If no setting exist on the service, Click **Add diagnostic setting**.
+1. If no setting exists on the service, Click **Add diagnostic setting**.
 
    If there are existing settings on the service, you see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit setting** to edit an existing one. 
 
@@ -112,7 +112,7 @@ Azure Spring Cloud supports you leverage Azure Monitor Logs to collect logs and 
     }
     ```
 
-1. Setup diagnostic setting, you could see [diagnostic settings doc](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=CMD) for more guidance about the different log categories and contents of those logs.
+1. Set up diagnostic setting, you could see [diagnostic settings doc](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring&tabs=CMD) for more guidance about the different log categories and contents of those logs.
 
     ```azurecli
     az monitor diagnositc-settings create --name "<give your setting a name>" \
