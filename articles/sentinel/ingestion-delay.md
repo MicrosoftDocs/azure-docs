@@ -92,3 +92,4 @@ For more information, see:
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
 - [Customize alert details in Azure Sentinel](customize-alert-details.md)
 - [Manage template versions for your scheduled analytics rules in Azure Sentinel](manage-analytics-rule-templates.md)
+- [Log data ingestion time in Azure Monitor](/azure-monitor/logs/data-ingestion-time)
