@@ -65,7 +65,7 @@ Rate Limits for SMS:
 |Send Message|Per Number|60|200|200|
 
 ### Action to take
-If your company has requirements that exceed the rate-limits, please email us at phone@microsoft.com.
+If you require sending an amount of messages that exceeds the rate-limits, please email us at phone@microsoft.com.
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./telephony-sms/sdk-features.md) page or the [SMS FAQ](./telephony-sms/sms-faq.md) page.
 
