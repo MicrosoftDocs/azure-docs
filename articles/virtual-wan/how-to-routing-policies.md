@@ -51,14 +51,14 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. 
 2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see this [document](howto-firewall.md).
 3. Deploy any Site-to-site VPN, Point-to-site VPN and ExpressRoute Gateways you will use for testing. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
-```
+    ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
-```
+    ```
 4.  Expect a response within 24-48 hours with confirmation of feature enablement. 
 5. Ensure that your Virtual Hubs do **not** have any Custom Route Tables or any  routes you may have added into the defaultRouteTable. You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table. 
 6. If you are using an **Azure Firewall** deployed in the Virtual WAN Hub, please reference the following [section](#azurefirewall) to configure routing intent and routing policies. If you are using a **Network Virtual Appliance** deployed in the Virtual WAN Hub, please reference the following [section](#nva) to configure routing intent and routing policies.
 
-## <a name="azurefirewall"></a> Configuring routing policies (Azure Firewall) 
+## <a name="azurefirewall"></a> Configure routing policies (Azure Firewall) 
 
 1. From the custom portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN Hub that you want to configure Routing Policies on.
 1. Under Security, select **Secured Virtual hub settings** and then **Manage security provider and route settings for this Secured virtual hub in Azure Firewall Manager**
@@ -68,7 +68,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 1. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall** or the relevant Internet Security provider from the dropdown for **Internet Traffic**. If not, select **None**
 1. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network traffic) via Azure Firewall, select **Azure Firewall** from the dropdown for **Private Traffic**. If not, select **Bypass Azure Firewall**.
 
-:::image type="content" source="./media/routing-policies/configuring-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configuring-intents.png":::
+:::image type="content" source="./media/routing-policies/configure-intents.png"alt-text="Screenshot showing how to configure routing policies."lightbox="./media/routing-policies/configure-intents.png":::
 
 7. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Private Traffic Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
@@ -79,31 +79,31 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 
 
-## <a name="nva"></a> Configuring routing policies (Network Virtual Appliance)
+## <a name="nva"></a> Configure routing policies (Network Virtual Appliance)
 
 >[!NOTE]
-> The only Network Virtual Appliance compatible with Routing Policies is rhe Fortinet NVA. For more information on obtaining access to this offering, please visit the following deployment guide. 
+> The only Network Virtual Appliance compatible with Routing Policies is rhe Fortinet NVA. For more information on obtaining access to this offering, please visit the following deployment guide.
 
-1. From the custom portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN hub that you want to configure routing policies on. 
+1. From the custom portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN hub that you want to configure routing policies on.
 1. Under Routing, select **Routing Policies**.
 
-:::image type="content" source="./media/routing-policies/routing-policies-vwanui.png"alt-text="Screenshot showing how to navigate to routing policies."lightbox="./media/routing-policies/routing-policies-vwanui.png":::
+    :::image type="content" source="./media/routing-policies/routing-policies-vwan-ui.png"alt-text="Screenshot showing how to navigate to routing policies."lightbox="./media/routing-policies/routing-policies-vwan-ui.png":::
 
 3. If you want to configure a Private Traffic Routing Policy (for branch and Virtual Network Traffic), select **Network Virtual Appliance** under **Private Traffic** and under **Next Hop Resource** select the Network Virtual Appliance resource you wish to send traffic to. 
 
-:::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
+    :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
 4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
-:::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
+    :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
 5. If you want to configure a Internet Traffic Routing Policy, under **Internet traffic** select **Network Virtual Appliance** and under **Next Hop Resource** select the Network Virtual Appliance you want to send internet-bound traffic to. 
 
-:::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
+    :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
 6. To apply your routing intent and routing policies configuration, click **Save**.
 
-:::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations"lightbox="./media/routing-policies/save-nva.png":::
+    :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations"lightbox="./media/routing-policies/save-nva.png":::
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
@@ -151,7 +151,7 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 **Hub 2 Configuration:**
 * Private Traffic  Policy with Next Hop Hub 2 Azure Firewall or NVA
-* Internet Traffic Policy with Next Hop Hub 2 Azure Firewal or NVA 
+* Internet Traffic Policy with Next Hop Hub 2 Azure Firewall or NVA 
 
 
 :::image type="content" source="./media/routing-policies/one-secured-one-normal-diagram.png"alt-text="Screenshot showing architecture with one secured hub one normal hub."lightbox="./media/routing-policies/one-secured-one-normal-diagram.png":::
@@ -169,14 +169,14 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
 
 ## Troubleshooting
 
-The following section describes common issues encountered when configuring Routing Policies on your Virtual WAN Hub.  Read the below sections and if your issue is still unresolved,  reach out to previewinterhub@microsoft.com for support. Expect a response within 48 business hours (Monday through Friday).
+The following section describes common issues encountered when you configure Routing Policies on your Virtual WAN Hub.  Read the below sections and if your issue is still unresolved,  reach out to previewinterhub@microsoft.com for support. Expect a response within 48 business hours (Monday through Friday).
 
 ### Troubleshooting configuration issues
 *  Make sure that you have gotten confirmation from previewinterhub@microsoft.com that access to the gated public preview has been granted to your subscription and chosen region. You will **not** be able to configure routing policies without being granted access to the preview.
 * After enabling the Routing Policy feature  on your deployment,  ensure you **only** use the custom portal link provided as part of your confirmation email. Do not use PowerShell, CLI, or REST API calls to manage your Virtual WAN deployments.  This includes creating new Branch (Site-to-site VPN, Point-to-site VPN or ExpressRoute) connections.
 
->[!NOTE]
-> If you are using Terraform, routing policies are currently not supported.
+    >[!NOTE]
+    > If you are using Terraform, routing policies are currently not supported.
 
 *  Ensure that your Virtual Hubs do not have any Custom Route Tables or any static routes in the defaultRouteTable. You will **not** be able to select **Enable interhub** from Firewall Manager on your Virtual WAN Hub if there are Custom Route tables configured or if there are static routes in your defaultRouteTable. 
 
@@ -191,7 +191,7 @@ The following section describes common issues encountered when configuring Routi
 
 * If you are using non [IANA RFC1918](https://datatracker.ietf.org/doc/html/rfc1918) prefixes in your branches/Virtual Networks, make sure you have specified those prefixes in the "Private Prefixes" text box in Firewall Manager.
 * If you have specified non RFC1918 addresses as part of the **Private Traffic Prefixes** text box in Firewall Manager, you may need to configure SNAT policies on your Firewall to disable SNAT for non-RFC1918 private traffic. For more information,  reference the following [document](../firewall/snat-private-range.md). 
-* Consider configuring and viewing Azure Firewall logs to help troubleshoot and analyze your network traffic. For more information on how to set-up monitoring for Azure Firewall,  reference the following [document](../firewall/firewall-diagnostics.md). An overview of the different types of Firewall logs can be found [here](../firewall/logs-and-metrics.md).
+* Configure and view Azure Firewall logs to help troubleshoot and analyze your network traffic. For more information on how to set-up monitoring for Azure Firewall,  reference the following [document](../firewall/firewall-diagnostics.md). An overview of the different types of Firewall logs can be found [here](../firewall/logs-and-metrics.md).
 * For more information on Azure Firewall,  review [Azure Firewall Documentation](../firewall/overview.md).
 
 ## Frequently asked questions
