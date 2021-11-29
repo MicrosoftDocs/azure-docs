@@ -5,10 +5,9 @@ services: azure-app-configuration
 author: drewbatgit
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ms.date: 9/17/2020
 ms.author: drewbat
-
 #Customer intent: As a Python developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Python app with Azure App Configuration

@@ -8,8 +8,8 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 08/27/2020
-ms.custom: cog-serv-seo-aug-2020
-keywords: personalizer, Azure personalizer, machine learning 
+ms.custom: cog-serv-seo-aug-2020, mode-other
+keywords: personalizer, Azure personalizer, machine learning
 zone_pivot_groups: programming-languages-set-six
 ---
 

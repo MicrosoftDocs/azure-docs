@@ -7,7 +7,7 @@ ms.date: 11/10/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Export data from an IoT Central application

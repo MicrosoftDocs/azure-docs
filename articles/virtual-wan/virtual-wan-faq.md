@@ -291,6 +291,10 @@ Yes. This option is currently available via PowerShell only. The Virtual WAN por
 
 The recommended Virtual WAN hub address space is /23. Virtual WAN hub assigns subnets to various gateways (ExpressRoute, Site-to-site VPN, Point-to-site VPN, Azure Firewall, Virtual hub Router). For scenarios where NVAs are deployed inside a virtual hub, a /28 is typically carved out for the NVA instances. However if the user were to provision multiple NVAs, a /27 subnet may be assigned. Therefore keeping a future architecture in mind, while Virtual WAN hubs are deployed with a minimum size of /24, the recommended hub address space at creation time for user to input is /23.
 
+### Can you re-size or change the address prefixes of a spoke Virtual Network connected to the Virtual WAN Hub?
+
+No. This is currently not possible. To change the address prefixes of a spoke Virtual Network, please remove the connection between the spoke Virtual Network and the Virtual WAN hub, modify the address spaces of the spoke Virtual Network, and then re-create the connection between the spoke Virtual Network and the Virtual WAN Hub. 
+
 ### Is there support for IPv6 in Virtual WAN?
 
 IPv6 is not supported in the Virtual WAN hub and its gateways. If you have a VNet that has IPv4 and IPv6 support and you would like to connect the VNet to Virtual WAN, this scenario not currently supported.
@@ -326,6 +330,7 @@ Azure Route Server provides a Border Gateway Protocol (BGP) peering service that
 When you choose to deploy a security partner provider to protect Internet access for your users, the third-party security provider creates a VPN site on your behalf. Because the third-party security provider is created automatically by the provider and is not a user-created VPN site, this VPN site will not show up in the Azure portal.
 
 For more information regarding the available options third-party security providers and how to set this up, see [Deploy a security partner provider](../firewall-manager/deploy-trusted-security-partner.md).
+
 
 ## Next steps
 

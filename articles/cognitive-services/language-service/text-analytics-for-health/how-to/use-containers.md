@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/22/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -86,7 +86,6 @@ Eula=accept \
 rai_terms=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \
-Logging:Disk:Format=json
 ```
 
 This command:
@@ -224,7 +223,6 @@ services:
       - eula=accept
       - billing={ENDPOINT_URI}
       - apikey={API_KEY}
-      - Logging:Disk:Format=json
     volumes:
         # replace with path to logs folder
       - <path-to-logs-folder>:/output

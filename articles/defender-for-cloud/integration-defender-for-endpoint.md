@@ -1,12 +1,8 @@
 ---
 title: Using the Microsoft Defender for Endpoint license included with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Endpoint and deploying it from Microsoft Defender for Cloud.
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: how-to
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 
 # Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint
@@ -272,7 +268,7 @@ Defender for Cloud automatically deploys the extension to machines running:
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
 ### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for servers?
-If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Microsoft Defender for servers license.
+If you've already got a license for Microsoft Defender for Endpoint for Servers (purchased through an Office E5 explicit "Defender for Endpoint **Servers**" license), you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements?view=o365-worldwide#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
 
