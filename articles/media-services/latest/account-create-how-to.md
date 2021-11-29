@@ -10,7 +10,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/4/2020
+ms.date: 11/29/2021
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
 
@@ -34,6 +34,8 @@ To start encrypting, encoding, analyzing, managing, and streaming media content 
 [!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
 
 [!INCLUDE [create a media services account in the portal](./includes/task-create-media-services-account-portal.md)]
+
+[!INCLUDE [enable a system-assigned managed identity](./includes/task-create-media-services-system-managed-identity.md)]
 
 ## [CLI](#tab/cli/)
 
@@ -62,7 +64,3 @@ In this example, we create a General Purpose v2, Standard LRS account. If you wa
 [!INCLUDE [Create a Media Services account with CLI](./includes/task-create-media-services-account-cli.md)]
 
 ---
-
-## Next steps
-
-[Stream a file](stream-files-dotnet-quickstart.md)
