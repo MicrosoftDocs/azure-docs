@@ -11,7 +11,7 @@ ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: 
-ms.date: 5/18/2021
+ms.date: 11/29/2021
 ---
 # Azure SQL glossary of terms
 [!INCLUDE[appliesto-asf](./includes/appliesto-asf.md)] 
