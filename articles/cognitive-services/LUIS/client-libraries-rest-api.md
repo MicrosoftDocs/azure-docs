@@ -9,7 +9,7 @@ manager: nitinme
 ms.subservice: language-understanding
 author: aahill
 keywords: Azure, artificial intelligence, ai, natural language processing, nlp, LUIS, azure luis, natural language understanding, ai chatbot, chatbot maker,  understanding natural language
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-set-luis
 ---
 # Quickstart: Language Understanding (LUIS) client libraries and REST API

@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/23/2021
 ms.author: anfeldma
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
 ---
 
 # Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API

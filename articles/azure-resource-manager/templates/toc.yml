@@ -472,6 +472,8 @@
       href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
+    - name: Scope functions
+      href: template-functions-scope.md  
     - name: String functions
       href: template-functions-string.md
   - name: REST

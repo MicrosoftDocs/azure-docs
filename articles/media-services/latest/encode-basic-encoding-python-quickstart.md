@@ -4,12 +4,12 @@ description: This quickstart shows you how to do basic encoding with Python and 
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
-
 ms.service: media-services
 ms.workload: 
 ms.topic: quickstart
 ms.date: 7/2/2021
 ms.author: inhenkel
+ms.custom: mode-other
 ---
 
 # Media Services basic encoding with Python

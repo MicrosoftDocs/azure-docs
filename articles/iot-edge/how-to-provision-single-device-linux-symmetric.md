@@ -43,7 +43,7 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### IoT Edge installation
+### Device requirements
 
 An X64, ARM32, or ARM64 Linux device.
 

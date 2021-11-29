@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/30/2021
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL Flexible Server using Azure CLI
