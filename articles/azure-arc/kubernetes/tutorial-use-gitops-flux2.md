@@ -15,7 +15,7 @@ ms.custom: template-tutorial, devx-track-azurecli
 
 GitOps with Flux v2 can be enabled in Azure Arc-enabled Kubernetes connected clusters or Azure Kubernetes Service (AKS) managed clusters as a cluster extension. After the `microsoft.flux` cluster extension is installed, you can then create one or more `fluxConfigurations` resources that sync your Git repository sources to the cluster and reconcile the cluster to the desired state. With GitOps, you can use your Git repository as the source of truth for cluster configuration and application deployment.
 
-This document contains a detailed tutorial of using Azure GitOps in a Kubernetes cluster. Before diving in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2).
+This document contains a detailed tutorial of using Azure GitOps in a Kubernetes cluster. Before diving in, take a moment to [learn how GitOps with Flux works conceptually](./conceptual-gitops-flux2.md).
 
 General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
 
@@ -26,7 +26,7 @@ To manage GitOps through the Azure CLI or portal you need:
 ### For Azure Arc-enabled Kubernetes clusters
 
 * An Azure Arc-enabled Kubernetes connected cluster that is up and running.
-  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
+  * [Learn how to Arc-enable a Kubernetes cluster](./quickstart-connect-cluster.md). If you need to connect through an outbound proxy, then assure you [install the Arc agents with proxy settings](./quickstart-connect-cluster.md?tabs=azure-cli#5-connect-using-an-outbound-proxy-server).
 * 'Read' and 'Write' permissions on the 'Microsoft.Kubernetes/connectedClusters' resource type.
 
 ### For Azure Kubernetes Service (AKS) clusters
