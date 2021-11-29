@@ -7,7 +7,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 11/29/2021
 ms.author: yushwang 
 
 ---
@@ -22,9 +22,6 @@ NAT defines the mechanisms to translate one IP address to another in an IP packe
 For more information about NAT support on Azure VPN gateway, see [About NAT on Azure VPN Gateways](nat-overview.md).
 
 > [!IMPORTANT] 
-> Azure NAT for VPN gateway is currently in preview. 
-> * Be sure to read the **[Preview limitations](#limits)** section of this article.
-> * Azure VPN gateway NAT supports static, 1:1 NAT rules only. Dynamic NAT rules are not supported.
 > * NAT is supported on the the following SKUs: VpnGw2~5, VpnGw2AZ~5AZ.
 
 ## Getting started
@@ -38,7 +35,6 @@ Each part of this article helps you form a basic building block for configuring 
 ### Prerequisites
 
 * Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Review the [Preview limitations](#limits).
 
 ## <a name ="vnet"></a>Part 1: Create VNet and gateways
 
@@ -73,9 +69,6 @@ The following screenshots show examples of the resources to create.
 
    :::image type="content" source="./media/nat-howto/branch-2.png" alt-text="Screenshot showing Branch 2 local network gateway." lightbox="./media/nat-howto/branch-2.png":::
 
-   > [!IMPORTANT] 
-   > During preview, if the local network gateway address space is the same or smaller than the VNet address space, use **BGP** and leave the local network gateway address space field **blank**. Static routing (non-BGP) is not supported in this scenario during preview.
-   >
 
 ## <a name ="nat-rules"></a>Part 2: Create NAT rules
 
@@ -91,7 +84,7 @@ Before you create connections, you must create and save NAT rules on the VPN gat
 
 Use the following steps to create all the NAT rules on the VPN gateway.
 
-1. In the Azure portal, navigate to the **Virtual Network Gateway** resource page and select **NAT Rules (Preview)**.
+1. In the Azure portal, navigate to the **Virtual Network Gateway** resource page and select **NAT Rules**.
 1. Using the **NAT rules table** above, fill in the values.
 
    :::image type="content" source="./media/nat-howto/nat-rules.png" alt-text="Screenshot showing NAT rules." lightbox="./media/nat-howto/nat-rules.png":::
