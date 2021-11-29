@@ -424,3 +424,18 @@ In the `index.js` file, add the following code:
     
     });
 ```
+
+The app endpoints are explained below:
+- `/`:
+    - Used to enter the web app.
+    - It renders the `signin` page.
+- `/signin`:
+    - Used when the end user signs in.
+    - Calls `getAuthCode` method and passes the `authority` for **Sign in and sign up** user flow/policy to it, `APP_STATES.LOGIN` and empty `scopes` array.  
+    - If necessary, it causes the end user to be challenged to enter their logins or if the user does not have an account, they to sign up.
+    - A final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
+- `/password`:
+    - Used when a user resets password.
+    - Calls `getAuthCode` method and passes the `authority` for **Password reset** user flow/policy to it, `APP_STATES.PASSWORD_RESET` and empty `scopes` array.
+    - It causes the end user to to be challenged to change their password or they can cancel the operation.
+    - A final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint or if the end user canceled the operation, an error is posted back.  
