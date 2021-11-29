@@ -60,7 +60,7 @@ Azure Spring Cloud supports you leverage Azure Monitor Logs to collect logs and 
 
    If there are existing settings on the service, you see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit setting** to edit an existing one. 
 
-   [ ![add or update a diagnositc setting](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png)
+   [ ![add or update a diagnositc setting](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png#lightbox)
 
 1. Fill out the form on **Diagnostics setting** page. Consider the following guidelines:
    * **Diagnostic setting name**: Give your setting a name if it doesn't already have one.
