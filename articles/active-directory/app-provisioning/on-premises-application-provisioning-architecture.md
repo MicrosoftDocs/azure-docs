@@ -7,7 +7,7 @@ manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 11/18/2021
+ms.date: 11/29/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -84,7 +84,7 @@ You can define one or more matching attribute(s) and prioritize them based on th
 
 
 3. If the user does not exist, Azure AD will make a POST request to create the user.  The ECMA Connector Host will respond back to Azure AD with the HTTP 201 and provide an ID for the user. This ID is derived from the anchor value defined in the object types page. This anchor will be used by Azure AD to query the ECMA Connector Host for future and subsequent requests. 
-4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azuer AD and in the app.  
+4. If a change happens to the user in Azure AD, then Azure AD will make a GET request to retrieve the user using the anchor from the previous step, rather than the matching attribute in step 1. This allows, for example, the UPN to change without breaking the link between the user in Azure AD and in the app.  
 
 
 ## Agent best practices
