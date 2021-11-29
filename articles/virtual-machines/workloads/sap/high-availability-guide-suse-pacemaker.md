@@ -20,6 +20,8 @@ ms.author: radeltch
 
 # Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 
+## Overview
+
 [planning-guide]:planning-guide.md
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
@@ -29,7 +31,7 @@ ms.author: radeltch
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, there are two options to set up stonith in Pacemaker cluster for SLES. You can either use a Azure fence agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device. To configure stonith using SBD device, there are two different methods available in Azure. Details about each stonith options and methods are as follows -
+In Azure, there are two options to set up stonith in Pacemaker cluster for SLES. You can either use an Azure fence agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device. To configure stonith using SBD device, two different methods available in Azure. Details about each stonith option and methods are as follows -
 
 - SBD device using iSCSI target server
   
@@ -49,14 +51,14 @@ In Azure, there are two options to set up stonith in Pacemaker cluster for SLES.
   **Important Consideration for SBD device using Azure shared disk**
 
    - Azure shared disk with Premium SSD is supported with SBD device.
-   - SBD device using Azure premium shared disk is supported for [locally-redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+   - SBD device using Azure premium shared disk is supported for [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
    - Depending on the type of your deployment - availability set or availability zones, you require to choose the appropriate redundant storage for Azure shared disk as your SBD device.
      - SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
      - SBD device using ZRS for Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
    - ZRS for managed disk is currently not available in all regions with availability zones. Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
-   - The disk size of SBD device using Azure shared disk don’t need to be large. The [maxShares](../../disks-shared-enable?tabs=azure-cli#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on 2-node cluster like SAP ASCS/ERS, SAP HANA scale-up.
-   - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you cannot use Azure shared disk as SBD device with more than four nodes due to the current limit of [maxShares](https://docs.microsoft.com/en-us/azure/virtual-machines/disks-shared-enable?tabs=azure-cli#disk-sizes).
-   - We recommend to attach a single SBD device with Azure shared disk to the nodes of only one Pacemaker cluster.
+   - The disk size of SBD device using Azure shared disk don’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two node cluster like SAP ASCS/ERS, SAP HANA scale-up.
+   - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you cannot use Azure shared disk as SBD device with more than four nodes because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+   - We recommend attaching a single SBD device with Azure shared disk to the nodes of only one Pacemaker cluster.
    - For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 - Azure fence agent
@@ -193,7 +195,7 @@ o- / ...........................................................................
   o- xen-pvscsi ........................................................................................ [Targets: 0]
 </code></pre>
 
-### Set up SBD device
+### Set up iSCSI target server SBD device
 
 Connect to the iSCSI device that was created in the last step from the cluster.
 Run the following commands on the nodes of the new cluster you want to create.
@@ -335,9 +337,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 This section is only applicable, if you want to use SBD device using Azure shared disk.
 
-### Create and attach Azure shared disk with Powershell
+### Create and attach Azure shared disk with PowerShell
 
-You will need to adjust the values for your resource group, Azure region, virtual machines, LUN and so on.
+Adjust the values for your resource group, Azure region, virtual machines, LUN, and so on.
 
 <pre><code>$ResourceGroup = "<b>MyResourceGroup</b>"
 $Location = "<b>MyAzureRegion</b>"
@@ -449,7 +451,7 @@ You can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md) document if
 
 This section is only applicable, if you want to use SBD device using Azure shared disk.
 
-## Create Azure Fence agent STONITH device
+### Create Azure Fence agent STONITH device
 
 This section of the documentation is only applicable, if using STONITH, based on Azure Fence agent.
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
@@ -460,7 +462,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Click App registrations
 1. Click New Registration
 1. Enter a Name, select "Accounts in this organization directory only" 
-2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add  
+2. Select Application Type "Web", enter a sign-on URL (for example http:\//localhost) and click Add.  
    The sign-on URL is not used and can be any valid URL
 1. Select Certificates and Secrets, then click New client secret
 1. Enter a description for a new key, select "Never expires" and click Add
@@ -648,7 +650,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 12. **[1]** Install Cluster
     
-    - if using SBD devices for fencing, which either be iSCSI target server or Azure shared disk.
+    - If using SBD devices for fencing, which either be iSCSI target server or Azure shared disk.
 
     <pre><code>sudo ha-cluster-init -u
     # ! NTP is not configured to start at system boot.
@@ -660,7 +662,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
     # Do you wish to configure an administration IP (y/n)? <b>n</b>
     </code></pre>
     
-    - if *not using* SBD devices for fencing
+    - If *not using* SBD devices for fencing
     
     <pre><code>sudo ha-cluster-init -u
     # ! NTP is not configured to start at system boot.
