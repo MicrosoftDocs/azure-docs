@@ -10,7 +10,7 @@ ms.author: sadas
 ms.date: 11/28/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: numbers
+ms.subservice: azure-communication-services
 
 ---
 
@@ -51,3 +51,8 @@ The tables below summarize current availability:
 |:---|:---|:---|:---|:---|:---|
 |USA (includes PR)   |Toll-Free   |GA   |GA   |GA   |GA   |
 |USA (includes PR)   |Local |  |   |GA   |GA   |
+
+## Next Steps
+- Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
+- Get a [Short-Code](../../quickstarts/sms/apply-for-a-short-code.md)
+
