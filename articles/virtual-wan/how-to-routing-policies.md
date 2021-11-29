@@ -103,7 +103,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 6. To apply your routing intent and routing policies configuration, click **Save**.
 
-:::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations" "lightbox="./media/routing-policies/save-nva.png":::
+:::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations"lightbox="./media/routing-policies/save-nva.png":::
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
@@ -173,7 +173,7 @@ The following section describes common issues encountered when configuring Routi
 
 ### Troubleshooting configuration issues
 *  Make sure that you have gotten confirmation from previewinterhub@microsoft.com that access to the gated public preview has been granted to your subscription and chosen region. You will **not** be able to configure routing policies without being granted access to the preview.
-* After enabling the Routing Policy feature  on your deployment,  ensure you **only** use the custom portal link provided as part of your confirmation email. Do not use PowerShell, CLI, or REST API calls to manage your Virtual WAN deployments.  This includes creating new Branch (Site-to-site VPN, Point-to-site VPN or ExpressRoute) connections. 
+* After enabling the Routing Policy feature  on your deployment,  ensure you **only** use the custom portal link provided as part of your confirmation email. Do not use PowerShell, CLI, or REST API calls to manage your Virtual WAN deployments.  This includes creating new Branch (Site-to-site VPN, Point-to-site VPN or ExpressRoute) connections.
 
 >[!NOTE]
 > If you are using Terraform, routing policies are currently not supported.
@@ -183,7 +183,7 @@ The following section describes common issues encountered when configuring Routi
 ### Troubleshooting data path 
 
 * Currently, using Azure Firewall to inspect inter-hub traffic is only available for Virtual WAN hubs that are deployed in the **same** Azure Region. 
-* Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity). 
+* Currently, Private Traffic Routing Policies are not supported in Hubs with Encrypted ExpressRoute connections (Site-to-site VPN Tunnel running over ExpressRoute Private connectivity).
 * You can verify that the Routing Policies have been applied properly by checking the Effective Routes of the DefaultRouteTable. If Private Routing Policies are configured, you should see routes in the DefaultRouteTable for private traffic prefixes with next hop Azure Firewall. If Internet Traffic Routing Policies are configured, you should see a default (0.0.0.0/0) route in the DefaultRouteTable with next hop Azure Firewall.
 * If there are any Site-to-site VPN gateways or Point-to-site VPN gateways created **after** the feature has been confirmed to be enabled on your deployment, you will have to reach out again to previewinterhub@microsoft.com to get the feature enabled. 
 
