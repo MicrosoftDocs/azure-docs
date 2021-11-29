@@ -1176,6 +1176,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Defender for Cloud's portal pages
+- id: connect-aws-accounts
+  title: Add an AWS account
+  prompt: How will you connect the AWS account?
+  pivots:
+  - id: env-settings
+    title: Environment settings
+  - id: classic-connector
+    title: Classic connector
 - id: manage-asc-initiatives
   title: Manage Defender for Cloud initiatives
   prompt: How will you manage your Defender for Cloud initiatives?
@@ -1473,3 +1481,5 @@ groups:
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
+  - id: iot-toolset-mcuxpresso
+    title: MCUXpresso
