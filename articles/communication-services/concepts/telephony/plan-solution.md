@@ -80,9 +80,9 @@ The following table shows you where you can acquire different types of phone num
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
+- [Get a phone Number](../../quickstarts/telephony/get-phone-number.md)
 - [Place a call](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
-- [Send an SMS](../../quickstarts/telephony-sms/send.md)
+- [Send an SMS](../../quickstarts/sms/send.md)
 
 ### Conceptual documentation
 

@@ -26,8 +26,8 @@ You will first need to choose the **Country/region** where you would like to pro
 
 Configuring your phone number is broken down into two steps: 
 
-1. The selection of the [number type](../../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. The selection of the [number capabilities](../../../concepts/telephony-sms/plan-solution.md#phone-number-capabilities-in-azure-communication-services)
+1. The selection of the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services)
+2. The selection of the [number capabilities](../../../concepts/telephony/plan-solution.md#phone-number-capabilities-in-azure-communication-services)
 
 You can select from two phone number types: **Local**, and **Toll-free**. When you've selected a number type, you can then choose the feature.
 

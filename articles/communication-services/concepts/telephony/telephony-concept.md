@@ -80,5 +80,5 @@ This option requires:
 
 ### Quickstarts
 
-- [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
+- [Get a phone Number](../../quickstarts/telephony/get-phone-number.md)
 - [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)

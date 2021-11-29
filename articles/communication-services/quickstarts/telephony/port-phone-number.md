@@ -16,7 +16,7 @@ ms.custom: references_regions
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
-Get started with Azure Communication Services by porting your phone number into your Azure Communication Services resource. Toll-free and geographic numbers based in the United States are eligible for porting. For more information about phone number types, visit the [phone number conceptual documentation](../../concepts/telephony-sms/plan-solution.md).
+Get started with Azure Communication Services by porting your phone number into your Azure Communication Services resource. Toll-free and geographic numbers based in the United States are eligible for porting. For more information about phone number types, visit the [phone number conceptual documentation](../../concepts/telephony/plan-solution.md).
 
 ## Prerequisites
 
@@ -51,5 +51,5 @@ In this quickstart you learned how to:
 > * Submit a request to port your phone number
 
 > [!div class="nextstepaction"]
-> [Send an SMS](../telephony-sms/send.md)
+> [Send an SMS](../sms/send.md)
 > [Get started with calling](../voice-video-calling/getting-started-with-calling.md)
