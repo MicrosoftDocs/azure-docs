@@ -151,7 +151,7 @@ The following steps are a quick start to create and configure an Azure Map accou
     
     ```
 
-1. Start deployment of the perquisite resources, make sure to pick a location which Azure Maps account is enabled.
+1. Start deployment of the prerequisite resources, make sure to pick a location which Azure Maps account is enabled.
 
     ```azurecli
     az group create --name ExampleGroup --location "East US"
@@ -160,219 +160,192 @@ The following steps are a quick start to create and configure an Azure Map accou
 
 1. Create `azuredeploy.json` template to create the Map account, role assignment, and SAS token.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Specifies the location for all the resources."
-            }
-        },
-        "keyVaultName": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the resourceId of the key vault."
-            }
-        },
-        "accountName": {
-            "type": "string",
-            "defaultValue": "[concat('map', uniqueString(resourceGroup().id))]",
-            "metadata": {
-                "description": "The name for your Azure Maps account."
-            }
-        },
-        "userAssignedIdentityResourceId": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the resourceId for the user assigned managed identity resource."
-            }
-        },
-        "userAssignedIdentityPrincipalId": {
-            "type": "string",
-            "metadata": {
-                "description": "Specifies the resourceId for the user assigned managed identity resource."
-            }
-        },
-        "pricingTier": {
-            "type": "string",
-            "allowedValues": [
-                "S0",
-                "S1",
-                "G2"
-            ],
-            "defaultValue": "G2",
-            "metadata": {
-                "description": "The pricing tier for the account. Use S0 for small-scale development. Use S1 or G2 for large-scale applications."
-            }
-        },
-        "kind": {
-            "type": "string",
-            "allowedValues": [
-                "Gen1",
-                "Gen2"
-            ],
-            "defaultValue": "Gen2",
-            "metadata": {
-                "description": "The pricing tier for the account. Use Gen1 for small-scale development. Use Gen2 for large-scale applications."
-            }
-        },
-        "guid": {
-            "type": "string",
-            "defaultValue": "[guid(resourceGroup().id)]",
-            "metadata": {
-                "description": "Input string for new GUID associated with assigning built in role types"
-            }
-        },
-        "startDateTime": {
-            "type": "string",
-            "defaultValue": "[utcNow('u')]",
-            "metadata": {
-                "description": "Current Universal DateTime in ISO 8601 'u' format to be used as start of the SAS token."
-            }
-        },
-        "duration" : {
-            "type": "string",
-            "defaultValue": "P1Y",
-            "metadata": {
-                "description": "The duration of the SAS token, P1Y is maximum, ISO 8601 format is expected."
-            }
-        },
-        "maxRatePerSecond": {
-            "type": "int",
-            "defaultValue": 500,
-            "minValue": 1,
-            "maxValue": 500,
-            "metadata": {
-                "description": "The approximate maximum rate per second the SAS token can be used."
-            }
-        },
-        "signingKey": {
-            "type": "string",
-            "defaultValue": "primaryKey",
-            "allowedValues": [
-                "primaryKey",
-                "seconaryKey"
-            ],
-            "metadata": {
-                "description": "The specified signing key which will be used to create the SAS token."
-            }
-        },
-        "allowedOrigins": {
-            "type": "array",
-            "defaultValue": [],
-            "maxLength": 10,
-            "metadata": {
-                "description": "The specified application's web host header origins (example: https://www.azure.com) which the Maps account allows for Cross Origin Resource Sharing (CORS)."
-            }
-        }, 
-        "allowedRegions": {
-            "type": "array",
-            "defaultValue": [],
-            "metadata": {
-                "description": "The specified SAS token allowed locations which the token may be used."
-            }
-        }
-    },
-    "variables": {
-        "accountId": "[resourceId('Microsoft.Maps/accounts', parameters('accountName'))]",
-        "Azure Maps Data Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')]",
-        "sasParameters": {
-            "signingKey": "[parameters('signingKey')]",
-            "principalId": "[parameters('userAssignedIdentityPrincipalId')]",
-            "maxRatePerSecond": "[parameters('maxRatePerSecond')]",
-            "start": "[parameters('startDateTime')]",
-            "expiry": "[dateTimeAdd(parameters('startDateTime'), parameters('duration'))]",
-            "regions": "[parameters('allowedRegions')]"
-        }
-    },
-    "resources": [
-        {
-            "name": "[parameters('accountName')]",
-            "type": "Microsoft.Maps/accounts",
-            "apiVersion": "2021-12-01-preview",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('pricingTier')]"
-            },
-            "kind": "[parameters('kind')]",
-            "properties": {
-                "cors": {
-                    "corsRules": [
-                        {
-                            "allowedOrigins": "[parameters('allowedOrigins')]"
-                        }
-                    ]
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "location": {
+                "type": "string",
+                "defaultValue": "[resourceGroup().location]",
+                "metadata": {
+                    "description": "Specifies the location for all the resources."
                 }
             },
-            "identity": {
-                "type": "UserAssigned",
-                "userAssignedIdentities": {
-                    "[parameters('userAssignedIdentityResourceId')]": {}
+            "keyVaultName": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the resourceId of the key vault."
+                }
+            },
+            "accountName": {
+                "type": "string",
+                "defaultValue": "[concat('map', uniqueString(resourceGroup().id))]",
+                "metadata": {
+                    "description": "The name for your Azure Maps account."
+                }
+            },
+            "userAssignedIdentityResourceId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the resourceId for the user assigned managed identity resource."
+                }
+            },
+            "userAssignedIdentityPrincipalId": {
+                "type": "string",
+                "metadata": {
+                    "description": "Specifies the resourceId for the user assigned managed identity resource."
+                }
+            },
+            "pricingTier": {
+                "type": "string",
+                "allowedValues": [
+                    "S0",
+                    "S1",
+                    "G2"
+                ],
+                "defaultValue": "G2",
+                "metadata": {
+                    "description": "The pricing tier for the account. Use S0 for small-scale development. Use S1 or G2 for large-scale applications."
+                }
+            },
+            "kind": {
+                "type": "string",
+                "allowedValues": [
+                    "Gen1",
+                    "Gen2"
+                ],
+                "defaultValue": "Gen2",
+                "metadata": {
+                    "description": "The pricing tier for the account. Use Gen1 for small-scale development. Use Gen2 for large-scale applications."
+                }
+            },
+            "guid": {
+                "type": "string",
+                "defaultValue": "[guid(resourceGroup().id)]",
+                "metadata": {
+                    "description": "Input string for new GUID associated with assigning built in role types"
+                }
+            },
+            "startDateTime": {
+                "type": "string",
+                "defaultValue": "[utcNow('u')]",
+                "metadata": {
+                    "description": "Current Universal DateTime in ISO 8601 'u' format to be used as start of the SAS token."
+                }
+            },
+            "duration" : {
+                "type": "string",
+                "defaultValue": "P1Y",
+                "metadata": {
+                    "description": "The duration of the SAS token, P1Y is maximum, ISO 8601 format is expected."
+                }
+            },
+            "maxRatePerSecond": {
+                "type": "int",
+                "defaultValue": 500,
+                "minValue": 1,
+                "maxValue": 500,
+                "metadata": {
+                    "description": "The approximate maximum rate per second the SAS token can be used."
+                }
+            },
+            "signingKey": {
+                "type": "string",
+                "defaultValue": "primaryKey",
+                "allowedValues": [
+                    "primaryKey",
+                    "seconaryKey"
+                ],
+                "metadata": {
+                    "description": "The specified signing key which will be used to create the SAS token."
+                }
+            },
+            "allowedOrigins": {
+                "type": "array",
+                "defaultValue": [],
+                "maxLength": 10,
+                "metadata": {
+                    "description": "The specified application's web host header origins (example: https://www.azure.com) which the Maps account allows for Cross Origin Resource Sharing (CORS)."
+                }
+            }, 
+            "allowedRegions": {
+                "type": "array",
+                "defaultValue": [],
+                "metadata": {
+                    "description": "The specified SAS token allowed locations which the token may be used."
                 }
             }
         },
-        {
-            "apiVersion": "2020-04-01-preview",
-            "name": "[concat(parameters('accountName'), '/Microsoft.Authorization/', parameters('guid'))]",
-            "type": "Microsoft.Maps/accounts/providers/roleAssignments",
-            "dependsOn": [
-                "[parameters('accountName')]"
-            ],
-            "properties": {
-                "roleDefinitionId": "[variables('Azure Maps Data Reader')]",
+        "variables": {
+            "accountId": "[resourceId('Microsoft.Maps/accounts', parameters('accountName'))]",
+            "Azure Maps Data Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '423170ca-a8f6-4b0f-8487-9e4eb8f49bfa')]",
+            "sasParameters": {
+                "signingKey": "[parameters('signingKey')]",
                 "principalId": "[parameters('userAssignedIdentityPrincipalId')]",
-                "principalType": "ServicePrincipal"
+                "maxRatePerSecond": "[parameters('maxRatePerSecond')]",
+                "start": "[parameters('startDateTime')]",
+                "expiry": "[dateTimeAdd(parameters('startDateTime'), parameters('duration'))]",
+                "regions": "[parameters('allowedRegions')]"
             }
         },
-        {
-            "apiVersion": "2021-04-01-preview",
-            "type": "Microsoft.KeyVault/vaults/secrets",
-            "name": "[concat(parameters('keyVaultName'), '/', parameters('accountName'))]",
-            "dependsOn": [
-                "[variables('accountId')]"
-            ],
-            "tags": {
-                "signingKey": "[variables('sasParameters').signingKey]",
-                "start" : "[variables('sasParameters').start]",
-                "expiry" : "[variables('sasParameters').expiry]"
+        "resources": [
+            {
+                "name": "[parameters('accountName')]",
+                "type": "Microsoft.Maps/accounts",
+                "apiVersion": "2021-12-01-preview",
+                "location": "[parameters('location')]",
+                "sku": {
+                    "name": "[parameters('pricingTier')]"
+                },
+                "kind": "[parameters('kind')]",
+                "properties": {
+                    "cors": {
+                        "corsRules": [
+                            {
+                                "allowedOrigins": "[parameters('allowedOrigins')]"
+                            }
+                        ]
+                    }
+                },
+                "identity": {
+                    "type": "UserAssigned",
+                    "userAssignedIdentities": {
+                        "[parameters('userAssignedIdentityResourceId')]": {}
+                    }
+                }
             },
-            "properties": {
-                "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+            {
+                "apiVersion": "2020-04-01-preview",
+                "name": "[concat(parameters('accountName'), '/Microsoft.Authorization/', parameters('guid'))]",
+                "type": "Microsoft.Maps/accounts/providers/roleAssignments",
+                "dependsOn": [
+                    "[parameters('accountName')]"
+                ],
+                "properties": {
+                    "roleDefinitionId": "[variables('Azure Maps Data Reader')]",
+                    "principalId": "[parameters('userAssignedIdentityPrincipalId')]",
+                    "principalType": "ServicePrincipal"
+                }
+            },
+            {
+                "apiVersion": "2021-04-01-preview",
+                "type": "Microsoft.KeyVault/vaults/secrets",
+                "name": "[concat(parameters('keyVaultName'), '/', parameters('accountName'))]",
+                "dependsOn": [
+                    "[variables('accountId')]"
+                ],
+                "tags": {
+                    "signingKey": "[variables('sasParameters').signingKey]",
+                    "start" : "[variables('sasParameters').start]",
+                    "expiry" : "[variables('sasParameters').expiry]"
+                },
+                "properties": {
+                    "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+                }
             }
-        }
-    ]
-}
-
-```
-
-1. Register Key Vault, Managed Identities, and Azure Maps for your Azure subscription.
-
-    ```azurecli
-    az provider register --namespace Microsoft.KeyVault
-    az provider register --namespace Microsoft.ManagedIdentity
-    az provider register --namespace Microsoft.Maps
-    ```
-
-1. Retrieve your object id from Microsoft Graph so you can read the secret from the Key Vault from the deployment.
-
-    ```azurecli
-    $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
-    ```
-
-1. Create an Azure resource group in a support Azure Maps location.
-
-    ```azurecli
-    az group create --name ExampleGroup --location "East US"
-    ```
-
-1. Provision the Azure Key Vault and Managed Identity and then output the deployment results.
-
-    ```azurecli
-    $outputs = $(az deployment group create --name ExampleDeployment --resource-group ExampleGroup --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
+        ]
+    }
     ```
 
 1. Provision the Azure Maps account with the output deployment parameters of Azure Key Vault and Managed Identity and set the SAS token as a secret in the Key Vault. Notice, that we create the SAS token with allowedRegions of eastus, westus2, and westcentralus. We provide these locations because we expect to make a HTTP request to the `us.atlas.microsoft.com` endpoint. 
