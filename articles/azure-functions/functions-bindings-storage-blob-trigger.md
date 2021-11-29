@@ -339,6 +339,9 @@ The parameter type supported by the Event Grid trigger depends on the Functions 
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
+# [Isolated process](#tab/isolated-process)
+
+
 # [C# script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]

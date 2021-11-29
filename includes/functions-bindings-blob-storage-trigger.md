@@ -32,7 +32,7 @@ Binding to `string`, or `Byte[]` is only recommended if the blob size is small, 
 
 ### Additional types
 
-Apps using the [5.0.0 or higher version of the Storage extension](../articles/azure-functions/functions-bindings-storage-blob.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.blobs-readme). This version drops support for the legacy `ICloudBlob`, `CloudBlockBlob`, `CloudPageBlob`, and `CloudAppendBlob` types in favor of the following types:
+Apps using the [5.0.0 or higher version of the Storage extension](../articles/azure-functions/functions-bindings-storage-blob.md#install-extension) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.blobs-readme). This version drops support for the legacy `ICloudBlob`, `CloudBlockBlob`, `CloudPageBlob`, and `CloudAppendBlob` types in favor of the following types:
 
 - [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)<sup>1</sup>
 - [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)<sup>1</sup>
