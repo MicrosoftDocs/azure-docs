@@ -56,7 +56,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget.md?view=graph-rest-beta) |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
 #### MicrosoftAuthenticator includeTarget properties
