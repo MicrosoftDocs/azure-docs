@@ -7,6 +7,7 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: ignite-fall-2021
 ---
+
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).

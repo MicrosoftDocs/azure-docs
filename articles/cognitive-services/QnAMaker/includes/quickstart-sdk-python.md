@@ -23,6 +23,9 @@ Use the QnA Maker client library for python to:
 
 ## Prerequisites
 
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the Python API with the latest release consult the [question answering Python quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-python).
+
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint. After it deploys, select **Go to resource**.
