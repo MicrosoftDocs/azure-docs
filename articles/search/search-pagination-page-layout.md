@@ -15,9 +15,7 @@ ms.date: 11/29/2021
 
 This article explains how to work with a query response in Azure Cognitive Search. 
 
-The structure of a response is determined by parameters in the query itself: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK.
-
-Parameters on the query determine:
+The structure of a response is determined by parameters in the query itself: [Search Document](/rest/api/searchservice/Search-Documents) in the REST API, or [SearchResults Class](/dotnet/api/azure.search.documents.models.searchresults-1) in the .NET SDK. Parameters on the query determine:
 
 + Number of results in the response (50 by default)
 + Fields in each result
@@ -91,21 +89,25 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term. 
+Results can be ranked by a search score, a semantic score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request. A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a filter expression. If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
+
+For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
 Search scores convey general sense of relevance, reflecting the strength of match relative to other documents in the same result set. But scores are not always consistent from one query to the next, so as you work with queries, you might notice small discrepancies in how search documents are ordered. There are several explanations for why this might occur.
 
 | Cause | Description |
 |-----------|-------------|
 | Data volatility | Index content varies as you add, modify, or delete documents. Term frequencies will change as index updates are processed over time, affecting the search scores of matching documents. |
-| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. |
+| Multiple replicas | For services using multiple replicas, queries are issued against each replica in parallel. The index statistics used to calculate a search score are calculated on a per-replica basis, with results merged and ordered in the query response. Replicas are mostly mirrors of each other, but statistics can differ due to small differences in state. For example, one replica might have deleted documents contributing to their statistics, which were merged out of other replicas. Typically, differences in per-replica statistics are more noticeable in smaller indexes. For more information about this condition, see [Concepts: search units, replicas, partitions, shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards) in the capacity planning documentation. |
 | Identical scores | If multiple documents have the same score, any one of them might appear first.  |
 
 ### How to get consistent ordering
 
-If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results. Fields commonly used in an **`$orderby`** include rating, date, and location fields if you specify the value of the **`orderby`** parameter to include field names and calls to the [**`geo.distance()` function**](query-odata-filter-orderby-syntax.md) for geospatial values.
+If consistent ordering is an application requirement, you can explicitly define an [**`$orderby`** expression](query-odata-filter-orderby-syntax.md) on a field. Only fields that are indexed as **`sortable`** can be used to order results.
 
-Another approach that promotes consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
+Fields commonly used in an **`$orderby`** include rating, date, and location. Filtering by location requires that the filter expression calls the [**`geo.distance()` function**](search-query-odata-geo-spatial-functions.md?#order-by-examples), in addition to the field name.
+
+Another approach that promotes order consistency is using a [custom scoring profile](index-add-scoring-profiles.md). Scoring profiles give you more control over the ranking of items in search results, with the ability to boost matches found in specific fields. The additional scoring logic can help override minor differences among replicas because the search scores for each document are farther apart. We recommend the [ranking algorithm](index-ranking-similarity.md) for this approach.
 
 ## Hit highlighting
 
@@ -117,11 +119,7 @@ By default, Azure Cognitive Search returns up to five highlights per field. You 
 
 Formatting is applied to whole term queries. The type of formatting is determined by tags, `highlightPreTag` and `highlightPostTag`, and your code handles the response (for example, applying a bold font or a yellow background).
 
-In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. 
-
-```http
-GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2020-06-30 
-```
+In the following example, the terms "sandy", "sand", "beaches", "beach" found within the Description field are tagged for highlighting. Individual terms, single or consecutive, are enclosed in formatting mark up code.
 
 ```http
 POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30 
@@ -130,6 +128,10 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2020-06-30
       "highlight": "Description"
     }
 ```
+
+The following screenshot illustrates the results of phrase query highlighting.
+
+:::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
 ### Highlighting behavior on older search services
 
@@ -144,7 +146,7 @@ Before July 2020, any term in the phrase is highlighted:
      ]
   ```
 
-After July 2020, only phrases that match the full phrase query will be returned:
+After July 2020, only phrases that match the full phrase query will be returned in "@search.highlights":
 
   ```json
   "@search.highlights": {
@@ -152,10 +154,6 @@ After July 2020, only phrases that match the full phrase query will be returned:
           "The <em>super</em> <em>bowl</em> is super awesome with a bowl of chips"
      ]
   ```
-
-The following screenshot illustrates the results of phrase query highlighting.
-
-:::image type="content" source="media/search-pagination-page-layout/highlighting-example.png" alt-text="Screenshot of highlighting over a phrase query." border="true":::
 
 ## Next steps
 
