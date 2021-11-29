@@ -171,7 +171,7 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 
 ## Price
 
-Telephony services are priced on a per-minute basis, while SMS is priced on a per-message basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls and SMS messages.
+Telephony services are priced on a per-minute basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls.
 
 ### Telephone number leasing
 
@@ -208,3 +208,8 @@ The following prices include required communications taxes and fees:
 |Germany     |Starting at $0.015/min   |
 |France     |Starting at $0.016/min   |
 
+
+## Next Steps
+The following documents may be interesting to you:
+
+- [SMS Pricing](./sms-pricing.md)
