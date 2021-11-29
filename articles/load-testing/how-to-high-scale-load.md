@@ -43,6 +43,9 @@ In the Apache JMeter script, you define the number of parallel threads. This num
 
 For example, to simulate 1000 threads (or virtual users), set the number of threads in the Apache JMeter script to 250. Then configure the test with four test engine instances (4 x 250 threads).
 
+> [!IMPORTANT]
+> For public preview, we support up to 100 engine instances for a test run.
+
 ## Configure your test plan
 
 In this section, you'll configure the scaling settings of your load test.
