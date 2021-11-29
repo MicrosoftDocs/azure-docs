@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 11/30/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
 
 >[!NOTE]
-> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview). 
+> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
