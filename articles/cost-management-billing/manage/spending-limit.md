@@ -69,11 +69,11 @@ This feature is available only when the spending limit has been removed indefini
 1. Search for **Cost Management + Billing**.  
     :::image type="content" source="./media/spending-limit/search-bar.png" alt-text="Screenshot that shows search for cost management + billing." lightbox="./media/spending-limit/search-bar.png" :::
 1. In the **My subscriptions** list, select your subscription. For example, *Visual Studio Enterprise*.  
-    :::image type="content" source="./media/spending-limit/cost-management-overview-msdn-x.png" alt-text="Screenshot that shows my subscriptions grid in overview." lightbox="./media/spending-limit/cost-management-overview-msdn-x.png" :::
+    :::image type="content" source="./media/spending-limit/cost-management-overview-msdn-x.png" alt-text="Screenshot that shows my subscriptions grid where the banner appears." lightbox="./media/spending-limit/cost-management-overview-msdn-x.png" :::
     > [!NOTE]
     > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
 1. In the Subscription overview, select the banner at the top of the page to turn the spending limit back on.  
-    :::image type="content" source="./media/spending-limit/turn-on-spending-limit.png" alt-text="Screenshot that shows my subscriptions grid in overview." lightbox="./media/spending-limit/turn-on-spending-limit.png" :::
+    :::image type="content" source="./media/spending-limit/turn-on-spending-limit.png" alt-text="Screenshot showing the enable spending limit banner." lightbox="./media/spending-limit/turn-on-spending-limit.png" :::
 1. When prompted, with **Are you sure you want to turn the spending limit on**, select **Yes**.
 
 ## Custom spending limit
