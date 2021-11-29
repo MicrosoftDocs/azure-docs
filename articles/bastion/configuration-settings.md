@@ -5,7 +5,7 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 11/29/2021
 ms.author: cherylmc
 ms.custom: ignite-fall-2021
 ---
@@ -21,7 +21,7 @@ A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and S
 * The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs.
 * The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale.
 
-The following table shows features and corresponding SKUs. 
+The following table shows features and corresponding SKUs.
 
 [!INCLUDE [Azure Bastion SKUs](../../includes/bastion-sku.md)]
 
@@ -61,11 +61,12 @@ Instances are created in the AzureBastionSubnet. To allow for host scaling, the 
 
 ### Configuration methods
 
-You can configure this setting using the following method:
+You can configure this setting using the following methods:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Configure host scaling](configure-host-scaling.md)|
+| Azure portal |Instance count  | [Azure portal steps](configure-host-scaling.md)|
+| Azure PowerShell | ScaleUnit | [PowerShell steps](configure-host-scaling-powershell.md) |
 
 
 ## <a name="subnet"></a>Azure Bastion subnet
