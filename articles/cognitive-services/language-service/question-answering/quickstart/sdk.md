@@ -38,5 +38,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
+* [Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
+* [Authoring API](../how-to/authoring.md)
+
