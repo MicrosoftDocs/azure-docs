@@ -45,7 +45,7 @@ az feature register --namespace Microsoft.ContainerService --name AKS-ExtensionM
 
 ### Common to both cluster types
 
-* Assure Azure CLI version 2.15 or greater. [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) or update to the latest version to ensure that you have Azure CLI version 2.15+.
+* Assure Azure CLI version 2.15 or greater. [Install Azure CLI](/cli/azure/install-azure-cli) or update to the latest version to ensure that you have Azure CLI version 2.15+.
 
 ```console
 az version
@@ -788,7 +788,7 @@ az k8s-configuration flux create -g <cluster_resource_group> -c <cluster_name> -
 ```
 
 >[!NOTE]
->If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
+>If you need Flux to access the Git repository through your proxy, you will need to update the Azure Arc agents with the proxy settings. For more information, see [Connect using an outbound proxy server](./quickstart-connect-cluster.md?tabs=azure-cli#4a-connect-using-an-outbound-proxy-server).
 
 ### Git Implementation
 
