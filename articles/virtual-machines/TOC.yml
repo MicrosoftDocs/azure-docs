@@ -1690,8 +1690,12 @@
         href: ./linux/scheduled-events.md
         displayname: Scheduled events
       - name: Windows
-        displayName: Scheduled events
-        href: ./windows/scheduled-events.md
+        items: 
+          - name: Scheduled events
+            href: ./windows/scheduled-events.md
+          - name: Monitor scheduled events
+            href: ./windows/scheduled-event-service.md
+
     - name: Track and update VMs
       items:
       - name: Linux
