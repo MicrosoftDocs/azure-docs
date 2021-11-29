@@ -55,6 +55,8 @@ items:
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
+    - name: Raw media access
+      href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
     - name: Get started with Composites
@@ -87,6 +89,39 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
+  - name: Monitoring and analytics
+    items:
+      - name: Enable logging in Diagnostic Settings
+        href: concepts/analytics/enable-logging.md
+      - name: Call Summary and Call Diagnostic logs
+        href: concepts/analytics/call-logs-azure-monitor.md
+      - name: Log Analytics
+        href: concepts/analytics/log-analytics.md
+      - name: Insights
+        href: concepts/analytics/insights.md
+  - name: Service Events (EventGrid)
+    items:
+      - name: Overview
+        href: ../event-grid/event-schema-communication-services.md
+        maintainContext: true
+      - name: Chat Events
+        href: ../event-grid/communication-services-chat-events.md
+        maintainContext: true
+      - name: Telephony and SMS Events
+        href: ../event-grid/communication-services-telephony-sms-events.md
+        maintainContext: true
+      - name: Voice and video calling Events
+        href: ../event-grid/communication-services-voice-video-events.md
+        maintainContext: true
+      - name: Presence Events
+        href: ../event-grid/communication-services-presence-events.md
+        maintainContext: true
+  - name: Teams interoperability
+    items:
+      - name: Overview
+        href: concepts/teams-interop.md
+      - name: Join a Teams meeting
+        href: concepts/join-teams-meeting.md
   - name: Telephony and SMS
     items:
       - name: SMS SDK overview
@@ -107,6 +142,12 @@ items:
         href: concepts/telephony-sms/sms-faq.md
       - name: Messaging policy
         href: concepts/telephony-sms/messaging-policy.md
+  - name: UI Library
+    items:
+      - name: UI Library overview
+        href: concepts/ui-library/ui-library-overview.md
+      - name: UI Library use cases
+        href: concepts/ui-library/ui-library-use-cases.md
   - name: Voice and video calling
     items:
       - name: Calling SDK overview
@@ -129,12 +170,6 @@ items:
         href: concepts/best-practices.md
       - name: Known issues
         href: concepts/known-issues.md
-  - name: UI Library
-    items:
-      - name: UI Library overview
-        href: concepts/ui-library/ui-library-overview.md
-      - name: UI Library use cases
-        href: concepts/ui-library/ui-library-use-cases.md
   - name: SDKs and REST APIs
     href: concepts/sdk-options.md
   - name: Client and server architecture
@@ -143,35 +178,14 @@ items:
     href: concepts/identity-model.md
   - name: Authentication
     href: concepts/authentication.md
+  - name: Network Traversal
+    href: concepts/network-traversal.md    
   - name: Privacy
     href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
   - name: Push notifications
     href: concepts/notifications.md
-  - name: Teams interoperability
-    items:
-      - name: Overview
-        href: concepts/teams-interop.md
-      - name: Join a Teams meeting
-        href: concepts/join-teams-meeting.md
-  - name: Service Events (EventGrid)
-    items:
-      - name: Overview
-        href: ../event-grid/event-schema-communication-services.md
-        maintainContext: true
-      - name: Chat Events
-        href: ../event-grid/communication-services-chat-events.md
-        maintainContext: true
-      - name: Telephony and SMS Events
-        href: ../event-grid/communication-services-telephony-sms-events.md
-        maintainContext: true
-      - name: Voice and video calling Events
-        href: ../event-grid/communication-services-voice-video-events.md
-        maintainContext: true
-      - name: Presence Events
-        href: ../event-grid/communication-services-presence-events.md
-        maintainContext: true
   - name: Logging and diagnostics
     href: concepts/logging-and-diagnostics.md
   - name: Metrics

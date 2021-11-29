@@ -4,14 +4,13 @@ description: Quickstart showing how to provision and activate a managed HSM usin
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: quickstart
 ms.date: 06/21/2021
 ms.author: mbaldwin
-
-#Customer intent:As a security admin who is new to Azure, I want to provision and activate a managed HSM
+#Customer intent: As a security admin who is new to Azure, I want to provision and activate a managed HSM
+ms.custom: mode-api
 ---
 
 # Quickstart: Provision and activate a managed HSM using Azure CLI

@@ -141,40 +141,40 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
 2. Next, run the **Start-RdsHostPoolMigration** cmdlet to choose whether to migrate a single host pool or all host pools within a tenant.
 
-    For example:
+   For example:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -Location WestUS
+   ```
 
-    If you want to migrate your resources a specific host pool, then include the host pool name. For example, if you want to move the host pool named "Office," run a command like this:
+   If you want to migrate your resources a specific host pool, then include the host pool name. For example, if you want to move the host pool named "Office," run a command like this:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments $false -Location EastUS
+   ```
 
-    If you don't give a workspace name, the module will automatically create one for you based on the tenant name. However, if you'd prefer to use a specific workspace, you can enter its resource ID like this:
+   If you don't give a workspace name, the module will automatically create one for you based on the tenant name. However, if you'd prefer to use a specific workspace, you can enter its resource ID like this:
 
-    ```powershell
-    Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
-    ```
+   ```powershell
+   Start-RdsHostPoolMigration -Tenant Contoso -HostPool Office -CopyUserAssignments -Location EastUS -Workspace <Resource ID of workspacename>
+   ```
     
-    If you'd like to use a specific workspace but don't know its resource ID, run this cmdlet:
+   If you'd like to use a specific workspace but don't know its resource ID, run this cmdlet:
 
-    ```powershell
-    Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
-    ```
+   ```powershell
+   Get-AzWvdWorkspace -WorkspaceName <workspace> -ResourceGroupName <resource group> |fl
+   ```
 
-  You'll also need to specify a user assignment mode for the existing user assignments:
+   You'll also need to specify a user assignment mode for the existing user assignments:
 
-  - Use **Copy** to copy all user assignments from your old app groups to Azure Resource Manager application groups. Users will be able to see feeds for both versions of their clients.
-  - Use **None** if you don't want to change the user assignments. Later, you can assign users or user groups to app groups with the Azure portal, PowerShell, or API. Users will only be able to see feeds using the Azure Virtual Desktop (classic) clients.
+      - Use **Copy** to copy all user assignments from your old app groups to Azure Resource Manager application groups. Users will be able to see feeds for both versions of their clients.
+      - Use **None** if you don't want to change the user assignments. Later, you can assign users or user groups to app groups with the Azure portal, PowerShell, or API. Users will only be able to see feeds using the Azure Virtual Desktop (classic) clients.
 
-  You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assignments are already in your subscription. The module calculates the limit based on how many assignments you already have. If you don't have enough assignments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
+   You can only copy 2,000 user assignments per subscription, so your limit will depend on how many assignments are already in your subscription. The module calculates the limit based on how many assignments you already have. If you don't have enough assignments to copy, you'll get an error message that says "Insufficient role assignment quota to copy user assignments. Rerun command without the -CopyUserAssignments switch to migrate."
 
-3. Once you run the commands, it will take up to 15 minutes for the module to create the service objects. If you copied or moved any user assignments, that will add to the time it takes for the module to finish setting everything up.
+3. After you run the commands, it will take up to 15 minutes for the module to create the service objects. If you copied or moved any user assignments, that will add to the time it takes for the module to finish setting everything up.
 
-   Once the **Start-RdsHostPoolMigration** cmdlet is done, you should see the following things:
+   After the **Start-RdsHostPoolMigration** cmdlet is done, you should see the following things:
 
       - Azure service objects for the tenant or host pool you specified
 

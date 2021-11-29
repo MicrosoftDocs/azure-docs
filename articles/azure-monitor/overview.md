@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 10/14/2021
+ms.date: 11/01/2021
 
 ---
 
@@ -51,7 +51,7 @@ Azure Monitor can collect data from a [variety of sources](monitor-reference.md)
 
 - **Application monitoring data**: Data about the performance and functionality of the code you have written, regardless of its platform.
 - **Guest OS monitoring data**: Data about the operating system on which your application is running. This could be running in Azure, another cloud, or on-premises. 
-- **Azure resource monitoring data**: Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#list-of-azure monitor-supported-services).
+- **Azure resource monitoring data**: Data about the operation of an Azure resource. For a complete list of the resources that have metrics or logs, see [What can you monitor with Azure Monitor?](monitor-reference.md#azure-supported-services).
 - **Azure subscription monitoring data**: Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. 
 - **Azure tenant monitoring data**: Data about the operation of tenant-level Azure services, such as Azure Active Directory.
 
@@ -65,7 +65,7 @@ Enable monitoring for your application with [Application Insights](app/app-insig
 Azure Monitor can collect log data from any REST client using the [Data Collector API](logs/data-collector-api.md). This allows you to create custom monitoring scenarios and extend monitoring to resources that don't expose telemetry through other sources.
 
 ## Insights and curated visualizations
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization" which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger scalable curated visualizations are known at "insights" and marked with that name in the documentation and Azure portal.  
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Some Azure resource providers have a "curated visualization" which gives you a customized monitoring experience for that particular service or set of services. They generally require minimal configuration. Larger scalable curated visualizations are known as "insights" and marked with that name in the documentation and Azure portal.  
 
 For more information, see [List of insights and curated visualizations using Azure Monitor](monitor-reference.md#insights-and-curated-visualizations). Some of the larger insights are also described below.
 

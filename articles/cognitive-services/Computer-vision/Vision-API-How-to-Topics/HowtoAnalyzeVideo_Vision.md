@@ -3,14 +3,12 @@ title: Analyze videos in near real time - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn how to perform near real-time analysis on frames that are taken from a live video stream by using the Computer Vision API.
 services: cognitive-services
-author: KellyDF
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.author: kefre
 ms.custom: "seodec18, devx-track-csharp"
 ---
 

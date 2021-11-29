@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 11/4/2021
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -26,6 +26,15 @@ The following diagram summarizes the categories of solution architectures that A
 ## Linux OSS Apps and Database solutions
 
 This section provides references for solutions for Linux OSS applications and databases. 
+
+### Linux OSS Apps
+
+* [AIX UNIX on-premises to Azure Linux migration - Azure Example Scenarios](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
+
+### Mainframe refactor
+
+* [General mainframe refactor to Azure - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/general-mainframe-refactor)
+* [Refactor mainframe applications with Advanced - Azure Example Scenarios](/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-advanced)
 
 ### Oracle
 
@@ -69,6 +78,7 @@ This section provides references to SAP on Azure solutions.
 
 ### Generic SAP and SAP Netweaver 
 
+* [Run SAP NetWeaver in Windows on Azure - Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-netweaver)
 * [SAP applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 * [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](../virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files.md)
 * [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](../virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files.md)
@@ -77,6 +87,9 @@ This section provides references to SAP on Azure solutions.
 
 ### SAP HANA 
 
+* [SAP HANA for Linux VMs in scale-up systems - Azure Architecture Center](/azure/architecture/reference-architectures/sap/run-sap-hana-for-linux-virtual-machines)
+* [SAP S/4HANA in Linux on Azure - Azure Architecture Center](/azure/architecture/reference-architectures/sap/sap-s4hana)
+* [Run SAP BW/4HANA with Linux VMs - Azure Architecture Center](/azure/architecture/reference-architectures/sap/run-sap-bw4hana-with-linux-virtual-machines)
 * [SAP HANA Azure virtual machine storage configurations](../virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](../virtual-machines/workloads/sap/hana-vm-operations-netapp.md)
 * [High availability of SAP HANA Scale-up with Azure NetApp Files on Red Hat Enterprise Linux](../virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md)
@@ -88,6 +101,7 @@ This section provides references to SAP on Azure solutions.
 
 ### SAP AnyDB
 
+* [SAP System on Oracle Database on Azure - Azure Architecture Center](/azure/architecture/example-scenario/apps/sap-on-oracle)
 * [Oracle Azure Virtual Machines DBMS deployment for SAP workload - Azure Virtual Machines](../virtual-machines/workloads/sap/dbms_guide_oracle.md#oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux)
 * [Deploy SAP AnyDB (Oracle 19c) with Azure NetApp Files](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/deploy-sap-anydb-oracle-19c-with-azure-netapp-files/ba-p/2064043)
 * [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload using Azure NetApp Files](../virtual-machines/workloads/sap/dbms_guide_ibm.md#using-azure-netapp-files)
@@ -154,12 +168,12 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Analytics
 
+* [SAS on Azure architecture guide - Azure Architecture Center | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on Microsoft Azure](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/705192)
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
-* [SAS on Azure architecture guide - Azure Architecture Center | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
 
-### Healthcare 
+### Healthcare
 
 * [Epic EHR on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
@@ -179,7 +193,6 @@ This section provides solutions for Azure platform services.
 ### Azure Red Hat Openshift   
 
 *	[Using Trident to Automate Azure NetApp Files from OpenShift](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-trident-to-automate-azure-netapp-files-from-openshift/ba-p/2367351)
-
 
 ### Azure Batch
 

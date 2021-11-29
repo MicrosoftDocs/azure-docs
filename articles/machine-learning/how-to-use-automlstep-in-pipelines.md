@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.author: laobri
 author: lobrien
 manager: cgronlun
-ms.date: 02/28/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, automl
 
