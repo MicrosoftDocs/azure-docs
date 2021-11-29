@@ -14,6 +14,8 @@ ms.subservice: sms
 ---
 # Quickstart: Apply for a short code
 
+[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include.md)]
+
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
 ## Prerequisites

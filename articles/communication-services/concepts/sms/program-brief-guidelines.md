@@ -13,6 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: sms
 ---
 # Short Code Program Brief Filling Guidelines
+[!INCLUDE [Short code eligibility notice](../../includes/public-preview-include.md)]
 
 [!INCLUDE [Short code eligibility notice](../../includes/public-preview-include-short-code-eligibility.md)]
 
