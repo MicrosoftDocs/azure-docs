@@ -6,16 +6,14 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: inhenkel
-
 ---
 # Connect to Media Services v3 API - Java
 

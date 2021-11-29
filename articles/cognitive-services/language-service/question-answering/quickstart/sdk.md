@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-other
 zone_pivot_groups: custom-qna-quickstart
 ---
 
@@ -38,5 +38,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Next steps
 
-> [!div class="nextstepaction"]
->[Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
+* [Tutorial: Create an FAQ bot](../tutorials/bot-service.md)
+* [Authoring API](../how-to/authoring.md)
+

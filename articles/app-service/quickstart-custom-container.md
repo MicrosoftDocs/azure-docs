@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.date: 06/30/2021
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 zone_pivot_groups: app-service-containers-windows-linux
 ---
 

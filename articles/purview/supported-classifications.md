@@ -3420,33 +3420,6 @@ Yes
 - sygesikringsnummer
 
 
-## Drug Enforcement Agency (DEA) number
-
-### Format
-
-two letters followed by seven digits
-
-### Pattern
-
-Pattern must include all of the following:
-- one letter (not case-sensitive) from this set of possible letters: abcdefghjklmnprstux, which is a registrant code
-- one letter (not case-sensitive), which is the first letter of the registrant's last name or digit '9'
-- seven digits, the last of which is the check digit
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_dea_number
-
-- dea
-- dea#
-- drug enforcement administration
-- drug enforcement agency
-
-
 ## Estonia driver's license number
 
 ### Format
@@ -11596,56 +11569,6 @@ No
 - 居留證
 - 外僑居留證
 - 台灣地區居留證
-
-## Thai Citizen ID
-
-### Format
-
-13 digits
-
-### Pattern
-
-13 digits:
-- first digit isn't zero or nine
-- 12 digits
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_thai_citizen_Id
-
-- ID Number
-- Identification Number
-- บัตรประชาชน
-- รหัสบัตรประชาชน
-- บัตรประชาชน
-- รหัสบัตรประชาชน
-
-## Turkish national identification number
-
-### Format
-
-11 digits
-
-### Pattern
-
-11 digits
-
-### Checksum
-
-Yes
-
-### Keywords
-
-#### Keyword_turkish_national_id
-
-- TC Kimlik No
-- TC Kimlik numarası
-- Vatandaşlık numarası
-- Vatandaşlık no
 
 ## U.K. driver's license number
 
