@@ -181,7 +181,7 @@ To create a scaling plan:
 
 8. For **Time zone**, select the time zone you'll use with your plan.
 
-9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to use this functionality for maintenance. When you have set VMs on drain mode, use the tag so autoscale doesn’t override drain mode.
+9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance.
         
     >[!NOTE]
     >Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
@@ -209,7 +209,7 @@ To create or change a schedule:
         >[!NOTE]
         >The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-    - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of 7 session hosts, if the minimum percentage of hosts is **10%** for the ramp-up hours, one VM will always stay on during ramp-up hours and the autoscale feature won't turn off this VM.
+    - For **Minimum percentage of hosts**, enter the percentage of session hosts you want to always remain on in this phase. If the percentage you enter isn't a whole number, it's rounded up to the nearest whole number. For example, in a host pool of seven session hosts, if you set the minimum percentage of hosts during ramp-up hours to **10%** , one VM will always stay on during ramp-up hours, and it won't be turned off by the autoscale feature.
     
     - For **Capacity threshold**, enter the percentage of available host pool capacity that will trigger a scaling action to take place. For example, if 2 session hosts in the host pool with a max session limit of 20 are turned on, the available host pool capacity is 40. If you set the capacity threshold to **75%** and the session hosts have more than 30 user sessions, the autoscale feature will turn on a third session host. This will then change the available host pool capacity from 40 to 60.
 

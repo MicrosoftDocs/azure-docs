@@ -27,7 +27,7 @@ sections:
          No.
       
       - question: |
-         Does autoscale change the SKU or size of virtual machines (VMs)?
+         Does autoscale change the SKU or size of VMs?
         answer: |
          No.
 
