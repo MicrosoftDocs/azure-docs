@@ -84,9 +84,9 @@ However, when you are targeting OpenShift, you might want to trim the capabiliti
 Navigate to your demo application local repository and change the branch to `bootable-jar`:
 
 ```bash
-todo-list (main) $ git checkout bootable-jar
+jboss-on-aro-jakartaee (main) $ git checkout bootable-jar
 Switched to branch 'bootable-jar'
-todo-list (bootable-jar) $
+jboss-on-aro-jakartaee (bootable-jar) $
 ```
 
 Let's do a quick review about what we have changed:
@@ -133,14 +133,14 @@ Follow the next steps to build and run the application locally.
 1. Build the Bootable JAR. When we are building the Bootable JAR, we need to specify the database driver version we want to use:
  
     ```bash
-    todo-list (bootable-jar) $ MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11 \
+    jboss-on-aro-jakartaee (bootable-jar) $ MSSQLSERVER_DRIVER_VERSION=7.4.1.jre11 \
     mvn clean package
     ```
 
 1. Launch the Bootable JAR by using the following command. When we are launching the application, we need to pass the required environment variables to configure the data source:
 
     ```bash
-    todo-list (bootable-jar) $ MSSQLSERVER_USER=SA \
+    jboss-on-aro-jakartaee (bootable-jar) $ MSSQLSERVER_USER=SA \
     MSSQLSERVER_PASSWORD=Passw0rd! \
     MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds \
     MSSQLSERVER_DATABASE=todos_db \
@@ -154,7 +154,7 @@ Follow the next steps to build and run the application locally.
 1. (Optional) If you want to verify the clustering capabilities, you can also launch more instances of the same application by passing to the Bootable JAR the `jboss.node.name` argument and, to avoid conflicts with the port numbers, shifting the port numbers by using `jboss.socket.binding.port-offset`. For example, to launch a second instance that will represent a new pod on OpenShift, you can execute the following command in a new terminal window:
     
     ```bash  
-    todo-list (bootable-jar) $ MSSQLSERVER_USER=SA \
+    jboss-on-aro-jakartaee (bootable-jar) $ MSSQLSERVER_USER=SA \
     MSSQLSERVER_PASSWORD=Passw0rd! \
     MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds \
     MSSQLSERVER_DATABASE=todos_db \
@@ -180,10 +180,10 @@ Follow the next steps to build and run the application locally.
 1. Check the application health endpoints (live and ready). These endpoints will be used by OpenShift to verify when your pod is live and ready to receive user requests:
 
    ```bash  
-    todo-list (bootable-jar) $ curl http://localhost:9990/health/live
+    jboss-on-aro-jakartaee (bootable-jar) $ curl http://localhost:9990/health/live
     {"status":"UP","checks":[{"name":"SuccessfulCheck","status":"UP"}]}
 
-    todo-list (bootable-jar) $ curl http://localhost:9990/health/ready
+    jboss-on-aro-jakartaee (bootable-jar) $ curl http://localhost:9990/health/ready
     {"status":"UP","checks":[{"name":"deployments-status","status":"UP","data":{"todo-list.war":"OK"}},{"name":"server-state","status":"UP","data":{"value":"running"}},{"name":"boot-errors","status":"UP"},{"name":"DBConnectionHealthCheck","status":"UP"}]}
     ```
 
@@ -204,7 +204,7 @@ Follow the next steps to build and run the application locally.
 
 Before deploying the demo application on OpenShift we will deploy the database server. The database server will be deployed by using a [DeploymentConfig OpenShift API resource](https://docs.openshift.com/container-platform/4.8/applications/deployments/what-deployments-are.html#deployments-and-deploymentconfigs_what-deployments-are). The database server deployment configuration is available as a YAML file in the application source code.
 
-To deploy the application, we are going to use the JBoss EAP Helm Charts that are already available in ARO. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. Since this information contains sensitive information, we will use [OpenShift Secret objects](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) to store it.
+To deploy the application, we are going to use the JBoss EAP Helm Charts already available in ARO. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. Since this information contains sensitive information, we will use [OpenShift Secret objects](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) to store it.
 
 > [!NOTE]
 > You can also use the [JBoss EAP Operator](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/getting_started_with_jboss_eap_for_openshift_container_platform/eap-operator-for-automating-application-deployment-on-openshift_default) to deploy this example, however, notice that the JBoss EAP Operator will deploy the application as `StatefulSets`. Use the JBoss EAP Operator if your application requires one or more one of the following.
@@ -218,19 +218,19 @@ To deploy the application, we are going to use the JBoss EAP Helm Charts that ar
 Navigate to your demo application local repository and change the current branch to `bootable-jar-openshift`:
 
 ```bash
-todo-list (bootable-jar) $ git checkout bootable-jar-openshift
+jboss-on-aro-jakartaee (bootable-jar) $ git checkout bootable-jar-openshift
 Switched to branch 'bootable-jar-openshift'
-todo-list (bootable-jar-openshift) $
+jboss-on-aro-jakartaee (bootable-jar-openshift) $
 ```
 
 Let's do a quick review about what we have changed:
 
 1. We have added a new maven profile named `bootable-jar-openshift` that prepares the Bootable JAR with a specific configuration for running the server on the cloud, for example, it enables the JGroups subsystem to use TCP requests to discover other pods by using the KUBE_PING protocol.
-1. We have added a set of configuration files in the _todo-list/deployment_ directory. In this directory, you will find the configuration files to deploy the database server and the application.
+1. We have added a set of configuration files in the _jboss-on-aro-jakartaee/deployment_ directory. In this directory, you will find the configuration files to deploy the database server and the application.
 
 ### Deploy the database server on OpenShift
 
-The file to deploy the Microsoft SQL Server to OpenShift is _todo-list/deployment/mssqlserver/mssqlserver.yaml_. This file is composed by three configuration objects:
+The file to deploy the Microsoft SQL Server to OpenShift is _deployment/mssqlserver/mssqlserver.yaml_. This file is composed by three configuration objects:
 - A Service: To expose the SQL server port.
 - A DeploymentConfig: To deploy the SQL server image.
 - A PersistentVolumeClaim: To reclaim persistent disk space for the database. It uses the storage class named `managed-premium` which is available at your ARO cluster.
@@ -240,7 +240,7 @@ This file expects the presence of an OpenShift Secret object named `mssqlserver-
 1. To create the Secret object with the information relative to the database, execute the following command on the `eap-demo` project created before at the pre-requisite steps section:
 
     ```bash
-    todo-list (bootable-jar-openshift) $ oc create secret generic mssqlserver-secret \
+    jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc create secret generic mssqlserver-secret \
     --from-literal db-password=Passw0rd! \
     --from-literal db-user=sa \
     --from-literal db-name=todos_db
@@ -250,7 +250,7 @@ This file expects the presence of an OpenShift Secret object named `mssqlserver-
 1. Deploy the database server by executing the following:
 
     ```bash
-    todo-list (bootable-jar-openshift) $ oc apply -f ./deployment/msqlserver/mssqlserver.yaml
+    jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc apply -f ./deployment/msqlserver/mssqlserver.yaml
     service/mssqlserver created
     deploymentconfig.apps.openshift.io/mssqlserver created
     persistentvolumeclaim/mssqlserver-pvc created
@@ -259,7 +259,7 @@ This file expects the presence of an OpenShift Secret object named `mssqlserver-
 1. Monitor the status of the pods and wait until the database server is running:
 
     ```bash
-    todo-list (bootable-jar-openshift *) $ oc get pods -w
+    jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc get pods -w
     NAME                   READY   STATUS      RESTARTS   AGE
     mssqlserver-1-deploy   0/1     Completed   0          34s
     mssqlserver-1-gw7qw    1/1     Running     0          31s
@@ -268,7 +268,7 @@ This file expects the presence of an OpenShift Secret object named `mssqlserver-
 1. Connect to the database pod and create the database `todos_db`:
 
     ```bash
-    todo-list (bootable-jar-openshift) $ oc rsh mssqlserver-1-gw7qw
+    jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc rsh mssqlserver-1-gw7qw
     sh-4.4$ /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Passw0rd!'
     1> CREATE DATABASE todos_db
     2> GO
@@ -279,14 +279,14 @@ This file expects the presence of an OpenShift Secret object named `mssqlserver-
 
 ### Deploy the application on OpenShift
 
-Now that we have the database server ready, we can deploy the demo application via JBoss EAP Helm Charts. The Helm Chart application configuration file is available at _todo-list/deployment/application/todo-list-helm-chart.yaml_. You could deploy this file via the command line; however, to do so you would need to have Helm Charts installed on your local machine. Instead of using the command line, the next steps explain how you can deploy this Helm Chart by using the OpenShift web console.
+Now that we have the database server ready, we can deploy the demo application via JBoss EAP Helm Charts. The Helm Chart application configuration file is available at _deployment/application/todo-list-helm-chart.yaml_. You could deploy this file via the command line; however, to do so you would need to have Helm Charts installed on your local machine. Instead of using the command line, the next steps explain how you can deploy this Helm Chart by using the OpenShift web console.
 
 Before deploying the application, let's create the expected Secret object that will hold specific application configuration. The Helm Chart will get the database user, password and name from the `mssqlserver-secret` Secret created before, and the driver version, the datasource JNDI name and the cluster password from the following Secret:
 
 1. Execute the following to create the OpenShift secret object that will hold the application configuration:
 
     ```bash
-    todo-list (bootable-jar-openshift) $ oc create secret generic todo-list-secret \
+    jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc create secret generic todo-list-secret \
     --from-literal app-driver-version=7.4.1.jre11 \
     --from-literal app-ds-jndi=java:/comp/env/jdbc/mssqlds \
     --from-literal app-cluster-password=mut2UTG6gDwNDcVW
@@ -318,7 +318,7 @@ At this point, we need to configure the chart to be able to build and deploy the
 
 1. Change the name of the release to **eap-todo-list-demo**. 
 1. We can configure the Helm Chart either using a **Form View** or a **YAML View**. Select **YAML View** in the **Configure via** box.
-1. Then, change the YAML content to configure the Helm Chart by copying the content of the Helm Chart file available at _todo-list/deployment/application/todo-list-helm-chart.yaml_ instead of the existing content:
+1. Then, change the YAML content to configure the Helm Chart by copying the content of the Helm Chart file available at _deployment/application/todo-list-helm-chart.yaml_ instead of the existing content:
 
    ![OpenShift console EAP Helm Chart YAML content](./media/howto-deploy-java-eap-app/console_eap_helm_charts_yaml_content.png)
 
@@ -353,7 +353,7 @@ Select **Uninstall Helm Release** to remove the application. Notice that the sec
 Execute the following command if you want to delete the secret that holds the application configuration:
 
 ```bash
-todo-list (bootable-jar-openshift) $ oc delete secrets/todo-list-secret
+jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc delete secrets/todo-list-secret
 secret "todo-list-secret" deleted
 ```
 
@@ -362,12 +362,12 @@ secret "todo-list-secret" deleted
 If you want to delete the database and the related objects, execute the following command:
 
 ```bash
-todo-list (bootable-jar-openshift) $ oc delete all -l app=mssql2019
+jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc delete all -l app=mssql2019
 replicationcontroller "mssqlserver-1" deleted
 service "mssqlserver" deleted
 deploymentconfig.apps.openshift.io "mssqlserver" deleted
 
-todo-list (bootable-jar-openshift) $ oc delete secrets/mssqlserver-secret
+jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc delete secrets/mssqlserver-secret
 secret "mssqlserver-secret" deleted
 ```
 
@@ -376,7 +376,7 @@ secret "mssqlserver-secret" deleted
 You can also delete all the configuration created for this demo by deleting the `eap-demo` project. To do so, execute the following:
 
 ```bash
-todo-list (bootable-jar-openshift) $ oc delete project eap-demo
+jboss-on-aro-jakartaee (bootable-jar-openshift) $ oc delete project eap-demo
 project.project.openshift.io "eap-demo" deleted
 ```
 
