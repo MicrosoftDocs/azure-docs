@@ -13,7 +13,12 @@ ms.custom: template-how-to
 # Azure Cosmos DB Cassandra API Lightweight Transactions with Conditions
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB Cassandra API already supports Light Weight Transaction (LWT) including DELETE and UPDATE conditions. Cassandra API now has full support for these features. For more information, see [Wire protocol support](cassandra-support.md) for more details. LWT helps perform a read before write, for operations that require the data insert or update must be unique. For details pn how consistency level works with LWT  see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md).
+> [!IMPORTANT]
+> Lightweight Transactions for Azure Cosmos DB API for Cassandra is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Apache Cassandra as most NoSQL database platforms gives precedence to availability and partition-tolerance above consistency as it does not support ACID transactions as in relational database. For details on how consistency level works with LWT see [Azure Cosmos DB Cassandra API consistency levels](apache-cassandra-consistency-mapping.md). Cassandra supports lightweight transactions(LWT) which borders on ACID. It helps perform a read before write, for operations that require the data insert or update must be unique. 
 
 ## LWT support within Azure Cosmos DB Cassandra API
 To use LWT within Azure Cosmos DB Cassandra API, we advise that the following flags are set at the create table level. 
@@ -22,8 +27,9 @@ To use LWT within Azure Cosmos DB Cassandra API, we advise that the following fl
 with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombstones=true and cosmosdb_cell_level_timetolive=true
 ``` 
 You might experience reduced performance on full row inserts compared to not using the flags.
+
 [!NOTE]
->LWTs are not supported for multi-region write scenarios.
+> LWTs are not supported for multi-region write scenarios.
 
 ## LWT with flags enabled
 ```sql
@@ -91,6 +97,6 @@ WHERE name= 'Sara' AND userID = 103 IF vendor = 'vendor21';
 ```
 
 ## Next steps
-In this tutorial, you've learned how Lightweight Transaction works within Azure Cosmos DB Cassandra API. You can now proceed to the next article:
+In this tutorial, you've learned how Lightweight Transaction works within Azure Cosmos DB Cassandra API. You can proceed to the next article:
 - [Migrate your data to a Cassandra API account](migrate-data.md)
 - [Run Glowroot on Azure Cosmos DB Cassandra API](glowroot-cassandra.md)
