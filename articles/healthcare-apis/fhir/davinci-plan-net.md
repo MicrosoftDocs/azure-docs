@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Da Vinci Plan Net - Azure API for FHIR
+title: Tutorial - Da Vinci Plan Net - Azure Healthcare APIs
 description: This tutorial walks through setting up the Azure API for FHIR to pass Touchstone tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
 ms.service: healthcare-apis
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: modillon
-ms.date: 08/03/2021
+ms.date: 11/29/2021
 ---
 
 # Da Vinci Plan Net
