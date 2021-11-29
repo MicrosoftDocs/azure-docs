@@ -23,6 +23,6 @@ The table below summarizes these number types with supported capabilities:
 
 |Type |Example|Send SMS   | Receive SMS |Make Calls   |Receive Calls|Typical Use Case|Restrictions|
 |:-------------|:-------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------|:-------------|
-|Toll-Free|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, Low-velocity SMS|SMS in US only|
+|Toll-Free|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, SMS Notifications|SMS in US only|
 |Local (Geographic)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Georgaphy Specific Number|Calling Only|
-|Short-Codes|+1 XXX-YYY|X   	|X   	|   	|   	|High-velocity SMS||
+|[Short-Codes](../includes/sms-shortcode-pricing.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
