@@ -18,7 +18,7 @@ The Mobile UI Library's objective is to provide these capabilities to you in a t
 
 | Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [CallComposite](../../../quickstarts/ui-library/get-started-call.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
+| [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
 
 ## Scenarios
 
@@ -64,7 +64,7 @@ Details about the feature availability in the [UI Library is available here](../
 | [Core client libraries](../../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | High                      | High                  |         ✔    | ✔                                                                                               |
 
 > [!div class="nextstepaction"]
-> [Quickstart guides](../../../quickstarts/ui-library/get-started-call.md)
+> [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)
 
 ## Know issues
 

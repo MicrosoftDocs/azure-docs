@@ -93,4 +93,4 @@ These client libraries also require the context for the call they will join. Sim
 
 
 > [!div class="nextstepaction"]
-> [Quickstart guides](../../../quickstarts/ui-library/get-started-call.md)
+> [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)

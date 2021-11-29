@@ -15,6 +15,16 @@ ms.service: azure-communication-services
 > [!NOTE]
 > For detailed documentation on the UI Library visit the [ UI Library Storybook ](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
+## UI Components
+
+These components are open-source building blocks that let you build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences.
+
+These UI client libraries all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Library and is actively used across Microsoft products.
+
+In conjunction to the UI components, the UI Library exposes a stateful client library for calling and chat.
+This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
+This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/story/stateful-client-what-is-stateful--page).
+
 ## Installing Web UI Library
 
 Stateful clients are found as part of the `@azure/communication-react` package. 
