@@ -81,8 +81,8 @@ This procedure describes how to create an Azure ML workspace from Microsoft Sent
 
 Select one of the following tabs, depending on whether you'll be using a public or private endpoint.
 
-- We recommend using a [public endpoint](#tab/public-endpoint) if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
-- If you want to use an Azure ML workspace in a virtual network, use a [private endpoint](#tab/private-endpoint).
+- We recommend using a [[public endpoint](#tab/public-endpoint)](#public-endpointtabpublic-endpoint) if your Microsoft Sentinel workspace has one, to avoid potential issues in the network communication.
+- If you want to use an Azure ML workspace in a virtual network, use a [private endpoint(#tab/private-endpoint)](#private-endpointtabprivate-endpoint).
 
 # [Public endpoint](#tab/public-endpoint)
 
