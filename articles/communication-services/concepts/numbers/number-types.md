@@ -10,7 +10,6 @@ ms.author: sadas
 ms.date: 11/28/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: azure-communication-services
 
 ---
 
