@@ -5,8 +5,8 @@ author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
-ms.author: dglover 
-ms.custom: devx-track-azurepowershell
+ms.author: dglover
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Create your first function with Kotlin and Maven

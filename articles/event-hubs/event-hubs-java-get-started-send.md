@@ -3,7 +3,7 @@ title: Send or receive events from Azure Event Hubs using Java (latest)
 description: This article provides a walkthrough of creating a Java application that sends/receives events to/from Azure Event Hubs using the latest azure-messaging-eventhubs package.
 ms.topic: quickstart
 ms.date: 04/30/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ---
 
 # Use Java to send events to or receive events from Azure Event Hubs (azure-messaging-eventhubs)

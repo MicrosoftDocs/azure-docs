@@ -42,7 +42,7 @@ To perform a restore, a user or a principal need the permission to restore (that
 |Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |CosmosDB restorable account resource | /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.DocumentDB/locations/West US/restorableDatabaseAccounts/23e99a35-cd36-4df4-9614-f767a03b9995|
 
-The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. 
+The restorable account resource can be extracted from the output of the `az cosmosdb restorable-database-account list --account-name <accountname>` command in CLI or `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` cmdlet in PowerShell. The name attribute in the output represents the `instanceID` of the restorable account. 
 
 ## Permissions
 
@@ -68,17 +68,17 @@ Roles with permission can be assigned to different scopes to achieve granular co
 Assign the `CosmosRestoreOperator` built-in role at subscription level
 
 ```azurecli-interactive
-az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope /subscriptions/<subscriptionId>
+az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope /subscriptions/<subscriptionId>
 ```
 
 ### Assign capability to restore from a specific account
 
 * Assign a user write action on the specific resource group. This action is required to create a new account in the resource group.
 
-* Assign the *CosmosRestoreOperator* built-in role to the specific restorable database account that needs to be restored. In the following command, the scope for the *RestorableDatabaseAccount* is retrieved from the `ID` property in the output of `az cosmosdb restorable-database-account` (if using CLI)  or  `Get-AzCosmosDBRestorableDatabaseAccount` (if using PowerShell).
+* Assign the *CosmosRestoreOperator* built-in role to the specific restorable database account that needs to be restored. In the following command, the scope for the *RestorableDatabaseAccount* is retrieved from the `ID` property in the output of `az cosmosdb restorable-database-account list` (if using CLI)  or  `Get-AzCosmosDBRestorableDatabaseAccount` (if using PowerShell).
 
   ```azurecli-interactive
-   az role assignment create --role "CosmosRestoreOperator" --assignee <email> –scope <RestorableDatabaseAccount>
+   az role assignment create --role "CosmosRestoreOperator" --assignee <email> --scope <RestorableDatabaseAccount>
   ```
 
 ### Assign capability to restore from any source account in a resource group.
@@ -125,7 +125,7 @@ az role definition create --role-definition <JSON_Role_Definition_Path>
 ## Next steps
 
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
-* [Get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
+* [Get the latest restorable timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
 * Restore an account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Resource model of continuous backup mode](continuous-backup-restore-resource-model.md)

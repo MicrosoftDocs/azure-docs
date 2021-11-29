@@ -111,6 +111,7 @@ For more information, use the command `Get-Help Get-EflowLogs -full`.
 The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four properties:
 
 * VmConfiguration
+* VmPowerState
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics
