@@ -36,6 +36,8 @@ If you experience a login problem presented by incorrect user credentials and ha
 
 If you are able to access your Azure AD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactive user login events that are performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses Azure AD from. 
 
+You can access your sign-in logs by running the following Kusto query:
+
 ```kusto
 let UPN = "userupn";
 AADNonInteractiveUserSignInLogs
