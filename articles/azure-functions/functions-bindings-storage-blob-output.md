@@ -3,9 +3,10 @@ title: Azure Blob storage output binding for Azure Functions
 description: Learn how to provide Azure Blob storage output binding data to an Azure Function.
 author: craigshoemaker
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 11/22/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Blob storage output binding for Azure Functions
@@ -16,7 +17,11 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [In-process](#tab/in-process)
 
 The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob.
 
@@ -69,9 +74,11 @@ public class ResizeImages
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [Isolated process](#tab/isolated-process)
 
-<!--Same example for input and output. -->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="4-26":::
+
+# [C# Script](#tab/csharp-script)
 
 The following example shows blob input and output bindings in a *function.json* file and [C# script (.csx)](functions-reference-csharp.md) code that uses the bindings. The function makes a copy of a text blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
@@ -118,12 +125,15 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
 }
 ```
 
-# [Java](#tab/java)
+---
+
+::: zone-end
+::: zone pivot="programming-language-java"
 
 This section contains the following examples:
 
-* [HTTP trigger, using OutputBinding](#http-trigger-using-outputbinding-java)
-* [Queue trigger, using function return value](#queue-trigger-using-function-return-value-java)
+- [HTTP trigger, using OutputBinding](#http-trigger-using-outputbinding-java)
+- [Queue trigger, using function return value](#queue-trigger-using-function-return-value-java)
 
 #### HTTP trigger, using OutputBinding (Java)
 
@@ -185,7 +195,8 @@ This section contains the following examples:
 
  In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobOutput` annotation on function parameters whose value would be written to an object in blob storage.  The parameter type should be `OutputBinding<T>`, where T is any native Java type or a POJO.
 
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
 <!--Same example for input and output. -->
 
@@ -234,7 +245,8 @@ module.exports = function(context) {
 };
 ```
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following example demonstrates how to create a copy of an incoming blob as the output from a [PowerShell function](functions-reference-powershell.md).
 
@@ -274,7 +286,9 @@ Write-Host "PowerShell Blob trigger function Processed blob Name: $($TriggerMeta
 Push-OutputBinding -Name myOutputBlob -Value $myInputBlob
 ```
 
-# [Python](#tab/python)
+
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 <!--Same example for input and output. -->
 
@@ -330,11 +344,21 @@ def main(queuemsg: func.QueueMessage, inputblob: bytes, outputblob: func.Out[byt
 
 ---
 
-## Attributes and annotations
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+## Attributes
 
-# [C#](#tab/csharp)
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
+The attribute's constructor takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**BlobPath** | The path to the blob.|
+|**Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**Access** | Indicates whether you will be reading or writing.|
+
+# [In-process](#tab/in-process)
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
@@ -360,81 +384,98 @@ public static void Run(
 }
 ```
 
-# [C# Script](#tab/csharp-script)
+# [Isolated process](#tab/isolated-process)
 
-Attributes are not supported by C# Script.
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
 
-# [Java](#tab/java)
+# [C# script](#tab/csharp-script)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#example) for details.
+The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
+|function.json property | Description|
+|---------|----------------------|
+|**type** | Must be set to `blob`. |
+|**direction** | Must be set to `in`. Exceptions are noted in the [usage](#usage) section. |
+|**name** | The name of the variable that represents the blob in function code.|
+|**path** | The path to the blob. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 
 ---
-
-For a complete example, see [Output example](#example).
-
-You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see [Trigger - attributes](./functions-bindings-storage-blob-trigger.md#attributes-and-annotations).
-
-## Configuration
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Blob` attribute.
-
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `blob`. |
-|**direction** | n/a | Must be set to `out` for an output binding. Exceptions are noted in the [usage](#usage) section. |
-|**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
-|**path** |**BlobPath** | The path to the blob container. |
-|**connection** |**Connection**| The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|n/a | **Access** | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
+
+The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#example) for details.
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+## Configuration
+
+The following table explains the binding configuration properties that you set in the *function.json* file. 
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | Must be set to `blob`. |
+|**direction** | Must be set to `out` for an output binding. Exceptions are noted in the [usage](#usage) section. |
+|**name** | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
+|**path** | The path to the blob container. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
+
+::: zone-end  
+
+See the [Example section](#example) for complete examples.
 
 ## Usage
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"  
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [In-process](#tab/in-process)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# [C# Script](#tab/csharp-script)
+# [Isolated process](#tab/isolated-process)
+
+Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
+
+# [C# script](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# [Java](#tab/java)
+---
+
+::: zone-end  
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot="programming-language-java"
 
 The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#example) for details.
 
-# [JavaScript](#tab/javascript)
-
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+ 
 Access the blob data using `context.bindings.<BINDING_NAME>`, where the binding name is defined in the _function.json_ file.
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 Access the blob data via a parameter that matches the name designated by binding's name parameter in the _function.json_ file.
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 You can declare function parameters as the following types to write out to blob storage:
 
-* Strings as `func.Out[str]`
-* Streams as `func.Out[func.InputStream]`
+- Strings as `func.Out[str]`
+- Streams as `func.Out[func.InputStream]`
 
 Refer to the [output example](#example) for details.
 
----
+::: zone-end  
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## Exceptions and return codes
 
