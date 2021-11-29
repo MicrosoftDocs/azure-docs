@@ -88,12 +88,8 @@ Start copying the source database with the [CREATE DATABASE ... AS COPY OF](/sql
 
 > [!NOTE]
 > Terminating the T-SQL statement does not terminate the database copy operation. To terminate the operation, drop the target database.
-> [!NOTE]
-> Database copy is not supported when the source and/or destination servers have a private endpoint configured and public network access is disabled. 
-If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address will succeed.
-To determine the source IP address of current connection, execute `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`
- 
-
+>
+> Database copy is not supported when the source and/or destination servers have a [private endpoint](private-endpoint-overview.md) configured and [public network access is denied](connectivity-settings.md#deny-public-network-access). If private endpoint is configured but public network access is allowed, initiating database copy when connected to the destination server from a public IP address is supported. Once the copy operation completes, public access can be denied.
 
 > [!IMPORTANT]
 > Selecting backup storage redundancy when using T-SQL CREATE DATABASE ... AS COPY OF command is not supported yet. 
@@ -136,7 +132,7 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL CREATE DATABASE ... AS COPY OF command.
+> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL CREATE DATABASE ... AS COPY OF command. To determine the source IP address of current connection, execute `SELECT client_net_address FROM sys.dm_exec_connections WHERE session_id = @@SPID;`
 
 ### Copy to a different subscription
 

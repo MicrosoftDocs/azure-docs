@@ -159,6 +159,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <p><p>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
 ||||
+   
+<a name="run-actions"></a>
+
+### Run actions
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. |
+||||
 
 <a name="inputs-outputs"></a>
 

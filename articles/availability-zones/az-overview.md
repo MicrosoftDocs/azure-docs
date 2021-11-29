@@ -5,14 +5,14 @@ author: prsandhu
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: prsandhu
+ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
 # Regions and availability zones
 
-Azure regions and availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Azure maintains multiple geographies. These discrete demarcations define disaster recovery and data residency boundaries across one or multiple Azure regions. Maintaining many regions ensures customers are supported across the world. 
+Azure regions and availability zones are designed to help you achieve resiliency and reliability for your business-critical workloads. Azure maintains multiple geographies. These discrete demarcations define disaster recovery and data residency boundaries across one or multiple Azure regions. Maintaining many regions ensures customers are supported across the world.
 
 ## Regions
 
@@ -20,7 +20,7 @@ Each Azure region features datacenters deployed within a latency-defined perimet
 
 ## Availability zones
 
-Azure *availability zones* are physically separate locations within each Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions. 
+Azure *availability zones* are physically separate locations within each Azure region that are tolerant to local failures. Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved because of redundancy and logical isolation of Azure services. To ensure resiliency, a minimum of three separate availability zones are present in all availability zone-enabled regions.
 
 Azure availability zones are connected by a high-performance network with a round-trip latency of less than 2 ms. They help your data stay synchronized and accessible when things go wrong. Each zone is composed of one or more datacenters equipped with independent power, cooling, and networking infrastructure. Availability zones are designed so that if one zone is affected, regional services, capacity, and high availability are supported by the remaining two zones.
 
@@ -39,6 +39,7 @@ Some organizations require high availability of availability zones and protectio
 ![Image showing availability zones that protect against localized disasters and regional or large geography disasters by using another region.](media/availability-zones-region-geography.png)
 
 ## Azure regions with availability zones
+
 Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones.
 
 | Americas | Europe | Africa | Asia Pacific |
@@ -48,8 +49,8 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe |  | East Asia* |
-| US Gov Virginia | Sweden* | | |
+| South Central US | West Europe |  | East Asia |
+| US Gov Virginia | Sweden | | |
 | West US 2 | | | |
 | West US 3 | | | |
 

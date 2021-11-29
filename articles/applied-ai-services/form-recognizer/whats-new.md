@@ -9,13 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
-
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD024 -->
 <!-- markdownlint-disable MD036 -->
 # What's new in Azure Form Recognizer
 
-Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
+Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
 ## October 2021
 
@@ -58,7 +58,7 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
     ### Charts
 
-    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metric chart in the Azure portal.":::
 
 *  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
 
@@ -450,11 +450,11 @@ pip package version 3.1.0b4
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
 * **New try-it-out feature in the Form Recognizer Sample and Labeling Tool** - Ability to try out prebuilt Invoice, Receipt, and Business Card models and the Layout API using the Form Recognizer Sample Labeling tool. See how your data will be extracted without writing any code.
 
-  [**Try the Form Recognizer sample labeling tool**](https://fott-2-1.azurewebsites.net)
+  [**Try the Form Recognizer Sample Labeling tool**](https://fott-2-1.azurewebsites.net)
 
-  ![Screenshot: Sample labeling tool.](./media/ui-preview.jpg)
+  ![Screenshot: Sample Labeling tool.](./media/ui-preview.jpg)
 
-* **Feedback Loop** - When Analyzing files via the sample labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
+* **Feedback Loop** - When Analyzing files via the Sample Labeling tool you can now also add it to the training set and adjust the labels if necessary and train to improve the model.
 * **Auto Label Documents** - Automatically labels additional documents based on previous labeled documents in the project.
 
 ## August 2020
@@ -479,7 +479,7 @@ pip package version 3.1.0b4
 **New samples** are available on GitHub.
 
 * The [Knowledge Extraction Recipes - Forms Playbook](https://github.com/microsoft/knowledge-extraction-recipes-forms) collects best practices from real Form Recognizer customer engagements and provides usable code samples, checklists, and sample pipelines used in developing these projects.
-* The [sample labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](label-tool.md) for getting started with the tool.
+* The [Sample Labeling tool](https://github.com/microsoft/OCR-Form-Tools) has been updated to support the new v2.1 functionality. See this [quickstart](label-tool.md) for getting started with the tool.
 * The [Intelligent Kiosk](https://github.com/microsoft/Cognitive-Samples-IntelligentKiosk/blob/master/Documentation/FormRecognizer.md) Form Recognizer sample shows how to integrate `Analyze Receipt` and `Train Custom Model` - _Train without Labels_.
 
 ## July 2020
@@ -533,7 +533,7 @@ pip package version 3.1.0b4
 
 ### New features
 
-* **Value types for labeling** You can now specify the types of values you're labeling with the Form Recognizer sample labeling tool. The following value types and variations are currently supported:
+* **Value types for labeling** You can now specify the types of values you're labeling with the Form Recognizer Sample Labeling tool. The following value types and variations are currently supported:
   * `string`
     * default, `no-whitespaces`, `alphanumeric`
   * `number`
@@ -543,14 +543,14 @@ pip package version 3.1.0b4
   * `time`
   * `integer`
 
-  See the [Sample labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
+  See the [Sample Labeling tool](label-tool.md#specify-tag-value-types) guide to learn how to use this feature.
 
-* **Table visualization** The sample labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
+* **Table visualization** The Sample Labeling tool now displays tables that were recognized in the document. This feature lets you view the tables that have been recognized and extracted from the document, prior to labeling and analyzing. This feature can be toggled on/off using the layers option.
 
   The following image is an example of how tables are recognized and extracted:
 
   > [!div class="mx-imgBorder"]
-  > ![Table visualization using the sample labeling tool](./media/whats-new/table-viz.png)
+  > ![Table visualization using the Sample Labeling tool](./media/whats-new/table-viz.png)
 
     The extracted tables are available in the JSON output under `"pageResults"`.
 
@@ -561,11 +561,11 @@ pip package version 3.1.0b4
 
 This release includes extraction enhancements and accuracy improvements, specifically, the capability to label and extract multiple key/value pairs in the same line of text.
 
-### Sample labeling tool is now open-source
+### Sample Labeling tool is now open-source
 
-The Form Recognizer sample labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
+The Form Recognizer Sample Labeling tool is now available as an open-source project. You can integrate it within your solutions and make customer-specific changes to meet your needs.
 
-For more information about the Form Recognizer sample labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
+For more information about the Form Recognizer Sample Labeling tool, review the documentation available on [GitHub](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md).
 
 ### TLS 1.2 enforcement
 
