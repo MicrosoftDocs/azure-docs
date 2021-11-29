@@ -32,7 +32,7 @@ If you come across an error saying **Your account is configured to prevent you f
 If you experience a login problem presented by incorrect user credentials and have verified they are correct and have ruled out other errors verify that Conditional Access policies excludes multifactor authentication requirements on the **Azure Windows VM Sign-in** cloud application. Also verify that you have assigned the **Virtual Machine User Login** RBAC permissions on the VM or Resource Group for each user. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms)
 
 > [!WARNING] 
-> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
+> VM sign-ins don't support per-user enabled or enforced Azure AD multifactor authentication. If you try to sign in with multifactor authentication on a VM, then you won't be able to sign in and will receive an error message.
 
 If you are able to access your AAD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactice user login event that is performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses AAD from. 
 
