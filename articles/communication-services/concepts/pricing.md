@@ -167,7 +167,7 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## Telephony and SMS
+## Telephony
 
 ## Price
 
@@ -208,6 +208,7 @@ The following prices include required communications taxes and fees:
 |Germany     |Starting at $0.015/min   |
 |France     |Starting at $0.016/min   |
 
+<<<<<<< HEAD
 
 ### SMS
 
@@ -218,3 +219,5 @@ The following prices include required communications taxes and fees:
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|
 |USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |
+=======
+>>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521

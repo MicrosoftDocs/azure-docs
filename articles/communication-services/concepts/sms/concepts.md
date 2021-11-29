@@ -22,7 +22,7 @@ Azure Communication Services enables you to send and receive SMS text messages u
 Key features of Azure Communication Services SMS SDKs include:
 
 -  **Simple** setup experience for adding SMS capability to your applications.
-- **High Velocity** message support over toll free numbers and short codes (*coming soon*) for A2P (Application to Person) use cases in the United States.
+- **High Velocity** message support over toll free numbers and short codes for A2P (Application to Person) use cases in the United States.
 - **Bulk Messaging** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.
@@ -37,5 +37,10 @@ Key features of Azure Communication Services SMS SDKs include:
 The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+<<<<<<< HEAD
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
 - [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
+=======
+- Get an SMS capable [phone number](../../quickstarts/telephony-sms/get-phone-number.md)
+- [Phone number types in Azure Communication Services](../telephony-sms/plan-solution.md)
+>>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521

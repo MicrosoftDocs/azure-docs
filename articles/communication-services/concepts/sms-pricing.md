@@ -12,17 +12,18 @@ zone_pivot_groups: acs-tollfree-shortcode
 
 # SMS Pricing 
 
-[!INCLUDE [Regional Availability Notice](../concepts/includes/regional-availability-include.md)]
-
 > [!IMPORTANT]
 > SMS messages can be sent to and received from United States phone numbers. Phone numbers located in other geographies are not yet supported by Communication Services SMS.
+<<<<<<< HEAD
 > For more information, see **[Phone number types](../concepts/telephony/plan-solution.md)**.
+=======
+>>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521
 
-::: zone pivot="sms-tollfree-pricing"
+::: zone pivot="tollfree"
 [!INCLUDE [Toll-Free](./includes/sms-tollfree-pricing.md)]
 ::: zone-end
 
-::: zone pivot="sms-shortcode-pricing"
+::: zone pivot="shortcode"
 [!INCLUDE [Short Code](./includes/sms-shortcode-pricing.md)]
 ::: zone-end
 

@@ -40,6 +40,13 @@ Azure Managed Instance for Apache Cassandra provides automated deployment and sc
   * Incorrect keyspace configuration settings.
   * Poor data model or partition key strategy.
 
+## Backup and restore
+
+Snapshot backups are enabled by default, and taken every 4 hours. Backups are stored in an internal Azure blob storage account, and are retained for up to 2 days (48 hours). This is no cost for backups. To restore from a backup, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
+
+> [!WARNING]
+> Backups are restored to new clusters only. Backups are intended for accidental deletion scenarios, and are not geo-redundant. They are therefore not recommended for use as a disaster recovery (DR) strategy in case of a total regional outage. To safeguard against region-wide outages, we recommend a multi-region deployment. Take a look at our quick start for multi-region deployments [here](create-multi-region-cluster.md). 
+
 ## Security
 
 Azure Managed Instance for Apache Cassandra provides many built-in explicit security controls and features:

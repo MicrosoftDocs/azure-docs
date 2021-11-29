@@ -33,7 +33,7 @@ Although this quickstart focuses on using the connector to respond to a trigger,
 
   This quickstart uses the **When a new email arrives** trigger, which is available with the [Office 365 Outlook connector](/connectors/office365/).
 
-- An SMS enabled phone number, or [get a phone number](./get-phone-number.md).
+- An SMS enabled phone number, or [get a phone number](./../telephony-sms/get-phone-number.md).
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -117,5 +117,9 @@ In this quickstart, you learned how to send SMS messages by using Azure Logic Ap
 For more information about SMS in Azure Communication Services, see these articles:
 
 - [SMS concepts](../../concepts/sms/concepts.md)
+<<<<<<< HEAD
 - [Phone number types](../../concepts/telephony/plan-solution.md)
+=======
+- [Phone number types](../../concepts/telephony-sms/plan-solution.md)
+>>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521
 - [SMS SDK](../../concepts/sms/sdk-features.md)

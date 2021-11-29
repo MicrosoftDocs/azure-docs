@@ -1176,6 +1176,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Defender for Cloud's portal pages
+- id: connect-aws-accounts
+  title: Add an AWS account
+  prompt: How will you connect the AWS account?
+  pivots:
+  - id: env-settings
+    title: Environment settings
+  - id: classic-connector
+    title: Classic connector
 - id: manage-asc-initiatives
   title: Manage Defender for Cloud initiatives
   prompt: How will you manage your Defender for Cloud initiatives?
@@ -1465,13 +1473,13 @@ groups:
   - id: client-portaltier
     title: Azure portal
 # Owner: prakulka
-id: acs-tollfree-shortcode
+- id: acs-tollfree-shortcode
   title: Number Type
   prompt: Choose a Number Type
   pivots:
-  - id: TollFree
+  - id: tollfree
     title: Toll-Free
-  - id: Shortcode
+  - id: shortcode
     title: Short Code
 # Owner: timlt
 - id: iot-develop-nxp-toolset
@@ -1482,3 +1490,8 @@ id: acs-tollfree-shortcode
     title: CMake
   - id: iot-toolset-iar-ewarm
     title: IAR EWARM
+<<<<<<< HEAD
+=======
+  - id: iot-toolset-mcuxpresso
+    title: MCUXpresso
+>>>>>>> 08684db54117f43e8cfd8345e4d63b825137d521

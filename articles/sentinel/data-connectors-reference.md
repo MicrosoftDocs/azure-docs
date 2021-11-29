@@ -188,7 +188,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Supported by** | Microsoft |
 | | |
 
-## Amazon Web Services S3
+## Amazon Web Services S3 (Preview)
 
 | Connector attribute | Description |
 | --- | --- |

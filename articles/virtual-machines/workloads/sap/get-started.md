@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,6 +77,7 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+- November 22, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) to clarify the guidelines for J2EE SAP systems and share consolidations per storage account.    
 - November 16, 2021: Release of high availability guides for SAP ASCS/ERS with NFS on Azure files [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md). 
 - November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.
 - November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) to move Singapore SouthEast to regions for active/active configurations

@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 11/19/2021
 ms.author: jasteppe
 ---
 
@@ -17,7 +17,7 @@ ms.author: jasteppe
 
 This article provides an overview of IoT connector data flow. You'll learn about the different data processing stages within IoT connector that transform device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-Data from health-related devices or medical devices flows through a path in which the IoT connector transforms data into FHIR, and then data is stored on and accessed from the FHIR server. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. In this data flow, health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed or normalized per user-selected or user-created schema templates, so the health data is simpler to process and can be grouped. Health data is grouped into three sperate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR mapping, and then saved or persisted on the FHIR server.
+Data from health-related devices or medical devices flows through a path in which the IoT connector transforms data into FHIR, and then data is stored on and accessed from the FHIR service. The health data path follows these steps in this order: ingest, normalize, group, transform, and persist. In this data flow, health data is retrieved from the device in the first step of ingestion. After the data is received, it's processed or normalized per user-selected or user-created schema templates, so the health data is simpler to process and can be grouped. Health data is grouped into three Operate parameters. After the health data is normalized and grouped, it can be processed or transformed through FHIR destination mappings, and then saved or persisted on the FHIR service.
 
 This article goes into more depth about each step in the data flow. The next steps are [how to deploy an IoT connector](deploy-iot-connector-in-azure.md) by using a device mapper (the normalization step) and how to use an FHIR device mapper (the transform step).
 

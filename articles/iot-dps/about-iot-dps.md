@@ -2,8 +2,8 @@
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: wesmc7777
-ms.author: wesmc
-ms.date: 11/09/2021
+ms.author: v-stharr
+ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -33,7 +33,6 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 >DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
 >
 >To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
-
 
 ## Behind the scenes
 
@@ -120,6 +119,16 @@ DPS is available in many regions. The updated list of existing and newly announc
 ## Availability
 
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
+
+DPS also supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of a minimum of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
+
+* Australia East
+* Brazil South
+* Canada Central
+* Japan East
+* North Europe
+* West Europe
+* UK South
 
 ## Quotas and Limits
 

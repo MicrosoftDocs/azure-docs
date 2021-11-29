@@ -100,7 +100,7 @@
   - name: Cookbooks
     items:
     - name: Deployment Scripts
-      href: https://azure.microsoft.com/documentation/scripts/
+      href: /azure/automation/automation-runbook-gallery
   - name: Troubleshooting
     items:
     - name: Troubleshoot with Visual Studio

@@ -1,9 +1,9 @@
 ---
 title: GPU acceleration for Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Learn about how to configure your Azure IoT Edge for Linux on Windows virtual machines to use host device GPUs.
-author: v-tcassi
+author: kgremban
 manager: kgremban
-ms.author: v-tcassi
+ms.author: kgremban
 ms.date: 06/22/2021
 ms.topic: conceptual
 ms.service: iot-edge

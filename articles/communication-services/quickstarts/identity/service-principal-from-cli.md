@@ -48,7 +48,7 @@ To create a registered application from the Azure CLI, you need to be logged in 
 The following examples uses the Azure CLI to create a new registered application
 
 ```azurecli
-az ad sp create-for-rbac --name <application-name> 
+az ad sp create-for-rbac --name <application-name> --role Contributor
 ```
 
 The `az ad sp create-for-rbac` command will return a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.

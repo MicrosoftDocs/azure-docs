@@ -79,6 +79,10 @@ Follow the steps below to scan Salesforce to automatically identify assets and c
 
 Azure Purview uses Salesforce REST API version 41.0 to extract metadata, including REST requests like 'Describe Global' URI (/v41.0/sobjects/),'sObject Basic Information' URI (/v41.0/sobjects/sObject/), and 'SOQL Query' URI (/v41.0/query?).
 
+### Authentication for a scan
+
+The supported authentication type for a Salesforce source is **Consumer key authentication**.
+
 ### Create and run scan
 
 To create and run a new scan, do the following:
