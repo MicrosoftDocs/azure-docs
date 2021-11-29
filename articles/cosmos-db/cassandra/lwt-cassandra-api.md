@@ -28,7 +28,7 @@ with cosmosdb_cell_level_timestamp=true and cosmosdb_cell_level_timestamp_tombst
 ``` 
 You might experience reduced performance on full row inserts compared to not using the flags.
 
-[!NOTE]
+> [!NOTE]
 > LWTs are not supported for multi-region write scenarios.
 
 ## LWT with flags enabled
