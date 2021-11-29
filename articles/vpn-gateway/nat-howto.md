@@ -11,7 +11,7 @@ ms.date: 06/24/2021
 ms.author: yushwang 
 
 ---
-# How to configure NAT on Azure VPN Gateways (Preview)
+# How to configure NAT on Azure VPN Gateways
 
 This article helps you configure NAT (Network Address Translation) on Azure VPN Gateway using the Azure portal.
 
