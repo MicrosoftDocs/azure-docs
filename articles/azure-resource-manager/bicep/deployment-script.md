@@ -159,7 +159,7 @@ Property value details:
   replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.bicep).
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -171,9 +171,9 @@ Property value details:
 
 ### Additional samples
 
-- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault.json): create a key vault and use deployment script to assign a certificate to the key vault.
-- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
-- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
+- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault.bicep): create a key vault and use deployment script to assign a certificate to the key vault.
+- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-subscription.bicep): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
+- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/deploymentscript-keyvault-mi.bicep): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 
 ## Use inline scripts
 
@@ -574,7 +574,7 @@ Deployment script execution is an idempotent operation. If none of the `deployme
 
 ## Configure development environment
 
-You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts](./deployment-script-template-configure-dev.md).
+You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts](../templates/deployment-script-template-configure-dev.md).
 
 After the script is tested successfully, you can use it as a deployment script in your Bicep files.
 
@@ -608,10 +608,7 @@ After the script is tested successfully, you can use it as a deployment script i
 
 ## Next steps
 
-In this article, you learned how to use deployment scripts. To walk through a deployment script tutorial:
+In this article, you learned how to use deployment scripts. To walk through a Microsoft Learn module:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use deployment scripts in Azure Resource Manager templates](./template-tutorial-deployment-script.md)
-
-> [!div class="nextstepaction"]
-> [Learn module: Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts/)
+> [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts)
