@@ -26,7 +26,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture.md) documentation for [throttling patterns](/azure/architecture/patterns/throttling.md).
 
 ## Acquiring phone numbers
-Before trying to acquire a phone number, make sure your sbuscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
+Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
 | Operation | Scope | Timeframe | Limit (number of requests) |
 | --- | -- | -- | -- |
@@ -56,7 +56,7 @@ We always recommend you acquire identities and tokens in advance of starting oth
 For more information, see the [identity concept overview](./authentication.md) page.
 
 ## SMS
-When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queueud to be sent once the number of requests is below the threshold.
+When sending or receiving a high volume of messages, you might receive a ```429``` error. This indicates you are hitting the service limitations and your messages will be queued to be sent once the number of requests is below the threshold.
 
 Rate Limits for SMS:
 
@@ -99,7 +99,7 @@ When using the chat APIs, you might receive a ```429``` error. This indicates yo
 
 ### Action to take
 
-All chat SDKs have retry policies in place, with exponential back-off set by default (you can override this if you'd like). The API returns a retry-after header that indicates teh number of seconds suggested to wait before retrying to send the message.
+All chat SDKs have retry policies in place, with exponential back-off set by default (you can override this if you'd like). The API returns a retry-after header that indicates the number of seconds suggested to wait before retrying to send the message.
 
 For more information about the chat SDK and service, see the [chat SDK overview](./chat/sdk-features.md) page.
 
