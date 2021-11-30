@@ -15,12 +15,12 @@ ms.date: 11/30/2021
 
 Azure Cosmos DB Cassandra API provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility makes it possible to run applications designed to connect to Apache Cassandra with Cassandra API, with minimal changes. However, there are some important differences between Apache Cassandra and Azure Cosmos DB. 
 
-This article is aimed at users who are familiar with native [Apache Cassandra](https://cassandra.apache.org/), and are considering moving to Azure Cosmos DB Cassandra API. Consider this a checklist to help you adopt Cassandra API successfully.  
+This article is aimed at users who are familiar with native [Apache Cassandra](https://cassandra.apache.org/), and are considering moving to Azure Cosmos DB Cassandra API. Consider this article a checklist to help you adopt Cassandra API successfully.  
 
 
 ## Feature support
 
-While Cassandra API supports a large surface area of Apache Cassandra features, there are some features which are not supported (or have limitations). You should review our article [features supported by Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure the features you need are supported. 
+While Cassandra API supports a large surface area of Apache Cassandra features, there are some features which are not supported (or have limitations). Review our article [features supported by Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure the features you need are supported. 
 
 ## Replication (migration)
 
@@ -37,12 +37,12 @@ While you should not need to make any substantial code changes to existing apps 
 
 ## Code samples
 
-Your existing application code should work with Cassandra API. However, in case of error, we highly recommend referring to our [Quick Start samples](manage-data-java-v4-sdk.md) as a starting point to determine any minor differences in setup with your existing code. In addition, we have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. These code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement the recommended client configurations mentioned above. We also have samples for Java [Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
+Your existing application code should work with Cassandra API. However, if you encounter any connectivity related errors, we highly recommend referring to our [Quick Start samples](manage-data-java-v4-sdk.md) as a starting point to determine any minor differences in setup with your existing code. In addition, we have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. These code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement the recommended client configurations mentioned above. We also have samples for Java [Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
 
 
 ## Storage
 
-Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. This is most noticeable in the case of very small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
+Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata, which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. This is most noticeable in the case of very small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
 
 ## Multi-region deployments
 
@@ -90,6 +90,10 @@ One of the challenges of provisioning [request units](../request-units.md), part
 ## Using Apache Spark
 
 Many Apache Cassandra users also use the Apache Spark Cassandra connector to query their data for analytical and data movement needs. You can connect to Cassandra API in the same way, using the same connector. However, we highly recommend reviewing our article on how to [Connect to Azure Cosmos DB Cassandra API from Spark](connect-spark-configuration.md), and in particular the section for [Optimizing Spark connector throughput configuration](connect-spark-configuration.md#optimizing-spark-connector-throughput-configuration), before doing so.  
+
+## Troubleshooting common issues
+
+Review our [trouble shooting](troubleshoot-common-issues.md) article, which documents solutions to common problems faced with the service. 
 
 
 ## Next steps
