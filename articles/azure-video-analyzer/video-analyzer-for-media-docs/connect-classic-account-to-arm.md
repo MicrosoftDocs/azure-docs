@@ -38,11 +38,9 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
 4. Click **Settings**
 
   ![account-settings](media/connect-classic-account-to-arm/user-account-settings.png)
-   
 5. Click **Connect to an ARM-based account**.
 
   ![connect-button-portal](media/connect-classic-account-to-arm/connect-button.png)
-
 7. Sign to Azure portal
 8. The Video Analyzer for Media create blade will open
 10. In the **Create Video Analyzer for Media account** section enter required values.
@@ -60,7 +58,6 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
  |**Location**|The geographic region can't be changed in the connect process, the connected account must stay in the same region. |
  |**Media Services account name**|The original Media Services account name that was associated with classic account.|
  |**User-assigned managed identity**|Select a user-assigned managed identity, or create a new one. Video Analyzer for Media account will use it to access the Media services. The user-assignment managed identity will be assigned the roles of Contributor for the Media Service account.|
-
 1. Click **Review + create** at the bottom of the form.
 
 ## After connecting to ARM is complete 
