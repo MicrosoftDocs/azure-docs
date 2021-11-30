@@ -1,16 +1,15 @@
 ---
-title: 'Quickstart: Link an Azure Machine Learning workspace'  
+title: 'Quickstart: Link an Azure Machine Learning workspace'
 description: Link your Synapse workspace to an Azure Machine Learning workspace
-
 services: synapse-analytics
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: jrasnick, garye
-
 ms.date: 10/01/2021
 author: nelgson
 ms.author: negust
+ms.custom: mode-other
 ---
 # Quickstart: Create a new Azure Machine Learning linked service in Synapse
 
@@ -39,7 +38,7 @@ In the following sections, you'll find guidance on how to create an Azure Machin
 
 ## Create a linked service using the Synapse workspace Managed identity
 
-This section will guide you on how to create an Azure Machine Learning linked service in Azure Synapse, using the [Azure Synapse workspace Managed Identity](../security/synapse-workspace-managed-identity.md)
+This section will guide you on how to create an Azure Machine Learning linked service in Azure Synapse, using the [Azure Synapse workspace Managed Identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
 
 ### Give MSI permission to the Azure ML workspace
 

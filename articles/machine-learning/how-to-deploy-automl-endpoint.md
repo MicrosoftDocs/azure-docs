@@ -119,11 +119,11 @@ To create a managed online endpoint from the command line, you'll need to create
 
 __automl_endpoint.yml__
 
-::: code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/endpoint.yml" :::
+::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/endpoint.yml" :::
 
 __automl_deployment.yml__
 
-::: code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
+::: code language="yaml" source="~/azureml-examples-main/cli/endpoints/online/managed/sample/blue-deployment.yml" :::
 
 You'll need to modify this file to use the files you downloaded from the AutoML Models page.
 

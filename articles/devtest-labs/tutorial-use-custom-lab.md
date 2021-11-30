@@ -1,74 +1,101 @@
 ---
 title: Access a lab
-description: In this tutorial, you access the lab that's created by using Azure DevTest Labs, claim virtual machines, use them, and then unclaim them.
+description: In this tutorial, you access a lab in Azure DevTest Labs. You use a virtual machine, unclaim it, and then claim it.
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.date: 11/03/2021
 ms.author: spelluru
 ---
 
 # Tutorial: Access a lab in Azure DevTest Labs
-In this tutorial, you use the lab that was created in the [Tutorial: Create a lab in Azure DevTest Labs](tutorial-create-custom-lab.md) .
+
+In this tutorial, you use the lab that was created in the [Tutorial: Create a lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 In this tutorial, you do the following actions:
 
 > [!div class="checklist"]
-> * Claim a virtual machine (VM) in the lab
-> * Connect to the VM
-> * Unclaim the VM
+> * Connect to the lab VM
+> * Unclaim the lab VM
+> * Claim the lab virtual machine (VM)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Access the lab
+## Prerequisites
+
+A [lab in DevTest Labs with an Azure virtual machine](tutorial-create-custom-lab.md).
+
+## Connect to the lab VM
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All resources** on the left menu. 
-3. Select **DevTest Labs** for resource type. 
-4. Select the lab. 
 
-    ![Select the lab](./media/tutorial-use-custom-lab/search-for-select-custom-lab.png)
+1. Navigate to your lab in **DevTest Labs**.
 
-## Claim a VM
+1. Under **My virtual machines**, select your VM.
+
+    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines.png" alt-text="Screenshot of VM under My virtual machines.":::
+
+1. From the top menu, select **Connect**. Then select the `.rdp` file that downloads to your machine.
+
+    :::image type="content" source="./media/tutorial-use-custom-lab/vm-connect.png" alt-text="Screenshot of VM connect button.":::
+
+1. On the **Remote Desktop Connection** dialog box, select **Connect**
+
+1. On the **Enter your credentials** dialog box, enter the password, and then select **OK**.
+
+1. If you receive a dialog box that states, **The identity of the remote computer cannot be verified**, select the check box for **Don't ask me again for connections to this computer**. Then select **Yes**.
+
+    :::image type="content" source="./media/tutorial-use-custom-lab/remote-computer-verification.png" alt-text="Screenshot of remote computer verification.":::
+
+For steps to connect to a Linux VM, see [Connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+## Unclaim the lab VM
+
+After you're done with the VM, unclaim the VM by following these steps: 
+
+1. Select your VM from DevTest Labs using the same earlier steps.
+
+1. On the **virtual machine** page, from the top menu, select **Unclaim**. 
+
+    :::image type="content" source="./media/tutorial-use-custom-lab/virtual-machine-unclaim.png" alt-text="Screenshot of unclaim option.":::
+
+1. The VM is shut down before it's unclaimed. You can monitor the status of this operation in **Notifications**.
+
+1. Close the **virtual machine** page to be returned to the **DevTest Lab Overview** page.
+
+1. Under **My Lab**, select **Claimable virtual machines**. The VM is now available to be claimed.
+
+    :::image type="content" source="./media/tutorial-use-custom-lab/claimable-virtual-machines.png" alt-text="Screenshot of options under claimable virtual machines.":::
+
+## Claim a lab VM
+
+You can claim the VM again if you need to use it.
 
 1. In the list of **Claimable virtual machines**, select **...** (ellipsis), and select **Claim machine**.
 
-    ![Claim virtual machine](./media/tutorial-use-custom-lab/claim-virtual-machine.png)
+    :::image type="content" source="./media/tutorial-use-custom-lab/claimable-virtual-machines-claimed.png" alt-text="Screenshot of claim option.":::
+
 1. Confirm that you see the VM in the list **My virtual machines**.
 
-    ![My virtual machine](./media/tutorial-use-custom-lab/my-virtual-machines.png)
+    :::image type="content" source="./media/tutorial-use-custom-lab/my-virtual-machines-2.png" alt-text="Screenshot showing vm returned to my virtual machines.":::
 
-## Connect to the VM
+## Clean up resources
 
-1. Select your VM in the list. You see the **Virtual Machine page** for your VM. Select **Connect** on the toolbar.
+Delete resources to avoid charges for running the lab and VM on Azure. If you plan to go through the next tutorial to access the VM in the lab, you can clean up the resources after you finish that tutorial. Otherwise, follow these steps: 
 
-    ![Connect to virtual machine](./media/tutorial-use-custom-lab/connect-button.png)
-2. Save the downloaded **RDP** file on your hard disk and use it to connect to the virtual machine. Specify the user name and password you mentioned when the VM was created in the previous section. 
+1. Return to the home page for the lab you created.
 
-    To connect to a Linux VM, SSH and/or RDP access must be enabled for the VM. For steps to connect to a Linux VM via RDP, see [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md). 
+1. From the top menu, select **Delete**.
 
-    > [!NOTE]
-    > There are other ways to get to the Virtual Machine page for your VM. Here are some of them: 
-    > 
-    > 1. Search for all VMs in your subscription. Select your VM in the list of VMs to get to the **Virtual Machine** page.
-    > 2. Navigate to the **Resource Group** page for the resource group. Then, select your VM from the list of resources in the resource group to get to the **Virtual Machine** page. 
-    >
-    > Don't use the **Connect** button on the toolbar on the **Virtual Machine** page that you get to by using the these options. Instead, navigate to the **Virtual Machine** page from the **DevTest Labs** page as shown in this article, and then use the **Connect** button on the toolbar.
+   :::image type="content" source="./media/tutorial-use-custom-lab/portal-lab-delete.png" alt-text="Screenshot of lab delete button.":::
 
+1. On the **Are you sure you want to delete it** page, enter the lab name in the text box and then select **Delete**.
 
-## Unclaim the VM
-After you are done with using the VM, unclaim the VM by following these steps: 
+1. During the deletion, you can select **Notifications** at the top of your screen to view progress. Deleting the lab takes a while. Continue to the next step once the lab is deleted.
 
-1. On the virtual machine page, and select **Unclaim** on the toolbar. 
-
-    ![Unclaim VM](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. The VM is shut down before it's unclaimed. You can see the status of this operation in notifications.  
-3. Navigate back to the DevTest Lab page by clicking your lab name in the breadcrumb menu at the top. 
-    
-    ![Navigate back to lab](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
-1. Confirm that you see the VM in the list of **Claimable virtual machines** list at the bottom.
-
+1. If you created the lab in an existing resource group, then all of the lab resources have been removed. If you created a new resource group for this tutorial, it's now empty and can be deleted. It wouldn't have been possible to have deleted the resource group earlier while the lab was still in it.
     
 ## Next steps
-This tutorial showed you how to access and use a lab that was created by using Azure DevTest Labs. For more information about accessing and using VMs in a lab, see 
+
+In this tutorial, you learned how to access and use a lab in Azure DevTest Labs. For more information about accessing and using VMs in a lab, see:
 
 > [!div class="nextstepaction"]
 > [How to: Use VMs in a lab](devtest-lab-add-vm.md)

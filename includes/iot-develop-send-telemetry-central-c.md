@@ -51,7 +51,7 @@ To complete this quickstart on Windows, install Visual Studio 2019 and add the r
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a device
+## Run the device sample
 In this section, you configure your local environment, install the Azure IoT C device SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment

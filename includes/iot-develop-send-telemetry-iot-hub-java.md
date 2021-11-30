@@ -107,7 +107,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## Run a device
+## Run the device sample
 
 In this section, you use the Java SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 

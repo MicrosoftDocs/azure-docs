@@ -91,13 +91,13 @@ Because the response variable has a Poisson distribution, the model makes differ
     > 
     > - If you select the **Parameter Range** option and enter a single value for any parameter, that single value you specified is used throughout the sweep, even if other parameters change across a range of values.
 
-8.  Submit the pipeline.
+8. Submit the pipeline.
 
 ## Results
 
 After training is complete:
 
-+ To save a snapshot of the trained model, select the training component, then switch to **Outputs+logs** tab in the right panel. Click on the icon **Register dataset**.  You can find the saved model as a component in the component tree. 
+- To save a snapshot of the trained model, select the training component, then switch to **Outputs+logs** tab in the right panel. Click on the icon **Register dataset**.  You can find the saved model as a component in the component tree.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ The sync command differs from the copy command in several ways:
 
 1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
-3. If the `deleteDestination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
+3. If the `--delete-destination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
 ## Related conceptual articles
 

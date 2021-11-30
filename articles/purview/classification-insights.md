@@ -17,7 +17,7 @@ This how-to guide describes how to access, view, and filter Purview Classificati
 > [!IMPORTANT]
 > Azure Purview Insights are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (formerly SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 buckets, and Amazon RDS databases (public preview).
+Supported data sources include: Azure Blob Storage, Azure Data Lake Storage (ADLS) GEN 1, Azure Data Lake Storage (ADLS) GEN 2, Azure Cosmos DB (SQL API), Azure Synapse Analytics (formerly SQL DW), Azure SQL Database, Azure SQL Managed Instance, SQL Server, Amazon S3 buckets, and Amazon RDS databases (public preview), Power BI
 
 In this how-to guide, you'll learn how to:
 

@@ -1,13 +1,13 @@
 ---
 title: Azure confidential computing solutions on virtual machines
 description: Learn about Azure confidential computing solutions on virtual machines.
-author: JBCook
+author: stempesta
 ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.author: JenCook
+ms.author: stempesta
 ms.custom: ignite-fall-2021
 ---
 
