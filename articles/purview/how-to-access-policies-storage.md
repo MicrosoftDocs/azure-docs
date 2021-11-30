@@ -1,7 +1,7 @@
 ---
 title: Data access policy provisioning for Azure Storage
 description: Step-by-step guide on how to integrate Azure Storage into Azure Purview access policies and allow data owners to build access policies.
-author: vlrodrig
+author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
