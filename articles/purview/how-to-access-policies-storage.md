@@ -42,7 +42,7 @@ Execute this step only if the Storage and Purview accounts are in different subs
 #### Storage account permissions
 - User needs to have role *Owner* in the Azure Storage account to be able to register this source for *Data use Governance* in Azure Purview. You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
 #### Purview account permissions
->[!WARNING]
+>[!IMPORTANT]
 > - Policy operations are only supported at **root collection level** and not child collection level.
 - User needs Purview *Data source admins* role at the root collection level to:
   - Register a source for *Data use governance*.
@@ -51,7 +51,7 @@ Execute this step only if the Storage and Purview accounts are in different subs
 
 Check the section on managing Purview role assignments in this [guide](how-to-create-and-manage-collections.md).
 
->[!IMPORTANT]
+>[!WARNING]
 > **Known issues** related to permissions
 > - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
@@ -128,9 +128,9 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
-> [!IMPORTANT]
+> [!WARNING]
 > **Known issues** related to Policy creation
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets are still allowed after that.
+> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still allowed after that.
 
 ### Update or delete a policy
 
