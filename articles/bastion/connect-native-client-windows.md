@@ -117,6 +117,9 @@ This section helps you connect to your virtual machine. Use the steps that corre
       ```azurecli-interactive
       az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>"
       ```
+> [!NOTE]
+> If you want to specify a custom port value, you should also include the field --resource-port in the login command you choose.
+>
 
 ### Connect to a Windows VM
 
@@ -125,6 +128,9 @@ This section helps you connect to your virtual machine. Use the steps that corre
       ```azurecli-interactive
       az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
       ```
+> [!NOTE]
+> If you want to specify a custom port value, you should also include the field --resource-port in the login command.
+>
 
 1. Once you log into your target VM, the native client on your workstation will open up with your VM session (**mstsc** for RDP sessions and **ssh CLI extension** for SSH sessions).
 
