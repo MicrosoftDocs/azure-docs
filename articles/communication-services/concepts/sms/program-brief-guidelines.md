@@ -33,7 +33,7 @@ As a best practice, the program name is composed of two pieces
 - Product description
   Example: Promo alerts, SMS banking, Appointment reminders
 
-Examples of program name:
+**Examples of program name:**
 -	Contoso Promo Alerts
 -	Contoso SMS Banking
 -	Contoso Appt. Reminders
@@ -53,8 +53,8 @@ Example: 234567, 234578, 234589.
 > [!Note]
 > Short codes in the US cannot start with 1.
 
-### Message Directionality 
-This field captures the directionality of the SMS program – 1-way broadcast or 2-way SMS. In United States, 2-way SMS is mandated to honor opt-out requests from customers.
+### Directionality 
+This field captures the directionality of the SMS program – 1-way or 2-way SMS. In United States, 2-way SMS is mandated to honor opt-out requests from customers.
 
 ### Recurrence
 Programs are classified as Transactional programs or Subscription programs: 
