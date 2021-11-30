@@ -78,6 +78,7 @@ tutorial-login-logout-msal/
     └── signin.hbs
 ```
 The `views` folder contains handlebars files for the app's UI. 
+
 ## Install the dependencies 
 
 In your terminal, install the `dotenv`, `express-handlebars`, `express-session`, and `@azure/msal-node` packages by running the following commands:
@@ -100,7 +101,7 @@ npm install @azure/msal-node
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Tutorial | Authenticate users with MSAL for B2C</title>
 
-    <!-- adding Bootstrap 4 for UI components  -->
+    <!-- adding Bootstrap 5 for UI components  -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon">
@@ -458,7 +459,7 @@ The app endpoints are explained below:
     - If the app state is `APP_STATES.EDIT_PROFILE`, use the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
 
 
-## Start server 
+## Start the node server 
 To start the express server, add the following code in the `index.js` file:
 ```javascript
 app.listen(process.env.SERVER_PORT, () => {
