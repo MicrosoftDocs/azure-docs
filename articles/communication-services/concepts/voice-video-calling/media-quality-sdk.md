@@ -14,13 +14,13 @@ ms.subservice: calling
 ---
 
 # Media quality statistics 
-When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low level audio, video, and screen sharing quality metrics.
+When working with calls in Azure Communication Services, there will be times that you need to know the media quality statistics that are being generated within an ACS call. To help understand these details, we have a feature called "Media quality statistics" that you can use to examine the low-level audio, video, and screen-sharing quality metrics.
 
 ### Media quality statistics for ongoing call
 > **NOTE**
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview ('beta') for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-Media quality stats is an extended feature of the core `Call` API. You first need to obtain the MediaStats feature API object:
+Media quality statistics is an extended feature of the core `Call` API. You first need to obtain the MediaStats feature API object:
 
 ```js
 const mediaStatsFeature = call.feature(Features.MediaStats);
@@ -35,7 +35,7 @@ const mediaStatsCollectorOptions: SDK.MediaStatsCollectorOptions = {
 };
 ```
 
-where
+Where
 - `aggregationInterval` is the interval in seconds that the statistics will be aggregated. 
 - `dataPointsPerAggregation` defines how many data points are needed for each aggregation.
 
@@ -49,7 +49,7 @@ The media stats `mediaStatsEmmitted` will be raised every 60 seconds and will co
 
 - If you set `aggregatinInterval` == 60
 - `dataPointsPerAggregation` == 1
-The media stats `mediaStatsEmmitted` will be raised every 60 second and will contain 1 unique unit for each stat recorded.
+The media stats `mediaStatsEmmitted` will be raised every 60 seconds and will contain 1 unique unit for each stat recorded.
 
 As a developer you can invoke the `startCollector` method of `mediaStatsApi` with optional `mediaStatsSubscriptionOptions`.
 
@@ -84,7 +84,7 @@ If you want to collect this data for off-line inspection (after a call ends) it 
 ### Bandwidth metrics
 | Metric Name    | Purpose              | Detailed explanation                                                    | Comments                                                                      |
 | -------------- | -------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| SentBWEstimate | Bandwidth estimation | Average video bandwidth allocated for the channel bps (bits per second) | 1.5 MBps or higher is recommended for high quality video for upload/download. |
+| SentBWEstimate | Bandwidth estimation | Average video bandwidth allocated for the channel bps (bits per second) | 1.5 MBps or higher is recommended for high-quality video for upload/download. |
 
 
 ### Audio quality metrics
@@ -98,9 +98,9 @@ If you want to collect this data for off-line inspection (after a call ends) it 
 | audioSendPacketsLost      | Sent packet loss             | The number of audio packets sent that were lost (not received) in the last second.  Results are packets per second (over the last second).                                            | Lower is better.                                             |
 | audioRecvPackets          | Received packets             | The number of audio packets received in the last second. Results are packets per second (over the last second).                                                                       | Information only.                                            |
 | audioSendCodecName        | Sent codec                   | Audio CODEC used.                                                                                                                                                                     | Information only.                                            |
-| audioSendRtt              | Send Round Trip Time         | Rount trip time between your system and ACS server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
-| audioSendPairRtt          | Send Pair Round Trip Time    | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
-| audioRecvPairRtt          | Receive Pair Round Trip Time | Round trip time for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
+| audioSendRtt              | Send Round-Trip Time         | Round trip time between your system and ACS server. Results are in milliseconds (ms).                                                                                                   | A round trip time of 200 ms or less is recommended.          |
+| audioSendPairRtt          | Send Pair Round-Trip Time    | Round trip time for entire transport. Results are in milliseconds (ms).                                                                                                                           | A round trip time of 200 ms or less is recommended.          |
+| audioRecvPairRtt          | Receive Pair Round-Trip Time | Round trip time for entire transport Results are in milliseconds (ms).                                                                                                                            | A round trip time of 200 ms or less is recommended.          |
 | audioSendAudioInputLevel  | Input level for microphone   | Sent audio playout level. If source data is between 0-1,  media stack multiplies it with 0xFFFF. Depends on microphone. Used to confirm if microphone is silent (no incoming energy). | Microphone input level.                                      |
 | audioRecvAudioOutputLevel | Speaker output level.        | Received audio playout level.  If source data is between 0-1,  media stack multiplies it with 0xFFFF.                                                                                 | Speaker output level.                                        |
 
@@ -115,9 +115,9 @@ If you want to collect this data for off-line inspection (after a call ends) it 
 | videoSendPackets               | Sent packets                     | The number of video packets sent. Results are packets per second (over the last second).                                                 | Information only                                                                                 |
 | VideoSendCodecName             | Sent codec                       | Video CODEC used for encoding video                                                                                                      | VP8 (1:1 calls) and H264                                                                         |
 | videoRecvJitterBufferMs        | Received Jitter                  | Jitter is the amount of difference in packet delay (in milliseconds (ms))                                                                | Lower is better.                                                                                 |
-| videoSendRtt                   | Send Round Trip Time             | Response time between your system and ACS server. Lower is better                                                                        | A round trip time of 200 ms or less is recommended.                                              |
-| videoSendPairRtt               | Send Pair Round Trip Time        | Response time between your system and ACS server. Results are in milliseconds (ms).                                                      | A round trip time of 200 ms or less is recommended.                                              |
-| videoRecvPairRtt               | Receive Pair Round Trip Time     | Rtt for entire transport. Results are in milliseconds (ms).                                                                              | A round trip time of 200 ms or less is recommended.                                              |
+| videoSendRtt                   | Send Round-Trip Time             | Response time between your system and ACS server. Lower is better                                                                        | A round trip time of 200 ms or less is recommended.                                              |
+| videoSendPairRtt               | Send Pair Round-Trip Time        | Response time between your system and ACS server. Results are in milliseconds (ms).                                                      | A round trip time of 200 ms or less is recommended.                                              |
+| videoRecvPairRtt               | Receive Pair Round-Trip Time     | Round trip time for entire transport. Results are in milliseconds (ms).                                                                              | A round trip time of 200 ms or less is recommended.                                              |
 | videoRecvFrameRateReceived     | Received frame rate              | Frame rate of video currently received                                                                                                   | 25-30 fps (360p or better)<br>8-15 fps (270p or lower)                                           |
 | videoRecvFrameWidthReceived    | Received width                   | Width of video currently received                                                                                                        | 1920, 1280, 960, 640, 480, 320                                                                   |
 | videoRecvFrameHeightReceived   | Received height                  | Height of video currently received                                                                                                       | 1080, 720, 540, 360, 270, 240                                                                    |
