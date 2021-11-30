@@ -13,7 +13,7 @@ ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2021
+ms.date: 11/15/2021
 ms.author: amverma 
 ms.custom: devx-track-azurepowershell
 
@@ -38,6 +38,10 @@ This extension supports the following OS distros, depending on driver support fo
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
+
+> [!NOTE]
+> The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC. While the exension is being updated with this end-of-support for NC, please install CUDA drivers manually for K80 cards on the NC-series.
+
 
 ### Internet connectivity
 

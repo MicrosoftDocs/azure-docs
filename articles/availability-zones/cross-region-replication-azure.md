@@ -37,7 +37,7 @@ Architecting cross-regional replication for your services and data can be decide
 - **Region recovery sequence**: If a geography-wide outage occurs, recovery of one region is prioritized out of every enabled set of regions. Applications that are deployed across enabled region sets are guaranteed to have one of the regions prioritized for recovery. If an application is deployed across regions, any of which isn't enabled for cross-regional replication, recovery can be delayed.
 - **Sequential updating**: Planned Azure system updates for your enabled regions are staggered chronologically to minimize downtime, impact of bugs, and any logical failures in the rare event of a faulty update.
 - **Physical isolation**: Azure strives to ensure a minimum distance of 300 miles (483 kilometers) between datacenters in enabled regions, although it isn't possible across all geographies. Datacenter separation reduces the likelihood that natural disaster, civil unrest, power outages, or physical network outages can affect multiple regions. Isolation is subject to the constraints within a geography, such as geography size, power or network infrastructure availability, and regulations.
-- **Data residency**: Regions reside within the same geography as their enabled set (except for Brazil South and Singapore) to meet data residency requirements for tax and law enforcement jurisdiction purposes.
+- **Data residency**: Regions reside within the same geography as their enabled set (except for Brazil South and Singapore) to meet data residency requirements for tax and law enforcement jurisdiction purposes. 
 
 ## Azure cross-region replication pairings for all geographies
 
@@ -61,11 +61,12 @@ Regions are paired for cross-region replication based on proximity and other fac
 | India |Central India |South India |
 | India |West India |South India |
 | Japan |Japan East |Japan West |
-| Korea |Korea Central |Korea South |
+| Korea |Korea Central |Korea South\* |
 | North America |East US |West US |
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
+| North America |West US 3 |East US |
 | Norway | Norway East | Norway West\* |
 | South Africa | South Africa North |South Africa West\* |
 | Switzerland | Switzerland North |Switzerland West\* |

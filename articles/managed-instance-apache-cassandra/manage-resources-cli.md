@@ -138,6 +138,8 @@ clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
 dataCenterLocation='eastus2'
 delegatedSubnetId='/subscriptions/<SubscriptionID>/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet'
+virtualMachineSKU='Standard_D8s_v4'
+noOfDisksPerNode=4
 
 az managed-cassandra datacenter create \
     --resource-group $resourceGroupName \
@@ -146,7 +148,28 @@ az managed-cassandra datacenter create \
     --data-center-location $dataCenterLocation \
     --delegated-subnet-id $delegatedSubnetId \
     --node-count 3 
+    --sku $virtualMachineSKU \
+    --disk-capacity $noOfDisksPerNode \
+    --availability-zone false
 ```
+
+> [!NOTE]
+> The value for `--sku` can be chosen from the following available SKUs:
+>
+> - Standard_E8s_v4
+> - Standard_E16s_v4 
+> - Standard_E20s_v4
+> - Standard_E32s_v4 
+> - Standard_DS13_v2
+> - Standard_DS14_v2
+> - Standard_D8s_v4
+> - Standard_D16s_v4
+> - Standard_D32s_v4 
+> 
+> Note also that `--availability-zone` is set to `false`. To enable availability zones, set this to `true`. Availability zones increase the availability SLA of the service. For more details, review the full SLA details [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/).
+
+> [!WARNING]
+> Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
 ### <a id="delete-datacenter"></a>Delete a datacenter
 
@@ -189,7 +212,6 @@ Update or scale a datacenter (to scale change nodeCount value) by using the [az 
 resourceGroupName='MyResourceGroup'
 clusterName='cassandra-hybrid-cluster'
 dataCenterName='dc1'
-dataCenterLocation='eastus'
 
 az managed-cassandra datacenter update \
     --resource-group $resourceGroupName \
@@ -203,11 +225,13 @@ az managed-cassandra datacenter update \
 Change Cassandra configuration on a datacenter by using the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#az_managed_cassandra_datacenter_update) command. You will need to base64 encode the YAML fragment by using an [online tool](https://www.base64encode.org/). The following YAML settings are supported:
 
 - column_index_size_in_kb
+- allocate_tokens_for_keyspace
 - compaction_throughput_mb_per_sec
 - read_request_timeout_in_ms
 - range_request_timeout_in_ms
 - aggregated_request_timeout_in_ms
 - write_request_timeout_in_ms
+- request_timeout_in_ms
 - internode_compression
 - batchlog_replay_throttle_in_kb
 

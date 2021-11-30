@@ -213,7 +213,12 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 12. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
 
-13. Select **Next: Workspace >**.
+13. Under **Post update custom configuration**, you can enter the location of an Azure Resource Manager template to perform custom configurations on your session hosts after you create them. You'll need to enter the URLs for both the Azure Resource Manager template file and the Azure Resource Manager template parameter file. 
+
+      >[!NOTE]
+      >Azure Virtual Desktop doesn't support provisioning Azure resources in the template.
+
+14. Select **Next: Workspace >**.
 
 ### [Azure CLI](#tab/azure-cli)
 

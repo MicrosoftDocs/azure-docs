@@ -18,6 +18,8 @@ ms.service: azure-communication-services
 
 ## Setting up
 
+### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+
 ### Creating an Android app with an empty activity
 
 In Android Studio, create a new project and select the `Empty Activity`.
@@ -59,12 +61,10 @@ dependencies {
 }
 ```
 
-In your project setting level (**app folder**) `settings.gradle`, add the following lines to the repositories.
+In your project gradle scripts add following lines to `repositories`. For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`. If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
+repositories {
         ...
         maven {
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
@@ -79,7 +79,6 @@ dependencyResolutionManagement {
         }
         ...
     }
-}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -216,8 +215,6 @@ Build and start application from Android Studio.
 - Accept audio permissions and select device, mic, and video settings.
 - Click `Join Call`.
 
-## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start)
-
 ![Launch](../../media/composite-android.gif)
 
 ## Object Model
@@ -286,9 +283,7 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 ### Group Call
 
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-
 Replace `"GROUP_CALL_ID"` with your group ID for your call.
-
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -316,8 +311,7 @@ GroupCallOptions options = new GroupCallOptions(
 ### Teams Meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with your group ID for your call.
-
+Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -411,7 +405,7 @@ To change the primary color of composite, create a new theme style in `src/main/
 ```kotlin
 import com.azure.android.communication.ui.configuration.ThemeConfiguration
 
-val communicationCallComposite: CallComposite =
+val callComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
             .build()

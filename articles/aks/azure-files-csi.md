@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) drivers for Azure Files on Azure Ku
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 11/18/2021
 author: palma21
 
 ---
@@ -21,7 +21,7 @@ To create an AKS cluster with CSI driver support, see [Enable CSI drivers for Az
 
 ## Use a persistent volume with Azure Files
 
-A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB) protocol][smb-overview]. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share](azure-files-volume.md).
+A [persistent volume (PV)](concepts-storage.md#persistent-volumes) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Files to connect by using the [Server Message Block (SMB)][smb-overview] or NFS protocol. This article shows you how to dynamically create an Azure Files share for use by multiple pods in an AKS cluster. For static provisioning, see [Manually create and use a volume with an Azure Files share](azure-files-volume.md).
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
@@ -34,6 +34,7 @@ A storage class is used to define how an Azure Files share is created. A storage
 * **Standard_ZRS**: Standard zone-redundant storage
 * **Standard_RAGRS**: Standard read-access geo-redundant storage
 * **Premium_LRS**: Premium locally redundant storage
+* **Premium_ZRS**: Premium zone-redundant storage
 
 > [!NOTE]
 > Azure Files supports Azure Premium Storage. The minimum premium file share is 100 GB.
@@ -254,7 +255,10 @@ kubectl apply -f private-pvc.yaml
 
 [Azure Files supports the NFS v4.1 protocol](../storage/files/storage-files-how-to-create-nfs-shares.md). NFS 4.1 support for Azure Files provides you with a fully managed NFS file system as a service built on a highly available and highly durable distributed resilient storage platform.
 
- This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
+This option is optimized for random access workloads with in-place data updates and provides full POSIX file system support. This section shows you how to use NFS shares with the Azure File CSI driver on an AKS cluster.
+
+> [!NOTE]
+> Make sure cluster `Control plane` identity(with name `AKS Cluster Name`) has `Contributor` permission on vnet resource group.
 
 ### Create NFS file share storage class
 

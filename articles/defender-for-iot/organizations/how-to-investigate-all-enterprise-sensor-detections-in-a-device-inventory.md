@@ -1,7 +1,7 @@
 ---
 title: Learn about devices discovered by all enterprise sensors
 description: Use the device inventory in the on-premises management console to get a comprehensive view of device information from connected sensors. Use import, export, and filtering tools to manage this information. 
-ms.date: 12/02/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -20,7 +20,7 @@ The following table describes the table columns in the device inventory.
 | **Region** | The region that contains this device. |
 | **Site** | The site that contains this device. |
 | **Zone** | The zone that contains this device. |
-| **Appliance** | The Azure Defender for IoT sensor that protects this device. |
+| **Appliance** | The Microsoft Defender for IoT sensor that protects this device. |
 | **Name** | The name of this device as Defender for IoT discovered it. |
 | **Type** | The type of device, such as PLC or HMI. |
 | **Vendor** | The name of the device's vendor, as defined in the MAC address. |

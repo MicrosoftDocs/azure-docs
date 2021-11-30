@@ -73,11 +73,6 @@
         "redirect_document_id": false
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/configure-azure-rbac.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/configure-azure-rbac",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/configure-cross-origin-resource-sharing.md",
         "redirect_url": "/azure/healthcare-apis/fhir/configure-cross-origin-resource-sharing",
         "redirect_document_id": true
@@ -222,12 +217,7 @@
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/access-fhir-postman-tutorial",
         "redirect_document_id": true
     },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac.md",
-        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac",
-        "redirect_document_id": true
-    },
-    {
+   {
         "source_path_from_root": "/articles/healthcare-apis/fhir/configure-database.md",
         "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/configure-database",
         "redirect_document_id": true
@@ -457,5 +447,50 @@
         "redirect_url": "/azure/healthcare-apis/security-controls-policy",
         "redirect_document_id": true
     },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/azure-active-directory-identity-configuration.md",
+        "redirect_url": "/azure/healthcare-apis/authentication-authorization",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-service-access-token-validation.md",
+        "redirect_url": "/azure/healthcare-apis/get-access-token",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/get-healthcare-apis-access-token-cli.md",
+        "redirect_url": "/azure/healthcare-apis/get-access-token",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-get-access-token-azure-cli.md",
+        "redirect_url": "/azure/healthcare-apis/get-access-token",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-service-client-application.md",
+        "redirect_url": "/azure/healthcare-apis/register-application",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-public-application.md",
+        "redirect_url": "/azure/healthcare-apis/register-application",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-register-confidential-client-application.md",
+        "redirect_url": "/azure/healthcare-apis/register-application",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/dicom/dicom-configure-azure-rbac.md",
+        "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/fhir/configure-azure-rbac-for-fhir.md",
+        "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
+        "redirect_document_id": false
+    }
   ]
 }

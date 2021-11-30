@@ -76,12 +76,14 @@ Using AKS with an HTTP proxy is done at cluster creation, using the [az aks crea
 The schema for the config file looks like this:
 
 ```json
-"httpProxy": "string",
-"httpsProxy": "string",
-"noProxy": [
+{
+  "httpProxy": "string",
+  "httpsProxy": "string",
+  "noProxy": [
     "string"
-],
-"trustedCa": "string"
+  ],
+  "trustedCa": "string"
+}
 ```
 
 `httpProxy`: A proxy URL to use for creating HTTP connections outside the cluster. The URL scheme must be `http`.
@@ -93,13 +95,15 @@ Example input:
 Note the CA cert should be the base64 encoded string of the PEM format cert content.
 
 ```json
-"httpProxy": "http://myproxy.server.com:8080/", 
-"httpsProxy": "https://myproxy.server.com:8080/", 
-"noProxy": [
-   "localhost",
-   "127.0.0.1"
-],
-"trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+{
+  "httpProxy": "http://myproxy.server.com:8080/", 
+  "httpsProxy": "https://myproxy.server.com:8080/", 
+  "noProxy": [
+    "localhost",
+    "127.0.0.1"
+  ],
+  "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
+}
 ```
 
 Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename via the `http-proxy-config` flag.

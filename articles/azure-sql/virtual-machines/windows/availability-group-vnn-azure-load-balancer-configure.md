@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/14/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 
@@ -20,7 +20,10 @@ ms.reviewer: mathoma
 # Configure load balancer for AG VNN listener
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) listener for the Always On availability group (AG). 
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
+
+On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) listener for the Always On availability group (AG) when the SQL Server VMs are in a single subnet. 
 
 This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [availability group (AG) listener](availability-group-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
