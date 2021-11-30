@@ -14,11 +14,13 @@ ms.subservice: B2C
 ---
 
 # Tutorial: Sign in and sign out users in a Node.js Express web app
-In this tutorial, you will build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to allow users to:
+In this tutorial, you will build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to allow users use their local account to:
 - Sign in 
 - Sign out
 - Update profile
 - Reset password  
+
+You will optionally allow  users to authenticate using their Google account. 
 
 Follow the steps in this tutorial to:
 
@@ -54,6 +56,8 @@ Complete the steps in [Tutorial: Create user flows and custom policies in Azure 
 - A combined **Sign up and Sign up** user flow, such as `susi_node_app`. This user flow also supports **Forgot your password** experience
 - **Profile editing** user flow such as `edit_profile_node_app`.
 - **Password reset** user flow such as `reset_password_node_app`.
+
+Azure AD B2C pre-appends `B2C_1_` to the user flow name. For example, `susi_node_app` becomes `B2C_1_susi_node_app`.
 
 ## Create the node project
 
@@ -195,13 +199,13 @@ Modify the values in the `.env` files as follows:
 - `client-id`: The **Application (client) ID** of the application you registered.
 - `session-secret`: A random string to be used as your express session secret. 
 - `client-secret`: Replace this value with the client secret you created earlier.
-- `tenant-name`: Replace this with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name).
+- `tenant-name`: Replace this with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
 - `susi-flow`: The **Sign up and Sign up** user flow such as `b2c_1_susi_node_app`.
 - `reset-password-flow`: The **Password reset** user flow such as `b2c_1_reset_password_node_app`. 
 - `edit-profile-flow`: The **Profile editing** user flow such as `b2c_1_edit_profile_node_app`.
 
 >[!WARNING]
-> Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials]() instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
+> Any plaintext secret in source code poses an increased security risk. This tutorial uses a plaintext client secret for simplicity. Use [Certificate credentials]() instead of client secrets in your confidential client applications, especially for the apps you intend to deploy to production.
 
 2. In your `index.js` file, add the following code to use your app dependencies: 
 
@@ -431,11 +435,64 @@ The app endpoints are explained below:
     - It renders the `signin` page.
 - `/signin`:
     - Used when the end user signs in.
-    - Calls `getAuthCode` method and passes the `authority` for **Sign in and sign up** user flow/policy to it, `APP_STATES.LOGIN` and empty `scopes` array.  
+    - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy to it, `APP_STATES.LOGIN` and empty `scopes` array.  
     - If necessary, it causes the end user to be challenged to enter their logins or if the user does not have an account, they to sign up.
-    - A final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
+    - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
 - `/password`:
     - Used when a user resets password.
-    - Calls `getAuthCode` method and passes the `authority` for **Password reset** user flow/policy to it, `APP_STATES.PASSWORD_RESET` and empty `scopes` array.
-    - It causes the end user to to be challenged to change their password or they can cancel the operation.
-    - A final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint or if the end user canceled the operation, an error is posted back.  
+    - Calls `getAuthCode()` method and passes the `authority` for **Password reset** user flow/policy to it, `APP_STATES.PASSWORD_RESET` and empty `scopes` array.
+    - It causes the end user to change their password using password reset experience or they can cancel the operation.
+    - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint or if the end user canceled the operation, an error is posted back. 
+- `/profile`: 
+    - Used when a user update profile.
+    - Calls `getAuthCode()` method and passes the `authority` for **Profile editing** user flow/policy to it, `APP_STATES.EDIT_PROFILE` and empty `scopes` array.
+    - It causes the end user to update their profile using the profile editing experience. 
+    - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
+- `/signout`:
+    - Used when a user signs out.
+    - The web app session is cleared and an http call is made to Azure AD B2c logout endpoint. 
+- `/redirect`:
+    - It uses the the `state` query parameter in Azure AD B2C's request to it to differentiate between requests, which were made from the web app. It handles all redirect from Azure AD B2C except for sign out.
+    - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. This token includes an `idToken` and `idTokenClaims`, which used for user identification.
+    - If the app state is `APP_STATES.PASSWORD_RESET`, handle any error such `user cancelled the operation` identified by error code `AADB2C90091`. Otherwise, you need to decide the next user experience. 
+    - If the app state is `APP_STATES.EDIT_PROFILE`, use the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
+
+
+## Start server 
+To start the express server, add the following code in the `index.js` file:
+```javascript
+app.listen(process.env.SERVER_PORT, () => {
+    console.log(`Msal Node Auth Code Sample app listening on port !` + process.env.SERVER_PORT);
+});
+```
+
+## Test your web app
+1. In your terminal, run the following to start the Node.js web server:
+```
+node index.js
+``` 
+2. In your browser, navigate to `http://localhost:3000` or `http://localhost:<port>`, where <port> is the port that your web server is listening on. You should see the page with a **Sign in** button.
+
+:::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-login-page.png" alt-text="Node web app sign in page.":::
+
+### Test sign in
+1. After the page with a **Sign in** button completes loading, select the **Sign in**. You're prompted to sign in.
+1. Enter your sign in credentials such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you've an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the page with sign in status as shown below.
+
+ :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-dashboard-page.png" alt-text="Node web app signed in status.":::
+
+### Test edit profile
+1. After you sign in, select **Edit profile**. 
+1. Enter new changes as desired, and then select Continue. You should see the page with sign in status showing the new changes such the Given name. 
+
+### Test password reset
+1. After you sign in, select **Reset password**. 
+1. In the next dialog that appears, you can cancel the operation by selecting **Cancel**. Alternatively, enter your email address, and then select **Send verification code**. Azure AD B2C sends a verification code to your email account. Copy verification code from your email, enter the code in the Azure AD B2C password reset dialog, and then select **Verify code**.
+1. Select **Continue**.
+1. Enter your new password, confirm it, and then select **Continue**. You should see the page with sign in status.
+
+### Test sign out 
+After you sign in, select **Sign out**. You should see the page with a **Sign in** button. 
+
+## Authenticate users with Google account (optional)
+
