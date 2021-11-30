@@ -45,25 +45,22 @@ Before you use this RP to create orders, your Azure subscription must be registe
 
 ### Create orders
 
-You can create an Edge Hardware Center order via the Azure portal or via the Azure PowerShell, Azure CLI, or SDK. To create an order via Azure portal, see [Create an Edge Hardware Center order in the Azure portal](azure-edge-hardware-center-order.md).  
+You can create an Edge Hardware Center order via the Azure portal or via the Azure PowerShell, Azure CLI, or SDK. To create an order via Azure portal, see [Create an Edge Hardware Center order in the Azure portal](azure-edge-hardware-center-create-order.md).  
 
 The independent Edge Hardware Center RP decouples the ordering process from that of the resource creation for the service which is managed by the device management RP. For example, you'll create an order for Azure Stack Edge order using the Edge Hardware Center RP. You'll then create a separate resource for Azure Stack Edge using the Azure Stack Edge device management RP. The service resource is used to activate the Azure Stack Edge device.
 
-For more information, see [Create an Azure Stack Edge resource after you place the order via the Edge Hardware Center]().
+For more information, see [Create an Azure Stack Edge resource after you place the order via the Edge Hardware Center](../databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-edge-hardware-center#create-a-management-resource-for-each-device).
 
 ### Track orders
 
-The Edge Hardware Center RP also integrates with the third-party shipment APIs for the following providers:
-- UPS
-- DHL
-- TMC
+The Edge Hardware Center RP also integrates with the third-party shipment APIs for the providers such as UPS, DHL, and TMC.
 
-You can track the status of the order that you created through its lifecycle.
-For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). You can also enable alerts to receive email notifications if the order status changes.
+You can track the status of the order that you created through its lifecycle. You can also enable alerts to receive email notifications if the order status changes.
+For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
 
 ## Region availability
 
-The Edge Hardware Center service is available in East US, West Europe and South East Asia for Azure public cloud. The orders created by Edge Hardware Center can be used to deploy devices in Azure Government, Azure Government Secret, and Azure Government Top Secret.
+The Edge Hardware Center service is available in East US, West Europe, and South East Asia for Azure public cloud. The orders created by Edge Hardware Center can also be used to deploy devices in Azure Government, Azure Government Secret, and Azure Government Top Secret.
 
 ## Data residency
 

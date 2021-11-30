@@ -54,4 +54,4 @@ landingContent:
           - text: Azure Edge Hardware Center ordering issues
             url: azure-edge-hardware-center-troubleshoot-order.md
           - text: Open Support ticket
-            url: azure-stack-edge-contact-microsoft-support.md
+            url: ../databox-online/azure-stack-edge-contact-microsoft-support.md
