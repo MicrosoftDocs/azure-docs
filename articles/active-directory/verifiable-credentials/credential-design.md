@@ -179,7 +179,7 @@ During the issuance flow, the user can be asked to input some self-attested info
     "vc": {
       "type": [
         "ProofOfNinjaNinja"
-      ],
+      ]
     }
   }
 
