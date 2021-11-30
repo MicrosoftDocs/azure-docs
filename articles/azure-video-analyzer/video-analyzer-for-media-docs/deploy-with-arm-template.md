@@ -7,25 +7,21 @@ ms.date: 12/01/2021
 ms.author: juliako
 ---
 
-# Tutorial: Deploy Azure Video Analyzer for Media with ARM template 
+# Tutorial: eeploy Azure Video Analyzer for Media with ARM template 
 
 ## Overview
 
-In this Quick-Start you will create an Azure Video Analyzer for Media (formerly Video Indexer) account by using ARM template (PREVIEW)
-
+In this tutorial you will create an Azure Video Analyzer for Media (formerly Video Indexer) account by using Azure Resource Manager (ARM) template (preview).  
 The resource will be deployed to your subscription and will create the Azure Video Analyzer for Media resource based on parameters defined in the avam.template file.
 
-
 > [!NOTE]
-> this sample is *not* for connecting an existing Azure Video Analyzer for Media classic account to an ARM-Based Video Analyzer for Media account.
-
-> For full documentation on Azure Video Analyzer for Media API, visit the [Developer Portal](https://aka.ms/avam-dev-portal) page.
-
+> this sample is *not* for connecting an existing Azure Video Analyzer for Media classic account to an ARM-based Video Analyzer for Media account.
+> For full documentation on Azure Video Analyzer for Media API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
 > The current API Version is "2021-10-27-preview". Check this Repo from time to time to get updates on new API Versions.
 
 ## Prerequisites
 
-* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](https://docs.microsoft.com/en-us/azure/media-services/latest/account-create-how-to).
+* An Azure Media Services (AMS) account. You can create one for free through the [Create AMS Account](../../media-services/latest/account-create-how-to.md).
 
 ## Deploy the sample
 
@@ -44,85 +40,66 @@ The resource will be deployed to your subscription and will create the Azure Vid
 2. Fill in the required parameters (see below)
 3. Run the Following Power Shell commands:
 
-* Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) cmdlet.
+    * Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
 
-```powershell
-New-AzResourceGroup -Name myResourceGroup -Location eastus
-```
+    ```powershell
+    New-AzResourceGroup -Name myResourceGroup -Location eastus
+    ```
 
-* Deploy the template to the resoruce group using the [New-AzResourceGroupDeployment](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
+    * Deploy the template to the resoruce group using the [New-AzResourceGroupDeployment](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
 
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
-```
+    ```powershell
+    New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
+    ```
 
-> **Note:**
+> [!NOTE]
 > If you would like to work with bicep format, inspect the [bicep file](avam.template.bicep) on this repo.
 
 ## Parameters
 
 ### name
 
-
 * Type: string
-
 * Description: Specifies the name of the new Azure Video Analyzer for Media account.
-
 * required: true
 
 ### location
 
-
 * Type: string
-
 * Description: Specifies the Azure location where the Azure Video Analyzer for Media account should be created.
-
 * Required: false
 
-
-> **Note:**
+> [!NOTE]
 > You need to deploy Your Azure Video Analyzer for Media account in the same location (region) as the associated Azure Media Services(AMS) resource exists.
-
 
 ### mediaServiceAccountResourceId
 
 * Type: string
-
 * Description: The Resource ID of the Azure Media Services(AMS) resource.
-
 * Required: true
-
 
 ### managedIdentityId
 
 * Type: string
-
 * Description: The Resource ID of the Managed Identity used to grant access between Azure Media Services(AMS) resource and the Azure Video Analyzer for Media account.
-
 * Required: true
-
 
 ### tags
 
-
 * Type: object
-
 * Description: Array of objects that represents custom user tags on the Azure Video Analyzer for Media account
 
- Required: false
+    Required: false
 
+### Additional notes
 
-### Notes
-
-## Reference Documentation
+## Reference documentation
 
 If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
 
-
 * [Azure Video Analyzer for Media Documentation](https://aka.ms/vi-docs)
 * [Azure Video Analyzer for Media Developer Portal](https://aka.ms/vi-docs)
-
 * After completing this tutorial, head to other Azure Video Analyzer for media Samples, described on [README.md](../../README.md)
 
 If you're new to template deployment, see:
@@ -130,3 +107,7 @@ If you're new to template deployment, see:
 * [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/)
 * [Deploy Resources with ARM Template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-powershell)
 * [Deploy Resources with Bicep and Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-cli)
+
+## Next steps
+
+[Overview](video-indexer-overview.md]
