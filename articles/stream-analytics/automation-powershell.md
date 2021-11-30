@@ -32,14 +32,14 @@ We'll discuss the overall design first, then go through the required components,
 
 For this example, we want our job to run for N minutes, before pausing it for M minutes. When the job is paused, the input data won't be consumed, accumulating upstream. After the job is started, it will catch-up with that backlog, process the data trickling in, before being shut down again.
 
-![Behavior of the auto-paused job over time](./media/automation/principle.png)
+![Diagram that illustrates the behavior of the auto-paused job over time](./media/automation/principle.png)
 
 When running, the task shouldn't stop the job until its metrics are healthy. The metrics of interest will be the input backlog and the [watermark](/azure/stream-analytics/stream-analytics-time-handling#background-time-concepts). We'll check that both are at their baseline for at least N minutes. This behavior translates to two actions:
 
 - A stopped job is restarted after M minutes
 - A running job is stopped anytime after N minutes, as soon as its backlog and watermark metrics are healthy
 
-![State diagram of the job](./media/automation/States.png)
+![Diagram that shows the possible states of the job](./media/automation/States.png)
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
@@ -244,7 +244,7 @@ The first step is to enable a **system-assigned managed identity** for the Funct
 
 Now we can grant the right permissions to that identity on the ASA job we want to auto-pause. For that, in the Portal for the **ASA job** (not the Function one), in **Access control (IAM)**, add a **role assignment** to the role *Contributor* for a member of type *Managed Identity*, selecting the name of the Function above.
 
-![Adding the managed identity to the contributor role for the ASA job](./media/automation/function-asa-role.png)
+![Screenshot of IAM settings for the ASA job](./media/automation/function-asa-role.png)
 
 In the PowerShell script, we can add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1))
 
@@ -307,7 +307,7 @@ The same way we had to install Az PowerShell locally to use the ASA commands (li
 
 To do that, we can go in `Functions` > `App files` of the Function App page, select `requirements.psd1`, and uncomment the line `'Az' = '6.*'`. For that change to take effect, the whole app will need to be restarted.
 
-![Requirements.psd1 in the Function App files](./media/automation/function-app-files.png)
+![Screenshot of the app files settings for the Function App](./media/automation/function-app-files.png)
 
 ### Creating the function
 
@@ -315,19 +315,19 @@ Once all that configuration is done, we can create the specific function, inside
 
 We'll develop in the portal, a function triggered on a timer (every minute with `0 */1 * * * *`, which [reads](/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) "*on second 0 of every 1 minute*"):
 
-![Creating a new timer trigger function in the function app](./media/automation/new-function-timer.png)
+![Screenshot of creating a new timer trigger function in the function app](./media/automation/new-function-timer.png)
 
 If needed, we can change the timer value in `Integration`, by updating the schedule:
 
-![Setting the function to run every minute](./media/automation/function-timer.png)
+![Screenshot of the integration settings of the function](./media/automation/function-timer.png)
 
 Then in `Code + Test`, we can copy our script in `run.ps1` and test it. The full script can be copied from [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/run.ps1), the business logic has been moved into a TRY/CATCH statement to generate proper errors if anything fails during processing.
 
-![Pasting the script in Function](./media/automation/function-code.png)
+![Screenshot of Code+Test for the function](./media/automation/function-code.png)
 
 We can check that everything runs fine via **Test/Run** in the `Code + Test` pane. We can also look at the `Monitor` pane, but it's always late of a couple of executions.
 
-![Output of a successful run](./media/automation/function-run.png)
+![Screenshot of the output of a successful run](./media/automation/function-run.png)
 
 ### Setting an alert on the function execution
 
@@ -393,7 +393,7 @@ Like for the function, we'll need to grant the right permissions on the ASA job 
 
 For that, in the Portal for the **ASA job** (not the Automation page), in **Access control (IAM)**, add a **role assignment** to the role *Contributor* for a member of type *Managed Identity*, selecting the name of the Automation Account above.
 
-![Adding the managed identity to the contributor role for the ASA job](./media/automation/function-asa-role.png)
+![Screenshot of IAM settings for the ASA job](./media/automation/function-asa-role.png)
 
 In the PowerShell script, we can add a check that ensures the managed identity is set properly (the final script is available [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1))
 
@@ -419,7 +419,7 @@ In the portal, under Process Automation, select `Runbooks`, then select `Create 
 
 We can now paste our script and test it. The full script can be copied from [here](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/Automation/Auto-pause/runbook.ps1), the business logic has been moved into a TRY/CATCH statement to generate proper errors if anything fails during processing.
 
-![Pasting the script in Automation](./media/automation/automation-code.png)
+![Screenshot of the runbook script editor in Azure Automation](./media/automation/automation-code.png)
 
 We can check that everything is wired properly in the `Test Pane`.
 
@@ -433,11 +433,11 @@ Looking at our ASA job, we can see that everything is running as expected in two
 
 In the Activity Log:
 
-![Logs of the ASA job](./media/automation/asa-logs.png)
+![Screenshot of the logs of the ASA job](./media/automation/asa-logs.png)
 
 And via its Metrics:
 
-![Metrics of the ASA job](./media/automation/asa-metrics.png)
+![Screenshot of the metrics of the ASA job](./media/automation/asa-metrics.png)
 
 Once the script is understood, it's straightforward to rework it to extend its scope. It can easily be updated to target a list of jobs instead of a single one. Larger scopes can be defined and processed via tags, resource groups, or even entire subscriptions.
 
@@ -452,6 +452,6 @@ You've learned the basics of using PowerShell to automate the management of Azur
 - [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 - [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 - [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-- [Azure Stream Analytics Management .NET SDK](/previous-versions/azure/dn889315(v=azure.100)).
+- [Azure Stream Analytics Management .NET SDK](/previous-versions/azure/dn889315(v=azure.100))
 - [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 - [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)
