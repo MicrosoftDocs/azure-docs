@@ -19,7 +19,7 @@ To authorize to Synapse SQL, you can use two authorization types:
 - Azure Active Directory authorization
 - SQL authorization
 
-Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way. Azure Synapse Analytics supports disabling local authentication such as SQL authentication both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users.
+Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way. Azure Synapse Analytics supports disabling local authentication such as SQL authentication both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
 ## Administrative accounts
 
