@@ -15,7 +15,7 @@ In this tutorial you will create an Azure Video Analyzer for Media (formerly Vid
 The resource will be deployed to your subscription and will create the Azure Video Analyzer for Media resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
-> this sample is *not* for connecting an existing Azure Video Analyzer for Media classic account to an ARM-based Video Analyzer for Media account.
+> This sample is *not* for connecting an existing Azure Video Analyzer for Media classic account to an ARM-based Video Analyzer for Media account.
 > For full documentation on Azure Video Analyzer for Media API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
 > The current API Version is "2021-10-27-preview". Check this Repo from time to time to get updates on new API Versions.
 
@@ -35,7 +35,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ### Option 2 : Deploy using PowerShell Script
 
-1. Open The [Template File](avam.template.json) file and inspect its content.
+1. Open The [template file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Samples/Create-Account/avam.template.json) file and inspect its content.
 2. Fill in the required parameters (see below)
 3. Run the Following PowerShell commands:
 
@@ -46,7 +46,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-    * Deploy the template to the resoruce group using the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
+    * Deploy the template to the resource group using the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
