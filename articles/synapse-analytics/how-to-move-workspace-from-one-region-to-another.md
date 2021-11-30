@@ -1,11 +1,12 @@
 ---
 title: Move an Azure Synapse Analytics workspace from region to another
 description: This article teaches you how to move an Azure Synapse Analytics workspace from one region to another. 
-author: phanir
-ms.service: synapse-analytics
+services: synapse-analytics 
+ms.service:  synapse-analytics 
 ms.subservice: 
 ms.topic: how-to
 ms.date: 08/16/2021
+author: phanir
 ms.author: phanir
 ms.reviewer: jrasnick
 ---
@@ -120,7 +121,7 @@ New-AzSynapseWorkspace -ResourceGroupName $resourceGroupName `
                         -DefaultDataLakeStorageAccountName $storageAccountName `
                         -DefaultDataLakeStorageFilesystem $containerName `
                         -SqlAdministratorLoginCredential $creds `
-			                  -ManagedVirtualNetwork $config
+                              -ManagedVirtualNetwork $config
 ```
 
 
@@ -328,7 +329,7 @@ $pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceNa
 $databaseId = $pool.Id `
     -replace "Microsoft.Synapse", "Microsoft.Sql" `
     -replace "workspaces", "servers" `
-	-replace "sqlPools", "databases" 
+    -replace "sqlPools", "databases" 
  
 
 $restoredPool = Restore-AzSynapseSqlPool -FromRestorePoint `
@@ -472,7 +473,7 @@ To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure
 Upload all required workspace packages to the new workspace. To automate the process of uploading the workspace packages, see the [Microsoft Azure Synapse Analytics Artifacts client library](https://www.nuget.org/packages/Azure.Analytics.Synapse.Artifacts/1.0.0-preview.10).
 
 ## Step 11: Permissions
-	
+    
 To set up the access control for the target region Azure Synapse workspace, follow the steps in [How to set up access control for your Azure Synapse workspace](security/how-to-set-up-access-control.md). 
 
 
