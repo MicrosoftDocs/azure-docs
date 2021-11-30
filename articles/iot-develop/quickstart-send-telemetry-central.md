@@ -1,6 +1,6 @@
 ---
 title: Quickstart - connect a device and send telemetry to Azure IoT Central
-description: "This quickstart shows device developers how to connect a device securely to Azure IoT Central. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to run a client app on a PC or Raspberry Pi running Raspbian, then you connect and send telemetry."
+description: "This quickstart shows device developers how to connect a device securely to Azure IoT Central. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi (Raspbian), then you connect and send telemetry."
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
