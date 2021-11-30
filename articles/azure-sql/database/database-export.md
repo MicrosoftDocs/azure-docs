@@ -24,6 +24,7 @@ When you need to export a database for archiving or for moving to another platfo
 - If you are exporting to blob storage, the maximum size of a BACPAC file is 200 GB. To archive a larger BACPAC file, export to local storage.
 - Exporting a BACPAC file to Azure premium storage using the methods discussed in this article is not supported.
 - Storage behind a firewall is currently not supported.
+- Immutable storage is currently not supported.
 - Storage file name or the input value for StorageURI should be less than 128 characters long and cannot end with '.' and cannot contain special characters like a space character or '<,>,*,%,&,:,\,/,?'. 
 - If the export operation exceeds 20 hours, it may be canceled. To increase performance during export, you can:
 

@@ -21,7 +21,7 @@ This guide shows how to mount Azure Storage Files as a network share in a Window
 
 ::: zone pivot="container-linux"
 
-This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. The benefits of custom-mounted storage include:
+This guide shows how to mount Azure Storage as a network share in a built-in Linux container or a custom Linux container in App Service. See the video [how to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y). The benefits of custom-mounted storage include:
 
 ::: zone-end
 
@@ -94,6 +94,7 @@ The following features are supported for Linux containers:
 - FTP/FTPS access to custom-mounted storage is not supported (use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)).
 - Azure CLI, Azure PowerShell, and Azure SDK support is in preview.
 - Mapping `/` or `/home` to custom-mounted storage is not supported.
+- Don't map the custom storage mount to `/tmp` or its subdirectories as this may cause timeout during app startup.
 - Storage mounts cannot be used together with clone settings option during [deployment slot](deploy-staging-slots.md) creation.
 - Storage mounts are not backed up when you [back up your app](manage-backup.md). Be sure to follow best practices to back up the Azure Storage accounts. 
 
@@ -243,5 +244,6 @@ To validate that the Azure Storage is mounted successfully for the app:
 ::: zone pivot="container-linux"
 
 - [Configure a custom container](configure-custom-container.md?pivots=platform-linux).
+- [Video: How to mount Azure Storage as a local share](https://www.youtube.com/watch?v=OJkvpWYr57Y).
 
 ::: zone-end

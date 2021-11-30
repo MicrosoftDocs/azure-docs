@@ -74,6 +74,13 @@ Monitor how your Bandwidth usage change over time using [an example `BandwidthLo
 
 To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](cache-best-practices-development.md#large-request-or-response-size).
 
+## High client connections
+
+Client connections reaching the maximum for the cache can cause failures in client requests for connections beyond the maximum, and can also cause high server CPU usage on the cache due to processing repeated reconnection attempts.
+
+High client connections may indicate a connection leak in client code.  Connections may not be getting re-used or closed properly.  Review client code for connection use.
+
+If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit may be required.
 
 ## Additional information
 

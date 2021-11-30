@@ -6,13 +6,11 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.workload: identity
 ms.date: 04/28/2021
 ms.author: rolyon
-
 #Customer intent: As a new user, I want to see how to grant access to resources by using Azure Resource Manager template so that I can start automating role assignment processes.
-
 ---
 
 # Quickstart: Assign an Azure role using an ARM template

@@ -22,7 +22,7 @@ To complete this exercise, you need:
 * At least one application already created in your service instance.
 * At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
 
-Users can follow the [deployment doc](https://docs.microsoft.com/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) to config JVM-based application startup parameters. We will give several examples in the following section. **What you need to do is adding the parameter in jvm-options.**
+Users can follow the [deployment doc](/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) to config JVM-based application startup parameters. We will give several examples in the following section. **What you need to do is adding the parameter in jvm-options.**
 
 ## Generate a heap dump when out of memory
 ```heap dump when OOM
@@ -82,7 +82,3 @@ Or customer may use the commands below to append the persistent storage.
 ```
    
    If customers want to have the dump under their own Azure file given above, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path". If customers want to use path under mount path, please ensure that the sub-path have already been created.
-
-
-
-
