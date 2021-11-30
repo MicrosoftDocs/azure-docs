@@ -37,8 +37,8 @@ Before you delete a resource such as Azure Arc-enabled SQL Managed Instance or d
 
 2. Ensure all the data services that have been create on the data controller are uninstalled as described in:
 
-     - [Delete Azure Arc-enabled SQL Managed Instance](delete-managed-instance.md)
-     - [Delete an Azure Arc-enabled PostgreSQL Hyperscale server group](delete-postgresql-hyperscale-server-group.md).
+        - [Delete Azure Arc-enabled SQL Managed Instance](delete-managed-instance.md)
+        - [Delete an Azure Arc-enabled PostgreSQL Hyperscale server group](delete-postgresql-hyperscale-server-group.md).
 
 
 After deleting any existing instances of Azure Arc-enabled SQL Managed Instances and/or Azure Arc-enabled Postgres Hyperscale Server groups, delete the data controller using one of the appropriate method for connectivity mode.
