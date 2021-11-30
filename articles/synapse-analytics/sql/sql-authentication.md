@@ -226,7 +226,7 @@ When managing logins and users in SQL Database, consider the following points:
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
-- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure Active Directory (AAD) only authentication is enabled for the Azure Synapse workspace.
+- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure AD-only authentication is enabled for the Azure Synapse workspace.
 - To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user isn't visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
 
