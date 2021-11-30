@@ -130,10 +130,6 @@ Moving forward, you should now have a search index that's ready to query using t
 
 **Search explorer** is only equipped to handle [REST API requests](/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
-> [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
->
-
 1. Click **Search explorer** on the command bar.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Search explorer command":::

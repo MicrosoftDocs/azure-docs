@@ -74,7 +74,6 @@ For more information about resolving PSP problems, see these blog posts:
 
 - [I smell a parameter](/archive/blogs/queryoptteam/i-smell-a-parameter)
 - [Conor vs. dynamic SQL vs. procedures vs. plan quality for parameterized queries](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
-- [SQL query optimization techniques in SQL Server: Parameter sniffing](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### Compile activity caused by improper parameterization
 

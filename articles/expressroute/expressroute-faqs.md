@@ -80,7 +80,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 **Supported:**
 
-* Virtual networks, including all virtual machines and cloud services
+* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](../virtual-desktop/shortpath.md)
 
 ### Microsoft peering
 
@@ -99,7 +99,6 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * CDN
 * Azure Front Door
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps

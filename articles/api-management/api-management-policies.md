@@ -4,11 +4,11 @@ description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 # API Management policies
 This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).
@@ -80,6 +80,8 @@ This section provides a reference for the following API Management policies. For
     - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
     - [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
     - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
+- [Graph QL validation policy](graphql-validation-policies.md)
+    - [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
 ## Next steps
 For more information working with policies, see:

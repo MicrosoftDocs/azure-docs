@@ -37,10 +37,6 @@ App Service doesn't have any metrics that contain dimensions.
 
 ## Resource logs
 
-> [!NOTE]
-> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
->
-
 This section lists the types of resource logs you can collect for App Service. 
 
 | Log type | Windows | Windows Container | Linux | Linux Container | Description |

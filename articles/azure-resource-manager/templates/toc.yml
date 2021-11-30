@@ -53,6 +53,9 @@
     - name: Deploy as linked template
       displayName: template specs
       href: template-specs-deploy-linked-template.md
+    - name: Create portal form
+      href: template-specs-create-portal-forms.md
+      displayName: UI,form,blade
   - name: Advanced templates
     items:
     - name: Use template reference

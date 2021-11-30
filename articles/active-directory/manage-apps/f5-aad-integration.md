@@ -25,9 +25,7 @@ SHA addresses this blind spot by enabling organizations to continue using their 
 
 Having Azure AD pre-authenticate access to BIG-IP published services provides many benefits:
 
-- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview),
-[MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md),
-and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
+- Password-less authentication through [Windows Hello](/windows/security/identity-protection/hello-for-business/hello-overview), [MS Authenticator](https://support.microsoft.com/account-billing/download-and-install-the-microsoft-authenticator-app-351498fc-850a-45da-b7b6-27e523b8702a), [Fast Identity Online (FIDO) keys](../authentication/howto-authentication-passwordless-security-key.md), and [Certificate-based authentication](../authentication/active-directory-certificate-based-authentication-get-started.md)
 
 - Preemptive [Conditional Access](../conditional-access/overview.md) and [Azure AD Multi-Factor Authentication (MFA)](../authentication/concept-mfa-howitworks.md)
 

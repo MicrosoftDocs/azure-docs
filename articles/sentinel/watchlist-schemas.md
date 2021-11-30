@@ -5,13 +5,14 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/04/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Azure Sentinel built-in watchlist template schemas (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article details the schemas used in each built-in watchlist template provided by Azure Sentinel. For more information, see [Create a new watchlist using a template (Public preview)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 

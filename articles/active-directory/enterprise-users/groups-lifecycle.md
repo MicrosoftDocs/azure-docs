@@ -64,7 +64,7 @@ The following are roles that can configure and use expiration for Microsoft 365 
 Role | Permissions
 -------- | --------
 Global administrator, Group administrator, or User administrator | Can create, read, update, or delete the Microsoft 365 groups expiration policy settings<br>Can renew any Microsoft 365 group
-User | Can renew an Microsoft 365 group that they own<br>Can restore an Microsoft 365 group that they own<br>Can read the expiration policy settings
+User | Can renew a Microsoft 365 group that they own<br>Can restore a Microsoft 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted group, see [Restore a deleted Microsoft 365 group in Azure Active Directory](groups-restore-deleted.md).
 
@@ -113,7 +113,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 ## How to retrieve Microsoft 365 group expiration date
 
-In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
+In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of a Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
 > In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.

@@ -9,7 +9,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/19/2021
+ms.date: 10/26/2021
 ms.author: radeltch
 
 ---
@@ -1101,9 +1101,9 @@ pcs resource group add g_secip_HN1_03 secnc_HN1_03 secvip_HN1_03
 # RHEL 8.x: 
 pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
 pcs constraint location g_secip_HN1_03 rule score=50  hana_hn1_roles eq 'master1:master:worker:master'
-pcs constraint order promote  msl_SAPHana_HN1_HDB03-clone then start g_ip_HN1_03
+pcs constraint order promote  SAPHana_HN1_HDB03-clone then start g_ip_HN1_03
 pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
-pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03-clone 5
+pcs constraint colocation add g_secip_HN1_03 with Slave SAPHana_HN1_HDB03-clone 5
 
 # RHEL 7.x:
 pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq "master1:master:worker:master" and hana_hn1_clone_state eq PROMOTED
@@ -1151,7 +1151,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
 
 - When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, i.e. to  **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
 
-- When testing server crash, the second virtual IP resources (**secvip_HN1_HDB03**) and Azure load balancer port resource (**secnc_HN1_HDB03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
+- When testing server crash, the second virtual IP resources (**secvip_HN1_03**) and Azure load balancer port resource (**secnc_HN1_03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
   
 - During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
 

@@ -6,13 +6,12 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
@@ -20,6 +19,8 @@ ms.author: yelevin
 ---
 
 # Tutorial: Use playbooks with automation rules in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This tutorial shows you how to use playbooks together with automation rules to automate your incident response and remediate security threats detected by Azure Sentinel. When you complete this tutorial you will be able to:
 

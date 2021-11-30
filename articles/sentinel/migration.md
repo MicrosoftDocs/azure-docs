@@ -8,9 +8,12 @@ ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/04/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Migrate to Azure Sentinel from an existing SIEM
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Your security operations center (SOC) team will use centralized security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solutions to protect your increasingly decentralized digital estate.
 

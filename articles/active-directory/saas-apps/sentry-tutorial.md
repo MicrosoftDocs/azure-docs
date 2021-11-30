@@ -87,8 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual values Identifier, Reply URL, and Sign-on URL. For more information about finding these values, see the [Sentry documentation](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App 
-Metadata URL** value, and then save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App Metadata URL** value, and then save it on your computer.
 
    ![The Certificate download link](common/copy-metadataurl.png)
 	

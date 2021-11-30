@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/21/2021
+ms.date: 10/29/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -41,17 +41,27 @@ The next steps are determined by where you are returning the device.
 
 ## Ship Data Box back
 
-Ensure that the data copy from the device is complete and **Prepare to ship** run is successful. Based on the region where you're shipping the device, the procedure is different.
+Ensure that the data copy from the device is complete and **Prepare to ship** run is successful.
+
+Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or self-managed shipping.
+
+### Microsoft managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
 
 ## [US & Canada](#tab/in-us-canada)
 
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
-## [Europe](#tab/in-eu)
+## [EU](#tab/in-eu)
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
- **If you're shipping from Germany or Switzerland,** you can also use self-managed shipping.<!--Restor internal link after Self-Managed tab is converted to a subsection.-->
+**If you're shipping back to Azure datacenters in Germany or Switzerland,** you can also [use self-managed shipping](#self-managed-shipping).
+
+## [UK](#tab/in-uk)
+
+[!INCLUDE [data-box-shipping-in-uk](../../includes/data-box-shipping-in-uk.md)]
 
 ## [Australia](#tab/in-australia)
 
@@ -65,23 +75,25 @@ Ensure that the data copy from the device is complete and **Prepare to ship** ru
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-## [South Africa](#tab/in-sa)
-
-[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
-
 ## [Hong Kong](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
 
-## [United Arab Emirates](#tab/in-uae)
+## [Korea](#tab/in-korea)
+
+[!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
+
+## [S Africa](#tab/in-sa)
+
+[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
+
+## [UAE](#tab/in-uae)
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
-## [Self-Managed](#tab/in-selfmanaged)
+### Self-managed shipping
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
-<!--Final note in Include is part of Data Box import shipping instructions but not in Data Box export shipping instructions. Verify whether it's applicable to both. If not, move the note to Data Box import.-->
 
 ---
 

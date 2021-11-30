@@ -1,8 +1,8 @@
 ---
 title: Metadata extraction ABAP function module in SAP R3 - Azure Purview
 description: This article outlines the steps to deploy ABAP function module in SAP Server
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual

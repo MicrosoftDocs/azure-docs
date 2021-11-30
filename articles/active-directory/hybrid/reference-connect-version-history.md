@@ -23,7 +23,7 @@ You can upgrade your AADConnect server from all supported versions with the late
 
  - If you are using **Windows Server 2016 or newer** you should use **Azure AD Connect V2.0**. You can download the latest version of Azure AD Connect 2.0 using [this link](https://www.microsoft.com/en-us/download/details.aspx?id=47594). The release notes for the latest V2.0 release are [here](reference-connect-version-history.md#20280)
  - If you are still using an **older version of Windows Server** you should use **Azure AD Connect V1.6**. You can download the latest version of Azure AD Connect V1 using [this link](https://www.microsoft.com/download/details.aspx?id=103336). The release notes for the latest V1.6 release are [here](reference-connect-version-history.md#16160)
- - We are only applying critical changes to the V1 versions going forward, and you may not find some of the features and fixes for V2 in the V1 releases - so you should upgrade to the V2 version as soon as possible.
+ - We are only applying critical changes to the V1.x versions going forward, and you may not find some of the features and fixes for V2.0 in the V1.x releases - so you should upgrade to the V2.0 version as soon as possible. Most notably, support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members you need to upgrade to Azure AD Connect V2.0.
 
 This table is a list of related topics:
 
@@ -60,7 +60,7 @@ However, if you'd like all the latest features and updates, the best way to see 
 >[!NOTE] 
 >This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server. 
 >This release is not supported on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31st 2022. You will need to upgrade your Server OS and AADConnect version before that date.
->We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
+>Support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members you need to upgrade to Azure AD Connect V2.0.
 
 ### Release status
 10/13/2021: Released for download and auto upgrade.
@@ -93,6 +93,7 @@ Note: A phantom object is a placeholder for an object which is not there or has 
 >[!NOTE] 
 >This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
 >We will begin auto upgrading eligible tenants when this version is available for download, autoupgrade will take a few weeks to complete.
+>Support for the V2 endpoint is no longer available for V1.x versions. If you need to sync groups with more than 50K members you need to upgrade to Azure AD Connect V2.0.
 
 ### Release status
 9/21/2021: Released for download and auto upgrade.
@@ -304,7 +305,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
 >[!NOTE]
 > - This release will be made available for download only.
 > - The upgrade to this release will require a full synchronization due to sync rule changes.
-> - This release defaults the AADConnect server to the new V2 end point. Note that this end point is not supported in the German national cloud and if you need to deploy this version in this environment you need to follow [these instructions](./how-to-connect-sync-endpoint-api-v2.md#rollback) to switch back to the V1 end point. Failure to do so will result in errors in synchronization.
+> - This release defaults the AADConnect server to the new V2 end point.
 
 ### Release status
 3/19/2021: Released for download, not available for auto upgrade

@@ -4,9 +4,10 @@ description: Troubleshoot issues with Azure disk pools. Learn about common failu
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot Azure disk pools (preview)

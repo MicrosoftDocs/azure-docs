@@ -225,7 +225,7 @@ namespace CertificatePinningExample
 {
     class CertificatePinningExample
     {
-        /* Note: In this example, we're hardcoding a the certificate's public key and algorithm for 
+        /* Note: In this example, we're hardcoding the certificate's public key and algorithm for 
            demonstration purposes. In a real-world application, this should be stored in a secure
            configuration area that can be updated as needed. */
 

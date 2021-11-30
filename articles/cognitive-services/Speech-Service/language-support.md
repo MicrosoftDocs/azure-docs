@@ -3,19 +3,19 @@ title: Language support - Speech service
 titleSuffix: Azure Cognitive Services
 description: The Speech service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.author: pafarley
-ms.custom: references_regions
+ms.author: eur
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), and [Speech translation](#speech-translation) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-text](#speech-to-text), [Text-to-speech](#text-to-speech), [Speech translation](#speech-translation) and [Speaker Recognition](#speaker-recognition) service offerings.
 
 ## Speech-to-text
 
@@ -57,7 +57,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      | Yes                         |
 | Chinese (Taiwanese Mandarin)       | `zh-TW` | Audio (20190701, 20201015)<br>Text                 |           Yes                |                          |
 | Croatian (Croatia)                 | `hr-HR` | Text<br>Pronunciation                  |                           |                          |
-| Czech (Czech Republic)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
+| Czech (Czech)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
 | Danish (Denmark)                   | `da-DK` | Text<br>Pronunciation                  | Yes                          |                          |
 | Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text<br>Pronunciation|    Yes                       |                          |
 | English (Australia)                | `en-AU` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |                          |
@@ -478,7 +478,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 
 | Language | Locale (BCP-47) | Gender | Voice name |
 |--|--|--|--|
-| Arabic (Arabic ) | `ar-EG` | Female | `ar-EG-Hoda`|
+| Arabic (Egypt) | `ar-EG` | Female | `ar-EG-Hoda`|
 | Arabic (Saudi Arabia) | `ar-SA` | Male | `ar-SA-Naayf`|
 | Bulgarian (Bulgaria) | `bg-BG` | Male | `bg-BG-Ivan`|
 | Catalan (Spain) | `ca-ES` | Female | `ca-ES-HerenaRUS`|
@@ -491,7 +491,7 @@ More than 75 standard voices are available in over 45 languages and locales, whi
 | Chinese (Taiwanese Mandarin) |  `zh-TW` | Female | `zh-TW-Yating`|
 | Chinese (Taiwanese Mandarin) |  `zh-TW` | Male | `zh-TW-Zhiwei`|
 | Croatian (Croatia) | `hr-HR` | Male | `hr-HR-Matej`|
-| Czech (Czech Republic) | `cs-CZ` | Male | `cs-CZ-Jakub`|
+| Czech (Czech) | `cs-CZ` | Male | `cs-CZ-Jakub`|
 | Danish (Denmark) | `da-DK` | Female | `da-DK-HelleRUS`|
 | Dutch (Netherlands) | `nl-NL` | Female | `nl-NL-HannaRUS`|
 | English (Australia) | `en-AU` | Female | `en-AU-Catherine`|
@@ -571,25 +571,36 @@ Custom Voice is available in the neural tier (a.k.a, Custom Neural Voice). Based
 
 | Language | Locale | Neural | Cross-lingual |
 |--|--|--|--|
-| Bulgarian (Bulgaria)| `bg-BG` | Yes | No |
+| Arabic (Egypt) | `ar-EG` | Yes | No |
+| Bulgarian (Bulgaria) | `bg-BG` | Yes | No |
 | Chinese (Mandarin, Simplified) | `zh-CN` | Yes | Yes |
 | Chinese (Mandarin, Simplified), English bilingual | `zh-CN` bilingual | Yes | Yes |
-| Dutch (Netherlands)	| `nl-NL` | Yes | No |
+| Chinese (Taiwanese Mandarin) | `zh-TW` | Yes | No |
+| Czech (Czech) | `cs-CZ` | Yes | No |
+| Dutch (Netherlands) | `nl-NL` | Yes | No |
 | English (Australia) | `en-AU` | Yes | Yes |
+| English (Canada) | `en-CA` | Yes | No |
 | English (India) | `en-IN` | Yes | No |
+| English (Ireland) | `en-IE` | Yes | No |
 | English (United Kingdom) | `en-GB` | Yes | Yes |
 | English (United States) | `en-US` | Yes | Yes |
 | French (Canada) | `fr-CA` | Yes | Yes |
 | French (France) | `fr-FR` | Yes | Yes |
+| German (Austria) | `de-AT` | Yes | No |
 | German (Germany) | `de-DE` | Yes | Yes |
+| Hungarian (Hungary) | `hu-HU` | Yes | No |
 | Italian (Italy) | `it-IT` | Yes | Yes |
 | Japanese (Japan) | `ja-JP` | Yes | Yes |
 | Korean (Korea) | `ko-KR` | Yes | Yes |
 | Norwegian (Bokmål, Norway) | `nb-NO` | Yes | No |
 | Portuguese (Brazil) | `pt-BR` | Yes | Yes |
+| Portuguese (Portugal) | `pt-PT` | Yes | No |
 | Russian (Russia) | `ru-RU` | Yes | Yes |
+| Slovak (Slovakia) | `sk-SK` | Yes | No |
 | Spanish (Mexico) | `es-MX` | Yes | Yes |
 | Spanish (Spain) | `es-ES` | Yes | Yes |
+| Turkish (Turkey) | `tr-TR` | Yes | No |
+| Vietnamese (Vietnam) | `vi-VN` | Yes | No |
 
 Select the right locale that matches the training data you have to train a custom voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
 
@@ -698,23 +709,24 @@ The **Speech Translation** API supports different languages for speech-to-speech
 
 ## Speaker Recognition
 
-See the following table for supported languages for the various Speaker Recognition APIs. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
+Speaker recognition is mostly language agnostic. We built a universal model for text-independent speaker recognition by combining various data sources from multiple languages. We have tuned and evaluated the model on the languages and locales that appear in the following table. See the [overview](speaker-recognition-overview.md) for additional information on Speaker Recognition.
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
-|English (US)  |  en-US  |  yes  |  yes  |  yes |
-|Chinese (Mandarin, simplified) | zh-CN     |     n/a |     yes |     yes|
-|English (Australia)     | en-AU     | n/a     | yes     | yes|
-|English (Canada)     | en-CA     | n/a |     yes |     yes|
-|English (UK)     | en-GB     | n/a     | yes     | yes|
-|French (Canada)     | fr-CA     | n/a     | yes |     yes|
-|French (France)     | fr-FR     | n/a     | yes     | yes|
-|German (Germany)     | de-DE     | n/a     | yes     | yes|
-|Italian | it-IT     |     n/a     | yes |     yes|
-|Japanese     | ja-JP | n/a     | yes     | yes|
-|Portuguese (Brazil) | pt-BR |     n/a |     yes |     yes|
-|Spanish (Mexico)     | es-MX     | n/a |     yes |     yes|
-|Spanish (Spain)     | es-ES | n/a     | yes |     yes|
+|English (US)  |  `en-US`  |  yes  |  yes  |  yes |
+|Chinese (Mandarin, simplified) | `zh-CN`     |     n/a |     yes |     yes|
+|English (Australia)     | `en-AU`    | n/a     | yes     | yes|
+|English (Canada)     | `en-CA`     | n/a |     yes |     yes|
+|English (India)     | `en-IN`     | n/a |     yes |     yes|
+|English (UK)     | `en-GB`     | n/a     | yes     | yes|
+|French (Canada)     | `fr-CA`     | n/a     | yes |     yes|
+|French (France)     | `fr-FR`     | n/a     | yes     | yes|
+|German (Germany)     | `de-DE`     | n/a     | yes     | yes|
+|Italian | `it-IT`     |     n/a     | yes |     yes|
+|Japanese     | `ja-JP` | n/a     | yes     | yes|
+|Portuguese (Brazil) | `pt-BR` |     n/a |     yes |     yes|
+|Spanish (Mexico)     | `es-MX`     | n/a |     yes |     yes|
+|Spanish (Spain)     | `es-ES` | n/a     | yes |     yes|
 
 ## Custom Keyword and Keyword Verification
 

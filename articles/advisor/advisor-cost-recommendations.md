@@ -2,13 +2,21 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 09/27/2020
+ms.date: 10/29/2021
 
 ---
 
 # Reduce service costs by using Azure Advisor
 
 Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
+
+## How to access cost recommendations in Azure Advisor
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Cost** tab.
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
@@ -95,13 +103,8 @@ It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with st
 ## Reduce Azure Data Explorer table cache-period (policy) for cluster cost optimization (Preview)
 Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
-## How to access cost recommendations in Azure Advisor
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
-
-1. On the **Advisor** dashboard, select the **Cost** tab.
+## Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings does not account for any discount that may apply to your account.
 
 ## Next steps
 

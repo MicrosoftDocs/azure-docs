@@ -293,7 +293,7 @@ public TablesService(TableClient tableClient)
 
 The [TableClient](/dotnet/api/azure.data.tables.tableclient) class contains a method named [Query](/dotnet/api/azure.data.tables.tableclient.query) which allows you to select rows from the table.  In this example, since no parameters are being passed to the method, all rows will be selected from the table.
 
-The method also takes a generic parameter of type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) that specifies the model class data will be returned as. In this case, the built-in class [TableEntity](/dotnet/api/azure.data.tables.itableentity) is used, meaning the `Query` method will return a `Pageable\<TableEntity\>` collection as its results.
+The method also takes a generic parameter of type [ITableEntity](/dotnet/api/azure.data.tables.itableentity) that specifies the model class data will be returned as. In this case, the built-in class [TableEntity](/dotnet/api/azure.data.tables.itableentity) is used, meaning the `Query` method will return a `Pageable<TableEntity>` collection as its results.
 
 ```csharp
 public IEnumerable<WeatherDataModel> GetAllRows()

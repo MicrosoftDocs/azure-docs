@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,10 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot your CEF or Syslog data connector
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Azure Sentinel.
 

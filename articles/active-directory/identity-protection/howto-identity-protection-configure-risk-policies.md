@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 10/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR). 
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR).
 
 - When a user risk policy triggers: 
    - Administrators can require a secure password reset, requiring Azure AD MFA be done before the user creates a new password with SSPR, resetting the user risk. 
@@ -64,6 +64,8 @@ There are two locations where these policies may be configured, Conditional Acce
    - Use more Conditional Access attributes in policy
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
+
+Before enabling remediation policies, organizations may want to [investigate](howto-identity-protection-investigate-risk.md) and [remediate](howto-identity-protection-remediate-unblock.md) any active risks.
 
 ### User risk with Conditional Access
 

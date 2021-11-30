@@ -11,6 +11,8 @@ ms.date: 08/23/2021
 
 # Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This tutorial describes how to run the **Getting Started Guide For Azure Sentinel ML Notebooks** notebook, which sets up basic configurations for running Jupyter notebooks in Azure Sentinel and running simple data queries.
 
 The **Getting Started Guide for Azure Sentinel ML Notebooks** notebook uses MSTICPy, a Python library of Cybersecurity tools built by Microsoft, which provides threat hunting and investigation functionality.
@@ -416,7 +418,6 @@ Most queries require time parameters. Date/time strings are tedious to type in, 
 Each query provider has default start and end time parameters for queries. These time parameters are used by default, whenever time parameters are called for. You can change the default time range by opening the `query_time` control. The changes remain in effect until you change them again.
 
 Proceed to the next cell, with the following code, and run it:
-
 
 ```python
 # Open the query time control for your query provider

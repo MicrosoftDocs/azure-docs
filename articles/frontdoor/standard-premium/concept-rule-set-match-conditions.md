@@ -217,7 +217,8 @@ The **remote address** match condition identifies requests based on the requeste
     * **IPv6 example**: `1:2:3:/48` matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
 * When you specify multiple IP addresses and IP address blocks, 'OR' logic is applied.
     * **IPv4 example**: if you add two IP addresses `1.2.3.4` and `10.20.30.40`, the condition is matched for any requests that arrive from either address 1.2.3.4 or 10.20.30.40.
-    * **IPv6 example**:  if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+    * **IPv6 example**: if you add two IP addresses `1:2:3:4:5:6:7:8` and `10:20:30:40:50:60:70:80`, the condition is matched for any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
+* Remote Address represents the original client IP that is either from the network connection or typically the X-Forwarded-For request header if the user is behind a proxy.
 
 ### Properties
 

@@ -50,7 +50,7 @@ The following bullet points are more recommendations and limitations.
 - Provisioning users from LDAP to Azure AD is not supported.
 
 ## Prepare the LDAP directory
-The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
+The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information, see [Active Directory Lightweight Directory Services](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
 
 If you already have AD LDS setup in a test environment, you can skip the following sections and move to installing the ECMA Host connector section.
 

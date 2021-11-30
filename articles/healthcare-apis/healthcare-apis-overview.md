@@ -42,7 +42,7 @@ Azure Healthcare APIs now includes support for DICOM services. DICOM enables the
 
 **Incremental changes to the FHIR Service**
 
-For the secure exchange of FHIR data, Healthcare APIs offers a few incremental capabilities that available in the Azure API for FHIR. 
+For the secure exchange of FHIR data, Healthcare APIs offers a few incremental capabilities that are not available in the Azure API for FHIR. 
 * Support for Transactions: In Healthcare APIs, the FHIR service supports transaction bundles. For more information about transaction bundles, visit HL7.org and refer to batch/transaction interactions.
 * Chained Search Improvements: Chained Search & Reserve Chained Search are no longer limited by 100 items per sub query.
 

@@ -1,5 +1,5 @@
 ---
-title: Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
+title: Execute a Fail activity in Azure Data Factory and Synapse Analytics
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article discusses how a Fail activity in Azure Data Factory and Synapse Analytics intentionally throws an error in a pipeline.
 author: chez-charlie
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/22/2021
 ---
 
-# Execute a Fail activity in Azure Data Factory and Synapse Analytics (Preview)
+# Execute a Fail activity in Azure Data Factory and Synapse Analytics
 
 You might occasionally want to throw an error in a pipeline intentionally. A [Lookup activity](control-flow-lookup-activity.md) might return no matching data, or a [Custom activity](transform-data-using-dotnet-custom-activity.md) might finish with an internal error. Whatever the reason might be, now you can use a Fail activity in a pipeline and customize both its error message and error code.
 

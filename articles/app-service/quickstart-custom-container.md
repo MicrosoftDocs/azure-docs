@@ -12,13 +12,9 @@ zone_pivot_groups: app-service-containers-windows-linux
 # Run a custom container in Azure
 
 ::: zone pivot="container-windows"
-[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. The preconfigured Windows container environment locks down the operating system from administrative access, software installations, changes to the global assembly cache, and so on. For more information, see [Operating system functionality on Azure App Service](operating-system-functionality.md). If your application requires more access than the preconfigured environment allows, you can deploy a custom Windows container instead.
+[Azure App Service](overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the preconfigured application stacks [lock down the operating system and prevent low-level access](operating-system-functionality.md). Custom Windows containers do not have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
 This quickstart shows how to deploy an ASP.NET app, in a Windows image, to [Docker Hub](https://hub.docker.com/) from Visual Studio. You run the app in a custom container in Azure App Service.
-
-> [!NOTE]
-> Windows Containers is limited to Azure Files and does not currently support Azure Blob.
-
 
 ## Prerequisites
 

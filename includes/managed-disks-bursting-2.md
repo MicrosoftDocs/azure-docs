@@ -9,7 +9,7 @@
  ms.author: albecker1
  ms.custom: include file
 ---
-### On-demand bursting (preview)
+### On-demand bursting
 
 Premium SSDs using the on-demand bursting model of disk bursting can burst beyond original provisioned targets, as often as needed by their workload, up to the max burst target. For example, on a 1-TiB P30 disk, the provisioned IOPS is 5000 IOPS. When disk bursting is enabled on this disk, your workloads can issue IOs to this disk up to the max burst performance of 30,000 IOPS and 1,000 MBps.
 
@@ -66,9 +66,13 @@ VM-level bursting is enabled in all regions in the Azure Public Cloud on these s
 - [Dsv4-series](../articles/virtual-machines/dv4-dsv4-series.md)
 - [Dasv4-series](../articles/virtual-machines/dav4-dasv4-series.md)
 - [Ddsv4-series](../articles/virtual-machines/ddv4-ddsv4-series.md)
+- [Dasv5-series](../articles/virtual-machines/dasv5-dadsv5-series.md)
+- [Dadsv5-series](../articles/virtual-machines/dasv5-dadsv5-series.md)
 - [Esv4-series](../articles/virtual-machines/ev4-esv4-series.md)
 - [Easv4-series](../articles/virtual-machines/eav4-easv4-series.md)
 - [Edsv4-series](../articles/virtual-machines/edv4-edsv4-series.md)
+- [Easv5-series](../articles/virtual-machines/easv5-eadsv5-series.md)
+- [Eadsv5-series](../articles/virtual-machines/easv5-eadsv5-series.md)
 - [B-series](../articles/virtual-machines/sizes-b-series-burstable.md)
 - [Fsv2-series](../articles/virtual-machines/fsv2-series.md)
 - [Dsv3-series](../articles/virtual-machines/dv3-dsv3-series.md)

@@ -219,6 +219,8 @@
       items: 
       - name: Identify query performance issues
         href: identify-query-performance-issues.md
+      - name: Troubleshoot performance issues
+        href: database/intelligent-insights-troubleshoot-performance.md
       - name: Batching for performance
         href: performance-improve-use-batching.md
       - name: Load data with BCP
@@ -789,7 +791,7 @@
 - name: SQL Managed Instance (SQL MI)
   items:
   - name: Documentation
-    href: managed-instance/index.yml  
+    href: managed-instance/index.yml
   - name: Overview
     items:
     - name: What is SQL Managed Instance? 
@@ -882,6 +884,9 @@
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
     - name: Transactional replication
       href: managed-instance/replication-transactional-overview.md
+    - name: Link feature for SQL MI
+      href: managed-instance/link-feature.md
+
 
     - name: Management operations
       items:
@@ -1092,20 +1097,24 @@
         href: managed-instance/timezones-overview.md 
       - name: Configure connection types
         href: managed-instance/connection-types-overview.md
-      - name: Create alerts on managed instance
+      - name: Create alerts on SQL MI
         href: managed-instance/alerts-create.md
       - name: Configure threat detection
         href: managed-instance/threat-detection-configure.md
 
     - name: Configure networking
       items: 
-      - name: Determine size of managed instance subnet
+      - name: Determine size of SQL MI subnet
         href: managed-instance/vnet-subnet-determine-size.md
-      - name: Create new VNet and subnet for managed instance
+      - name: Create new VNet and subnet for SQL MI
         href: managed-instance/virtual-network-subnet-create-arm-template.md
-      - name: Configure existing VNet and subnet for managed instance
+      - name: Configure existing VNet and subnet for SQL MI
         href: managed-instance/vnet-existing-add-subnet.md
-      - name: Delete subnet after deleting managed instance
+      - name: Configure service endpoint policies for SQL MI
+        href: managed-instance/service-endpoint-policies-configure.md
+      - name: Move SQL MI to another subnet
+        href: managed-instance/vnet-subnet-move-instance.md
+      - name: Delete subnet after deleting SQL MI
         href: managed-instance/virtual-cluster-delete.md
       - name: Configure custom DNS
         href: managed-instance/custom-dns-configure.md
@@ -1120,7 +1129,7 @@
     
     - name: Migrate
       items: 
-      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+      - name: Migrate SQL Server to SQL MI Guide
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
@@ -1150,14 +1159,14 @@
   items:
   - name: Documentation
     href: virtual-machines/index.yml
+  - name: What's new?
+    href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
   - name: Windows
     items: 
     - name: Overview
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1237,6 +1246,8 @@
           href: virtual-machines/windows/storage-configuration.md
         - name: Automated Patching
           href: virtual-machines/windows/automated-patching.md
+        - name: SQL Assessment
+          href: virtual-machines/windows/sql-assessment-for-sql-vm.md
         - name: Azure Key Vault Integration
           href: virtual-machines/windows/azure-key-vault-integration-configure.md
         - name: Migrate storage to UltraSSD
@@ -1369,6 +1380,15 @@
       items:
       - name: Create SQL VM - Portal
         href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+
+    - name: Concepts
+      items: 
+      - name: SQL IaaS agent extension 
+        href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+    - name: "How-to guides"
+      items: 
+      - name: Register with SQL IaaS extension 
+        href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH

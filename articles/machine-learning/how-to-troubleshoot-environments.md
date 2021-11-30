@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: saachigopal
 ms.author:  sagopal
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python
 ---

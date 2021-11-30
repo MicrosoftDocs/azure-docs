@@ -139,7 +139,7 @@ az sql server firewall-rule create \
 
 ## Create a single database with Azure CLI
 
-Create a database with the [az sql db create](/cli/azure/sql/db) command. The following code creates
+Create a database with the [az sql db create](/cli/azure/sql/db) command.
 
 
 ```azurecli-interactive
@@ -161,6 +161,27 @@ az sql db create \
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+
+## Set parameter values
+
+The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
+
+```azurecli-interactive
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup
+location=eastus
+
+# Set an admin login and password for your database
+adminlogin=azureuser
+password=Azure1234567!
+
+# Set a server name that is unique to Azure DNS (<server_name>.database.windows.net)
+serverName=server-$RANDOM
+
+# Set the ip address range that can access your database
+startip=0.0.0.0
+endip=0.0.0.0
+```
 
 ## Create a database and resources
 

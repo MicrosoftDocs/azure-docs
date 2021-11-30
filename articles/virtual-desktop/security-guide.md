@@ -190,6 +190,7 @@ The following operating systems support running nested virtualization on Azure V
 
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 
@@ -199,6 +200,7 @@ The following operating systems support using Windows Defender Application Contr
 
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 

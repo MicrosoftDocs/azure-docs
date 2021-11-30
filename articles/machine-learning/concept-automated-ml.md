@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.topic: conceptual
 author: cartacioS
 ms.author: sacartac
-ms.date: 07/01/2021
+ms.date: 10/21/2021
 ms.custom: automl
 ---
 

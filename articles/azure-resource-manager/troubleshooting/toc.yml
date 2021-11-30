@@ -12,9 +12,15 @@
     href: quickstart-troubleshoot-bicep-deployment.md
 - name: How to
   items:
-  - name: Troubleshoot deployments
+  - name: Find error code
+    href: find-error-code.md
+  - name: Enable debug logging
+    href: enable-debug-logging.md
+  - name: Create troubleshooting template
+    href: create-troubleshooting-template.md
+  - name: Find solution by error code
     items:
-    - name: Troubleshoot deployment errors
+    - name: Common deployment errors
       href: common-deployment-errors.md
     - name: AccountNameInvalid
       href: error-storage-account-name.md

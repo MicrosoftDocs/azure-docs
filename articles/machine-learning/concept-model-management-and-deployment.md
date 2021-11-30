@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: jpe316
 ms.author:  jordane
-ms.date: 07/08/2021
+ms.date: 10/21/2021
 ms.custom: seodec18
 ---
 

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/18/2019
+ms.date: 11/03/2021
 ms.custom: devx-track-dotnet
 
 ---
@@ -23,7 +23,7 @@ ms.custom: devx-track-dotnet
 
 |   | Links  |
 |---|---|
-|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Azure.Data.Tables/)|
 |**Sample**|[Cosmos DB Table API .NET Sample](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Quickstart**|[Quickstart](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|

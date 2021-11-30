@@ -1,18 +1,20 @@
 ---
-title: Azure Defender for DNS - the benefits and features
-description: Learn about the benefits and features of Azure Defender for DNS
+title: Microsoft Defender for DNS - the benefits and features
+description: Learn about the benefits and features of Microsoft Defender for DNS
 author: memildin
 ms.author: memildin
-ms.date: 10/11/2021
+ms.date: 10/20/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
 ---
 
-# Introduction to Azure Defender for DNS
+# Introduction to Microsoft Defender for DNS
 
-Azure Defender for DNS provides an additional layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+Microsoft Defender for DNS provides an additional layer of protection for resources that use Azure DNS's [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) capability. 
 
 From within Azure DNS, Defender for DNS monitors the queries from these resources and detects suspicious activities without the need for any additional agents on your resources.
 
@@ -21,35 +23,55 @@ From within Azure DNS, Defender for DNS monitors the queries from these resource
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|**Azure Defender for DNS** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
+|Pricing:|**Microsoft Defender for DNS** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure China 21Vianet<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Azure Government|
 |||
 
-## What are the benefits of Azure Defender for DNS?
+## What are the benefits of Microsoft Defender for DNS?
 
-Azure Defender for DNS detects suspicious and anomalous activities such as:
+Microsoft Defender for DNS detects suspicious and anomalous activities such as:
 
 - **Data exfiltration** from your Azure resources using DNS tunneling
 - **Malware** communicating with command and control servers
 - **DNS attacks** - communication with malicious DNS resolvers 
 - **Communication with domains used for malicious activities** such as phishing and crypto mining
 
-A full list of the alerts provided by Azure Defender for DNS is on the [alerts reference page](alerts-reference.md#alerts-dns).
+A full list of the alerts provided by Microsoft Defender for DNS is on the [alerts reference page](alerts-reference.md#alerts-dns).
 
 ## Dependencies
 
-Azure Defender for DNS doesn't use any agents. 
+Microsoft Defender for DNS doesn't use any agents. 
 
-To protect your DNS layer, enable Azure Defender for DNS for each of your subscriptions as described in [Enable Azure Defender](enable-azure-defender.md).
+To protect your DNS layer, enable Microsoft Defender for DNS for each of your subscriptions as described in [Enable enhanced protections](enable-enhanced-security.md).
+
+
+## Respond to Microsoft Defender for DNS alerts
+
+When you receive an alert from Microsoft Defender for DNS, we recommend you investigate and respond to the alert as described below. Microsoft Defender for DNS protects all connected resources, so even if you're familiar with the application or user that triggered the alert, it's important to verify the situation surrounding every alert.  
+
+
+### Step 1. Contact
+
+1. Contact the resource owner to determine whether the behavior was expected or intentional.
+1. If the activity is expected, dismiss the alert.
+1. If the activity is unexpected, treat the resource as potentially compromised and mitigate as described in the next step.
+
+### Step 2. Immediate mitigation 
+
+1. Isolate the resource from the network to prevent lateral movement.
+1. Run a full antimalware scan on the resource, following any resulting remediation advice.
+1. Review installed and running software on the resource, removing any unknown or unwanted packages.
+1. Revert the machine to a known good state, reinstalling the operating system if required, and restore software from a verified malware-free source.
+1. Resolve any Microsoft Defender for Cloud recommendations for the machine, remediating highlighted security issues to prevent future breaches.
 
 
 ## Next steps
 
-In this article, you learned about Azure Defender for DNS. 
+In this article, you learned about Microsoft Defender for DNS. 
 
 > [!div class="nextstepaction"]
-> [Enable Azure Defender](enable-azure-defender.md)
+> [Enable enhanced protections](enable-enhanced-security.md)
 
 For related material, see the following article: 
 
-- Security alerts might be generated by Security Center or received by Security Center from different security products. To export all of these alerts to Azure Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Exporting alerts to a SIEM](continuous-export.md).
+- Security alerts might be generated by Defender for Cloud or received from other security products. To export all of these alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Exporting alerts to a SIEM](continuous-export.md).

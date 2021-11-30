@@ -420,8 +420,7 @@ The following Azure managed disks **features are not currently available** in Az
 
 ### [Azure NetApp Files](../azure-netapp-files/index.yml)
 
-For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government,
-see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
+For Azure NetApp Files feature availability in Azure Government and how to access the Azure NetApp Files service within Azure Government, see [Azure NetApp Files for Azure Government](../azure-netapp-files/azure-government.md). 
 
 ### [Azure Import/Export](../import-export/storage-import-export-service.md)
 

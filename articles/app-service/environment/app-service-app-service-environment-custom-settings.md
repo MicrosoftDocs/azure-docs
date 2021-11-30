@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 01/29/2021
+ms.date: 11/03/2021
 ms.author: madsd
 ms.custom: mvc, seodec18
 ---
@@ -45,7 +45,7 @@ The **clusterSettings** attribute can be included in a Resource Manager template
 ## Use Azure Resource Explorer to update an App Service Environment
 Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
 
-1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **resourceGroups** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
+1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **{your Subscription}** > **resourceGroups** > **{your Resource Group}** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
 2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
 3. Click the blue **Edit** button to make the Resource Manager template editable.
 4. Scroll to the bottom of the right pane. The **clusterSettings** attribute is at the very bottom, where you can enter or update its value.

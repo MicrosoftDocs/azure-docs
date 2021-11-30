@@ -56,6 +56,8 @@
     href: front-door-health-probes.md
   - name: How Front Door matches routing for a request
     href: front-door-route-matching.md
+  - name: End-to-end TLS encryption
+    href: concept-end-to-end-tls.md
   - name: HTTP/2 support
     href: front-door-http2.md
   - name: HTTP headers protocol support

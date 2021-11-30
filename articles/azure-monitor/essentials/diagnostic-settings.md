@@ -1,11 +1,11 @@
 ---
 title: Create diagnostic settings to send platform logs and metrics to different destinations
 description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
-author: bwren
-ms.author: bwren
+author: rboucher
+ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 06/09/2021
+ms.date: 11/02/2021
 ---
 
 # Create diagnostic settings to send platform logs and metrics to different destinations
@@ -42,6 +42,7 @@ Platform logs and metrics can be sent to the destinations in the following table
 | [Log Analytics workspace](../logs/design-logs-deployment.md) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
 | [Event hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
+| [Azure Monitor partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. |
 
 
 ### Destination requirements
@@ -118,12 +119,12 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
         ![Send to Storage](media/diagnostic-settings/storage-settings-new.png)
 
         > [!TIP]
-        > Consider setting the retention policy to 0 and manually deleting your data from storage using a scheduled job to avoid possible confusion in the future.
+        > Consider setting the retention policy to 0 and either use [Azure Storage Lifecycle Policy](/azure/storage/blobs/lifecycle-management-policy-configure) or delete your data from storage using a scheduled job. These strategies are likely to provide more consistent behavior. 
         >
-        > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored.
-        >
-        > For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
-
+        > First, if you are using storage for archiving, you generally want your data around for more than 365 days. Second, if you choose a retention policy that is greater than 0, the expiration date is attached to the logs at the time of storage. You can't change the date for those logs once stored. For example, if you set the retention policy for *WorkflowRuntime* to 180 days and then 24 hours later set it to 365 days, the logs stored during those first 24 hours will be automatically deleted after 180 days, while all subsequent logs of that type will be automatically deleted after 365 days. Changing the retention policy later doesn't make the first 24 hours of logs stay around for 365 days.
+    
+     1. **Partner integration** - You must first install a partner integration into your subscription. For more information, see [Azure Monitor Partner integrations](/azure/partner-solutions/overview/). 
+    
 6. Click **Save**.
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](../logs/data-ingestion-time.md).

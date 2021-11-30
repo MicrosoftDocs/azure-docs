@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
 # Use your model with the prediction API
 
-After you've train your model, you can test images programmatically by submitting them to the Prediction API endpoint.
+After you've train your model, you can test it programmatically by submitting images to the Prediction API endpoint.
 
 > [!NOTE]
 > This document demonstrates using C# to submit an image to the Prediction API. For more information and examples, see the [Prediction API reference](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).

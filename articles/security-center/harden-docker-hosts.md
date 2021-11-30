@@ -1,5 +1,5 @@
 ---
-title: Use Azure Security Center to harden your Docker hosts and protect the containers
+title: Use Microsoft Defender for Cloud to harden your Docker hosts and protect the containers
 description: How-to protect your Docker hosts and verify they're compliant with the CIS Docker benchmark
 author: memildin
 ms.author: memildin
@@ -13,9 +13,11 @@ manager: rkarlin
 
 # Harden your Docker hosts
 
-Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Security Center generates security recommendations. Use Security Center's **recommendations page** to view recommendations and remediate issues.
+Microsoft Defender for Cloud identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Defender for Cloud continuously assesses the configurations of these containers. It then compares them with the [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
+
+Defender for Cloud includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. When it finds misconfigurations, Defender for Cloud generates security recommendations. Use Defender for Cloud's **recommendations page** to view recommendations and remediate issues.
 
 When vulnerabilities are found, they're grouped inside a single recommendation.
 
@@ -27,14 +29,14 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
-|Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
+|Pricing:|Requires [Microsoft Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Reader** on the workspace to which the host connects|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## Identify and remediate security vulnerabilities in your Docker configuration
 
-1. From Security Center's menu, open the **Recommendations** page.
+1. From Defender for Cloud's menu, open the **Recommendations** page.
 
 1. Filter to the recommendation **Vulnerabilities in container security configurations should be remediated** and select the recommendation.
 
@@ -63,6 +65,6 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 ## Next steps
 
-Docker hardening is just one aspect of Security Center's container security features. 
+Docker hardening is just one aspect of Defender for Cloud's container security features. 
 
-Learn more [Container security in Security Center](container-security.md).
+Learn more [Container security in Defender for Cloud](container-security.md).

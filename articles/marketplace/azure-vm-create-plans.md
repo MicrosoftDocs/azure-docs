@@ -13,7 +13,7 @@ ms.date: 10/13/2021
 
 On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
-You can create up to 100 plans for each offer; up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can create up to 100 plans for each offer and up to 45 of these can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
 After you create your plans, select the **Plan overview** tab to display:
 
@@ -51,7 +51,7 @@ Your plan must be made available in at least one Azure region.
 
 Select **Azure Global** to make your plan available to customers in all Azure Global regions that have commercial marketplace integration. For more information, see [Geographic availability and currency support](marketplace-geo-availability-currencies.md).
 
-Select **Azure Government** to make your plan available in the [Azure Government](../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from  US federal, state, local, or tribal entities, as well as for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
+Select **Azure Government** to make your plan available in the [Azure Government](../azure-government/documentation-government-welcome.md) region. This region provides controlled access for customers from US federal, state, local, or tribal entities, as well as for partners who are eligible to serve them. You, as the publisher, are responsible for any compliance controls, security measures, and best practices. Azure Government uses physically isolated datacenters and networks (located in the US only).
 
 Before you publish to [Azure Government](../azure-government/documentation-government-manage-marketplace-partners.md), test and validate your plan in the environment, because certain endpoints may differ. To set up and test your plan, request a trial account from the [Microsoft Azure Government trial](https://azure.microsoft.com/global-infrastructure/government/request/) page.
 
@@ -121,7 +121,7 @@ Enter a **Price per core**, then select **Price per core size** to see a table o
 
 ### Free Trial
 
-You can offer a one-, three-, or six-month **Free Trial** to your customers.
+You can offer a one-month, three-month, or six-month **Free Trial** to your customers.
 
 ### Plan visibility
 
@@ -142,9 +142,9 @@ Private offers are not supported with Azure subscriptions established through a 
 
 If your virtual machine is meant to be used only indirectly when it's referenced through another solution template or managed application, select this check box to publish the virtual machine but hide it from customers who might be searching or browsing for it directly.
 
-Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**. 
+Any Azure customer can deploy the offer using either PowerShell or CLI.  If you wish to make this offer available to a limited set of customers, then set the plan to **Private**.
 
-Hidden plans do not generate preview links. However, you can test you them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-). 
+Hidden plans do not generate preview links. However, you can test them by [following these steps](azure-vm-create-faq.yml#how-do-i-test-a-hidden-preview-image-).
 
 Select **Save draft** before continuing to the next tab in the left-nav Plan menu, **Technical configuration**.
 
@@ -154,7 +154,7 @@ Provide the images and other technical properties associated with this plan.
 
 ### Reuse technical configuration
 
-This option allows you to use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the reuse technical configuration option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
+This option lets you use the same technical configuration settings across plans within the same offer and therefore leverage the same set of images. If you enable the _reuse technical configuration_ option, your plan will inherit the same technical configuration settings as the base plan you select.  When you change the base plan, the changes are reflected on the plan reusing the configuration.
 
 Some common reasons for reusing the technical configuration settings from another plan include:
 
@@ -164,7 +164,7 @@ Some common reasons for reusing the technical configuration settings from anothe
 
 Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
-If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
+If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later.
 
 ### Operating system
 

@@ -163,8 +163,7 @@ Virtual network injection enables customers to selectively deploy dedicated inst
 
 An increasing number of Azure multitenant services offer *service endpoints*. Service endpoints are an alternate method for integrating to Azure virtual networks. Virtual network service endpoints extend your virtual network IP address space and the identity of your virtual network to the service over a direct connection. Traffic from the virtual network to the Azure service always stays within the Azure backbone network. 
 
-After you enable a service endpoint for a service, use policies exposed by the service
-to restrict connections for the service to that virtual network. Access checks are enforced in the platform by the Azure service. Access to a locked resource is granted only if the request originates from the allowed virtual network or subnet, or from the two IPs that are used to identify your on-premises traffic if you use ExpressRoute. Use this method to effectively prevent inbound/outbound traffic from directly leaving the PaaS service.
+After you enable a service endpoint for a service, use policies exposed by the service to restrict connections for the service to that virtual network. Access checks are enforced in the platform by the Azure service. Access to a locked resource is granted only if the request originates from the allowed virtual network or subnet, or from the two IPs that are used to identify your on-premises traffic if you use ExpressRoute. Use this method to effectively prevent inbound/outbound traffic from directly leaving the PaaS service.
 
 :::image type="content" source="./media/tic-diagram-g.png" alt-text="Service endpoints overview" border="false":::
 

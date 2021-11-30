@@ -89,7 +89,7 @@ To complete this tutorial, you need:
     
     With public access, access to your server is limited to allowed IP addresses that you include in a firewall rule. This method prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range.
     
-    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, see Networking overview.
+    With private access (VNet Integration), access to your server is limited to your virtual network. For more information about connectivity methods, [**see Networking overview**](https://docs.microsoft.com/azure/postgresql/flexible-server/concepts-networking).
     
     For the purposes of this tutorial, enable public access to connect to the server.
 

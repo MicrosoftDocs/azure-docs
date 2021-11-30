@@ -5,13 +5,14 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 07/21/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Azure Sentinel SAP solution logs reference (public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes the SAP logs available from the Azure Sentinel SAP data connector, including the table names in Azure Sentinel, the log purposes, and detailed log schemas. Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 

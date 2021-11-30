@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Bring your own Machine Learning (ML) into Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -114,25 +114,25 @@ Here is a sample set of commands to setup automatic exporting:
 az –version
 
 # Login with Azure CLI
- az login
+az login
 
 # List all Log Analytics clusters
- az monitor log-analytics cluster list
+az monitor log-analytics cluster list
 
 # Set to specific subscription
- az account set --subscription "SUBSCRIPTION_NAME"
+az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
 
 # List export settings
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"
 
 # Delete export setting
- az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
+az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
 ```
 
 ### Export custom data

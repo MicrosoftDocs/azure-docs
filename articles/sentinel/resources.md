@@ -10,8 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
+
 # Useful resources for working with Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
@@ -52,7 +56,7 @@ In the TechCommunity space for Azure Sentinel:
 - [View and comment on recent blog posts](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog)
 - [Post your own questions about Azure Sentinel](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel)
 
-You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/forums/920458-azure-sentinel) program.
+You can also send suggestions for improvements via our [User Voice](https://feedback.azure.com/d365community/forum/37638d17-0625-ec11-b6e6-000d3a4f07b8) program.
 
 ## Join the Azure Sentinel GitHub community
 

@@ -14,7 +14,7 @@
 - name: Samples
   items:
   - name: Resource Manager templates
-    href: resource-manager-template-samples.md
+    href: ../front-door-quickstart-template-samples.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
 - name: Tutorials
   items: 
   - name: Configure WAF policy

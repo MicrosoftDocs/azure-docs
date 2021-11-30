@@ -282,7 +282,8 @@ There are important aspects around choosing backups that need to be migrated:
 - Your migration jobs can only move backups, not live volume data. So the most recent backup is closest to the live data and should always be on the list of backups moved in a migration. When you open the Backup selection dialog, it is selected by default.
 - Make sure your latest backup is recent to keep the delta to the live share as small as possible. It could be worth manually triggering and completing another volume backup before creating a migration job. A small delta to the live share will improve your migration experience. If this delta can be zero = no more changes to the StorSimple volume happened after the newest backup was taken in your list - then Phase 5: User cut-over will be drastically simplified and sped up.
 - Backups must be played back into the Azure file share **from oldest to newest**. An older backup cannot be "sorted into" the list of backups on the Azure file share after a migration job has run. Therefore you must ensure that your list of backups is complete *before* you create a job. 
-- This list of backups in a job cannot be modified once the job is created - even if the job never ran. 
+- This list of backups in a job cannot be modified once the job is created - even if the job never ran.
+- In order to select backups, the StorSimple volume you want to migrate must be online.
 
 :::row:::
     :::column:::        

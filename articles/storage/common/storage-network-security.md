@@ -381,9 +381,6 @@ The types of operations that a resource instance can perform on storage account 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions.
 
-> [!NOTE]
-> Resource instance rules are currently only supported for Azure Synapse. Support for other Azure services listed in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article will be available in the coming weeks.
-
 ### [Portal](#tab/azure-portal)
 
 You can add or remove resource network rules in the Azure portal.

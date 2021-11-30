@@ -12,15 +12,12 @@ ms.author: pgibson
 
 This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](../azure-resource-manager/bicep/index.yml) template.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-[Bicep](../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](../azure-resource-manager/templates/overview.md) templates for deploying your infrastructure-as-code Azure resources.
+[Bicep](/azure/azure-resource-manager/bicep/overview) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. Bicep can be used in place of creating Azure [ARM](/azure/azure-resource-manager/templates/overview) templates for deploying your infrastructure-as-code Azure resources.
 
 ## Prerequisites
 
 - The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.9.1 or later
+- OSM version v0.11.1 or later
 - An SSH Public Key used for deploying AKS
 - [Visual Studio Code](https://code.visualstudio.com/) utilizing a Bash terminal
 - Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)

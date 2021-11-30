@@ -2,12 +2,12 @@
 title: Azure CDN from Verizon Premium rules engine match conditions
 description: Reference documentation for Azure Content Delivery Network from Verizon Premium rules engine match conditions.
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 

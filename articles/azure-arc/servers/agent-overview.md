@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 10/12/2021
+ms.date: 10/28/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -73,7 +73,13 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported environments
 
-Azure Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. Including virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
+Azure Arc-enabled servers supports the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes support for virtual machines running on platforms like:
+
+* VMware
+* Azure Stack HCI
+* Other cloud environments
+
+Azure Arc-enabled servers *does not* support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 

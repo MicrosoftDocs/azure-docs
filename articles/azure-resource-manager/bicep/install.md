@@ -46,7 +46,7 @@ To solve the problem, you can manually install .NET from the [.NET website](http
 ```json
 "dotnetAcquisitionExtension.existingDotnetPath": [
   {
-    "extensionId": "msazurermtools.azurerm-vscode-tools",
+    "extensionId": "ms-azuretools.vscode-bicep",
     "path": "C:\\Program Files\\dotnet\\dotnet.exe"
   }
 ]

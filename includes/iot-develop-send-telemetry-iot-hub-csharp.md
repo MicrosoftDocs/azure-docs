@@ -11,7 +11,7 @@
 
 [![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to the hub, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a temperature controller, connect it securely to the hub, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Hub.
 
 ## Prerequisites
 
@@ -37,9 +37,9 @@ Install the following prerequisites on your development machine except where not
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## Run a simulated device
+## Run a device
 
-In this section, you'll use the C# SDK to send messages from a simulated device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
+In this section, you'll use the C# SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 1. Open a new console such as Windows CMD, PowerShell, or Bash. In the following steps, you'll use this console to install the Node.js SDK and work with Node.js sample code.
 
@@ -72,7 +72,7 @@ In this section, you'll use the C# SDK to send messages from a simulated device 
 
     This command installs the proper dependencies as specified in the *TemperatureController.csproj* file.
 
-1. Set both of the following environment variables, to enable your simulated device to connect to Azure IoT.
+1. Set both of the following environment variables, to enable your device to connect to Azure IoT.
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
 
@@ -134,7 +134,7 @@ To read telemetry sent by individual device components, you can use the plug and
 
 To view device telemetry with Azure CLI:
 
-1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the simulated device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
+1. Run the [az iot hub monitor-events](/cli/azure/iot/hub#az_iot_hub_monitor_events) command to monitor events sent from the device to your IoT hub. Use the names that you created previously in Azure IoT for your device and IoT hub.
 
     ```azurecli
     az iot hub monitor-events --output table --device-id mydevice --hub-name {YourIoTHubName}
