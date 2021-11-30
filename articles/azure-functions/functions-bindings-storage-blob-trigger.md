@@ -330,6 +330,34 @@ The following table explains the binding configuration properties that you set i
 
 See the [Example section](#example) for complete examples.
 
+## Metadata
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
+::: zone-end
+::: zone pivot="programming-language-csharp"  
+[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
+::: zone-end  
+::: zone pivot="programming-language-java"
+Metadata is not available in Java.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+
+```javascript
+module.exports = function (context, myBlob) {
+    context.log("Full blob path:", context.bindingData.blobTrigger);
+    context.done();
+};
+```
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+Metadata is available through the `$TriggerMetadata` parameter.
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Metadata is not available in Python.
+::: zone-end
+
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
@@ -410,38 +438,7 @@ To look for curly braces in file names, escape the braces by using two braces. T
 
 If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in the function code is *soundfile.mp3*.
 
-## Metadata
 
-# [C#](#tab/csharp)
-
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
-
-# [C# Script](#tab/csharp-script)
-
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
-
-# [Java](#tab/java)
-
-Metadata is not available in Java.
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-module.exports = function (context, myBlob) {
-    context.log("Full blob path:", context.bindingData.blobTrigger);
-    context.done();
-};
-```
-
-# [PowerShell](#tab/powershell)
-
-Metadata is available through the `$TriggerMetadata` parameter.
-
-# [Python](#tab/python)
-
-Metadata is not available in Python.
-
----
 
 ## Polling
 
