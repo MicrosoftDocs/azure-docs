@@ -90,7 +90,7 @@ If we don't mind the workaround, Azure Automation is the easier way to deploy th
 
 We highly recommend local development using [VSCode](https://code.visualstudio.com/), both for [Functions](/azure/azure-functions/create-first-function-vs-code-powershell) and [ASA](/azure/stream-analytics/quick-create-visual-studio-code). Using a local IDE allows us to use source control and to easily repeat deployments. But for the sake of brevity, here we'll illustrate the process in the [Azure portal](https://portal.azure.com).
 
-## Writing the PowerShell Script locally
+## Writing the PowerShell script locally
 
 The best way to develop the script is locally. PowerShell being cross-platform, the script can be written and tested on any OS. On Windows we can use [Windows Terminal](https://www.microsoft.com/p/windows-terminal/9n0dx20hk701) with [PowerShell 7](/powershell/scripting/install/installing-powershell-on-windows), and [Az PowerShell](/powershell/azure/install-az-ps).
 
@@ -236,7 +236,7 @@ The full procedure is [here](/azure/azure-functions/functions-create-function-ap
 
 Once it's provisioned, let's start with its overall configuration.
 
-### Managed identity for Functions
+### Managed identity for Azure Functions
 
 The Function needs permissions to start and stop the ASA job. We'll assign these permissions via a [managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
@@ -270,7 +270,7 @@ Write-Host "asaRobotPause - PowerShell timer trigger function is starting at tim
 
 ```
 
-### Parameters for Functions
+### Parameters for Azure Functions
 
 The best way to pass our parameters to the script in Functions is to use the Function App application settings as [environment variables](/azure/azure-functions/functions-reference-powershell?tabs=portal#environment-variables).
 
@@ -367,7 +367,7 @@ The procedure is [here](/azure/automation/quickstarts/create-account-portal). He
 
 For reference, the Automation team has a [good tutorial](/azure/automation/learn/powershell-runbook-managed-identity) to get started on PowerShell runbooks.
 
-### Parameters for Automation
+### Parameters for Azure Automation
 
 With a runbook we can use the classic parameter syntax of PowerShell to pass arguments:
 
@@ -385,7 +385,7 @@ Param(
 )
 ```
 
-### Managed identity for Automation
+### Managed identity for Azure Automation
 
 The Automation Account should have received a managed identity during provisioning. But if needed, we can enable one using that [procedure](/azure/automation/enable-managed-identity-for-automation).
 
