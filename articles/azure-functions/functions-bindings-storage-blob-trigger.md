@@ -231,7 +231,7 @@ The attribute's constructor takes the following parameters:
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
 
-* [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
+- [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
 
   The attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#blob-name-patterns). Here's an example:
 
@@ -259,7 +259,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
   For a complete example, see [Trigger example](#example).
 
-* [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
+- [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
   Provides another way to specify the storage account to use. The constructor takes the name of an app setting that contains a storage connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
@@ -277,15 +277,15 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
 The storage account to use is determined in the following order:
 
-* The `BlobTrigger` attribute's `Connection` property.
-* The `StorageAccount` attribute applied to the same parameter as the `BlobTrigger` attribute.
-* The `StorageAccount` attribute applied to the function.
-* The `StorageAccount` attribute applied to the class.
-* The default storage account for the function app ("AzureWebJobsStorage" app setting).
+- The `BlobTrigger` attribute's `Connection` property.
+- The `StorageAccount` attribute applied to the same parameter as the `BlobTrigger` attribute.
+- The `StorageAccount` attribute applied to the function.
+- The `StorageAccount` attribute applied to the class.
+- The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
 # [Isolated process](#tab/isolated-process)
 
-Here's an `EventGridTrigger` attribute in a method signature:
+Here's an `BlobTrigger` attribute in a method signature:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
 
@@ -471,7 +471,7 @@ See the [Image resize with Event Grid](../event-grid/resize-images-on-storage-bl
 
 #### Storage Extension 5.x and higher
 
-When using the preview storage extension, there is built-in support for Event Grid in the Blob trigger which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
+When using the preview storage extension, there is built-in support for Event Grid in the Blob trigger, which requires setting the `source` parameter to Event Grid in your existing Blob trigger. 
 
 For more information on how to use the Blob Trigger based on Event Grid, refer to the [Event Grid Blob Trigger guide](./functions-event-grid-blob-trigger.md).
 
@@ -485,25 +485,25 @@ The Azure Functions runtime ensures that no blob trigger function gets called mo
 
 Azure Functions stores blob receipts in a container named *azure-webjobs-hosts* in the Azure storage account for your function app (defined by the app setting `AzureWebJobsStorage`). A blob receipt has the following information:
 
-* The triggered function (`<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`, for example: `MyFunctionApp.Functions.CopyBlob`)
-* The container name
-* The blob type (`BlockBlob` or `PageBlob`)
-* The blob name
-* The ETag (a blob version identifier, for example: `0x8D1DC6E70A277EF`)
+- The triggered function (`<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`, for example: `MyFunctionApp.Functions.CopyBlob`)
+- The container name
+- The blob type (`BlockBlob` or `PageBlob`)
+- The blob name
+- The ETag (a blob version identifier, for example: `0x8D1DC6E70A277EF`)
 
 To force reprocessing of a blob, delete the blob receipt for that blob from the *azure-webjobs-hosts* container manually. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time. To reprocess immediately, the *scaninfo* blob in *azure-webjobs-hosts/blobscaninfo* can be updated. Any blobs with a last modified timestamp after the `LatestScan` property will be scanned again.
 
 ## Poison blobs
 
-When a blob trigger function fails for a given blob, Azure Functions retries that function a total of 5 times by default.
+When a blob trigger function fails for a given blob, Azure Functions retries that function a total of five times by default.
 
 If all 5 tries fail, Azure Functions adds a message to a Storage queue named *webjobs-blobtrigger-poison*. The maximum number of retries is configurable. The same MaxDequeueCount setting is used for poison blob handling and poison queue message handling. The queue message for poison blobs is a JSON object that contains the following properties:
 
-* FunctionId (in the format `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`)
-* BlobType (`BlockBlob` or `PageBlob`)
-* ContainerName
-* BlobName
-* ETag (a blob version identifier, for example: `0x8D1DC6E70A277EF`)
+- FunctionId (in the format `<FUNCTION_APP_NAME>.Functions.<FUNCTION_NAME>`)
+- BlobType (`BlockBlob` or `PageBlob`)
+- ContainerName
+- BlobName
+- ETag (a blob version identifier, for example: `0x8D1DC6E70A277EF`)
 
 ## Concurrency and memory usage
 

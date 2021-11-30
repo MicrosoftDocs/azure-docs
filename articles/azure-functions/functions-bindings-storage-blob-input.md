@@ -337,10 +337,9 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 # [Isolated process](#tab/isolated-process)
 
-Here's an BlobInput attribute in a method signature:
+Here's a `BlobInput` attribute in a method signature:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
--->
 
 # [C# script](#tab/csharp-script)
 
@@ -355,7 +354,7 @@ The following table explains the binding configuration properties for C# script 
 |**name** | The name of the variable that represents the blob in function code.|
 |**path** | The path to the blob. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 
 ---
 
@@ -380,7 +379,7 @@ The following table explains the binding configuration properties that you set i
 |**name** | The name of the variable that represents the blob in function code.|
 |**path** | The path to the blob. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
-|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
+|**dataType**| For dynamically typed languages, specifies the underlying data type. Possible values are `string`, `binary`, or `stream`. For more detail, refer to the [triggers and bindings concepts](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions). |
 
 ::: zone-end  
 

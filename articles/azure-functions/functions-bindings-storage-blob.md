@@ -45,7 +45,7 @@ The functionality of the extension varies depending on the extension version:
 
 A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following lines in your `host.json` file:
 
 ```json
 {
@@ -73,13 +73,13 @@ Functions 1.x apps automatically have a reference the [Microsoft.Azure.WebJobs](
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
-# [Extension v5.x and higher](#tab/extensionv5/isolated-process)
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs/5.0.0-beta.4), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-
+Add the extension to your project by installing the [NuGet package], version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -89,7 +89,7 @@ Functions version 1.x doesn't support isolated process.
 
 A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following lines in your `host.json` file:
 
 ```json
 {
