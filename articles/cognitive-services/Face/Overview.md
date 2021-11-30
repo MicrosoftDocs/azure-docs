@@ -47,6 +47,9 @@ Optionally, face detection can also extract a set of face-related attributes, su
 
 For more information on face detection and analysis, see the [Face detection](concepts/face-detection.md) concepts article. Also see the [Detect API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) reference documentation.
 
+Try out the capabilities of face detection quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Identity verification
 
@@ -62,6 +65,10 @@ The following image shows an example of a database named `"myfriends"`. Each gro
 
 After you create and train a group, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
+Try out the capabilities of face identification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ### Verification
 
 The verification operation answers the question, "Do these two faces belong to the same person?". 
@@ -70,6 +77,9 @@ Verification is also a "one-to-one" matching of a face in an image to a single f
 
 For more information about identity verification, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) and [Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) API reference documentation.
 
+Try out the capabilities of face verification quickly and easily using Vision Studio.
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Find similar faces
 
