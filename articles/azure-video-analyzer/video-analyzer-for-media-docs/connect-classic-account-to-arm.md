@@ -63,6 +63,25 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
 
 1. Click **Review + create** at the bottom of the form.
 
+## After successfully connecting a classic account to ARM” 
+
+### After connecting to ARM is complete 
+
+After successfully connecting your account to ARM, it is recommended to make sure your account management APIs are replaced with [Video Analyzer for Media REST API](/rest/api/videoindexer/accounts?branch=videoindex).
+As mentioned in the beginning of this article, during the 30 days of the transition state, “Get-access-token” will be supported side by side the ARM-based “Generate- Access token”.
+Make sure to change to the new "Generate-Access token" by updating all your solutions that use the API.
+ 
+APIs to be changed:
+Get Access token for each scope: Account, Project & Video.
+Get account – the account’s details.
+Get accounts – List of all account in a region.
+Create paid account – would create a classic account.
+ 
+ 
+For a full description of Video Analyzer for Media REST API calls and documentation, follow the link.
+
+For code sample generating an access token through ARM see [C# code sample](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
+
 ### Next steps
 
 Learn how to [Upload a video using C#](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ApiUsage/ArmBased).
