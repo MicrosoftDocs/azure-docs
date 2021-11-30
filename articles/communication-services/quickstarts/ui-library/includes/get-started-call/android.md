@@ -58,13 +58,13 @@ In your project gradle scripts add following lines to `repositories`. For `Andro
 
 ```groovy
 repositories {
-        ...
-        mavenCentral()
-        maven {
-            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-        }
-        ...
+    ...
+    mavenCentral()
+    maven {
+        url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
     }
+    ...
+}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
