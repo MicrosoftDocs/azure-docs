@@ -66,6 +66,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | North America |West US 3 |East US |
 | Norway | Norway East | Norway West* |
 | South Africa | South Africa North |South Africa West* |
+| Sweden | Sweden Central |Sweden South* |
 | Switzerland | Switzerland North |Switzerland West* |
 | UK |UK West |UK South |
 | United Arab Emirates | UAE North | UAE Central* |
