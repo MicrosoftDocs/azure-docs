@@ -292,7 +292,7 @@ This example updates the rule to allow inbound external traffic only from the `M
 
 ## Maintain the client's IP on inbound connections
 
-By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS won't persist the client's IP address on the connection to the pod. The source IP on the packet that's delivered to the pod will be the private IP of the node. To maintain the client’s IP address, you must set `service.spec.externalTrafficPolicy` to `local` in the service definition. The following manifest shows an example:
+By default, a service of type `LoadBalancer` [in Kubernetes](https://kubernetes.io/docs/tutorials/services/source-ip/#source-ip-for-services-with-type-loadbalancer) and in AKS won't persist the client's IP address on the connection to the pod. The source IP on the packet that's delivered to the pod will be the private IP of the node. To maintain the client’s IP address, you must set `service.spec.externalTrafficPolicy` to `Local` in the service definition. The following manifest shows an example:
 
 ```yaml
 apiVersion: v1
@@ -307,6 +307,14 @@ spec:
   selector:
     app: azure-vote-front
 ```
+
+It should be noted, that using the `Local`-policy for a Kubernetes service will disable routing/loadbalancing between nodes. Behind the scenes each node will get open a `NodePort` for that service on which then the `LoadBalancer` can redirect the traffic. As traffic is discarded for a `Local` service if there is no pod running on that specific node, the `LoadBalancer` uses the health probes to only send traffic to nodes where pods do exist for that specific service. The `LoadBalancer` does not know how many pods are running on a node, so the traffic is equally distributed over nodes not pods. This can lead to unequally distributed traffic if for exmaple one node runs three pods for a service and a seconds node runs only one pod. In conclusion a `podAntiaffinity` should be set to distribute the pods as equally as possible or use a `DaemonSet` (eg. often used for Ingress-controller pods) so each node will have one pod. As no traffic should be discarded due to the `LoadBalancers` health checks and when taking care of equally distributed pods over nodes using the `Local` policy should not have a negative impact in any way. Also it should be noted, when the traffic reached the pod serving the `Local`-service, all other services are reachable just normally with load-distribution over all nodes.
+
+Helpful links to understand the `externalTrafficPolicy` better:
+- https://docs.projectcalico.org/about/about-kubernetes-services
+- https://www.danielstechblog.io/azure-load-balancer-behavior-when-externaltrafficpolicy-is-set-to-local-in-the-kubernetes-service-object/
+- https://www.danielstechblog.io/running-ambassador-api-gateway-on-azure-kubernetes-service/
+- https://www.asykim.com/blog/deep-dive-into-kubernetes-external-traffic-policies
 
 ## Additional customizations via Kubernetes Annotations
 
