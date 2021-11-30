@@ -16,6 +16,7 @@ In this article, we will go through options on connecting your **existing** Vide
 ## Prerequisites
 
 * Unlimited paid Video Analyzer for Media account (classic account).
+
   * To perform the connect to ARM action, you should have owner's permissions on the Video Analyzer for Media account.
 * Azure Subscription.
 * User assigned managed identity (can be created along the flow).
@@ -34,16 +35,17 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
 
 1. Sign in using your AAD account.
 1. On the top right bar press *User account* to open the side pane account list.
-3. Select the Video Analyzer for Media classic account you wish to connect to ARM (Classic accounts will be tagged with a *classic tag*).
-4. Click **Settings**
+1. Select the Video Analyzer for Media classic account you wish to connect to ARM (Classic accounts will be tagged with a *classic tag*).
+1. Click **Settings**
 
   ![account-settings](media/connect-classic-account-to-arm/user-account-settings.png)
-5. Click **Connect to an ARM-based account**.
+1. Click **Connect to an ARM-based account**.
 
   ![connect-button-portal](media/connect-classic-account-to-arm/connect-button.png)
-7. Sign to Azure portal
-8. The Video Analyzer for Media create blade will open
-10. In the **Create Video Analyzer for Media account** section enter required values.
+1. Sign to Azure portal
+1. The Video Analyzer for Media create blade will open
+1. In the **Create Video Analyzer for Media account** section enter required values.
+
     * If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
   ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade-new.png)
