@@ -15,7 +15,7 @@ ms.service: digital-twins
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Azure Digital Twins query language reference: MATCH clause
+# Azure Digital Twins query language reference: MATCH clause (preview)
 
 This document contains reference information on the **MATCH clause** for the [Azure Digital Twins query language](concepts-query-language.md).
 
@@ -323,3 +323,6 @@ The following limits apply to queries using `MATCH`:
 * `$dtId` is required in the `WHERE` clause
 * Assigning a query variable to the relationship is only supported when the query specifies a single hop
 * The maximum hops supported in a query is 10
+* MATCH queries that contain $dtId filters on any node other than the starting node for the MATCH traversal may show empty results. E.g.
+  SELECT A, B, C FROM DIGITALTWINS MATCH A-[contains]->B-[is_part_of]->C WHERE B.$dtId = 'Device01'. If your scenario demands using $dtId on other nodes, then we recommend using   JOIN clause.
+* MATCH queries that contain traverse through the same node multiple times may be unexpectedly removed from results.
