@@ -46,19 +46,19 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
 10. In the **Create Video Analyzer for Media account** section enter required values.
     * If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
- ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade-new.png)
+  ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade-new.png)
 
- | Name | Description |
- | ---|---|
- |**Subscription**| The subscription currently contains the classic account and other related resources such as the Media Services.|
- |**Resource Group**|Select an existing resource or create a new one. The resource group must be the same location as the classic account being connected|
- |**Video Analyzer for Media account** (radio button)| Select the *"Connecting an existing classic account"*.|
- |**Existing account ID**| Enter the ID of existing Video Analyzer for Media classic account.|
- |**Resource name**|Enter the name of the new Video Analyzer for Media account. Default value would be the same name the account had as classic.|
- |**Location**|The geographic region can't be changed in the connect process, the connected account must stay in the same region. |
- |**Media Services account name**|The original Media Services account name that was associated with classic account.|
- |**User-assigned managed identity**|Select a user-assigned managed identity, or create a new one. Video Analyzer for Media account will use it to access the Media services. The user-assignment managed identity will be assigned the roles of Contributor for the Media Service account.|
-1. Click **Review + create** at the bottom of the form.
+  | Name | Description |
+  | ---|---|
+  |**Subscription**| The subscription currently contains the classic account and other related resources such as the Media Services.|
+  |**Resource Group**|Select an existing resource or create a new one. The resource group must be the same location as the classic account being connected|
+  |**Video Analyzer for Media account** (radio button)| Select the *"Connecting an existing classic account"*.|
+  |**Existing account ID**| Enter the ID of existing Video Analyzer for Media classic account.|
+  |**Resource name**|Enter the name of the new Video Analyzer for Media account. Default value would be the same name the account had as classic.|
+  |**Location**|The geographic region can't be changed in the connect process, the connected account must stay in the same region. |
+  |**Media Services account name**|The original Media Services account name that was associated with classic account.|
+  |**User-assigned managed identity**|Select a user-assigned managed identity, or create a new one. Video Analyzer for Media account will use it to access the Media services. The user-assignment managed identity will be assigned the roles of Contributor for the Media Service account.|
+  1. Click **Review + create** at the bottom of the form.
 
 ## After connecting to ARM is complete 
 
