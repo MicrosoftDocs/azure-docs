@@ -13,6 +13,21 @@ ms.author: alkohli
 
 This article describes how to troubleshoot Azure Edge Hardware Center ordering issues.
 
+## Resource provider not registered for subscription
+
+**Error:** In Azure portal, you select a subscription to create Edge Hardware Center order and get the following error:
+
+*Resource provider(s): Microsoft.EdgeOrder are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
+
+**Suggested solution:** Elevate your subscription access or find someone with owner or contributor access to register the resource provider.
+
+## Resource disallowed by policy
+
+**Error:** In Azure portal, you attempt to register a resource provider and get the following error:
+
+*Resource &lt;resource name&gt; was disallowed by policy. (Code: RequestDisallowedByPolicy). Initiative: Deny generally unwanted Resource Types. Policy: Not allowed resource types.*
+
+**Suggested solution:** This error occurs due to an existing Azure Policy assignment that blocks the resource creation. Azure Policy definitions and assignments are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy assignment is blocking Azure Stack Edge resource creation, contact your system administrator to edit your Azure Policy definition.
 
 ## Selected subscription type not supported
 
@@ -40,22 +55,6 @@ For information on how to register, see [Register resource provider](azure-stack
 
     For more information, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-## Resource provider not registered for subscription
-
-**Error:** In Azure portal, you select a subscription to create Edge Hardware Center order and get the following error:
-
-*Resource provider(s): Microsoft.EdgeOrder are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
-
-**Suggested solution:** Elevate your subscription access or find someone with owner or contributor access to register the resource provider.
-
-## Resource disallowed by policy
-
-**Error:** In Azure portal, you attempt to register a resource provider and get the following error:
-
-*Resource &lt;resource name&gt; was disallowed by policy. (Code: RequestDisallowedByPolicy). Initiative: Deny generally unwanted Resource Types. Policy: Not allowed resource types.*
-
-**Suggested solution:** This error occurs due to an existing Azure Policy assignment that blocks the resource creation. Azure Policy definitions and assignments are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy assignment is blocking Azure Stack Edge resource creation, contact your system administrator to edit your Azure Policy definition.
-
 ## Next steps
 
-* Learn more about how to [Manage your Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md).
+* Learn how to [Manage Azure Edge Hardware Center order](azure-edge-hardware-center-manage-order.md).

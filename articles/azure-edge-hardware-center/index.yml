@@ -33,7 +33,7 @@ landingContent:
             url: azure-edge-hardware-center-faq.md
 
   # Card
-  - title: "Deploy, manage orders"
+  - title: "Create, track, cancel orders"
     linkLists:
       - linkListType: deploy
         links:
@@ -42,11 +42,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Cancel your order
-            url: azure-edge-hardware-center-cancel-order.md  
+            url: azure-edge-hardware-center-manage-order.md#cancel-order  
           - text: Track your order
-            url: azure-edge-hardware-center-track-order.md  
-          - text: Return your device
-            url: azure-edge-hardware-center-manage-address-book.md      
+            url: azure-edge-hardware-center-manage-order.md#track-order      
 
   # Card
   - title: Troubleshoot orders
@@ -54,6 +52,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Azure Edge Hardware Center ordering issues
-            url: azure-edge-hardware-center-troubleshoot-ordering.md
+            url: azure-edge-hardware-center-troubleshoot-order.md
           - text: Open Support ticket
             url: azure-stack-edge-contact-microsoft-support.md

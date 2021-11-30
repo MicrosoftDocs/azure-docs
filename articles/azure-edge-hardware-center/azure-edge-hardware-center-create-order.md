@@ -4,7 +4,7 @@ description: The tutorial about creating an Azure Edge Hardware Center via the A
 services: Azure Edge Hardware Center
 author: alkohli
 
-ms.service: edgehardwarecenter
+ms.service: edgeorder
 ms.topic: tutorial
 ms.date: 11/29/2021
 ms.author: alkohli
