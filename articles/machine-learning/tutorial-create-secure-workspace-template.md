@@ -39,6 +39,8 @@ In this tutorial, you learn how to use a template with [Hashicorp Terraform](htt
 
 ## Prerequisites
 
+Before using the steps in this article, you must have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+
 1. To install, configure, and authenticate Terraform to your Azure subscription, follow the steps in one of the following articles:
 
     * [Azure Cloud Shell](/azure/developer/terraform/get-started-cloud-shell-bash)
@@ -46,6 +48,9 @@ In this tutorial, you learn how to use a template with [Hashicorp Terraform](htt
     * [Windows with Azure PowerShell](/azure/developer/terraform/get-started-windows-powershell)
 
 1. The template files used in this article are located at [https://github.com/Azure/terraform/tree/master/quickstart/201-machine-learning-moderately-secure](https://github.com/Azure/terraform/tree/master/quickstart/201-machine-learning-moderately-secure). To clone the repo locally and change directory to where the template files are located, use the following commands from the command line:
+
+    > [!TIP]
+    > If you do not have the `git` command on your development environment, you can install it from [https://git-scm.com/](https://git-scm.com/).
 
     ```azurecli
     git clone https://github.com/Azure/terraform
@@ -65,6 +70,9 @@ The template consists of multiple files. The following table describes what each
 | [dsvm.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/dsvm.tf) | Defines the Azure Virtual Machine (a Data Science Virtual Machine, or DSVM). Azure Bastion is used to access this VM through your web browser. |
 | [workspace.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/workspace.tf) | Defines the Azure Machine Learning workspace, including the dependency resources for Azure Storage, Key Vault, Application Insights, and Container Registry. It also defines an Azure Machine Learning compute cluster, which is required for building Docker images when Container Registry is secured in the VNet. |
 | [compute.tf](https://github.com/Azure/terraform/blob/master/quickstart/201-machine-learning-moderately-secure/compute.tf) | Defines an Azure Machine Learning compute instance and cluster. |
+
+> [!IMPORTANT]
+> The DSVM is used as an easy way to connect to the secured workspace for this tutorial. In a production environment, we recommend using an [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) or [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) to access the resources inside the VNet.
 
 ## Configure the template
 
@@ -115,4 +123,6 @@ After the template completes, use the following steps to connect to the DSVM:
 
 ## Next steps
 
- 
+Now that you have created a secure workspace and understand how to connect to the DSVM jump box, see [Tutorial: Get started with a Python script in Azure Machine Learning](tutorial-1st-experiment-hello-world.md).
+
+To learn more about common secure workspace configurations and input/output requirements, see [Azure Machine Learning secure workspace traffic flow](concept-secure-network-traffic-flow.md).
