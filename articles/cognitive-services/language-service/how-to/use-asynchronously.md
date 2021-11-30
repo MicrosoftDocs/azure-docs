@@ -1,7 +1,7 @@
 ---
 title: "How to: Use Language Service features asynchronously"
 titleSuffix: Azure Cognitive Services
-description: Learn how to send Language Service API requests asynchronously, as a batch.
+description: Learn how to send Language Service API requests asynchronously.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: aahi
 
 # How to use Language Service features asynchronously
 
-The Language service enables you to send API requests asynchronously as a batch, using either the REST API or client library. You can also include multiple different Language Service features in your request, to be performed on your data at the same time. 
+The Language service enables you to send API requests asynchronously, using either the REST API or client library. You can also include multiple different Language service features in your request, to be performed on your data at the same time. 
 
 Currently, the following features are available to be used asynchronously:
 * Entity linking
