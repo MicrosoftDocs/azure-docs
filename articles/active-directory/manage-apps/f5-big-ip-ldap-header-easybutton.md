@@ -51,7 +51,7 @@ The secure hybrid access solution for this scenario is made up of:
 
 Secure hybrid access for this scenario supports both SP and IdP initiated flows. The following image illustrates the SP initiated flow.
 
-![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.PNG)
+![Secure hybrid access - SP initiated flow](./media/f5-big-ip-easy-button-ldap/sp-initiated-flow.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -164,7 +164,7 @@ Next, step through the Easy Button configurations, and complete the trust to sta
    
    You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
-    ![Screenshot for Configure Easy Button- Install the template](/./media/f5-big-ip-easy-button-ldap/easy-button-template.PNG)
+    ![Screenshot for Configure Easy Button- Install the template](/./media/f5-big-ip-easy-button-ldap/easy-button-template.png)
 
 2. Review the list of configuration steps and select **Next**
 
