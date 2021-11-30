@@ -267,7 +267,7 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
    This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
 > [!NOTE]
-> When you delete a user Hybrid worker group, the existing worker group in it is not deleted. To remove the existing worker group, use the Automation REST API operations.
+> When you delete a User Hybrid Worker group, the existing worker group in it is not deleted. To remove the existing worker group, use the Automation REST API operations.
 
 ## Next steps
 
