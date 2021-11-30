@@ -27,9 +27,7 @@ Windows 10 IoT Enterprise version 1903
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
 |Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
-|Resources|Azure IoT Hub Device Provisioning Service: 
-*	[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md)
-*	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)|
+|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md) </li><li>	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
 
 ---
 </br>
@@ -43,6 +41,19 @@ Windows 10 IoT Enterprise version 1903
 |Validation Type|Manual/Tools|
 |Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
 |Resources||
+
+---
+</br>
+
+|Name|SecuredCore.Firmware.Protection|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
+|Target Availability|2021|
+|Requirements dependency|DRTM + UEFI|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li></ul> |
+|Resources| https://trustedcomputinggroup.org/ |
 
 ---
 </br>
@@ -243,18 +254,3 @@ Some requirements of this program are based on a business agreement between your
 
 ---
 </br>
-
-### REVIEW WHERE THIS SHOULD GO
-|Name|SecuredCore.Firmware.Protection|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
-|Target Availability|2021|
-|Requirements dependency|DRTM + UEFI|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li><li>Approved FW that does SRTM + runtime firmware hardening</li></ul> |
-|Resources| https://trustedcomputinggroup.org/ |
-
----
-# Preview Implemented #
-Add table here for Windows

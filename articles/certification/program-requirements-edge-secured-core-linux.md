@@ -42,6 +42,18 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
 |Resources||
 
+</br>
+
+---
+|Name|SecuredCore.Firmware.Protection|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
+|Target Availability|2021|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft 3rd party</li></ul> |
+|Resources| https://trustedcomputinggroup.org/ |
+
 ---
 </br>
 
@@ -173,6 +185,17 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Validation|Device to be validated through toolset to ensure that Defender IOT system configurations benchmarks have been run.|
 |Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
 
+---
+</br>
+
+|Name|SecuredCore.Firmware.Attestation|
+|:---|:---|
+|Status|Required|
+|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
+|Target Availability|2021|
+|Validation Type|Manual/Tools|
+|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
+|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
 
 ## Linux Policy Requirements
 ---
@@ -233,31 +256,4 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
 |Resources||
 
-
-
-
-
-
-### REVIEW WHERE THIS SHOULD GO
----
-|Name|SecuredCore.Firmware.Protection|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
-|Target Availability|2021|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li><li>Approved FW that does SRTM + runtime firmware hardening</li></ul> |
-|Resources| https://trustedcomputinggroup.org/ |
-
----
-|Name|SecuredCore.Firmware.Attestation|
-|:---|:---|
-|Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Target Availability|2021|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
-
-
-
+</br>
