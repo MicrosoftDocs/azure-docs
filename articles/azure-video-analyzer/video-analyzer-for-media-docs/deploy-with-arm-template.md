@@ -34,11 +34,11 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ----
 
-### Option 2 : Deploy using Power Shell Script
+### Option 2 : Deploy using PowerShell Script
 
 1. Open The [Template File](avam.template.json) file and inspect its content.
 2. Fill in the required parameters (see below)
-3. Run the Following Power Shell commands:
+3. Run the Following PowerShell commands:
 
     * Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
