@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: anfeldma
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account

@@ -73,7 +73,7 @@ To access this property, you need an Azure Active Directory Premium edition.
 
 To read this property, you need to grant the following rights: 
 
-- AuditLogs.Read.All
+- AuditLog.Read.All
 - Organization.Read.All  
 
 

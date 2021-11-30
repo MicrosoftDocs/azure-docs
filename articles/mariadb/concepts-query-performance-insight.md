@@ -13,6 +13,7 @@ ms.date: 3/18/2020
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
 
+
 ## Common scenarios
 
 ### Long running queries
@@ -59,6 +60,10 @@ Select the **Wait Statistics** tab to view the corresponding visualizations on w
 Queries displayed in the wait statistics view are grouped by the queries that exhibit the largest waits during the specified time interval.
 
 ![Query Performance Insight waits statistics](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+
+## Limitations 
+
+* Query performance insight is not supported for version 10.3
 
 ## Next steps
 
