@@ -17,23 +17,23 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). An Azure AD user can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
+In this article, you'll learn how to create an Azure Files share to store FSLogix profiles that can be accessed by hybrid user identities authenticated with Azure Active Directory (AD). Azure AD users can now access an Azure file share using Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-This article describes how to:
+In this article, you'll learn how to:
 
-- Configure an Azure Files storage account for authentication using Azure AD
+- Configure an Azure storage account for authentication using Azure AD.
 - Configure the permissions on an Azure Files share
-- Configure your session hosts to store FSLogix user profiles on Azure Files
+- Configure your session hosts to store FSLogix user profiles on Azure Files.
 
 ## Prerequisites
 
-The Azure AD Kerberos functionality is only available on the following Operating Systems:
+The Azure AD Kerberos functionality is only available on the following operating systems:
 
   - Windows 11 ENT single or multi session.
   - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
   - Windows Server 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
 
-The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. These accounts must be created in Active Directory and synced to Azure AD.
+The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD.
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, the group must also be created in Active Directory and synced to Azure AD.
 
@@ -104,9 +104,9 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
 ### Configure the Azure AD service principal and application
 
-To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. During the preview, this configuration is not available in the Azure portal. To create the application using PowerShell, follow these steps:
+To enable Azure AD authentication on a storage account, you need to create an Azure AD application to represent the storage account in Azure AD. This configuration won't be available in the Azure portal during public preview. To create the application using PowerShell, follow these steps:
 
-- Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives its value as the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
+- Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives the password's value from the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
 
     ```powershell
     $kerbKey1 = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -ListKerbKey | Where-Object { $_.KeyName -like "kerb1" }
@@ -197,7 +197,7 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 
 Start by [creating a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles.
 
-Follow the instructions in the following sections to configure the share level and directory level permissions on your Azure Files share to provide the right level of access to users.
+Follow the instructions in the following sections to configure the share-level and directory-level permissions on your Azure Files share to provide the right level of access to your users.
 
 ### Assign share-level permissions
     
@@ -213,19 +213,21 @@ All users that need to have FSLogix profiles stored on the storage account you'r
 To prevent users from accessing the user profile of other users, you must also assign directory-level permissions. This section provides the steps to configure the permissions. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
 
 > [!IMPORTANT]
-> Without proper directory level permissions in place, a user could delete the user profile or access the personal information of a different user.
+> Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
 
 You can set permissions (ACLs) for files and directories using either the icacls command-line utility or Windows Explorer. The system you use to configure the permissions must meet the following requirements:
 
 - The version of Windows meets the supported OS requirements defined in the [Prerequisites](#prerequisites) section.
-- Azure AD-Joined or Hybrid Azure AD-joined to the same Azure AD tenant as the storage account.
-- Have line-of-sight to the domain controller.
-- Domain joined to your Active Directory (Windows Explorer method only).
+- Is Azure AD-joined or Hybrid Azure AD-joined to the same Azure AD tenant as the storage account.
+- Has line-of-sight to the domain controller.
+- Is domain-joined to your Active Directory (Windows Explorer method only).
 
-During the public preview, configuring permissions using Windows Explorer also requires storage account configuration. This can be skipped when using icacls. Configure your storage account following the steps below:
+During the public preview, configuring permissions using Windows Explorer also requires storage account configuration. You can skip this configuration step when using icacls.
 
-1. On a device that is domain joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if not already installed.
-2. Set the storage account's ActiveDirectoryProperties needed to support the shell experience. Because Azure AD does not currently support configuring ACLs in Shell, it must instead rely on Active Directory. Copy the function below to PowerShell.
+To configure your storage account:
+
+1. On a device that's domain-joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if you haven't already.
+2. Set the storage account's ActiveDirectoryProperties to support the Shell experience. Because Azure AD doesn't currently support configuring ACLs in Shell, it must instead rely on Active Directory. To configure Shell, run the following command in PowerShell:
     ```powershell
     function Set-StorageAccountAadKerberosADProperties {
         [CmdletBinding()]
@@ -313,15 +315,15 @@ During the public preview, configuring permissions using Windows Explorer also r
     Set-StorageAccountAadKerberosADProperties -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>"
     ```
 
-Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below:
+Enable Azure AD Kerberos functionality by configuring the group policy or registry value in the following list:
 
 - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
 - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
-Verify that you can retrieve a Kerberos Ticket Granting Ticket (TGT) by running the following steps:
+Next, make sure you can retrieve a Kerberos Ticket Granting Ticket (TGT) by following these instructions:
 
 1. Open a command window.
-2. Run: 
+2. Run the following command: 
 
     ```
     dsregcmd /RefreshPrt
@@ -335,20 +337,20 @@ Verify that you can retrieve a Kerberos Ticket Granting Ticket (TGT) by running 
     klist get krbtgt
     ```
 
-5. Confirm you have a TGT by looking for an item with a Server property of krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM
-6. Verify you can mount the network share by running the following in your command window:
+5. Confirm you have a Kerberos TGT by looking for an item with a server property of `krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM`.
+6. Verify you can mount the network share by running the following command in your command window:
 
     ```
     net use <DriveLetter>: \\<storage-account-name>.file.core.windows.net\<fIle-share-name>
     ```
 
-Refer to the steps to [configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to complete configuring the permissions using icacls or Windows Explorer.
+Finally, follow the instructions in [Configure directory and file level permissions](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) to finish configuring your permissions with icacls or Windows Explorer.
 
 ## Configure the session hosts
 
 To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. To configure session hosts:
 
-1. Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below. The system must be restarted for the change to take effect.
+1. Enable the Azure AD Kerberos functionality by configuring the group policy or registry value with the values in the following list. Once you've configured those values, restart your system to make the changes take effect.
 
     - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
     - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
