@@ -20,7 +20,7 @@ The Azure Backup service triggers jobs that run in the background. This includes
 
 An operation, such as triggering backup, returns a *jobID* in response.
 
-For example, the final response of a [trigger backup REST API](backup-azure-sql-vm-rest-api.md#trigger-an-on-demand-backup-for-the-databse) operation is as follows:
+For example, the final response of a [trigger backup REST API](backup-azure-sql-vm-rest-api.md#trigger-an-on-demand-backup-for-the-database) operation is as follows:
 
 ```json
 {
@@ -190,7 +190,7 @@ Body:
 }
 ```
 
-Then track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
+Then, track the resulting operation using the location header or Azure-AsyncOperation header with a *GET* command:
 
 ```http
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupoperations/9c3521c9-0bc9-4092-96e3-065262eaee11?api-version=2016-12-01

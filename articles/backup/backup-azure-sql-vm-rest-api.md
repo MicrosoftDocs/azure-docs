@@ -14,8 +14,8 @@ This article describes how to back up SQL server databases in Azure VMs using Az
 
 ## Prerequisites
 
-- Recovery Services vault
-- Policy for configuring backup for your SQL databases.
+- A Recovery Services vault
+- A policy for configuring backup for your SQL databases.
 
 For more information on how to create new vaults and policies, see [create vault](backup-azure-arm-userestapi-createorupdatevault.md) and [create policy](backup-azure-arm-userestapi-createorupdatepolicy.md) REST API tutorials.
 
@@ -37,13 +37,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 The *POST URI* has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, and `{fabricName}` parameters. In the following example, the values for the different parameters are as follows:
 
-- `{fabricName}` is *Azure*
-
-- `{vaultName}` is *SQLServer2012*
-
-- `{vaultresourceGroupName}` is *SQLServerSelfHost*
-
-- $filter - *backupManagementType eq 'AzureWorkload'*
+- `{fabricName}`: *Azure*
+- `{vaultName}`: *SQLServer2012*
+- `{vaultresourceGroupName}`: *SQLServerSelfHost*
+- `$filter`: *backupManagementType eq 'AzureWorkload'*
 
 As all the required parameters are given in the URI3, a separate request body isn't needed.
 
@@ -266,10 +263,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 Set the variables for the above URI as follows:
 
-- {resourceGroupName} - *SQLServerSelfHost*
-- {vaultName} - *SQLServer2012*
-- {fabricName} - *Azure*
-- {containerName}- Refer to the name attribute in the response body of the GET ProtectableContainers operation. In our example, the attribute name is *VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0*.
+- `{resourceGroupName}`: *SQLServerSelfHost*
+- `{vaultName}`: *SQLServer2012*
+- `{fabricName}`: *Azure*
+- `{containerName}`: Refer to the name attribute in the response body of the GET ProtectableContainers operation. In our example, the attribute name is *VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0*.
 
 ```http
 POST https://management.azure.com/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e719485e/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0/inquire?api-version=2016-12-01$filter=workloadType EQ 'SQLDatabase'
@@ -304,9 +301,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Construct the URI as follows:
 
-- {resourceGroupName} - *SQLServerSelfHost*
-- {vaultName} - *SQLServer2012*
-- {$filter} - *backupManagementType eq 'AzureWorkload'*
+- `{resourceGroupName}`: *SQLServerSelfHost*
+- `{vaultName}`: *SQLServer2012*
+- `{$filter}`: *backupManagementType eq 'AzureWorkload'*
 
 ```http
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupProtectableItems?api-version=2016-12-01&$filter=backupManagementType eq 'AzureWorkload'
@@ -365,8 +362,8 @@ In our example, the ID of file share we want to protect is:
 /subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0/protectedItems/sqldatabase;mssqlserver;msdb
 ```
 
-- {containerName} - *VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0*
-- {protectedItemName} - *sqldatabase;mssqlserver;msdb*
+- `{containerName}`: *VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0*
+- `{protectedItemName}`: *sqldatabase;mssqlserver;msdb*
 
 Create a request body:
 
@@ -414,7 +411,7 @@ Then track the resulting operation using the location header or Azure-AsyncOpera
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0/protectedItems/sqldatabase;mssqlserver;msdb/operationResults/b686a165-387f-461d-8579-c55338566338?api-version=2016-12-01
 ```
 
-Once the operation completes, it returns 200 (OK) with the protected item content in the response body.
+Once the operation is complete, it returns 200 (OK) with the protected item content in the response body.
 
 Sample Response Body:
 
@@ -516,7 +513,7 @@ Then track the resulting operation using the location header or Azure-AsyncOpera
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000/resourceGroups/SQLServerSelfHost/providers/microsoft.recoveryservices/vaults/SQLServer2012/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0/protectedItems/sqldatabase;mssqlserver;msdb/operationsStatus/cd2a3b13-d392-4e81-86ac-02ea91cc70b9?api-version=2016-12-01
 ```
 
-Once the operation completes, it returns 200 (OK) with the ID of the resulting backup job in the response body.
+Once the operation is complete, it returns 200 (OK) with the ID of the resulting backup job in the response body.
 
 #### Sample response body
 

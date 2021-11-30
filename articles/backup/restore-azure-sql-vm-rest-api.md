@@ -62,7 +62,7 @@ To restore any backed-up database:
    - `{vaultName}`: *SQLServer2012*
    - `{containerName}`: *VMAppContainer;Compute;SQLServerPMDemo;sqlserver-0*
    - `{protectedItemName}`: *sqldatabase;mssqlserver;msdb*
-   - {resourceGroupName}: *SQLServerSelfHost*
+   - `{resourceGroupName}`: *SQLServerSelfHost*
 
    The GET URI has all the required parameters. No additional request body is needed.
 
@@ -222,7 +222,7 @@ The following request body defines properties required to trigger SQL database r
 
 Triggering of a restore operation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). This operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and 200 (OK) when that operation is complete.
 
 ##### Response example
 
