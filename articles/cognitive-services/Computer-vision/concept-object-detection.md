@@ -23,7 +23,7 @@ The Detect API applies tags based on the objects or living things identified in 
 Try out the capabilities of object detection quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Object detection example
 
