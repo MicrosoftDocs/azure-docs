@@ -59,6 +59,8 @@ az ad sp create-for-rbac \
   --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
   --role acrpull
 
+SP_ID=xxxx # Replace with your service principal's appId
+
 # Store the registry *password* in the vault
 az keyvault secret set \
   --vault-name $AKV_NAME \
