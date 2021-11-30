@@ -66,29 +66,29 @@ Partial document update feature supports the following modes of operation. Refer
 > [!NOTE]
 > `Replace` is a good candidate where the user expects some of the properties to be always present and allows you to assert/enforce that.
 
-## Partial document update specification
+## REST API reference for Partial document update
 
-The client facing component of the Partial Document Update capability is implemented as a top-level REST API. Here is an example of how a `Conditional Add` operation is modeled by Azure Cosmos DB:
+The [Azure Cosmos DB REST API](/rest/api/cosmos-db/) provides programmatic access to Azure Cosmos DB resources to create, query, and delete databases, document collections, and documents. In addition to executing insert, replace, delete, read, enumerate, and query operations on JSON documents in a collection, you can use the `PATCH` HTTP method for Partial document update operation. Refer to [the Azure Cosmos DB REST API Reference](/rest/api/cosmos-db/patch-a-document) for details.
 
-```bash
-PATCH /dbs/{db}/colls/{coll}/documents/{doc}
-HTTP/1.1
-Content-Type:application/json-patch+json
+For example, here is what the request looks like for a `set` operation using Partial document update.
 
-{
-   "condition":"from c where (c.TotalDue = 0 OR NOT IS_DEFINED(c.TotalDue))", 
-   "operations":[ 
-      { 
-         "op":"add", 
-         "path":"amount", 
-         "value":80000 
-      }
-   ]
-} 
+```json
+PATCH https://querydemo.documents.azure.com/dbs/FamilyDatabase/colls/FamilyContainer/docs/Andersen.1 HTTP/1.1  
+x-ms-documentdb-partitionkey: ["Andersen"]  
+x-ms-date: Tue, 29 Mar 2016 02:28:29 GMT  
+Authorization: type%3dmaster%26ver%3d1.0%26sig%3d92WMAkQv0Zu35zpKZD%2bcGSH%2b2SXd8HGxHIvJgxhO6%2fs%3d
+Content-Type:application/json_patch+json
+Cache-Control: no-cache  
+User-Agent: Microsoft.Azure.DocumentDB/2.16.12  
+x-ms-version: 2015-12-16  
+Accept: application/json  
+Host: querydemo.documents.azure.com  
+Cookie: x-ms-session-token#0=602; x-ms-session-token=602  
+Content-Length: calculated when request is sent  
+Connection: keep-alive
+  
+{"operations":[{ "op" :"set", "path":"/Parents/0/FamilyName","value":"Bob" }]}
 ```
-
-> [!NOTE]
-> In this case, the value at path `amount` will be set to `80000` (the operation) *only* if the value of `TotalDue` is 0 or it’s not present (the condition).
 
 ## Document level vs path level conflict resolution  
 

@@ -42,7 +42,7 @@
     - name: Roles and permissions
       href: roles.md
     - name: Costs and billing
-      href: azure-sentinel-billing.md
+      href: billing.md
     - name: Extend Microsoft Sentinel across workspaces and tenants
       href: extend-sentinel-across-workspaces-tenants.md
     - name: Security baseline
@@ -68,7 +68,7 @@
       - name: ASIM content
         href: normalization-content.md
     - name: Classifying data with entities
-      href: entities-in-azure-sentinel.md
+      href: entities.md
   - name: Threat intelligence
     items:
     - name: Understand threat intelligence in Microsoft Sentinel
@@ -92,7 +92,7 @@
   - name: SOAR
     items:
     - name: Orchestration, automation, and response
-      href: automation-in-azure-sentinel.md
+      href: automation.md
     - name: Automation rules
       href: automate-incident-handling-with-automation-rules.md
     - name: Playbooks
@@ -110,7 +110,7 @@
     - name: Sample workspace designs
       href: sample-workspace-designs.md
     - name: Plan and manage costs
-      href: azure-sentinel-billing.md
+      href: billing.md
     - name: Manage workspace access
       href: resource-context-rbac.md
   - name: Migrate to Microsoft Sentinel
@@ -128,12 +128,12 @@
     - name: Top connectors
       expanded: true
       items:
-      - name: Amazon Web Services CloudTrail
+      - name: Amazon Web Services logs
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
       - name: Microsoft Defender for Cloud
-        href: connect-azure-security-center.md
+        href: connect-defender-for-cloud.md
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
@@ -200,6 +200,8 @@
         href: work-with-anomaly-rules.md
       - name: Manage template versions for analytics rules
         href: manage-analytics-rule-templates.md
+      - name: Handle ingestion delay in analytics rules
+        href: ingestion-delay.md
       - name: Get fine-tuning recommendations
         href: detection-tuning.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
@@ -344,8 +346,6 @@
       items:
       - name: Manage hunting queries with REST-API
         href: hunting-with-rest-api.md
-      - name: Manage watchlists with REST-API
-        href: watchlist-with-rest-api.md
       - name: Enrich entities with geolocation data with REST-API
         href: geolocation-data-api.md
     - name: Defender for Cloud Apps alerts not onboarded to Microsoft 365 Defender

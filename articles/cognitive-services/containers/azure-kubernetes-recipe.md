@@ -173,7 +173,7 @@ The following steps are needed to get the required information to connect your c
 1. Create service principal.
 
     ```azurecli-interactive
-    az ad sp create-for-rbac --skip-assignment
+    az ad sp create-for-rbac
     ```
 
     Save the results `appId` value for the assignee parameter in step 3, `<appId>`. Save the `password` for the next section's client-secret parameter `<client-secret>`.

@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 11/12/2021
 ms.author: cavoeg
 ---
 # Overview of search in Azure API for FHIR
@@ -30,6 +30,8 @@ When you do a search, you'll search based on various attributes of the resource.
 
 Each search parameter has a defined [data types](https://www.hl7.org/fhir/search.html#ptypes). The support for the various data types is outlined below:
 
+> [!WARNING]
+> There is currently an issue when using _sort on the Azure API for FHIR with chained search. For more information, see  open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344). This will be resolved during a release in December 2021. 
 
 | **Search parameter type**  | **Azure API for FHIR** | **FHIR service in Azure Healthcare APIs** | **Comment**|
 | -------------------------  | -------------------- | ------------------------- | ------------|
@@ -130,7 +132,7 @@ To help manage the returned resources, there are search result parameters that y
 | _revinclude                   | Yes                  | Yes                       |Included items are limited to 100. _revinclude on PaaS and OSS on Cosmos DB do not include :iterate support [(#2137)](https://github.com/microsoft/fhir-server/issues/2137).  There is also an incorrect status code for a bad request [#1319](https://github.com/microsoft/fhir-server/issues/1319)                            |
 | _summary                      | Yes             | Yes                   |
 | _total                        | Partial              | Partial                   | _total=none and _total=accurate                               |
-| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For the FHIR service and the OSS SQL DB FHIR servers, sorting by strings and dateTime fields are supported. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, and clinical date.          |
+| _sort                         | Partial              | Partial                   | sort=_lastUpdated is supported on Azure API for FHIR and the FHIR service. For Azure API for FHIR and OSS Cosmos DB databases created after April 20, 2021, sort is supported on first name, last name, birthdate, and clinical date. Note there is an open issue using _sort with chained search which is documented in open-source issue [#2344](https://github.com/microsoft/fhir-server/issues/2344).          |
 | _contained                    | No                   | No                        |
 | _containedType                | No                   | No                        |
 | _score                        | No                   | No                        |

@@ -3,7 +3,7 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/01/2021
+ms.date: 11/11/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,7 +29,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 Jobs for Hybrid Runbook Workers run under the local **System** account.
 >[!NOTE]
 >  To run PowerShell 7.x on a Windows Hybrid Runbook Worker, See [Installing PowerShell on Windows](/powershell/scripting/install/installing-powershell-on-windows).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install) 
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md) 
 
 Make sure the path where the *pwsh.exe* executable is located and is added to the PATH environment variable. Restart the Hybrid Runbook Worker after installation completes.
 
@@ -37,7 +37,7 @@ Make sure the path where the *pwsh.exe* executable is located and is added to th
 
 >[!NOTE]
 > To run PowerShell 7.x on a Linux Hybrid Runbook Worker, See [Installing PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux).
->  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](/azure/automation/extension-based-hybrid-runbook-worker-install)
+>  Currently, we only support Hybrid worker extension based onboarding as mentioned [here.](./extension-based-hybrid-runbook-worker-install.md)
 
 
 Service accounts **nxautomation** and **omsagent** are created. The creation and permission assignment script can be viewed at [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
@@ -194,7 +194,9 @@ Set-Content -Value $Cert -Path $CertPath -Force -Encoding Byte | Write-Verbose
 
 Write-Output ("Importing certificate into $env:computername local machine root store from " + $CertPath)
 $SecurePassword = ConvertTo-SecureString $Password -AsPlainText -Force
-Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword -Exportable | Write-Verbose
+Import-PfxCertificate -FilePath $CertPath -CertStoreLocation Cert:\LocalMachine\My -Password $SecurePassword | Write-Verbose
+
+Remove-Item -Path $CertPath -ErrorAction SilentlyContinue | Out-Null
 
 # Test to see if authentication to Azure Resource Manager is working
 $RunAsConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
@@ -222,6 +224,11 @@ To finish preparing the Run As account:
 1. Publish the runbook.
 1. Run the runbook, targeting the Hybrid Runbook Worker group that runs and authenticates runbooks using the Run As account. 
 1. Examine the job stream to see that it reports the attempt to import the certificate into the local machine store, followed by multiple lines. This behavior depends on how many Automation accounts you define in your subscription and the degree of success of the authentication.
+
+>[!NOTE]
+>  In case of unrestricted access, a user with VM Contributor rights or having permissions to run commands against the hybrid worker machine can use the Automation Account Run As certificate from the hybrid worker machine, using other sources like Azure cmdlets which could potentially allow a malicious user access as a subscription contributor. This could jeopardize the security of your Azure environment. </br> </br>
+>  We recommend that you divide the tasks within the team and grant the required permissions/access to users as per their job. Do not provide unrestricted permissions to the machine hosting the hybrid runbook worker role.
+
 
 ## Work with signed runbooks on a Windows Hybrid Runbook Worker
 

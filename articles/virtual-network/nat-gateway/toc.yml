@@ -78,3 +78,5 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: faq.yml

@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 11/15/2021
 ms.author: b-juche
 ---
 # Request region access for Azure NetApp Files
 
-This article describes how to request access to a region.
+In some special situations, you might need to explicitly request access to a region. This article explains how to submit a request. 
 
 ## Steps
 

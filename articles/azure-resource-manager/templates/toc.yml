@@ -152,7 +152,7 @@
     - name: Cache for Redis
       href: ../../azure-cache-for-redis/cache-redis-cache-arm-provision.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Cosmos DB
-      href: ../../cosmos-db/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../cosmos-db/sql/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Database for MySQL
@@ -210,7 +210,7 @@
     - name: Managed Applications
       href: ../managed-applications/publish-service-catalog-app.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/quick-collect-activity-log-arm.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
+      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=%2fazure%2fazure-resource-manager%2ftemplates%2ftoc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Portal
@@ -270,7 +270,7 @@
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Defender for Cloud
-      href: ../../security-center/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -472,12 +472,14 @@
       href: template-functions-object.md
     - name: Resource functions
       href: template-functions-resource.md
+    - name: Scope functions
+      href: template-functions-scope.md  
     - name: String functions
       href: template-functions-string.md
   - name: REST
     href: /rest/api/resources/
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource
   - name: .NET

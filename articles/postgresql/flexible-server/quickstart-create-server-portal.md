@@ -4,15 +4,14 @@ description: Quickstart guide to creating and managing an Azure Database for Pos
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 11/30/2021
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL is a managed service that you use to run, manage, and scale highly available PostgreSQL databases in the cloud. This Quickstart shows you how to create an Azure Database for PostgreSQL - Flexible Server in about five minutes using the Azure portal.
 

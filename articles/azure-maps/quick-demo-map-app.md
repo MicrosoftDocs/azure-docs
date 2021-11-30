@@ -7,8 +7,7 @@ ms.date: 09/30/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Create an interactive search map with Azure Maps
