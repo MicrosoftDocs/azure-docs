@@ -1,12 +1,12 @@
-	---
-	title: How to use Components Enumerator for Proxy updates | Microsoft Docs
-	description: How to use Components Enumerator for Proxy updates
-	author: ValOlson
-	ms.author: valls
-	ms.date: 11/12/2021
-	ms.topic: conceptual
-	ms.service: iot-hub-device-update
-	---
+---
+title: How to use Components Enumerator for Proxy updates | Microsoft Docs
+description: How to use Components Enumerator for Proxy updates
+author: ValOlson
+ms.author: valls
+ms.date: 11/12/2021
+ms.topic: conceptual
+ms.service: iot-hub-device-update
+---
 	
 # How to register multiple components with Contoso Virtual Vacuum Component Enumerator example
 This sections shows a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. 
