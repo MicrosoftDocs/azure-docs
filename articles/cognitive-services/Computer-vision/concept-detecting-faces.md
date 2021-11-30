@@ -24,7 +24,7 @@ Computer Vision can detect human faces within an image and generate the age, gen
 Try out the face detection features quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/public)
 
 ## Face detection examples
 
