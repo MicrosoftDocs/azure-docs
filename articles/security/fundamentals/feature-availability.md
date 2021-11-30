@@ -254,8 +254,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure WAF](../../sentinel/data-connectors-reference.md#azure-web-application-firewall-waf) | GA | GA |
 | **Windows connectors** |  |  |
 | - [Windows Firewall](../../sentinel/data-connectors-reference.md#windows-firewall) | GA | GA |
-| - [Windows Security Events](../../sentinel/connect-windows-security-events) | GA | GA |
-| - [Windows Forwarded Events](/azure/sentinel/data-connectors-reference#windows-forwarded-events) |Public Preview |Public Preview |
+| - [Windows Security Events](/azure/sentinel/connect-windows-security-events) | GA | GA |
 | **External connectors** |  |  |
 | - [Agari Phishing Defense and Brand Protection](../../sentinel/data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) | Public Preview | Public Preview |
 | - [AI Analyst Darktrace](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
