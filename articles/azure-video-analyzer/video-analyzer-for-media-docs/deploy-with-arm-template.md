@@ -40,14 +40,14 @@ The resource will be deployed to your subscription and will create the Azure Vid
 2. Fill in the required parameters (see below)
 3. Run the Following Power Shell commands:
 
-    * Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroup) cmdlet.
+    * Create a new Resource group on the same location as your Azure Video Analyzer for Media account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
 
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
 
-    * Deploy the template to the resoruce group using the [New-AzResourceGroupDeployment](https://docs.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
+    * Deploy the template to the resoruce group using the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet.
 
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile ./avam.template.json
@@ -105,8 +105,8 @@ If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
 If you're new to template deployment, see:
 
 * [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/)
-* [Deploy Resources with ARM Template](https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/deploy-powershell)
-* [Deploy Resources with Bicep and Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/bicep/deploy-cli)
+* [Deploy Resources with ARM Template](../../azure/azure-resource-manager/templates/deploy-powershell)
+* [Deploy Resources with Bicep and Azure CLI](../../azure-resource-manager/bicep/deploy-cli)
 
 ## Next steps
 
