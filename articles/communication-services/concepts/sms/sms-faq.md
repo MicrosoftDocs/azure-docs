@@ -14,6 +14,7 @@ ms.subservice: sms
 ---
 
 # SMS FAQ
+This article answers commonly asked questions about the SMS service. 
 
 ## Can a customer use Azure Communication Services for emergency purposes?
 

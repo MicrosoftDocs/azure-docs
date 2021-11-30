@@ -46,7 +46,7 @@ items:
       - name: Send an SMS in Azure Logic Apps
         href: quickstarts/sms/logic-app.md
       - name: Apply for a Short Code
-        href: quickstarts/sms/apply-for-a-short-code.md
+        href: quickstarts/sms/apply-for-short-code.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your client app

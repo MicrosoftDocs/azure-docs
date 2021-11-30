@@ -143,7 +143,7 @@ console.log(result); // your message ID will be in the result
 ## Access your short code program brief ID
 The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
 
-:::image type="content" source="../media/shortcode-troubleshooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 ---
 
 ## Enable and access call logs

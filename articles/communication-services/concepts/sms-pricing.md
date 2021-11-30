@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-tollfree-shortcode
 ---
-
 # SMS Pricing 
 
 > [!IMPORTANT]
@@ -22,4 +21,17 @@ zone_pivot_groups: acs-tollfree-shortcode
 ::: zone pivot="shortcode"
 [!INCLUDE [Short Code](./includes/sms-shortcode-pricing.md)]
 ::: zone-end
+
+## Next steps
+
+In this quickstart, you learned how to send SMS messages using Azure Communication Services.
+
+> [!div class="nextstepaction"]
+> [Learn more about SMS](../../concepts/sms/concepts.md)
+
+The following documents may be interesting to you:
+- Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+- Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
+- [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
 

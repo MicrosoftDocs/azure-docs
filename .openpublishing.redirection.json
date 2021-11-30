@@ -46932,6 +46932,41 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/concepts.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/messaging-policy.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/messaging-policy.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sdk-features.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sms-faq.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sms-faq.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/handle-sms-events.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/handle-sms-events.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/logic-app.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/logic-app.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/send.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/send.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/translator/translator-info-overview.md",
       "redirect_url": "/azure/cognitive-services/translator/translator-overview",
       "redirect_document_id": false

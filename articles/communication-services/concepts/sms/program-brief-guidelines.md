@@ -85,14 +85,14 @@ In these fields, you must provide a URL of the website where customers will disc
 
 #### Guidelines for designing the call to action (CTA):
 1. The CTA needs to be clear as to what program the customer is joining or agreeing to.
-- Call-to-action must be clear and accurate; consent must not be obtained through deceptive means
-- Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Please refer to the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf) for best practices.
+   - Call-to-action must be clear and accurate; consent must not be obtained through deceptive means
+   - Enrolling a user in multiple programs based on a single opt-in is prohibited, even when all programs operate on the same short code. Please refer to the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf) for best practices.
 2. The CTA needs to include the abbreviated terms and conditions, which include:
--	Program Name – as described above
--	Message frequency (recurring message/subscriptions)
--	Message and Data rates may apply
--	Link to comprehensive Terms and Conditions (to a static website, or complete text)
--	Link to privacy policy (or complete text)
+   -	Program Name – as described above
+   -	Message frequency (recurring message/subscriptions)
+   -	Message and Data rates may apply
+   -	Link to comprehensive Terms and Conditions (to a static website, or complete text)
+   -	Link to privacy policy (or complete text)
 
 > [!Note]
 > Additional information might be required for sweepstakes or other special programs. Please check the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf).
@@ -104,7 +104,7 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **Web opt-in**
 
-:::image type="content" source= "../media/ShortCodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/shortcodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
 
 **Point of sale (hardcopy leaflet)**
 
@@ -112,7 +112,7 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **IVR**
 
-[…] To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply Visit margiestravel.com for privacy and terms and conditions. […]
+To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply Visit margiestravel.com for privacy and terms and conditions.
 
 ## Contact Details
 
@@ -179,7 +179,7 @@ In this field, you are required to provide a sample message for each content typ
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Apply for a short code](../../quickstarts/sms/apply-for-a-short-code.md)
+> [Apply for a short code](../../quickstarts/sms/apply-for-short-code.md)
 
 The following documents may be interesting to you:
 

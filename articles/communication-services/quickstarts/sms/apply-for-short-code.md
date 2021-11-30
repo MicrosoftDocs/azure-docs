@@ -38,7 +38,7 @@ The Short Code Program Brief registration requires details about your messaging 
 ### Program Details 
 You will first need to provide the program name and choose the country/region where you would like to provision the phone number. 
 
-:::image type="content" source="./media/apply-for-a-short-code/program-details.png" alt-text="Screenshot showing program details section.":::
+:::image type="content" source="./media/apply-for-short-code/program-details.png" alt-text="Screenshot showing program details section.":::
 
 #### Select short code type
 Configuring your short code is broken down into two steps:
@@ -55,22 +55,22 @@ When you’ve selected a number type, you can then choose the message type, and 
 #### Enter program information
 This section requires you to provide details about your program such as recurrence of the program, messaging content, type and description of program, privacy policy, and terms of the program.
 
-:::image type="content" source="./media/apply-for-a-short-code/program-details-contd.png" alt-text="Screenshot showing program details section continued.":::
+:::image type="content" source="./media/apply-for-short-code/program-details-contd.png" alt-text="Screenshot showing program details section continued.":::
 
 ### Contact Details
 This section requires you to provide information about your company and customer care in the case that end users need help or support with the program. 
 
-:::image type="content" source="./media/apply-for-a-short-code/contact-details.png" alt-text="Screenshot showing contact details section.":::
+:::image type="content" source="./media/apply-for-short-code/contact-details.png" alt-text="Screenshot showing contact details section.":::
 
 ### Volume Details
 This section requires you to provide an estimate of the number of messages you plan on sending per user per month and disclose any expected traffic spikes as part of the program.
 
-:::image type="content" source="./media/apply-for-a-short-code/volume-details.png" alt-text="Screenshot showing volume details section.":::
+:::image type="content" source="./media/apply-for-short-code/volume-details.png" alt-text="Screenshot showing volume details section.":::
 
 ### Template Information
 This section captures sample messages related to opt-in, opt-out, and other message flows.
 
-:::image type="content" source="./media/apply-for-a-short-code/templates1.png" alt-text="Screenshot showing template details section.":::
+:::image type="content" source="./media/apply-for-short-code/templates1.png" alt-text="Screenshot showing template details section.":::
 
 Once completed, review the Program Brief information provided and submit the completed application through the Azure Portal. 
  

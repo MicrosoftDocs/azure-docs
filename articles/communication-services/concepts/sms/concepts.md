@@ -38,5 +38,5 @@ The following documents may be interesting to you:
 
 - Familiarize yourself with the [SMS SDK](../sms/sdk-features.md)
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
-- Get a [short code](../../quickstarts/sms/apply-for-a-short-code.md)
+- Get a [short code](../../quickstarts/sms/apply-for-short-code.md)
 - [Phone number types in Azure Communication Services](../telephony/plan-solution.md)
