@@ -63,7 +63,7 @@ Required permissions | For permissions required to apply an update, see [account
 > [!NOTE]
 > This is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and cannot upgrade their server to Windows Server 2016 or newer at this time. You cannot use this version to update an Azure AD Connect V2.0 server.
 >
-> This release is not supported on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31st 2022. You will need to upgrade your Server OS and AADConnect version before that date.
+> This release should not be installed on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31st 2022. You will need to upgrade your Server OS and AADConnect version before that date.
 >
 > There is an issue where upgrading to this v1.6 build or any newer builds resets the group membership limit to 50k. When a server is upgraded to this build, or any newer 1.6 builds, then the customer should reapply the rules changes they applied when initially increasing the group membership limit to 250k before they enable sync for the server. 
 
