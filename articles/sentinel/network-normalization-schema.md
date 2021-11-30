@@ -31,8 +31,6 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 
 The network normalization schema can represent any IP network session, but is specifically designed to provide support for common source types, such as Netflow, Firewalls, and Intrusion prevention systems.
 
-@@@ important fields 
-
 ## Parsers
 
 ### Source-agnostic parsers
