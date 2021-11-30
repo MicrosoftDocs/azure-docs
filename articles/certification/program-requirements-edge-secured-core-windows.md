@@ -10,9 +10,10 @@ ms.service: certification
 ---
 
 
-## OS Support
-Windows 10 IoT Enterprise version 1903 (verify name is correct)
-
+## Windows IoT OS Support
+Windows 10 IoT Enterprise version 1903
+> [!Note]
+> The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
 ## Windows IoT Hardware/Firmware Requirements
 ---
@@ -21,12 +22,14 @@ Windows 10 IoT Enterprise version 1903 (verify name is correct)
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provision-ing Service (DPS).|
+|Description|The purpose of the test is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
 |Target Availability|2021|
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
 |Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
-|Resources|Azure IoT Hub Device Provisioning Service: [TPM attestation](../iot-dps/concepts-tpm-attestation.md)|
+|Resources|Azure IoT Hub Device Provisioning Service: 
+*	[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md)
+*	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)|
 
 ---
 </br>
