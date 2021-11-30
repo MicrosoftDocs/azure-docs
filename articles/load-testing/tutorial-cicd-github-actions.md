@@ -15,6 +15,9 @@ ms.topic: tutorial
 
 In this tutorial, you'll learn how to automate performance regression testing with Azure Load Testing Preview and GitHub Actions. You'll configure a GitHub Actions CI/CD workflow to run a load test for a sample web application, and then use the results to identify performance regressions.
 
+> [!IMPORTANT]
+> There is a known issue with the GitHub action for Azure Load Testing, which results in your GitHub Actions workflow to fail. Check the [Azure Load Testing known issues](https://github.com/microsoft/azure-load-testing/wiki/Known-Issues-for-public-preview#error-unable-to-resolve-action-azureload-testing-repository-not-found-while-running-github-action-for-azure-load-testing) for the latest status update.
+
 If you're using Azure Pipelines for your CI/CD workflows, see the corresponding [Azure Pipelines tutorial](./tutorial-cicd-azure-pipelines.md).
 
 You'll learn how to:
