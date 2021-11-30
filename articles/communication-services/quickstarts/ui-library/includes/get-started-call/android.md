@@ -32,13 +32,6 @@ Click the `Next` button and name the project `UILibraryQuickStart`, set language
 
 Click `Finish`.
 
-## Maven repository credentials
-
-- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
-- You might need to have `SSO enabled` for that PAT.
-- Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
-- Personal access token can be generated: [here](https://github.com/settings/tokens
-
 ## Install the packages
 
 In your app level (**app folder**) `build.gradle`, add the following lines to the dependencies and android sections.
@@ -56,7 +49,7 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.2'
+    implementation 'com.azure.android:azure-communication-ui:+'
     ...
 }
 ```
@@ -66,16 +59,9 @@ In your project gradle scripts add following lines to `repositories`. For `Andro
 ```groovy
 repositories {
         ...
+        mavenCentral()
         maven {
             url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-        }
-        maven {
-            name='github'
-            url = 'https://maven.pkg.github.com/Azure/communication-preview'
-            credentials {
-                username '<your GitHub user name>'
-                password '<your personal access token>'
-            }
         }
         ...
     }
