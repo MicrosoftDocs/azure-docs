@@ -32,7 +32,7 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 
 ![Add captions to images demol](./Images/vision-studio-demo-1.png)
 
-6.	After selecting your image and acknowledging usage, you will see the detected attributes of the image populate in the output window. You can also select **JSON** to take a look at the JSON output as well. Below the try-it-out experience are next steps to get started using this capability in your own application.
+6.	After selecting your image and acknowledging usage, you will see the detected attributes of the image appear in the output window. You can also select **JSON** to take a look at the JSON output. Below the try-it-out experience are next steps to get started using this capability in your own application.
 
 ![Add captions to images demo resultsl](./Images/vision-studio-demo-2.png)
 
