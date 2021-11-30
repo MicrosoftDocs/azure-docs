@@ -12,7 +12,7 @@ Azure **Private Link Service** enables you to access Azure services (for example
 A **private endpoint** is a network interface that allows your workloads running in a virtual network to connect privately and securely to a service that has a **private link resource** (for example, a Relay namespace). The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute, VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network eliminating exposure from the public Internet. You can provide a level of granularity in access control by allowing connections to specific Azure Relay namespaces. 
 
 > [!NOTE]
-> You need to open ports **9400-9599** for outgoing communication when the **relay listener** uses private link, irrespective of the chosen connectivity mode. This configuration is in addition to the [standard relay ports](relay-port-settings.md). 
+> You need to open ports **9400-9599** for outgoing communication when the **relay listener** uses a private link, irrespective of connectivity mode chosen. It's in addition to opening the standard relay ports. Note that you need to do this step only for the **relay listener**.
 
 ## Add a private endpoint using Azure portal
 
