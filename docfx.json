@@ -601,6 +601,8 @@
         "articles/azure-monitor/logs/*.md": "robb",
         "articles/azure-monitor/visualize/**/*.md": "lagayhar",
         "articles/azure-monitor/vm/*.md": "bwren",
+        "articles/azure-percept/*.md": "ngt",
+        "articles/azure-percept/*.yml": "ngt",        
         "articles/azure-portal/**/*.md": "jenhayes",
         "articles/azure-portal/**/*.yml": "jenhayes",
         "articles/azure-relay/*.md": "spelluru",
