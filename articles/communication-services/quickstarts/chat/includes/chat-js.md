@@ -141,6 +141,11 @@ In the developer tools console within your browser you should see following:
 Azure Communication Chat client created!
 ```
 
+### Setting up Chat SDK with React Native
+
+React Native is supported for Azure Communication JavaScript Chat SDK in 1.1.1 or later version. See the [Quickstart: Using Chat SDK with React Native](../react-native.md) to learn more about required extra setting up steps for using Chat SDK in your React Native application.
+
+
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.
 
