@@ -124,7 +124,7 @@ This section helps you connect to your virtual machine. Use the steps that corre
       az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
       ```
 
-1. Once you log into your target VM, the native client on your workstation will open up with your VM session (**mstsc** for RDP sessions and **ssh CLI extension** for SSH sessions).
+1. Once you log into your target VM, the native client on your workstation will open up with your VM session (**mstsc** for RDP sessions and **ssh CLI extension** for SSH sessions).  The SSH CLI extension is currently in preview.  The extension can be installed by running, "az extension add --name ssh".
 
 ## Next steps
 
