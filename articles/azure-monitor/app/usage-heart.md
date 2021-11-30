@@ -23,7 +23,7 @@ HEART is an acronym that stands for Happiness, Engagement, Adoption, Retention, 
 
 These dimensions are measured independently, but they interact with each other as shown below:
 
-:::image type="content" source="media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions":::
+:::image type="content" source="media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions. The funnel path is as follows: Adoption to Engagement to Retention to Happiness. Task Success is a driver of this funnel":::
 
 
 
@@ -62,11 +62,12 @@ These dimensions are measured independently, but they interact with each other a
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
 
-![workbookgallery](./media/usage-overview/gallery.png)
+:::image type="content" source="media/usage-overview/gallery.png" alt-text="Screenshot highlighting location of the HEART workbooks in Azure App Insights.":::
 
 Users will notice that there are seven workbooks as shown in the following image:
 
-![Workbooktabs](./media/usage-overview/heartworkbooktemplates.png)  
+:::image type="content" source="media/usage-overview/heartworkbooktemplates.png" alt-text="Screenshot highlighting the names of the seven HEART workbooks under public templates in Azure App Insights' Workbook section":::
+
 
 The workbook is designed in a way that users only have to interact with the main workbook, 'HEART Analytics - All Sections'. This workbook contains the rest of the six workbooks as tabs. If needed, users can access the individual workbooks related to reach tab through the gallery as well.
 
@@ -75,7 +76,8 @@ The workbook is designed in a way that users only have to interact with the main
 
 See the "Development Requirements" tab as shown below to validate that data is flowing as expected to light up the metrics accurately. 
 
-![WorkbookPreview](./media/usage-overview/workbookpreview3.png)  
+:::image type="content" source="media/usage-overview/workbookpreview3.png" alt-text="Screenshot highlighting the 'Development Requirements' tab of the 'HEART Analytics - All Sections' workbook":::
+
 
 ## Workbook Structure
 The workbook shows metric trends for the HEART dimensions split over eight tabs. Each tab contains descriptions of the metrics and how to use them.
@@ -178,30 +180,32 @@ Set up a custom task using the below parameters.
 ### How do I view the data at different grains? (Daily, Monthly, Weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)
 
-![grainfaq](./media/usage-overview/monthlygrainfaq.png)  
+:::image type="content" source="media/usage-overview/monthlygrainfaq.png" alt-text="Screenshot highlighting the filter to change date grain to daily, monthly or weekly in the workbook. The date grain filter is available across all the dimension tabs":::
+
 
 ### How do I access insights from my application that aren't available on the HEART workbooks?
 
 You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this task, navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
 
-![logfaq](./media/usage-overview/logquery.png)  
+:::image type="content" source="media/usage-overview/logquery.png" alt-text="Screenshot highlighting the log section under 'Monitoring' in App Insights. Also displays a sample query in the log section to retrieve application data.":::
 
 
 ### Can I edit visuals in the workbook?
 
 Yes, when you click on the public template of the workbook, you can navigate to the top-left corner, click edit, and make your changes.
 
-![workbookeditfaq](./media/usage-overview/workbookeditfaq2.png) 
+:::image type="content" source="media/usage-overview/workbookeditfaq2.png" alt-text="Screenshot highlighting the 'Edit' button at the top of the workbook template":::
+
 
 After making your changes, click 'Done Editing' and then the 'Save' icon.
 
+:::image type="content" source="media/usage-overview/workbookeditfaq2.5.png" alt-text="Screenshot highlighting the 'Save' icon at the top of the workbook template that becomes available after making edits":::
 
-![workbookeditsave](./media/usage-overview/workbookeditfaq2.5.png)  
 
 To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You'll see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
 
-![workbookstab](./media/usage-overview/workbookeditfaq3.png)  
- 
+:::image type="content" source="media/usage-overview/workbookeditfaq3.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
+
 
  
 
