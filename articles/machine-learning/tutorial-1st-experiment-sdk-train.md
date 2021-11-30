@@ -48,6 +48,8 @@ The training code is taken from [this introductory example](https://pytorch.org/
     ```python
     import torch.nn as nn
     import torch.nn.functional as F
+    
+    
     class Net(nn.Module):
         def __init__(self):
             super(Net, self).__init__()
@@ -57,6 +59,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
             self.fc1 = nn.Linear(16 * 5 * 5, 120)
             self.fc2 = nn.Linear(120, 84)
             self.fc3 = nn.Linear(84, 10)
+    
         def forward(self, x):
             x = self.pool(F.relu(self.conv1(x)))
             x = self.pool(F.relu(self.conv2(x)))
@@ -90,6 +93,7 @@ The training code is taken from [this introductory example](https://pytorch.org/
     trainloader = torch.utils.data.DataLoader(
         trainset, batch_size=4, shuffle=True, num_workers=2
     )
+    
     
     if __name__ == "__main__":
     
@@ -153,6 +157,7 @@ from azureml.core import Workspace
 from azureml.core import Experiment
 from azureml.core import Environment
 from azureml.core import ScriptRunConfig
+
 
 if __name__ == "__main__":
     ws = Workspace.from_config()
@@ -250,8 +255,11 @@ The current training script prints metrics to the terminal. Azure Machine Learni
     import torchvision.transforms as transforms
     from model import Net
     from azureml.core import Run
+    
+    
     # ADDITIONAL CODE: get run from the current context
     run = Run.get_context()
+    
     # download CIFAR 10 data
     trainset = torchvision.datasets.CIFAR10(
         root='./data',
@@ -265,6 +273,8 @@ The current training script prints metrics to the terminal. Azure Machine Learni
         shuffle=True,
         num_workers=2
     )
+    
+    
     if __name__ == "__main__":
         # define convolutional network
         net = Net()
