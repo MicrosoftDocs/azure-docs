@@ -1022,6 +1022,8 @@
           href: cassandra/apache-cassandra-consistency-mapping.md
     - name: How-to guides
       items:
+        - name: From Apache Cassandra to Cassandra API
+          href: cassandra/cassandra-adoption.md     
         - name: Migrate to Cassandra API
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
