@@ -75,7 +75,7 @@ In this field, you can provide a URL of the privacy policy and terms and conditi
 > [!Note]
 > If you don’t have a URL of the website, mockups, or design, please send the screenshots to phone@microsoft.com.
 
-### Program Sign up type and URL [HEADING TO BE UPDATED]
+### Program Sign up type and URL 
 This field captures the call to action (CTA), an instruction for the customers to take action for ensuring that the customer consents to receive text messages, and understands the nature of the program. Call to action can be over SMS, Interactive Voice Response (IVR), website, or point of sale. Carriers require that all short code program brief applications are submitted with mock ups for the call to action.
 
 In these fields, you must provide a URL of the website where customers will discover the program, URL for screenshots of the website, URL of mockup of the website, or URL with the design.
@@ -97,10 +97,20 @@ In these fields, you must provide a URL of the website where customers will disc
 > [!Note]
 > Additional information might be required for sweepstakes or other special programs. Please check the [CTIA monitoring handbook](https://www.wmcglobal.com/hubfs/CTIA%20Short%20Code%20Monitoring%20Handbook%20-%20v1.8.pdf).
 
+##### Examples:
+**SMS**
 
+Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Txt OFF to stop, HELP for terms and conditions.
+
+**Web opt-in**
 :::image type="content" source= "../media/ShortCodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
 
+**Point of sale (hardcopy leaflet)**
 :::image type="content" source= "../media/print-opt-in-mock.png" alt-text="Screenshot showing print opt-in mock up.":::
+
+**IVR**
+
+[…] To sign up for our last-minute travel deals, Press 1.  Message and data rates may apply Visit margiestravel.com for privacy and terms and conditions. […]
 
 ## Contact Details
 
@@ -132,17 +142,21 @@ CTIA requires that the customer must actively opt into short code programs by se
 
 In this field, you are required to provide a sample of the confirmation message that is sent to the customer upon receiving their consent. 
 
-Example: Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
+**Example:** Contoso Promo Alerts: 3 msgs/week. Msg&Data Rates May Apply. Reply HELP for help. Reply STOP to opt-out.
 
 ### Help message response
 Message senders are required to respond to messages containing the HELP keyword with the program name and further information about how to contact the message sender.
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. Example: Thanks for texting Contoso! Call 1-800-800-8000 for support.
+In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the HELP keyword. 
+
+**Example:** Thanks for texting Contoso! Call 1-800-800-8000 for support.
 
 ### Opt-out message
 Message senders are required to have mechanisms to opt customers out of the program and respond to messages containing the STOP keyword with the program name and confirmation that no additional messages will be sent. 
 
-In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. Example: Contoso Alerts: You’re opted out and will receive no further messages.
+In this field, you are required to provide a sample of the response message that is sent to the customer upon receiving the STOP keyword. 
+
+**Example:** Contoso Alerts: You’re opted out and will receive no further messages.
 
 Please see our [guide on opt-outs](./sms-faq.md#how-does-azure-communication-services-handle-opt-outs-for-toll-free-numbers) to learn about how Azure Communication Services handles opt-outs.
 
