@@ -15,6 +15,10 @@ Azure Dedicated Host SKUs are the combination of a VM family and a certain hardw
 
 This document goes through the hardware specifications and VM packings for all compute optimized Dedicated Host SKUs.
 
+## Limitations
+
+The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+
 ## Fsv2
 ### Fsv2-Type2
 
@@ -47,6 +51,23 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | F16s v2 | 5     |
 |                |                 |               | F32s v2 | 2     |
 |                |                 |               | F48s v2 | 1     |
+|                |                 |               | F64s v2 | 1     |
+|                |                 |               | F72s v2 | 1     |
+
+### Fsv2-Type4
+
+The Fsv2-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Fsv2-Type4 runs [Fsv2-series](fsv2-series.md) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Fsv2-Type4 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 119             | 768 GiB       | F2s v2  | 32    |
+|                |                 |               | F4s v2  | 25    |
+|                |                 |               | F8s v2  | 12    |
+|                |                 |               | F16s v2 | 6     |
+|                |                 |               | F32s v2 | 3     |
+|                |                 |               | F48s v2 | 2     |
 |                |                 |               | F64s v2 | 1     |
 |                |                 |               | F72s v2 | 1     |
 
