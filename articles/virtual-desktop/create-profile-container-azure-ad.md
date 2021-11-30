@@ -22,20 +22,20 @@ In this article, you'll learn how to create an Azure Files share to store FSLogi
 This article describes how to:
 
 - Configure an Azure Files storage account for authentication using Azure AD
-- Configure the permissions on an Azure Files share
+- Configure the permissions on an Azure file share.
 - Configure your session hosts to store FSLogix user profiles on Azure Files
 
 ## Prerequisites
 
 The Azure AD Kerberos functionality is only available on the following Operating Systems:
 
-  - Windows 11 ENT single or multi session.
-  - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
-  - Windows Server 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
+  - Windows 11 Enterprise single or multi-session.
+  - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
+  - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
 
 The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect. These accounts must be created in Active Directory and synced to Azure AD.
 
-To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, the group must also be created in Active Directory and synced to Azure AD.
+To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
 > [!IMPORTANT]
 > This feature is currently only supported in the Azure Public cloud.
@@ -65,7 +65,7 @@ Follow the instructions in the following sections to configure Azure AD authenti
 
     For more information, see [Install the Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
-- Set variables for both storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment. The cmdlets below uses these variables to configure the storage account.
+- Set variables for both storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
 
     ```powershell
     $resourceGroupName = "<MyResourceGroup>"
@@ -195,7 +195,7 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 
 ## Configure your Azure Files share
 
-Start by [creating a file share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles.
+To get started, [create an Azure Files share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles if you haven't already.
 
 Follow the instructions in the following sections to configure the share level and directory level permissions on your Azure Files share to provide the right level of access to users.
 
@@ -225,7 +225,9 @@ You can set permissions (ACLs) for files and directories using either the icacls
 During the public preview, configuring permissions using Windows Explorer also requires storage account configuration. This can be skipped when using icacls. Configure your storage account following the steps below:
 
 1. On a device that is domain joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if not already installed.
+
 2. Set the storage account's ActiveDirectoryProperties needed to support the shell experience. Because Azure AD does not currently support configuring ACLs in Shell, it must instead rely on Active Directory. Copy the function below to PowerShell.
+
     ```powershell
     function Set-StorageAccountAadKerberosADProperties {
         [CmdletBinding()]
@@ -306,11 +308,12 @@ During the public preview, configuring permissions using Windows Explorer also r
         }
     }
     ```
+
 3. Call the function by running the following PowerShell cmdlets:
 
     ```powershell
     Connect-AzAccount
-    Set-StorageAccountAadKerberosADProperties -ResourceGroupName "<resourceGroupName>" -StorageAccountName "<storageAccountName>"
+    Set-StorageAccountAadKerberosADProperties -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
     ```
 
 Enable the Azure AD Kerberos functionality by configuring the group policy or registry value listed below:
@@ -394,6 +397,6 @@ Finally, test the profile to make sure that it works:
 
 ## Next steps
 
-To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
-To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).
+- To troubleshoot FSLogix, see [this troubleshooting guide](/fslogix/fslogix-trouble-shooting-ht).
+- To configure FSLogix profiles on Azure Files with Azure Active Directory Domain Services, see [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
+- To configure FSLogix profiles on Azure Files with Active Directory Domain Services, see [Create a profile container with Azure Files and AD DS](create-file-share.md).
