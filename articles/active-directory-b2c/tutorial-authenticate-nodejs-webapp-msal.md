@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Sign in and sign out users in a Node.js Express web app
+title: Tutorial - Sign in and sign out users in a Node.js Express web app
 description: Follow this tutorial to learn how to integrates nodejs web app to allow user to sign in, sign out, updates profile, and reset password using Azure AD B2C user flows, and  Microsoft Authentication Library (MSAL) for Node.
 services: active-directory-b2c
 author: kengaderdus
@@ -46,7 +46,7 @@ Use the following settings for your app registration:
 - Under **Name**: `WebAppNode` (suggested)
 - Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 - Under **Redirect URI**, select **Web**, and then enter `http://localhost:3000/redirect` in the URL text box
-- Immediately you generate a **Client secret**, record the values as advised as it's shown only once.
+- Immediately you generate a **Client secret**, record the value as advised as it's shown only once.
 
 At this point, you have the application (client) ID, and client secret, and you've set the app's redirect URI. 
 
@@ -435,17 +435,17 @@ The app endpoints are explained below:
     - It renders the `signin` page.
 - `/signin`:
     - Used when the end user signs in.
-    - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy to it, `APP_STATES.LOGIN` and empty `scopes` array.  
+    - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN` and empty `scopes` array to it.  
     - If necessary, it causes the end user to be challenged to enter their logins or if the user does not have an account, they to sign up.
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
 - `/password`:
     - Used when a user resets password.
-    - Calls `getAuthCode()` method and passes the `authority` for **Password reset** user flow/policy to it, `APP_STATES.PASSWORD_RESET` and empty `scopes` array.
+    - Calls `getAuthCode()` method and passes the `authority` for **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET` and empty `scopes` array to it.
     - It causes the end user to change their password using password reset experience or they can cancel the operation.
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint or if the end user canceled the operation, an error is posted back. 
 - `/profile`: 
     - Used when a user update profile.
-    - Calls `getAuthCode()` method and passes the `authority` for **Profile editing** user flow/policy to it, `APP_STATES.EDIT_PROFILE` and empty `scopes` array.
+    - Calls `getAuthCode()` method and passes the `authority` for **Profile editing** user flow/policy, `APP_STATES.EDIT_PROFILE` and empty `scopes` array to it.
     - It causes the end user to update their profile using the profile editing experience. 
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
 - `/signout`:
@@ -483,7 +483,7 @@ node index.js
 
 ### Test edit profile
 1. After you sign in, select **Edit profile**. 
-1. Enter new changes as desired, and then select Continue. You should see the page with sign in status showing the new changes such the Given name. 
+1. Enter new changes as desired, and then select Continue. You should see the page with sign in status showing the new changes such the Given Name. 
 
 ### Test password reset
 1. After you sign in, select **Reset password**. 
@@ -494,5 +494,17 @@ node index.js
 ### Test sign out 
 After you sign in, select **Sign out**. You should see the page with a **Sign in** button. 
 
-## Authenticate users with Google account (optional)
+## Authenticate users with a Google account (optional)
+You can allow end users to sign in to the node web app without adding any code to your app.
+
+Complete the steps in [Set up sign-up and sign-in with a Google account using Azure Active Directory B2C](identity-provider-google.md#create-a-google-application). Make sure you [Add Google identity provider](identity-provider-google.md#add-google-identity-provider-to-a-user-flow) to your **Sign in and sign up** user flow such as `B2C_1_susi_node_app`.
+
+Test the Google identity provider:
+1. After you sign out, select **Sign in** again. You should see a **Sign in and sign up** experience with a Google sign in option under **Sign in with your social account**.
+1. Select **Google**, and then select the Google account you want to sign in with. 
+1. Complete your profile by entering more details such as Given Name, and the select **continue**. You should see the page with sign in status
+
+When you use a social identity provider such as Google, the user's identity is managed by it:
+- You can't reset your password the same way as with local account.  
+- When you sign out the user in your web app, you don't also sign out the user from the identity provider.  
 

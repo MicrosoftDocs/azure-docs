@@ -10594,7 +10594,12 @@
             "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/tutorial-authenticate-nodejs-webapp-msal.md",
+            "redirect_url": "/azure/active-directory-b2c/tutorial-authenticate-nodejs-webapp-msal",
+            "redirect_document_id": false
+          }
    
          
     ]
