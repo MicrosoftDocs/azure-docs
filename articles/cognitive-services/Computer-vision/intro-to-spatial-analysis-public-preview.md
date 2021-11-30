@@ -20,7 +20,7 @@ Spatial Analysis is an AI service that helps organizations maximize the value of
 Try out the capabilities of Spatial Analysis quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/public)
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
