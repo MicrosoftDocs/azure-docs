@@ -1,6 +1,6 @@
 ---
-title: Use Azure Service Bus topics and subscriptions with Python azure-servicebus package version 7.0.0
-description: This article shows you how to use Python to send messages to a topic and receive messages from subscription.
+title: Get started with Azure Service Bus topics (Python)
+description: This tutorial shows you how to send messages to Azure Service Bus topics and receive messages from topics' subscriptions using the Python programming language.
 documentationcenter: python
 author: spelluru
 ms.author: spelluru
@@ -12,6 +12,10 @@ ms.custom: devx-track-python, mode-other
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (Python)
 This article shows you how to use Python to send messages a Service Bus topic and receive messages from a subscription to the topic. 
+
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus topic and receiving those messages from a subscription of the topic. You can find pre-built JavaScript and TypeScript samples for Azure Service Bus in the [Azure SDK for Python repository on GitHub](https://github.com/azure/azure-sdk-for-python/tree/main/sdk/servicebus/azure-servicebus/samples).
+
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).

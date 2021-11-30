@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Service Bus queues (Azure.Messaging.ServiceBus)
-description: "In this tutorial, you create a .NET Core C# application to send messages to and receive messages from a Service Bus queue."
+title: Get started with Azure Service Bus queues (.NET)
+description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the .NET programming language.
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
@@ -8,6 +8,14 @@ ms.custom: contperf-fy22q2, mode-other
 ---
 
 # Get started with Azure Service Bus queues (.NET)
+
+> [!div class="op_single_selector" title1="Select the programming language:"]
+> * [C#](service-bus-dotnet-get-started-with-queues.md)
+> * [Java](service-bus-java-how-to-use-queues.md)
+> * [JavaScript](service-bus-nodejs-how-to-use-queues.md)
+> * [Python](service-bus-python-how-to-use-queues.md)
+
+
 In this quickstart, you'll do the following steps:
 
 1. Create a Service Bus namespace, using the Azure portal.
