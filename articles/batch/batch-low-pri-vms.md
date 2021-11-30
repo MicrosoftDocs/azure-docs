@@ -3,7 +3,7 @@ title: Run workloads on cost-effective Spot VMs
 description: Learn how to provision Spot VMs to reduce the cost of Azure Batch workloads.
 author: pesocha
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 11/30/2021
 ms.custom: seodec18
 
 ---
@@ -22,7 +22,7 @@ Spot VMs are offered at a significantly reduced price compared with dedicated VM
 
 Batch offers two types of low-cost preemptible VMs:
 
-- Spot VMs, a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
+- [Spot VMs](../virtual-machines/spot-vms.md), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
 
 The type of node you get depends on your Batch account's pool allocation mode, which is settable during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
@@ -142,7 +142,7 @@ The pool autoscale formula supports Spot VMs as follows:
 
 Jobs and tasks require little additional configuration for Spot nodes. Keep in mind the following:
 
-- The JobManagerTask property of a job has an **AllowLowPriorityNode** property. When this property is true, the job manager task can be scheduled on either a dedicated or Spotnode. If it's false, the job manager task is scheduled to a dedicated node only.
+- The JobManagerTask property of a job has an **AllowLowPriorityNode** property. When this property is true, the job manager task can be scheduled on either a dedicated or Spot node. If it's false, the job manager task is scheduled to a dedicated node only.
 - The AZ_BATCH_NODE_IS_DEDICATED [environment variable](batch-compute-node-environment-variables.md) is available to a task application so that it can determine whether it is running on a Spot or on a dedicated node.
 
 ## View metrics for Spot VMs

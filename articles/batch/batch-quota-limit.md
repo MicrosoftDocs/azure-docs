@@ -109,7 +109,7 @@ Once you've submitted your support request, Azure support will contact you. Quot
 
          If you select this option, specify the Batch account to which this request should apply, and then select the quota(s) you'd like to update. Provide the new limit you are requesting for each resource.
 
-         Spot quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+         Spot quota is a single value across all VM series. If you need constrained SKUs, you must select **Spot cores** and include the VM families to request.
 
        - **All accounts in this region**  
          Use this option to request quota increases that apply to all Batch accounts in a region, such as the number of Batch accounts per region per subscription.
