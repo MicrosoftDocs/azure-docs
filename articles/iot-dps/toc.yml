@@ -116,6 +116,10 @@
   items:
   - name: REST API
     href: /rest/api/iot-dps
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
+  - name: Azure PowerShell
+    href: /powershell/module/az.deviceprovisioningservices
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
   - name: Azure IoT SDK for C
@@ -128,8 +132,6 @@
     href: https://github.com/Azure/azure-iot-sdk-java
   - name: Azure IoT SDK for .NET
     href: https://github.com/Azure/azure-iot-sdk-csharp
-  - name: Azure CLI
-    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
