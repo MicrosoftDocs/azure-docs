@@ -54,5 +54,5 @@ The tables below summarize current availability:
 
 ## Next Steps
 - Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
-- Get a [Short-Code](../../quickstarts/sms/apply-for-a-short-code.md)
+- Get a [Short-Code](../../quickstarts/sms/apply-for-short-code.md)
 

@@ -26,8 +26,8 @@ The table below summarizes these number types with supported capabilities:
 |:-------------|:-------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------|:-------------|
 |[Toll-Free](../../quickstarts/telephony/get-phone-number.md)|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, SMS Notifications|SMS in US only|
 |[Local (Geographic)](../../quickstarts/telephony/get-phone-number.md)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Geography Specific Number|Calling Only|
-|[Short-Codes](../../quickstarts/sms/apply-for-a-short-code.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
+|[Short-Codes](../../quickstarts/sms/apply-for-short-code.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
 
 ## Next Steps
 - Get a [Toll-Free or Local Phone Number](../../quickstarts/telephony/get-phone-number.md)
-- Get a [Short-Code](../../quickstarts/sms/apply-for-a-short-code.md)
+- Get a [Short-Code](../../quickstarts/sms/apply-for-short-code.md)
