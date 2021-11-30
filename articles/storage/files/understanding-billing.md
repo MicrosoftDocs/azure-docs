@@ -58,7 +58,7 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 - **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 
-Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, and data transfer charges are not including in the reservation.
+Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation.
 
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
