@@ -201,7 +201,7 @@ When managing logins and users in SQL Database, consider the following points:
 
 - You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.
 - The database user corresponding to the **Server admin** login can't be altered or dropped.
-- **Server admin** will be disabled if Azure Active Directory (AAD) only authentication is enabled.
+- **Server admin** will be disabled if Azure AD-only authentication is enabled.
 - US-English is the default language of the **Server admin** login.
 - Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
 - You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
