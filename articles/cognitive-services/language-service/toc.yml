@@ -726,7 +726,7 @@ items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
   - name: Send requests asynchronously
-    href: how-to/use-asynchronously.md 
+    href: concepts/use-asynchronously.md 
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
