@@ -29,7 +29,7 @@ Follow the steps in this tutorial to:
 > * Create user flows for the app in the Azure portal. 
 > * Create an Express web app project that uses the [Handlebars template engine](https://handlebarsjs.com/). 
 > * Install the MSAL library and other necessary Node packages.  
-> * Add code for user sign-in, sign-out, profile update, and password reset.
+> * Add code for user sign-in, sign-out, profile editing, and password reset.
 > * Test the app.
 
 ## Prerequisites
@@ -103,7 +103,7 @@ In the `main.hbs` file, add the following code:
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Tutorial | Authenticate users with MSAL for B2C</title>
 
-    <!-- adding Bootstrap 4 for UI components  -->
+    <!-- adding Bootstrap 5 for UI components  -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="SHORTCUT ICON" href="https://c.s-microsoft.com/favicon.ico?v2" type="image/x-icon">
@@ -465,8 +465,8 @@ The app endpoints are:
     - If the app state is `APP_STATES.EDIT_PROFILE`, it uses the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
 
 
-## Start the server 
-To start the Express server, add the following code in the `index.js` file:
+## Start the Node server 
+To start the Node server, add the following code in the `index.js` file:
 
 ```javascript
 app.listen(process.env.SERVER_PORT, () => {
