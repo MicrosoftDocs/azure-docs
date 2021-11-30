@@ -29,7 +29,7 @@ Follow the steps in this tutorial to:
 > * Create user flows for the app in Azure portal 
 > * Create an Express web app project, which uses [handlebars template engine](https://handlebarsjs.com/) 
 > * Install the MSAL library and other necessary node packages  
-> * Add code for user sign in, sign out, password reset and password reset
+> * Add code for user sign in, sign out, profile editing and password reset
 > * Test the app
 
 ## Prerequisites
