@@ -45,6 +45,15 @@ In this tutorial, you learn how to:
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
+
+    > [!TIP]
+    > If you like to verify when the changes are propagated to Azure Front Door, you can create a custom response header in the rule using the example below. You can add a response header `_X-<RuleName>-Version_`  and change the value each time rule is updated.
+    >  
+    > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
+    > After the changes are updated, you can go to the URL to confirm the rule version being invoked: 
+    > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
+
+
 1. Once you have created one or more rules, press **Save**. This action creates your Rules Engine configuration.
 
 1. Once you have created one or more configurations, associate a Rules Engine configuration with a Route Rule. While a single configuration can be applied to many route rules, a Route rule may only contain one Rules Engine configuration. To make the association, go to your **Front Door designer** > **Route rules**. Select the Route rule you'd like to add the Rules engine configuration to, go to **Route details** > **Rules engine configuration**, and select the configuration you'd like to associate.

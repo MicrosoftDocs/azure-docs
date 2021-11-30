@@ -10,9 +10,7 @@ ms.service: azure-spatial-anchors
 ---
 ## Putting everything together
 
-Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all
-the different elements have been put together. You can use it as a reference to
-compare against your own file, and spot if you may have any differences left.
+Here is how the complete `AzureSpatialAnchorsScript` class file should look like, after all the different elements have been put together. You can use it as a reference to compare against your own file, and spot if you may have any differences left.
 
 ```csharp
 using Microsoft.Azure.SpatialAnchors;

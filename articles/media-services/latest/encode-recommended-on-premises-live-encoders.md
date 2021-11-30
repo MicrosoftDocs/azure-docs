@@ -23,6 +23,8 @@ In Azure Media Services, a [Live Event](/rest/api/media/liveevents) (channel) re
 
   > [!TIP]
   > Using a pass-through method is the most economical way to do live streaming.
+  > The service supports a basic and standard pass-through mode depending on your ingest requirements. 
+  > The basic pass-through is the most economical, but is limited in capabilities. 
  
 * An on-premises live encoder sends a single-bitrate stream to the Live Event that is enabled to perform live encoding with Media Services in one of the following formats: RTMP or Smooth Streaming (fragmented MP4). The Live Event then performs live encoding of the incoming single-bitrate stream to a multi-bitrate (adaptive) video stream.
 
@@ -55,6 +57,7 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - Haivision Makito X HEVC
 - [Restream.io](https://restream.io/)
 - OBS Studio
+- [Osprey Talon hardware encoders](https://www.ospreyvideo.com/talon-encoders), Talon 4K-SC, Talon UHD-SC
 - [Streamlabs OBS](https://streamlabs.com/)
 - [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)

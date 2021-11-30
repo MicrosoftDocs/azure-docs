@@ -115,7 +115,7 @@ sections:
       - question: |
           What is a primary key?
         answer: |
-          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. The primary primary key and secondary primary key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](manage-with-cli.md#list-account-keys).
+          A primary key is a security token to access all resources for an account. Individuals with the key have read and write access to all resources in the database account. Use caution when you distribute primary keys. The primary primary key and secondary primary key are available on the **Keys** blade of the [Azure portal][azure-portal]. For more information about keys, see [View, copy, and regenerate access keys](sql/manage-with-cli.md#list-account-keys).
           
       - question: |
           What are the regions that PreferredLocations can be set to?

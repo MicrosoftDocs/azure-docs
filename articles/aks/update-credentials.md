@@ -64,10 +64,10 @@ Now continue on to [update AKS cluster with new service principal credentials](#
 
 If you chose to update the existing service principal credentials in the previous section, skip this step. Continue to [update AKS cluster with new service principal credentials](#update-aks-cluster-with-new-service-principal-credentials).
 
-To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command. In the following example, the `--skip-assignment` parameter prevents any additional default assignments being assigned:
+To create a service principal and then update the AKS cluster to use these new credentials, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used in the next step.
@@ -93,7 +93,7 @@ Now continue on to [update AKS cluster with new service principal credentials](#
 ## Update AKS cluster with new service principal credentials
 
 > [!IMPORTANT]
-> For large clusters, updating the AKS cluster with a new service principal may take a long time to complete.
+> For large clusters, updating the AKS cluster with a new service principal may take a long time to complete. Consider reviewing and customizing the [node surge upgrade settings][node-surge-upgrade] to minimize disruption during cluster updates and upgrades.
 
 Regardless of whether you chose to update the credentials for the existing service principal or create a service principal, you now update the AKS cluster with your new credentials using the [az aks update-credentials][az-aks-update-credentials] command. The variables for the *--service-principal* and *--client-secret* are used:
 
@@ -138,3 +138,4 @@ In this article, the service principal for the AKS cluster itself and the AAD In
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az_ad_sp_credential_list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az_ad_sp_credential_reset
 [node-image-upgrade]: ./node-image-upgrade.md
+[node-surge-upgrade]: upgrade-cluster.md#customize-node-surge-upgrade

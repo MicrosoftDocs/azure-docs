@@ -3,14 +3,12 @@ title: Call the Image Analysis API
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the Image Analysis API and configure its behavior.
 services: cognitive-services
-author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.author: kefre
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -132,6 +130,10 @@ See the following list of possible errors and their causes:
     * FailedToProcess
     * Timeout - Image processing timed out.
     * InternalServerError
+
+> [!TIP]
+> While working with Computer Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
+
 
 ## Next steps
 

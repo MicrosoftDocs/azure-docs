@@ -33,6 +33,6 @@ This table provides the various limits associated with the operations within Dev
 | Number of update names per provider per instance | 25 | 25 | No |
 | Number of update versions per update provider and name per instance | 100 | 100 | No |
 | Total number of updates per instance | 100 | 100 | No |
-| Maximum single update file size | 800 MB | 800 MB | No |
-| Maximum combined size of all files in a single import action | 800 MB | 800 MB | No |
+| Maximum single update file size | 2 GB | 2 GB | No |
+| Maximum combined size of all files in a single import action | 2 GB | 2 GB | No |
 | Number of device groups per instance | 75 | 75 | No |

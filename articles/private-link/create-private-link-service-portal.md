@@ -1,7 +1,6 @@
 ---
-
 title: 'Quickstart - Create a Private Link service by using the Azure portal'
-titlesuffix: Azure Private Link
+titleSuffix: Azure Private Link
 description: Learn how to create a Private Link service by using the Azure portal in this quickstart
 services: private-link
 author: asudbring
@@ -10,6 +9,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 08/18/2021
 ms.author: allensu
+ms.custom: mode-portal
 ---
 # Quickstart: Create a Private Link service by using the Azure portal
 
@@ -46,7 +46,7 @@ In this section, you create a virtual network and subnet to host the load balanc
     | Resource Group   | Select **Create new**. Enter **CreatePrivLinkService-rg**. </br> Select **OK**. |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **(US) East US** |
+    | Region           | Select **(US) East US 2** |
 
 5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 

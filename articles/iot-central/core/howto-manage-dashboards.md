@@ -3,7 +3,7 @@ title: Create and manage Azure IoT Central dashboards | Microsoft Docs
 description: Learn how to create and manage application and personal dashboards in Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 08/19/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -11,21 +11,26 @@ services: iot-central
 
 # Create and manage dashboards
 
-The default *application dashboard* is the page that loads when you first go to your application. As an administrator, you can create up to 10 application dashboards that are visible to all application users. Only administrators can create, edit, and delete application-level dashboards.
+The default *organization dashboard* is the page that loads when you first go to your application. As an administrator, you can create additional organization dashboards that are associated with a specific organization. An organization dashboard is only visible to users who have access to the organization the dashboard is associated with. Only users in a role that has [organization dashboard permissions](howto-manage-users-roles.md#customizing-the-app) can create, edit, and delete organization dashboards.
 
-All users can create their own *personal dashboards*. Users can switch between application dashboards and personal dashboards.
+> [!TIP]
+> You can see which organization a dashboard is associated with in the dashboard settings.
+
+All users can create their own *personal dashboards*. Users can switch between organization dashboards and personal dashboards.
 
 ## Create a dashboard
 
-The following screenshot shows the dashboard in an application created from the Custom Application template. You can replace the default application dashboard with a personal dashboard. If you're an administrator, you can also replace it with another application-level dashboard. To do so, select **New dashboard** in the upper-left corner of the page:
+The following screenshot shows the dashboard in an application created from the **Custom Application** template. If you're in a role with the appropriate permissions, you can customize the default dashboard. To create a new dashboard, select **+ New dashboard** in the upper-left corner of the page:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-custom-app.png" alt-text="Screenshot that shows the New dashboard button.":::
 
-Select **New dashboard** to open the dashboard editor. In the editor, give your dashboard a name and choose items from the library. The library contains the tiles and dashboard primitives you can use to customize the dashboard:
+In the **Create dashboard** panel, give your dashboard a name and select either **Organization** or **Personal** as the dashboard type. If you're creating an organization dashboard, choose the [organization](howto-create-organizations.md) the dashboard is associated with. An organization dashboard and its tiles only show the devices that are visible to the organization and any of its sub-organizations.
+
+After you create the dashboard, choose items from the library to add to the dashboard. The library contains the tiles and dashboard primitives you use to customize the dashboard:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-library.png" alt-text="Screenshot that shows the dashboard library.":::
 
-If you're an administrator, you can create a personal dashboard or an application dashboard. All application users can see the application dashboards the administrator creates. All users can create personal dashboards that only they can see.
+If you're an administrator, you can create a personal dashboard or an organization dashboard. Users see the organization dashboards associated with the organization they are assigned to. All users can create personal dashboards, that only they can see.
 
 Enter a title and select the type of dashboard you want to create. [Add tiles](#add-tiles) to customize your dashboard.
 
@@ -34,17 +39,21 @@ Enter a title and select the type of dashboard you want to create. [Add tiles](#
 
 ## Manage dashboards
 
-You can have several personal dashboards and switch among them or choose from one of the application dashboards:
+You can have several personal dashboards and switch between them or choose from one of the organization dashboards:
 
 :::image type="content" source="media/howto-manage-dashboards/switch-dashboards.png" alt-text="Screenshot that shows how to switch between dashboards.":::
 
-You can edit your personal dashboards and delete dashboards you don't need. If you're an admin, you can edit and delete application-level dashboards as well.
+You can edit your personal dashboards and delete dashboards you don't need. If you have the correct [permissions](howto-manage-users-roles.md#customizing-the-app), you can edit or delete organization dashboards as well.
 
 :::image type="content" source="media/howto-manage-dashboards/delete-dashboards.png" alt-text="Screenshot that shows how to delete a dashboard.":::
 
+To rename a dashboard or see the organization it's assigned to, select **Dashboard settings**:
+
+:::image type="content" source="media/howto-manage-dashboards/rename-dashboards.png" alt-text="Screenshot that shows how to rename a dashboard.":::
+
 ## Add tiles
 
-The following screenshot shows the dashboard in an application created from the Custom Application template. To customize the current dashboard, select **Edit**. To add a personal or application dashboard, select **New dashboard**:
+The following screenshot shows the dashboard in an application created from the **Custom application** template. To customize the current dashboard, select **Edit**. To add a personal or organization dashboard, select **New dashboard**:
 
 :::image type="content" source="media/howto-manage-dashboards/dashboard-sample-contoso.png" alt-text="Screenshot that shows a dashboard for applications that are based on the Custom Application template.":::
 

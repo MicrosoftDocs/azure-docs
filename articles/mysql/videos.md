@@ -15,7 +15,7 @@ This page provides video content for learning about Azure Database for MySQL.
 
 ## Overview: Azure Database for PostgreSQL and MySQL
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player] 
+>[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 [Open in Channel 9](https://channel9.msdn.com/Events/Connect/2017/T147)
 
 Azure Database for PostgreSQL and Azure Database for MySQL bring together community edition database engines and capabilities of a fully managed service—so you can focus on your apps instead of having to manage a database. Tune in to get a quick overview of the advantages of using the service, and see some of the capabilities in action.

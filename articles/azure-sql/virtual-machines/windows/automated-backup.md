@@ -3,7 +3,7 @@ title: Automated Backup v2 for SQL Server 2016/2017 Azure VMs | Microsoft Docs
 description: This article explains the Automated Backup feature for SQL Server 2016/2017 VMs running on Azure. This article is specific to VMs using the Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
@@ -13,8 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: mathoma
-ms.reviewer: jroth 
+ms.author: pamela
+ms.reviewer: mathoma 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -26,8 +26,6 @@ ms.custom: devx-track-azurepowershell
 > * [SQL Server 2016 +](automated-backup.md)
 
 Automated Backup v2 automatically configures [Managed Backup to Microsoft Azure](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure) for all existing and new databases on an Azure VM running SQL Server 2016 or later Standard, Enterprise, or Developer editions. This enables you to configure regular database backups that utilize durable Azure blob storage. Automated Backup v2 depends on the [SQL Server infrastructure as a service (IaaS) Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
-
-[!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## Prerequisites
 To use Automated Backup v2, review the following prerequisites:
@@ -108,8 +106,9 @@ This means that the next available backup window is Monday at 10 PM for 6 hours.
 
 Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 
+
 > [!IMPORTANT]
-> When scheduling daily backups, it is recommended that you schedule a wide time window to ensure all databases can be backed up within this time. This is especially important in the case where you have a large amount of data to back up.
+> Backups happen sequentially during each interval. For instances with a large number of databases, schedule your backup interval with enough time to accommodate all backups. If backups cannot complete within the given interval, some backups may be skipped, and your time between backups for a single database may be higher than the configured backup interval time, which could negatively impact your restore point objective (RPO). 
 
 ## Configure new VMs
 

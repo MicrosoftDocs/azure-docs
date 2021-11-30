@@ -6,75 +6,66 @@ ms.author: fisteele
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subservice: flexible-scale-sets
-ms.date: 08/05/2021
+ms.date: 10/25/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Preview: Create virtual machines in a Flexible scale set using Azure portal
+# Create virtual machines in a Flexible scale set using Azure portal
 
 **Applies to:** :heavy_check_mark: Flexible scale sets
 
 This article steps through using Azure portal to create a virtual machine scale set in Flexible orchestration mode. For more information about Flexible scale sets, see [Flexible orchestration mode for virtual machine scale sets](flexible-virtual-machine-scale-sets.md). 
 
 
-> [!IMPORTANT]
-> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 > [!CAUTION]
 > The orchestration mode is defined when you create the scale set and cannot be changed or updated later.
 
 
-## Register for Flexible orchestration mode
-
-Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. Feature registration can take up to 15 minutes.
-
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
-1. Go to your **Subscriptions**.
-1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
-1. In the menu under **Settings**, select **Preview features**.
-1. Select the four orchestrator features to enable: *VMOrchestratorSingleFD*, *VMOrchestratorMultiFD*, *VMScaleSetFlexPreview*, and *SkipPublicIpWriteRBACCheckForVMNetworkInterfaceConfigurationsPublicPreview*.
-1. Select **Register**.
-
-Once the features have been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider. 
-
-1. In the menu under **Settings**, select **Resource providers**.
-1. Select `Microsoft.compute`.
-1. Select **Re-register**.
+## Log in to Azure
+Log in to the Azure portal at https://portal.azure.com.
 
 
-## Get started with Flexible orchestration mode
+## Create a virtual machine scale set
 
-### Create a virtual machine scale set in Flexible orchestration mode through the Azure portal.
+You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
 
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
-1. In the search bar, search for and select **Virtual machine scale sets**.
+1. In the Azure portal search bar, search for and select **Virtual machine scale sets**.
 1. Select **Create** on the **Virtual machine scale sets** page.
-1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.
-1. For the **Orchestration mode**, select the **Flexible** option.
-1. Set the **Fault domain count**.
-1. Finish creating your scale set. See [create a scale set in the Azure portal](../virtual-machine-scale-sets/quick-create-portal.md#create-virtual-machine-scale-set) for more information on how to create a scale set.
+
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and select *myVMSSResourceGroup* from resource group list.  
+1. Under **Scale set details**, set *myScaleSet* for your scale set name and select a **Region** that is close to your area.
+1. Under **Orchestration**, select the *Flexible* option for **Orchestration mode**. 
+1. Under **Instance details**, select a marketplace image for **Image**. In this example, we have chosen *Ubuntu Server 18.04 LTS*.
+1. Enter your desired username, and select which authentication type you prefer.
+   - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
+
+1. Select **Next** to move the the next page. 
+
+1. Leave the defaults for the **Disks** page.
+
+1. Select **Next** to move the the next page. 
+
+1. On the **Networking** page, under **Load balancing**, select the **Use a load balancer** checkbox to put the scale set instances behind a load balancer. 
+1. In **Load balancing options**, select **Azure load balancer**.
+1. In **Select a load balancer**, select a load balancer or create a new one.
+1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
+
+    > [!NOTE]
+    > For related information on networking for Flexible scale sets, see [scalable network connectivity for Flexible scale sets](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+
+1. Select **Next** to move the the next page.
+
+1. On the **Scaling** page, set the **initial instance count** field to *5*. You can set this number up to 1000. 
+1. For the **Scaling policy**, keep it *Manual*. 
+
+1. When you are done, select **Review + create**. 
+1. After it passes validation, select **Create** to deploy the scale set.
 
 
-### Next, add a virtual machine to the scale set in Flexible orchestration mode.
-
-1. In the search bar, search for and select **Virtual machines**.
-1. Select **Add** on the **Virtual machines** page.
-1. In the **Basics** tab, view the **Instance details** section.
-1. Add your VM to the scale set in Flexible orchestration mode by selecting the scale set in the **Availability options**. You can add the virtual machine to a scale set in the same region, zone, and resource group.
-1. Go to the **Networking** tab and explicitly define your outbound connectivity.
-
-    > [!IMPORTANT]
-    > Explicitly defined outbound connectivity is required for virtual machine scale sets with flexible orchestration. Refer to [explicit outbound network connectivity](flexible-virtual-machine-scale-sets.md#explicit-network-outbound-connectivity-required) for more information.
-
-1. Finish creating your virtual machine.
+## Clean up resources
+When no longer needed, delete the resource group, scale set, and all related resources. To do so, select the resource group for the scale set and then select **Delete**.
 
 
 ## Next steps

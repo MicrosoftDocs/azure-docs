@@ -4,13 +4,13 @@ description: Learn how to troubleshoot data flow problems related to connector a
 author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
+ms.subservice: data-flows
 ms.topic: troubleshooting 
 ms.date: 08/17/2021
 ---
 
 
 # Troubleshoot connector and format issues in mapping data flows in Azure Data Factory
-
 
 This article explores troubleshooting methods related to connector and format for mapping data flows in Azure Data Factory (ADF).
 
@@ -71,7 +71,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
     1. Use the data flow source **Debug Settings** to have **Import projection** with sample files/tables to get the complete schema. You can follow the steps in the following picture:<br/>
 
-        ![Screenshot that shows the first part of the first option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png)<br/>
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-1.png" alt-text="Screenshot that shows the first part of the first option to customize the source schema.":::<br/>
          1. Select **Debug settings** in the data flow canvas.
          1. In the pop-up pane, select **Sample table** under the **cosmosSource** tab, and enter the name of your table in the **Table** block.
          1. Select **Save** to save your settings.
@@ -79,7 +79,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
     
     1. Change the **Debug Settings** back to use the source dataset for the remaining data movement/transformation. You can move on with the steps in the following picture:<br/>
 
-        ![Screenshot that shows the second part of the first option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png) <br/>   
+        :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-1-2.png" alt-text="Screenshot that shows the second part of the first option to customize the source schema."::: <br/>   
          1. Select **Debug settings** in the data flow canvas.
          1. In the pop-up pane, select **Source dataset** under the **cosmosSource** tab.
          1. Select **Save** to save your settings.<br/>
@@ -88,7 +88,7 @@ To overwrite the default behavior and bring in additional fields, ADF provides o
 
 - **Option-2**: If you are familiar with the schema and DSL language of the source data, you can manually update the data flow source script to add additional/missed columns to read the data. An example is shown in the following picture: 
 
-    ![Screenshot that shows the second option to customize the source schema.](./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/customize-schema-option-2.png" alt-text="Screenshot that shows the second option to customize the source schema.":::
 
 ### Support map type in the source
 
@@ -243,7 +243,7 @@ If you use the flexible server or Hyperscale (Citus) for your Azure PostgreSQL s
 - [MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale](https://github.com/microsoft/MCW-Real-time-data-with-Azure-Database-for-PostgreSQL-Hyperscale/blob/master/Hands-on%20lab/HOL%20step-by%20step%20-%20Real-time%20data%20with%20Azure%20Database%20for%20PostgreSQL%20Hyperscale.md)<br/>
     Refer to the content in the following picture in this article：<br/>
 
-    ![Screenshots that shows the referring content in the article above.](./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/handshake-failure-cause-2.png" alt-text="Screenshots that shows the referring content in the article above.":::
 
 #### Recommendation
 You can try to use copy activities to unblock this issue. 
@@ -393,7 +393,7 @@ You can try to solve this issue by the following methods:
 #### Symptoms
 When you use the Synapse as a source/sink in the data flow to preview data, debug/trigger run, etc. and enable staging to use the PolyBase, and the staging store's linked service (Blob, Gen2, etc.) is created to use the Managed Identity (MI) authentication, your job could fail with the following error shown in the picture: <br/>
 
-![Screenshots that shows the service identity error.](./media/data-flow-troubleshoot-connector-format/service-identity-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/service-identity-error.png" alt-text="Screenshots that shows the service identity error.":::
 
 #### Error message
 `shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: Managed Service Identity has not been enabled on this server. Please enable Managed Service Identity and try again.`
@@ -479,7 +479,7 @@ Replace the special chars in the file name, which will work in the synapse bu
 #### Symptoms
 When you use the manifest.json for CDM, no data is shown in the data preview or shown after running a pipeline. Only headers are shown. You can see this issue in the picture below.<br/>
 
-![Screenshot that shows the no data output symptom.](./media/data-flow-troubleshoot-connector-format/no-data-output.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/no-data-output.png" alt-text="Screenshot that shows the no data output symptom.":::
 
 #### Cause
 The manifest document describes the CDM folder, for example, what entities that you have in the folder, references of those entities and the data that corresponds to this instance. Your manifest document misses the `dataPartitions` information that indicates ADF where to read the data, and  since it is empty, it returns zero data. 
@@ -494,11 +494,11 @@ You may encounter an issue where one attribute (string type) of the CDM ent
 
 - In the CSV source data (refer to the second column): <br/>
 
-    ![Screenshot that shows the attribute in the CSV source data.](./media/data-flow-troubleshoot-connector-format/json-array-csv.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-csv.png" alt-text="Screenshot that shows the attribute in the CSV source data.":::
 
 - In the CDM source data preview: <br/>
 
-    ![Screenshot that shows the separate column in the CDM source data.](./media/data-flow-troubleshoot-connector-format/json-array-cdm.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/json-array-cdm.png" alt-text="Screenshot that shows the separate column in the CDM source data.":::
 
  
 You may also try to map drifted columns and use the data flow expression to transform this attribute as an array. But since this attribute is read as a separate column when reading, transforming to an array does not work.  
@@ -537,7 +537,7 @@ Please remove the `@snapshot=2020-10-02T13:26:10.6681248Z` part from the dat
 #### Symptoms
 When you use CDM in the data flow with the model format, you cannot preview the data, and you encounter the error: `DF-CDM_005 The corpus path is null or empty`. The error is shown in the following picture:  
 
-![Screenshot that shows the corpus path error.](./media/data-flow-troubleshoot-connector-format/corpus-path-error.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/corpus-path-error.png" alt-text="Screenshot that shows the corpus path error.":::
 
 #### Cause
 Your data partition path in the model.json is pointing to a blob storage location and not your data lake. The location should have the base URL of **.dfs.core.windows.net** for the ADLS Gen2. 
@@ -545,14 +545,14 @@ Your data partition path in the model.json is pointing to a blob storage locati
 #### Recommendation
 To solve this issue, you can refer to this article: [ADF Adds Support for Inline Datasets and Common Data Model to Data Flows](https://techcommunity.microsoft.com/t5/azure-data-factory/adf-adds-support-for-inline-datasets-and-common-data-model-to/ba-p/1441798), and the following picture shows the way to fix the corpus path error in this article.
 
-![Screenshot that shows how to fix the corpus path error.](./media/data-flow-troubleshoot-connector-format/fix-format-issue.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/fix-format-issue.png" alt-text="Screenshot that shows how to fix the corpus path error.":::
 
 ### Unable to read CSV data files
 
 #### Symptoms 
 You use the inline dataset as the common data model with manifest as a source, and you have provided the entry manifest file, root path, entity name and path. In the manifest, you have the data partitions with the CSV file location. Meanwhile, the entity schema and csv schema are identical, and all validations were successful. However, in the data preview, only the schema rather than the data gets loaded and the data is invisible, which is shown in the following picture:
 
-![Screenshot that shows the issue of unable to read data files.](./media/data-flow-troubleshoot-connector-format/unable-read-data.png)
+:::image type="content" source="./media/data-flow-troubleshoot-connector-format/unable-read-data.png" alt-text="Screenshot that shows the issue of unable to read data files.":::
 
 #### Cause
 Your CDM folder is not separated into logical and physical models, and only physical models exist in the CDM folder. The following two articles describe the difference: [Logical definitions](/common-data-model/sdk/logical-definitions) and [Resolving a logical entity definition](/common-data-model/sdk/convert-logical-entities-resolved-entities).<br/> 
@@ -612,11 +612,11 @@ The first symptom and the second symptom cannot be solved currently. For the thi
 When you use data flows to read files such as CSV and Excel files with different schemas, the data flow debug, sandbox or activity run will fail.
 - For CSV, the data misalignment exists when the schema of files is different. 
 
-    ![Screenshot that shows the first schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-1.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-1.png" alt-text="Screenshot that shows the first schema error.":::
 
 - For Excel, an error occurs when the schema of the file is different.
 
-    ![Screenshot that shows the second schema error.](./media/data-flow-troubleshoot-connector-format/schema-error-2.png)
+    :::image type="content" source="./media/data-flow-troubleshoot-connector-format/schema-error-2.png" alt-text="Screenshot that shows the second schema error.":::
 
 #### Cause
 
@@ -815,7 +815,7 @@ For more help with troubleshooting, see these resources:
 
 *  [Troubleshoot mapping data flows in Azure Data Factory](data-flow-troubleshoot-guide.md)
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
+*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)

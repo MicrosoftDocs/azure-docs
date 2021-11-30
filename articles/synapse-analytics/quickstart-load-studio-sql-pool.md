@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 12/11/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
+ms.custom: mode-other
 ---
 
 # Quickstart: Bulk loading with Synapse Studio

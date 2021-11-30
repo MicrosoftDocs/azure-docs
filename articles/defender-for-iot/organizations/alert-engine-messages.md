@@ -1,7 +1,7 @@
 ---
 title: Alert types and descriptions
 description: Review Defender for IoT Alert descriptions.
-ms.date: 04/28/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

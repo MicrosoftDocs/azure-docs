@@ -6,12 +6,12 @@ metadata:
   title: Speech devices documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: laujan
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/10/2020
-  ms.author: lajanuar
+  ms.author: eur
 
 landingContent:
 - title: About the Speech devices SDK
@@ -33,7 +33,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Design a microphone array
-          url: speech-devices-sdk-microphone.md
+          url: speech-sdk-microphone.md
         - text: Setup the Roobo v1 Kit
           url: speech-devices-sdk-roobo-v1.md
 - title: Reference

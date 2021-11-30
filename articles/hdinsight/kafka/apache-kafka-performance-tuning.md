@@ -48,7 +48,7 @@ Using data compression will increase the number of records that can be stored on
 
 ## Broker settings
 
-The following sections will highlight some of the most important settings to optimize performance of your Kafka brokers. For a detailed explanation of all broker settings, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
+The following sections will highlight some of the most important settings to optimize performance of your Kafka brokers. For a detailed explanation of all broker settings, see [Apache Kafka documentation on broker configurations](https://kafka.apache.org/documentation/#brokerconfigs).
 
 ### Number of disks
 

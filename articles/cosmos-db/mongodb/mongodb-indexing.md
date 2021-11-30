@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
@@ -13,15 +13,13 @@ ms.custom: devx-track-js
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](../index-overview.md) that's relevant across all APIs.
+Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
 
 ## Indexing for MongoDB server version 3.6 and higher
 
-Azure Cosmos DB's API for MongoDB server version 3.6+ automatically indexes the `_id` field, which can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. In Azure Cosmos DB's API for MongoDB, sharding and indexing are separate concepts. You don't have to index your shard key. However, as with any other property in your document, if this property is a common filter in your queries, we recommend indexing the shard key.
+Azure Cosmos DB's API for MongoDB server version 3.6+ automatically indexes the `_id` field and the shard key (only in sharded collections). The API automatically enforces the uniqueness of the `_id` field per shard key. 
 
-To index additional fields, you apply the MongoDB index-management commands. As in MongoDB, Azure Cosmos DB's API for MongoDB automatically indexes the `_id` field only. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
-
-To apply a sort to a query, you must create an index on the fields used in the sort operation.
+The API for MongoDB behaves differently from the Azure Cosmos DB SQL API, which indexes all fields by default.
 
 ### Editing indexing policy
 
@@ -45,11 +43,13 @@ You could create the same single field index on `name` in the Azure portal:
 
 :::image type="content" source="./media/mongodb-indexing/add-index.png" alt-text="Add name index in indexing policy editor":::
 
-One query uses multiple single field indexes where available. You can create up to 500 single field indexes per container.
+One query uses multiple single field indexes where available. You can create up to 500 single field indexes per collection.
 
 ### Compound indexes (MongoDB server version 3.6+)
+In the API for MongoDB, compound indexes are **required** if your query needs the ability to sort on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a compound index to save on indexing costs. 
 
-Azure Cosmos DB's API for MongoDB supports compound indexes for accounts that use the version 3.6 and 4.0 wire protocol. You can include up to eight fields in a compound index. Unlike in MongoDB, you should create a compound index only if your query needs to sort efficiently on multiple fields at once. For queries with multiple filters that don't need to sort, create multiple single field indexes instead of a single compound index. 
+A compound index or single field indexes for each field in the compound index will result in the same performance for filtering in queries.
+
 
 > [!NOTE]
 > You can't create compound indexes on nested properties or arrays.
@@ -355,13 +355,13 @@ When removing indexes and immediately running queries the have filters on the dr
 
 ## ReIndex command
 
-The `reIndex` command will recreate all indexes on a collection. In most cases, this is unnecessary. However, in some rare cases, query performance may improve after running the `reIndex` command.
+The `reIndex` command will recreate all indexes on a collection. In some rare cases, query performance or other index issues in your collection may be solved by running the `reIndex` command. If you're experiencing issues with indexing, recreating the indexes with the `reIndex` command is a recommended approach. 
 
 You can run the `reIndex` command using the following syntax:
 
 `db.runCommand({ reIndex: <collection> })`
 
-You can use the below syntax to check if you need to run the `reIndex` command:
+You can use the below syntax to check if running the `reIndex` command would improve query performance in your collection:
 
 `db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
 
@@ -396,7 +396,7 @@ Sample output:
 }
 ```
 
-If `reIndex` is necessary, **requiresReIndex** will be true. If `reIndex` isn't necessary, this property will be omitted.
+If `reIndex` will improve query performance, **requiresReIndex** will be true. If `reIndex` won't improve query performance, this property will be omitted.
 
 ## Migrate collections with indexes
 
@@ -432,3 +432,6 @@ If you want to create a wildcard index, [upgrade to version 4.0 or 3.6](upgrade-
 * [Indexing in Azure Cosmos DB](../index-policy.md)
 * [Expire data in Azure Cosmos DB automatically with time to live](../time-to-live.md)
 * To learn about the relationship between partitioning and indexing, see how to [Query an Azure Cosmos container](../how-to-query-container.md) article.
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

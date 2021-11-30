@@ -24,7 +24,7 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
-## Set up your Azure Key Vault and DiskEncryptionSet
+## Set up your Azure Key Vault and DiskEncryptionSet optionally with automatic key rotation
 
 First, you must set up an Azure Key Vault and a diskencryptionset resource.
 

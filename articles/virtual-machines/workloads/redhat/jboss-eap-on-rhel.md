@@ -8,8 +8,7 @@ ms.assetid: 8a4df7bf-be49-4198-800e-db381cda98f5
 ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: redhat
-ms.custom:
-  - mode-api
+ms.custom: mode-other
 ms.collection: linux
 ---
 
@@ -152,7 +151,7 @@ For details on PAYG VM pricing, see [Red Hat Enterprise Linux pricing](https://a
 To use BYOS for RHEL OS, you need to have a valid Red Hat subscription with entitlements to use RHEL OS in Azure. Complete the following prerequisites before you deploy the RHEL OS with the BYOS model:
 
 1. Ensure that you have RHEL OS and JBoss EAP entitlements attached to your Red Hat subscription.
-2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/red_hat_subscription_management/1/) to complete the process, which includes these steps:
+2. Authorize your Azure subscription ID to use RHEL BYOS images. Follow the [Red Hat Subscription Management documentation](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1) to complete the process, which includes these steps:
 
    1. Enable Microsoft Azure as a provider in your Red Hat Cloud Access Dashboard.
 
@@ -239,8 +238,8 @@ You can start by using one of the following Quickstart templates for JBoss EAP o
 
 ## Next steps
 
-* Learn more about [JBoss EAP 7.2](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.2/).
-* Learn more about [JBoss EAP 7.3](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.3/).
+* Learn more about [JBoss EAP 7.2](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.2).
+* Learn more about [JBoss EAP 7.3](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3).
 * Learn more about [Red Hat Subscription Management](https://access.redhat.com/products/red-hat-subscription-management).
 * Learn about [Red Hat workloads on Azure](./overview.md).
 * Deploy [JBoss EAP on an RHEL VM or virtual machine scale set from Azure Marketplace](https://aka.ms/AMP-JBoss-EAP).

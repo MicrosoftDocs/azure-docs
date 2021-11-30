@@ -16,6 +16,9 @@ the supported SDKs.
 
 ## Export with Azure portal
 
+> [!NOTE]
+> Exporting Azure Policy resources from the Azure portal isn't available for Azure sovereign clouds.
+
 To export a policy definition from Azure portal, follow these steps:
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
