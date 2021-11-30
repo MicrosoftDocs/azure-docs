@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Sign in and sign out users in a Node.js Express web app
-description: Follow this tutorial to learn how to integrate a Node.js web app, which allows users to sign in, sign out, update a profile, and reset a password by using Azure AD B2C user flows and Microsoft Authentication Library (MSAL) for Node.
+description: Follow this tutorial to learn how to integrate a Node.js web app, which allows users to sign in, sign out, update a profile, and reset a password by using Azure AD B2C user flows and the Microsoft Authentication Library (MSAL) for Node.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -27,7 +27,7 @@ Follow the steps in this tutorial to:
 > [!div class="checklist"]
 > * Register the application in the Azure portal.
 > * Create user flows for the app in the Azure portal. 
-> * Create an Express web app project, which uses the [Handlebars template engine](https://handlebarsjs.com/). 
+> * Create an Express web app project that uses the [Handlebars template engine](https://handlebarsjs.com/). 
 > * Install the MSAL library and other necessary Node packages.  
 > * Add code for user sign-in, sign-out, profile update, and password reset.
 > * Test the app.
@@ -38,7 +38,7 @@ Follow the steps in this tutorial to:
 
 
 ## Register the web application in the Azure portal
-Register the web application in the Azure portal so that Azure Active Directory B2C (Azure AD B2C) can provide authentication service for your application and its users.
+Register the web application in the Azure portal so that Azure Active Directory B2C (Azure AD B2C) can provide an authentication service for your application and its users.
 
 First, complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md) to register the web app. 
 
@@ -46,9 +46,9 @@ Use the following settings for your app registration:
 - For **Name**, enter **WebAppNode** (suggested).
 - For **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 - For **Redirect URI**, select **Web**, and then enter `http://localhost:3000/redirect` in the URL text box.
-- Immediately, you generate a **Client secret**. Record the value as advised, because it appears only once.
+- Immediately, you generate a **Client secret** value. Record the value as advised, because it appears only once.
 
-At this point, you have the application (client) ID and client secret, and you've set the app's redirect URI. 
+At this point, you have the application (client) ID and client secret. You've also set the app's redirect URI. 
 
 ## Create Azure AD B2C user flows 
 
@@ -146,7 +146,7 @@ In the `main.hbs` file, add the following code:
 
 The `main.hbs` file is in the `layout` folder. It should contain any HTML code that's required throughout your application. Any UI that changes from page to page, such as `signin.hbs`, is placed in the placeholder shown as `{{{body}}}`. 
 
-The `main.hbs` file implements UI built with the Bootstrap 5 CSS Framework. The user sees the **Edit password**, **Reset password**, and **Sign out** UI components when signed in. The user sees **Sign in** when signed out. This behavior is tracked by the `showSignInButton` Boolean variable, which the app server sends. 
+The `main.hbs` file implements UI built with the Bootstrap 5 CSS framework. The user sees the **Edit password**, **Reset password**, and **Sign out** UI components when signed in. The user sees **Sign in** when signed out. This behavior is tracked by the `showSignInButton` Boolean variable, which the app server sends. 
 
 In the `signin.hbs` file, add the following code:
 
@@ -170,7 +170,7 @@ In the `signin.hbs` file, add the following code:
 </div>
 ```
 
-## Configure web server and MSAL client
+## Configure the web server and MSAL client
 
 In the `.env` file, add the following code. This code includes the server HTTP port, app registration details, and user flow/policy details. 
 
@@ -198,7 +198,7 @@ LOGOUT_ENDPOINT=https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/sus
 ```
 
 Modify the values in the `.env` files as follows:
-- `server-port`: The HTTP port used to run your web app, such as 3000.
+- `server-port`: The HTTP port that's used to run your web app, such as 3000.
 - `client-id`: The application (client) ID of the application that you registered.
 - `session-secret`: A random string to be used as your Express session secret. 
 - `client-secret`: The client secret that you created earlier.
@@ -249,13 +249,13 @@ In your `index.js` file, add the following code:
 // Initialize MSAL Node
 const confidentialClientApplication = new msal.ConfidentialClientApplication(confidentialClientConfig);
 ```
-`confidentialClientConfig` is the MSAL configuration object, which is used to create the confidential client application that is, `confidentialClientApplication`. 
+`confidentialClientConfig` is the MSAL configuration object that's used to create the confidential client application (that is, `confidentialClientApplication`). 
 
 To add mode global variables in the `index.js` file, add the following code:
 
 ```javascript
 /**
- * The MSAL.js library allows you to pass your custom state as state parameter in the Request object.
+ * The MSAL.js library allows you to pass your custom state as a state parameter in the Request object.
  * By default, MSAL.js passes a randomly generated unique state parameter value in the authentication requests.
  * The state parameter can also be used to encode information of the app's state before redirect. 
  * You can pass the user's state in the app, such as the page or view they were on, as input to this parameter.
@@ -270,7 +270,7 @@ const APP_STATES = {
 }
 /** 
  * Request Configuration
- * We manipulate these two request objects below 
+ * We manipulate the two request objects below 
  * to acquire a token with the appropriate claims.
  */
  const authCodeRequest = {
@@ -293,12 +293,13 @@ const tokenRequest = {
     }
 }
 ```
+
 - `APP_STATES`: Used to differentiate between responses received from Azure AD B2C by tagging requests. There's only one redirect URI for any number of requests sent to Azure AD B2C.  
-- `authCodeRequest`: The configuration object used to retrieve authorization code. 
-- `tokenRequest`: The configuration object used to acquire a token by authorization code.
+- `authCodeRequest`: The configuration object that's used to retrieve the authorization code. 
+- `tokenRequest`: The configuration object that's used to acquire a token by authorization code.
 - `sessionConfig`: The configuration object for the Express session. 
 
-To set the view template engine and express session configuration, add the following code in the `index.js` file: 
+To set the view template engine and Express session configuration, add the following code in the `index.js` file: 
 
 ```javascript
 //Create an Express instance
@@ -326,7 +327,7 @@ Before you add the app endpoints, add the logic that retrieves the authorization
  */
  const getAuthCode = (authority, scopes, state, res) => {
 
-    // prepare the request
+    // Prepare the request
     console.log("Fetching Authorization code")
     authCodeRequest.authority = authority;
     authCodeRequest.scopes = scopes;
@@ -335,7 +336,7 @@ Before you add the app endpoints, add the logic that retrieves the authorization
     //Each time you fetch the authorization code, update the authority in the tokenRequest configuration
     tokenRequest.authority = authority;
 
-    // request an authorization code to exchange for a token
+    // Request an authorization code to exchange for a token
     return confidentialClientApplication.getAuthCodeUrl(authCodeRequest)
         .then((response) => {
             console.log("\nAuthCodeURL: \n" + response);
@@ -348,7 +349,7 @@ Before you add the app endpoints, add the logic that retrieves the authorization
 }
 ```
 
-The `authCodeRequest` object has the properties `redirectUri`, `authority`, `scopes`, and `state`. The object passed to the `getAuthCodeUrl` method as a parameter. 
+The `authCodeRequest` object has the properties `redirectUri`, `authority`, `scopes`, and `state`. The object is passed to the `getAuthCodeUrl` method as a parameter. 
 
 In the `index.js` file, add the following code:
 
@@ -357,7 +358,7 @@ In the `index.js` file, add the following code:
         res.render('signin', { showSignInButton: true });
     });
     app.get('/signin',(req, res)=>{
-            //Initiate an auth code flow >> for sign-in
+            //Initiate an auth code flow >> for sign-in.
             //No scopes passed. openid, profile, and offline_access will be used by default.
             getAuthCode(process.env.SIGN_UP_SIGN_IN_POLICY_AUTHORITY, [], APP_STATES.LOGIN, res);
     });
@@ -404,7 +405,7 @@ In the `index.js` file, add the following code:
         }else if (req.query.state === APP_STATES.PASSWORD_RESET) {
             //If the query string has an error parameter
             if (req.query.error) {
-                //and if the error_description contains the AADB2C90091 error code
+                //and if the error_description contains the AADB2C90091 error code,
                 //that means the user selected the Cancel button on the password reset experience 
                 if (JSON.stringify(req.query.error_description).includes('AADB2C90091')) {
                     //Send the user home with some message
@@ -486,9 +487,9 @@ app.listen(process.env.SERVER_PORT, () => {
 
 ### Test sign-in
 1. After the page with a **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
-1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page with sign-in status.
+1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page that shows sign-in status.
 
-   :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app signed-in status.":::
+   :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app sign-in status.":::
 
 ### Test profile editing
 1. After you sign in, select **Edit profile**. 
@@ -498,7 +499,7 @@ app.listen(process.env.SERVER_PORT, () => {
 1. After you sign in, select **Reset password**. 
 1. In the next dialog that appears, you can cancel the operation by selecting **Cancel**. Alternatively, enter your email address, and then select **Send verification code**. Azure AD B2C sends a verification code to your email account. Copy the verification code from your email, enter the code in the Azure AD B2C password reset dialog, and then select **Verify code**.
 1. Select **Continue**.
-1. Enter your new password, confirm it, and then select **Continue**. You should see the page with sign-in status.
+1. Enter your new password, confirm it, and then select **Continue**. You should see the page that shows sign-in status.
 
 ### Test sign-out 
 After you sign in, select **Sign out**. You should see the page that has a **Sign in** button. 
@@ -511,9 +512,9 @@ Complete the steps in [Set up sign-up and sign-in with a Google account using Az
 Test the Google identity provider:
 1. After you sign out, select **Sign in** again. You should see a **Sign in and sign up** experience with a Google sign-in option under **Sign in with your social account**.
 1. Select **Google**, and then select the Google account that you want to sign in with. 
-1. Complete your profile by entering required details, such as Given Name, and then select **Continue**. You should see the page that shows sign-in status.
+1. Complete your profile by entering required details, such as **Given Name**, and then select **Continue**. You should see the page that shows sign-in status.
 
 When you use a social identity provider such as Google, that provider manages the user's identity. The following considerations apply:
-- You can't reset your password the same way as with a local account.  
+- You can't reset your password the same way as you can with a local account.  
 - When you sign out the user in your web app, you don't also sign out the user from the identity provider.  
 
