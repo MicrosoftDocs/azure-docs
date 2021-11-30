@@ -25,8 +25,10 @@ Because these files are stored in a Git repository, they're versioned, and chang
 GitOps on Azure Arc-enabled Kubernetes or Azure Kubernetes Service uses [Flux](https://fluxcd.io/docs/), a popular open-source tool set. Flux provides support for common file sources (Git and Helm repositories, Buckets) and template types (YAML, Helm, and Kustomize). Flux also supports multi-tenancy and deployment dependency management, among [other features](https://fluxcd.io/docs/).
 
 ## Flux cluster extension
-[ ![flux extension install diagram for arc kubernetes](./media/gitops/flux2-extension-install-arc.png) ](./media/gitops/flux2-extension-install-arc.png#lightbox)
-[ ![flux extension install diagram for aks](./media/gitops/flux2-extension-install-aks.png) ](./media/gitops/flux2-extension-install-aks.png#lightbox)
+
+:::image type="content" source="media/gitops/flux2-extension-install-arc.png" alt-text="Diagram showing the installation of the Flux extension for Azure Arc-enabled Kubernetes cluster." lightbox="media/gitops/flux2-extension-install-arc.png":::
+
+:::image type="content" source="media/gitops/flux2-extension-install-aks.png" alt-text="Diagram showing the installation of the Flux extension for Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-extension-install-aks.png":::
 
 GitOps is enabled in an Azure Arc-enabled Kubernetes or AKS cluster as a `Microsoft.KubernetesConfiguration/extensions/microsoft.flux` [cluster extension](./conceptual-extensions.md) resource.  You can install the `microsoft.flux` extension manually using the portal or the Azure CLI (*az k8s-extension create --extensionType=microsoft.flux*) or have it installed automatically when you create the first `Microsoft.KubernetesConfiguration/fluxConfigurations` in the cluster. The `microsoft.flux` extension must be installed in the cluster before one or more `fluxConfigurations` can be created.
 
@@ -59,7 +61,7 @@ The `microsoft.flux` extension installs by default the [Flux controllers](https:
 
 ## Flux configurations
 
-[ ![flux configuration install diagram](./media/gitops/flux2-config-install.png) ](./media/gitops/flux2-config-install.png#lightbox)
+:::image type="content" source="media/gitops/flux2-config-install.png" alt-text="Diagram showing the installation of a Flux configuration in an Azure Arc-enabled Kubernetes or Azure Kubernetes Service cluster." lightbox="media/gitops/flux2-config-install.png":::
 
 With the `microsoft.flux` extension installed in your cluster, you can then create Flux configuration resources (`Microsoft.KubernetesConfiguration/fluxConfigurations`) to enable GitOps management of the cluster from your Git repos. When you create a `fluxConfigurations` resource, the values you supply for the parameters, such as the target Git repo, are used to create and configure the Kubernetes objects that enable the GitOps process in that cluster. To ensure data security, the `fluxConfigurations` resource data is stored encrypted at rest in an Azure Cosmos DB database by the Cluster Configuration service.
 
