@@ -51,7 +51,7 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe to messages. Thi
 
 ## Connect to IoT Edge hub
 
-Connecting to IoT Edge hub follows the same steps as described in the [Connecting to IoT Hub](../iot-hub/iot-hub-mqtt-support?view=iotedge-2020-11#connecting-to-iot-hub) section of the *Concepts: Communicate with your IoT hub using the MQTT protocol* article or in the [Connecting to the IoT Edge hub](../iot-edge/iot-edge-runtime?view=iotedge-2020-11#connecting-to-the-iot-edge-hub) section of *Concepts: Understand the Azure IoT Edge runtime and its architecture*. These steps are:
+Connecting to IoT Edge hub follows the same steps as described in the [Connecting to IoT Hub](../iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub) section of the *Concepts: Communicate with your IoT hub using the MQTT protocol* article or in the [Connecting to the IoT Edge hub](../iot-edge/iot-edge-runtime.md#connecting-to-the-iot-edge-hub) section of *Concepts: Understand the Azure IoT Edge runtime and its architecture*. These steps are:
 
 1. Optionally, the MQTT client establishes a *secure connection* with the IoT Edge hub using Transport Layer Security (TLS).
 2. The MQTT client *authenticates* itself to IoT Edge hub.
