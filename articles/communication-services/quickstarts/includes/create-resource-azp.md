@@ -10,6 +10,8 @@ ms.author: rifox
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 
+Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony-sms/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+
 ## Create Azure Communication Services resource
 
 To create an Azure Communication Services resource, first sign in to the [Azure portal](https://portal.azure.com). In the upper-left corner of the page, select **+ Create a resource**. 

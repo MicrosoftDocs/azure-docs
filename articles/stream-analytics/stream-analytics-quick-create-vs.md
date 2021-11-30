@@ -6,8 +6,8 @@ ms.author: ebnkruma
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-
 #Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Visual Studio."
+ms.custom: mode-other
 ---
 
 # Quickstart: Create an Azure Stream Analytics job by using Visual Studio

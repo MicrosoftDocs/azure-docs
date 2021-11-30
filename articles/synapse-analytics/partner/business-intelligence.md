@@ -7,8 +7,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/09/2021
-author: mabasile-MSFT
-ms.author: mabasile
+author: periclesrocha
+ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---

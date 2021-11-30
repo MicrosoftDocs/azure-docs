@@ -126,21 +126,28 @@
     href: samples-rest.md
 - name: Concepts
   items:
-  - name: Search indexes
-    href: search-what-is-an-index.md
-  - name: Full-text search
-    href: search-lucene-query-architecture.md
-  - name: Analyzers
-    href: search-analyzers.md
-  - name: Semantic search
-    href: semantic-search-overview.md
-  - name: Relevance scoring
-    href: index-similarity-and-scoring.md
-  - name: Indexers
-    href: search-indexer-overview.md
-  - name: AI enrichment
-    href: cognitive-search-concept-intro.md
+  - name: Search
     items:
+    - name: Full-text search
+      href: search-lucene-query-architecture.md
+    - name: Semantic search
+      href: semantic-search-overview.md
+    - name: Query types and composition
+      href: search-query-overview.md
+    - name: Relevance scoring
+      href: index-similarity-and-scoring.md     
+  - name: Indexing
+    items:
+    - name: Search indexes
+      href: search-what-is-an-index.md
+    - name: Analyzers
+      href: search-analyzers.md
+    - name: Indexers
+      href: search-indexer-overview.md
+  - name: Enrichment
+    items:
+    - name: Enrichment overview
+      href: cognitive-search-concept-intro.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
     - name: Debug sessions
@@ -422,8 +429,8 @@
       href: semantic-answers.md
     - name: Add spell check to queries
       href: speller-how-to-add.md
-    - name: Query types and composition
-      href: search-query-overview.md
+    - name: Search results paging and formatting
+      href: search-pagination-page-layout.md
     - name: Use simple syntax (examples)
       href: search-query-simple-examples.md
     - name: Use full Lucene (examples)
@@ -438,16 +445,6 @@
         href: index-add-suggesters.md
       - name: Add autocomplete and suggestions
         href: search-add-autocomplete-suggestions.md
-    - name: Paging and counts
-      href: search-pagination-page-layout.md
-    - name: Syntax reference
-      items:
-      - name: Simple query syntax
-        href: query-simple-syntax.md
-      - name: Full Lucene query syntax
-        href: query-lucene-syntax.md
-      - name: moreLikeThis (preview)
-        href: search-more-like-this.md
   - name: Filters
     items:
     - name: Filter overview
@@ -476,12 +473,10 @@
       href: performance-benchmarks.md
     - name: Tips for better performance
       href: search-performance-tips.md
-    - name: Diagnostic logging
-      href: search-monitor-logs.md
+    - name: Monitoring Cognitive Search
+      href: monitor-azure-cognitive-search.md
     - name: Visualize diagnostic logs
       href: search-monitor-logs-powerbi.md
-    - name: Monitoring overview
-      href: search-monitor-usage.md
     - name: Monitor queries
       href: search-monitor-queries.md
     - name: Monitor indexer-based indexing
@@ -490,12 +485,6 @@
       href: search-traffic-analytics.md  
 - name: Reference
   items:
-  - name: Azure CLI
-    href: /cli/azure/search
-  - name: Azure PowerShell
-    href: /powershell/module/az.search 
-  - name: Resource Manager template
-    href: /azure/templates/microsoft.search/searchservices
   - name: REST
     items:
     - name: Search API
@@ -526,6 +515,17 @@
       href: /python/api/overview/azure/search-documents-readme
     - name: Management API
       href: /python/api/overview/azure/search/management
+  - name: Azure CLI
+    href: /cli/azure/search
+  - name: Azure PowerShell
+    href: /powershell/module/az.search 
+  - name: Azure Resource Manager template
+    href: /azure/templates/microsoft.search/searchservices
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
+  - name: Monitoring data reference
+    href: monitor-azure-cognitive-search-data-reference.md
   - name: OData language reference
     items:
     - name: Overview
@@ -552,6 +552,14 @@
       href: search-query-odata-search-score-function.md
     - name: OData Language Grammar
       href: search-query-odata-syntax-reference.md
+  - name: Query syntax reference
+    items:
+    - name: Simple query syntax
+      href: query-simple-syntax.md
+    - name: Full Lucene query syntax
+      href: query-lucene-syntax.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
   - name: Skills reference
     items:
     - name: Built-in skills
@@ -603,9 +611,6 @@
         href: cognitive-search-skill-entity-recognition.md
       - name: Sentiment
         href: cognitive-search-skill-sentiment.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Community Support

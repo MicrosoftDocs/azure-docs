@@ -700,8 +700,8 @@
         tocHref: /azure/media-services/azure-media-player/
         topicHref: /azure/media-services/azure-media-player/
       - name: Live Video Analytics on IoT Edge
-        tocHref: /azure/media-services/live-video-analytics-edge/
-        topicHref: /azure/media-services/live-video-analytics-edge/        
+        tocHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge
+        topicHref: /shows/internet-of-things-show/deep-dive-live-video-analytics-on-iot-edge        
   - name: Messaging services
     tocHref: /azure/messaging-services/
     topicHref: /azure/messaging-services/
@@ -1070,3 +1070,6 @@
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing
