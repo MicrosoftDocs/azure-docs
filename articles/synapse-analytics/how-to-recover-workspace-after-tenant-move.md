@@ -13,7 +13,7 @@ ms.reviewer: wiassaf
 
 # Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (Tenant)
 
-The Synapse Analytics workspace will not accessible after transferring a subscription to a different Azure AD directory (tenant). When you try to launch the Synapse studio after the move, you will see the error: "Failed to load one or more resources due to no access, error code 403."
+The Synapse Analytics workspace will not be accessible after transferring a subscription to a different Azure AD directory (tenant). When you try to launch the Synapse studio after the move, you will see the error: "Failed to load one or more resources due to no access, error code 403."
 
 :::image type="content" source="media/how-to-tenant-move/azure-synapse-analytics-identity-403error-tenantmove.png" alt-text="Synapse Studio Error 403 after tenant migration":::
 
@@ -76,7 +76,7 @@ az rest --method patch --headers  Content-Type=application/json   `
 
 Workspace `provisioningState` should be **Succeeded** and the identity type should **None** after preceding command is executed. If you execute the following command, `provisioningState` value might be shown as Provisioning and will take few minutes to change the status to Succeeded. Value of the `provisioningState` should be Succeeded before re-enabling the System Assigned Managed Identity for the workspace.
 
-To get the status of the workspace to get the provisioning status and identity type, use the following:
+To get the status of the workspace to get the provisioning status and identity type, use the following code snippet:
 ```azurecli
 az rest --method GET --uri $uri
 ```
