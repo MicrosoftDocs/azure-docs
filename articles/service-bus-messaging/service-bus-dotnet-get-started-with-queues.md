@@ -41,6 +41,10 @@ If you're new to the service, see [Service Bus overview](service-bus-messaging-o
 ## Send messages to the queue
 This section shows you how to create a .NET Core console application to send messages to a Service Bus queue. 
 
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+
+
 ### Create a console application
 
 1. Start Visual Studio 2019. 
@@ -235,8 +239,13 @@ This section shows you how to create a .NET Core console application to send mes
     - The **current size** of the queue increments each time the app adds messages to the queue.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
+
 ## Receive messages from the queue
 In this section, you'll create a .NET Core console application that receives messages from the queue. 
+
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+
 
 ### Create a project for the receiver
 
