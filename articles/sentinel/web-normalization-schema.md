@@ -13,7 +13,7 @@ ms.author: ofshezaf
 
 # Microsoft Sentinel Web Session normalization schema reference (Public preview)
 
-The Web Session normalization schema is used to describe an IP network activity. Such events are reported, for example, by web servers, web proxies, and web security gateways.
+The Web Session normalization schema is used to describe an IP network activity. For example, IP network activities are reported by web servers, web proxies, and web security gateways.
 
 For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
@@ -31,9 +31,11 @@ The Web Session normalization schema represents any HTTP network session, and is
 - Web proxies
 - Web security gateways
 
-The ASIM Seb Session schema represents HTTP and HTTPS protocol activity. Since the schema represents protocol activity, it is governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. The Web Session schema does not represent the source devices audit events. For example, an event modifying a Web Security Gateway policy cannot be represented by the Web Session schema.
+The ASIM Web Session schema represents HTTP and HTTPS protocol activity. Since the schema represents protocol activity, it is governed by RFCs and officially assigned parameter lists, which are referenced in this article when appropriate. 
 
-Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md). 
+The Web Session schema does not represent audit events from source devices. For example, an event modifying a Web Security Gateway policy cannot be represented by the Web Session schema.
+
+Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](network-normalization-schema.md).
 
 The most important fields in a Web Session  are:
 
@@ -51,10 +53,10 @@ To use the source-agnostic parsers that unify all of the out-of-the-box parsers,
 
 | Name | Description | Usage instructions |
 | ---- | --- | --- |
-| **imWebSession** | Aggregative parser that uses *union* to include normalized events from all *web session* sources, such as network sessions fields that support [HTTP session fields](#http-session-fields). |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
-| **ASimWebSession** | Similar to the `imWebSession` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
+| **imWebSession** | Aggregative parser that uses *union* to include normalized events from all *web session* sources. <br><br>Example: Network sessions fields that support [HTTP session fields](#http-session-fields) |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
+| **ASimWebSession** | Similar to the [imWebSession](#imwebsession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
 | **vimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| **ASimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
+| **ASimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
 | | | |
 
 
@@ -62,7 +64,7 @@ Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.
 
 ### Add your own normalized parsers
 
-When implementing custom parsers for the Network Session information model, name your KQL functions using the following syntax:
+When implementing custom parsers for the Web Session information model, name your KQL functions using the following syntax:
 
 - `vimWebSession<vendor><Product>` for parametrized parsers
 - `ASimWebSession<vendor><Product>` for regular parsers
@@ -106,7 +108,7 @@ Other ASIM schemas typically use **Target** instead of **Dst**.
 
 ### Common fields
 
-Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Process Events:
+Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Web Session events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -120,7 +122,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 
 ### Network session fields
 
-HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also include din the Web Session schema. 
+HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
@@ -140,7 +142,7 @@ The following are additional fields that are specific to Web sessions:
 | **HttpRequestMethod** | Recommended | Enumerated | The HTTP Method. The values are as defined in [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4) and [RFC 5789](https://datatracker.ietf.org/doc/html/rfc5789#section-2), and include `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`.<br><br>Example: `GET` |
 | **HttpStatusCode** | Alias | | The HTTP Status Code. Alias to [EventResultDetails](#eventresultdetails). |
 | <a name="httpcontenttype"></a>**HttpContentType** | Optional | String | The HTTP Response content type header. <br><br>**Note**: The **HttpContentType** field may include both the content format and additional parameters, such as the encoding used to get the actual format.<br><br> Example: `text/html; charset=ISO-8859-4` |
-| **HttpContentFormat** | Optional | String | The content format part of [HttpContentType](#httpcontenttype) <br><br> Example: `text/html` |
+| **HttpContentFormat** | Optional | String | The content format part of the [HttpContentType](#httpcontenttype) <br><br> Example: `text/html` |
 | **HttpReferrer** | Optional | String | The HTTP referrer header.<br><br>**Note**: ASIM, in sync with OSSEM, uses the correct spelling for *referrer*, and not the original HTTP header spelling.<br><br>Example: `https://developer.mozilla.org/docs` |
 | <a name="httpuseragent"></a>**HttpUserAgent** | Optional | String | The HTTP user agent header.<br><br>Example:<br> `Mozilla/5.0` (Windows NT 10.0; WOW64)<br>`AppleWebKit/537.36` (KHTML, like Gecko)<br>`Chrome/83.0.4103.97 Safari/537.36` |
 | **UserAgent** | Alias | | Alias to [HttpUserAgent](#httpuseragent) |
@@ -148,10 +150,10 @@ The following are additional fields that are specific to Web sessions:
 | **HttpRequestTime** | Optional | Integer | The amount of time, in milliseconds, it took to send the request to the server, if applicable.<br><br>Example: `700` |
 | **HttpResponseTime** | Optional | Integer | The amount of time, in milliseconds, it took to receive a response in the server, if applicable.<br><br>Example: `800` |
 | **FileName** | Optional | String | For HTTP uploads, the name of the uploaded file. |
-| **FileMD5** | Optional | MD5 | For HTTP uploads, The MD5 hash of the uploaded file.<br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
-| **FileSHA1** | Optional | SHA1 | For HTTP uploads, The SHA1 hash of the uploaded file.<br><br>Example:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
-| **FileSHA256** | Optional | SHA256 | For HTTP uploads, The SHA256 hash of the uploaded file.<br><br>Example:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
-| **FileSHA512** | Optional | SHA512 | For HTTP uploads, The SHA512 hash of the uploaded file. |
+| **FileMD5** | Optional | MD5 | For HTTP uploads, the MD5 hash of the uploaded file.<br><br>Example: `75a599802f1fa166cdadb360960b1dd0` |
+| **FileSHA1** | Optional | SHA1 | For HTTP uploads, the SHA1 hash of the uploaded file.<br><br>Example:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
+| **FileSHA256** | Optional | SHA256 | For HTTP uploads, the SHA256 hash of the uploaded file.<br><br>Example:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
+| **FileSHA512** | Optional | SHA512 | For HTTP uploads, the SHA512 hash of the uploaded file. |
 | **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
 | **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |

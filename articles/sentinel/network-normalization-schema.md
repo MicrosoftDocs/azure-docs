@@ -27,9 +27,9 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 > The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-## Schema Overview
+## Schema overview
 
-The network normalization schema can represent any IP network session, but is specifically designed to provide support for common source types, such as Netflow, Firewalls, and Intrusion prevention systems.
+The network normalization schema can represent any type of an IP network session, but is specifically designed to provide support for common source types, such as Netflow, Firewalls, and Intrusion prevention systems.
 
 ## Parsers
 
@@ -39,10 +39,10 @@ To use the source-agnostic parsers that unify all of the out-of-the-box parsers,
 
 | Name | Description | Usage instructions |
 | ---- | --- | --- |
-| **imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
-| **ASimNetworkSession** | Similar to the `imNetworkSession` function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
-| **vimNetworkSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source, such as *vimNetworkSessionSysmonLinux*. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
-| **ASimNetworkSession\<vendor\>\<product\>>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
+| <a name="imnetworksession"></a>**imNetworkSession** | Aggregative parser that uses *union* to include normalized events from all *network session* sources. |- Update this parser if you want to add or remove sources from source-agnostic analytics. <br><br>- Use this function in your source-agnostic queries.|
+| **ASimNetworkSession** | Similar to the [imNetworkSession](#imnetworksession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
+| **vimNetworkSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Example: `vimNetworkSessionSysmonLinux` |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
+ **ASimNetworkSession\<vendor\>\<product\>>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
 | | | |
 
 
@@ -80,12 +80,12 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only network sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only network sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
-| **dstipaddr_has_any_ipv4_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr)  prefix is in one of the listed values. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
+| **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr)  prefix is in one of the listed values. |
 | **dstportnum** | int | Filter only network sessions with the specified destination port number. |
 | **hostname_has_any** | dynamic | Filter only the network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
 | **dvcaction** | dynamic | Filter only the network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
-| **EventResult** | string | Filter only network sessions with a specific EventResult. |
+| **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
 For example, to filter only Web sessions for a specified list of domain names, use:
