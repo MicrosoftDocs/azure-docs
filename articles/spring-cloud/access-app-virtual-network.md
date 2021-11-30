@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 11/23/2020
+ms.date: 11/30/2021
 ms.custom: devx-track-java
 ---
 
@@ -15,12 +15,7 @@ This document explains how to access an endpoint for your application in a priva
 
 When **Assign Endpoint** on applications in an Azure Spring Cloud service instance is deployed in your virtual network, the endpoint is a private fully qualified domain name (FQDN). The domain is only accessible in the private network. Apps and services use the application endpoint. They include the *Test Endpoint* described in [View apps and deployments](./how-to-staging-environment.md#view-apps-and-deployments). *Log streaming*, described in [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md), also works only within the private network.
 
-## Requirements
-
-1. Find the IP to access your application.
-2. Add a DNS record for the IP.
-
-### Find the IP for your application
+## Find the IP for your application
 
 #### [Portal](#tab/azure-portal)
 
@@ -50,7 +45,7 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 
 ---
 
-### Add a DNS for the IP
+## Add a DNS for the IP
 
 If you have your own DNS solution for your virtual network like Active Directory Domain Controller, Infoblox, etc., you need point domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
