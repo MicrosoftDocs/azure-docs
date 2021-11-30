@@ -39,5 +39,5 @@ You can also use the *Effective Security Groups* feature through other methods l
 
 Learn how to audit your Network Security Group settings by visiting [Audit Network Security Group settings with PowerShell](network-watcher-nsg-auditing-powershell.md)
 
-[1]: ./media/network-watcher-security-group-view-overview/updatedsecuritygroupview.png
+[1]: ./media/network-watcher-security-group-view-overview/updated-security-group-view.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
