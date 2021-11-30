@@ -15,7 +15,7 @@ ms.date: 11/30/2021
 The information you provide on the **Offer listing** page of Partner Center will be displayed in the Microsoft commercial marketplace online stores. This includes your offer name, description, media, and other marketing assets.
 
 > [!NOTE]
-> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in <language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
+> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in &lt;language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
 
 On the **Offer listing** page, provide the information described below. To learn more about the listing details for your consulting service offer, review [Offer listing details](./plan-consulting-service-offer.md#offer-listing-details).
 
