@@ -236,6 +236,15 @@ Although we do our best to provide a stable and reliable service, sometimes thin
 
 If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale](../azure-monitor/autoscale/autoscale-troubleshoot.md).
 
+## Bandwidth limit issues
+
+Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+
+- Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
+- There are two response trailers will be returned if the bandwidth limit enforced: 
+    - `ms-azureml-bandwidth-request-delay-ms`: delay time in milliseconds it took for the request stream transfer.
+    - `ms-azureml-bandwidth-response-delay-ms`: delay time in milliseconds it took for the response stream transfer.
+
 ## HTTP status codes
 
 When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
@@ -246,9 +255,7 @@ When you access online endpoints with REST requests, the returned status codes a
 | 401 | Unauthorized | You don't have permission to do the requested action, such as score, or your token is expired. |
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
-| 413 | Payload too large | Your request payload is larger than 1.5 megabytes. |
 | 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
-| 424 | Response payload too large | If your container returns a payload larger than 1.5 megabytes, Azure returns a 424. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |

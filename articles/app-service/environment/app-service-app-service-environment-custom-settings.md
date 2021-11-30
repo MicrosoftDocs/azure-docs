@@ -11,10 +11,11 @@ ms.custom: mvc, seodec18
 ---
 
 # Custom configuration settings for App Service Environments
+
 ## Overview
 Because App Service Environments (ASEs) are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-If you do not have an App Service Environment, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
+If you do not have an App Service Environment, see [How to Create an ASEv3](./creation.md).
 
 You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 
@@ -23,7 +24,7 @@ The following abbreviated Resource Manager template snippet shows the **clusterS
 ```json
 "resources": [
 {
-    "apiVersion": "2015-08-01",
+    "apiVersion": "2021-03-01",
     "type": "Microsoft.Web/hostingEnvironments",
     "name": ...,
     "location": ...,
@@ -34,7 +35,7 @@ The following abbreviated Resource Manager template snippet shows the **clusterS
                 "value": "valueOfCustomSetting"
             }
         ],
-        "workerPools": [ ...],
+        "internalLoadBalancingMode": ...,
         etc...
     }
 }
@@ -55,9 +56,9 @@ Alternatively, you can update the App Service Environment by using [Azure Resour
 However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
 For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
 
-## Enable Internal Encryption
+## Enable internal encryption
 
-The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable encryption of the complete data path with a clusterSetting.  
+The App Service Environment operates as a black box system where you cannot see the internal components or the communication within the system. To enable higher throughput, encryption is not enabled by default between internal components. The system is secure as the traffic is inaccessible to being monitored or accessed. If you have a compliance requirement though that requires complete encryption of the data path from end to end, there is a way to enable encryption of the complete data path with a clusterSetting.
 
 ```json
 "clusterSettings": [
@@ -103,8 +104,4 @@ The ASE supports changing the cipher suite from the default. The default set of 
 > If incorrect values are set for the cipher suite that SChannel cannot understand, all TLS communication to your server might stop functioning. In such a case, you will need to remove the *FrontEndSSLCipherSuiteOrder* entry from **clusterSettings** and submit the updated Resource Manager template to revert back to the default cipher suite settings.  Please use this functionality with caution.
 
 ## Get started
-The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-ase-create/).
-
-<!-- LINKS -->
-
-<!-- IMAGES -->
+The Azure Quickstart Resource Manager template site includes a template with the base definition for [creating an App Service Environment](https://azure.microsoft.com/resources/templates/web-app-asp-app-on-asev3-create/).

@@ -2,7 +2,7 @@
 title: Request limits and throttling
 description: Describes how to use throttling with Azure Resource Manager requests when subscription limits have been reached.
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 11/15/2021
 ms.custom: seodec18, devx-track-azurepowershell
 ---
 # Throttling Resource Manager requests
@@ -30,6 +30,8 @@ The default throttling limits per hour are shown in the following table.
 These limits are scoped to the security principal (user or application) making the requests and the subscription ID or tenant ID. If your requests come from more than one security principal, your limit across the subscription or tenant is greater than 12,000 and 1,200 per hour.
 
 These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, the limits are higher than these limits. The requests from a user are usually handled by different instances of Azure Resource Manager.
+
+The remaining requests are returned in the [response header values](#remaining-requests).
 
 ## Resource provider limits
 
@@ -87,6 +89,7 @@ You can determine the number of remaining requests by examining response headers
 
 | Response header | Description |
 | --- | --- |
+| x-ms-ratelimit-remaining-subscription-deletes |Subscription scoped deletes remaining. This value is returned on delete operations. |
 | x-ms-ratelimit-remaining-subscription-reads |Subscription scoped reads remaining. This value is returned on read operations. |
 | x-ms-ratelimit-remaining-subscription-writes |Subscription scoped writes remaining. This value is returned on write operations. |
 | x-ms-ratelimit-remaining-tenant-reads |Tenant scoped reads remaining |

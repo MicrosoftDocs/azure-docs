@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 11/18/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -18,6 +18,8 @@ ms.custom: ignite-fall-2021
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## November 2021
+
+* Based on ongoing customer feedback, we have increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
 
 * Azure Cognitive Service for Language release, with support for:
     * [Question Answering (now Generally Available)](question-answering/overview.md) 
@@ -35,8 +37,12 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * Improved prediction quality.
     * [Additional language support](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) for the opinion mining feature.
     * For more information, see the [project z-code site](https://www.microsoft.com/research/project/project-zcode/).
-    > [!NOTE]
-    > To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+    * To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+
+* SDK support for sending requests to custom models:
+    * [Custom Named Entity Recognition](custom-named-entity-recognition/how-to/call-api.md?tabs=client#use-the-client-libraries)
+    * [Custom text classification](custom-classification/how-to/call-api.md?tabs=api#use-the-client-libraries)
+    * [Custom language understanding](conversational-language-understanding/how-to/deploy-query-model.md#use-the-client-libraries)
  
 ## Next steps
 

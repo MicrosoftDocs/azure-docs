@@ -15,7 +15,7 @@ ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
-# An app page shows an error message after the user signs in Azure Active Directory
+# An app page shows an error message after the user signs in
 
 In this scenario, Azure Active Directory (Azure AD) signs the user in. But the application displays an error message and doesn't let the user finish the sign-in flow. The problem is that the app didn't accept the response that Azure AD issued.
 

@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 10/21/2021
+ms.date: 11/11/2021
 ms.topic: conceptual
 ---
 
@@ -120,6 +120,23 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to a managed tenant
 
+[Azure Service Health](../../service-health/index.yml):
+
+- Monitor the health of customer resources with Azure Resource Health
+- Track the health of the Azure services used by your customers
+
+[Azure Site Recovery](../../site-recovery/index.yml):
+
+- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use `RunAs` accounts to copy VM extensions)
+
+[Azure Virtual Machines](../../virtual-machines/index.yml):
+
+- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs
+- Use boot diagnostics to troubleshoot Azure VMs
+- Access VMs with serial console
+- Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
+- Note that you can't use Azure Active Directory for remote login to VMs
+
 [Microsoft Defender for Cloud](../../security-center/index.yml):
 
 - Cross-tenant visibility
@@ -143,23 +160,6 @@ Most tasks and services can be performed on delegated resources across managed t
 - Manage Microsoft Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
 - [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
 - [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Microsoft Sentinel workspaces spread across tenants
-
-[Azure Service Health](../../service-health/index.yml):
-
-- Monitor the health of customer resources with Azure Resource Health
-- Track the health of the Azure services used by your customers
-
-[Azure Site Recovery](../../site-recovery/index.yml):
-
-- Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use `RunAs` accounts to copy VM extensions)
-
-[Azure Virtual Machines](../../virtual-machines/index.yml):
-
-- Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs
-- Use boot diagnostics to troubleshoot Azure VMs
-- Access VMs with serial console
-- Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
-- Note that you can't use Azure Active Directory for remote login to VMs
 
 Support requests:
 

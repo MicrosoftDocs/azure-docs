@@ -18,6 +18,8 @@ Automated machine learning, also referred to as automated ML or AutoML, is the p
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. With automated machine learning, you'll accelerate the time it takes to get production-ready ML models with great ease and efficiency.
 
+<a name="parity"></a>
+
 ## Ways to use AutoML in Azure Machine Learning
 
 Azure Machine Learning offers the following two experiences for working with automated ML. See the following sections to understand [feature availability in each experience](#parity).
@@ -27,10 +29,6 @@ Azure Machine Learning offers the following two experiences for working with aut
 * For limited/no-code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/).  Get started with these tutorials:
     * [Tutorial: Create a classification model with automated ML in Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
     *  [Tutorial: Forecast demand with automated machine learning](tutorial-automated-ml-forecast.md)
-
-<a name="parity"></a>
-
-## AutoML settings and configuration
 
 ### Experiment settings 
 
@@ -65,7 +63,7 @@ These settings can be applied to the best model as a result of your automated ML
 |**Enable voting ensemble & stack ensemble models**| ✓|✓|
 |**Show best model based on non-primary metric**|✓||
 |**Enable/disable ONNX model compatibility**|✓||
-|**Test the model** | ✓| |
+|**Test the model** | ✓| ✓ (preview)|
 
 ### Run control settings
 
@@ -183,9 +181,65 @@ You can also inspect the logged run information, which [contains metrics](how-to
 
 While model building is automated, you can also [learn how important or relevant features are](how-to-configure-auto-train.md#explain) to the generated models.
 
-
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
+<a name="local-remote"></a>
+
+## Guidance on local vs. remote managed ML compute targets
+
+The web interface for automated ML always uses a remote [compute target](concept-compute-target.md).  But when you use the Python SDK, you will choose either a local compute or a remote compute target for automated ML training.
+
+* **Local compute**: Training occurs on your local laptop or VM compute. 
+* **Remote compute**: Training occurs on Machine Learning compute clusters.  
+
+### Choose compute target
+Consider these factors when choosing your compute target:
+
+ * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available.
+ * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
+
+### Pros and cons
+Consider these pros and cons when choosing to use local vs. remote.
+
+|  | Pros (Advantages)  |Cons (Handicaps)  |
+|---------|---------|---------|---------|
+|**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
+|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
+
+### Feature availability 
+
+More features are available when you use the remote compute, as shown in the table below. 
+
+| Feature                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
+| DNN-BERT-based text featurization and training             | ✓      |       |
+| Out-of-the-box GPU support (training and inference)        | ✓      |       |
+| Image Classification and Labeling support                  | ✓      |       |
+| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
+| Multiple runs/iterations in parallel                       | ✓      |       |
+| Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
+| Feature engineering customization in studio web experience UI| ✓      |       |
+| Azure ML hyperparameter tuning                             | ✓      |       |
+| Azure ML Pipeline workflow support                         | ✓      |       |
+| Continue a run                                             | ✓      |       |
+| Forecasting                                                | ✓      | ✓     |
+| Create and run experiments in notebooks                    | ✓      | ✓     |
+| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
+| Data guardrails                                            | ✓      | ✓     |
+
+## Training, validation and test data 
+
+With automated ML you provide the **training data** to train ML models, and you can specify what type of model validation to perform. Automated ML performs model validation as part of training. That is, automated ML uses **validation data** to tune model hyperparameters based on the applied algorithm to find the best combination that best fits the training data. However, the same validation data is used for each iteration of tuning, which introduces model evaluation bias since the model continues to improve and fit to the validation data. 
+
+To help confirm that such bias isn't applied to the final recommended model, automated ML supports the use of **test data** to evaluate the final model that automated ML recommends at the end of your experiment. When you provide test data as part of your AutoML experiment configuration, this recommended model is tested by default at the end of your experiment (preview). 
+
+>[!IMPORTANT]
+> Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+Learn how to [configure AutoML experiments to use test data (preview) with the SDK](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview) or with the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+
+You can also [test any existing automated ML model (preview)](how-to-configure-auto-train.md#test-existing-automated-ml-model)), including models from child runs, by providing your own test data or by setting aside a portion of your training data. 
 
 ## Feature engineering
 
@@ -233,51 +287,6 @@ Automated machine learning supports ensemble models, which are enabled by defaul
 The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to five models with the best individual scores, and verifies that these models are within 5% threshold of the best score to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
-
-## <a name="local-remote"></a>Guidance on local vs. remote managed ML compute targets
-
-The web interface for automated ML always uses a remote [compute target](concept-compute-target.md).  But when you use the Python SDK, you will choose either a local compute or a remote compute target for automated ML training.
-
-* **Local compute**: Training occurs on your local laptop or VM compute. 
-* **Remote compute**: Training occurs on Machine Learning compute clusters.  
-
-### Choose compute target
-Consider these factors when choosing your compute target:
-
- * **Choose a local compute**: If your scenario is about initial explorations or demos using small data and short trains (i.e. seconds or a couple of minutes per child run), training on your local computer might be a better choice.  There is no setup time, the infrastructure resources (your PC or VM) are directly available.
- * **Choose a remote ML compute cluster**: If you are training with larger datasets like in production training creating models which need longer trains, remote compute will provide much better end-to-end time performance because `AutoML` will parallelize trains across the cluster's nodes. On a remote compute, the start-up time for the internal infrastructure will add around 1.5 minutes per child run, plus additional minutes for the cluster infrastructure if the VMs are not yet up and running.
-
-### Pros and cons
-Consider these pros and cons when choosing to use local vs. remote.
-
-|  | Pros (Advantages)  |Cons (Handicaps)  |
-|---------|---------|---------|
-|**Local compute target** |  <li> No environment start-up time   | <li>  Subset of features<li>  Can't parallelize runs <li> Worse for large data. <li>No data streaming while training <li>  No DNN-based featurization <li> Python SDK only |
-|**Remote ML compute clusters**|  <li> Full set of features <li> Parallelize child runs <li>   Large data support<li>  DNN-based featurization <li>  Dynamic scalability of compute cluster on demand <li> No-code experience (web UI) also available  |  <li> Start-up time for cluster nodes <li> Start-up time for each child run    |
-
-### Feature availability 
-
-More features are available when you use the remote compute, as shown in the table below. 
-
-| Feature                                                    | Remote | Local | 
-|------------------------------------------------------------|--------|-------|
-| Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
-| DNN-BERT-based text featurization and training             | ✓      |       |
-| Out-of-the-box GPU support (training and inference)        | ✓      |       |
-| Image classification (preview) and labeling support        | ✓      |       |
-| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
-| Multiple runs/iterations in parallel                       | ✓      |       |
-| Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
-| Feature engineering customization in studio web experience UI| ✓      |       |
-| Azure ML hyperparameter tuning                             | ✓      |       |
-| Azure ML Pipeline workflow support                         | ✓      |       |
-| Continue a run                                             | ✓      |       |
-| Forecasting                                                | ✓      | ✓     |
-| Computer vision (preview)                                  | ✓      |       |
-| Create and run experiments in notebooks                    | ✓      | ✓     |
-| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
-| Data guardrails                                            | ✓      | ✓     |
-
 
 <a name="use-with-onnx"></a>
 

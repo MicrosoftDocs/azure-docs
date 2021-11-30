@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # LUIS role-based access control
 
-LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](/azure/role-based-access-control/) for more information.
+LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
 ## Add role assignment to Language Understanding Authoring resource
 
@@ -29,11 +29,11 @@ Azure RBAC can be assigned to a Language Understanding Authoring resource. To gr
 1. On the **Members** tab, select a user, group, service principal, or managed identity.
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+Within a few minutes, the target will be assigned the selected role at the selected scope. For help with these steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Security 
 
-LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](/azure/cognitive-services/authentication#authenticate-with-azure-active-directory).
+LUIS supports Azure Active Directory (AAD) authentication. For more information, see [Authenticate with Azure Active Directory](../authentication.md#authenticate-with-azure-active-directory).
 
 ## LUIS role types
 
@@ -139,4 +139,4 @@ These users are the gatekeepers for LUIS applications in a production environmen
 
 ## Next steps
 
-* [Managing Azure resources](/azure/cognitive-services/luis/luis-how-to-azure-subscription?branch=pr-en-us-171715&tabs=portal#authoring-resource)
+* [Managing Azure resources](./luis-how-to-azure-subscription.md?branch=pr-en-us-171715&tabs=portal#authoring-resource)

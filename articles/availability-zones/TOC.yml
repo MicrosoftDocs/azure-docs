@@ -3,7 +3,7 @@
   - name: Azure Resiliency feature page
     href: https://azure.microsoft.com/features/
   - name: Resiliency in Azure
-    href: overview.md   
+    href: overview.md
   - name: Design resilient applications for Azure
     href: /azure/architecture/framework/resiliency/app-design
 - name: Availability Zones fundamentals
@@ -111,13 +111,13 @@
   - name: Use Azure Backup
     href: ../backup/index.yml
   - name: Microsoft Azure Well-Architected Framework
-    href: /azure/architecture/framework/  
+    href: /azure/architecture/framework/
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions
-    href: https://azure.microsoft.com/regions/
+    href: https://azure.microsoft.com/global-infrastructure/geographies/
 - name: Azure Orbital Documentation
   items:
   - name: What is Azure Orbital?
