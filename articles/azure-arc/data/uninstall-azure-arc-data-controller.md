@@ -73,7 +73,7 @@ To delete the data controller in directly connected mode with the Azure CLI, the
 1. [Delete the custom location](#delete-the-custom-location)
 
 ### Delete the data controller
-After connecting to your kubernetes cluster, run the following command to delete the data controller:
+After connecting to your Kubernetes cluster, run the following command to delete the data controller:
 
 ```azurecli
 az arcdata dc delete --name <name of datacontroller> --resource-group <name of resource-group>
@@ -198,4 +198,4 @@ kubectl delete --namespace arc
 
 1. Run `kubectl get crd` and ensure there are no results containing `*.arcdata.microsoft.com`.
 2. Run `kubectl get clusterrole` and ensure there are no cluster roles in the format `<namespace>:cr-*`.
-3. Run `kubectl get clusterrolebindings` and ensure there are no cluster role bindings in the format `<namespace>:crb-*`
+3. Run `kubectl get clusterrolebindings` and ensure there are no cluster role bindings in the format `<namespace>:crb-*`.
