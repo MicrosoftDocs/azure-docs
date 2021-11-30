@@ -113,6 +113,19 @@ Here's an example of what an Resource Manager parameter configuration might look
                     "dataLakeStoreUri": "="
                 }
             }
+        },
+        "AzureKeyVault": {
+            "properties": {
+                "typeProperties": {
+                    "baseUrl": "|:baseUrl:secureString"
+                },
+                "parameters": {
+                    "KeyVaultURL": {
+                        "type": "=",
+                        "defaultValue": "|:defaultValue:secureString"
+                    }
+                }
+            }
         }
     },
     "Microsoft.DataFactory/factories/datasets": {
