@@ -17,7 +17,7 @@ This document will help you troubleshoot issues that you may experience within y
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support.
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
@@ -26,6 +26,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
+Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
 ## Access your MS-CV ID
 
@@ -261,3 +262,4 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
 - [Metrics](metrics.md)
+- [Service limits](service-limits.md)
