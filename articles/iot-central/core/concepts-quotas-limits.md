@@ -14,44 +14,11 @@ services: iot-central
 
 There are various quotas and limits that apply to IoT Central applications. IoT Central applications internally use multiple Azure services such as IoT Hub and the Device Provisioning Service (DPS), and these services also have quotas and limits. Where relevant, quotas and limits in the underlying services are called out in this article.
 
-## Device modeling
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of device templates in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
-| Number of telemetry capabilities in a device template | 300 | For performance reasons, you shouldn't exceed this limit. |
-
 ## Devices
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Number of devices in an application | 1,000,000 | Contact support to discuss increasing this quota for your application. |
-
-## Device groups
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of device groups in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
-| Number of filters in a device group | 100 | For performance reasons, you shouldn't exceed this limit. |
-
-## Rules
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
-| Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
-
-## Jobs
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
-
-## Device provisioning
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of devices registrations per minute | 200 | This quota is set by the underlying DPS instance. Contact support to discuss increasing this quota for your application. |
 
 ## Telemetry
 
@@ -74,15 +41,6 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | ---- | -------------- | ----- |
 | Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
 
-## Data export
-
-| Item | Quota or limit | Notes |
-| ---- | -------------- | ----- |
-| Number of data export jobs | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of data export destinations | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of data export destinations per job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-| Number of filters and enrichments per data export job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
-
 ## REST API calls
 
 | Item | Quota or limit | Notes |
@@ -95,6 +53,48 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
 | Maximum data retention in days | 30 | If you need to keep data for longer, use data export to export it to external storage. |
+
+## Data export
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of data export jobs | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of data export destinations | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of data export destinations per job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+| Number of filters and enrichments per data export job | 10 | If you need to exceed this limit, contact support to discuss increasing it for your application. |
+
+## Device modeling
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of device templates in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
+| Number of telemetry capabilities in a device template | 300 | For performance reasons, you shouldn't exceed this limit. |
+
+## Device groups
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of device groups in an application | 1,000 | For performance reasons, you shouldn't exceed this limit. |
+| Number of filters in a device group | 100 | For performance reasons, you shouldn't exceed this limit. |
+
+## Device provisioning
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of devices registrations per minute | 200 | This quota is set by the underlying DPS instance. Contact support to discuss increasing this quota for your application. |
+
+## Rules
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of rules in an application | 50 | Contact support to discuss increasing this quota for your application. |
+| Number of actions in a rule | 5 | This quota is fixed and can't be changed. |
+
+## Jobs
+
+| Item | Quota or limit | Notes |
+| ---- | -------------- | ----- |
+| Number of concurrent job executions | 5 | For performance reasons, you shouldn't exceed this limit. |
 
 ## Organizations
 
@@ -109,4 +109,4 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 ## Next steps
 
-Now that you've learned about the scalability and high availability of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.
+Now that you've learned about the quotas and limits that apply to Azure IoT Central, the suggested next step is to learn about [Azure IoT Central architecture](concepts-architecture.md).
