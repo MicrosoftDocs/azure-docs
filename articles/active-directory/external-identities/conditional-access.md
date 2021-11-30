@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/30/2021
 
 ms.author: mimart
 author: msmimart
@@ -119,7 +119,7 @@ In CA, there's an option to require a user’s [device to be Compliant or Hybrid
 
 >[!Note]
 >- It is not recommended to require a managed device for external users.
->- In a change from previous behavior, if you don’t have a trust relationship with a guest user’s tenant, the guest user will be blocked from registering a device in your tenant. Previously, the guest user would have been asked to re-register their device when trying to access a resource protected by Conditional Access. This would remove their existing device registration, and they wouldn’t be able to complete the registration process. Now, a Conditional Access blocking page prevents the guest user from re-registering their device.
+>- When guest users try to access a resource protected by Conditional Access, they'll no longer be asked to re-register their devices in your tenant. Previously, guest users would be able to start the re-registration process. However, this would remove their existing device registration, and they'd be unable to complete registration. Now, they'll see a Conditional Access blocking page to prevent them from trying to re-register their devices.
 
 ### Mobile application management policies
 
