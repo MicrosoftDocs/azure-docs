@@ -12,7 +12,19 @@ ms.custom: template-concept
 
 # Connectivity troubleshooting
 
-Your client application could experience intermittent connectivity issues. If your application is unable to connect to your Azure Cache for Redis continually, it's possible some configuration on the cache isn't set up correctly. In this article, we provide troubleshooting help for connecting your client application to Azure Cache for Redis.
+Your client application could experience intermittent connectivity issues. If your application is unable to connect to your Azure Cache for Redis continually, it's possible some configuration on the cache isn't set up correctly. 
+
+In this article, we provide troubleshooting help for connecting your client application to Azure Cache for Redis.
+
+- [Server maintenance](#server-maintenance)
+- [Number of connected clients](#number-of-connected-clients)
+- [Kubernetes hosted applications](#kubernetes-hosted-applications)
+- [Linux-based client application](#linux-based-client-application)
+- [Azure Cache for Redis CLI](#azure-cache-for-redis-cli)
+- [PSPING](#psping)
+- [Virtual network configuration](#virtual-network-configuration)
+- [Private endpoint configuration](#private-endpoint-configuration)
+- [Firewall rules](#third-party-firewall-or-external-proxy)
 
 ## Server maintenance
 
@@ -69,6 +81,8 @@ If you have a firewall configured for your Azure Cache For Redis, ensure that yo
 When you use a third-party firewall or proxy in your network, ensure that the endpoint for Azure Cache for Redis, `*.redis.cache.windows.net`, is allowed along with the ports `6379` and `6380`. You might need to allow more ports when using a clustered cache.
 
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- Write concepts
-- Links
+
+These articles provide more information on connectivity and resilience:
+
+- [Best practices for connection resilience](cache-best-practices-connection.md)
+- [High availability for Azure Cache for Redis](cache-high-availability.md)

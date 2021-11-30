@@ -84,5 +84,7 @@ If the high connections are all legitimate and required client connections, upgr
 
 ## Additional information
 
+These articles provide more information on troubleshooting and performance testing:
+
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
