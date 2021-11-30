@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 09/27/2021
+  ms.date: 11/05/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,6 +34,8 @@ landingContent:
             url: catalog-permissions.md
           - text: Scan and ingest sources
             url: concept-scans-and-ingestion.md
+          - text: Share and receive data
+            url: concept-data-share.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Purview
@@ -47,6 +49,8 @@ landingContent:
             url: create-catalog-portal.md
           - text: Create a Collection - Portal
             url: quickstart-create-collection.md
+          - text: Share and receive data - Portal
+            url: quickstart-data-share.md
       - linkListType: how-to-guide
         links:
           - text: Manage access and collections
@@ -143,6 +147,15 @@ landingContent:
           url: register-scan-oracle-source.md
         - text: Scan Hive Metastore Database
           url: register-scan-hive-metastore-source.md
+  #Card
+  - title: Share and receive data
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Share data
+          url: how-to-share-data.md
+        - text: Receive shared data
+          url: how-to-receive-share.md
   #Card
   - title: Understand your data
     linkLists:

@@ -20,6 +20,8 @@ items:
       href: create-purview-python.md
   - name: Create a collection - Azure portal
     href: quickstart-create-collection.md
+  - name: Share and receive data
+    href: quickstart-data-share.md
 - name: Tutorials
   items:
   - name: Onboard Azure sources at scale
@@ -78,6 +80,8 @@ items:
       href: concept-business-glossary.md 
     - name: Asset normalization
       href: concept-asset-normalization.md
+  - name: Data Share
+    href: concept-data-share.md
   - name: Data insights
     href: concept-insights.md
 - name: How-to guides
@@ -241,6 +245,12 @@ items:
       href: how-to-automatically-label-your-content.md
     - name: Sensitivity labels FAQ
       href: sensitivity-labels-frequently-asked-questions.yml
+  - name: Data Share
+    items:
+    - name: Share data
+      href: how-to-share-data.md
+    - name: Receive shared data
+      href: how-to-receive-share.md
   - name: Insights
     items:
     - name: View asset insights

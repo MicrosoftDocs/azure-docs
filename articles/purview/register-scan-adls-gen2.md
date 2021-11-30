@@ -1,5 +1,5 @@
 ---
-title: 'Register and scan Azure Data Lake Storage (ADLS) Gen2'
+title: 'Register, scan and share data from Azure Data Lake Storage (ADLS) Gen2'
 description: This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
 author: athenads
 ms.author: athenadsouza
@@ -10,31 +10,26 @@ ms.custom: template-how-to, ignite-fall-2021
 ---
 # Connect to Azure Data Lake Gen2 in Azure Purview
 
-This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source
+This article outlines the process to register an Azure Data Lake Storage Gen2 data source in Azure Purview including instructions to authenticate and interact with the Azure Data Lake Storage Gen2 source.
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy) | Limited** |
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy)  | Limited** |[Yes](#data-share)|
+
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
-## Prerequisites
-
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* An active [Purview resource](create-catalog-portal.md).
-
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
-
 ## Register
+This section will enable you to register the ADLS Gen2 data source for scan and data share in Purview.
 
-This section will enable you to register the ADLS Gen2 data source and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
+### Prerequisites for register
+* You will need to be a Data Source Admin and one of the other Purview roles (e.g. Data Reader or Data Share Contributor) to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ### Steps to register
 
-It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
+Register a data source in Azure Purview enables you to set up scans for the data source, share data from the data source, or receive data into the data source.
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
@@ -251,6 +246,45 @@ It is important to give your service principal the permission to scan the ADLS G
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
 
+## Data share
+Purview Data share enables sharing of data in-place from ADLS Gen2 to ADLS Gen2. This section provides details about the ADLS Gen2 specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use Purview Data share.
+
+### Storage account permissions required to share data
+To add or update a storage account asset to a share, you need ONE of the following permissions:
+
+* **Microsoft.Authorization/roleAssignments/write** - This permission is available in the *Owner* role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/blobs/modifyPermissions/** - This permission is available in the *Blob Storage Data Owner* role.
+
+### Storage account permissions required to receive shared data
+To map a storage account asset in a received share, you need ONE of the following permissions:
+
+* **Microsoft.Storage/storageAccounts/write** - This permission is  available in the *Contributor* and *Owner* role.
+* **Microsoft.Storage/storageAccounts/blobServices/containers/write** - This permission is available in the *Contributor*, *Owner*, *Storage Blob Data Contributor* and *Storage Blob Data Owner* role.
+
+### Storage accounts supported for in-place data sharing
+The following storage accounts are supported for in-place data sharing:
+
+* Regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+* Storage accounts with VNET and private endpoints are not supported
+
+### Update shared data in source storage account
+Updates you make to shared files or data in the shared folder from source storage account will be made available to recipient in target storage account in near real time. When you delete subfolder or files within the shared folder, they will disappear for recipient. To delete the shared folder, file or parent folders or containers, you need to first revoke access to all your shares from the source storage account.
+
+### Access shared data in target storage account
+The target storage account enables recipient to access the shared data read-only in near real time. You can connect analytics tools such as Synapse Workspace and Databricks to the shared data to perform analytics. Cost of accessing the shared data is charged to the target storage account. 
+
+The folder receiving shared data has the following properties.
+
+* Data is read only in the receiving folder. You cannot edit the shared data or write other data into the receiving folder. You can not re-share shared data. You cannot delete the container and receiving folder when share is still active. 
+* ACL assignment on the receiving folder is not supported. Access can be granted to other users or service principals through RBAC and other access control mechanisms supported by storage account.
+* Event grid will not show events for changes to the shared data.
+* AZCopy is not supported for shared data in the receiving folder.
+
+### Service limit
+Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.
+
 ## Access policy
 [!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
 [!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
@@ -261,6 +295,7 @@ Follow this configuration guide to [enable access policies on an Azure Storage a
 
 Now that you have registered your source, follow the below guides to learn more about Purview and your data.
 
+- [Data share in Azure Purview](concept-data-share.md)
 - [Data insights in Azure Purview](concept-insights.md)
 - [Lineage in Azure Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)
