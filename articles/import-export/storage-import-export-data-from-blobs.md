@@ -164,11 +164,11 @@ Perform the following steps to create an export job in the Azure portal using th
 1. Log on to <https://portal.azure.com/>.
 2. Search for **import/export jobs**.
 
-    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-1.png)
 
 3. Select **+ Create**.
 
-    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-2.png)
 
 4. In **Basics**:
 

@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 11/28/2021
+ms.date: 11/29/2021
 ms.author: alkohli
 ms.custom: include file
 ---
@@ -42,7 +42,7 @@ Do the following steps to create an import job in the Azure portal using the cla
 
 5. In **Job details**:
 
-   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](../../articles/import-export/storage-import-export-data-to-blobs.md#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
+   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](../articles/import-export/storage-import-export-data-to-blobs.md#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
    1. Select the storage account for the import.
       
       The dropoff location is automatically populated based on the region of the storage account selected.
