@@ -6,15 +6,14 @@ ms.service: postgresql
 ms.topic: how-to
 author: mksuni
 ms.author: sumuth
-ms.date: 12/08/2020
+ms.date: 11/30/2021
 ---
 
 # Connect and query overview for Azure database for PostgreSQL- Flexible Server
 
 The following document includes links to examples showing how to connect and query with Azure Database for PostgreSQL Single Server. This guide also includes TLS recommendations and extension that you can use to connect to the server in supported languages below.
 
->[!IMPORTANT]
-> Azure Database for PostgreSQL Flexible Server is in **preview**.
+
 
 ## Quickstarts
 
