@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 
 # Subscription Eligibility and Number Capabilities
 
+Numbers can be purchased on eligible Azure subscriptions and in geographies where Communication Services is legally eligible to provide them.
+
 ## Subscription Eligibility
 
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits.
