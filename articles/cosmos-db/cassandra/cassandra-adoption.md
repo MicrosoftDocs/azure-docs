@@ -42,19 +42,19 @@ Your existing application code should work with Cassandra API. However, if you e
 
 ## Storage
 
-Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata, which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. This is most noticeable in the case of very small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
+Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata, which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. The difference is most noticeable in the case of small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
 
 ## Multi-region deployments
 
 Native Apache Cassandra is a multi-master system by default, and does not provide an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes is therefore redundant in Apache Cassandra as all nodes are independent and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single master, or multi-master regions for writes. One of the advantages of having a single master region for writes is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions, while still maintaining a level of high availability. 
 
-We recommend reviewing the [Load balancing policy section](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#load-balancing-policy) from our blog [Cassandra API Recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java), as well as [failover scenarios](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4#failover-scenarios) in our official [code sample for the Cassandra Java v4 driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4), for more detail. 
+We recommend reviewing the [Load balancing policy section](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#load-balancing-policy) from our blog [Cassandra API Recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java), and [failover scenarios](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4#failover-scenarios) in our official [code sample for the Cassandra Java v4 driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4), for more detail. 
 
 ## Request Units
 
 One of the major differences between running a native Apache Cassandra cluster, and provisioning an Azure Cosmos DB account, is the way in which database capacity is provisioned. In traditional databases, capacity is expressed in terms of CPU cores, RAM, and IOPs. However, Azure Cosmos DB is a multi-tenant platform-as-a-service database. Capacity is expressed using a single normalized metric known as [request units](../request-units.md) (RU/s). Every request sent to the database has an "RU cost", and each request can be profiled to determine its cost. 
 
-The benefit of this is that database capacity can be provisioned deterministically for highly predictable performance and efficiency. This is because it is possible to associate the capacity you need to provision directly with the number of requests sent to the database (once you have profiled the cost of each request). The challenge with this way of provisioning capacity is that, in order to maximize the extent to which you can benefit from it, you need to have a more solid understanding of the throughput characteristics of your workload than you may have been used to. 
+The benefit of this is that database capacity can be provisioned deterministically for highly predictable performance and efficiency. Request units make it possible to associate the capacity you need to provision directly with the number of requests sent to the database (once you have profiled the cost of each request). The challenge with this way of provisioning capacity is that, in order to maximize the extent to which you can benefit from it, you need to have a more solid understanding of the throughput characteristics of your workload than you may have been used to. 
 
 We highly recommend profiling your requests and using this information to help you to accurately estimate the number of request units you will need to provision. Here are some useful articles to help:
 
@@ -65,9 +65,9 @@ We highly recommend profiling your requests and using this information to help y
 
 ## Capacity provisioning models
 
-Traditional database provisioning is generally based on a fixed capacity that has to be provisioned up front in order to cope with the anticipated throughput. Cosmos DB offers a capacity-based model known as [provisioned throughput](../set-throughput.md). However, as a multi-tenant service, it is also able to offer *consumption-based* models, in the form of [autoscale](../provision-throughput-autoscale.md) and [serverless](../serverless.md). The extent to which your workload will benefit from each type depends on the predictability of throughput. 
+Traditional database provisioning is based on a fixed capacity that has to be provisioned up front in order to cope with the anticipated throughput. Cosmos DB offers a capacity-based model known as [provisioned throughput](../set-throughput.md). However, as a multi-tenant service, it is also able to offer *consumption-based* models, in the form of [autoscale](../provision-throughput-autoscale.md) and [serverless](../serverless.md). The extent to which your workload will benefit from each type depends on the predictability of throughput. 
 
-Generally speaking, workloads with large periods of dormancy will benefit from serverless. Steady state workloads with predictable throughput benefit most from provisioned throughput. Workloads which have a continuous level of minimal throughput, but with very unpredictable spikes, will benefit most from autoscale. We recommend reviewing the links below to help you understand the best capacity model for your throughput needs:
+Generally speaking, workloads with large periods of dormancy will benefit from serverless. Steady state workloads with predictable throughput benefit most from provisioned throughput. Workloads, which have a continuous level of minimal throughput, but with unpredictable spikes, will benefit most from autoscale. We recommend reviewing the links below to help you understand the best capacity model for your throughput needs:
 
 - [Introduction to provisioned throughput in Azure Cosmos DB](../set-throughput.md)
 - [Create Azure Cosmos containers and databases with autoscale throughput](../provision-throughput-autoscale.md)
@@ -75,9 +75,9 @@ Generally speaking, workloads with large periods of dormancy will benefit from s
 
 ## Partitioning
 
-Partitioning in Cosmos DB functions in a very similar way to Apache Cassandra. One of the main differences is that Cosmos DB is significantly more optimized for *horizontal scale*. As such, there are limits placed on the amount of *vertical* capacity available in any given *physical partition*. The effect of this is most noticeable where there is significant data or throughput skew in an existing data model. 
+Partitioning in Cosmos DB functions in a very similar way to Apache Cassandra. One of the main differences is that Cosmos DB is more optimized for *horizontal scale*. As such, there are limits placed on the amount of *vertical* capacity available in any given *physical partition*. The effect of this is most noticeable where there is significant data or throughput skew in an existing data model. 
 
-You should take steps to ensure that your partition key design will result in a relatively uniform distribution of data and requests. We also recommend that you review our article on [Partitioning in Azure Cosmos DB Cassandra API](cassandra-partitioning.md) for more information on how logical and physical partitioning works, and limits on both storage and capacity (request units) per partition.
+Take steps to ensure that your partition key design will result in a relatively uniform distribution of data and requests. We also recommend that you review our article on [Partitioning in Azure Cosmos DB Cassandra API](cassandra-partitioning.md) for more information on how logical and physical partitioning works, and limits on both storage and capacity (request units) per partition.
 
 ## Scaling
 
