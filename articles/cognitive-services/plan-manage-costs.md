@@ -6,7 +6,7 @@ ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/03/2021
 ---
 
 
@@ -34,11 +34,13 @@ For more information, see [Azure Cognitive Services pricing](https://azure.micro
 
 Cognitive Services runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/cognitive-services/) when you deploy the new resource. It's important to understand that more infrastructure might accrue costs. You need to manage that cost when you make changes to deployed resources. 
 
-### How you're charged for Cognitive Services
+When you create or use Cognitive Services resources, you might get charged based on the services that you use. There are two billing models available for Cognitive Services: pay-as-you-go, and commitment tier.
 
-When you create or use Cognitive Services resources, you might get charged for the following meters based on the services that you use:
+## Pay-as-you-go
 
-| Service | Meter(s) | Billing information | 
+With Pay-As-You-Go pricing, you are billed according to the Cognitive Services offering you use, based on its billing information.
+
+| Service | Instance(s) | Billing information | 
 |---------|-------|---------------------|
 | **Vision** | | |
 | [Computer Vision](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) | Free, Standard (S1) | Billed by the number of transactions. Price per transaction varies per feature (Read, OCR, Spatial Analysis). For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/). |
@@ -55,6 +57,17 @@ When you create or use Cognitive Services resources, you might get charged for t
 | [Anomaly Detector](https://azure.microsoft.com/pricing/details/cognitive-services/anomaly-detector/) | Free, Standard | Billed by the number of transactions. | 
 | [Content Moderator](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) | Free, Standard | Billed by the number of transactions. |
 | [Personalizer](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/) | Free, Standard (S0) | Billed by transactions per month. There are storage and transaction quotas. For full details, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/personalizer/). | 
+
+## Commitment tier
+
+In addition to the pay-as-you-go model, Cognitive Services has commitment tiers, which let you commit to using several service features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload.
+
+With commitment tier pricing, you are billed according to the plan you choose. See [Quickstart: purchase commitment tier pricing](commitment-tier.md) for information on available services, how to sign up, and considerations when purchasing a plan.
+
+> [!NOTE]
+> If you use the resource above the quota provided by the commitment plan, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you purchase a commitment plan. For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+
+
 
 
 ### Costs that typically accrue with Cognitive Services

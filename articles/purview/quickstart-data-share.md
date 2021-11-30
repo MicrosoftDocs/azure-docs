@@ -7,20 +7,24 @@ ms.service: purview
 ms.topic: quickstart
 ms.date: 11/05/2021
 ---
-# Quick start: Share and receive data with Azure Purview
+# Quick start: Share and receive data with Purview Data share (preview)
 
 This article provides a quick start guide on how to share and receive data from Azure Data Lake Storage Gen2 (ADLS Gen2) or Blob storage account.
 
-## Supported regions
+## Supported Purview accounts
 
-Purview Data Share feature is currently available in the following Azure regions.
+Purview Data Share feature is currently available in Purview account in the following Azure regions: East US 2, Canada Central, West Europe, UK South, and Australia East.
 
-* Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+## Supported storage accounts
 
-## Supported storage account redundancy options
+In-place data sharing is currently supported for ADLS Gen2 and Blob storage accounts with the following configurations:
 
-In-place data sharing is currently supported for storage account with the following redundancy: LRS, GRS, RA-GRS.
+* Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+* Performance: Standard
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+
+Storage accounts with VNET and private endpoints are not supported.
 
 ## Prerequisites
 

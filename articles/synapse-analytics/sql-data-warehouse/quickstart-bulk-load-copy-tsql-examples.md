@@ -9,7 +9,7 @@ ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, mode-other
 ---
 
 # Securely load data using Synapse SQL

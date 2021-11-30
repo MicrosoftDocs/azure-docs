@@ -19,6 +19,9 @@ This article summarizes the documentation changes associated with new features a
 
 For Azure SQL Managed Instance, see [What's new](../managed-instance/doc-changes-updates-release-notes-whats-new.md).
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 
 
 ## Preview 

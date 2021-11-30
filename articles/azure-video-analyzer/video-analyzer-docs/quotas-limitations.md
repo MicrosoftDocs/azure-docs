@@ -1,9 +1,9 @@
 ---
-title: Azure Video Analyzer quotas and limitations - Azure
+title: Azure Video Analyzer quotas and limitations 
 description: This article describes Azure Video Analyzer quotas and limitations.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Video Analyzer quotas and limitations

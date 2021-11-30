@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/05/2021
 ---
 
-# Understand Data Share in Azure Purview
+# Understand Purview Data share (preview)
 
 This article provides an overview of the Data Share feature in Azure Purview. 
 

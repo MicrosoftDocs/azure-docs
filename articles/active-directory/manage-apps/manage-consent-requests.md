@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
-# Manage consent to applications and evaluate consent requests in Azure Active Directory
+# Manage consent to applications and evaluate consent requests
 
 Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
@@ -37,7 +37,7 @@ After end-user consent is disabled or restricted, there are several important co
 
 3. If your organization has the appropriate license:
 
-    * Use additional [OAuth application auditing features in Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
+    * Use additional [OAuth application auditing features in Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
     * Use [Azure Monitor Workbooks to monitor permissions and consent](../reports-monitoring/howto-use-azure-monitor-workbooks.md) related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This can be helpful to prioritize applications for administrators to review and decide whether to grant them admin consent.
 
 ### Additional considerations for reducing friction

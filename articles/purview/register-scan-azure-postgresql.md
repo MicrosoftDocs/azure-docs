@@ -1,7 +1,7 @@
 ---
 title: 'Connect to and manage an Azure database for PostgreSQL'
-description: This guide describes how to connect to an Azure database for PostgreSQL in Azure Purview, and use Purview's features to scan and manage your Azure database for PostgreSQL source.
-author: evwhite
+description: This guide describes how to connect to an Azure database for PostgreSQL single server in Azure Purview, and use Purview's features to scan and manage your Azure database for PostgreSQL source.
+author: evangelinew
 ms.author: evwhite
 ms.service: purview
 ms.subservice: purview-data-map
@@ -12,13 +12,19 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Connect to and manage an Azure database for PostgreSQL in Azure Purview
 
-This article outlines how to register an Azure database for PostgreSQL, as well as how to authenticate and interact with an Azure database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register an Azure database for PostgreSQL deployed with single server deployment option, as well as how to authenticate and interact with an Azure database for PostgreSQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | [Data Factory Lineage](how-to-link-azure-data-factory.md) |
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+> [!Important]
+>  Purview only supports single server deployment option for Azure database for PostgreSQL. 
+>  Versions 8.x to 12.x
 
 ## Prerequisites
 
@@ -34,7 +40,7 @@ This section describes how to register an Azure database for PostgreSQL in Azure
 
 ### Authentication for registration
 
-Currently, to be able to manage and interact with an Azure database for PostgreSQL, only SQL Authentication is supported.
+Currently, to be able to manage and interact with an Azure database for PostgreSQL single server, only SQL Authentication is supported.
 
 #### SQL Authentication
 

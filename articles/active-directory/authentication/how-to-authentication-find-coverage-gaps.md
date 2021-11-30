@@ -47,7 +47,7 @@ Based on gaps you found, require administrators to use multi-factor authenticati
 
 - Run the [MFA enablement wizard](https://aka.ms/MFASetupGuide) to choose your MFA policy.
 
-- If you assign custom or built-in admin roles in [Privileged Identity Management](/privileged-identity-management/pim-configure.md), require multi-factor authentication upon role activation.
+- If you assign custom or built-in admin roles in [Privileged Identity Management](../privileged-identity-management/pim-configure.md), require multi-factor authentication upon role activation.
 
 ## Use Passwordless and phishing resistant authentication methods for your administrators
 
@@ -55,8 +55,6 @@ After your admins are enforced for multi-factor authentication and have been usi
 
 - [Phone Sign-in (with Microsoft Authenticator)](concept-authentication-authenticator-app.md)
 - [FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview.md)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
 
 You can read more about these authentication methods and their security considerations in [Azure AD authentication methods](concept-authentication-methods.md).
-
-

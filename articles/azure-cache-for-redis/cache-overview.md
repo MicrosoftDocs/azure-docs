@@ -61,7 +61,7 @@ The [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/
 | [Data persistence](cache-how-to-premium-persistence.md) |-|-|✔|Preview|Preview|
 | [Zone redundancy](cache-how-to-zone-redundancy.md) |-|-|✔|✔|✔|
 | [Geo-replication](cache-how-to-geo-replication.md) |-|-|✔|Preview|Preview|
-| [Redis Modules](#choosing-the-right-tier) |-|-|-|✔|✔|
+| [Redis Modules](#choosing-the-right-tier) |-|-|-|✔|-|
 | [Import/Export](cache-how-to-import-export-data.md) |-|-|✔|✔|✔|
 | [Reboot](cache-administration.md#reboot) |✔|✔|✔|-|-|
 | [Scheduled updates](cache-administration.md#schedule-updates) |✔|✔|✔|-|-|
@@ -94,7 +94,7 @@ The Enterprise tiers rely on Redis Enterprise, a commercial variant of Redis fro
 > separately from cache instances themselves. For more information, see [Load Balancer pricing](https://azure.microsoft.com/pricing/details/load-balancer/).
 > If an Enterprise cache is configured for multiple Availability Zones, data
 > transfer will be billed at the [standard network bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/)
-> starting from July 1, 2021.
+> starting from July 1, 2022.
 >
 > In addition, data persistence adds Managed Disks. The use of these resources will be free during
 > the public preview of Enterprise data persistence. This may change when the feature becomes

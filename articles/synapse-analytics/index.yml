@@ -26,6 +26,8 @@ landingContent:
         links:
           - text: What is Azure Synapse
             url: overview-what-is.md
+          - text: What's new?
+            url: whats-new.md
           - text: Terminology
             url: overview-terminology.md
           - text: FAQ
@@ -82,6 +84,18 @@ landingContent:
         links:
           - text: Create a Data Explorer pool using the Synapse Studio
             url: data-explorer/data-explorer-create-pool-studio.md
+
+  # Card
+  - title: Database templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Database templates in Azure Synapse Analytics
+            url: database-designer/overview-database-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Lake database leveraging database templates
+            url: database-designer/quick-start-create-lake-database.md
 
   # Card
   - title: Apache Spark

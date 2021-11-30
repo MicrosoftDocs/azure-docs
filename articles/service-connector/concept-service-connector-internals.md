@@ -71,7 +71,7 @@ If you are using **Spring Boot** as the client type:
 If you using **other client types** except Spring Boot:
 
 * When connect to a target service, the key name of the first connection configuration is in format as `{Cloud}_{Type}_{Name}`. E.g., `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`. 
-* For the same type of target resource, t The key name of the second connection configuration will be format as `{Cloud}_{Type}_{Connection Name}_{Name}`. E.g., `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
+* For the same type of target resource, the key name of the second connection configuration will be format as `{Cloud}_{Type}_{Connection Name}_{Name}`. E.g., `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
 
 ## Validate a service connection
 The following items will be checked while validating the connection:

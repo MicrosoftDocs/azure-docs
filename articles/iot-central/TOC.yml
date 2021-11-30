@@ -178,7 +178,9 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
-        - name: Transform data
+        - name: Transform data internally for export
+          href: core/howto-transform-data-internally.md
+        - name: Transform data externally
           href: core/howto-transform-data.md
         - name: Use workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
@@ -255,6 +257,8 @@
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: Video resources
+    href: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 

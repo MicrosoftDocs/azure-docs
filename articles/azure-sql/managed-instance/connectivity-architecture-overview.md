@@ -26,6 +26,9 @@ SQL Managed Instance is placed inside the Azure virtual network and the subnet t
 - The ability to connect SQL Managed Instance to a linked server or another on-premises data store.
 - The ability to connect SQL Managed Instance to Azure resources.
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## Communication overview
 
 The following diagram shows entities that connect to SQL Managed Instance. It also shows the resources that need to communicate with a managed instance. The communication process at the bottom of the diagram represents customer applications and tools that connect to SQL Managed Instance as data sources.  

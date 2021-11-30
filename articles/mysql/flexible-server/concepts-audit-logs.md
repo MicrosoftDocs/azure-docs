@@ -17,7 +17,7 @@ Azure Database for MySQL Flexible Server provides users with the ability to conf
 ## Configure audit logging
 
 >[!IMPORTANT]
-> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted.
+> It is recommended to only log the event types and users required for your auditing purposes to ensure your server's performance is not heavily impacted and minium amount of data is collected.
 
 By default, audit logs are disabled. To enable them, set the `audit_log_enabled` server parameter to *ON*. This can be configured using the Azure portal or Azure CLI <!-- add link to server parameter-->.
 

@@ -7,20 +7,24 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/05/2021
 ---
-# Receive shared data from Purview Data Share
+# Receive shared data from Purview Data Share (preview)
 
 Purview Data Share supports in-place data sharing from Azure Data Lake Storage Gen2 (ADLS Gen2) and Blob storage account. This article explains how to receive shared data.
 
-## Supported regions
+## Supported Purview accounts
 
-Purview Data Share feature is currently available in the following Azure regions.
+Purview Data Share feature is currently available in Purview account in the following Azure regions: East US 2, Canada Central, West Europe, UK South, and Australia East.
 
-* Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+## Supported storage accounts
 
-## Supported storage account redundancy options
+In-place data sharing is currently supported for ADLS Gen2 and Blob storage accounts with the following configurations:
 
-In-place data sharing is currently supported for storage account with the following redundancy: LRS, GRS, RA-GRS.
+* Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+* Performance: Standard
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+
+Storage accounts with VNET and private endpoints are not supported.
 
 ## Prerequisites to receive shared data
 
@@ -57,7 +61,7 @@ In-place data sharing is currently supported for storage account with the follow
 
     <img src="./media/how-to-receive-share/receive-share-map-target.png" alt="Map asset to target" width=500/>   
 
-    Note: If you do not see a data source from the drop down list, click on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can share data from that resource. Your data store needs to be registered in the same collection as the received share. If you do not see the collection from the drop down list when registering your data store, it means you do not have Data Source Admin role access to the collection. Please contact your Collection Admin to grant you access.
+    Note: If you do not see a data source from the drop down list, click on the **Register a new data store to map assets** link below to register your data store. Azure resource needs to be registered with Purview before you can share data from that resource. Your data store needs to be registered in the same collection as the received share. If you do not see the collection from the drop down list when registering your data store, it means you do not have *Data Source Admin* role access to the collection. Please contact your *Collection Admin* to grant you access.
 
 1. The screen will show *Mapping* in progress. Asset mapping can take a few minutes. Map all the assets and select **Close**. 
 
@@ -77,7 +81,11 @@ You can map asset or unmap asset within a received share.
 
 You can map an asset in the *unmapped* state. To map asset, first select the received share, and then select **Assets** tab. Locate the asset you want to map, and select the **Map** action next to the asset name. You can now specify a target data store where you want to access the shared data. Once you confirm your selection, it will take a few minutes for the asset mapping to complete, and your will see the shared data in your target data store. 
 
+![Screenshot map asset.](./media/how-to-receive-share/edit-share-map.png "Map asset.") 
+
 You can unmap an asset in the *mapped* or *Failed* stated. To unmap an asset, first select the received share, and then select **Assets** tab. Locate the asset you want to unmap, and select the **Unmap** action next to the asset name. It will take a few minutes to complete. Once asset is unmapped, you can no longer access the shared data.
+
+![Screenshot unmap asset.](./media/how-to-receive-share/edit-share-unmap.png "Unmap asset.") 
 
 ## Delete received share
 Deleting a received share will stop the sharing relationship, and you will no longer be able to access shared data. Deleting a received share can take a few minutes.
@@ -86,22 +94,29 @@ Deleting a received share will stop the sharing relationship, and you will no lo
 Here are some common issues for receiving share and how to troubleshoot.
 
 ### Cannot see Data share icon from left navigation
-Data share feature is only available in Purview account in select regions. Make sure your Purview account is in one of the [supported regions](#supported-regions). You can find your Purview account region in Azure Portal by selecting your Purview account, and *Overview*. Region is listed under *Location*. 
+Data share feature is only available in Purview account in select regions. Make sure your Purview account is in one of the [supported regions](#supported-purview-accounts). If you don't know which region your Purview account is in, you can find it in Azure Portal by selecting your Purview account, and *Overview*. Region information is listed under *Location*. 
 
-### Cannot see pending share
-This could be due to the following reasons:
+### Both Sent Shares and Received Shares are disabled
+If both *sent shares* and *received shares* are disabled in the navigation, you do not have **Data Share Contributor** role to any collections in this Purview account. 
 
-1.	Pending share invitation is sent to your email alias instead of your Azure login email.  Contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and not your e-mail alias.
-1.	Share has already been accepted.  If you have already accepted the share, it will no longer show up in *Pending* tab. Select *Accepted* tab under *Received shares* to see your active shares.
-1.	You are a guest user of the tenant. If you are a guest user of a tenant, you need to verify your email address for the tenant in order to view pending share for the first time. Once verified, it is valid for 12 months.
+### Cannot view pending share
+If you have been notified that you have received a share, but cannot view pending share in your Purview account, it could be due to the following reasons:
+
+1. You do not have **Data Share Contributor** role to any collections in this Purview account. Contact your *Purview Collection Admin* to grant you access to both **Data Source Admin** and **Data Share Contributor** roles to view, accept and configure the received share. 
+1. Pending share invitation is sent to your email alias instead of your Azure login email.  Contact your data provider and ensure that they have sent the invitation to your Azure login e-mail address and not your e-mail alias.
+1. Share has already been accepted.  If you have already accepted the share, it will no longer show up in *Pending* tab. Select *Accepted* tab under *Received shares* to see your active shares.
+1. You are a guest user of the tenant. If you are a guest user of a tenant, you need to verify your email address for the tenant in order to view pending share for the first time. Once verified, it is valid for 12 months.
 
 ### Cannot select a collection when accepting a pending share or register a data source
 If you cannot select a collection when accepting a pending share or register a data source, you do not have proper permission to the collection. You need to have **Data Source Admin** and **Data Share Contributor** roles to a Purview collection in order to register data source and receive share. 
 
-### Issue with asset mapping
-If your storage account is not listed for you to select after register the source, it is likely the storage account is not in the [supported regions](#supported-regions) or does not have the [supported redundancy](#supported-storage-account-redundancy-options).
+### Cannot select target storage account when map an asset
+When you map an asset to a target, if your storage account is not listed for you to select, it is likely due to the following reasons:
+1. The storage account is not supported. Purview Data share only [supports storage accounts with specific configurations](#supported-storage-accounts).
+1. You do not have **Data Source Admin** role to the collection where the storage account is registered in. Data Source Admin role is required to view the list of registered storage account in a collection.
 
-If you failed to map asset, it is likely due to the following issues:
+### Failed to map asset
+If you failed to map an asset, it is likely due to the following reasons:
 1. Permission issue to the target data store. Check [Prerequisite](#prerequisites-to-receive-shared-data) for required data store permissions.
 1. The share and target data store do not belong to the same Purview collection. In order to receive data into a data store, the share and target data store need to belong to the same Purview collection. 
 1. The *New Folder* you specified to receive storage data is not empty.

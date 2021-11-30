@@ -7,20 +7,24 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 11/05/2021
 ---
-# Share Data with Purview Data Share
+# Share Data with Purview Data Share (preview)
 
 Purview Data Share supports in-place data sharing from Azure Data Lake Storage Gen2 (ADLS Gen2) and Blob storage account. This article explains how to share data.
 
-## Supported regions
+## Supported Purview accounts
 
-Purview Data Share feature is currently available in the following Azure regions.
+Purview Data Share feature is currently available in Purview account in the following Azure regions: East US 2, Canada Central, West Europe, UK South, and Australia East.
 
-* Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+## Supported storage accounts
 
-## Supported storage account redundancy options
+In-place data sharing is currently supported for ADLS Gen2 and Blob storage accounts with the following configurations:
 
-In-place data sharing is currently supported for storage account with the following redundancy: LRS, GRS, RA-GRS.
+* Azure regions: Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+* Performance: Standard
+* Redundancy options: LRS, GRS, RA-GRS
+* Tiers: Hot, Cool
+
+Storage accounts with VNET and private endpoints are not supported.
 
 ## Prerequisites to share data
 
@@ -76,16 +80,34 @@ You can add assets or edit and delete an existing asset in a sent share.
 
 To add a new asset (for example, to share data from a different storage account), first select the share, and then select **Add assets**. 
 
+![Screenshot edit share to add asset.](./media/how-to-share-data/edit-share-add-asset.png "Add asset.") 
+
 To edit an existing asset (for example for a storage, to add or remove shared files and folders), first select the share, and then select **Assets** tab. Locate the asset you want to edit, and select the **Edit** action next to the asset name. You can now add or remove shared files and folders. Once you confirm your selection, it will take a few minutes for the change to take place. Once update is completed, recipients of your share will see the updated list of files and folders in their target storage account. 
 
+![Screenshot edit asset.](./media/how-to-share-data/edit-share-edit-asset.png "Edit asset.") 
+
 To delete an asset, first select the share, and then select **Assets** tab. Locate the asset you want to delete, and select the **Delete** action next to the asset name. Delete an asset can take a few minutes.
+
+![Screenshot delete asset.](./media/how-to-share-data/edit-share-delete-asset.png "Delete asset.") 
 
 ### Update recipients
 You can add more recipient, view status of your existing recipients, or revoke access.
 
 To share the same data with more recipients, first select the share, and then select **Add recipient**.
 
-To view status of existing recipients, first select the share, and then select **Recipients** tab. You can select **Accepted**, **Pending**, and **Rejected** to view status of these recipients. If you want to terminate access to a specific recipient, you can revoke access to a recipient in *accepted* state by locating the recipient and selecting **Revoke** action next to it. Once access is revoked, you can reinstate it by locating the recipient and selecting **Reinstate** action next to it. When a recipient is in *pending* state, you can delete it by locating the recipient and selecting **Delete** next to it. 
+![Screenshot edit share to add recipient.](./media/how-to-share-data/edit-share-add-recipient.png "Add recipient.") 
+
+To view status of existing recipients, first select the share, and then select **Recipients** tab. You can select **Accepted**, **Pending**, and **Rejected** to view status of these recipients. If you want to terminate access to a specific recipient, you can revoke access to a recipient in *accepted* state by locating the recipient and selecting **Revoke** action next to it. 
+
+![Screenshot revoke.](./media/how-to-share-data/edit-share-revoke.png "Revoke.") 
+
+Once access is revoked, you can reinstate it by locating the recipient and selecting **Reinstate** action next to it. 
+
+![Screenshot reinstate.](./media/how-to-share-data/edit-share-reinstate.png "Reinstate.") 
+
+When a recipient is in *pending* state, you can resend the invitation email. You can also delete it by locating the recipient and selecting **Delete** next to it. 
+
+![Screenshot delete recipient.](./media/how-to-share-data/edit-share-delete-recipient.png "Delete recipient.") 
 
 ## Delete a sent share
 Deleting a sent share will delete the share and revoke access to all the existing recipients. Deleting a sent share can take a few minutes.
@@ -94,15 +116,20 @@ Deleting a sent share will delete the share and revoke access to all the existin
 Here are some common issues for sharing data and how to troubleshoot.
 
 ### Cannot see Data share icon from left navigation
-Data share feature is only available in Purview account in select regions. Make sure your Purview account is in one of the [supported regions](#supported-regions). You can find your Purview account region in Azure Portal by selecting your Purview account, and *Overview*. Region is listed under *Location*. 
+Data share feature is only available in Purview account in select regions. Make sure your Purview account is in one of the [supported regions](#supported-purview-accounts). If you don't know which region your Purview account is in, you can find it in Azure Portal by selecting your Purview account, and *Overview*. Region information is listed under *Location*. 
+
+### Both Sent Shares and Received Shares are disabled
+If both *sent shares* and *received shares* are disabled in the navigation, you do not have **Data Share Contributor** role to any collections in this Purview account. 
 
 ### Cannot select a collection when creating a share or register a data source
 If you cannot select a collection when creating a share or register a data source, you do not have proper permission to the collection. You need to have **Data Source Admin** and **Data Share Contributor** roles to a Purview collection in order to register data source and share data. 
 
 ### Issue add or update asset
-If your storage account is not listed for you to select after register the source, it is likely the storage account is not in the [supported regions](#supported-regions) or does not have the [supported redundancy](#supported-storage-account-redundancy-options).
+If your storage account is not listed for you to select, it is likely due to the following reasons:
+1. The storage account is not supported. Purview Data share only [supports storage accounts with specific configurations](#supported-storage-accounts).
+1. You do not have **Data Source Admin** role to the collection where the storage account is registered in. Data Source Admin role is required to view the list of registered storage account in a collection.
 
-If you failed to add asset, it is likely due to the following reasons:
+If you failed to add or update asset, it is likely due to the following reasons:
 1. Permission issue to the data store where you want to share data from. Check [Prerequisite](#prerequisites-to-share-data) for required data store permissions.
 1. The share and source data store do not belong to the same Purview collection. In order to share data from a data store, the share and source data store need to belong to the same Purview collection. 
 1. You tried to share data from a *storage container*. Sharing from container is not currently supported. You can select all files and folders within the container to share.
