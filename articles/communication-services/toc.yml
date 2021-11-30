@@ -55,6 +55,8 @@ items:
       href: quickstarts/voice-video-calling/call-automation-api-sample.md
     - name: Record calls
       href: quickstarts/voice-video-calling/call-recording-sample.md
+    - name: Raw media access
+      href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
     - name: Get started with Composites
@@ -164,6 +166,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: User-facing diagnostics
         href: concepts/voice-video-calling/user-facing-diagnostics.md
+      - name: Media quality statistics
+        href: concepts/voice-video-calling/media-quality-sdk.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
@@ -190,6 +194,8 @@ items:
     href: concepts/metrics.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
+  - name: Service limits
+    href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides

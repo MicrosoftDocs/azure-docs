@@ -22,7 +22,7 @@ The control plane deployment for the [SAP deployment automation framework on Azu
 The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
   
 ```
@@ -37,7 +37,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 Assign the correct permissions to the Service Principal: 
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
@@ -50,6 +50,15 @@ The sample SAP Library configuration file `MGMT-WEEU-SAP_LIBRARY.tfvars` is loca
 Running the command below will create the Deployer, the SAP Library and add the Service Principal details to the deployment key vault.
 
 # [Linux](#tab/linux)
+
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
@@ -73,7 +82,21 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 
 # [Windows](#tab/windows)
 
+You can copy the sample configuration files to start testing the deployment automation framework.
+
 ```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
+
+
+```powershell
+
+
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"

@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 10/18/2021
 ms.author: nidutta
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-portal
 ---
 
 # Quickstart: Create an Apache Spark GPU-enabled Pool in Azure Synapse Analytics using the Azure portal

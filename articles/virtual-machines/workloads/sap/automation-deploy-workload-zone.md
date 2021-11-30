@@ -80,7 +80,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 Assign the correct permissions to the Service Principal: 
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
@@ -94,6 +94,16 @@ Running the command below will deploy the SAP Workload Zone.
 
 > [!TIP]
 > Perform this task from the deployer.
+
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
@@ -116,6 +126,17 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --tenant_id $tenant_id
 ```
 # [Windows](#tab/windows)
+
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
 
 ```powershell
 $subscription="<subscriptionID>"

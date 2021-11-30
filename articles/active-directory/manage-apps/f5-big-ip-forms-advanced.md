@@ -33,9 +33,7 @@ Instead, a BIG-IP Virtual Edition (VE), deployed between the internet and the in
 
 Having BIG-IP in front of the application lets you overlay the service with Azure AD pre-authentication and form-based SSO. This approach significantly improves the overall security posture of the application, allowing the business to continue operating at pace, without interruption.
 
-The user credentials that are cached by the BIG-IP APM are then available for SSO against other form-based authentication applications.
-
-## Scenario architecture
+## Scenario Architecture
 
 The secure hybrid access solution for this scenario is made up of the following elements:
 
@@ -43,22 +41,20 @@ The secure hybrid access solution for this scenario is made up of the following 
 
 **Azure AD**: The Security Assertion Markup Language (SAML) Identity Provider (IdP), which is responsible for verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
 
-**BIG-IP**: A reverse proxy and SAML service provider to the
-application, which delegates authentication to the SAML IdP before
-it performs form-based SSO to the back-end application.
+**BIG-IP**: A reverse proxy and SAML service provider to the application, which delegates authentication to the SAML IdP before it performs form-based SSO to the back-end application. The cached user credentials are then available for SSO against other forms-based authentication applications.
 
 ![Screenshot of the flow diagram, from user to application.](./media/f5-big-ip-forms-advanced/flow-diagram.png)
 
 | Step | Description|
 |-------: |:----------|
 | 1 | A user connects to the application's SAML service provider endpoint (BIG-IP APM).|
-| 2 | The APM access policy redirects the user to SAML IdP (Azure AD) for pre-authentication.|
+| 2 | The APM access policy redirects the user to the SAML IdP (Azure AD) for pre-authentication.|
 | 3 | Azure AD authenticates the user and applies any enforced Conditional Access policies.|
-| 4 | User is redirected back to SAML service provider with the issued token and claims. |
+| 4 | User is redirected back to the SAML service provider with the issued token and claims. |
 | 5 | BIG-IP prompts the user for an application password and stores it in the cache. |
 | 6 | BIG-IP sends a request to the application and receives a logon form.|
 | 7 | The APM scripting auto responds, filling in the username and password before it submits the form.|
-| 8 | The application payload is served by the web server and sent to the client. Optionally, APM detects a successful logon by examining the response headers, looking for a cookie or redirect URI.|
+| 8 | The application payload is served by the web server and sent to the client. |
 | | |
 
 ## Prerequisites
@@ -366,10 +362,9 @@ When you've imported the application's federation metadata.xml, you give the APM
 
 In scenarios where a BIG-IP web portal isn't used, users have no way to instruct the APM to sign out. Even if users sign out of the application itself, the BIG-IP is technically unaware of this action, so the application session could easily be reinstated through SSO. For this reason, the service provider-initiated sign-out needs careful consideration to ensure that sessions are securely terminated when they're no longer required.
 
-One way to achieve this would be to add an SLO function to your
-app's sign-out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. You can find the SAML sign-out endpoint for your tenant by selecting **App Registrations** > **Endpoints**.
+One way to achieve this would be to add an SLO function to your app's sign-out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. You can find the SAML sign-out endpoint for your tenant by selecting **App Registrations** > **Endpoints**.
 
-If making a change to the app is a no-go, consider having the BIG-IP listen for the app's sign-out call. When the app detects the request, have it trigger SLO. For more information about using BIG-IP iRules to achieve this, see the following F5 articles: 
+If making a change to the app is a no-go, consider having the BIG-IP listen for the app's sign-out call. When it detects the request, have it trigger SLO. For more information about using BIG-IP iRules to achieve this, see the following F5 articles: 
 * [K42052145: Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145)
 * [K12056: Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056)
 

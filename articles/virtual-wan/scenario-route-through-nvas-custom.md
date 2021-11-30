@@ -6,7 +6,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 11/23/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 ---
@@ -170,12 +170,16 @@ To set up routing via NVA, consider the following steps:
 
    * **Propagation from:** Make sure the option for branches **(VPN/ER/P2S)** is selected. This ensures that on-premises connections are propagating routes to the default route table. All VPN, ExpressRoute, and user VPN connections propagate routes to the 'same set of route tables'.
 
-   >[!Note]
-   >
-   > * Portal users must enable ‘Propagate to default route’ on connections (VPN/ER/P2S/VNet) for the 0.0.0.0/0 route to take effect.
-   > * PS/CLI/REST users must set flag ‘enableinternetsecurity’ to true for the 0.0.0.0/0 route to take effect.
-   > * Virtual Network Connection does not support ‘multiple/unique’ next hop IP to the ‘same’ network virtual appliance in a SPOKE VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet)
-   > * When 0.0.0.0/0 is configured as a static route on a Virtual Network Connection, that route is applied to all traffic, including the resources within the spoke itself. This means all traffic will be forwarded to the next hop IP address of the static route (NVA Private IP). Thus, in deployments with a 0.0.0.0/0 route with next hop NVA IP address configured on a spoke Virtual Network Connection, to access workloads in the same Virtual Network as the NVA directly (i.e. so that traffic does not pass through the NVA), please specify a /32 route on the Spoke Virtual Network connection. For instance, if you want to access 10.1.3.1 directly, please specify 10.1.3.1/32 next hop 10.1.3.1 on the Spoke Virtual Network Connection.
+**Considerations**
+
+* Portal users must enable 'Propagate to default route' on connections (VPN/ER/P2S/VNet) for the 0.0.0.0/0 route to take effect.
+* PS/CLI/REST users must set flag 'enableinternetsecurity' to true for the 0.0.0.0/0 route to take effect.
+* Virtual network connection does not support 'multiple/unique' next hop IP to the 'same' network virtual appliance in a spoke VNet 'if' one of the routes with next hop IP is indicated to be public IP address or 0.0.0.0/0 (internet).
+* When 0.0.0.0/0 is configured as a static route on a virtual network connection, that route is applied to all traffic, including the resources within the spoke itself. This means all traffic will be forwarded to the next hop IP address of the static route (NVA Private IP). Thus, in deployments with a 0.0.0.0/0 route with next hop NVA IP address configured on a spoke virtual network connection, to access workloads in the same virtual network as the NVA directly (i.e. so that traffic does not pass through the NVA), specify a /32 route on the spoke virtual network connection. For instance, if you want to access 10.1.3.1 directly, specify 10.1.3.1/32 next hop 10.1.3.1 on the spoke virtual network connection.
+* To simplify routing and to reduce the changes in the Virtual WAN hub route tables, we encourage using the new "BGP peering with Virtual WAN hub" option.
+
+  * [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md)
+  * [How to create BGP peering with virtual hub - Azure portal](create-bgp-peering-hub-portal.md)
 
 ## Next steps
 

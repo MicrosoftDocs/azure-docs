@@ -526,12 +526,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-java-cosmos-db",
-      "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "main",

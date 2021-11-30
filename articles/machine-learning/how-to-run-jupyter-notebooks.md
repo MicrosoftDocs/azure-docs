@@ -70,6 +70,16 @@ From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
 
+## Share a notebook
+
+Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
+
+Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure ML studio. By default, your notebooks are in a folder with your username, and others can access them there.
+
+You can also copy the URL from your browser when you open a notebook, then send to others.  As long as they have appropriate access to your workspace, they can open the notebook.
+
+Since you don't share compute instances, other users who run your notebook will do so on their own compute instance.  
+
 ## Collaborate with notebook comments (preview)
 
 Use a notebook comment to collaborate with others who have access to your notebook.
