@@ -17,7 +17,7 @@ In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azur
 > * Create an Azure Arc-enabled Kubernetes cluster.
 > * Connect your application and GitOps repositories to Azure Repos or Git Hub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
-> * Connect your Azure Container Registry (ACR) to Azure DevOps and Kubernetes.
+> * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
 > * Create environment variable groups or secrets.
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Understand the [benefits and architecture](./conceptual-gitops-flux2.md) of this feature.
 * Verify you have:
   * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
-  * A connected Azure Container Registry (ACR) with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
+  * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
 * Install the latest versions of these Azure Arc-enabled Kubernetes CLI extensions:
 
   ```azurecli
@@ -46,12 +46,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     az extension update --name k8s-configuration
     ```
 
-### Connect ACR to Kubernetes
-Enable your Kubernetes cluster to pull images from your ACR. If it's private, authentication will be required.
+### Connect Azure Container Registry to Kubernetes
+Enable your Kubernetes cluster to pull images from your Azure Container Registry. If it's private, authentication will be required.
 
-#### Connect ACR to existing AKS clusters
+#### Connect Azure Container Registry to existing AKS clusters
 
-Integrate an existing ACR with existing AKS clusters using the following command:
+Integrate an existing Azure Container Registry with existing AKS clusters using the following command:
 
 ```azurecli
 az aks update -n arc-cicd-cluster -g myResourceGroup --attach-acr arc-demo-acr
@@ -59,7 +59,7 @@ az aks update -n arc-cicd-cluster -g myResourceGroup --attach-acr arc-demo-acr
 
 #### Create an image pull secret
 
-To connect non-AKS and local clusters to your ACR, create an image pull secret. Kubernetes uses image pull secrets to store information needed to authenticate your registry.
+To connect non-AKS and local clusters to your Azure Container Registry, create an image pull secret. Kubernetes uses image pull secrets to store information needed to authenticate your registry.
 
 Create an image pull secret with the following `kubectl` command. Repeat for both the `dev` and `stage` namespaces.
 ```console
@@ -147,7 +147,7 @@ The application repository contains a `.pipeline` folder with the pipelines you'
 | [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
 | [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
 
-### Connect ACR to Azure DevOps
+### Connect Azure Container Registry to Azure DevOps
 During the CI process, you'll deploy your application containers to a registry. Start by creating an Azure service connection:
 
 1. In Azure DevOps, open the **Service connections** page from the project settings page. In TFS, open the **Services** page from the **settings** icon in the top menu bar.
@@ -161,7 +161,7 @@ During the CI process, you'll deploy your application containers to a registry. 
 
 ### Configure PR Service Connection
 
-CD pipeline manipulates PRs in the GitOps repository. It need a Service Connection for that:
+CD pipeline manipulates PRs in the GitOps repository. It needs a Service Connection for that:
 
 1. In Azure DevOps, open the **Service connections** page from the project settings page. In TFS, open the **Services** page from the **settings** icon in the top menu bar.
 2. Choose **+ New service connection** and select `Generic` type.
@@ -229,7 +229,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 
 | Variable | Value |
 | -------- | ----- |
-| AZ_ACR_NAME | (your ACR instance, for example. azurearctest.azurecr.io) |
+| AZ_ACR_NAME | (your Azure Container Registry instance, for example. azurearctest.azurecr.io) |
 | AZURE_SUBSCRIPTION | (your Azure Service Connection, which should be **arc-demo-acr** from earlier in the tutorial) |
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | ENVIRONMENT_NAME | Dev |
@@ -386,7 +386,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
 1. As a basic smoke test, navigate to the application page and verify the voting app now displays Tabs vs Spaces.
    * Forward the port locally using `kubectl` and ensure the app works correctly using:
    `kubectl port-forward -n dev svc/azure-vote-front 8080:80`
-   * View the Azure Vote app in your browser at http://localhost:8080/ and verify the voting choices have changed to Tabs vs Spaces. 
+   * View the Azure Vote app in your browser at `http://localhost:8080/` and verify the voting choices have changed to Tabs vs Spaces.
 1. Repeat steps 1-7 for the `stage` environment.
 
 Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
@@ -527,7 +527,7 @@ You're now ready to deploy to the `dev` and `stage` environments.
 
 #### CI/CD Dev workflow
 
-To start the CI/CD Dev workflow change the source code. In the application repository Update values in `.azure-vote/src/azure-vote-front/config_file.cfg` file and push the changes to the repository.
+To start the CI/CD Dev workflow change the source code. In the application repository, update values in `.azure-vote/src/azure-vote-front/config_file.cfg` file and push the changes to the repository.
 
 The CI/CD Dev workflow:
 * Ensures the application change passes all automated quality checks for deployment.

@@ -25,15 +25,15 @@ Consider an application deployed to one or more Kubernetes environments.
 
 The application repository contains the application code that developers work on during their inner loop. The application’s deployment templates live in this repository in a generic form, like Helm or Kustomize. Environment-specific values aren't stored. Changes to this repo invoke a PR or CI pipeline that starts the deployment process.
 
-### Container Registry
+### Container registry
 
 The container registry holds all the first and third party images used in the Kubernetes environments. Tag first party application images with human readable tags and the Git commit used to build the image. Cache third-party images for security, speed, and resilience. Set a plan for timely testing and integration of security updates. For more information, see the [ACR Consume and maintain public content](../../container-registry/tasks-consume-public-content.md) guide for an example.
 
-### PR Pipeline
+### PR pipeline
 
 Pull requests to the application repository are gated on a successful run of the PR pipeline. This pipeline runs the basic quality gates, such as linting and unit tests on the application code. The pipeline tests the application and lints Dockerfiles and Helm templates used for deployment to a Kubernetes environment. Docker images should be built and tested, but not pushed. Keep the pipeline duration relatively short to allow for rapid iteration.
 
-### CI Pipeline
+### CI pipeline
 
 The application CI pipeline runs all the PR pipeline steps, expanding the testing and deployment checks. The pipeline can either be run for each commit to main or run at a regular cadence with a group of commits.
 
@@ -51,17 +51,17 @@ Flux is an agent that runs in each cluster and is responsible for maintaining th
 
 For more information, see the [Flux tutorial](./tutorial-use-gitops-flux2.md).
 
-### CD Pipeline
+### CD pipeline
 
 The CD pipeline is automatically triggered by successful CI builds. In this pipeline environment, environment-specific values are substituted into the previously published templates, and a new pull request is raised against the GitOps repository with these values. This pull request contains the proposed changes to the desired state of one or more Kubernetes clusters. Cluster administrators review the pull request and approve the merge to the GitOps repository. The pipeline waits for the pull request to merge, after which Flux syncs and applies the state changes.
 
 ### GitOps repository
 
-The GitOps repository represents the current desired state of all environments across clusters. Any change to this repository is picked up by the Flux service in each cluster and deployed. Pull requests are created with changes to the desired state, reviewed, and merged. These pull requests contain changes to deployment templates and the resulting rendered Kubernetes manifests. Low-level rendered manifests allow more careful inspection of changes typically unseen at the template-level.
+The GitOps repository represents the current desired state of all environments across clusters. Any change to this repository is picked up by the Flux service in each cluster and deployed. Changes to the desired state of the clusters are presented as pull requests, which are then reviewed, and finally merged upon approval of the changes. These pull requests contain changes to deployment templates and the resulting rendered Kubernetes manifests. Low-level rendered manifests allow more careful inspection of changes typically unseen at the template-level.
 
-### GitOps Connector
+### GitOps connector
 
-[GitOps Connector](https://github.com/microsoft/gitops-connector) connects Flux to GitOps repository and CD Pipeline. While applying changes to the cluster, Flux notifies on every phase change and every health check the GitOps connector. This component serves as an adapter. It "knows" how to communicate to a Git repository and it updates the Git commit status so the synchronization progress is visible in the GitOps repository. When the deployment has successfully finished or failed the connector notifies the CD Pipeline, so it may perform post-deployment activities such as testing and moving on to the next stage in the deployment chain.
+[GitOps Connector](https://github.com/microsoft/gitops-connector) creates a connection between the Flux agent and the GitOps Repository/CD pipeline. While applying changes to the cluster, Flux notifies the GitOps connector of every phase change and health check performed. This component serves as an adapter. It "knows" how to communicate to a Git repository and it updates the Git commit status so the synchronization progress is visible in the GitOps repository. When the deployment finishes (whether it succeeds or fails), the connector notifies the CD pipeline to continue so the pipeline can perform post-deployment activities such as integration testing.
 
 ### Kubernetes clusters
 
@@ -79,16 +79,16 @@ While Alice knows the application needs the capability to run in multiple enviro
 
 Suppose Alice wants to make an application change that alters the Docker image used in the application deployment template.
 
-1. Alice changes the deployment template, pushes it to a remote branch on the application repository, and opens a pull request for review.
+1. Alice changes the deployment template, pushes it to a remote branch called "alice" in the Application Repo, and opens a pull request for review against "main" branch.
 2. Alice asks her team to review the change.
     * The PR pipeline runs validation.
-    * After a successful pipeline run, the team signs off and the change is merged.
-3. The CI pipeline validates Alice's change and successfully completes.
+    * After a successful PR pipeline run and team approval, the change is merged.
+3. The CI pipeline then kicks off and validates Alice's change and successfully completes.
     * The change is safe to deploy to the cluster, and the artifacts are saved to the CI pipeline run.
-4. Alice's change merges and triggers the CD pipeline.
+4. The successful CI pipeline run triggers the CD pipeline.
     * The CD pipeline picks up the artifacts stored by Alice's CI pipeline run.
     * The CD pipeline substitutes the templates with environment-specific values and stages any changes against the existing cluster state in the GitOps repository.
-    * The CD pipeline creates a pull request to the GitOps repository with the desired changes to the cluster state.
+    * The CD pipeline creates a pull request against the production branch of the GitOps Repo with the desired changes to the cluster state.
 5. Alice's team reviews and approves her pull request.
     * The change is merged into the target branch corresponding to the environment.
 6. Within minutes, Flux notices a change in the GitOps repository and pulls Alice's change.
@@ -102,4 +102,7 @@ Suppose Alice wants to make an application change that alters the Docker image u
 
 ## Next steps
 
-Learn about creating connections between your cluster and a Git repository as a [Flux configuration resource](./conceptual-gitops-flux2.md).
+Learn about creating connections between your cluster and a Git repository with Flux configurations.
+
+> [!div class="nextstepaction"]
+> [Learn about GitOps with Flux](./conceptual-gitops-flux2.md)

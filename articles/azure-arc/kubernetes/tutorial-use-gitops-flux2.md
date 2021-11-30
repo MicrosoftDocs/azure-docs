@@ -60,7 +60,7 @@ az provider register --namespace Microsoft.ContainerService
 az provider register --namespace Microsoft.KubernetesConfiguration
 ```
 
-Registration is an asynchronous process. While registration should complete within 10 minutes, you may monitor the registration process. If you don't see the registration state progress to *Registered*, reach out to <haikueng@microsoft.com>.
+Registration is an asynchronous process and should complete within 10 minutes. You may monitor the registration process.
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration -o table
@@ -914,7 +914,7 @@ Examples
 
 The Azure portal is useful for managing GitOps configurations and the Flux extension in Azure Arc-enabled Kubernetes or AKS clusters. The portal displays all Flux configurations associated with each cluster and enables drilling in to each. The overall compliance state of the cluster is provided. Also, the Flux objects that have been deployed to the cluster are shown along with their installation parameters, compliance state, and any errors.
 
-The portal can also be used to create and delete GitOps configurations.  Soon update of existing GitOps configuration will also be possible.
+The portal can also be used to create and delete GitOps configurations.
 
 ## Using Kustomize
 
