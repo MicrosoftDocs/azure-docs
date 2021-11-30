@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To configure BIC Cloud Design to support provisioning with Azure AD - please write an email to [BIC Cloud Design support team](mailto:bicsupport@gbtec.de).
 
-## Step 3. Add Contoso from the Azure AD application gallery
+## Step 3. Add BIC Cloud Design from the Azure AD application gallery
 
 Add BIC Cloud Design from the Azure AD application gallery to start managing provisioning to BIC Cloud Design. If you have previously setup BIC Cloud Design for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 

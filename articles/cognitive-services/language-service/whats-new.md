@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 11/18/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -18,6 +18,8 @@ ms.custom: ignite-fall-2021
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
 ## November 2021
+
+* Based on ongoing customer feedback, we have increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
 
 * Azure Cognitive Service for Language release, with support for:
     * [Question Answering (now Generally Available)](question-answering/overview.md) 

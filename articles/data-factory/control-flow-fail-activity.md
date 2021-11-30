@@ -25,8 +25,8 @@ You might occasionally want to throw an error in a pipeline intentionally. A [Lo
     "name": "MyFailActivity",
     "type": "Fail",
     "typeProperties": {
-        "message": "500",
-        "errorCode": "My Custom Error Message"
+        "errorCode": "500",
+        "message": "My Custom Error Message"
     }
 }
 

@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 11/12/2021
+ms.date: 11/22/2021
 ---
 
 # What is Bicep?
@@ -28,7 +28,7 @@ To start with Bicep:
 1. **Install the tools**. See [Set up Bicep development and deployment environments](./install.md). Or, you can use the [VS Code Devcontainer/Codespaces repo](https://github.com/Azure/vscode-remote-try-bicep) to get a pre-configured authoring environment.
 2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
 
-To decompile an existing ARM template to Bicep, see [Decompile ARM templates to Bicep](./decompile.md). You can use [Bicep Playground](https://bicepdemo.z22.web.core.windows.net/) to view Bicep and equivalent JSON side by side.
+To decompile an existing ARM template to Bicep, see [Decompiling ARM template JSON to Bicep](./decompile.md).
 
 To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
@@ -107,7 +107,7 @@ When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
 **Can I use Bicep to deploy to Azure Stack Hub?**
 
-Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep). 
+Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep).
 
 ## Next steps
 

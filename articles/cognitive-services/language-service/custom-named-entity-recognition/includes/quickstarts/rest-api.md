@@ -69,22 +69,12 @@ Create a **POST** request using the following URL, headers, and JSON body to cre
 Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import. 
+{YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -184,23 +174,13 @@ ate a **POST** request using the following URL, headers, and JSON body to start 
 Use the following URL when creating your API request. Replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/:train?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-
-### Parameters
-
-Pass the following parameter with your request.
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -229,7 +209,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -239,7 +219,7 @@ Once you send your API request, you will receive a `202` response indicating suc
 Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -247,16 +227,6 @@ Use the following **GET** request to query the status of your model's training p
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -306,7 +276,7 @@ Once you send the request, you will get the following response.
 Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom NER model.
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -314,16 +284,6 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -347,7 +307,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
@@ -357,7 +317,7 @@ Once you send your API request, you will receive a `202` response indicating suc
 Use the following **GET** request to query the status of your model's publishing process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=2021-11-01-preview
 ```
 
 |Placeholder  |Value  | Example |
@@ -366,16 +326,6 @@ Use the following **GET** request to query the status of your model's publishing
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-
-### Parameters
-
-Pass the following parameter with your request. 
-
-|Key|Explanation|Value|
-|--|--|--|
-|`api-version`| The API version used.| `2021-11-01-preview` |
-
-To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
