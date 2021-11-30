@@ -138,7 +138,7 @@ az arcdata dc delete --name arcdc --k8s-namespace arc --use-k8s
 
 ### Delete data controller in indirectly connected mode from Azure portal
 
-From Azure portal, browse to the resource group containing the data controller, and delete. 
+From the Azure portal, browse to the resource group containing the data controller, and delete. 
 
 ## Delete Kubernetes cluster artifacts
 
