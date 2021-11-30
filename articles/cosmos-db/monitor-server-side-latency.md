@@ -11,17 +11,20 @@ ms.date: 09/16/2021
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation at two different connection modes. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
+Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation at two different connection modes. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about conneciton mode, you can find in the [Connectivity modes](https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-sdk-connection-modes).
 
-You can monitor server-side latency direct if you see unusually high latency for point operation such as:
+The below table indicates which server-side latency metrics (Direct v. Gateway) that you should be using based on your request API.
+|API               |Server Side Latency Direct          |Server Side Latency Gateway |
+|------------------|------------------------------------|------------------------------------|
+|SQL               |X                                   |X                                   |
+|Mongo             |                                    |X                                   |
+|Cassandra         |                                    |X                                   |
+|Gremlin           |                                    |X                                   |
+|Tables            |X                                   |X                                   |
 
-* A GET or a SET operation with partition key and ID in direct connectivity mode
-* A read or write operation or
-* A query
+You can monitor server-side latency metrics if you see unusually high latency for point operation such as:
 
-You can monitor server-side latency gatway if you see unusually high latency for point operation such as:
-
-* A GET or a SET operation with partition key and ID in gatway connectivity mode
+* A GET or a SET operation with partition key and ID 
 * A read or write operation or
 * A query
 
