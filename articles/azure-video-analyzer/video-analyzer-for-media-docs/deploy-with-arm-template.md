@@ -104,9 +104,9 @@ If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
 
 If you're new to template deployment, see:
 
-* [Azure Resource Manager documentation](https://docs.microsoft.com/azure/azure-resource-manager/)
-* [Deploy Resources with ARM Template](../../azure/azure-resource-manager/templates/deploy-powershell)
-* [Deploy Resources with Bicep and Azure CLI](../../azure-resource-manager/bicep/deploy-cli)
+* [Azure Resource Manager documentation](../../azure-resource-manager.md)
+* [Deploy Resources with ARM Template](../../azure/azure-resource-manager/templates/deploy-powershell.md)
+* [Deploy Resources with Bicep and Azure CLI](../../azure-resource-manager/bicep/deploy-cli.md)
 
 ## Next steps
 
