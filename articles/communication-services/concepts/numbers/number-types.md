@@ -14,6 +14,8 @@ ms.service: azure-communication-services
 ---
 
 # Number Types
+
+## Available Options
 Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
 -	**To send or receive an SMS**, choose a Toll-Free Number or a Short Code
 -	**To make or receive phone calls**, choose a Toll-Free Number or a Local Number
@@ -23,7 +25,7 @@ The table below summarizes these number types with supported capabilities:
 |Type |Example|Send SMS   | Receive SMS |Make Calls   |Receive Calls|Typical Use Case|Restrictions|
 |:-------------|:-------------|:-------------:|:-------------:|:-------------:|:-------------:|:-------------|:-------------|
 |[Toll-Free](../../quickstarts/telephony/get-phone-number.md)|+1 (8AB) XYZ PQRS|X   	|X   	|X   	|X   	|Receive calls on IVR bots, SMS Notifications|SMS in US only|
-|[Local (Geographic)](../../quickstarts/telephony/get-phone-number.md)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Georgaphy Specific Number|Calling Only|
+|[Local (Geographic)](../../quickstarts/telephony/get-phone-number.md)|+1 (ABC) XYZ PQRS|   	   	|   	|X   	|X   	|Geography Specific Number|Calling Only|
 |[Short-Codes](../../quickstarts/sms/apply-for-a-short-code.md)|ABC-XYZ|X   	|X   	|   	|   	|High-velocity SMS|SMS only|
 
 ## Next Steps
