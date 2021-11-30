@@ -20,6 +20,11 @@ Computer Vision returns tags based on thousands of recognizable objects, living 
 
 After uploading an image or specifying an image URL, Computer Vision algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
 
+Try out the image tagging features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ## Image tagging example
 
 The following JSON response illustrates what Computer Vision returns when tagging visual features detected in the example image.

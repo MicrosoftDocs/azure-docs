@@ -18,6 +18,11 @@ ms.custom: seodec18
 
 Computer Vision can analyze an image and generate a human-readable sentence that describes its contents. The algorithm actually returns several descriptions based on different visual features, and each description is given a confidence score. The final output is a list of descriptions ordered from highest to lowest confidence.
 
+Try out the image captioning features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ## Image description example
 
 The following JSON response illustrates what Computer Vision returns when describing the example image based on its visual features.

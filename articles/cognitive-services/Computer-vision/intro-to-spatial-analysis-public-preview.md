@@ -17,6 +17,11 @@ ms.custom: contperf-fy22q2
 
 Spatial Analysis is an AI service that helps organizations maximize the value of their physical spaces by understanding people's movements and presence within a given area. It allows you to ingest video from CCTV or surveillance cameras, extract insights from the video streams, and generate events to be used by other systems. With input from a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines.
 
+Try out the capabilities of Spatial Analysis quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./Vision-API-How-to-Topics/HowToCallVisionAPI.md) contain instructions for using the service in more specific or customized ways.
