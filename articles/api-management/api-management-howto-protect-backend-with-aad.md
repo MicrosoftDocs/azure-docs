@@ -15,7 +15,7 @@ ms.custom: contperf-fy21q1
 
 In this article, you'll learn how to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
-You can conifgure authorization for developer accounts using other OAuth 2.0 providers. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+You can configure authorization for developer accounts using other OAuth 2.0 providers. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
 
 > [!NOTE]
 > This feature is available in the **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
