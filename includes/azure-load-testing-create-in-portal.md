@@ -60,3 +60,4 @@ ms.date: 11/30/2021
 
     > [!IMPORTANT]
     > To assign Azure roles, you must have `Microsoft.Authorization/roleAssignments/write` permissions, such as [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) or [Owner](/azure/role-based-access-control/built-in-roles#owner).
+    > The role assignments might take a few minutes to become active for your account. Refresh the web page for the user interface to reflect the updated permissions.
