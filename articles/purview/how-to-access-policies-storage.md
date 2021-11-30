@@ -36,25 +36,25 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 This functionality is currently in preview. You will need to [opt-in to Purview data access policies preview](https://aka.ms/opt-in-data-use-policy)
 
 ### Register Purview as a resource provider in other subscriptions
-Execute this step only if the Storage account you want to manage access to is in a different subscription from the one used for the Azure Purview account. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide:  
-[Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
+Execute this step only if the Storage and Purview accounts are in different subscriptions. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide: [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 ### Configure permissions for policy management actions
-- User needs to have role *Owner* in the Azure Storage account to register this source for *Data use Governance* in Azure Purview. You can [follow this guide to configure this permission](../role-based-access-control/check-access.md)
-- User needs to be member of Purview *Data source admins* role at the root collection level to register a source for *Data use governance*.
-- User needs to be member of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
-- User needs to be member of Purview *Data source admin* role at the root collection level to publish the policy.
+#### Storage account permissions
+- User needs to have role *Owner* in the Azure Storage account to be able to register this source for *Data use Governance* in Azure Purview. You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+#### Purview account permissions
+>[!WARNING]
+> - Policy operations are only supported at **root collection level** and not child collection level.
+- User needs Purview *Data source admins* role at the root collection level to:
+  - Register a source for *Data use governance*.
+  - Publish a policy.
+- User needs Purview *Policy authors* role at root collection level to create or edit policies.
 
-For Purview roles, check the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
+Check the section on managing Purview role assignments in this [guide](how-to-create-and-manage-collections.md).
 
 >[!IMPORTANT]
 > **Known issues** related to permissions
 > - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
-
->[!IMPORTANT]
-> **Limitations**
-> - Policy operations are only supported at root collection level and not child collection level.
 
 ### Register and scan data sources in Purview
 Register and scan each data source with Purview to later define access policies. You can follow these guides:
@@ -63,12 +63,15 @@ Register and scan each data source with Purview to later define access policies.
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
+>[!NOTE]
+> Make a note of the name you give the source during registration. You will need it when you create or publish a policy statement. A best practice is to give it the same name you used for the Storage account.
+
 During registration, enable the data source for access policy through the **Data use governance** toggle, as shown in the picture
 
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
->[!NOTE]
-> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to register a source for *Data use governance*, any of those roles independently can de-register it.
+>[!IMPORTANT]
+> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to register a source for *Data use governance*, any of those roles can independently de-register it.
 > - Disabling a subscription for *Data use governance* will disable it also for all assets registered in that subscription.
 
 
