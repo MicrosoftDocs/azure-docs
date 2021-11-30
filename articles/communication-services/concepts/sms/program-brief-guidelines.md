@@ -103,9 +103,11 @@ In these fields, you must provide a URL of the website where customers will disc
 Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Contoso purchase. Txt OFF to stop, HELP for terms and conditions.
 
 **Web opt-in**
+
 :::image type="content" source= "../media/ShortCodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
 
 **Point of sale (hardcopy leaflet)**
+
 :::image type="content" source= "../media/print-opt-in-mock.png" alt-text="Screenshot showing print opt-in mock up.":::
 
 **IVR**
