@@ -39,7 +39,7 @@ When you receive this error while doing a management task, check the values you 
 - Resource group name
 - Subscription
 
-If you're using PowerShell or Azure CLI, check whether you're running the command in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands also provide a subscription parameter that lets you specify a different subscription than the current context.
+If you're using PowerShell or Azure CLI, check that you're running commands in the subscription that contains the resource. You can change the subscription with [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext) or [az account set](/cli/azure/account#az_account_set). Many commands provide a subscription parameter that lets you specify a different subscription than the current context.
 
 If you can't verify the properties, sign in to the [Microsoft Azure portal](https://portal.azure.com). Find the resource you're trying to use and examine the resource name, resource group, and subscription.
 
@@ -47,11 +47,11 @@ If you can't verify the properties, sign in to the [Microsoft Azure portal](http
 
 If you get this error when deploying a template, you may need to add a dependency. Resource Manager optimizes deployments by creating resources in parallel, when possible.
 
-For example, when you deploy a web app, the App Service plan must exist. If you haven't specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You get an error that the App Service plan resource can't be found, because it doesn't exist yet when attempting to set a property on the web app. You prevent this error by setting a dependency in the web app.
+For example, when you deploy a web app, the App Service plan must exist. If you haven't specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. The web app fails with an error that the App Service plan resource can't be found because it doesn't exist yet. You prevent this error by setting a dependency in the web app.
 
 # [Bicep](#tab/bicep)
 
-Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) rather than the [resourceId](../bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
+Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) rather than the [resourceId](../bicep/bicep-functions-resource.md#resourceid) function. The dependency is created using a resource's [symbolic name](../bicep/file.md#bicep-format) and ID property.
 
 For example, the web app's `serverFarmId` property uses `servicePlan.id` to create a dependency on the App Service plan.
 
@@ -69,7 +69,7 @@ resource servicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
 
 For most deployments, it's not necessary to use `dependsOn` to create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
 
-Avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel. In addition, you might create circular dependencies that block the deployment.
+Avoid setting dependencies that aren't needed. Unnecessary dependencies prolong the deployment's duration because resources aren't deployed in parallel. Also, you might create circular dependencies that block the deployment.
 
 # [JSON](#tab/json)
 
@@ -78,7 +78,7 @@ If one resource must be deployed after another resource, you need to use the [de
 ```json
 {
   "type": "Microsoft.Web/sites",
-  "apiVersion": "2015-08-01",
+  "apiVersion": "2021-02-01",
   "dependsOn": [
     "[variables('hostingPlanName')]"
   ],
@@ -86,9 +86,9 @@ If one resource must be deployed after another resource, you need to use the [de
 }
 ```
 
-Avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel.
+Avoid setting dependencies that aren't needed. Unnecessary dependencies prolong the deployment's duration because resources aren't deployed in parallel. Also, you might create circular dependencies that block the deployment.
 
-In addition, you might create circular dependencies that block the deployment. The [reference](../templates/template-functions-resource.md#reference) function and [list*](../templates/template-functions-resource.md#list) functions creates an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the `dependsOn` property.
+The [reference](../templates/template-functions-resource.md#reference) and [list*](../templates/template-functions-resource.md#list) functions create an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the `dependsOn` property.
 
 The [resourceId](../templates/template-functions-resource.md#resourceid) function doesn't create an implicit dependency or validate that the resource exists. The [reference](../templates/template-functions-resource.md#reference) function and [list*](../templates/template-functions-resource.md#list) functions don't create an implicit dependency when the resource is referred to by its resource ID. To create an implicit dependency, pass the name of the resource that's deployed in the same template.
 
@@ -158,7 +158,7 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 # [Bicep](#tab/bicep)
 
-If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) to pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
+If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) for the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager uses the dependency.
 
 You can get the principal ID and tenant ID for a managed identity that's applied to a virtual machine. For example, if a virtual machine resource has a symbolic name of `vm`, use the following syntax:
 
@@ -170,7 +170,7 @@ vm.identity.tenantId
 
 # [JSON](#tab/json)
 
-If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](../templates/template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
+If you're deploying a resource with a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](../templates/template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
 
 In the reference function, use `Full` to get all of the properties including the managed identity.
 
@@ -188,13 +188,13 @@ The pattern is:
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
 ```json
-"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2021-07-01', 'Full').identity.principalId]",
 ```
 
 Or, to get the tenant ID for a managed identity that is applied to a virtual machine scale set, use:
 
 ```json
-"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2021-07-01', 'Full').Identity.tenantId]"
 ```
 
 ---
@@ -208,7 +208,7 @@ You can use a resource's symbolic name to get values from a resource. You can re
 The following example references an existing storage account in a different resource group.
 
 ```bicep
-resource stgAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+resource stgAcct 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
   name: stgname
   scope: resourceGroup(rgname)
 }
@@ -219,15 +219,15 @@ resource stgAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
 When deploying a template, look for expressions that use the [reference](../templates/template-functions-resource.md#reference) or [listKeys](../templates/template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
 
 ```json
-"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+"[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2021-06-01')]"
 ```
 
 ---
 
 ## Solution 6 - after deleting resource
 
-When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**. Refresh the portal and the deleted resource should be removed from your list of available resources.
+When you delete a resource, there might be a short amount of time when the resource appears in the portal but isn't available. If you select the resource, you'll get an error that the resource is **Not found**.
 
 :::image type="content" source="media/error-not-found/resource-not-found-portal.png" alt-text="Screenshot of deleted resource in portal that shows resource not found.":::
 
-If a deleted resource continues to be shown as available for more than a few minutes, [contact support](https://azure.microsoft.com/support/options/).
+Refresh the portal and the deleted resource should be removed from your list of available resources. If a deleted resource continues to be shown as available for more than a few minutes, [contact support](https://azure.microsoft.com/support/options/).
