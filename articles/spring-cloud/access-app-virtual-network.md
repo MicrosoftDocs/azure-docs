@@ -47,7 +47,7 @@ Find the IP Address for your Spring Cloud services. Customize the value of your 
 
 ## Add a DNS for the IP
 
-If you have your own DNS solution for your virtual network like Active Directory Domain Controller, Infoblox, etc., you need point domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
+If you have your own DNS solution for your virtual network, like Active Directory Domain Controller, Infoblox, or another, you need to point the domain "*.private.azuremicroservices.io" to the [IP address](#find-the-ip-for-your-application). Otherwise, you can follow below instruction to create an **Azure Private DNS Zone** in your subscription to translate/resolve the private fully qualified domain name (FQDN) to its IP address.
 
 > [!NOTE]
 > If you are using Azure China, please replace `private.azuremicroservices.io` with `private.microservices.azure.cn` for the whole documentation, [learn more](/azure/china/resources-developer-guide#check-endpoints-in-azure).
@@ -121,7 +121,7 @@ To link the private DNS zone to the virtual network, you need to create a virtua
 
 #### [CLI](#tab/azure-CLI)
 
-Link the private DNS zone you just created to the virtual network holding your Azure Spring Cloud service.
+Link the private DNS zone you created to the virtual network holding your Azure Spring Cloud service.
 
    ```azurecli
    az network private-dns link vnet create --resource-group $RESOURCE_GROUP \
@@ -159,7 +159,7 @@ To use the private DNS zone to translate/resolve DNS, you must create an "A" typ
 
 #### [CLI](#tab/azure-CLI)
 
-Use the [IP address](#find-the-ip) to create the A record in your DNS zone. 
+Use the [IP address](#find-the-ip-for-your-application) to create the A record in your DNS zone. 
 
    ```azurecli
    az network private-dns record-set a add-record \
@@ -181,7 +181,7 @@ After following the procedure in [Build and deploy microservice applications](./
 
 2. Select the application to show the **Overview** page.
 
-3. Select **Assign Endpoint** to assign a private FQDN to your application. This can take a few minutes.
+3. Select **Assign Endpoint** to assign a private FQDN to your application. Assigning an FQDN can take a few minutes.
 
     ![Assign private endpoint](media/spring-cloud-access-app-vnet/assign-private-endpoint.png)
 
@@ -203,7 +203,7 @@ az spring-cloud app update --name $SPRING_CLOUD_APP \
 
 ## Access application private FQDN
 
-After the assignment, you can access the private FQDN of your application in private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network, and on that jumpbox machine the private FQDN is accessible.
+After the assignment, you can access the private FQDN of your application in private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then on that jumpbox machine the private FQDN is accessible.
 
 ![Access private endpoint in vnet](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 
