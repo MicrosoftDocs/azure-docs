@@ -261,7 +261,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 export subscriptionID="<subscriptionID>"
-export appId="<appID>"
+export spn_id="<appID>"
 export spn_secret="<password>"
 export tenant_id="<tenant>"
 export region_code="NOEU"

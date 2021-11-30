@@ -5,11 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 11/05/2021
-=======
 ms.date: 11/10/2021
->>>>>>> f5a60a51a25ac7d428922726e2072d42195b3936
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -19,31 +15,12 @@ This article outlines the process to register an Azure Blob Storage account in A
 
 ## Supported capabilities
 
-<<<<<<< HEAD
+
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
 |---|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| Yes | No|[Yes](#data-share)|
-=======
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy) | Limited** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy)  | Limited** |[Yes](#data-share)|
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
-
-For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
-
-* First row values are non-empty
-* First row values are unique
-* First row values are not a date or a number
-
-## Prerequisites
-
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* An active [Purview resource](create-catalog-portal.md).
-
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
->>>>>>> f5a60a51a25ac7d428922726e2072d42195b3936
 
 ## Register
 This section will enable you to register the Azure Blob storage account for scan and data share in Purview.
@@ -300,7 +277,6 @@ Scans can be managed or run again on completion
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-full-inc-scan.png" alt-text="full or incremental scan":::
 
-<<<<<<< HEAD
 ## Data share
 Purview Data share enables sharing of data in-place from Azure Blob storage account to Azure Blob storage account. This section provides details about the Azure Blob storage account specific requirements for sharing and receiving data in-place. Refer to [How to share data](how-to-share-data.md) and [How to receive shared data](how-to-receive-share.md) for step by step guide on how to use Purview Data share.
 
@@ -338,13 +314,12 @@ The folder receiving shared data has the following properties.
 
 ### Service limit
 Source storage account can support up to 20 targets, and target storage account can support up to 100 sources. If you require an increase in limit, please contact Support.
-=======
+
 ## Access policy
 [!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
 [!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
 Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
->>>>>>> f5a60a51a25ac7d428922726e2072d42195b3936
 
 ## Next steps
 
