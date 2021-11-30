@@ -1,5 +1,5 @@
 ---
-title: Monitoring Azure Virtual Machines data reference
+title: 'Reference: Monitoring Azure virtual machine data'
 description: Important reference material needed when you monitor Azure virtual machines.
 ms.service: virtual-machines
 ms.custom: subject-monitoring
@@ -7,65 +7,64 @@ ms.date: 11/17/2021
 ms.topic: reference
 ---
 
-# Monitoring Azure Virtual Machines data reference
+# Reference: Monitoring Azure virtual machine data
 
-See [Monitoring Azure Virtual Machines](monitor-vm.md) for details on collecting and analyzing monitoring data for virtual machines.
+For information about collecting and analyzing monitoring data for Azure virtual machines (VMs), see [Monitoring Azure virtual machines](monitor-vm.md).
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure Virtual Machines and virtual machine scale sets.  
+This section lists all the platform metrics that are collected for Azure virtual machines and virtual machine scale sets.  
 
-|Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
+|Metric type | Resource provider / type namespace<br/> and link to individual metrics |
 |-------|-----|
-| Virtual machine | [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
-| Virtual machine scale set | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
+| Virtual machines | [Microsoft.Compute/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) |
+| Virtual machine scale sets | [Microsoft.Compute/virtualMachineScaleSets](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets)|
 | Virtual machine scale set virtual machines | [Microsoft.Compute/virtualMachineScaleSets/virtualMachines](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesetsvirtualmachines)|
+| | |
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For more information, see a list of [all platform metrics that are supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ## Metric dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information about metric dimensions, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
+Azure Virtual Machines and virtual machine scale sets have the following dimensions that are associated with its metrics.
 
-Azure Virtual Machines and virtual machine scale sets have the following dimensions associated with its metrics.
-
-| Dimension Name | Description |
+| Dimension name | Description |
 | ------------------- | ----------------- |
-| LUN | Logical Unit Number |
-| VMName | Used with virtual machine scale sets. |
+| LUN | Logical unit number |
+| VMName | Used with virtual machine scale sets |
+| | |
 
-## Azure Monitor Logs tables
+## Azure Monitor log tables
 
-This section refers to all of the Azure Monitor Logs tables relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
+This section refers to all the Azure Monitor log tables that are relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
 
-|Resource Type | Notes |
+|Resource type | Notes |
 |-------|-----|
 | [Virtual machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
 | [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
+| | |
 
-For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For reference documentation about all Azure Monitor logs / Log Analytics tables, see the [Azure Monitor log table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 
-The following table lists a few example operations related to virtual machines that may be created in the Activity log. For a complete list of possible log entires, see [Microsoft.Compute Resource Provider options](/azure/role-based-access-control/resource-provider-operations#compute).
+The following table lists a few example operations that relate to creating virtual machines in the activity log. For a complete list of possible log entries, see [Microsoft.Compute Resource Provider options](/azure/role-based-access-control/resource-provider-operations#compute).
 
 | Operation | Description |
 |:---|:---|
 | Microsoft.Compute/virtualMachines/start/action | Starts the virtual machine |
-| Microsoft.Compute/virtualMachines/restart/action | Delete Managed Cluster |
-| Microsoft.Compute/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+| Microsoft.Compute/virtualMachines/restart/action | Deletes a managed cluster |
+| Microsoft.Compute/virtualMachines/write | Creates a new virtual machine or updates an existing one |
 | Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
 | Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
-| Microsoft.Compute/virtualMachines/start/action | Starts the virtual machine |
-| Microsoft.Compute/virtualMachines/restart/action | Delete Managed Cluster |
-| Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the Virtual Machine Scale Set |
-| Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
-| Microsoft.Compute/virtualMachines/extensions/write | Creates a new virtual machine extension or updates an existing one |
+| Microsoft.Compute/virtualMachineScaleSets/write | Starts the instances of the virtual machine scale set |
+| | |
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information about the schema of activity log entries, see [Activity log schema](/azure/azure-monitor/essentials/activity-log-schema). 
 
 
 ## See also
 
-- See [Monitoring Azure Virtual Machines](../virtual-machines/monitor-vm.md) for a description of monitoring Azure virtual machines.
+For a description of monitoring Azure virtual machines, see [Monitoring Azure virtual machines](../virtual-machines/monitor-vm.md).
