@@ -315,7 +315,7 @@ You can use these cmdlets to retrieve the TLS 1.2 enablement status, or set it a
 -    Some Active Directory connectors may be installed in a different order when using the output of the migrate settings script to install the product.
 -    The User Sign In options page in the Azure AD Connect wizard mentions "Company Administrator". This term is no longer used and needs to be replace by "Global Administrator".
 -    The "Export settings" option is broken when the Sign In option has been configured to use PingFederate.
--    While Azure AD Connect can now be deployed using the Hybrid Identity Administrator role, configuring Self Service Password Reset will still require user with the Global Administrator role.
+-    While Azure AD Connect can now be deployed using the Hybrid Identity Administrator role, configuring Self Service Password Reset or Single Sign On will still require user with the Global Administrator role.
 -    When importing the AADConnect configuration while deploying to connect with a different tenant than the original AADConnect configuration, directory extension attributes are not configured correctly.
 
 ## 1.6.4.0
