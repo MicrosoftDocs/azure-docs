@@ -504,6 +504,15 @@ gitops-demo   gitops-demo   https://github.com/fluxcd/flux2-kustomize-helm-examp
 ```
 
 ```console
+kubectl get helmreleases -A
+
+NAMESPACE   NAME      READY   STATUS                             AGE
+nginx       nginx     True    Release reconciliation succeeded   6d4h
+podinfo     podinfo   True    Release reconciliation succeeded   6d4h
+redis       redis     True    Release reconciliation succeeded   6d4h
+```
+
+```console
 kubectl get kustomizations -A
 
 NAMESPACE     NAME                READY   STATUS                                                            AGE
@@ -566,9 +575,18 @@ For Azure Kubernetes Service (AKS) cluster:
 az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t managedClusters --yes
 ```
 
-### Add image reflector and automation controllers to the Flux cluster extension
+### Control which controllers are deployed with the Flux cluster extension
 
-You can add the [Flux image reflector and automation controllers](https://fluxcd.io/docs/components/image/) to the Flux extension installation using the CLI command below. If the Flux extension was created automatically when the Flux configuration was first created, then the extension name will be `flux`.
+You can control which Flux controllers are installed with the Flux cluster extension.  By default the source, kustomize, helm, and notification controllers are installed, and the image automation and image reflector controllers are not.
+
+* --config source-controller.enabled=<true/false> [default true]
+* --config helm-controller.enabled=<true/false> [default true]
+* --config kustomize-controller.enabled=<true/false> [default true]
+* --config notification-controller.enabled=<true/false> [default true]
+* --config image-automation-controller.enabled=<true/false> [default false]
+* --config image-reflector-controller.enabled=<true/false> [default false]
+
+Here is an example for including the [Flux image reflector and automation controllers](https://fluxcd.io/docs/components/image/). If the Flux extension was created automatically when a Flux configuration was first created, then the extension name will be `flux`.
 
 ```console
 az k8s-extension create -g <cluster_resource_group> -c <cluster_name> -t <connectedClusters or managedClusters> --name flux --extension-type microsoft.flux --config image-automation-controller.enabled=true image-reflector-controller.enabled=true
