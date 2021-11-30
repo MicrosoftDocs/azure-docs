@@ -15,6 +15,10 @@ Azure Dedicated Host SKUs are the combination of a VM family and a certain hardw
 
 This document goes through the hardware specifications and VM packings for all memory optimized Dedicated Host SKUs.
 
+## Limitations
+
+The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+
 ## Easv4
 ### Easv4-Type1
 
@@ -34,6 +38,25 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | E64as v4 | 1     |
 |                |                 |               | E96as v4 | 1     |
 
+### Easv4-Type2
+
+The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type2 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 96              | 768 GiB       | E2as v4  | 32    |
+|                |                 |               | E4as v4  | 21    |
+|                |                 |               | E8as v4  | 10    |
+|                |                 |               | E16as v4 | 5     |
+|                |                 |               | E20as v4 | 4     |
+|                |                 |               | E32as v4 | 2     |
+|                |                 |               | E48as v4 | 1     |
+|                |                 |               | E64as v4 | 1     |
+|                |                 |               | E96as v4 | 1     |
+
+
 ## Edsv4
 ### Edsv4-Type1
 
@@ -52,6 +75,23 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | E48ds v4 | 1     |
 |                |                 |               | E64ds v4 | 1     |
 
+### Edsv4-Type2
+
+The Edsv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Edsv4-Type2 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type2 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
+|----------------|-----------------|---------------|----------|-------|
+| 64             | 119             | 768 GiB       | E2ds v4  | 32    |
+|                |                 |               | E4ds v4  | 19    |
+|                |                 |               | E8ds v4  | 9     |
+|                |                 |               | E16ds v4 | 4     |
+|                |                 |               | E20ds v4 | 3     |
+|                |                 |               | E32ds v4 | 2     |
+|                |                 |               | E48ds v4 | 1     |
+|                |                 |               | E64ds v4 | 1     |
+
 ## Esv4
 ### Esv4-Type1
 
@@ -67,6 +107,23 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | E16s v4 | 3     |
 |                |                 |               | E20s v4 | 3     |
 |                |                 |               | E32s v4 | 1     |
+|                |                 |               | E48s v4 | 1     |
+|                |                 |               | E64s v4 | 1     |
+
+### Esv4-Type2
+
+The Esv4-Type2 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv4-Type2 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type2 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 119             | 768 GiB       | E2s v4  | 32    |
+|                |                 |               | E4s v4  | 21    |
+|                |                 |               | E8s v4  | 10    |
+|                |                 |               | E16s v4 | 5     |
+|                |                 |               | E20s v4 | 4     |
+|                |                 |               | E32s v4 | 2     |
 |                |                 |               | E48s v4 | 1     |
 |                |                 |               | E64s v4 | 1     |
 
@@ -119,6 +176,23 @@ The following packing configuration outlines the max packing of uniform VMs you 
 |                |                 |               | E16s v3 | 3     |
 |                |                 |               | E20s v3 | 3     |
 |                |                 |               | E32s v3 | 1     |
+|                |                 |               | E48s v3 | 1     |
+|                |                 |               | E64s v3 | 1     |
+
+### Esv3-Type4
+
+The Esv3-Type4 is a Dedicated Host SKU utilizing the Intel® Ice Lake (Xeon® Platinum 8370C) processor. It offers 64 physical cores, 119 vCPUs, and 768 GiB of RAM. The Esv3-Type4 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
+
+The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type4 host.
+
+| Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
+|----------------|-----------------|---------------|---------|-------|
+| 64             | 119             | 768 GiB       | E2s v3  | 32    |
+|                |                 |               | E4s v3  | 21    |
+|                |                 |               | E8s v3  | 10    |
+|                |                 |               | E16s v3 | 5     |
+|                |                 |               | E20s v3 | 4     |
+|                |                 |               | E32s v3 | 2     |
 |                |                 |               | E48s v3 | 1     |
 |                |                 |               | E64s v3 | 1     |
 
