@@ -1,5 +1,5 @@
 ---
-title: How to configure RHEL/CentOS 7 - Speech service
+title: How to configure RHEL/CentOS for C++ - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure RHEL/CentOS 7 so that the Speech SDK can be used.
 services: cognitive-services
@@ -12,11 +12,11 @@ ms.date: 04/02/2020
 ms.author: pankopon
 ---
 
-# Configure RHEL/CentOS 7 for Speech SDK
+# Configure RHEL/CentOS for C++
 
 To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64, update the C++ compiler and the shared C++ runtime library on your system.
 
-### 1. General setup
+## Install dependencies
 
 First install all general dependencies:
 
@@ -30,7 +30,7 @@ sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
 ```
 
-### 2. C/C++ compiler and runtime libraries
+## C/C++ compiler and runtime libraries
 
 Install the prerequisite packages with this command:
 
@@ -52,7 +52,7 @@ sudo make install-strip
 
 If the updated compiler and libraries need to be deployed on several machines, you can simply copy them from under `/usr/local` to other machines. If only the runtime libraries are needed then the files in `/usr/local/lib64` will be enough.
 
-### 3. Environment settings
+## Environment settings
 
 Run the following commands to complete the configuration:
 
@@ -69,7 +69,6 @@ export LD_LIBRARY_PATH=/usr/local/lib64:$LD_LIBRARY_PATH
 export PATH=/usr/local/bin:$PATH
 hash -r # reset cached paths in the current shell session just in case
 export LD_LIBRARY_PATH=/path/to/extracted/SpeechSDK-Linux-<version>/lib/x64:$LD_LIBRARY_PATH
-
 ```
 
 ## Next steps

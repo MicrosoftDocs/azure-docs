@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -97,6 +97,8 @@ bicep --version
 
 The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than Azure CLI.
 
+When installing manually, select a location that is different than the one managed by Azure CLI. All of the following examples use a location named **bicep** or **.bicep**. This location won't conflict with the location managed by Azure CLI, which uses **.azure**.
+
 - [Linux](#linux)
 - [macOS](#macos)
 - [Windows](#windows)
@@ -185,7 +187,7 @@ bicep --help
 
 ## Install on air-gapped cloud
 
-To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to a certain location.
+The `bicep install` and `bicep upgrade` commands don't work in an air-gapped environment. To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to **.azure/bin**. This location is where the instance managed by Azure CLI is installed.
 
 - **Linux**
 
@@ -201,8 +203,6 @@ To install Bicep CLI in an air-gapped environment, you need to download the Bice
 
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
-
-Note `bicep install` and `bicep upgrade` commands don't work in an air-gapped environment.
 
 ## Install the nightly builds
 

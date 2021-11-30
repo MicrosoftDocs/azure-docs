@@ -15,6 +15,14 @@ items:
     - name: Using portal
       href: deploy-iot-connector-in-azure.md
 - name: Tutorials
+    - name: Get started with IoT connector
+      href: get-started-with-iot.md
+    - name: Deploy IoT connector
+      expanded: true
+      items:
+        - name: Using portal
+          href: deploy-iot-connector-in-azure.md
+- name: Concepts
   expanded: true
   items:
   - name: Ingest data from IoT devices
@@ -48,7 +56,6 @@ items:
       href: how-to-use-fhir-mappings.md
     - name: Display Metrics
       href: how-to-display-metrics.md
-
 - name: Resources
   expanded: true
   items:

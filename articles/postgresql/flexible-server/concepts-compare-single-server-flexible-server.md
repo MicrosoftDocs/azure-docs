@@ -5,20 +5,19 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 11/30/2021
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 The following table provides a high-level features and capabilities comparisons between Single Server and Flexible Server.
 
 | **Feature / Capability** | **Single Server** | **Flexible Server** |
 | ---- | ---- | ---- |
 | **General**  | | |
-| General availability | GA since 2018 | Public Preview |
+| General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
 | Versions | 9.6, 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
@@ -108,7 +107,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Microsoft Defender for Cloud | Yes | No |
 | Resource health | Yes | No |
 | Service health | Yes | Yes |
-| Performance insights (iPerf) | Yes | Yes (Preview) |
+| Performance insights (iPerf) | Yes | Yes |
 | Major version upgrades support | No | No |
 | Minor version upgrades | Yes. Automatic during maintenance window | Yes. Automatic during maintenance window |
 

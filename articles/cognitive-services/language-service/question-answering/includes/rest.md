@@ -1,12 +1,13 @@
 ---
 title: "Quickstart: Use cURL & REST to manage knowledge base - custom question answering"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
-ms.date: 11/16/2021
+ms.date: 11/29/2021
 ms.topic: include
 author: mrbullwinkle
 ms.author: mbullwin
 ms.custom: ignite-fall-2021
 ---
+
 ## Prerequisites
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
@@ -19,7 +20,7 @@ ms.custom: ignite-fall-2021
 
 ### Generate an answer from a knowledge base
 
-To query a question answering project/knowledge base with the REST APIs and cURL, you need to  information:
+To [query a question answering project/knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) with the REST APIs and cURL, you need the following information:
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -88,7 +89,7 @@ Since we know from our previous execution of the code that our confidence score 
 
 ## Query text without a knowledge base
 
-You can also use question answering without a knowledge base with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
+You can also [use question answering without a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text) with the prebuilt question answering REST API, which is called via `query-text`. In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
 For this example, you only need to modify the variables for `API KEY` and `ENDPOINT`.
 
