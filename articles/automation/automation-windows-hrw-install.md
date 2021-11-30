@@ -247,6 +247,8 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
+> [!NOTE]
+> After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is 30 minutes.
 
 ## Remove a Hybrid Worker group
 
@@ -263,6 +265,9 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
    ![Confirmation message](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 
    This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
+
+> [!NOTE]
+> When you delete a user Hybrid worker group, the existing worker group in it is not deleted. To remove the existing worker group, use the Automation REST API operations.
 
 ## Next steps
 
