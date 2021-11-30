@@ -24,7 +24,7 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 > * When selecting a location for your Azure resource, choose one that's closest to you for lower latency.
 > * If you use the free pricing tier, you can keep using the Vision service even after your Azure free trial or service credit expires.
 
-4.	Select Create resource. Your resource will be created, and you will be able to try the different features offered by the Vision service. For example, select **Add captions to images**.
+4.	Select **Create resource**. Your resource will be created, and you will be able to try the different features offered by the Vision service. For example, select **Add captions to images**.
 
 ![Vision Studio home pagel](./Images/vision-studio-home-page.png)
 
