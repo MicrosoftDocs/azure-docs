@@ -29,6 +29,8 @@ items:
         href: quickstarts/chat/get-started.md
       - name: Join your chat app to a Teams meeting
         href: quickstarts/chat/meeting-interop.md
+      - name: Using Chat SDK with React Native
+        href: quickstarts/chat/react-native.md
   - name: Telephony and SMS
     items:
       - name: Get and manage phone numbers
