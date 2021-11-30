@@ -55,6 +55,8 @@ items:
     href: device-update-proxy-updates.md
   - name: How Multi-step Updates works
     href: device-update-multistep-updates.md  
+  - name: How to use Components Enumerator
+    href: components-enumerator.md
 
 - name: How-to guides
   items:
