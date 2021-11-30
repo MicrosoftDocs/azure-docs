@@ -21,7 +21,7 @@ To configure this setting, you'll need the following things:
 
 ## Receiving updates for Windows 10 and 11 Enterprise multi-session
 
-To receive updates for Windows 10 Enterprise multi-session, you can patch using the corresponding Windows 10 client updates. For example, you can patch Windows 10 Enterprise multi-session version 21H2 with the Windows 10 21H2 client updates.
+You can update Windows 10 Enterprise multi-session with the corresponding Windows 10 client updates. For example, you can update Windows 10 Enterprise multi-session, version 21H2 by installing the Windows 10, version 21H2 client updates.
 
 > [!NOTE]
 > There is currently an issue where Windows 10 Enterprise multi-session version 21H2 and Windows 11 Enterprise multi-session cannot be patched with their corresponding client updates. We are working to resolve this.
