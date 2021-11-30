@@ -16,12 +16,12 @@ Proxy Updates can support updating multiple **component(s)** on a target IoT dev
 * Targeting specific update files to different apps/components on the device  
 * Targeting specific update files to sensors connected to the target IoT devices over a network protocol (e.g., USB, CANbus etc.). 
 
+## Pre-requisite
 In order to update a component or components that connected to a target IoT Device, the device builder must register a custom **Component Enumerator Extension** that is built specifically for their IoT devices. This is required so that the Device Update Agent can map a **'child update'** with a specific component, or group of components, which the update is intended for. See [Contoso Component Enumerator](components-enumerator.md) for an example on how to implement and register a custom Component Enumerator extension.
 
 > Note: It's important to understand that Device Update service does not know anything about **component(s)** on the target device.
 
-In the following example we will demonstrate how to do a Proxy update and use the multi-step ordered execution feature introduced in the Public Preview Refresh Release. Multi-step ordered execution feature allows for granular update controls including an install order, pre-install, install and post-install steps. Use cases include for example, a required preinstall check that is needed to validate the device state before starting an update, etc. Learn more about [multi-step ordered execution](device-update-multistep-updates.md).
-
 ## Example Proxy update
+In the following example we will demonstrate how to do a Proxy update and use the multi-step ordered execution feature introduced in the Public Preview Refresh Release. Multi-step ordered execution feature allows for granular update controls including an install order, pre-install, install and post-install steps. Use cases include for example, a required preinstall check that is needed to validate the device state before starting an update, etc. Learn more about [multi-step ordered execution](device-update-multistep-updates.md).
 
 See this tutorial on how to do a [Proxy update using the Device Update agent](device-update-howto-proxy-updates.md) with sample updates for components connected to a Contoso Virtual Vacuum device.
