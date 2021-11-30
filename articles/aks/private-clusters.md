@@ -46,6 +46,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
+
 Where `--enable-private-cluster` is a mandatory flag for a private cluster. 
 
 ### Advanced networking  
