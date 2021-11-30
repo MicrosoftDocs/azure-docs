@@ -179,7 +179,8 @@ public class MainActivity extends AppCompatActivity {
         CommunicationTokenCredential communicationTokenCredential = 
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
-        GroupCallOptions options = new GroupCallOptions(this,
+        GroupCallOptions options = new GroupCallOptions(
+                this,
                 communicationTokenCredential,
                 UUID.fromString("GROUP_CALL_ID"),
                 "DISPLAY_NAME");
