@@ -19,7 +19,7 @@ This article explains the concept of Face recognition, its related operations, a
 
 Try out the capabilities of face recognition quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Related data structures
 
