@@ -4,8 +4,8 @@ description: Cleanup from partial deployment
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: dinethi
-ms.author: dnethi
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
 ms.date: 11/30/2021
 ms.topic: how-to
