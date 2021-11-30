@@ -11,7 +11,7 @@ ms.author: phanir
 ms.reviewer: wiassaf
 ---
 
-# Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (Tenant)
+# Recovering Synapse Analytics workspace after transferring a subscription to a different Azure AD directory (tenant)
 
 The Synapse Analytics workspace will not be accessible after transferring a subscription to a different Azure AD directory (tenant). When you try to launch the Synapse studio after the move, you will see the error: "Failed to load one or more resources due to no access, error code 403."
 
@@ -42,7 +42,7 @@ After transferring the subscription to another tenant, follow the below steps to
 4. Re-create Azure AD users and groups in dedicated and serverless SQL pools.
 5. Assign Azure RBAC to Azure AD users, groups to Synapse Analytics workspace. This step should be first step after recovering the workspace. Without this step, launching Synapse Studio will throw 403 messages, due to Azure AD users not having permissions on the workspace:
 ```JSON
-{"error":{"code":"Unauthorized","message":"The principal '<subscriptionid>' does not have the required Synapse RBAC permission to perform this action. Required permission: Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
+{"error":{"code":"Unauthorized","message":"The principal 'subscriptionid' does not have the required Synapse RBAC permission to perform this action. Required permission: Action: Microsoft.Synapse/workspaces/read, Scope: workspaces/tenantmove-ws-1/*."}}
 ```
 6. Assign RBAC to Azure AD users, groups, service principals to all the resources used in the workspace artifacts, such as ADLS Gen2. For more information on RBAC in ADLS Gen2, see [Role-based access control (Azure RBAC)](../storage/blobs/data-lake-storage-access-control-model.md#role-based-access-control-azure-rbac).
 7. Add Synapse RBAC role assignments to AAD users and groups. For more information, see [How to manage Synapse RBAC role assignments in Synapse Studio](security/how-to-manage-synapse-rbac-role-assignments.md) 

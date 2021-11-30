@@ -319,7 +319,7 @@ $restorePoint=Get-AzSynapseSqlPoolRestorePoint -WorkspaceName $sourceRegionWSNam
 ```
  
 Transform the Azure Synapse SQL pool resource ID to SQL database ID because currently the command only accepts the SQL database ID. 
-For example: /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>
+For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Sql/servers/<WorkspaceName>/databases/<DatabaseName>`
 
 ```powershell
 $pool = Get-AzSynapseSqlPool -ResourceGroupName $sourceRegionRGName -WorkspaceName $sourcRegionWSName -Name $sqlPoolName
