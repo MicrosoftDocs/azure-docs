@@ -1,6 +1,6 @@
 # Quickstart: Get started with Vision Studio
 
-[Vision Studio]() is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Vision into your applications.
+[Vision Studio](https://vision.cognitive.azure.com/) is a set of UI-based tools that lets you explore, build, and integrate features from Azure Cognitive Service for Vision into your applications.
 
 Vision Studio provides you with a platform to try several service features and sample their returned data in a quick, straightforward manner. Using the Studio, you can get started engaging with the services and learning what they offer without needing to write code. Then, use the available client libraries and REST APIs to get started on embedding these services in your own applications.
 
