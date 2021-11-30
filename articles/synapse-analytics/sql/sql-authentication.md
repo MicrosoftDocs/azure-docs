@@ -19,7 +19,7 @@ To authorize to Synapse SQL, you can use two authorization types:
 - Azure Active Directory authorization
 - SQL authorization
 
-Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way. Azure Synapse Analytics supports disabling local authentication such as SQL authentication both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users.
+Azure Active Directory enables you to have single place for user management. SQL authorization enables legacy applications to use Synapse SQL in a well familiar way. Azure Synapse Analytics supports disabling local authentication such as SQL authentication both during and after workspace creation. Once disabled, local authentication can be enabled at any time by authorized users. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](active-directory-authentication.md).
 
 ## Administrative accounts
 
@@ -201,7 +201,7 @@ When managing logins and users in SQL Database, consider the following points:
 
 - You must be connected to the **master** database when executing the `CREATE/ALTER/DROP DATABASE` statements.
 - The database user corresponding to the **Server admin** login can't be altered or dropped.
-- **Server admin** will be disabled if Azure Active Directory (AAD) only authentication is enabled.
+- **Server admin** will be disabled if Azure AD-only authentication is enabled.
 - US-English is the default language of the **Server admin** login.
 - Only the administrators (**Server admin** login or Azure AD administrator) and the members of the **dbmanager** database role in the **master** database have permission to execute the `CREATE DATABASE` and `DROP DATABASE` statements.
 - You must be connected to the master database when executing the `CREATE/ALTER/DROP LOGIN` statements. However using logins is discouraged. Use contained database users instead.
@@ -226,7 +226,7 @@ When managing logins and users in SQL Database, consider the following points:
 
 - When executing the `CREATE USER` statement with the `FOR/FROM LOGIN` option, it must be the only statement in a Transact-SQL batch.
 - When executing the `ALTER USER` statement with the `WITH LOGIN` option, it must be the only statement in a Transact-SQL batch.
-- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure Active Directory (AAD) only authentication is enabled for the Azure Synapse workspace.
+- `CREATE/ALTER/DROP LOGIN` and `CREATE/ALTER/DROP USER` statements are not supported when Azure AD-only authentication is enabled for the Azure Synapse workspace.
 - To `CREATE/ALTER/DROP` a user requires the `ALTER ANY USER` permission on the database.
 - When the owner of a database role tries to add or remove another database user to or from that database role, the following error may occur: **User or role 'Name' does not exist in this database.** This error occurs because the user isn't visible to the owner. To resolve this issue, grant the role owner the `VIEW DEFINITION` permission on the user. 
 

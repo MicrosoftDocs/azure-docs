@@ -290,7 +290,7 @@ This guide has focused on setting up a basic access control system. You can supp
 
 **Restrict operators from accessing code artifacts**.  Create security groups for operators who need to monitor operational status of Synapse compute resources and view logs but who don't need access to code or to publish updates to the service. Assign these groups the Compute Operator role scoped to specific Spark pools and Integration runtimes.  
 
-**Disable local authentication**. Using Azure Active Directory (Azure AD), centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled both during and after workspace creation.  
+**Disable local authentication**. By allowing only Azure Active Directory authentication, centrally manage access to Azure Synapse resources, such as SQL pools. Local authentication for all resources within the workspace can be disabled both during and after workspace creation. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Next steps
 
