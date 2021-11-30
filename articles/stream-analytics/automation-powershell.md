@@ -15,8 +15,8 @@ ms.date: 11/03/2021
 Some applications require a stream processing approach, made easy with [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction) (ASA), but don't strictly need to run continuously. The reasons are various:
 
 - Input data arriving on a schedule (top of the hour...)
-- A sparse and/or low volume of incoming data (few records per minute)
-- Business processes that benefit from time windowing capabilities, but are running in batch by essence (Finance or HR...)
+- A sparse or low volume of incoming data (few records per minute)
+- Business processes that benefit from time-windowing capabilities, but are running in batch by essence (Finance or HR...)
 - Demonstrations, prototypes, or tests that involve **long running jobs at low scale**
 
 The benefit of not running these jobs continuously will be **cost savings**, as Stream Analytics jobs are [billed](https://azure.microsoft.com/pricing/details/stream-analytics/) per Streaming Unit **over time.**
@@ -26,7 +26,7 @@ This article will explain how to set up auto-pause for an Azure Stream Analytics
 We'll discuss the overall design first, then go through the required components, and finally discuss some implementation details.
 
 > [!NOTE]
-> There are downsides to auto-pausing a job. The main ones being the loss of the low latency / real time capabilities, and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. Auto-pausing should not be considered for most production scenarios running at scale.
+> There are downsides to auto-pausing a job. The main ones being the loss of the low latency / real time capabilities, and the potential risks from allowing the input event backlog to grow unsupervised while a job is paused. Auto-pausing should not be considered for most production scenarios running at scale
 
 ## Design
 
@@ -43,7 +43,7 @@ When running, the task shouldn't stop the job until its metrics are healthy. The
 
 As an example, let's consider N = 5 minutes, and M = 10 minutes. With these settings, a job has at least 5 minutes to process all the data received in 15. Potential cost savings are up to 66%.
 
-To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [Event Hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
+To restart the job, we'll use the `When Last Stopped` [start option](/azure/stream-analytics/start-job#start-options). This option tells ASA to process all the events that were backlogged upstream since the job was stopped. There are two caveats in this situation. First, the job can't stay stopped longer than the retention period of the input stream. If we only run the job once a day, we need to make sure that the [event hub retention period](/azure/event-hubs/event-hubs-faq#what-is-the-maximum-retention-period-for-events-) is more than one day. Second, the job needs to have been started at least once for the mode `When Last Stopped` to be accepted (else it has literally never been stopped before). So the first run of a job needs to be manual, or we would need to extend the script to cover for that case.
 
 The last consideration is to make these actions idempotent. This way, they can be repeated at will with no side effects, for both ease of use and resiliency.
 
