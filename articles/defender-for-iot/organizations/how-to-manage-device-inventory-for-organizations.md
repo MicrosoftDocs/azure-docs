@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The device inventory can be used to view device systems, and network information. The search, filter, edit columns, and export tools can be used to manage this information.
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen.":::
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png" alt-text="A total overview of Defender for IoT's device inventory screen."  lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-inventory-screenshot.png":::
 
 Some of the benefits of the device inventory include:
 
@@ -122,7 +122,7 @@ Multiple filters can be applied at one time. The filters are not saved when you 
 
 To view a specific devices information, select the device and the device information window appears.
 
-:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information.":::
+:::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png" alt-text="Select a device to see all of that device's information." lightbox="media/how-to-manage-device-inventory-on-the-cloud/device-information-window.png":::
 
 ## Export the device inventory to CSV
 
@@ -150,7 +150,7 @@ If you are under the impression that certain devices are not actively communicat
 
 1. On the main Device inventory page, select **Last activity** to sort the page by last activity.
 
-    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity.":::
+    :::image type="content" source="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png" alt-text="Screenshot of the device inventory organized by last activity." lightbox="media/how-to-manage-device-inventory-on-the-cloud/last-activity.png":::
 
 1. Select the :::image type="icon" source="media/how-to-manage-device-inventory-on-the-cloud/add-filter-icon.png" border="false"::: to add a filter on the last activity column.
 
@@ -159,3 +159,5 @@ If you are under the impression that certain devices are not actively communicat
 1. Enter a time period, or a custom date range, and select **Apply**.
 
 ## See next
+
+- [Welcome to Microsoft Defender for IoT for device builders](overview.md)
