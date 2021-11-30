@@ -14,14 +14,6 @@ items:
     items:
     - name: Using portal
       href: deploy-iot-connector-in-azure.md
-- name: Tutorials
-  expanded: true
-  items:
-  - name: Ingest data from IoT devices
-    expanded: true
-    items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
 - name: How-to guides
   expanded: true
   items:

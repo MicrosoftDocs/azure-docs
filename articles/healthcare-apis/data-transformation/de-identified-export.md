@@ -33,4 +33,4 @@ The $export command can also be used to export de-identified data from the FHIR 
 In this article, you've learned how to set up and use de-identified export. Next, to learn how to export data, see:
  
 >[!div class="nextstepaction"]
->[Export de-identified data](export-export.md)
+>[Export data](export-data.md)
