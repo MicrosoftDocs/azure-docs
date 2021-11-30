@@ -104,7 +104,7 @@ Contoso.com: Announcing our Holiday Sale. Reply YES to save 5% on your next Cont
 
 **Web opt-in**
 
-:::image type="content" source= "../media/shortcodes-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
+:::image type="content" source= "../media/short-code-web-optin.png" alt-text="Screenshot showing web opt-in mock up.":::
 
 **Point of sale (hardcopy leaflet)**
 
