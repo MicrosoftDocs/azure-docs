@@ -38,7 +38,7 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 
 ## Vision Studio pre-configured features
 
-The Vision service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: understanding how people move through space, detecting faces in images, and extracting text from images, among others. See the [Azure Cognitive Services for Vision Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) to see the list of features offered by the Vision service.
+The Vision service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: understanding how people move through a space, detecting faces in images, and extracting text from images, among others. See the [Azure Cognitive Services Vision Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) to see the list of features offered by the Vision service.
 
 Each of these features has a try-it-out experience inside Vision Studio that allows you to input images and pre-configured sample images and offers JSON and text responses. These experiences help you quickly test these prebuilt features using a no-code approach.
 
