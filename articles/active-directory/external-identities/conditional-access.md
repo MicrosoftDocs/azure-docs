@@ -69,18 +69,6 @@ The resource tenant is always responsible for Azure AD Multi-Factor Authenticati
 >[!NOTE]
 >Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
-### Set up Azure AD Multi-Factor Authentication for B2B users
-
-To set up Azure AD Multi-Factor Authentication for B2B collaboration users, watch this video:
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-conditional-access-setup/Player]
-
-### B2B users Azure AD Multi-Factor Authentication for offer redemption
-
-To learn more about the Azure AD Multi-Factor Authentication redemption experience, watch this video:
-
->[!VIDEO https://channel9.msdn.com/Blogs/Azure/MFA-redemption/Player]
-
 ### Azure AD Multi-Factor Authentication reset for B2B users
 
 Now, the following PowerShell cmdlets are available to proof up B2B guest users:
