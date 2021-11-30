@@ -63,11 +63,7 @@ If users won't be added through Azure RBAC to the account, after 30 days, they w
 
 1. Click **Review + create** at the bottom of the form.
 
-## After successfully connecting a classic account to ARM
-
-This section describes what steps to perform after connecting to ARM is complete.
-
-### After connecting to ARM is complete 
+## After connecting to ARM is complete 
 
 After successfully connecting your account to ARM, it is recommended to make sure your account management APIs are replaced with [Video Analyzer for Media REST API](/rest/api/videoindexer/accounts?branch=videoindex).
 As mentioned in the beginning of this article, during the 30 days of the transition state, “[Get-access-token](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Account-Access-Token)” will be supported side by side the ARM-based “[Generate-Access token](/rest/api/videoindexer/generate/access-token)”.
