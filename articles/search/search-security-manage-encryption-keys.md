@@ -18,7 +18,7 @@ Azure Cognitive Search automatically encrypts content with [service-managed keys
 
 This article walks you through the steps of setting up customer-managed key encryption. Here are some points to keep in mind:
 
-+ Customer-managed key encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys.
++ Customer-managed key encryption depends on [Azure Key Vault](../key-vault/general/overview.md). You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault APIs to generate encryption keys.
 
 + Encryption with customer-managed keys is enabled when objects are created, on a per object basis. You cannot encrypt content that already exists.
 

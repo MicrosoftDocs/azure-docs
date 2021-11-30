@@ -1,12 +1,12 @@
 ---
 title: Grant permissions to managed identity in Synapse workspace 
 description: An article that explains how to configure permissions for managed identity in Azure Synapse workspace. 
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security 
 ms.date: 04/15/2020 
-ms.author: ronytho 
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ms.custom: subject-rbac-steps
 ---
@@ -93,4 +93,4 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 
 ## Next steps
 
-Learn more about [Workspace managed identity](./synapse-workspace-managed-identity.md)
+Learn more about [Workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)

@@ -215,7 +215,7 @@ You can set the connection string in the `applicationinsights.json` configuratio
 }
 ```
 
-See [connection string configuration](/azure/azure-monitor/app/java-standalone-config#connection-string) for more details.
+See [connection string configuration](./java-standalone-config.md#connection-string) for more details.
 
 For Application Insights Java 2.x, you can set the connection string in the `ApplicationInsights.xml` configuration file:
 
@@ -293,7 +293,7 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 Get started at runtime with:
 
 * [Azure VM and Azure virtual machine scale set IIS-hosted apps](./azure-vm-vmss-apps.md)
-* [IIS server](./monitor-performance-live-website-now.md)
+* [IIS server](./status-monitor-v2-overview.md)
 * [Azure Web Apps](./azure-web-apps.md)
 
 Get started at development time with:
@@ -303,4 +303,3 @@ Get started at development time with:
 * [Java](./java-in-process-agent.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
-

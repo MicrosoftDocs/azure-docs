@@ -3,14 +3,14 @@ title: What is the Bing Visual Search API?
 titleSuffix: Azure Cognitive Services
 description: Bing Visual Search provides details or insights about an image such as similar images or shopping sources.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 12/19/2019
-ms.author: scottwhi
+
 ---
 
 # What is the Bing Visual Search API?

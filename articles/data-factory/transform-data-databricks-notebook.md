@@ -1,17 +1,20 @@
 ---
 title: Transform data with Databricks Notebook 
-description: Learn how to process or transform data by running a Databricks notebook in Azure Data Factory.
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to process or transform data by running a Databricks notebook in Azure Data Factory and Synapse Analytics pipelines.
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
-ms.date: 03/15/2018
+ms.date: 09/09/2021
 ---
 
 # Transform data by running a Databricks notebook
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-The Azure Databricks Notebook Activity in a [Data Factory pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
+The Azure Databricks Notebook Activity in a [pipeline](concepts-pipelines-activities.md) runs a Databricks notebook in your Azure Databricks workspace. This article builds on the [data transformation activities](transform-data.md) article, which presents a general overview of data transformation and the supported transformation activities. Azure Databricks is a managed platform for running Apache Spark.
 
 ## Databricks Notebook activity definition
 
@@ -102,15 +105,15 @@ In the above Databricks activity definition, you specify these library types: *j
 
 For more details, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
 
-## Passing parameters between notebooks and Data Factory
+## Passing parameters between notebooks and pipelines
 
-You can pass data factory parameters to notebooks using *baseParameters* property in databricks activity.
+You can pass parameters to notebooks using *baseParameters* property in databricks activity.
 
-In certain cases you might require to pass back certain values from notebook back to data factory, which can be used for control flow (conditional checks) in data factory or be consumed by downstream activities (size limit is 2MB).
+In certain cases you might require to pass back certain values from notebook back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2MB).
 
-1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to data factory.
+1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to the service.
 
-2. You can consume the output in data factory by using expression such as `@{activity('databricks notebook activity name').output.runOutput}`. 
+2. You can consume the output in the service by using expression such as `@{activity('databricks notebook activity name').output.runOutput}`. 
 
    > [!IMPORTANT]
    > If you are passing JSON object you can retrieve values by appending property names. Example: `@{activity('databricks notebook activity name').output.runOutput.PropertyName}`

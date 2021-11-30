@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # Azure Relay Hybrid Connections protocol

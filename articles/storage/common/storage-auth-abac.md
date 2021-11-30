@@ -7,7 +7,7 @@ author: santoshc
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 10/14/2021
 ms.author: santoshc
 ms.reviewer: jiacfan
 ms.subservice: common
@@ -15,20 +15,20 @@ ms.subservice: common
 
 # Authorize access to blobs using Azure role assignment conditions (preview)
 
+Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, requests, and the environment. Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [conditions to Azure role assignments](../../role-based-access-control/conditions-overview.md) in the existing identity and access management (IAM) system. This preview includes support for role assignment conditions on Blobs and Data Lake Storage Gen2. It enables you to author role-assignment conditions based on resource and request attributes.
+
 > [!IMPORTANT]
 > Azure ABAC and Azure role assignment conditions are currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Attribute-based access control (ABAC) is an authorization strategy that defines access levels based on attributes associated with security principals, resources, requests, and the environment. Azure ABAC builds on Azure role-based access control (Azure RBAC) by adding [conditions to Azure role assignments](../../role-based-access-control/conditions-overview.md) in the existing identity and access management (IAM) system. This preview includes support for role assignment conditions on Blobs and Data Lake Storage Gen2. It enables you to author role-assignment conditions based on resource and request attributes.
-
 ## Overview of conditions in Azure Storage
 
-Azure Storage enables the [use of Azure Active Directory](storage-auth-aad.md) (Azure AD) to authorize requests to Blob and Queue storage. Azure AD authorizes access rights to secured resources by using Azure RBAC. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access blob and queue data. You can also define custom roles with select set of permissions. Azure Storage supports role assignments for storage accounts or blob containers.
+Azure Storage enables the [use of Azure Active Directory](authorize-data-access.md) (Azure AD) to authorize requests to blob, queue, and table resources. Azure AD authorizes access rights to secured resources by using Azure RBAC. Azure Storage defines a set of Azure [built-in roles](../../role-based-access-control/built-in-roles.md#storage) that encompass common sets of permissions used to access blob and queue data. You can also define custom roles with select set of permissions. Azure Storage supports role assignments for storage accounts or blob containers.
 
-However, in some cases you might need to enable finer-grained access to Storage resources or simplify the hundreds of role assignments for a storage resource. You can configure [conditions on role assignments](../../role-based-access-control/conditions-overview.md) for [DataActions](../../role-based-access-control/role-definitions.md#dataactions) to achieve these goals. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. Note, conditions are not supported for management [Actions](../../role-based-access-control/role-definitions.md#actions) through the [Storage resource provider](/rest/api/storagerp).
+However, in some cases you might need to enable finer-grained access to resources or simplify the hundreds of role assignments for a storage resource. You can configure [conditions on role assignments](../../role-based-access-control/conditions-overview.md) for [DataActions](../../role-based-access-control/role-definitions.md#dataactions) to achieve these goals. You can use conditions with a [custom role](../../role-based-access-control/custom-roles.md) or select built-in roles. Note, conditions are not supported for management [Actions](../../role-based-access-control/role-definitions.md#actions) through the [Storage resource provider](/rest/api/storagerp).
 
-Conditions in Azure Storage are supported for blobs. You can use conditions with accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS) feature enabled on them. Conditions are currently not supported for Files, Queues, and Tables.
+Conditions in Azure Storage are supported for blobs. You can use conditions with accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS) feature enabled on them. Conditions are currently not supported for queue, table, or file resources in Azure Storage.
 
 ## Supported attributes and operations
 

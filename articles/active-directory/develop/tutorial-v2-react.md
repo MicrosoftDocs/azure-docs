@@ -93,7 +93,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
     export const msalConfig = {
       auth: {
         clientId: "Enter_the_Application_Id_Here",
-        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
+        authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
         redirectUri: "Enter_the_Redirect_Uri_Here",
       },
       cache: {
@@ -156,11 +156,11 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
 
 ## Sign in users
 
-Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a popup window or a full-frame redirect:
+Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a pop-up window or a full-frame redirect:
 
-### Sign in using popups
+### Sign in using pop-ups
 
-Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a popup login when selected:
+Add the following code to *src/components/SignInButton.jsx* to create a button component that will invoke a pop-up login when selected:
 
 ```jsx
 import React from "react";
@@ -270,11 +270,11 @@ At this point, a PKCE-protected authorization code is sent to the CORS-protected
 
 ## Sign users out
 
-In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a popup window or a full-frame redirect:
+In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a pop-up window or a full-frame redirect:
 
-### Sign out using popups
+### Sign out using pop-ups
 
-Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a popup logout when selected:
+Add the following code to *src/components/SignOutButton.jsx* to create a button component that will invoke a pop-up logout when selected:
 
 ```jsx
 import React from "react";

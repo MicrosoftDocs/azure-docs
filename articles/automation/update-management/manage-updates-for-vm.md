@@ -4,7 +4,7 @@ description: This article tells how to use Update Management to manage updates a
 services: automation
 ms.subservice: update-management
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 08/25/2021
 ---
 
 # Manage updates and patches for your VMs
@@ -44,6 +44,22 @@ Review [monitor software updates](view-update-assessments.md) to learn how to vi
 After reviewing the compliance results, the software update deployment phase is the process of deploying software updates. To install updates, schedule a deployment that aligns with your release schedule and service window. You can choose which update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
 
 Review [deploy software updates](deploy-updates.md) to learn how to schedule an update deployment.
+
+## Exclude updates
+
+On some Linux variants, such as Red Hat Enterprise Linux, OS-level upgrades might occur through packages. This might lead to Update Management runs in which the OS version number changes. Because Update Management uses the same methods to update packages that an administrator uses locally on a Linux machine, this behavior is intentional.
+
+To avoid updating the OS version through Update Management deployments, use the **Exclusion** feature.
+
+In Red Hat Enterprise Linux, the package name to exclude is `redhat-release-server.x86_64`.
+
+## Linux update classifications
+
+When you deploy updates to a Linux machine, you can select update classifications. This option filters the updates that meet the specified criteria. This filter is applied locally on the machine when the update is deployed.
+
+Because Update Management performs update enrichment in the cloud, you can flag some updates in Update Management as having a security impact, even though the local machine doesn't have that information. If you apply critical updates to a Linux machine, there might be updates that aren't marked as having a security impact on that machine and therefore aren't applied. However, Update Management might still report that machine as noncompliant because it has additional information about the relevant update.
+
+Deploying updates by update classification doesn't work on RTM versions of CentOS. To properly deploy updates for CentOS, select all classifications to make sure updates are applied. For SUSE, selecting ONLY **Other updates** as the classification can install some other security updates if they're related to zypper (package manager) or its dependencies are required first. This behavior is a limitation of zypper. In some cases, you might be required to rerun the update deployment and then verify the deployment through the update log.
 
 ## Review update deployments
 

@@ -13,7 +13,9 @@ ms.author: tagore
 
 # Migrate your IaaS resources to Azure Resource Manager by March 1, 2023 
 
-In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](/azure/virtual-machines/migration-classic-resource-manager-faq#what-is-azure-service-manager-and-what-does-it-mean-by-classic) (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023. 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
+
+In 2014, we launched infrastructure as a service (IaaS) on [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/). We've been enhancing capabilities ever since. Because Azure Resource Manager now has full IaaS capabilities and other advancements, we deprecated the management of IaaS virtual machines (VMs) through [Azure Service Manager](./migration-classic-resource-manager-faq.yml) (ASM) on February 28, 2020. This functionality will be fully retired on March 1, 2023. 
 
 Today, about 90 percent of the IaaS VMs are using Azure Resource Manager. If you use IaaS resources through ASM, start planning your migration now. Complete it by March 1, 2023, to take advantage of [Azure Resource Manager](../azure-resource-manager/management/index.yml).
 
@@ -26,10 +28,11 @@ VMs created using the classic deployment model will follow the [Modern Lifecycle
 - On March 1, 2023, subscriptions that are not migrated to Azure Resource Manager will be informed regarding timelines for deleting any remaining VMs (classic).  
 
 This retirement does *not* affect the following Azure services and functionality: 
-- [Azure Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md)
 - Storage accounts *not* used by VMs (classic) 
 - Virtual networks *not* used by VMs (classic) 
 - Other classic resources
+
+Azure Cloud Services (classic) retirement was announced in August 2021 [here](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 ## What resources are available for this migration?
 
@@ -63,4 +66,4 @@ Start planning your migration to Azure Resource Manager, today.
 
 1. For technical questions, issues, and help with adding subscriptions to the allowlist, [contact support](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"8a82f77d-c3ab-7b08-d915-776b4ff64ff4"}).
 
-1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager. 
+1. Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Azure Resource Manager.

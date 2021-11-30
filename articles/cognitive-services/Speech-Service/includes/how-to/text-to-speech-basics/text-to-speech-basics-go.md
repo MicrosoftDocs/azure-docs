@@ -274,7 +274,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -284,7 +284,7 @@ Next, you need to change the speech synthesis request to reference your XML file
 The request is mostly the same, but instead of using the `SpeakTextAsync()` function, you use `SpeakSsmlAsync()`. This function expects an XML string, so you first load your SSML config as a string. From here, the result object is exactly the same as previous examples.
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-AriaNeural")`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `speechConfig.SetSpeechSynthesisVoiceName("en-US-ChristopherNeural")`
 
 ## Get facial pose events
 

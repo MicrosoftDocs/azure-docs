@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2021
+ms.date: 11/09/2021
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -26,6 +26,7 @@ The following table describes resource limits for Azure NetApp Files:
 
 |  Resource  |  Default limit  |  Adjustable via support request  |
 |----------------|---------------------|--------------------------------------|
+|  [Regional capacity quota per subscription](regional-capacity-quota.md)   |  25 TiB  |  Yes  |
 |  Number of NetApp accounts per Azure region per subscription  |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
 |  Number of volumes per subscription   |    500     |   Yes   |
@@ -44,9 +45,13 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
-|  Number of cross-region replication data protection volumes (destination volumes)     |    5    |    Yes    |     
+|  Number of cross-region replication data protection volumes (destination volumes)     |    10    |    Yes    |     
+|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 1 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum daily, weekly, and monthly backup retention counts *combined* is 1019.  |  N  |
+|  Maximum size of protected volume  |  100 TiB  |  N  |
+|  Maximum number of volumes that can be backed up per subscription   |  5  |  Y  |
+|  Maximum number of manual backups per volume per day |  5  |  Y  |
 
-For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
+For more information, see [Capacity management FAQs](faq-capacity-management.md).
 
 ## Determine if a directory is approaching the limit size <a name="directory-limit"></a>  
 
@@ -84,40 +89,46 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 |    > 3 TiB but <= 4 TiB    |    80 million     |
 |    > 4 TiB                 |    100 million    |
 
-If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the maxfiles limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
+If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#request-limit-increase) to increase the maxfiles (inodes) limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the maxfiles limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 You can increase the maxfiles limit to 500 million if your volume quota is at least 20 TiB. <!-- ANF-11854 --> 
 
-## Request limit increase <a name="limit_increase"></a> 
+## Request limit increase
 
-You can create an Azure support request to increase the adjustable limits from the table above. 
+You can create an Azure support request to increase the adjustable limits from the [Resource Limits](#resource-limits) table. 
 
-From Azure portal navigation plane: 
+1. Go to **New Support Request** under **Support + troubleshooting**.   
 
-1. Click **Help + support**.
-2. Click **+ New support request**.
-3. On the Basics tab, provide the following information: 
-    1. Issue type: Select **Service and subscription limits (quotas)**.
-    2. Subscriptions: Select the subscription for the resource that you need the quota increased.
-    3. Quota type: Select **Storage: Azure NetApp Files limits**.
-    4. Click **Next: Solutions**.
-4. On the Details tab:
-    1. In the Description box, provide the following information for the corresponding resource type:
+2. Under the **Problem description** tab, provide the required information:
+    1. For **Issue Type**, select **Service and Subscription Limits (Quotas)**.
+    2. For **Subscription**, select your subscription. 
+    3. For **Quota Type**, select **Storage: Azure NetApp Files limits**.  
 
-        |  Resource  |    Parent resources      |    Requested new limits     |    Reason for quota increase       |
-        |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
-        |  Pool    |  *Subscription ID, NetApp account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
-        |  Volume  |  *Subscription ID, NetApp account URI, capacity pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
-        |  Maxfiles  |  *Subscription ID, NetApp account URI, capacity pool URI, volume URI*   |  *Requested new maximum **maxfiles** number*     |  *What scenario or use case prompted the request?*  |    
-        |  Cross-region replication data protection volumes  |  *Subscription ID, destination NetApp account URI, destination capacity pool URI, source NetApp account URI, source capacity pool URI, source volume URI*   |  *Requested new maximum number of **cross-region replication data protection volumes (destination volumes)***     |  *What scenario or use case prompted the request?*  |    
+    ![Screenshot that shows the Problem Description tab.](../media/azure-netapp-files/support-problem-descriptions.png)
 
-    2. Specify the appropriate support method and provide your contract information.
+3. Under the **Additional details** tab, click **Enter details** in the Request Details field.  
 
-    3. Click **Next: Review + create** to create the request. 
+    ![Screenshot that shows the Details tab and the Enter Details field.](../media/azure-netapp-files/quota-additional-details.png)
 
+4. To request limit increase, provide the following information in the Quota Details window that appears:
+    1. In **Quota Type**, select the type of resource you want to increase.  
+        For example:   
+        * *Regional Capacity Quota per Subscription (TiB)*
+        * *Number of NetApp accounts per Azure region per subscription*
+        * *Number of volumes per subscription*
+
+    2. In **Region Requested**, select your region.   
+        The current and default sizes are displayed under Quota State.
+    
+    3. Enter a value to request an increase for the quota type you specified.
+    
+    ![Screenshot that shows how to display and request increase for regional quota.](../media/azure-netapp-files/quota-details-regional-request.png)
+
+5. Click **Save and continue**. Click **Review + create** to create the request.
 
 ## Next steps  
 
 - [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 - [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
+- [Regional capacity quota for Azure NetApp Files](regional-capacity-quota.md)
+- [Request region access for Azure NetApp Files](request-region-access.md)

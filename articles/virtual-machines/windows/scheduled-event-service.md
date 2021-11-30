@@ -12,6 +12,8 @@ ms.topic: how-to
 
 # Monitor scheduled events for your Azure VMs
 
+**Applies to:** VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 Updates are applied to different parts of Azure every day, to keep the services running on them secure, and up-to-date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance, and enables you to gracefully handle the maintenance. 
 
 In this article, we will show how you can use scheduled events to be notified about maintenance events that could be affecting your VMs and build some basic automation that can help with monitoring and analysis.
@@ -152,7 +154,7 @@ Once the events are pushed to Log Analytics, you can run the following [query](.
 
 1. Select **New alert rule**. 
 1. In the **Create rule** page, leave `collectorworkspace` as the **Resource**.
-1. Under **Condition**, select the entry *Whenever the customer log search is <login undefined>*. The **Configure signal logic** page will open.
+1. Under **Condition**, select the entry *Whenever the customer log search is \<login undefined\>*. The **Configure signal logic** page will open.
 1. Under **Threshold value**, enter *0* and then select **Done**.
 1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.

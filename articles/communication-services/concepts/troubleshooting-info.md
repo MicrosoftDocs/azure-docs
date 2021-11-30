@@ -2,14 +2,13 @@
 title: Troubleshooting in Azure Communication Services
 description: Learn how to gather the information you need to troubleshoot your Communication Services solution.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
 ms.author: manoskow
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
-
 ---
 
 # Troubleshooting in Azure Communication Services
@@ -18,7 +17,7 @@ This document will help you troubleshoot issues that you may experience within y
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support.
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
@@ -27,6 +26,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **SMS message ID**: This ID is used to identify SMS messages.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
+Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
 ## Access your MS-CV ID
 
@@ -74,7 +74,28 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access your call ID
+## Access your server call ID
+When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
+
+#### JavaScript
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+
+## Access your client call ID
 
 When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
 
@@ -172,6 +193,42 @@ These can be accessed by looking at where your app is keeping its local data. Th
 5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
 6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
 
+## Finding Azure Active Directory information
+
+* **Getting Directory ID**
+* **Getting Application ID**
+* **Getting User ID**
+
+## Getting Directory ID 
+To find your Directory (tenant) ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+
+    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+
+## Getting Application ID 
+To find your Application ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **App registrations** in Azure AD, select your application.
+1. Copy the **Application ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+
+   The directory (tenant) ID can also be found in the application overview page.
+
+## Getting User ID
+To find your User ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Users** in Azure AD, select your user.
+1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
 
 ## Calling SDK error codes
 
@@ -179,7 +236,7 @@ The Azure Communication Services Calling SDK uses the following error codes to h
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
-| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. If you are using Teams Interoperability, make sure your Teams tenant has been added to the preview access allowlist. To enable/disable [Teams tenant interoperability](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop), complete [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).|
+| 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
 | 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
 | 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
 | 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
@@ -205,3 +262,4 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
 - [Metrics](metrics.md)
+- [Service limits](service-limits.md)

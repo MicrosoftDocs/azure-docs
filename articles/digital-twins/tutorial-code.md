@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: 'Tutorial: Code a client app'
 titleSuffix: Azure Digital Twins
-description: Tutorial to write the minimal code for a client app, using the .NET (C#) SDK.
+description: Follow this tutorial to learn how to write the minimal code for an Azure Digital Twins client app, using the .NET (C#) SDK.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/02/2020
+ms.date: 10/18/2021
 ms.topic: tutorial
 ms.service: digital-twins
 
@@ -28,7 +28,7 @@ Developers working with Azure Digital Twins commonly write client applications f
 
 ## Prerequisites
 
-This tutorial uses the command line for setup and project work. As such, you can use any code editor to walk through the exercises.
+This Azure Digital Twins tutorial uses the command line for setup and project work. As such, you can use any code editor to walk through the exercises.
 
 What you need to begin:
 * Any code editor
@@ -130,9 +130,9 @@ In the directory where you created your project, create a new .json file called 
 > If you're using Visual Studio for this tutorial, you may want to select the newly-created JSON file and set the *Copy to Output Directory* property in the Property inspector to *Copy if Newer* or *Copy Always*. This will enable Visual Studio to find the JSON file with the default path when you run the program with **F5** during the rest of the tutorial.
 
 > [!TIP] 
-> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [How-to: Parse and validate models](how-to-parse-models.md).
+> There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) that you can use to check model documents to make sure the DTDL is valid. It is built on the DTDL parser library, which you can read more about in [Parse and validate models](how-to-parse-models.md).
 
-Next, add some more code to *Program.cs* to upload the model you've just created into your Azure Digital Twins instance.
+Next, add some more code to *Program.cs* to upload the model you've created into your Azure Digital Twins instance.
 
 First, add a few `using` statements to the top of the file:
 
@@ -149,14 +149,14 @@ Next comes the first bit of code that interacts with the Azure Digital Twins ser
 
 Paste in the following code under the authorization code you added earlier.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/fullClientApp_excerpt_model.cs" id="ClientExcerptModel":::
 
 In your command window, run the program with this command: 
 
 ```cmd/sh
 dotnet run
 ```
-"Upload a model" will be printed in the output, indicating that this code was reached, but there is no output yet to indicate whether the upload was successful.
+"Upload a model" will be printed in the output, indicating that this code was reached, but there's no output yet to indicate whether the upload was successful.
 
 To add a print statement showing all models that have been successfully uploaded to the instance, add the following code right after the previous section:
 
@@ -164,7 +164,7 @@ To add a print statement showing all models that have been successfully uploaded
 
 **Before you run the program again to test this new code**, recall that the last time you ran the program, you uploaded your model already. Azure Digital Twins won't let you upload the same model twice, so if you attempt to upload the same model again, the program should throw an exception.
 
-With this in mind, run the program again with this command in your command window:
+With this information in mind, run the program again with this command in your command window:
 
 ```cmd/sh
 dotnet run
@@ -198,7 +198,7 @@ In your command window, run the program with `dotnet run`. In the output, look f
 
 Then, run the program again. 
 
-Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. This means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
+Notice that no error is thrown when the twins are created the second time, even though the twins already exist after the first run. Unlike model creation, twin creation is, on the REST level, a *PUT* call with *upsert* semantics. Using this kind of REST call means that if a twin already exists, an attempt to create the same twin again will just replace the original twin. No error is thrown.
 
 ### Create relationships
 
@@ -248,6 +248,8 @@ Then, add the following code to the end of the `Main` method:
 
 In your command window, run the program with `dotnet run`. You should see all the digital twins in this instance in the output.
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ## Complete code example
 
 At this point in the tutorial, you have a complete client app that can perform basic actions against Azure Digital Twins. For reference, the full code of the program in *Program.cs* is listed below:
@@ -273,4 +275,4 @@ In this tutorial, you created a .NET console client application from scratch. Yo
 Continue to the next tutorial to explore the things you can do with such a sample client app: 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md)
+> [Explore the basics with a sample client app](tutorial-command-line-app.md)

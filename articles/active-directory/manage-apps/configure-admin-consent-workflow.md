@@ -1,5 +1,6 @@
 ---
-title: Configure the admin consent workflow - Azure Active Directory | Microsoft Docs
+title: Configure the admin consent workflow
+titleSuffix: Azure AD
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
 author: davidmu1
@@ -8,9 +9,9 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/06/2021
 ms.author: davidmu
-ms.reviewer: luleon
+ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
@@ -38,7 +39,7 @@ To enable the admin consent workflow and choose reviewers:
 
 7. Configure the following settings:
 
-   * **Select users to review admin consent requests**. Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, and application administrator roles.
+   * **Select users to review admin consent requests**. Select reviewers for this workflow from a set of users that have the global administrator, cloud application administrator, and application administrator roles. **Note that you must designate at least one reviewer before the workflow can be turned on.**
    * **Selected users will receive email notifications for requests**. Enable or disable email notifications to the reviewers when a request is made.  
    * **Selected users will receive request expiration reminders**. Enable or disable reminder email notifications to the reviewers when a request is about to expire.  
    * **Consent request expires after (days)**. Specify how long requests stay valid.
@@ -85,7 +86,7 @@ To review the admin consent requests and take action:
 
 8. Evaluate the request and take the appropriate action:
 
-   * **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access.  
+   * **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access. Approving a request allows all users in your tenant to access the application unless otherwise restricted with user assignment. 
    * **Deny the request**. To deny a request, you must provide a justification that will be provided to all requestors. Once a request is denied, all requestors are notified that they have been denied access to the application. Denying a request won't prevent users from requesting admin consent to the app again in the future.  
    * **Block the request**. To block a request, you must provide a justification that will be provided to all requestors. Once a request is blocked, all requestors are notified they've been denied access to the application. Blocking a request creates a service principal object for the application in your tenant in a disabled state. Users won't be able to request admin consent to the application in the future.
 
@@ -121,7 +122,7 @@ The table below outlines the scenarios and audit values available for the admin 
 
 **I turned on this workflow, but when testing out the functionality, why can’t I see the new “Approval required” prompt allowing me to request access?**
 
-After turning on the feature, it may take up to 60 minutes for end users to see the update. You can verify that the configuration has properly taken effect by viewing the **EnableAdminConsentRequests** value in the `https://graph.microsoft.com/beta/settings` API.
+After turning on the feature, it may take up to 60 minutes for end users to see the update, though it's usually available to all users within a few minutes.
 
 **As a reviewer, why can’t I see all pending requests?**
 
@@ -138,6 +139,10 @@ No, for now requestors are only able to get updates via email notifications.
 **As a reviewer, is it possible to approve the application, but not for everyone?**
 
 If you're concerned about granting admin consent and allowing all users in the tenant to use the application, we recommend that you deny the request. Then manually grant admin consent by restricting access to the application by requiring user assignment, and assigning users or groups to the application. For more information, see [Methods for assigning users and groups](./assign-user-or-group-access-portal.md).
+
+**I have an app that requires user assignment. A user that I assigned to an application is being asked to request admin consent instead of being able to consent themself. Why is that?**
+
+When access to an application is restricted via the "user assignment required", an Azure AD administrator needs to consent all the permissions requested by the application. 
 
 ## Next steps
 

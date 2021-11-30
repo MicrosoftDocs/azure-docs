@@ -19,27 +19,23 @@ This section lists all the automatically collected platform metrics collected fo
 
 |Metric Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
 |-------|-----|
-| App Service Plans | [Microsoft.Web/serverfarms](/azure/azure-monitor/essentials/metrics-supported#microsoftwebserverfarms)
-| Web apps | [Microsoft.Web/sites](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsites) |
-| Staging slots | [Microsoft.Web/sites/slots](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsitesslots) 
-| App Service Environment | [Microsoft.Web/hostingEnvironments](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironments)
-| App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools)
+| App Service Plans | [Microsoft.Web/serverfarms](../azure-monitor/essentials/metrics-supported.md#microsoftwebserverfarms)
+| Web apps | [Microsoft.Web/sites](../azure-monitor/essentials/metrics-supported.md#microsoftwebsites) |
+| Staging slots | [Microsoft.Web/sites/slots](../azure-monitor/essentials/metrics-supported.md#microsoftwebsitesslots) 
+| App Service Environment | [Microsoft.Web/hostingEnvironments](../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironments)
+| App Service Environment Front-end | [Microsoft.Web/hostingEnvironments/multiRolePools](../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools)
 
 
-For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/platform/metrics-supported.md).
+For more information, see a list of [all platform metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 
 ## Metric Dimensions
 
-For more information on what metric dimensions are, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+For more information on what metric dimensions are, see [Multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 App Service doesn't have any metrics that contain dimensions.
 
 ## Resource logs
-
-> [!NOTE]
-> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
->
 
 This section lists the types of resource logs you can collect for App Service. 
 
@@ -53,11 +49,11 @@ This section lists the types of resource logs you can collect for App Service.
 | AppServiceAppLogs | ASP.NET | ASP.NET | Java SE & Tomcat Images <sup>1</sup> | Java SE & Tomcat Blessed Images <sup>1</sup> | Application logs |
 | AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Requests from IP Rules |
 | AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Container operation logs |
-| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender; **only available for Premium tier** | 
+| AppServiceAntivirusScanAuditLogs | Yes | Yes | Yes | Yes | [Anti-virus scan logs](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) using Microsoft Defender for Cloud; **only available for Premium tier** | 
 
 <sup>1</sup> For Java SE apps, add "$WEBSITE_AZMON_PREVIEW_ENABLED" to the app settings and set it to 1 or to true.
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+For reference, see a list of [all resource logs category types supported in Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md).
 
 ## Azure Monitor Logs tables
 
@@ -87,9 +83,9 @@ The following table lists common operations related to App Service that may be c
 |Get Zipped Container Logs for Web App| Get container logs |
 |Restore Web App From Backup Blob| App restored from backup|
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema). 
+For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md). 
 
 ## See Also
 
 - See [Monitoring Azure App Service](monitor-app-service.md) for a description of monitoring Azure App Service.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

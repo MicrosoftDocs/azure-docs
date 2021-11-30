@@ -2,6 +2,7 @@
 
 title: Get started integrating Azure Active Directory with apps
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -11,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/05/2021
 ms.author: davidmu
-ms.reviewer: asteen
+ms.reviewer: ergreenl
 ---
 
 # Integrating Azure Active Directory with applications getting started guide
@@ -70,7 +71,7 @@ The following articles discuss the different ways applications integrate with Az
 
 ## Capabilities for apps not listed in the Azure AD gallery
 
-You can add any application that already exists in your organization, or any third-party application  from a vendor who is not already part of the Azure AD gallery. Depending on your [license agreement](https://azure.microsoft.com/pricing/details/active-directory/), the following capabilities are available:
+You can add any application that already exists in your organization, or any third-party application  from a vendor who is not already part of the Azure AD gallery. Depending on your [license agreement](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing), the following capabilities are available:
 
 * Self-service integration of any application that supports [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) identity providers (SP-initiated or IdP-initiated)
 * Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](sso-options.md#password-based-sso)

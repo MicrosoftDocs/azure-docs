@@ -1,13 +1,13 @@
 ---
 title: Work with indoor maps in Azure Maps Creator 
 description: This article introduces concepts that apply to Azure Maps Creator services
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/26/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/11/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 
@@ -26,7 +26,10 @@ The following diagram illustrates the entire workflow.
 
 ## Create Azure Maps Creator
 
-To use Creator services, Azure Maps Creator must be created in an Azure Maps account. For information about how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+To use Creator services, Azure Maps Creator must be created in an Azure Maps account with the Gen 2 pricing tier. For information about how to create Azure Maps Creator in Azure Maps, see [Manage Azure Maps Creator](how-to-manage-creator.md).
+
+> [!TIP]
+> For pricing information see the *Creator* section in [Azure Maps pricing](https://aka.ms/CreatorPricing).
 
 ## Creator authentication
 
@@ -113,7 +116,7 @@ An application can use a feature stateset to dynamically render features in a fa
 
 ### Render V2-Get Map Tile API
 
-The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview) has been extended to support Creator tilesets.
+The Azure Maps [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile) has been extended to support Creator tilesets.
 
 Applications can use the Render V2-Get Map Tile API to request tilesets. The tilesets can then be integrated into a map control or SDK. For an example of a map control that uses the Render V2 service, see [Indoor Maps Module](#indoor-maps-module).
 
@@ -142,7 +145,7 @@ As you begin to develop solutions for indoor maps, you can discover ways to inte
  You can use the Azure Maps Creator List, Update, and Delete API to list, update, and delete your datasets, tilesets, and feature statesets.
 
 >[!NOTE]
->When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render V2-Get Map Tile API](/rest/api/maps/renderv2/getmaptilepreview), the application fails to render that tileset.
+>When you review a list of items to determine whether to delete them, consider the impact of that deletion on all dependent API or applications. For example, if you delete a tileset that's being used by an application by means of the [Render V2-Get Map Tile API](/rest/api/maps/render-v2/get-map-tile), the application fails to render that tileset.
 
 ### Example: Updating a dataset
 

@@ -1,21 +1,25 @@
 ---
-title: Troubleshoot issues on your Azure Data Box, Azure Data Box Heavy
-description: Describes how to troubleshoot issues seen in Azure Data Box and Azure Data Box Heavy when copying data to these devices.
+title: Troubleshoot issues during data copies to your Azure Data Box, Azure Data Box Heavy
+description: Describes how to troubleshoot issues when copying data to Azure Data Box and Azure Data Box Heavy devices.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 08/11/2021
 ms.author: alkohli
 ---
 
-# Troubleshoot issues related to Azure Data Box and Azure Data Box Heavy
+# Troubleshoot data copy issues on Azure Data Box and Azure Data Box Heavy
 
-This article details information on how to troubleshoot issues you may see when using the Azure Data Box or Azure Data Box Heavy for import orders. The article includes the list of possible errors seen when data is copied to the Data Box or when data is uploaded from Data Box for an import order.
+This article describes how to troubleshoot issues when performing data copies or data uploads for an Azure Data Box or Azure Data Box Heavy import order. The article includes the list of possible errors seen when data is copied to the Data Box or uploaded from Data Box.
 
-The information in this article does not apply to export orders created for Data Box.
+For help troubleshooting issues with accessing the shares on your device, see [Troubleshoot share connection failure during data copy](data-box-troubleshoot-share-access.md).
+
+
+> [!NOTE]
+> The information in this article applies to import orders only.
 
 ## Error classes
 
@@ -27,9 +31,10 @@ The errors in Data Box and Data Box Heavy are summarized as follows:
 | Container or share size limit | The total data in containers or shares exceeds the Azure limit.   |Download the error lists. <br> Reduce the overall data in the container or share. [Learn more](#container-or-share-size-limit-errors).|
 | Object or file size limit | The object or files in containers or shares exceeds the Azure limit.|Download the error lists. <br> Reduce the file size in the container or share. [Learn more](#object-or-file-size-limit-errors). |    
 | Data or file type | The data format or the file type is not supported. |Download the error lists. <br> For page blobs or managed disks, ensure the data is 512-bytes aligned and copied to the pre-created folders. [Learn more](#data-or-file-type-errors). |
+| Folder or file internal errors | The file or folder have an internal error. |Download the error lists. <br> Remove the file and copy again. For a folder, modify it by renaming or adding or deleting a file. The error should go away in 30 minutes.  [Learn more](#folder-or-file-internal-errors). |
 | Non-critical blob or file errors  | The blob or file names do not follow the Azure naming rules or the file type is not supported. | These blob or files may not be copied or the names may be changed. [Learn how to fix these errors](#non-critical-blob-or-file-errors). |
 
-\* The first four error categories are critical errors and must be fixed before you can proceed to prepare to ship.
+\* The first five error categories are critical errors and must be fixed before you can proceed to prepare to ship.
 
 
 ## Container or share name errors
@@ -172,6 +177,11 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 **Suggested resolution:** The symbolic links are usually links, pipes, and other such files. Either remove the links, or resolve the links and copy the data.
 
+## Folder or file internal errors
+
+**Error description:** The file or folder are in an internal error state.
+
+**Suggested resolution:** If this is a file, remove the file and copy it again. If this is a folder, modify the folder. Either rename the folder or add or delete a file from the folder. The error should clear on its own in 30 minutes. Contact Microsoft Support, if the error persists.
 
 ## Non-critical blob or file errors
 

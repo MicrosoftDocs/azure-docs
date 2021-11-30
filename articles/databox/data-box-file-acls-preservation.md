@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 07/16/2021
 ms.author: alkohli
 ---
 
@@ -98,6 +98,45 @@ where
 |`/log+:<LogFile>`  |Appends the output to the existing log file.|
 
 For more information on these `robocopy` parameters, see [Tutorial: Copy data to Azure Data Box via SMB](./data-box-deploy-copy-data.md)
+
+> [!NOTE]
+> If you use `/copyall` to copy your data, the source ACLs on directories and files are transferred to Azure Files. If you only had read-access on your source data and could not modify the source data, you'll have read-access only on the data in the Data Box. Use `/copyall` only if you intend to copy all the ACLs on the directories and files along with the data.
+
+#### Use robocopy to list, copy, modify files on Data Box
+
+Here are some of the common scenarios you'll use when copying data using `robocopy`.
+
+- **Copy only data to Data Box, no ACLs on directories and files**
+
+    Use the `/dcopy:DAT` option to only copy data, attributes, timestamps. ACLs on directories and files are not copied.
+
+- **Copy data and ACLs on directories and files to Data Box**
+
+    Use `/copyall` to copy all the source data including all the ACLs on directories and files.
+
+- **List the filesystem on Data Box using robocopy**
+
+    Use this command to list directory contents:
+
+    `robocopy <source-dir> NULL /l /s /xx /njh /njs /fp /B`
+
+    Note that the File Explorer doesn't allow you to list these files.
+    
+- **Copy or delete folders and files on Data Box**
+
+    Use this command to copy a single file:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /B`
+
+    Use this command to delete a single file:
+
+    `robocopy <source-dir> <destination-dir> <file-name> /purge /B`
+
+    In the above command, the `<source-dir>` should not have the file: `<file-name>`. Then, the above command syncs the destination with the source, resulting in the removal of the file from the destination.
+
+    Note that the File Explorer may not allow you to perform the above operations.
+
+For more information, see [Using robocopy commands](/windows-server/administration/windows-commands/robocopy).
 
 ### Linux data copy tool
 

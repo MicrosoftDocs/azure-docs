@@ -7,8 +7,8 @@ ms.subservice: data-movement
 ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
-author: shkale-msft
-ms.author: shkale
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---

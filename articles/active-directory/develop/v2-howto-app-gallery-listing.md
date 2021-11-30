@@ -16,7 +16,7 @@ ms.custom: aaddev, contperf-fy21q4
 
 # Publish your app to the Azure AD app gallery
 
-You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](/en-us/azure/active-directory/manage-apps/add-application-portal). 
+You can publish your app in the Azure Active Directory (Azure AD) app gallery. When your app is published, it will show up as an option for customers when they are [adding apps to their tenant](../manage-apps/add-application-portal.md). 
 
 The steps to publishing your app in the Azure AD app gallery are:
 1. Prerequisites
@@ -219,7 +219,7 @@ After you've tested that your application integration works with Azure AD, submi
 
 The first time you try to sign into the portal you will be presented with one of two screens. 
 
-If you receive the message "That didn't work" then you will need to contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
+If you receive the message "That didn't work" then you will need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
 
 If you see a "Request Access" page then fill in the business justification and select **Request Access**.
 
@@ -248,7 +248,7 @@ The guest user is federated to a home tenant which is also an Azure AD. The gues
 * Guest users have their admins close / dismiss their risk. Again, this does not need Identity Protection. The admin can go to https://aka.ms/RiskyUsers and click on 'Dismiss user risk'. However, the admin must do the due diligence to ensure this was a false positive risk assessment before closing the user risk. Otherwise, they are putting their and Microsoft's resources at risk by suppressing a risk assessment without investigation.
 
 > [!NOTE]
-> If you have any issues with access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> If you have any issues with access, contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 ### Implementation specific options
 If you want to add your application to list in the gallery by using OpenID Connect, select **OpenID Connect & OAuth 2.0** as shown.
@@ -274,7 +274,7 @@ You can update or remove an existing gallery app in the [Microsoft Application N
 ![Listing a SAML application in the gallery](./media/howto-app-gallery-listing/updateorremove.png)
 
 > [!NOTE]
-> If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> If you have any issues with access, review the previous section on creating your account. If that doesn't work, contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 ### Timelines
 
@@ -285,6 +285,8 @@ The timeline for the process of listing a SAML 2.0 or WS-Fed application in the 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2 to 5 business days.
 
 ![Timeline for listing an OpenID Connect application in the gallery](./media/howto-app-gallery-listing/timeline2.png)
+
+The timeline for the process of listing a SCIM provisioning application in the gallery is variable and depends on numerous factors. 
 
 ### Escalations
 
@@ -305,7 +307,7 @@ Here's the flow of customer-requested applications.
 ![Shows the customer-requested apps flow](./media/howto-app-gallery-listing/customer-request-2.png)
 
 > [!Note]
-> If you have any [issues with access](#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> If you have any [issues with access](#issues-on-logging-into-portal), send email to the [Azure AD App Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 ## Next steps
 

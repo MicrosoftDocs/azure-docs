@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/06/2021
+ms.date: 09/29/2021
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -78,9 +78,6 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 - *Is volume replication transferring*    
     Whether the status of the volume replication is ‘transferring’. 
- 
-- *Volume replication lag time*   
-    The amount of time in seconds by which the data on the mirror lags behind the source. 
 
 - *Volume replication last transfer duration*   
     The amount of time in seconds it took for the last transfer to complete. 
@@ -96,32 +93,46 @@ You can find metrics for a capacity pool or volume by selecting the **capacity p
 
 ## Throughput metrics for capacity pools   
 
-* *Pool Allocated to Volume Throughput*    
-    The total throughput allocated to volumes in a given capacity pool. That is, the total of the volumes' allocated throughput in the capacity pool.   
+* *Pool allocated throughput*    
+    Sum of the throughput of all the volumes belonging to the pool.
+    
+* *Provisioned throughput for the pool*   
+    Provisioned throughput of this pool.
 
-* *Pool Consumed Throughput*   
-    The total throughput being consumed by volumes in a given capacity pool.   
-
-* *Percentage Pool Allocated to Volume Throughput*   
-    Percentage of capacity pool provisioned throughput that is allocated to volumes.   
-
-* *Percentage Pool Consumed Throughput*    
-    Percentage of capacity pool provisioned throughput that is consumed by volumes.
 
 ## Throughput metrics for volumes   
 
-*  *Volume Allocated Throughput*    
-    The parent capacity pool throughput (MiB/s) the volume is allocated with. This is the maximum throughput the volume is able to consume.
+* *Read throughput*   
+    Read throughput in bytes per second.
+    
+* *Total throughput*   
+    Sum of all throughput in bytes per second.
 
-* *Volume Consumed Throughput*    
-    The actual throughput (MiB/s) the volume is utilizing.
+* *Write throughput*    
+    Write throughput in bytes per second.
 
-* *Percentage Volume Consumed Throughput*   
-    Percentage of allocated throughput the volume is utilizing. That is, *Volume Consumed Throughput* as a percentage of *Volume Allocated Throughput*.
+* *Other throughput*   
+    Other throughput (that is not read or write) in bytes per second.
 
+## Volume backup metrics  
+
+* *Is Volume Backup Enabled*   
+    Shows whether backup is enabled for the volume. `1` is enabled. `0` is disabled.
+
+* *Is Volume Backup Operation Complete*   
+    Shows whether the last volume backup or restore operation is successfully completed.  `1` is successful. `0` is unsuccessful.
+
+* *Is Volume Backup Suspended*   
+    Shows whether the backup policy is suspended for the volume.  `1` is not suspended. `0` is suspended.
+
+* *Volume Backup Bytes*   
+    The total bytes backed up for this volume.
+
+* *Volume Backup Last Transferred Bytes*   
+    The total bytes transferred for the last backup or restore operation.  
 
 ## Next steps
 
 * [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Create a volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
