@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 10/28/2021
 ms.author: lajanuar
 ms.custom: devx-track-python, devx-track-js
 ---
@@ -24,8 +24,8 @@ Here's what this tutorial covers:
 > * Set up your development environment and install dependencies
 > * Create a Flask app
 > * Use the Translator to translate text
-> * Use Text Analytics to analyze positive/negative sentiment of input text and translations
-> * Use Speech Services to convert translated text into synthesized speech
+> * Use the Language service to analyze positive/negative sentiment of input text and translations
+> * Use the Speech Service to convert translated text into synthesized speech
 > * Run your Flask app locally
 
 > [!TIP]
@@ -49,14 +49,14 @@ Let's review the software and subscription keys that you'll need for this tutori
 * An IDE or text editor, such as [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/)  
 * [Chrome](https://www.google.com/chrome/browser/) or [Firefox](https://www.mozilla.org/firefox)
 * A **Translator** subscription key (you can likely use the **global** location.)
-* A **Text Analytics** subscription key in the **West US** region.
+* A **Language service** subscription key in the **West US** region.
 * A **Speech Services** subscription key in the **West US** region.
 
 ## Create an account and subscribe to resources
 
 As previously mentioned, you're going to need three subscription keys for this tutorial. This means that you need to create a resource within your Azure account for:
 * Translator
-* Text Analytics
+* Language service
 * Speech Services
 
 Use [Create a Cognitive Services Account in the Azure portal](../cognitive-services-apis-create-account.md) for step-by-step instructions to create resources.
@@ -471,18 +471,18 @@ Press **CTRL + c** to kill the app, then head to the next section.
 
 ## Analyze sentiment
 
-The [Text Analytics API](../text-analytics/overview.md) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+The [Language service API](../language-service/overview.md) can be used to perform sentiment analysis, extract key phrases from text, or detect the source language. In this app, we're going to use sentiment analysis to determine if the provided text is positive, neutral, or negative. The API returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
 
 In this section, you're going to do a few things:
 
-* Write some Python to call the Text Analytics API to perform sentiment analysis and return a response
+* Write some Python to call the Langauge service API to perform sentiment analysis and return a response
 * Create a Flask route to call your Python code
 * Update the HTML with an area for sentiment scores, and a button to perform analysis
 * Write JavaScript that allows users to interact with your Flask app from the HTML
 
-### Call the Text Analytics API
+### Call the Language service API
 
-Let's write a function to call the Text Analytics API. This function will take four arguments: `input_text`, `input_language`, `output_text`, and `output_language`. This function is called whenever a user presses the run sentiment analysis button in your app. Data provided by the user from the text area and language selector, as well as the detected language and translation output are provided with each request. The response object includes sentiment scores for the source and translation. In the following sections, you're going to write some JavaScript to parse the response and use it in your app. For now, let's focus on call the Text Analytics API.
+Let's write a function to call the Language service API. This function will take four arguments: `input_text`, `input_language`, `output_text`, and `output_language`. This function is called whenever a user presses the run sentiment analysis button in your app. Data provided by the user from the text area and language selector, as well as the detected language and translation output are provided with each request. The response object includes sentiment scores for the source and translation. In the following sections, you're going to write some JavaScript to parse the response and use it in your app. For now, let's focus on call the Language service API.
 
 1. Let's create a file called `sentiment.py` in the root of your working directory.
 2. Next, add this code to `sentiment.py`.
@@ -521,7 +521,7 @@ Let's write a function to call the Text Analytics API. This function will take f
        response = requests.post(constructed_url, headers=headers, json=body)
        return response.json()
    ```
-3. Add your Text Analytics subscription key and save.
+3. Add your Language service subscription key and save.
 
 ### Add a route to `app.py`
 
@@ -944,5 +944,5 @@ The source code for this project is available on [GitHub](https://github.com/Mic
 ## Next steps
 
 * [Translator reference](./reference/v3-0-reference.md)
-* [Text Analytics API reference](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
+* [Language service API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1)
 * [Text-to-speech API reference](../speech-service/rest-text-to-speech.md)

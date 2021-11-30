@@ -19,7 +19,8 @@ For example, you can:
 - Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near-real time.
 - Filter the data streams to export data that matches custom conditions.
 - Enrich the data streams with custom values and property values from the device.
-- Send the data to destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
+- Transform the data streams to modify their shape and content.
+- Send the data to destinations such as Azure Event Hubs, Azure Data Explorer, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
 
 > [!Tip]
 > When you turn on data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when data export was off. To retain more historical data, turn on data export early.
@@ -38,11 +39,18 @@ Your export destination must exist before you configure your data export. The fo
 - Azure Service Bus queue
 - Azure Service Bus topic
 - Azure Blob Storage
+- Azure Data Explorer
 - Webhook
 
 ### Connection options
 
-For the Azure service destinations, you can choose to configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Using a managed identity is more secure because you don't need to store the credentials for the destination in your IoT Central application. IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
+For the Azure service destinations, you can choose to configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+
+- You don't store the credentials for your resource in a connection string in your IoT Central application.
+- The credentials are automatically tied to the lifetime of your IoT Central application.
+- Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 When you configure a managed identity, the configuration includes a *scope* and a *role*:
 
@@ -208,6 +216,62 @@ To further secure your blob container and only allow access from trusted service
 
 ---
 
+### Create an Azure Data Explorer destination
+
+If you don't have an existing [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster and database to export to, follow these steps:
+
+1. Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the name of the database you create, you need this value in the following steps.
+
+1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
+
+    ```azurecli
+    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central"
+    ```
+
+    Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
+
+1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
+
+    ```kusto
+    .add database <YourDatabaseName> admins ('aadapp=<YourAppId>;<YourTenant>');
+    ```
+
+1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
+
+    ```kusto
+    .create table smartvitalspatch (
+      EnqueuedTime:datetime,
+      Message:string,
+      Application:string,
+      Device:string,
+      Simulated:boolean,
+      Template:string,
+      Module:string,
+      Component:string,
+      Capability:string,
+      Value:dynamic
+    )
+    ```
+
+1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
+
+    1. Navigate to the **Configurations** page for your Azure Data Explorer cluster. Then enable the **Streaming ingestion** option.
+    1. Run the following query to alter the table policy to enable streaming ingestion:
+
+        ```kusto
+        .alter table smartvitalspatch policy streamingingestion enable
+        ```
+
+1. Add an Azure Data Explorer destination in IoT Central using your Azure Data Explorer cluster URL, database name, and table name. The following table shows the service principal values to use for the authorization:
+
+    | Service principal value | Destination configuration |
+    | ----------------------- | ------------------------- |
+    | appId                   | ClientID                  |
+    | tenant                  | Tenant ID                 |
+    | password                | Client secret             |
+
+    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
+
 ### Create a webhook endpoint
 
 You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
@@ -290,6 +354,12 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 Data is exported in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
 
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
+
+### Azure Data Explorer destination
+
+Data is exported in near real time to a specified database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
+
+To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
 
 ### Webhook destination
 
@@ -459,7 +529,7 @@ Each message or record represents changes to device and cloud properties. Inform
 - `templateId`: The ID of the device template associated with the device.
 - `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.
-- 
+
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 For Blob storage, messages are batched and exported once per minute.
@@ -555,6 +625,7 @@ The following example shows an exported device lifecycle message received in Azu
   }
 }
 ```
+
 ## Device template lifecycle changes format
 
 Each message or record represents one change to a single published device template. Information in the exported message includes:
@@ -602,4 +673,4 @@ The following table shows the differences between the [legacy data export](howto
 
 ## Next steps
 
-Now that you know how to use the new data export, a suggested next step is to learn [How to use analytics in IoT Central](./howto-create-analytics.md)
+Now that you know how to configure data export, a suggested next step is to learn [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).

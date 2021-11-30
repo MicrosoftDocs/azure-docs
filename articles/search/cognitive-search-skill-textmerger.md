@@ -6,7 +6,7 @@ description: Merge text from a collection of fields into one consolidated field.
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

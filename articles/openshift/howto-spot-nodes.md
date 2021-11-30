@@ -5,9 +5,9 @@ author: nilsanderselde
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 keywords: spot, nodes, aro, deploy, openshift, red hat
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Use Azure Spot Virtual Machines in an Azure Red Hat OpenShift (ARO) cluster

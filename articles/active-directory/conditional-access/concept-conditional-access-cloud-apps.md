@@ -42,7 +42,7 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - [Microsoft Azure Management](#microsoft-azure-management)
 - Microsoft Azure Subscription Management
-- Microsoft Cloud App Security
+- Microsoft Defender for Cloud Apps
 - Microsoft Commerce Tools Access Control Portal
 - Microsoft Commerce Tools Authentication Service
 - Microsoft Forms
@@ -141,7 +141,7 @@ User actions are tasks that can be performed by a user. Currently, Conditional A
 
 ## Authentication context (Preview)
 
-Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Cloud App Security (MCAS). 
+Authentication context can be used to further secure data and actions in applications. These applications can be your own custom applications, custom line of business (LOB) applications, applications like SharePoint, or applications protected by Microsoft Defender for Cloud Apps. 
 
 For example, an organization may keep files in SharePoint sites like the lunch menu or their secret BBQ sauce recipe. Everyone may have access to the lunch menu site, but users who have access to the secret BBQ sauce recipe site may need to access from a managed device and agree to specific terms of use.
 
@@ -173,7 +173,7 @@ Administrators can select published authentication contexts in their Conditional
 For more information about authentication context use in applications, see the following articles.
 
 - [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
-- [Microsoft Cloud App Security](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
+- [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 
 ## Next steps

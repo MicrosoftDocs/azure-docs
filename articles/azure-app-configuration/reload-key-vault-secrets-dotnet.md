@@ -25,7 +25,6 @@ As a good security practice, [secrets](../key-vault/secrets/tutorial-rotation.md
 
 In the first option, you will have to update the sentinel key-value in App Configuration whenever you rotate secrets and certificates in Key Vault. This approach works well when you want to force an immediate reload of secrets and certificates in your application. However, when secrets and certificates are rotated automatically in Key Vault, your application may experience errors if you don't update the sentinel key-value in time. The second option allows you to completely automate this process. You can configure your application to reload secrets and certificates from Key Vault within your acceptable delay from the time of rotation. This tutorial will walk you through the second option.
 
-
 ## Prerequisites
 
 - This tutorial shows you how to set up your application to automatically reload secrets and certificates from Key Vault. It builds on the tutorial for implementing Key Vault references in your code. Before you continue, finish [Tutorial: Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md) first.

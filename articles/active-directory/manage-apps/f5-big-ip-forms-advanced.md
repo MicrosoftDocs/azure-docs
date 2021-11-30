@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory integration with F5 BIG-IP for forms based authentication Single Sign-on 
+title: F5 BIG-IP APM and Azure AD SSO to forms based authentication applications
 description: Learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory for secure hybrid access to forms-based applications.
 author: gargi-sinha
 ms.service: active-directory
@@ -29,35 +29,35 @@ To learn about all of the benefits see the article on [F5 BIG-IP and Azure AD in
 
 For this scenario, we have an internal legacy application configured for forms-based authentication (FBA).
 
-The ideal scenario is to have the application managed and governed directly through Azure AD, but as it lacks any form of modern protocol interop, would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
+Having the application managed and governed directly through Azure AD would be ideal, but as it lacks any form of modern protocol interop, would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
 
 Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet the application is connected to will be used to gate inbound access, with Azure AD for its extensive choice of authentication and authorization capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and forms-based SSO, significantly improving the overall security posture of the application, allowing the business to continue operating at pace, without interruption.
 
+## Scenario Architecture
+
 The secure hybrid access solution for this scenario is made up of the following:
 
-**Application**: Backend service to be protected by Azure AD and BIG-IP secure hybrid access. This particular application validates user credentials against an open source, but this could be any directory including Active Directory, LDS, etc.
+**Application**: Backend service to be protected by Azure AD and BIG-IP secure hybrid access. This particular application validates user credentials against Active Directory (AD), but this could be any directory including LDS (AD Lightweight Directory Services), open source, etc.
 
 **Azure AD**: The SAML Identity Provider (IdP), responsible for
 verification of user credentials, Conditional Access (CA), and SSO to the BIG-IP APM.
 
-**BIG-IP**: Reverse proxy and SAML service provider (SP) to the
-application, delegating authentication to the SAML IdP, before
-performing forms-based SSO to the backend application.
+**BIG-IP**: Reverse proxy and SAML service provider (SP) to the application, delegating authentication to the SAML IdP, before performing forms-based SSO to the backend application. Cached user credentials are then available for SSO against other forms based-authentication applications.
 
 ![Screenshot shows the flow diagram](./media/f5-big-ip-forms-advanced/flow-diagram.png)
 
 | Steps | Description|
 |:-------|:----------|
 | 1. | User connects to application's SAML SP endpoint (BIG-IP APM).|
-|2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
-| 3. | SAML IdP authenticates user and applies any enforced CA policies.|
-| 4. | Azure AD redirects user back to SAML SP with issued token and claims. |
-| 5. | APM prompts for application password and stores in cache. |
-| 6. |  BIG-IP request to application receives login form.|
-| 7. | APM scripting responds filling in username and password before submitting form.|
-| 8. | Application payload is served by webserver and sent to the client. Optionally, APM detects successful logon by examining response headers, looking for cookie or redirect URI. |
+| 2. | APM access policy redirects user to SAML IdP (Azure AD) for pre-authentication.|
+| 3. | Azure AD authenticates user and applies any enforced Conditional Access policies.|
+| 4. | User is redirected back to SAML SP with issued token and claims. |
+| 5. | BIG-IP prompts user for application password and stores in cache. |
+| 6. | BIG-IP sends request to application and receives a login form.|
+| 7. | APM scripting auto responds filling in username and password before submitting form.|
+| 8. | Application payload is served by webserver and sent to the client..|
 
 ## Prerequisites
 
@@ -91,11 +91,8 @@ Prior BIG-IP experience is not necessary, but you'll need:
 
 ## Deployment modes
 
-Several methods exist for configuring a BIG-IP for this scenario,
-including several wizard-based options or an advanced configuration.
-
-This tutorial covers the advanced approach, which provides a more
-flexible approach at implementing secure hybrid access by manually creating all BIG-IP configuration objects. You would also use this approach for scenarios not covered by the Guided Configuration.
+Several methods exist for configuring a BIG-IP for this scenario. This tutorial covers the advanced approach, which provides a more
+flexible approach at implementing secure hybrid access by manually creating all BIG-IP configuration objects. You would use this approach for scenarios not covered by the template based Guided Configuration.
 
 >[!NOTE]
 >All example strings or values referenced throughout this article should be replaced with those for your actual environment.
@@ -365,18 +362,17 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 ## Session management
 
-A BIG-IPs session management setting are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy by heading to **Access Policy** > **Access Profiles** and selecting your application from the list.
+A BIG-IPs session management settings are used to define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy by heading to **Access Policy** > **Access Profiles** and selecting your application from the list.
 
-With regard to SLO functionality, having defined a Single Log-out URI in Azure AD will ensure an IdP initiated sign-out from the MyApps portal also terminates the session between the client and the BIG-IP APM.
+Regarding SLO functionality, having defined a Single Log-Out URI in Azure AD will ensure an IdP initiated sign-out from the MyApps portal also terminates the session between the client and the BIG-IP APM.
 
-Having imported the application's federation metadata.xml then provides the APM with the Azure AD SAML log-out endpoint for SP initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs-out.
+Having imported the application's federation metadata.xml then provides the APM with the Azure AD SAML SLO endpoint for SP initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs-out.
 
 Consider a scenario where a BIG-IP web portal isn't used, the user has no way of instructing the APM to sign out. Even if the user signs-out of the application itself, the BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason SP initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required.
 
-One way of achieving this would be to add an SLO function to your
-applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations** > **Endpoints**.
+One way of achieving this would be to add an SLO function to your applications sign out button, so that it can redirect your client to the Azure AD SAML sign-out endpoint. The SAML sign-out endpoint for your tenant can be found in **App Registrations** > **Endpoints**.
 
-If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in [article K42052145](https://support.f5.com/csp/article/K42052145) and [article K12056](https://support.f5.com/csp/article/K12056) from F5.
+If making a change to the app is a no go then consider having the BIG-IP listen for the apps sign-out call, and upon detecting the request have it trigger SLO. More details on using BIG-IP iRules to achieve this are available in F5's [article K42052145](https://support.f5.com/csp/article/K42052145) and [article K12056](https://support.f5.com/csp/article/K12056).
 
 ## Summary
 
@@ -388,16 +384,12 @@ For increased security, organizations using this pattern could also consider blo
 
 ## Next steps
 
-From a browser, connect to the application's external URL or select the application's icon in the MyApps portal. After authenticating to Azure AD, you'll be redirected to the BIG-IP virtual server for the application and prompted for a password.
-
->[!Note]
->The APM pre-fills the username with the UPN from Azure AD.
+From a browser, connect to the application's external URL or select the application's icon in the MyApps portal. After authenticating to Azure AD, you’ll be redirected to the BIG-IP endpoint for the application and prompted for a password. Note how the APM pre-fills the username with the UPN from Azure AD. The username pre-populated by the APM is read only to ensure session consistency between Azure AD and backend application. This field could be hidden from view with additional configuration, if necessary.
 
 ![Sceenshot shows secured sso](./media/f5-big-ip-forms-advanced/secured-sso.png)
 
 Once submitted, the user should be automatically signed into the
-application and the password cached for reuse against any other
-applications published using the FBA SSO access profile.
+application.
 
 ![Sceenshot shows welcome message](./media/f5-big-ip-forms-advanced/welcome-message.png)
 

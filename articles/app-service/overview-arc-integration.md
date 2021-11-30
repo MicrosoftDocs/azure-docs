@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 08/17/2021
+ms.date: 11/02/2021
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -27,6 +27,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
 | Feature: Key vault references                           | Not available (depends on managed identities)                                         |
@@ -118,6 +119,31 @@ When creating a Kubernetes environment resource, some subscriptions may see a "N
 ### Can I deploy the Application services extension on an ARM64 based cluster?
 
 ARM64 based clusters are not supported at this time.  
+
+## Extension Release Notes
+
+### Application services extension v 0.9.0 (May 2021)
+
+- Initial public preview release of Application services extension.
+- Support for code and container-based deployments of Web, Function, and Logic Applications.
+- Web application runtime support - .NET 3.1 and 5.0; Node JS 12 and 14; Python 3.6, 3.7, and 3.8; PHP 7.3 and 7.4; Ruby 2.5, 2.5.5, 2.6, and 2.6.2; Java SE 8u232, 8u242, 8u252, 11.05, 11.06 and 11.07; Tomcat 8.5, 8.5.41, 8.5.53, 8.5.57, 9.0, 9.0.20, 9.0.33, and 9.0.37.
+
+### Application services extension v 0.10.0 (November 2021)
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to enabled the extension will upgrade automatically.  To manually upgrade the extension to the latest version of the extension you can run the command below
+
+- Removed requirement for pre-assigned Static IP Address required for assignment to the Envoy endpoint
+- Upgrade Keda to v2.4.0
+- Upgrade Envoy to v1.19.0
+- Upgrade Azure Function runtime to v3.3.1
+- Set default replica count of App Controller and Envoy Controller to 2 to add further stability
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
+```
+
 
 ## Next steps
 

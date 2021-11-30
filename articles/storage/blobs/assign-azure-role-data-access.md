@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 11/03/2021
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 # Assign an Azure role for access to blob data
 
-Azure Active Directory (Azure AD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data.
+Azure Active Directory (AAD) authorizes access rights to secured resources through [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of Azure built-in roles that encompass common sets of permissions used to access blob data.
 
 When an Azure role is assigned to an Azure AD security principal, Azure grants access to those resources for that security principal. An Azure AD security principal may be a user, a group, an application service principal, or a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -57,14 +57,14 @@ To assign an Azure role to a security principal with PowerShell, call the [New-A
 
 The format of the command can differ based on the scope of the assignment, but the `-ObjectId` and `-RoleDefinitionName` are required parameters. Passing a value for the `-Scope` parameter, while not required, is highly recommended to retain the principle of least privilege. By limiting roles and scopes, you limit the resources which are at risk if the security principal is ever compromised.
 
-The `-ObjectId` parameter is the Azure active directory (AAD) object ID of the user, group or service principal to which the role will be assigned. To retrieve the identifier, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to filter Azure Active Directory users. The ID has the format: `nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn`. 
+The `-ObjectId` parameter is the Azure Active Directory (AAD) object ID of the user, group or service principal to which the role will be assigned. To retrieve the identifier, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to filter Azure Active Directory users, as shown in the following example.
 
 ```azurepowershell
 Get-AzADUser -DisplayName '<Display Name>'
 (Get-AzADUser -StartsWith '<substring>').Id
 ```
 
-The first response returns the service principal name (SPN), and the second returns the SPN's object ID.
+The first response returns the security principal, and the second returns the security principal's object ID.
 
 ```Response
 UserPrincipalName : markpdaniels@contoso.com
@@ -105,7 +105,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-The following example assigns the **Storage Blob Data Reader** role to a user with a specific SPN object ID, scoped to a storage account named **storage-account**. Make sure to replace the sample values and the placeholder values in brackets with your own values:
+The following example assigns the **Storage Blob Data Reader** role to a user by specifying the object ID. The role assignment is scoped to a storage account named **storage-account**. Make sure to replace the sample values and the placeholder values in brackets with your own values: 
 
 ```powershell
 New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
@@ -113,7 +113,7 @@ New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storage-account"
 ```
 
-The response returns the service principal name (SPN), and the second returns the SPN's object ID.
+Your output should be similar to the following:
 
 ```Response
 RoleAssignmentId   : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>

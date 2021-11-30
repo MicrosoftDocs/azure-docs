@@ -113,7 +113,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## Set time to live on a container using SDK
 
-To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted. You can optionally set `TimeToLivePropertyPath`, which will use a different property instead of the system-generated `_ts` property to determine which items to delete based on TTL.
+To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted.
 
 ### <a id="dotnet-enable-withexpiry"></a> .NET SDK
 
