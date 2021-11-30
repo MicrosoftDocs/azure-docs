@@ -1,5 +1,5 @@
 ---
-title: What is the SQL Server IaaS Agent extension? (Windows) 
+title: What is the SQL Server IaaS Agent extension? (Windows)
 description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Windows Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/26/2021 
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-fall-2021
 ---
 # Automate management with the Windows SQL Server IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -77,7 +77,8 @@ The following table details these benefits:
 | **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 
 | **Flexible licensing** | Save on cost by [seamlessly transitioning](licensing-model-azure-hybrid-benefit-ahb-change.md) from the bring-your-own-license (also known as the Azure Hybrid Benefit) to the pay-as-you-go licensing model and back again. <br/> Management mode: Lightweight & full| 
 | **Flexible version / edition** | If you decide to change the [version](change-sql-server-version.md) or [edition](change-sql-server-edition.md) of SQL Server, you can update the metadata within the Azure portal without having to redeploy the entire SQL Server VM.  <br/> Management mode: Lightweight & full| 
-| **Security Center Portal integration** | If you've enabled [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md), then you can view Security Center recommendations directly in the [SQL virtual machines](manage-sql-vm-portal.md) resource of the Azure portal. See [Security best practices](security-considerations-best-practices.md) to learn more.  <br/> Management mode: Lightweight & full| 
+| **Defender for Cloud portal integration** | If you've enabled [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md), then you can view Defender for Cloud recommendations directly in the [SQL virtual machines](manage-sql-vm-portal.md) resource of the Azure portal. See [Security best practices](security-considerations-best-practices.md) to learn more.  <br/> Management mode: Lightweight & full|
+| **SQL Assessment (Preview)** | Enables you to assess the health of your SQL Server VMs using configuration best practices. For more information, see [SQL Assessment](sql-assessment-for-sql-vm.md).  <br/> Management mode: Full| 
 
 
 ## Management modes

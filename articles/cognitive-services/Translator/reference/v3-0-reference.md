@@ -26,22 +26,16 @@ Version 3 of the Translator provides a modern JSON-based Web API. It improves us
 
 ## Base URLs
 
-Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 10 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
+Requests to Translator are, in most cases, handled by the datacenter that is closest to where the request originated. If there is a datacenter failure when using the global endpoint, the request may be routed outside of the geography.
 
-* **Americas:** East US, South Central US, West Central US, and West US 2
-* **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
-* **Europe:** North Europe, West Europe
+To force the request to be handled within a specific geography, use the desired geographical endpoint. All requests are processed among the datacenters within the geography. 
 
-Requests to the Microsoft Translator are in most cases handled by the datacenter that is closest to where the request originated. If there is a datacenter failure, the request may be routed outside of the geography.
-
-To force the request to be handled by a specific geography, change the Global endpoint in the API request to the desired geographical endpoint:
-
-|Geography|Base URL (geographical endpoint)|
-|:--|:--|
-|Global (non-regional)|    api.cognitive.microsofttranslator.com|
-|United States|    api-nam.cognitive.microsofttranslator.com|
-|Europe|    api-eur.cognitive.microsofttranslator.com|
-|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|
+|Geography|Base URL (geographical endpoint)|Datacenters|
+|:--|:--|:--|
+|Global (non-regional)|    api.cognitive.microsofttranslator.com|Closest available datacenter|
+|Asia Pacific|    api-apc.cognitive.microsofttranslator.com|Korea South, Japan East, Southeast Asia, and Australia East|
+|Europe|    api-eur.cognitive.microsofttranslator.com|North Europe, West Europe|
+|United States|    api-nam.cognitive.microsofttranslator.com|East US, South Central US, West Central US, and West US 2|
 
 <sup>1</sup> Customers with a resource located in Switzerland North or Switzerland West can ensure that their Text API requests are served within Switzerland. To ensure that requests are handled in Switzerland, create the Translator resource in the ‘Resource region’ ‘Switzerland North’ or ‘Switzerland West’, then use the resource’s custom endpoint in your API requests. For example: If you create a Translator resource in Azure portal with ‘Resource region’ as ‘Switzerland North’ and your resource name is ‘my-ch-n’, then your custom endpoint is “https://my-ch-n.cognitiveservices.azure.com”. And a sample request to translate is:
 ```curl
@@ -120,8 +114,6 @@ When you use a multi-service secret key, you must include two authentication hea
 |Ocp-Apim-Subscription-Region| The value is the region of the multi-service resource. |
 
 Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
-
-Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, and `southafricanorth`.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 

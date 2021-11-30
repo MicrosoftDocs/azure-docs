@@ -6,12 +6,15 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 09/27/2021
+ms.date: 10/26/2021
 ---
 
 # Detailed configuration for hosted test drives
 
 This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement & Power Apps or Dynamics 365 for Operations.
+
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Configure for Dynamics 365 Customer Engagement & Power Apps
 
@@ -24,7 +27,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
 4. On the **Offer setup** page, select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
-    [ ![Illustrates selecting the 'Enable a test drive' check box.](./media/test-drive/enable-test-drive-check-box-workspaces.png) ](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
+    [![Illustrates selecting the 'Enable a test drive' check box.](./media/test-drive/enable-test-drive-check-box-workspaces.png)](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
 
     - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 

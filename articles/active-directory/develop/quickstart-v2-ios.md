@@ -5,7 +5,6 @@ description: In this quickstart, learn how an iOS or macOS app can sign in users
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:iOS", mode-other
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS or macOS application.
 ---
 
@@ -87,7 +86,8 @@ The quickstart applies to both iOS and macOS apps. Some steps are needed only fo
 
 #### Step 3: Install dependencies
 
-In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
+1. Extract the zip file.
+2. In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 4: Your app is configured and ready to run
@@ -98,7 +98,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > [!div renderon="docs"]
 > #### Step 4: Configure your project
 > If you selected Option 1 above, you can skip these steps.
-> 1. Extract the zip file and open the project in XCode.
+> 1. Open the project in XCode.
 > 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
 >
 >    ```swift
@@ -119,9 +119,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    let kAuthority = "https://login.microsoftonline.de/common"
 >    ```
 
-> 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
-> 1. Right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. Under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal.
+> 3. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
+> 4. Right-click **Info.plist** and select **Open As** > **Source Code**.
+> 5. Under the dict root node, replace `Enter_the_bundle_Id_Here` with the ***Bundle Id*** that you used in the portal. Notice the `msauth.` prefix in the string.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -135,7 +135,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    </array>
 >    ```
 
-> 1. Build and run the app!
+> 6. Build and run the app!
 
 ## More Information
 
@@ -161,7 +161,7 @@ end
 
 Run CocoaPods installation command:
 
-`podinstall`
+`pod install`
 
 ### Initialize MSAL
 

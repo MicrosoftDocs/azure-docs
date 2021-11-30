@@ -3,13 +3,12 @@ title: 'Create a Bastion host using Azure PowerShell | Microsoft Docs'
 description: Learn how to create an Azure Bastion host using PowerShell.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 09/22/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create an Azure Bastion host using Azure PowerShell
@@ -20,7 +19,7 @@ Optionally, you can create an Azure Bastion host by using the following methods:
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure CLI](create-host-cli.md)
 
-[!INCLUDE [Note about SKU limitations for preview.](../../includes/bastion-preview-sku-note.md)]
+[!INCLUDE [About SKUs](../../includes/bastion-sku-note.md)]
 
 ## Prerequisites
 

@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE 50 PERCENT;
 ```
 
-Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time. When querying this table, the multi-column statistics will improve cardinality estimations for joins, GROUP BY aggregations, distinct counts, and WHERE filters (so long as the primary statistics column is a part of the filter).
 
 #### Create statistics on all columns in a table
 

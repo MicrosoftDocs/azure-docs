@@ -67,13 +67,9 @@ For how to register Data Factory in Azure Purview, see [How to connect Azure Dat
 
 Data factory's managed identity is used to authenticate lineage push operations from data factory to Purview. 
 
-- For Purview account created **on or after August 18, 2021**, grant the data factory's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
+Grant the data factory's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
-
-- For Purview account created **before August 18, 2021**, grant the data factory's managed identity Azure built-in [**Purview Data Curator (Legacy)**](../role-based-access-control/built-in-roles.md#purview-data-curator-legacy) role on your Purview account. Learn more about [Access control in Azure Purview - legacy permissions](../purview/catalog-permissions.md#legacy-permission-guide).
-
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
+When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
 ## Monitor Purview connection
 

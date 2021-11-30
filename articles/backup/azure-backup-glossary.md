@@ -181,7 +181,7 @@ Restoring individual files or folders inside the machine from the recovery point
 
 ## Job
 
-A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 ## MABS / Azure Backup Server
 

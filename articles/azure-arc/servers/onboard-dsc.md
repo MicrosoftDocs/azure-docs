@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # How to install the Connected Machine agent using Windows PowerShell DSC
 
-Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Arc-enabled servers Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
@@ -38,7 +38,7 @@ Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc
 
 ## Install the agent and connect to Azure
 
-The resources in this module are designed to manage the Azure Connected Machine Agent configuration. Also included is a PowerShell script `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder. It uses community resources to automate the download and installation, and establish a connection with Azure Arc. This script performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
+The resources in this module are designed to manage the Azure Connected Machine agent configuration. Also included is a PowerShell script `AzureConnectedMachineAgent.ps1`, found in the `AzureConnectedMachineDsc\examples` folder. It uses community resources to automate the download and installation, and establish a connection with Azure Arc. This script performs similar steps described in the [Connect hybrid machines to Azure from the Azure portal](onboard-portal.md) article.
 
 If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described [here](manage-agent.md#update-or-remove-proxy-settings). This sets the proxy server system environment variable `https_proxy`. Instead of running the command manually, you can perform this step with DSC by using the [ComputeManagementDsc](https://www.powershellgallery.com/packages/ComputerManagementDsc) module. Using this configuration, the agent communicates through the proxy server using the HTTP protocol.
 

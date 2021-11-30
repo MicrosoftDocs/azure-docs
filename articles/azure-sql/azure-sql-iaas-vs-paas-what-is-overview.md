@@ -26,11 +26,13 @@ Azure SQL is built upon the familiar SQL Server engine, so you can migrate appli
 
 Learn how each product fits into Microsoft's Azure SQL data platform to match the right option for your business requirements. Whether you prioritize cost savings or minimal administration, this article can help you decide which approach delivers against the business requirements you care about most.
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 If you're new to Azure SQL, check out the *What is Azure SQL* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/What-is-Azure-SQL-3-of-61/player]
 
-> [!TIP]
-> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
+
 
 ## Overview
 
@@ -110,7 +112,7 @@ In general, SQL Database and SQL Managed Instance can dramatically increase the 
 | :--- | :--- | :--- |
 |Supports most on-premises database-level capabilities. The most commonly used SQL Server features are available.<br/>99.995% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Ability to assign necessary resources (CPU/storage) to individual databases.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).| Supports almost all on-premises instance-level and database-level capabilities. High compatibility with SQL Server.<br/>99.99% availability guaranteed.<br/>Built-in backups, patching, recovery.<br/>Latest stable Database Engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure Virtual Network.<br/>Built-in advanced intelligence and security.<br/>Online change of resources (CPU/storage).| You have full control over the SQL Server engine. Supports all on-premises capabilities.<br/>Up to 99.99% availability.<br/>Full parity with the matching version of on-premises SQL Server.<br/>Fixed, well-known Database Engine version.<br/>Easy migration from SQL Server.<br/>Private IP address within Azure Virtual Network.<br/>You have the ability to deploy application or services on the host where SQL Server is placed.|
 |Migration from SQL Server might be challenging.<br/>Some SQL Server features are not available.<br/>No guaranteed exact maintenance time (but nearly transparent).<br/>Compatibility with the SQL Server version can be achieved only using database compatibility levels.<br/>Private IP address support with [Azure Private Link](database/private-endpoint-overview.md).|There is still some minimal number of SQL Server features that are not available.<br/>No guaranteed exact maintenance time (but nearly transparent).<br/>Compatibility with the SQL Server version can be achieved only using database compatibility levels.|You need to manage your backups and patches.<br>You need to implement your own High-Availability solution.<br/>There is a downtime while changing the resources(CPU/storage)|
-| Databases of up to 100 TB. | Up to 8 TB. | SQL Server instances with up to 256 TB of storage. The instance can support as many databases as needed. |
+| Databases of up to 100 TB. | Up to 16 TB. | SQL Server instances with up to 256 TB of storage. The instance can support as many databases as needed. |
 | On-premises application can access data in Azure SQL Database. | [Native virtual network implementation](managed-instance/vnet-existing-add-subnet.md) and connectivity to your on-premises environment using Azure Express Route or VPN Gateway. | With SQL virtual machines, you can have applications that run partly in the cloud and partly on-premises. For example, you can extend your on-premises network and Active Directory Domain to the cloud via [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). For more information on hybrid cloud solutions, see [Extending on-premises data solutions to the cloud](/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 
 
@@ -171,5 +173,6 @@ For **SQL on Azure VM**, Microsoft provides an availability SLA of 99.95% that c
 - See [Your first Azure SQL Database](database/single-database-create-quickstart.md) to get started with SQL Database.
 - See [Your first Azure SQL Managed Instance](managed-instance/instance-create-quickstart.md) to get started with SQL Managed Instance. 
 - See [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+- See [Azure SQL Managed Instance pricing](https://azure.microsoft.com/pricing/details/azure-sql-managed-instance/single/).
 - See [Provision a SQL Server virtual machine in Azure](virtual-machines/windows/create-sql-vm-portal.md) to get started with SQL Server on Azure VMs.
 - [Identify the right SQL Database or SQL Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

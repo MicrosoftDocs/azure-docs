@@ -20,6 +20,13 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) now provides the means to validate dynamic group rules (in public preview). On the **Validate rules** tab, you can validate your dynamic rule against sample group members to confirm the rule is working as expected. When creating or updating dynamic group rules, administrators want to know whether a user or a device will be a member of the group. This helps evaluate whether user or device meets the rule criteria and aid in troubleshooting when membership is not expected.
 
+## Prerequisites
+To use the evaluate dynamic group rule membership feature, the administrator must have one of the following rules assigned directly: Global Administrator, Groups Administrator, or Intune Administrator.
+
+> [!TIP]
+> Assigning one of required roles via indirect group membership is not yet supported.
+>
+
 ## Step-by-step walk-through
 
 To get started, go to **Azure Active Directory** > **Groups**. Select an existing dynamic group or create a new dynamic group and click on Dynamic membership rules. You can then see the **Validate Rules** tab.

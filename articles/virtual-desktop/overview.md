@@ -61,7 +61,7 @@ We support the following operating systems, so make sure you have the [appropria
 |---|---|
 |Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
-|Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
+|Windows Server 2012 R2, 2016, 2019, 2022|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Azure Virtual Desktop:
 
@@ -122,6 +122,7 @@ Azure Virtual Desktop follows the [Microsoft Lifecycle Policy](/lifecycle/) and 
 * Windows 10 Enterprise multi-session
 * Windows 10 Enterprise
 * Windows 7 Enterprise
+* Windows Server 2022
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
@@ -137,6 +138,7 @@ Available automation and deployment options depend on which OS and version you c
 |Windows 10 Enterprise multi-session, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 10 Enterprise, version 1909 and later|Yes|Yes|Yes|Yes|
 |Windows 7 Enterprise|Yes|Yes|No|No|
+|Windows Server 2022|Yes|Yes|No|No|
 |Windows Server 2019|Yes|Yes|No|No|
 |Windows Server 2016|Yes|Yes|Yes|Yes|
 |Windows Server 2012 R2|Yes|Yes|No|No|

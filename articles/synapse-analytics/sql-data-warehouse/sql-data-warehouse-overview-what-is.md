@@ -52,7 +52,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 Or look at some of these other Azure Synapse resources.
 
 - Search [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- Submit a [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+- Submit a [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 - [Create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 - Search [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - Search [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

@@ -27,6 +27,9 @@ When you use the managed storage account key feature, consider the following poi
 - Only a single Key Vault object should manage storage account keys. Don't allow key management from multiple objects.
 - Regenerate keys by using Key Vault only. Don't manually regenerate your storage account keys.
 
+> [!IMPORTANT]
+> Regenerating key directly in storage account breaks managed storage account setup and can invalidate SAS tokens in use and cause an outage.
+
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Service principal application ID
