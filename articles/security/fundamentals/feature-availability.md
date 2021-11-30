@@ -286,7 +286,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Cisco Umbrella](../../sentinel/data-connectors-reference.md#cisco-umbrella-preview) | Public Preview | Public Preview |
 | - [Cisco UCS](../../sentinel/data-connectors-reference.md#cisco-unified-computing-system-ucs-preview) | Public Preview | Public Preview |
 | - [Cisco Firepower EStreamer](../../sentinel/connect-data-sources.md) | Public Preview | Public Preview |
-| - [Cisco Web Security Appliace (WSA)](/azure/sentinel/sentinel-solutions-catalog#cisco) | Public Preview | Not Available |
+| - [Cisco Web Security Appliance (WSA)](/azure/sentinel/sentinel-solutions-catalog#cisco) | Public Preview | Not Available |
 | - [Citrix Analytics WAF](../../sentinel/data-connectors-reference.md#citrix-web-app-firewall-waf-preview) | GA | GA |
 | - [Cloudflare](/azure/sentinel/sentinel-solutions-catalog#cloudflare) | Public Preview | Not Available |
 | - [Common Event Format (CEF)](../../sentinel/connect-common-event-format.md) | GA | GA |
