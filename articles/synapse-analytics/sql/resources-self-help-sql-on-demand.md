@@ -134,7 +134,7 @@ This error indicates that you are using an object (table or view) that doesn't e
 - If you see the object, check are you using some case-sensitive/binary database collation. Maybe the object name does not match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
 - If you don't see the object, maybe you are trying to query a table from a Lake/Spark database. There are a few reasons why the table might not be available in the serverless pool:
   - The table has some column types that cannot be represented in serverless SQL.
-  - The table has a format that is not supported in serverless SQL pool (Delta, ORC, etc).
+  - The table has a format that is not supported in serverless SQL pool (Delta, ORC, etc.)
 
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
@@ -715,10 +715,10 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application ID from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
-Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
+Navigate to Azure portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
 
 #### Solution #2
 You need to manually create a proper login through SQL code:
