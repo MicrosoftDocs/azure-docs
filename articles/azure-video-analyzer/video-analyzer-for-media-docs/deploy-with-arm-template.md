@@ -100,7 +100,7 @@ If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
 
 * [Azure Video Analyzer for Media Documentation](https://aka.ms/vi-docs)
 * [Azure Video Analyzer for Media Developer Portal](https://aka.ms/vi-docs)
-* After completing this tutorial, head to other Azure Video Analyzer for media Samples, described on [README.md](../../README.md)
+* After completing this tutorial, head to other Azure Video Analyzer for Media samples, described on [README.md](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/README.md)
 
 If you're new to template deployment, see:
 
