@@ -110,11 +110,11 @@ When you create your consulting service offer in Partner Center, you’ll enter 
 7. Offer name
 8. Search result summary
 9. Description
-10. Screenshots/videos
+10. Promotional media
 11. Supporting documents
 
 > [!NOTE]
-> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in &lt;language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
+> If you’ll deliver your service in a language other than English, the offer listing can be in that language, but the description must begin or end with the English phrase “This service is available in <language of your offer content>”. You can also provide supporting documents in a language that's different from the one used in the offer listing details.
 
 To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
 
