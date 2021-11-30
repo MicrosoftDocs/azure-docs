@@ -13,22 +13,22 @@ ms.date: 11/30/2021
 # From Apache Cassandra to Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB Cassandra API provides wire protocol level compatibility with existing Cassandra SDKs and tools. This makes it possible to run applications designed to connect to Apache Cassandra with Cassandra API, potentially with no code changes. However, there are some important differences between Apache Cassandra and Azure Cosmos DB. 
+Azure Cosmos DB Cassandra API provides wire protocol level compatibility with existing Cassandra SDKs and tools. This compatibility makes it possible to run applications designed to connect to Apache Cassandra with Cassandra API, with minimal changes. However, there are some important differences between Apache Cassandra and Azure Cosmos DB. 
 
 This article is aimed at users who are familiar with native [Apache Cassandra](https://cassandra.apache.org/), and are considering moving to Azure Cosmos DB Cassandra API. Consider this a checklist to help you adopt Cassandra API successfully.  
 
 
 ## Feature support
 
-While Cassandra API supports a large surface area of Apache Cassandra features, there are some features which are not supported, or have limitations. You should review our article [features supported by Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure the features you need are supported. 
+While Cassandra API supports a large surface area of Apache Cassandra features, there are some features which are not supported (or have limitations). You should review our article [features supported by Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure the features you need are supported. 
 
 ## Replication (migration)
 
-Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements it's own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). 
+Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). 
 
 ## Replication (consistency)
 
- Although there are many similarities between Apache Cassandra's approach to replication consistency, there are also important differences. We have provided a [mapping document](apache-cassandra-consistency-mapping.md) which attempts to draw analogues between the two. However, we highly recommend that you take time to review and understand Azure Cosmos DB consistency settings in our [documentation](../consistency-levels.md) from scratch, or watch this short [video](https://www.youtube.com/watch?v=t1--kZjrG-o) guide to understanding consistency settings in the Azure Cosmos DB platform.
+ Although there are many similarities between Apache Cassandra's approach to replication consistency, there are also important differences. We have provided a [mapping document](apache-cassandra-consistency-mapping.md), which attempts to draw analogs between the two. However, we highly recommend that you take time to review and understand Azure Cosmos DB consistency settings in our [documentation](../consistency-levels.md) from scratch, or watch this short [video](https://www.youtube.com/watch?v=t1--kZjrG-o) guide to understanding consistency settings in the Azure Cosmos DB platform.
 
 
 ## Recommended client configurations
@@ -37,12 +37,12 @@ While you should not need to make any substantial code changes to existing apps 
 
 ## Code samples
 
-Your existing application code should work with Cassandra API. However, in case of error, we highly recommend referring to our [Quick Start samples](manage-data-java-v4-sdk) as a starting point to determine any minor differences in setup with your existing code. In addition, we have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. Note that these code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement the recommended client configurations mentioned above. We also have samples for Java [Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
+Your existing application code should work with Cassandra API. However, in case of error, we highly recommend referring to our [Quick Start samples](manage-data-java-v4-sdk) as a starting point to determine any minor differences in setup with your existing code. In addition, we have more in-depth samples for [Java v3](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample) and [Java v4](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4) drivers. These code samples implement custom [extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.0), which in turn implement the recommended client configurations mentioned above. We also have samples for Java [Spring Boot (v3 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v3) and [Spring Boot (v4 driver)](https://github.com/Azure-Samples/spring-data-cassandra-on-azure-extension-v4.git).  
 
 
 ## Storage
 
-Cassandra API is ultimately backed by Azure Cosmos DB, which is a document oriented NoSQL engine. Cosmos DB maintains metadata which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. This is most noticeable in the case of very small row sizes. In some cases this may be offset by the fact that Cosmos DB does not implement compaction or tombstones, but this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
+Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-oriented NoSQL engine. Cosmos DB maintains metadata which may result in a difference between the amount of physical storage for a given workload between native Apache Cassandra and Cassandra API. This is most noticeable in the case of very small row sizes. In some cases, this may be offset by the fact that Cosmos DB does not implement compaction or tombstones. However, this will depend significantly on the workload. We recommend carrying out a POC if you are uncertain about storage requirements. 
 
 ## Multi-region deployments
 
@@ -52,7 +52,7 @@ We recommend reviewing the [Load balancing policy section](https://devblogs.micr
 
 ## Request Units
 
-One of the major differences between running a native Apache Cassandra cluster, and provisioning an Azure Cosmos DB account, is the way in which database capacity is provisioned. In traditional databases, capacity is expressed in terms of CPU cores, RAM, and IOPs. However, Azure Cosmos DB is a multi-tenant platform-as-a-service database. Capacity is expressed using a single normalized metric known as request units (RU/s). Every request sent to the database has an "RU cost", and each request can be profiled to determine it's cost. 
+One of the major differences between running a native Apache Cassandra cluster, and provisioning an Azure Cosmos DB account, is the way in which database capacity is provisioned. In traditional databases, capacity is expressed in terms of CPU cores, RAM, and IOPs. However, Azure Cosmos DB is a multi-tenant platform-as-a-service database. Capacity is expressed using a single normalized metric known as request units (RU/s). Every request sent to the database has an "RU cost", and each request can be profiled to determine its cost. 
 
 The benefit of this is that database capacity can be provisioned deterministically for highly predictable performance and efficiency. This is because it is possible to associate the capacity you need to provision directly with the number of requests sent to the database (once you have profiled the cost of each request). The challenge with this way of provisioning capacity is that, in order to maximize the extent to which you can benefit from it, you need to have a more solid understanding of the throughput characteristics of your workload than you may have been used to. 
 
@@ -65,7 +65,7 @@ We highly recommend profiling your requests and using this information to help y
 
 ## Capacity provisioning models
 
-Traditional database provisioning is generally based on a fixed capacity that has to be provisioned up front in order to cope with the anticipated throughput. Cosmos DB offers a capacity based model known as [provisioned throughput](../set-throughput.md). However, as a multi-tenant service, it is also able to offer *consumption* based models, in the form of [autoscale](../provision-throughput-autoscale.md) and [serverless](../serverless.md). The extent to which your workload will benefit from each type depends on the predictability of throughput. 
+Traditional database provisioning is generally based on a fixed capacity that has to be provisioned up front in order to cope with the anticipated throughput. Cosmos DB offers a capacity-based model known as [provisioned throughput](../set-throughput.md). However, as a multi-tenant service, it is also able to offer *consumption-based* models, in the form of [autoscale](../provision-throughput-autoscale.md) and [serverless](../serverless.md). The extent to which your workload will benefit from each type depends on the predictability of throughput. 
 
 Generally speaking, workloads with large periods of dormancy will benefit from serverless. Steady state workloads with predictable throughput benefit most from provisioned throughput. Workloads which have a continuous level of minimal throughput, but with very unpredictable spikes, will benefit most from autoscale. We recommend reviewing the links below to help you understand the best capacity model for your throughput needs:
 
