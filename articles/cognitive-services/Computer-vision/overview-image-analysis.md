@@ -27,7 +27,7 @@ You can use Image Analysis through a client library SDK or by calling the [REST 
 
 You can also try out the capabilities of Image Analysis quickly and easily in your browser using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
