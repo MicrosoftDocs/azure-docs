@@ -4,7 +4,7 @@ description: Describes the logical parameter pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 12/01/2021
 ---
 # Logical parameter pattern
 
