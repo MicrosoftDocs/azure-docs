@@ -17,9 +17,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Understanding Account Location
 
-Picking a location of the Map account affects the [control-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) operations on the resource. An example is credential management between Azure Maps Account and Azure Managed Identities. For the case of creating resources in the same Azure location such as `West US 2` enables the Azure resource providers to communicate reliably for resource provisioning and deployment. 
+Picking a location for your Azure Maps account that aligns with other resources in your subscription, like Managed Identities, may help to improve the level of service for [control-plane](../azure-resource-manager/management/control-plane-and-data-plane.md) operations.
 
-Any Azure Maps REST API on endpoint `atlas.microsoft.com` or other endpoints belong to the Azure data-plane and are not affected by the choice of the Azure Maps account location. 
+Any Azure Maps REST API on endpoint `atlas.microsoft.com`, `*.atlas.microsoft.com`, or other endpoints belonging to the Azure data-plane and are not affected by the choice of the Azure Maps account location. 
 
 Read more about data-plane service coverage for Azure Maps services on [geographic coverage](./geographic-coverage.md).
 

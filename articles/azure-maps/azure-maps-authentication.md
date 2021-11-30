@@ -152,7 +152,7 @@ Assigning a role assignment to a resource group can enable access to multiple Az
 
 [!INCLUDE [preview features callout](./includes/preview-callout.md)]
 
-Shared Access Signature tokens (SAS) are authentication tokens which are composed from JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST APIs. A SAS token is created by first integrating an existing or new Azure User Assigned Managed Identity to an Azure Map account of your Azure subscription. The User Assigned Managed Identity is given authorization to the Azure Map account through Azure RBAC using one of the built-in or custom role definitions.
+Shared Access Signature tokens (SAS) are authentication tokens which are composed from JSON Web token (JWT) format and are cryptographically signed to prove authentication for an application to the Azure Maps REST API. A SAS token is created by first integrating an existing or new Azure User Assigned Managed Identity to an Azure Map account of your Azure subscription. The User Assigned Managed Identity is given authorization to the Azure Map account through Azure RBAC using one of the built-in or custom role definitions.
 
 Functional key differences of SAS token from Azure AD Access tokens:
 
@@ -334,6 +334,23 @@ Azure Maps does not count billing transactions for:
 - CORS preflight requests
 
 For understanding pricing tiers read more on [choosing a pricing tier](./choose-pricing-tier.md).
+
+## Remove a managed identity
+
+You can remove a system-assigned identity by disabling the feature through the portal or the Azure Resource Manager template in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to `"None"`.
+
+Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the Azure Maps account is deleted.
+
+To remove all identities by using the Azure Resource Manager template, update this section:
+
+```json
+"identity": {
+    "type": "None"
+}
+```
+
+> [!WARNING]
+> SAS tokens authentication failures may occur when removing or deleting a managed identity which was used for SAS token creation, this usually caused by deleting the Azure Active Directory service principal object. To prevent this application interruption, we recommend using a second identity and distribute SAS tokens based on the new identity before removing the old.
 
 ## Next steps
 
