@@ -5,11 +5,11 @@ description: In this quickstart, learn how to send SMS messages in Azure Logic A
 author: tophpalmer
 manager: anvalent
 services: azure-communication-services
-
 ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 
 # Quickstart: Send SMS messages in Azure Logic Apps with Azure Communication Services

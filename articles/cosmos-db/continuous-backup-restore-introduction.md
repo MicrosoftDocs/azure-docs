@@ -24,7 +24,7 @@ Azure Cosmos DB performs data backup in the background without consuming any ext
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
-The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore. you can [get latest restorable timestamp](get-latest-restore-timestamp.md) in that region to ensure you have the backup to a given time and restore in given region.
+The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in that region to ensure that the resource has taken backups up to the given timestamp and can restore in that region.
 
 Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [Azure Command Line Interface](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or the [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 
@@ -95,13 +95,18 @@ For example, if you have 1-TB of data in two regions then:
 
 * Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
+## Customer-managed keys
+
+See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk.md#how-do-customer-managed-keys-affect-continuous-backups) to learn:
+
+- How to configure your Azure Cosmos DB account when using customer-managed keys in conjunction with continous backups.
+- How do customer-managed keys affect restores.
+
 ## Current limitations
 
 Currently the point in time restore functionality has the following limitations:
 
 * Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
-
-* Accounts with customer-managed keys are not supported to use continuous backup.
 
 * Multi-regions write accounts are not supported.
 
@@ -130,7 +135,7 @@ Currently the point in time restore functionality has the following limitations:
 ## Next steps
 
 * Provision continuous backup using [Azure portal](provision-account-continuous-backup.md#provision-portal), [PowerShell](provision-account-continuous-backup.md#provision-powershell), [CLI](provision-account-continuous-backup.md#provision-cli), or [Azure Resource Manager](provision-account-continuous-backup.md#provision-arm-template).
-* [Get the latest restore timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
+* [Get the latest restorable timestamp](get-latest-restore-timestamp.md) for SQL and MongoDB accounts.
 * Restore continuous backup account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [PowerShell](restore-account-continuous-backup.md#restore-account-powershell), [CLI](restore-account-continuous-backup.md#restore-account-cli), or [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
 * [Migrate to an account from periodic backup to continuous backup](migrate-continuous-backup.md).
 * [Manage permissions](continuous-backup-restore-permissions.md) required to restore data with continuous backup mode.

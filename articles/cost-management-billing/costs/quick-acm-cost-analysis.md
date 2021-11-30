@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy22q1
+ms.custom: contperf-fy22q1, mode-other
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2021
+ms.date: 11/11/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
@@ -31,6 +31,10 @@ Access tokens are sometimes referred to as "User+App" or "App-Only", depending o
 * ["Client credentials" authorization grant](#authorization-grant), the client provides the sole authentication, functioning without the resource-owner's authentication/authorization, so the token can sometimes be referred to as an "App-Only" token.
 
 See the [access tokens reference][AAD-Tokens-Claims] for more details.
+
+## actor
+
+Another term for the [client application](#client-application) - this is the party acting on behalf of the subject, or [resource owner](#resource-owner).
 
 ## application ID (client ID)
 
@@ -95,7 +99,7 @@ See the [Microsoft identity platform token reference][AAD-Tokens-Claims] for mor
 
 ## client application
 
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner). The term "client" does not imply any particular hardware implementation characteristics (for instance, whether the application executes on a server, a desktop, or other devices).
+Also known as the "[actor](#actor)".  As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an application that makes protected resource requests on behalf of the [resource owner](#resource-owner).  They receive permissions from the resource owner in the form of scopes. The term "client" does not imply any particular hardware implementation characteristics (for instance, whether the application executes on a server, a desktop, or other devices).  
 
 A client application requests [authorization](#authorization) from a resource owner to participate in an [OAuth2 authorization grant](#authorization-grant) flow, and may access APIs/data on the resource owner's behalf. The OAuth2 Authorization Framework [defines two types of clients][OAuth2-Client-Types], "confidential" and "public", based on the client's ability to maintain the confidentiality of its credentials. Applications can implement a [web client (confidential)](#web-client) which runs on a web server, a [native client (public)](#native-client) installed on a device, or a [user-agent-based client (public)](#user-agent-based-client) which runs in a device's browser.
 
@@ -129,8 +133,8 @@ A type of [client application](#client-application) that is installed natively o
 
 A [client application](#client-application) gains access to a [resource server](#resource-server) by declaring permission requests. Two types are available:
 
-* "Delegated" permissions, which specify [scope-based](#scopes) access using delegated authorization from the signed-in [resource owner](#resource-owner), are presented to the resource at run-time as ["scp" claims](#claim) in the client's [access token](#access-token).
-* "Application" permissions, which specify [role-based](#roles) access using the client application's credentials/identity, are presented to the resource at run-time as ["roles" claims](#claim) in the client's access token.
+* "Delegated" permissions, which specify [scope-based](#scopes) access using delegated authorization from the signed-in [resource owner](#resource-owner), are presented to the resource at run-time as ["scp" claims](#claim) in the client's [access token](#access-token). These indicate the permission granted to the [actor](#actor) by the [subject](#subject). 
+* "Application" permissions, which specify [role-based](#roles) access using the client application's credentials/identity, are presented to the resource at run-time as ["roles" claims](#claim) in the client's access token.  These indicate permissions granted to the [subject](#subject) by the tenant. 
 
 They also surface during the [consent](#consent) process, giving the administrator or resource owner the opportunity to grant/deny the client access to resources in their tenant.
 
@@ -146,7 +150,9 @@ See the [refresh tokens](refresh-tokens.md) for more details.
 
 ## resource owner
 
-As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end user. For example, when a [client application](#client-application) wants to access a user's mailbox through the [Microsoft Graph API][Microsoft-Graph], it requires permission from the resource owner of the mailbox.
+As defined by the [OAuth2 Authorization Framework][OAuth2-Role-Def], an entity capable of granting access to a protected resource. When the resource owner is a person, it is referred to as an end user. For example, when a [client application](#client-application) wants to access a user's mailbox through the [Microsoft Graph API][Microsoft-Graph], it requires permission from the resource owner of the mailbox. The "resource owner" is also sometimes called the [subject](#subject).
+
+Every [security token](#security-token) represents a resource owner.  The resource owner is what the subject [claim](#claim), object ID claim, and personal data in the token represent.  Resource owners are the party that grant delegated permissions to a client application, in the form of scopes.  Resource owners are also the recipients of [roles](#roles) that indicate expanded permissions within a tenant or on an application. 
 
 ## resource server
 
@@ -158,9 +164,11 @@ Just like a client application, resource application's identity configuration is
 
 ## roles
 
-Like [scopes](#scopes), roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. There are two types: a "user" role implements role-based access control for users/groups that require access to the resource, while an "application" role implements the same for [client applications](#client-application) that require access.
+Like [scopes](#scopes), app roles provide a way for a [resource server](#resource-server) to govern access to its protected resources. Unlike scopes, roles represent privileges that the [subject](#subject) has been granted beyond the baseline - this is why reading your own email is a scope, while being an email administrator that can read everyone's email is a role. 
 
-Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. The Azure portal is also used to assign users to "user" roles, and configure client [application permissions](#permissions) to access an "application" role.
+App roles can support two assignment types: "user" assignment implements role-based access control for users/groups that require access to the resource, while "application" assignment implements the same for [client applications](#client-application) that require access.  An app role can be defined as user-assignable, app-assignabnle, or both. 
+
+Roles are resource-defined strings (for example "Expense approver", "Read-only", "Directory.ReadWrite.All"), managed in the [Azure portal][AZURE-portal] via the resource's [application manifest](#application-manifest), and stored in the resource's [appRoles property][Graph-Sp-Resource]. The Azure portal is also used to assign users to "user" assignable roles, and configure client [application permissions](#permissions) to request "application" assignable roles.
 
 For a detailed discussion of the application roles exposed by the Microsoft Graph API, see [Graph API Permission Scopes][Graph-Perm-Scopes]. For a step-by-step implementation example, see [Add or remove Azure role assignments using the Azure portal][AAD-RBAC].
 
@@ -191,6 +199,10 @@ The sign-in function of an application is typically used to implement single-sig
 ## sign-out
 
 The process of unauthenticating an end user, detaching the user state associated with the [client application](#client-application) session during [sign-in](#sign-in)
+
+## subject
+
+Also known as the [resource owner](#resource-owner). 
 
 ## tenant
 

@@ -180,6 +180,8 @@ items:
         href: concepts/detailed-call-flows.md
       - name: User-facing diagnostics
         href: concepts/voice-video-calling/user-facing-diagnostics.md
+      - name: Media quality statistics
+        href: concepts/voice-video-calling/media-quality-sdk.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues
@@ -208,6 +210,8 @@ items:
     href: concepts/metrics.md
   - name: Azure Advisor
     href: concepts/advisor-overview.md
+  - name: Service limits
+    href: concepts/service-limits.md
   - name: Troubleshooting
     href: concepts/troubleshooting-info.md
 - name: How-to guides
