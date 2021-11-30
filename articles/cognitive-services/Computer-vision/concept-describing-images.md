@@ -21,7 +21,7 @@ Computer Vision can analyze an image and generate a human-readable sentence that
 Try out the image captioning features quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/public)
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Image description example
 

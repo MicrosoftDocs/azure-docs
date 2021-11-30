@@ -23,7 +23,7 @@ After uploading an image or specifying an image URL, Computer Vision algorithms 
 Try out the image tagging features quickly and easily in your browser using Vision Studio.
 
 > [!div class="nextstepaction"]
-> [Try Vision Studio](https://vision.cognitive.azure.com/public)
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 
 ## Image tagging example
 
