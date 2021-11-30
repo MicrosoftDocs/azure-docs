@@ -183,9 +183,9 @@ This is an estimate, actual rate limits vary slightly based on the Azure Maps ab
 As an example, single SAS token with a maximum limit defined with 10 may use throughput to the limit in the `East US` location. If that same token is used on the `West US 2` location a new counter of rate is allowed until the limit of 10. To control costs and improve predictability, we recommend:
 
 1. Create SAS tokens with designated allowed Azure locations for targeted geography. Continue reading to understand creating SAS tokens.
-1. Use geographic data-plane REST API endpoints, `https://us.atlas.microsof.com` or `https://eu.atlas.microsoft.com`.
+1. Use geographic data-plane REST API endpoints, `https://us.atlas.microsoft.com` or `https://eu.atlas.microsoft.com`.
 
-Consider the application topology where the possibility that endpoint `https://us.atlas.microsof.com` may route to a US Azure location where Azure Maps services are hosted such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geography endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. It may be beneficial to leverage a SAS token which contains the Azure locations which the applications will be consuming to prevent unexpected authorization denies. The definition of locations are defined from Azure Maps Management REST APIs.
+Consider the application topology where the possibility that endpoint `https://us.atlas.microsoft.com` may route to a US Azure location where Azure Maps services are hosted such as `East US`, `West Central US`, or `West US 2`. The same idea applies to other geography endpoints such as `https://eu.atlas.microsoft.com` between `West Europe` and `North Europe`. It may be beneficial to leverage a SAS token which contains the Azure locations which the applications will be consuming to prevent unexpected authorization denies. The definition of locations are defined from Azure Maps Management REST APIs.
 
 **Default rate limits precede over SAS token rate limits**
 
