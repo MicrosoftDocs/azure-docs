@@ -14,6 +14,7 @@ ms.service: azure-communication-services
 ---
 
 # Number Types
+Azure Communication Services allows you to use phone numbers to make voice calls and send SMS messages with the public-switched telephone network (PSTN). In this document, we'll review the phone number types, region availability, and use cases for planning your telephony and SMS solution using Communication Services.
 
 ## Available Options
 Azure Communication Services offers three types of Numbers: Toll-Free, Local, and Short Codes.
