@@ -112,7 +112,7 @@ To add more entities to your app
 
 1. Select **Entities** in the left navigation menu.
 2. Select **Create**
-3. Enter the intent name, `HomeAutomation.DeviceAlias`, select machine learned from **type** and then select **Create**.
+3. Enter the entity name, `HomeAutomation.DeviceAlias`, select machine learned from **type** and then select **Create**.
 
 ### Add example utterances
 
