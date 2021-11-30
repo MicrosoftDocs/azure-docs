@@ -780,7 +780,21 @@
   - name: Samples
     items:
     - name: Azure CLI
-      href: database/az-cli-script-samples-content-guide.md?tabs=single-database
+      items:
+      - name: Azure CLI script samples overview
+        href: database/az-cli-script-samples-content-guide.md?tabs=single-database
+      - name: Create databases in Azure SQL Database
+        items:
+        - name: Create a single database and configure a firewall rule
+          href: scripts/create-and-configure-database-cli.md
+        - name: Create elastic pools and move pooled databases
+          href: scripts/move-database-between-elastic-pools-cli.md
+      - name:
+        href: 
+      - name:
+        href: 
+      - name:
+        href: 
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
