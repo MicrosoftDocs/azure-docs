@@ -15,6 +15,10 @@ Azure Dedicated Host SKUs are the combination of a VM family and a certain hardw
 
 This document goes through the hardware specifications and VM packings for all GPU optimized Dedicated Host SKUs.
 
+## Limitations
+
+The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+
 ## NVasv4
 ### NVasv4-Type1
 
