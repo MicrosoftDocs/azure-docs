@@ -44,7 +44,7 @@ Each of these features has a try-it-out experience inside Vision Studio that all
 
 ## Vision Studio additional features
 
-In addition to the try-it-out experiences, Vision Studio also offers experiences that highlight the criticality of fairness, particularly for working with Face models. See [Face fairness information]() for more information on how Microsoft employs the principles of Responsible AI, and learn how you can too.
+In addition to the try-it-out experiences, Vision Studio also offers experiences that highlight the importance of fairness, particularly when working with Face models. See [Face fairness information]() for more information on how Microsoft employs the principles of Responsible AI, and learn how you can too.
 
 ## Cleaning up resources
 
