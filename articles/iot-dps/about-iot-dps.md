@@ -2,8 +2,8 @@
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: wesmc7777
-ms.author: wesmc
-ms.date: 11/09/2021
+ms.author: v-stharr
+ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
@@ -33,7 +33,6 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 >DPS uses the same [device provisioning endpoint](concepts-service.md#device-provisioning-endpoint) for all provisioning service instances, and will perform traffic load balancing to the nearest available service endpoint. As a result, authentication secrets may be temporarily transferred outside of the region where the DPS instance was initially created. However, once the device is connected, the device data will flow directly to the original region of the DPS instance.
 >
 >To ensure that your data doesn't leave the region that your DPS instance was created in, use a private endpoint.  To learn how to set up private endpoints, see [Azure IoT Device Provisioning Service (DPS) support for virtual networks](virtual-network-support.md#private-endpoint-limitations).
-
 
 ## Behind the scenes
 
@@ -121,6 +120,16 @@ DPS is available in many regions. The updated list of existing and newly announc
 
 There is a 99.9% Service Level Agreement for DPS, and you can [read the SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/) explains the guaranteed availability of Azure as a whole.
 
+DPS also supports [Availability Zones](../availability-zones/az-overview.md). An Availability Zone is a high-availability offering that protects your applications and data from datacenter failures. A region with Availability Zone support is comprised of a minimum of three zones supporting that region. Each zone provides one or more datacenters each in a unique physical location with independent power, cooling, and networking. This provides replication and redundancy within the region. Availability Zone support for DPS is enabled automatically for DPS resources in the following Azure regions:
+
+* Australia East
+* Brazil South
+* Canada Central
+* Japan East
+* North Europe
+* West Europe
+* UK South
+
 ## Quotas and Limits
 
 Each Azure subscription has default quota limits in place that could impact the scope of your IoT solution. The current limit on a per-subscription basis is 10 Device Provisioning Services per subscription.
@@ -137,41 +146,41 @@ The tables below show the current billable status for each DPS service API opera
 
 | API | Operation | Billable? |
 | --------------- | -------  | -- |
-|  Device API | [Device Registration Status Lookup](/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
-|  Device API | [Operation Status Lookup](/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
-|  Device API | [Register Device](/api/iot-dps/device/runtime-registration/register-device) | Yes |
-| DPS Service API (registration state)  | [Delete](/api/iot-dps/service/device-registration-state/delete) | Yes|
-| DPS Service API (registration state)  | [Get](/api/iot-dps/service/device-registration-state/get) | Yes|
-| DPS Service API (registration state)  | [Query](/api/iot-dps/service/device-registration-state/query) | Yes|
-| DPS Service API (enrollment group) | [Create or Update](/api/iot-dps/service/enrollment-group/create-or-update) | Yes|
-| DPS Service API (enrollment group) | [Delete](/api/iot-dps/service/enrollment-group/delete) | Yes|
-| DPS Service API (enrollment group) | [Get](/api/iot-dps/service/enrollment-group/get) | Yes|
-| DPS Service API (enrollment group) | [Get Attestation Mechanism](/api/iot-dps/service/enrollment-group/get-attestation-mechanism)| Yes|
-| DPS Service API (enrollment group) | [Query](/api/iot-dps/service/enrollment-group/query) | Yes|
-| DPS Service API (enrollment group) | [Run Bulk Operation](/api/iot-dps/service/enrollment-group/run-bulk-operation) | Yes|
-| DPS Service API (individual enrollment) | [Create or Update](/api/iot-dps/service/individual-enrollment/create-or-update)  | Yes|
-| DPS Service API (individual enrollment)| [Delete](/api/iot-dps/service/individual-enrollment/delete) | Yes|
-| DPS Service API (individual enrollment)| [Get](/api/iot-dps/service/individual-enrollment/get) | Yes|
-| DPS Service API (individual enrollment)| [Get Attestation Mechanism](/api/iot-dps/service/individual-enrollment/get-attestation-mechanism) | Yes|
-| DPS Service API (individual enrollment)| [Query](/api/iot-dps/service/individual-enrollment/query)  | Yes|
-| DPS Service API (individual enrollment)| [Run Bulk Operation](/api/iot-dps/service/individual-enrollment/run-bulk-operation)  | Yes|
-|  DPS Certificate API|  [Create or Update](/api/iot-dps/dps-certificate/create-or-update) | No |
-|  DPS Certificate API| [Delete](/api/iot-dps/dps-certificate/delete) | No |
-|  DPS Certificate API| [Generate Verification Code](/api/iot-dps/dps-certificate/generate-verification-code)|No  |
-|  DPS Certificate API| [Get](/api/iot-dps/dps-certificate/get) | No |
-|  DPS Certificate API| [List](/api/iot-dps/dps-certificate/list) |No  |
-|  DPS Certificate API| [Verify Certificate](/api/iot-dps/dps-certificate/verify-certificate) | No |
-|  IoT DPS Resource API| [Check Provisioning Service Name Availability](/api/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
-|  IoT DPS Resource API| [Create or Update](/api/iot-dps/iot-dps-resource/create-or-update)  | No |
-|  IoT DPS Resource API| [Delete](/api/iot-dps/iot-dps-resource/delete) |  No|
-|  IoT DPS Resource API| [Get](/api/iot-dps/iot-dps-resource/get) | No |
-|  IoT DPS Resource API| [Get Operation Result](/api/iot-dps/iot-dps-resource/get-operation-result)| No |
-|  IoT DPS Resource API| [List By Resource Group](/api/iot-dps/iot-dps-resource/list-by-resource-group) |No  |
-|  IoT DPS Resource API| [List By Subscription](/api/iot-dps/iot-dps-resource/list-by-subscription) |No  |
-|  IoT DPS Resource API| [List By Keys](/api/iot-dps/iot-dps-resource/list-keys) |No  |
-|  IoT DPS Resource API| [List Keys for Key Name](/api/iot-dps/iot-dps-resource/list-keys-for-key-name) |No  |
-|  IoT DPS Resource API| [List Valid SKUs](/api/iot-dps/iot-dps-resource/list-valid-skus) |No  |
-|  IoT DPS Resource API| [Update](/api/iot-dps/iot-dps-resource/update) |  No|
+|  Device API | [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) | No|
+|  Device API | [Operation Status Lookup](/rest/api/iot-dps/device/runtime-registration/operation-status-lookup)| No |
+|  Device API | [Register Device](/rest/api/iot-dps/device/runtime-registration/register-device) | Yes |
+| DPS Service API (registration state)  | [Delete](/rest/api/iot-dps/service/device-registration-state/delete) | Yes|
+| DPS Service API (registration state)  | [Get](/rest/api/iot-dps/service/device-registration-state/get) | Yes|
+| DPS Service API (registration state)  | [Query](/rest/api/iot-dps/service/device-registration-state/query) | Yes|
+| DPS Service API (enrollment group) | [Create or Update](/rest/api/iot-dps/service/enrollment-group/create-or-update) | Yes|
+| DPS Service API (enrollment group) | [Delete](/rest/api/iot-dps/service/enrollment-group/delete) | Yes|
+| DPS Service API (enrollment group) | [Get](/rest/api/iot-dps/service/enrollment-group/get) | Yes|
+| DPS Service API (enrollment group) | [Get Attestation Mechanism](/rest/api/iot-dps/service/enrollment-group/get-attestation-mechanism)| Yes|
+| DPS Service API (enrollment group) | [Query](/rest/api/iot-dps/service/enrollment-group/query) | Yes|
+| DPS Service API (enrollment group) | [Run Bulk Operation](/rest/api/iot-dps/service/enrollment-group/run-bulk-operation) | Yes|
+| DPS Service API (individual enrollment) | [Create or Update](/rest/api/iot-dps/service/individual-enrollment/create-or-update)  | Yes|
+| DPS Service API (individual enrollment)| [Delete](/rest/api/iot-dps/service/individual-enrollment/delete) | Yes|
+| DPS Service API (individual enrollment)| [Get](/rest/api/iot-dps/service/individual-enrollment/get) | Yes|
+| DPS Service API (individual enrollment)| [Get Attestation Mechanism](/rest/api/iot-dps/service/individual-enrollment/get-attestation-mechanism) | Yes|
+| DPS Service API (individual enrollment)| [Query](/rest/api/iot-dps/service/individual-enrollment/query)  | Yes|
+| DPS Service API (individual enrollment)| [Run Bulk Operation](/rest/api/iot-dps/service/individual-enrollment/run-bulk-operation)  | Yes|
+|  DPS Certificate API|  [Create or Update](/rest/api/iot-dps/dps-certificate/create-or-update) | No |
+|  DPS Certificate API| [Delete](/rest/api/iot-dps/dps-certificate/delete) | No |
+|  DPS Certificate API| [Generate Verification Code](/rest/api/iot-dps/dps-certificate/generate-verification-code)|No  |
+|  DPS Certificate API| [Get](/rest/api/iot-dps/dps-certificate/get) | No |
+|  DPS Certificate API| [List](/rest/api/iot-dps/dps-certificate/list) |No  |
+|  DPS Certificate API| [Verify Certificate](/rest/api/iot-dps/dps-certificate/verify-certificate) | No |
+|  IoT DPS Resource API| [Check Provisioning Service Name Availability](/rest/api/iot-dps/iot-dps-resource/check-provisioning-service-name-availability)  | No |
+|  IoT DPS Resource API| [Create or Update](/rest/api/iot-dps/iot-dps-resource/create-or-update)  | No |
+|  IoT DPS Resource API| [Delete](/rest/api/iot-dps/iot-dps-resource/delete) |  No|
+|  IoT DPS Resource API| [Get](/rest/api/iot-dps/iot-dps-resource/get) | No |
+|  IoT DPS Resource API| [Get Operation Result](/rest/api/iot-dps/iot-dps-resource/get-operation-result)| No |
+|  IoT DPS Resource API| [List By Resource Group](/rest/api/iot-dps/iot-dps-resource/list-by-resource-group) |No  |
+|  IoT DPS Resource API| [List By Subscription](/rest/api/iot-dps/iot-dps-resource/list-by-subscription) |No  |
+|  IoT DPS Resource API| [List By Keys](/rest/api/iot-dps/iot-dps-resource/list-keys) |No  |
+|  IoT DPS Resource API| [List Keys for Key Name](/rest/api/iot-dps/iot-dps-resource/list-keys-for-key-name) |No  |
+|  IoT DPS Resource API| [List Valid SKUs](/rest/api/iot-dps/iot-dps-resource/list-valid-skus) |No  |
+|  IoT DPS Resource API| [Update](/rest/api/iot-dps/iot-dps-resource/update) |  No|
 
 ## Related Azure components
 

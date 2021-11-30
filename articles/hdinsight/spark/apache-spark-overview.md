@@ -17,7 +17,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 * [Spark pools in Azure Synapse Analytics](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) use managed Spark pools to allow data to be loaded, modeled, processed, and distributed for analytic insights within Azure.
 
-* [Apache Spark on Azure Databricks](/databricks/getting-started/spark.md) uses Spark clusters to provide an interactive workspace that enables collaboration between your users to read data from multiple data sources and turn it into breakthrough insights.
+* [Apache Spark on Azure Databricks](/azure/databricks/getting-started/spark) uses Spark clusters to provide an interactive workspace that enables collaboration between your users to read data from multiple data sources and turn it into breakthrough insights.
 
 * [Spark Activities in Azure Data Factory](../../data-factory/transform-data-using-spark.md) allow you to use Spark analytics in your data pipeline, using on-demand or pre-existing Spark clusters.
 

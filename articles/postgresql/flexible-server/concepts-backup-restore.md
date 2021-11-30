@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically performs regular backup of your server.  You can then do a point-in-time recovery within the retention period where you can specify the date and time to which you want to restore to. The overall time to restore and recovery typically depends on the size of data and amount of recovery to be performed. 
 
