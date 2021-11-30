@@ -25,7 +25,7 @@ You can set up Azure Monitor Logs for your Azure Spring Cloud instance to collec
 
 ## Create Log Analytics Workspace
 
-* Follow [log analytics manual](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) to create a workspace.
+* You can refer to [log analytics manual](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) to create a workspace.
 
 ## Configure Diagnostic Settings
 
