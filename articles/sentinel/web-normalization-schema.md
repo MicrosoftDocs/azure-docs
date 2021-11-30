@@ -37,7 +37,7 @@ The Web Session schema does not represent audit events from source devices. For 
 
 Since HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session, the Web Session schema is a super set of the [ASIM Network Session schema](network-normalization-schema.md).
 
-The most important fields in a Web Session  are:
+The most important fields in a Web Session schema are:
 
 - [Url](#url), which reports the url that the client requested from the server.
 - The [SrcIpAddr](network-normalization-schema.md#srcipaddr) (aliased to [IpAddr](network-normalization-schema.md#ipaddr)), which represents the IP address from which the request was generated. 
@@ -53,7 +53,7 @@ To use the source-agnostic parsers that unify all of the out-of-the-box parsers,
 
 | Name | Description | Usage instructions |
 | ---- | --- | --- |
-| <a name="imwebsession"></name>**imWebSession** | Aggregative parser that uses *union* to include normalized events from all *web session* sources. <br><br>Example: Network sessions fields that support [HTTP session fields](#http-session-fields) |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
+| <a name="imwebsession"></name>**imWebSession** | Aggregative parser that uses *union* to include normalized events from all *Web Session* sources. <br><br>Example: Network sessions fields that support [HTTP session fields](#http-session-fields) |- Update this parser if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries.|
 | **ASimWebSession** | Similar to the [imWebSession](#imwebsession) function, but without parameter support, and therefore does not force the **Logs** page time picker to use the `custom` value. |- Update these parsers if you want to add or remove sources from source-agnostic analytics.<br><br>- Use this function in your source-agnostic queries if you don't plan to use parameters.|
 | **vimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the `im` aggregative parser to include reference to your new parser. <br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use a source-specific parser for source-specific analytics.|
 | **ASimWebSession\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. <br><br>Unlike the `vim*` functions, the `ASim*` functions do not support parameters. |- Add a source-specific parser for a source when there is no out-of-the-box normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
@@ -95,7 +95,7 @@ imWebSession (hurl_has_any = torProxies)
 
 ## Schema details
 
-The Web Sessions information model is aligned is the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
+The Web Session information model is aligned is the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md) and the [OSSEM HTTP entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/http.md).
 
 To conform with industry best practices, the Web Session schema uses the descriptors **Src** and **Dst** to identify the session source and destination devices, without including the token **Dvc** in the field name.
 
@@ -117,7 +117,7 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 | <a name="eventresultdetails"></a>**EventResultDetails** | Optional | String | For HTTP sessions, the value should be the HTTP status code. <br><br>**Note**: The value may be provided in the source record using different terms, which should be normalized to these values. The original value should be stored in the **EventOriginalResultDetails** field.|
 | **EventSchema** | Mandatory | String | The name of the schema documented here is `WebSession`. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. The version of the schema documented here is `0.1`         |
-| **Dvc** fields|        |      | For Web Session  Events,  device fields refer to the system reporting the Web Session event.  |
+| **Dvc** fields|        |      | For Web Session events,  device fields refer to the system reporting the Web Session event.  |
 | | | | |
 
 ### Network session fields
@@ -126,12 +126,12 @@ HTTP sessions are application layer sessions that utilize TCP/IP as the underlyi
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
-Web Session events are commonly reported by intermediate devices which terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermidiate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
+Web Session events are commonly reported by intermediate devices which terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
 
 
 ### <a name="http-session-fields"></a>HTTP session fields
 
-The following are additional fields that are specific to Web sessions:
+The following are additional fields that are specific to web sessions:
 
 | Field | Class | Type | Description |
 | --- | --- | --- | --- |
@@ -168,7 +168,7 @@ The following are additional fields that are specific to Web sessions:
 
 ### Other fields
 
-If the event is reported by one of the endpoints of the Web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
+If the event is reported by one of the endpoints of the web session, it may include information about the process that initiated or terminated the session. In such cases, the [ASIM Process Event schema](process-events-normalization-schema.md) to normalize this information.
 
 ## Next steps
 
