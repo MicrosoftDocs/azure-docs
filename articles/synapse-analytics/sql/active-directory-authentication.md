@@ -75,7 +75,7 @@ Any Azure AD authentication is only possible if the Azure AD admin was created f
 
 ## Disabling local authentication
 
-Using Azure Active Directory (Azure AD), you can centrally manage access to Azure Synapse resources, such as SQL pools. To disable local authentication in Synapse during workspace creation, select 'Use only Azure Active Directory (Azure AD) authentication' as the authentication method. A SQL Administrator login will still be created but it will be disabled. Local authentication can be enabled later by an Azure Owner or Contributor of the Synapse workspace.
+By allowing only Azure Active Directory authentication, centrally manage access to Azure Synapse resources, such as SQL pools. To disable local authentication in Synapse during workspace creation, select 'Use only Azure Active Directory (Azure AD) authentication' as the authentication method. A SQL Administrator login will still be created but it will be disabled. Local authentication can be enabled later by an Azure Owner or Contributor of the Synapse workspace. 
 
 You can also disable local authentication after a workspace is created through the Azure Portal. Local authentication cannot be disabled until an Azure Active Directory admin is created for the Azure Synapse workspace. 
 
