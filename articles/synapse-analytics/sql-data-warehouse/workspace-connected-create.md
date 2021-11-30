@@ -44,6 +44,7 @@ Follow these steps to create a Synapse workspace for your existing data warehous
 
     > [!NOTE]
     > All dedicated SQL pool (formerly SQL DW) instances hosted on the logical server are available via the new workspace.
+    > Allowing authentication via Azure Active Directory (AAD) only is not supported for dedicated SQL pools with Synapse features enabled. Policies that enable AAD-only only authentication will not apply to new or existing dedicated SQL pools with Synapse features enabled. For more information on AAD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ## Post provisioning steps
 The following steps must be completed to ensure that your existing dedicated SQL pool (formerly SQL DW) instances can be accessed via the Synapse Studio.

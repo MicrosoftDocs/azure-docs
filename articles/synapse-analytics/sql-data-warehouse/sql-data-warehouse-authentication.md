@@ -59,7 +59,6 @@ Azure Active Directory benefits include:
 
 > [!NOTE]
 > Azure Active Directory is still relatively new and has some limitations. To ensure that Azure Active Directory is a good fit for your environment, see [Azure AD features and limitations](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), specifically the Additional considerations.
-> Azure Active Directory (AAD) only authentication is not supported for Dedicated SQL pool. Policies that enable Azure Active Directory (AAD) only authentication will not apply to new or existing Dedicated SQL pools.
 
 ### Configuration steps
 
