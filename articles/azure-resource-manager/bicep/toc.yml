@@ -83,7 +83,7 @@
         href: deploy-to-tenant.md
         displayName: assign role
     - name: Deployment script
-      href: deployment-script.md
+      href: deployment-script-bicep.md
     - name: Linter
       items:
       - name: Linter

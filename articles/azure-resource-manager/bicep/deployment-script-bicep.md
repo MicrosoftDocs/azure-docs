@@ -333,7 +333,7 @@ The max allowed size for environment variables is 64 KB.
 
 ## Monitor and troubleshoot deployment scripts
 
-The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
+The script service creates a [storage account](../../storage/common/storage-account-overview.md) and a [container instance](../../container-instances/container-instances-overview.md) for script execution (unless you specify an existing storage account and/or an existing container instance). If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
 
 ![Resource Manager template deployment script resource names](./media/deployment-script-bicep/resource-manager-template-deployment-script-resources.png)
 
