@@ -38,7 +38,7 @@ Follow the steps in this tutorial to:
 
 
 ## Register the web application in Azure portal
-Register the web application in Azure portal so that Azure B2Ccan provide authentication service for your application and its users.
+Register the web application in Azure portal so that Azure B2C can provide authentication service for your application and its users.
 
 First, complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md) to register the web app. 
 
@@ -205,7 +205,7 @@ Modify the values in the `.env` files as follows:
 - `edit-profile-flow`: The **Profile editing** user flow such as `b2c_1_edit_profile_node_app`.
 
 >[!WARNING]
-> Any plaintext secret in source code poses an increased security risk. This tutorial uses a plaintext client secret for simplicity. Use [Certificate credentials]() instead of client secrets in your confidential client applications, especially for the apps you intend to deploy to production.
+> Any plaintext secret in source code poses an increased security risk. This tutorial uses a plaintext client secret for simplicity. Use certificate credential instead of client secrets in your confidential client applications, especially for the apps you intend to deploy to production.
 
 2. In your `index.js` file, add the following code to use your app dependencies: 
 
@@ -502,7 +502,7 @@ Complete the steps in [Set up sign-up and sign-in with a Google account using Az
 Test the Google identity provider:
 1. After you sign out, select **Sign in** again. You should see a **Sign in and sign up** experience with a Google sign in option under **Sign in with your social account**.
 1. Select **Google**, and then select the Google account you want to sign in with. 
-1. Complete your profile by entering more details such as Given Name, and the select **continue**. You should see the page with sign in status
+1. Complete your profile by entering required details such as Given Name, and the select **continue**. You should see the page with sign in status
 
 When you use a social identity provider such as Google, the user's identity is managed by it:
 - You can't reset your password the same way as with local account.  
