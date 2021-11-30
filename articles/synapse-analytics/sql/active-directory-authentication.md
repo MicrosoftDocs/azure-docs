@@ -73,7 +73,7 @@ To create a contained database user in Synapse SQL, you must connect to the data
 Any Azure AD authentication is only possible if the Azure AD admin was created for Synapse SQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously inside Synapse SQL can no longer connect to the database using their Azure Active Directory credentials.
 
 
-## Disabling Local Authentication
+## Disabling local authentication
 
 Using Azure Active Directory (Azure AD), you can centrally manage access to Azure Synapse resources, such as SQL pools. To disable local authentication in Synapse during workspace creation, select 'Use only Azure Active Directory (Azure AD) authentication' as the authentication method. A SQL Administrator login will still be created but it will be disabled. Local authentication can be enabled later by an Azure Owner or Contributor of the Synapse workspace.
 
