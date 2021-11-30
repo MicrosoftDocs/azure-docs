@@ -7,9 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
-ms.reviewer: mathoma
+author: mathoma
+ms.author: mashaMSFT
 ms.date: 03/12/2019
 ---
 
