@@ -21,7 +21,7 @@ You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/serv
 
 Try out the capabilities of face detection quickly and easily using Vision Studio.
 > [!div class="nextstepaction"]
-> [Try Vision Studio]()
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
 > 
 ## Face ID
 
