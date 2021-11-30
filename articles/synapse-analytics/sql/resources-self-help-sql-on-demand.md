@@ -100,8 +100,14 @@ The easiest way is to resolve this issue is grant yourself `Storage Blob DataCon
  
 #### Content of DataVerse table cannot be listed
 
-If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the serverless SQL pool.
-The SQL login that tried to read an external table that is referencing the DataVerse table will get the following error: `External table '???' is not accessible because content of directory cannot be listed. `
+If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
+
+```
+External table '???' is not accessible because content of directory cannot be listed.
+```
+
+DataVerse external tables always use **Azure AD passthrough** authentication. You **cannot** configure them to use [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
 
 #### Content of Delta Lake transaction log cannot be listed
 
@@ -120,6 +126,15 @@ with (line varchar(max)) as logs
 ```
 
 If this query fails, the caller does not have permission to read the underlying storage files.  
+
+###  Invalid object name
+
+This error indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
+- List the tables/views and check does the object exists. Use SSMS or ADS because Synapse studio might show some tables that are not available in the serverless SQL pool.
+- If you see the object, check are you using some case-sensitive/binary database collation. Maybe the object name does not match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
+- If you don't see the object, maybe you are trying to query a table from a Lake/Spark database. There are a few reasons why the table might not be available in the serverless pool:
+  - The table has some column types that cannot be represented in serverless SQL.
+  - The table has a format that is not supported in serverless SQL pool (Delta, ORC, etc).
 
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
