@@ -1,6 +1,6 @@
 ---
 title: What is IoT connector? - Azure Healthcare APIs
-description: In this article, you'll learn about IoT connector, its features, and functions.
+description: In this article, you'll learn about IoT connector, its features, functions, integrations, and next steps.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -21,7 +21,7 @@ IoT connector is an optional service of the Azure Healthcare APIs that provides 
 
 IoT connector transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources and then persists the transformed messages into the Azure Healthcare APIs [FHIR service](../fhir/overview.md).
 
-Below is an overview of the steps IoT connector does once IoMT device data is received. These steps will be further explained in the [IoT connector data flow](iot-data-flow.md) article.
+Below is an overview of each step IoT connector does once IoMT device data is received. Each step will be further explained in the [IoT connector data flow](./iot-data-flow.md) article.
 
 :::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by IoT connector as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
@@ -37,7 +37,7 @@ IoT connector also allows use of the JMESPath query language for JSON:
 * [Calculated Functions](./how-to-use-calculated-functions-mappings.md)
 * [Custom Functions](./how-to-use-custom-functions.md) 
 
-Functions can be used for extracting and transforming elements from the IoMT device message payloads before persisting it to the FHIR service.
+Functions can be used for extracting and transforming elements from the IoMT device messages before persisting them to the FHIR service.
 
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
@@ -55,7 +55,7 @@ IoT connector may also be used with the following Microsoft solutions to provide
  * [Microsoft Teams](./iot-connector-teams.md)
  
 ## Secure
-IoT connector uses [Azure Resource-based Access Control](/azure/role-based-access-control/overview) and [Azure Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) for granular security and access control of your IoT connector assets. 
+IoT connector uses Azure [Resource-based Access Control](/azure/role-based-access-control/overview) and [Managed Identities](/azure/active-directory/managed-identities-azure-resources/overview) for granular security and access control of your IoT connector assets. 
 
 ## Next steps
 
