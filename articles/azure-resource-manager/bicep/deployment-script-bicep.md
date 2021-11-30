@@ -79,7 +79,7 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 
 ## Sample Bicep files
 
-The following Bicep file is an example. For more information, see the latest [template schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
+The following Bicep file is an example. For more information, see the latest [Bicep schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
 
 ```bicep
 resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
@@ -153,15 +153,13 @@ Property value details:
 
   If the arguments contain escaped characters, double escaped the characters. For example, in the previous sample Bicep, The argument is `-name \"John Dole\"`. The escaped string is `-name \\"John Dole\\"`.
 
-  To pass a Bicep parameter of type object as an argument, convert the object to a string by using the [string()](./bicep-functions-string.md#string) function, and then use the [replace()](./bicep-functions-string.md#replace) function to replace any `\"` into `\\\"`. For example:
+  To pass a Bicep parameter of type object as an argument, convert the object to a string by using the [string()](./bicep-functions-string.md#string) function, and then use the [replace()](./bicep-functions-string.md#replace) function to replace any `"` into `\\"`. For example:
 
   ```json
-  replace(string(parameters('tables')), '\"', '\\\"')
+  replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  For more information, see the [sample template](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.json).
-
-    *** double check the last two paragraphs.
+  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -576,7 +574,7 @@ Deployment script execution is an idempotent operation. If none of the `deployme
 
 ## Configure development environment
 
-You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts in Bicep](./deployment-script-bicep-configure-dev.md).
+You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts](./deployment-script-template-configure-dev.md).
 
 After the script is tested successfully, you can use it as a deployment script in your Bicep files.
 
