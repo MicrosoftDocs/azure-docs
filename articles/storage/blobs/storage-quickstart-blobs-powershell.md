@@ -51,7 +51,7 @@ The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_T
 # upload a file to the default account (inferred) access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
-  -Blob "Image001.jpg" `
+  -Blob "Image000.jpg" `
   -Context $ctx
 
 # upload a file to the Hot access tier

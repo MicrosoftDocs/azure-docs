@@ -5734,11 +5734,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-arc/data/create-data-controller-direct-cli.md",
-      "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-prerequisites",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-arc/data/create-data-controller.md",
       "redirect_url": "/azure/azure-arc/data/plan-azure-arc-data-services",
       "redirect_document_id": false
