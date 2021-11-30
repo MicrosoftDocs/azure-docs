@@ -94,35 +94,33 @@ A brief description of the tabs can be seen below:
 ## How HEART dimensions are defined and measured
 
 ### Happiness
-#### Defining Happiness	
+
 Happiness is a user-reported dimension that measures how users feel about the product offered to them. 
 
-#### Measuring Happiness
-A common approach to measure this dimension is to ask users a Customer Satisfaction (CSAT) question like “How satisfied are you with this product?”. Users' responses on a three or a five-point scale (for example, no, maybe and yes) are aggregated to create a product-level score ranging from 1-5. As user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
+A common approach to measure hapiness is to ask users a Customer Satisfaction (CSAT) question like *How satisfied are you with this product?*. Users' responses on a three or a five-point scale (for example, *no, maybe,* and *yes*) are aggregated to create a product-level score ranging from 1-5. Since user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
-#### User Sentiment Data
-Refer to the [Azure Monitor documentation for custom sources](../agents/data-sources.md#custom-sources) to upload user sentiment data for calculating happiness metrics. Common happiness metrics include "Average Star Rating", "Customer Satisfaction Score", and so on.
+Common happiness metrics include values such as *Average Star Rating* and *Customer Satisfaction Score*. Send these values to Azure Monitor using one of the custom ingestion methods described in [Custom sources](../agents/data-sources.md#custom-sources).
+
 
 
 
 ### Engagement
-#### Measuring Engagement
-HEART Framework measures engagement using the concept of activity (intentional user actions such as clicks). Active usage can be broken down into three subdimensions: 
-1. **Activity Frequency** – Measures how often a user interacts with the product (daily, weekly, monthly).
+Engagement is a measure of user activity, specifically intentional user actions such as clicks. Active usage can be broken down into three subdimensions:
+1. **Activity Frequency** – Measures how often a user interacts with the product. For example, user typically interacts daily, weekly, or monthly.
 2. **Activity Breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of five features in June 2021.
 3. **Activity Depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with two features on every launch.
 
-Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a 'Paycheck Portal', measurement would make more sense at a monthly or weekly level.  
+Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a paycheck portal, measurement would make more sense at a monthly or weekly level.
 
-#### Defining Active Users	
-A user who does an intentional action such as clicking a button or typing an input is counted as an active user. **For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
+>[!IMPORTANT]
+>A user who does an intentional action such as clicking a button or typing an input is counted as an active user. For this reason, Engagement metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
 
 
 
 ### Adoption
 
-#### Measuring Adoption
-The Adoption dimension enables understanding of penetration among the relevant/target users and how/who are we gaining as our user base. For this reason, adoption metrics are useful for measuring the below scenarios:  
+Adoption enables understanding of penetration among the relevant users, who are we gaining as our user base, and how we are gaining them. Adoption metrics are useful for measuring the below scenarios:
+
 a. Newly released products  
 b. Newly updated products  
 c. Marketing campaigns  
@@ -130,35 +128,33 @@ c. Marketing campaigns
 
 
 ### Retention
-#### Defining Retention
-A Retained User is a user who was active in a specified reporting period and its previous reporting period. As active users must have at least one telemetry event with an actionType, ** Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
+A Retained User is a user who was active in a specified reporting period and its previous reporting period. Retention is typically measured with the following metrics:
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
 | Retained users | Count of active users who were also Active the previous period                      | How many users are staying engaged with the product?        |
 | Retention      | Proportion of active users from the previous period who are also Active this period | What percent of users are staying engaged with the product? |
 
-
+>[!IMPORTANT]
+>Since active users must have at least one telemetry event with an actionType, Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application
 
 
 ### Task Success
-#### Defining Task Success
-Many products include structures designed to funnel users through completing a task. Some examples include: 
-* *Adding items to a cart* -> *purchasing items from the cart*
-* *Searching a keyword* -> *clicking on a result*
-* *Starting a new account* -> *completing account registration* 
+Task Success tracks whether users can do a task efficiently and effectively using the product's features. Many products include structures that are designed to funnel users through completing a task. Some examples include:
+- Add items to a cart and then complete a purchase
+- Search a keyword and then click on a result
+- Start a new account and then complete account registration
 
-Task Success tracks whether users can do a task efficiently and effectively using the product's features.
-
-#### Measuring Task Success
 A successful task meets three requirements:
-1.	Expected Task Flow – the intended task flow of the feature was completed (the task flow of the user aligned with the expected task flow)
-2.	High Performance – the intended functionality of the feature was accomplished in a reasonable amount of time
-3.	High Reliability – the intended functionality of the feature was accomplished without failure
+- Expected Task Flow - The intended task flow of the feature was completed by the user and aligns with the expected task flow.
+- High Performance - The intended functionality of the feature was accomplished in a reasonable amount of time.
+- High Reliability – The intended functionality of the feature was accomplished without failure.
 
-A task is considered unsuccessful if any of the above requirements isn't met. **Task Success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application**.
+A task is considered unsuccessful if any of the above requirements isn't met.
 
-#### Creating a task
+>[!IMPORTANT]
+>Task Success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
+
 Set up a custom task using the below parameters.
 
 | Parameter         | Description                                                                                                                                                                                                                         |
