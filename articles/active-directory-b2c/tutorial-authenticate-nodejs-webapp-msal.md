@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Sign in and sign out users in a Node.js Express web app
-description: Follow this tutorial to learn how to integrates nodejs web app to allow user to sign in, sign out, updates profile, and reset password using Azure AD B2C user flows, and  Microsoft Authentication Library (MSAL) for Node.
+description: Follow this tutorial to learn how to integrate nodejs web app, which allows users to sign in, sign out, update profile, and reset password using Azure AD B2C user flows, and  Microsoft Authentication Library (MSAL) for Node.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -14,13 +14,13 @@ ms.subservice: B2C
 ---
 
 # Tutorial: Sign in and sign out users in a Node.js Express web app
-In this tutorial, you will build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) to allow users use their local account to:
+In this tutorial, you'll build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for users use their local accounts to:
 - Sign in 
 - Sign out
 - Update profile
 - Reset password  
 
-You will optionally allow  users to authenticate using their Google account. 
+You'll optionally allow  users to authenticate using their Google account. 
 
 Follow the steps in this tutorial to:
 
@@ -52,7 +52,7 @@ At this point, you have the application (client) ID, and client secret, and you'
 
 ## Create Azure AD B2C user flows 
 
-Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a users flow. Repeat the steps to create 3 separate user flows as follows: 
+Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a users flow. Repeat the steps to create three separate user flows as follows: 
 - A combined **Sign up and Sign up** user flow, such as `susi_node_app`. This user flow also supports **Forgot your password** experience
 - **Profile editing** user flow such as `edit_profile_node_app`.
 - **Password reset** user flow such as `reset_password_node_app`.
@@ -65,7 +65,7 @@ Create a folder to host your node application, such as  `tutorial-login-logout-m
 
 1. In your terminal, change directory into your node app folder, such as `cd tutorial-login-logout-msal`, and run `npm init -y`. This command creates a default package.json file for your Node.js project.
 2. In your terminal, run `npm install express`. This command installs the Express framework.
-3. Create additional folders and files to achieve the following project structure:
+3. Create more folders and files to achieve the following project structure:
 
 ```
 tutorial-login-logout-msal/
@@ -80,7 +80,7 @@ tutorial-login-logout-msal/
 The `views` folder contains handlebars files for the app's UI. 
 ## Install the dependencies 
 
-In your terminal, install the `dotenv`, `express-handlebars`, `express-session`,and `@azure/msal-node` packages by running the following commands:
+In your terminal, install the `dotenv`, `express-handlebars`, `express-session`, and `@azure/msal-node` packages by running the following commands:
 
 ```
 npm install dotenv
@@ -169,7 +169,7 @@ The `main.hbs` file implements UI built with the Bootstrap 5 CSS Framework. The 
 
 ## Configure web server and MSAL client
 
-1. In the `.env` file, add the following code, which entails server http port,  app registration details, and user flow/policy details: 
+1. In the `.env` file, add the following code, which includes server http port,  app registration details, and user flow/policy details: 
 
 ```
 #HTTP port
@@ -199,7 +199,7 @@ Modify the values in the `.env` files as follows:
 - `client-id`: The **Application (client) ID** of the application you registered.
 - `session-secret`: A random string to be used as your express session secret. 
 - `client-secret`: Replace this value with the client secret you created earlier.
-- `tenant-name`: Replace this with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
+- `tenant-name`: Replace this value with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
 - `susi-flow`: The **Sign up and Sign up** user flow such as `b2c_1_susi_node_app`.
 - `reset-password-flow`: The **Password reset** user flow such as `b2c_1_reset_password_node_app`. 
 - `edit-profile-flow`: The **Profile editing** user flow such as `b2c_1_edit_profile_node_app`.
@@ -245,7 +245,7 @@ const msal = require('@azure/msal-node');
 // Initialize MSAL Node
 const confidentialClientApplication = new msal.ConfidentialClientApplication(confidentialClientConfig);
 ```
-`confidentialClientConfig` is the MSAL configuration object, which is used to create the confidential client application i.e. `confidentialClientApplication`. 
+`confidentialClientConfig` is the MSAL configuration object, which is used to create the confidential client application that is, `confidentialClientApplication`. 
 
 4. To add mode global variables in the `index.js` file, add the following code:
 
@@ -289,7 +289,7 @@ const tokenRequest = {
     }
 }
 ```
-- `APP_STATES`: Used to differentiate between responses received from Azure AD B2C by tagging requests. There is only one redirect URI for any number of requests sent to Azure AD B2C.  
+- `APP_STATES`: Used to differentiate between responses received from Azure AD B2C by tagging requests. There's only one redirect URI for any number of requests sent to Azure AD B2C.  
 - `authCodeRequest`: The configuration object used to retrieve authorization code. 
 - `tokenRequest`: The configuration object used to acquire a token by authorization code.
 - `sessionConfig`: The configuration object for express session. 
@@ -434,25 +434,25 @@ The app endpoints are explained below:
     - Used to enter the web app.
     - It renders the `signin` page.
 - `/signin`:
-    - Used when the end user signs in.
-    - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN` and empty `scopes` array to it.  
-    - If necessary, it causes the end user to be challenged to enter their logins or if the user does not have an account, they to sign up.
+    - Used when the end-user signs in.
+    - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and empty `scopes` array to it.  
+    - If necessary, it causes the end user to be challenged to enter their logins, or if the user doesn't have an account, they to sign up.
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
 - `/password`:
     - Used when a user resets password.
-    - Calls `getAuthCode()` method and passes the `authority` for **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET` and empty `scopes` array to it.
+    - Calls `getAuthCode()` method and passes the `authority` for **Password reset** user flow/policy, `APP_STATES.PASSWORD_RESET`, and empty `scopes` array to it.
     - It causes the end user to change their password using password reset experience or they can cancel the operation.
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint or if the end user canceled the operation, an error is posted back. 
 - `/profile`: 
     - Used when a user update profile.
     - Calls `getAuthCode()` method and passes the `authority` for **Profile editing** user flow/policy, `APP_STATES.EDIT_PROFILE` and empty `scopes` array to it.
-    - It causes the end user to update their profile using the profile editing experience. 
+    - It causes the end user to update their profile using the profile-editing experience. 
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint. 
 - `/signout`:
     - Used when a user signs out.
     - The web app session is cleared and an http call is made to Azure AD B2c logout endpoint. 
 - `/redirect`:
-    - It uses the the `state` query parameter in Azure AD B2C's request to it to differentiate between requests, which were made from the web app. It handles all redirect from Azure AD B2C except for sign out.
+    - It uses the `state` query parameter in Azure AD B2C's request to it to differentiate between requests, which were made from the web app. It handles all redirect from Azure AD B2C except for sign out.
     - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. This token includes an `idToken` and `idTokenClaims`, which used for user identification.
     - If the app state is `APP_STATES.PASSWORD_RESET`, handle any error such `user cancelled the operation` identified by error code `AADB2C90091`. Otherwise, you need to decide the next user experience. 
     - If the app state is `APP_STATES.EDIT_PROFILE`, use the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
@@ -483,7 +483,7 @@ node index.js
 
 ### Test edit profile
 1. After you sign in, select **Edit profile**. 
-1. Enter new changes as desired, and then select Continue. You should see the page with sign in status showing the new changes such the Given Name. 
+1. Enter new changes as required, and then select **Continue**. You should see the page with sign in status showing the new changes such the Given Name. 
 
 ### Test password reset
 1. After you sign in, select **Reset password**. 
