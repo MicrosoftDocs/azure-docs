@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/20/2021
+ms.date: 12/01/2021
 ---
 
 # Troubleshoot Azure Cache for Redis server issues
@@ -51,7 +51,7 @@ Create alerts on metrics like CPU or server load to be notified early about pote
 
 ## High memory usage
 
-Memory pressure on the server can lead to various performance problems that delay processing of requests. When memory pressure hits, the system pages data to disk, which causes the system to slow down significantly. 
+Memory pressure on the server can lead to various performance problems that delay processing of requests. When memory pressure hits, the system pages data to disk, which causes the system to slow down significantly.
 
 Several possible can cause this memory pressure:
 
@@ -111,7 +111,6 @@ To mitigate situations where network bandwidth usage is close to maximum capacit
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
 -->
-
 
 ## Additional information
 

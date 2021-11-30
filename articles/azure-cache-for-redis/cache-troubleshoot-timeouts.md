@@ -1,21 +1,22 @@
 ---
 title: Troubleshoot Azure Cache for Redis latency and timeouts
-description: Learn how to resolve common latency and timeout issues with Azure Cache for Redis, such as Redis server patching and StackExchange.Redis timeout exceptions.
+description: Learn how to resolve common latency and timeout issues with Azure Cache for Redis, such as Redis server patching and timeout exceptions.
 author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 11/3/2021
+ms.date: 12/01/2021
 ---
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
 
-A client operation that does not receive a timely response can result in a timeout exception. An operation could timeout at various stages. Where the timeout comes from helps to determine the cause and the mitigation. 
+A client operation that does not receive a timely response can result in a timeout exception. An operation could timeout at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
 
 <!-- what do we want to say about latency -->
 
 This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Cache for Redis.
+
 - [Client-side troubleshooting](#client-side-troubleshooting)
 - [Server-side troubleshooting](#server-side-troubleshooting)
 
@@ -134,9 +135,11 @@ You can estimate how much network bandwidth is being used by checking the Cache 
 
 ## StackExchange.Redis timeout exceptions
 
-For more specific information to address timeouts when using StackExchange.Redis, see [Investigating timeout exceptions in StackExchange.Redis](https://azure.microsoft.com/en-us/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
+For more specific information to address timeouts when using StackExchange.Redis, see [Investigating timeout exceptions in StackExchange.Redis](https://azure.microsoft.com/blog/investigating-timeout-exceptions-in-stackexchange-redis-for-azure-redis-cache/).
 
 ## Additional information
+
+See these articles for additional information about latency issues and timeouts.
 
 - [Troubleshoot Azure Cache for Redis client-side issues](cache-troubleshoot-client.md)
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)

@@ -5,11 +5,9 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: troubleshooting
-ms.date: 11/20/2021
+ms.date: 12/01/2021
 ---
 # Troubleshoot Azure Cache for Redis client-side issues
-
-<!-- Verify that this document is also consistent though there have been no changes-->
 
 This section discusses troubleshooting issues that occur because of a condition on the Redis client that your application uses.
 
@@ -17,7 +15,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 - [Traffic burst](#traffic-burst)
 - [High client CPU usage](#high-client-cpu-usage)
 - [Client-side bandwidth limitation](#client-side-bandwidth-limitation)
-<!-- [Large request or response size](#large-request-or-response-size) -->
+<!-- [Large request or response size](#large-request-or-response-size)  this was moved. We could add a link to the new location-->
 
 ## Memory pressure on Redis client
 

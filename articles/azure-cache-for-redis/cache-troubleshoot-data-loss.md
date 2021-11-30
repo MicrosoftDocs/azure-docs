@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/20/2021
+ms.date: 12/01/2021
 ---
 <!-- Verify that this document is also consistent though there have been no changes-->
 
@@ -46,7 +46,11 @@ Azure Cache for Redis removes a key automatically if the key is assigned a time-
 
 To get stats on how many keys have expired, use the [INFO](https://redis.io/commands/info) command. The `Stats` section shows the total number of expired keys. The `Keyspace` section provides more information about the number of keys with time-outs and the average time-out value.
 
-```
+<!-- what language or console is this. azurecli is just a guess -->
+
+```azurecli-interactive
+
+
 # Stats
 
 expired_keys:46583
@@ -56,7 +60,7 @@ expired_keys:46583
 db0:keys=3450,expires=2,avg_ttl=91861015336
 ```
 
-You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in expired keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using keyspace notifications or **MONITOR** to debug these types of issues.
+You can also look at diagnostic metrics for your cache, to see if there's a correlation between when the key went missing and a spike in expired keys. See the Appendix of [Debugging Redis Keyspace Misses](https://gist.github.com/JonCole/4a249477142be839b904f7426ccccf82#appendix) for information about using `keyspace` notifications or `MONITOR`  to debug these types of issues.
 
 ### Key eviction
 
@@ -64,7 +68,7 @@ Azure Cache for Redis requires memory space to store data. It purges keys to fre
 
 You can monitor the number of evicted keys by using the [INFO](https://redis.io/commands/info) command:
 
-```
+```azurecli-interactive
 # Stats
 
 evicted_keys:13224
@@ -76,7 +80,7 @@ You can also look at diagnostic metrics for your cache, to see if there's a corr
 
 Redis clients can issue the [DEL](https://redis.io/commands/del) or [HDEL](https://redis.io/commands/hdel) command to explicitly remove keys from Azure Cache for Redis. You can track the number of delete operations by using the [INFO](https://redis.io/commands/info) command. If **DEL** or **HDEL** commands have been called, they'll be listed in the `Commandstats` section.
 
-```
+```azurecli-interactive
 # Commandstats
 
 cmdstat_del:calls=2,usec=90,usec_per_call=45.00
@@ -102,7 +106,7 @@ If most or all keys have disappeared from your cache, check the following possib
 
 Clients can call the [FLUSHDB](https://redis.io/commands/flushdb) command to remove all keys in a *single* database or [FLUSHALL](https://redis.io/commands/flushall) to remove all keys from *all* databases in a Redis cache. To find out whether keys have been flushed, use the [INFO](https://redis.io/commands/info) command. The `Commandstats` section shows whether either `FLUSH` command has been called:
 
-```
+```azurecli-interactive
 # Commandstats
 
 cmdstat_flushall:calls=2,usec=112,usec_per_call=56.00
@@ -116,7 +120,7 @@ Azure Cache for Redis uses the `db0` database by default. If you switch to anoth
 
 ### Redis instance failure
 
-Redis is an in-memory data store. Data is kept on the physical or virtual machines that host the Redis cache. An Azure Cache for Redis instance in the Basic tier runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost. 
+Redis is an in-memory data store. Data is kept on the physical or virtual machines that host the Redis cache. An Azure Cache for Redis instance in the Basic tier runs on only a single virtual machine (VM). If that VM is down, all data that you've stored in the cache is lost.
 
 Caches in the Standard and Premium tiers offer much higher resiliency against data loss by using two VMs in a replicated configuration. When the primary node in such a cache fails, the replica node takes over to serve data automatically. These VMs are located on separate domains for faults and updates, to minimize the chance of both becoming unavailable simultaneously. If a major datacenter outage happens, however, the VMs might still go down together. Your data will be lost in these rare cases.
 

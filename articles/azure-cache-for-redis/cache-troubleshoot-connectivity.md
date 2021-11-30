@@ -6,7 +6,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual 
-ms.date: 11/20/2021
+ms.date: 12/01/2021
 ms.custom: template-concept
 ---
 
