@@ -22,7 +22,9 @@ HEART is an acronym that stands for Happiness, Engagement, Adoption, Retention, 
 - **Task Success**: Productivity empowerment 
 
 These dimensions are measured independently, but they interact with each other as shown below:
-![Heart Funnel](./media/usage-overview/heartfunnel3.png)
+
+:::image type="content" source="/media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions":::
+
 
 - Adoption, engagement, and retention form a user activity funnel. Only a portion of users who adopt the tool come back to use it.
 - Task success is the driver that progresses users down the funnel and moves them from adoption to retention.
@@ -54,7 +56,7 @@ These dimensions are measured independently, but they interact with each other a
   | pageViews       | operation_Id         | correlate telemetry events                 |
   | pageViews       | user_Id            	 | unique user identifier                     |
 
-*Instrument the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
+*Use the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
  
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
