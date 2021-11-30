@@ -4,7 +4,8 @@ description: Describes how to troubleshoot Azure Edge Hardware Center ordering i
 services: Azure Edge Hardware Center
 author: alkohli
 
-ms.service: edgeorder
+ms.service: databox
+ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 11/29/2021
 ms.author: alkohli
@@ -35,13 +36,13 @@ You will see this error when placing orders for Azure Stack Edge devices.
 
 **Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
-* The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](azure-stack-edge-deploy-prep.md#prerequisites). 
+* The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](../databox-online/azure-stack-edge-deploy-prep.md#prerequisites). 
 
     If using a supported subscription type, make sure:
  
 - That the `Microsoft.EdgeOrder`provider is registered, when placing orders via the Azure Edge Hardware Center.
  
-For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
+For information on how to register, see [Register resource provider](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
 
 **Suggested solution:** Follow these steps to register your Azure Edge Hardware Center resource provider:
 
@@ -53,7 +54,7 @@ For information on how to register, see [Register resource provider](azure-stack
 
     If you don't have owner or contributor access to register the resource provider, you see the following error: *The subscription &lt;subscription name&gt; doesn't have permissions to register the resource provider(s): Microsoft.EdgeOrder.*
 
-    For more information, see [Register resource providers](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    For more information, see [Register resource providers](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
 ## Next steps
 

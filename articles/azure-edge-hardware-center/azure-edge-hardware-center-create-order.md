@@ -4,7 +4,8 @@ description: The tutorial about creating an Azure Edge Hardware Center via the A
 services: Azure Edge Hardware Center
 author: alkohli
 
-ms.service: edgeorder
+ms.service: databox
+ms.subservice: edge
 ms.topic: tutorial
 ms.date: 11/29/2021
 ms.author: alkohli
@@ -28,7 +29,7 @@ Before you begin:
 
 - Make sure that the `Microsoft.EdgeOrder` provider is registered. To create an order in the Azure Edge Hardware Center, the `Microsoft.EdgeOrder` provider should be registered against your subscription. 
 
-    For information on how to register, go to [Register resource provider](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
+    For information on how to register, go to [Register resource provider](../databox-online/azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
 
 - Make sure that all the other prerequisites related to the product that you are ordering are met. For example, if ordering Azure Stack Edge device, ensure that all the [Azure Stack Edge prerequisites](../databox-online/azure-stack-edge-gpu-deploy-prep.md#prerequisites) are completed.
 
@@ -51,4 +52,4 @@ In this tutorial, you learned about topics such as:
 > * Review prerequisites
 > * Create an order
 
-Learn more on how to [Manage Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-orders.md)
+Learn more on how to [Manage Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md)

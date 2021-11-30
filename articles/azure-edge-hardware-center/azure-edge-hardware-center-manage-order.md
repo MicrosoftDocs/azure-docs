@@ -4,7 +4,8 @@ description: Describes how to use the Azure portal to manage orders created via 
 services: Azure Edge Hardware Center
 author: alkohli
 
-ms.service: edgeorder
+ms.service: databox
+ms.subservice: edge
 ms.topic: how-to
 ms.date: 11/29/2021
 ms.author: alkohli
@@ -40,7 +41,7 @@ Follow these steps in the Azure portal to track the order you created using the 
  
 2. In the selected order resource, go to **Overview**. In the right pane, from the top command bar, select Cancel. You can only cancel an order after the order is created and before the order is confirmed. For example, here the **Cancel** is enabled when the order status is **Placed**.
 
-    ![Select order from list of Edge Hardware Center orders](media/azure-edge-hardware-center-manage-order/cancel-order-2.png)
+    ![Cancel an order from list of Edge Hardware Center orders](media/azure-edge-hardware-center-manage-order/cancel-order-2.png)
 
 3. You see a notification that the order is being canceled. Once the order is canceled, the order status updates to **Canceled**.
 

@@ -4,7 +4,8 @@ description: Describes Azure Edge Hardware Center - an Azure service that lets y
 services: Azure Edge Hardware Center
 author: alkohli
 
-ms.service: edgeorder
+ms.service: databox
+ms.subservice: edge
 ms.topic: overview
 ms.date: 11/29/2021
 ms.author: alkohli
