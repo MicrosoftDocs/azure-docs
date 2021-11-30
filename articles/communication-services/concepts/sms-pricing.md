@@ -27,7 +27,7 @@ zone_pivot_groups: acs-tollfree-shortcode
 In this quickstart, you learned how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
-> [Learn more about SMS](../../concepts/sms/concepts.md)
+> [Learn more about SMS](../concepts/sms/concepts.md)
 
 The following documents may be interesting to you:
 - Familiarize yourself with the [SMS SDK](../concepts/sms/sdk-features.md)
