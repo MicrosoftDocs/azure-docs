@@ -18,14 +18,12 @@
     items:
     - name: Return your device
       href: azure-edge-hardware-center-manage-address-book.md
-    - name: Cancel your order
-      href: azure-edge-hardware-center-cancel-order.md
-    - name: Track your order
-      href: azure-edge-hardware-center-track-order.md
-    - name: Troubleshoot issues
-      href: azure-edge-hardware-center-troubleshoot.md
+    - name: Track, cancel your order
+      href: azure-edge-hardware-center-manage-order.md
+    - name: Troubleshoot orders
+      href: azure-edge-hardware-center-troubleshoot-order.md
     - name: Contact Microsoft Support
-      href: azure-stack-edge-contact-microsoft-support.md 
+      href: azure-edge-hardware-center-contact-microsoft-support.md 
   - name: References
     href: azure-edge-hardware-center-placeholder.md           
   - name: Resources
