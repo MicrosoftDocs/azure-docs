@@ -11,7 +11,7 @@ zone_pivot_groups: acs-plat-web-ios-android
 ms.custom: mode-other
 ---
 
-# Quickstart: Get started with the composites
+# Quickstart: Get started with the UI Library
 
 Get started with Azure Communication Services by using the UI Library to quickly integrate communication experiences into your applications. In this quickstart, you'll learn how to integrate the composites into your  applications.
 

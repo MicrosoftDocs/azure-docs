@@ -12,9 +12,14 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-## UI Components
+> [!NOTE]
+> For detailed documentation on the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
 
-These components are open-source building blocks that let you build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences.
+- **Composites.** 
+  These components are turn-key solutions that implement common communication scenarios. You can quickly add video calling or chat (currently only available over Web UI Library) experiences to your applications. Composites are open-source higher-order components built using UI components.
+
+- **UI Components.**
+  These components are open-source building blocks that let you build custom communications experience. Components are offered for both calling and chat capabilities that can be combined to build experiences.
 
 These UI client libraries all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Library and is actively used across Microsoft products.
 
@@ -22,18 +27,7 @@ In conjunction to the UI components, the UI Library exposes a stateful client li
 This client is agnostic to any specific state management framework and can be integrated with common state managers like Redux or React Context.
 This stateful client library can be used with the UI Components to pass props and methods for the UI Components to render data. For more information, see [Stateful Client Overview](https://azure.github.io/communication-ui-library/?path=/story/stateful-client-what-is-stateful--page).
 
-> [!NOTE]
-> For detailed documentation on the Web UI Library visit the [**Web UI Library Storybook**](https://azure.github.io/communication-ui-library). There you will find additional conceptual documentation, quickstarts and examples.
-
-## Installing Web UI Library
-
-Stateful clients are found as part of the `@azure/communication-react` package. 
-
-```bash
-npm i --save @azure/communication-react
-```
-
-## Web UI Composites overview
+## Composites overview
 
 Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
 Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
@@ -42,7 +36,6 @@ Developers can easily instantiate the Composite using an Azure Communication Ser
 | ------------ | ---------- |
 | [CallComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-call--basic-example) | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those participants with video turn on. For Teams Interop is includes lobby functionality for user to wait to be admitted. |
 | [ChatComposite](https://azure.github.io/communication-ui-library/?path=/story/composites-chat--basic-example)    | Chat experience where user can send and receive messages. Thread events like typing, reads, participants entering and leaving are displayed to the user as part of the chat thread.                                                                                                                          |
-
 ## UI Component overview
 
 Pure UI Components that can be used by developers to compose communication experiences, from stitching video tiles into a grid to showcase remote participants, to organizing components to fit your applications specifications.
@@ -60,6 +53,14 @@ UI Components support customization to give the components the right feel and lo
 |         | [Typing indicator](https://azure.github.io/communication-ui-library/?path=/story/ui-components-typingindicator--typing-indicator) | Text component to render the participants who are actively typing on a thread                      |
 | Common  | [Participant Item](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantitem--participant-item) | Common component to render a call or chat participant including avatar and display name            |
 |         | [Participant List](https://azure.github.io/communication-ui-library/?path=/story/ui-components-participantlist--participant-list)                                 | Common component to render a call or chat participant list including avatar and display name       |
+
+## Installing Web UI Library
+
+Stateful clients are found as part of the `@azure/communication-react` package. 
+
+```bash
+npm i --save @azure/communication-react
+```
 
 ## What UI artifact is best for my project?
 
