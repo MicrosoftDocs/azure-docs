@@ -79,7 +79,7 @@ Yes, you can make one request with multiple recipients. Follow this [quickstart]
 The 202 returned by the service means that your message has been queued to be sent and not delivered. Use this [quickstart](../../quickstarts/sms/handle-sms-events.md) to subscribe to delivery report events and troubleshoot. Once the events are configured, inspect the "deliveryStatus" field of your delivery report to verify delivery success/failure.
 
 ## What is the eligibility to apply for a short code?
-Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. 
+Short Code availability is currently restricted to paid Azure enterprise subscriptions that have a billing address in the United States. Short Codes cannot be acquired on trial accounts or using Azure free credits. For more details, check out our [subscription eligibility page](../numbers/sub-eligibility-number-capability.md).
 
 ## Can you text to a toll-free number from a short code?
 No. Texting to a toll-free number from a short code is not supported. You also wont be able to receive a message from a toll-free number to a short code.
