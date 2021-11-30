@@ -153,7 +153,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 | Physical cores | Available vCPUs | Available RAM | VM Size | # VMs |
 |----------------|-----------------|---------------|---------|-------|
-| 8              | 8               | 64 GiB        | DC8s v2 | 1     |
+| 8              | 8               | 64 GiB        | DC8 v2  | 1     |
 
 ## Easv4
 ### Easv4-Type1
