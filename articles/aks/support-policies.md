@@ -15,7 +15,7 @@ This article provides details about technical support policies and limitations f
 ## Service updates and releases
 
 * For release information, see [AKS release notes](https://github.com/Azure/AKS/releases).
-* For information on features in preview, see [AKS preview features and related projects](https://awesomeopensource.com/projects/aks?categoryPage=11).
+* For information on features in preview, see the [AKS roadmap](https://github.com/Azure/AKS/projects/1).
 
 ## Managed features in AKS
 

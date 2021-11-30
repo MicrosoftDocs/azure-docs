@@ -2,14 +2,13 @@
 title: 'Quickstart: Create a search index in Python'
 titleSuffix: Azure Cognitive Search
 description: Learn how to create a search index, load data, and run queries using Python, Jupyter Notebook, and the Azure.Documents.Search client library for Python.
-
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mode-other
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebook

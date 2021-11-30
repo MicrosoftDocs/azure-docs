@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/19/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -26,6 +26,8 @@ To create Bicep files, you need a good Bicep editor. We recommend:
 To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower right corner change to **Bicep**.
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
+
+If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 ## Deployment environment
 
@@ -72,6 +74,8 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
 
+You're done with setting up your Bicep environment. The rest of this article describes installation steps that you don't need when using Azure CLI.
+
 ## Azure PowerShell
 
 You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
@@ -92,6 +96,8 @@ bicep --version
 ## Install manually
 
 The following methods install the Bicep CLI and add it to your PATH. You must manually install for any use other than Azure CLI.
+
+When installing manually, select a location that is different than the one managed by Azure CLI. All of the following examples use a location named **bicep** or **.bicep**. This location won't conflict with the location managed by Azure CLI, which uses **.azure**.
 
 - [Linux](#linux)
 - [macOS](#macos)
@@ -116,7 +122,7 @@ bicep --help
 
 ### macOS
 
-#### via homebrew
+#### Via homebrew
 
 ```sh
 # Add the tap for bicep
@@ -126,7 +132,7 @@ brew tap azure/bicep
 brew install bicep
 ```
 
-#### via BASH
+#### Via BASH
 
 ```sh
 # Fetch the latest Bicep CLI binary
@@ -181,7 +187,7 @@ bicep --help
 
 ## Install on air-gapped cloud
 
-To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to a certain location.
+The `bicep install` and `bicep upgrade` commands don't work in an air-gapped environment. To install Bicep CLI in an air-gapped environment, you need to download the Bicep CLI executable manually and save it to **.azure/bin**. This location is where the instance managed by Azure CLI is installed.
 
 - **Linux**
 
@@ -198,8 +204,6 @@ To install Bicep CLI in an air-gapped environment, you need to download the Bice
     1. Download **bicep-win-x64.exe** from the [Bicep release page](https://github.com/Azure/bicep/releases/latest/) in a non-air-gapped environment.
     1. Copy the executable to the **%UserProfile%/.azure/bin** directory on an air-gapped machine.
 
-Note `bicep install` and `bicep upgrade` commands don't work in an air-gapped environment.
-
 ## Install the nightly builds
 
 If you'd like to try the latest pre-release bits of Bicep before they're released, see [Install nightly builds](https://github.com/Azure/bicep/blob/main/docs/installing-nightly.md).
@@ -210,3 +214,5 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 ## Next steps
 
 For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+
+If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).

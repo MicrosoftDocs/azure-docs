@@ -4,8 +4,9 @@ description: Quickstart showing how to create a Web PubSub instance with the Azu
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: quickstart 
-ms.date: 08/06/2021
+ms.topic: quickstart
+ms.date: 11/08/2021
+ms.custom: mode-api
 ---
 
 # Quickstart: Create a Web PubSub instance with the Azure CLI

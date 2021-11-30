@@ -283,7 +283,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -338,7 +338,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
 
 ## Initialize the SDK with Azure AD
 

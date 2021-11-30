@@ -4,14 +4,14 @@ metadata:
   description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
   services: active-directory
   author: kenwith
-  manager: mtillman
+  manager: karenh444
   ms.service: active-directory
   ms.subservice: app-proxy
   ms.workload: identity
   ms.topic: reference
   ms.date: 04/27/2021
   ms.author: kenwith
-  ms.reviewer: japere
+  ms.reviewer: ashishj
     
 title: Active Directory (Azure AD) Application Proxy frequently asked questions
 summary: This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.

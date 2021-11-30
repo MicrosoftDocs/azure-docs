@@ -190,7 +190,7 @@
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview)
+  - name: Orchestration modes
     items:
     - name: Overview 
       href: virtual-machine-scale-sets-orchestration-modes.md

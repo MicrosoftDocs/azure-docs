@@ -2,7 +2,7 @@
 title: "Azure Arc-enabled Kubernetes cluster extensions"
 services: azure-arc
 ms.service: azure-arc
-ms.date: 06/18/2021
+ms.date: 11/24/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
@@ -30,7 +30,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 ## Prerequisites
 
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0.
-- `connectedk8s` (version >= 1.1.0) and `k8s-extension` (version >= 0.2.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
+- `connectedk8s` (version >= 1.2.0) and `k8s-extension` (version >= 1.0.0) Azure CLI extensions. Install these Azure CLI extensions by running the following commands:
   
     ```azurecli
     az extension add --name connectedk8s
@@ -46,14 +46,14 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
 
 ## Currently available extensions
 
 | Extension | Description |
 | --------- | ----------- |
-| [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
-| [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
+| [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) | Provides visibility into the performance of workloads deployed on the Kubernetes cluster. Collects memory and CPU utilization metrics from controllers, nodes, and containers. |
+| [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json) | Gathers information related to security like audit log data from the Kubernetes cluster. Provides recommendations and threat alerts based on gathered data. |
 | [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md) | Deploys Open Service Mesh on the cluster and enables capabilities like mTLS security, fine grained access control, traffic shifting, monitoring with Azure Monitor or with open source add-ons of Prometheus and Grafana, tracing with Jaeger, integration with external certification management solution. |
 | [Azure Arc-enabled Data Services](../../azure-arc/kubernetes/custom-locations.md#create-custom-location) | Makes it possible for you to run Azure data services on-prem, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice. |
 | [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md) | Allows you to provision an App Service Kubernetes environment on top of Azure Arc-enabled Kubernetes clusters. |
@@ -261,11 +261,11 @@ Learn more about the cluster extensions currently available for Azure Arc-enable
 
 > [!div class="nextstepaction"]
 > [Azure Monitor](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json)
-> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > [Azure Arc-enabled Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)
 > 
 > [!div class="nextstepaction"]
-> [Azure Defender](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
+> [Microsoft Defender for Cloud](../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json)
 > 
 > [!div class="nextstepaction"]
 > [Azure App Service on Azure Arc](../../app-service/overview-arc-integration.md)

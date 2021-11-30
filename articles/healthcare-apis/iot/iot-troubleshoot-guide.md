@@ -6,24 +6,27 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
 ---
 # IoT connector troubleshooting guide
 
 > [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 > [!TIP]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
 
-## Device and FHIR destination mapping validations
+This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal. 
 
-This section describes the validation process that the IoT connector does. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
+## Device and FHIR destination mappings validations
 
-**Device mapping**
+This section describes the validation process that IoT connector does. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
+
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
+
+**Device mappings**
 
 |Element|Required|
 |:-------|:------|
@@ -39,9 +42,9 @@ This section describes the validation process that the IoT connector does. The v
 >
 >For example:
 > 
->When a wearable IoMT device is put on or removed, the element(s) don't have any values except for a name that the IoT connector matches and emits. On the FHIR conversion, the IoT connector maps it to a code-able concept based on the semantic type. This means that no actual values are populated.
+>When a wearable IoMT device is put on or removed, the element(s) don't have any values except for a name that IoT connector matches and emits. On the FHIR conversion, IoT connector maps it to a code-able concept based on the semantic type. This means that no actual values are populated.
 
-**FHIR destination mapping**
+**FHIR destination mappings**
 
 |Element|Required|
 |:------|:-------|
@@ -56,7 +59,7 @@ This section describes the validation process that the IoT connector does. The v
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
-|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|IoT connector subscription quota is reached (default is 25 per subscription).|Delete one of the existing instances of the IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
+|The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|IoT connector subscription quota is reached (default is 25 per subscription).|Delete one of the existing instances of IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
 |Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
 |`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent Workspace provisioning has completed and submit the provisioning request again.
@@ -85,12 +88,12 @@ This section describes the validation process that the IoT connector does. The v
 
 *Reference [Quickstart: Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md) for a functional description of the IoT connector resolution types (For example: Lookup or Create).
 
-### The operation done by the IoT connector
+### The operation performed by IoT connector
 
-This property represents the operation being performed by the IoT connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
+This property represents the operation being performed by IoT connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
 
 > [!NOTE]
-> For information about the different stages of data flow in the IoT connector, see [IoT connector data flow](iot-data-flow.md).
+> For information about the different stages of data flow in IoT connector, see [IoT connector data flow](iot-data-flow.md).
 
 |Data flow stage|Description|
 |---------------|-----------|
@@ -110,7 +113,7 @@ This property represents the severity of the occurred error. Below is a list of 
 |Error|This message occurs when the processing of a specific device message has run into an error and other messages may continue to execute as expected.|
 |Critical|This error is when some system level issue exists with the IoT connector and no messages are expected to process.|
 
-### The type of the error
+### The type of error
 
 This property signifies a category for a given error, which it basically represents a logical grouping for similar types of errors. Below is a list of possible values for this property.
 
@@ -140,9 +143,9 @@ This property provides the name for a specific error. Below is the list of all e
 |`DeviceIdentityNotDefinedException`|This error occurs when the expression to parse device identifier from the device message isn't configured on the Device mapping or device identifer isn't present in the device message.|`DeviceTemplateError`|Critical|Normalization|
 |`NotSupportedException`|Error occurred when device message with unsupported format is received.|`DeviceMessageError`|Error|Normalization|
 
-## Creating copies of the IoT connector Device and FHIR destination mappings
+## Creating copies of IoT connector Device and FHIR destination mappings
 
-Copying the IoT connector mappings can be useful for editing and archiving outside of the Azure portal website.
+Copying IoT connector mappings can be useful for editing and archiving outside of the Azure portal website.
 
 The mapping copies should be provided to Azure Technical Support when opening a support ticket to help with the troubleshooting process.
 
@@ -150,27 +153,27 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 > JSON is the only supported format for Device and FHIR destination mappings at this time.
 
 > [!TIP]
-> Learn more about the IoT connector [Device and FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+> Learn more about IoT connector [Device mappings](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
 
    :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select IoT connectors." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 
-2. Select the name of **IoT connector** that you'll be copying the Device and FHIR destination mappings from.
+2. Select the name of the **IoT connector** that you'll be copying the Device and FHIR destination mappings from.
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
    > [!NOTE]
-   > This process may also be used for copying and saving the contents of the **"Destination"** mapping.
+   > This process may also be used for copying and saving the contents of the **"Destination"** FHIR destination mapping.
 
 3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
-4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Ensure to save the file with the extension **.json**.
+4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Ensure to save the file with the **.json** extension.
 
 > [!TIP]
-> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, make sure to include copies of your Device and FHIR destination mappings to help with the troubleshooting process.
+> If you'll be opening a [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, make sure to include copies of your Device and FHIR destination mappings to help with the troubleshooting process.
 
 ## Next steps
 

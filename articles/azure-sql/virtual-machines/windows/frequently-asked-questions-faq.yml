@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to frequently asked questions about running SQL Server on Azure VMs.
   services: virtual-machines-windows
   documentationcenter: ''
-  author: MashaMSFT
+  author: bluefooted
   editor: ''
   tags: azure-service-management
   ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
@@ -14,7 +14,7 @@ metadata:
   ms.tgt_pltfrm: vm-windows-sql-server
   ms.workload: iaas-sql-server
   ms.date: 9/01/2021
-  ms.author: mathoma
+  ms.author: pamela
     
 title: Frequently asked questions for SQL Server on Azure VMs
 summary: |
@@ -258,6 +258,14 @@ sections:
       - question: |
           Does Azure SQL virtual machine move or store customer data out of region?
         answer:    No. In fact, Azure SQL virtual machine and the SQL IaaS Agent Extension do not store any customer data.
+        
+      - question: |
+          What Azure Load Balancer SKU should be used for a cross-cluster migration of an availability group? 
+        answer:    To perform a [cross-cluster migration of an availability group](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) on SQL Server on Azure VMs, use the standard [Azure Load Balancer SKU](../../../load-balancer/skus.md). 
+
+      - question: |
+          Can I use Azure premium file share to host my database files on a standalone instance of SQL Server?  
+        answer:    Yes. Azure premium file shares are supported for both failover cluster instances and standalone instances of SQL Server using the [SMB protocol](/sql/database-engine/install-windows/install-sql-server-with-smb-fileshare-as-a-storage-option).
 
   - name: SQL Server IaaS Agent extension
     questions:

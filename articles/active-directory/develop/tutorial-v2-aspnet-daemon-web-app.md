@@ -242,7 +242,7 @@ If you find a bug in the sample, please raise the issue on [GitHub Issues](https
 
 If you find a bug in MSAL.NET, please raise the issue on [MSAL.NET GitHub Issues](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues).
 
-To provide a recommendation, go to the [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+To provide a recommendation, go to the [User Voice page](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
 

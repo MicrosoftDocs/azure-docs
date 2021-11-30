@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/05/2021
+ms.date: 11/12/2021
 ---
 
 # Maintenance window (Preview)
@@ -33,12 +33,14 @@ The maintenance window can be configured on creation or for existing Azure SQL r
 
 ### Gain more predictability with maintenance window
 
-By default, Azure SQL maintenance policy blocks impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
+By default, Azure SQL maintenance policy blocks most impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
 
 You can further adjust the maintenance updates to a time suitable to your Azure SQL resources by choosing from two additional maintenance window slots:
  
-* Weekday window, 10PM to 6AM local time Monday - Thursday
-* Weekend window, 10PM to 6AM local time Friday - Sunday
+* **Weekday** window: 10:00 PM to 6:00 AM local time, Monday - Thursday
+* **Weekend** window: 10:00 PM to 6:00 AM local time, Friday - Sunday
+
+Maintenance window days listed indicate the starting day of each eight-hour maintenance window. For example, "10:00 PM to 6:00 AM local time, Monday – Thursday" means that the maintenance windows start at 10:00 PM local time on each day (Monday through Thursday) and complete at 6:00 AM local time the following day (Tuesday through Friday).
 
 Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
@@ -61,7 +63,6 @@ Maintenance notifications can be configured to alert you on upcoming planned mai
 ### Supported service level objectives
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
-* Hyperscale 
 * Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 

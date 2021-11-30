@@ -6,7 +6,7 @@ author: michalmar
 ms.service: data-science-vm
 
 ms.author: mimarusa
-ms.date: 07/16/2021
+ms.date: 10/11/2021
 ms.topic: reference
 ---
 
@@ -16,8 +16,62 @@ In this article, learn about Azure Data Science Virtual Machine releases. For a 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## November 4, 2021
 
-## 2021-08-11
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Version: 21.11.04
+
+Main changes:
+* Changed .NET Framework to version 3.1.414
+* Changed Azcopy to version 10.13.0
+* Changed Azure CLI to version 2.30.0
+* Changed CUDA to version 11.5
+* Changed Docker to version 20.10.10
+* Changed Intellijidea to version 2021.2.3
+* Changed NVIDIA Drivers to version 495.29.05
+* Changed NVIDIA SMI to version 495.29.05
+* Changed Nodejs to version v16.13.0
+* Changed Pycharm to version 2021.2.3
+* Changed VS Code to version 1.61.2
+* Conda
+  * *azureml_py36_automl*
+    * Changed azureml-core to version 1.35.0
+  * *py38_default*
+    * Changed Jupyter Lab / jupyterlab to version 3.2.1
+    * Changed Jupyter Notebook / notebook to version 6.4.5
+    * Changed Jupyter Server / jupyter_server to version 1.11.2
+    * Changed PyTorch Profiler TensorBoard Plugin / torch-tb-profiler to version 0.3.1
+    * Changed azure-core to version 1.19.1
+    * Changed matplotlib to version 3.4.3
+    * Changed mkl to version 2021.4.0
+    * Changed onnx to version 1.10.2
+    * Changed opencv-python to version 4.5.4.58
+    * Changed pandas to version 1.3.4
+    * Changed pytorch to version 1.10.0
+    * Changed scikit-learn to version 1.0.1
+    * Changed tensorflow-gpu to version 2.6.2
+
+
+## October 7, 2021
+
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Version: 21.10.07
+
+Main changes:
+ - Changed pytorch to version 1.9.1
+ - Changed Docker to version 20.10.9
+ - Changed Intellijidea to version 2021.2.2
+ - Changed Nodejs to version v14.18.0
+ - Changed Pycharm to version 2021.2.2
+ - Changed VS Code to version 1.60.2
+ - Fixed AutoML environment (azureml_py36_automl)
+ - Fixed Azure Storage Explorer stability
+ - Improvement of stability and minor bug fixes 
+
+
+## August 11, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -33,7 +87,7 @@ Main changes:
 
 
 
-## 2021-07-12
+## July 12, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -46,7 +100,7 @@ Main changes:
 - Improvement of stability and minor bug fixes 
 
 
-## 2021-06-22
+## June 22, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -58,7 +112,7 @@ Main changes:
 - Fixed a bug where git was not available
 
 
-## 2021-06-01
+## June 1, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -76,7 +130,7 @@ Main changes are:
 <br/>
 Removed several icons from desktop.
 
-## 2021-05-22
+## May 22, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
@@ -110,7 +164,7 @@ Removed Firefox, Apache Drill and Microsoft Integration Runtime.
 <br/>
 Dark mode, changed icons on desktop, wallpaper background change.
 
-## 2021-05-12
+## May 12, 2021
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
@@ -152,11 +206,11 @@ sudo systemctl start docker
 >
 
 
-## 2020-02-24
+## February 24, 2020
 
 Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview) and [Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview) images are now available.
 
-## 2019-10-08
+## October 8, 2019
 
 ### Updates to software on the Windows DSVM
 
@@ -168,4 +222,4 @@ Data Science Virtual Machine images for [Ubuntu 18.04](https://azuremarketplace.
 
 ### Default Browser for Windows updated
 
-Earlier, the default browser was set to Internet Explorer. Users are now prompted to choose a default browser when they first log in.
+Earlier, the default browser was set to Internet Explorer. Users are now prompted to choose a default browser when they first sign in.

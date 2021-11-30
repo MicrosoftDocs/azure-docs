@@ -164,7 +164,7 @@ A passphrase is used to encrypt and decrypt data while backing up or restoring y
 
 ## Validate passphrase
 
-From MARS agent version 2.0.9190.0 and later, you must validate your passphrase to ensure it meets the [updated requirements](/azure/backup/backup-azure-file-folder-backup-faq#what-characters-are-allowed-for-the-passphrase-).
+From MARS agent version 2.0.9190.0 and later, you must validate your passphrase to ensure it meets the [updated requirements](./backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-).
 
 To validate your passphrase, follow these steps:
 
