@@ -235,6 +235,9 @@ This section shows you how to create a .NET Core console application to send mes
     - The **current size** of the queue increments each time the app adds messages to the queue.
     - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages for the queue. 
 
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
+
 ## Receive messages from the queue
 In this section, you'll create a .NET Core console application that receives messages from the queue. 
 
@@ -458,6 +461,8 @@ In this section, you'll add code to retrieve messages from the queue.
     
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 
+> [!NOTE]
+> This quick start provides step-by-step instructions for a simple scenario of sending a batch of messages to a Service Bus queue and receiving them. You can find pre-built .NET samples for Azure Service Bus in the [Azure SDK for .NET repository on GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples). 
 
 ## Next steps
 See the following documentation and samples:
