@@ -23,15 +23,15 @@ Select one of the features below to see information you can use to update your a
 
 ## [Sentiment analysis](#tab/sentiment-analysis)
 
-> [!TIP]
+> [!NOTE]
 > * Want to use the latest version of the API in your application? See the [sentiment analysis](../sentiment-opinion-mining/how-to/call-api.md) how-to article  and [quickstart](../sentiment-opinion-mining/quickstart.md) for information on the current version of the API. 
 > * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client library has been deprecated.
 
 ## Feature changes from version 2.1
 
-Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores. The version `3.1-preview` REST API endpoint and `5.1.0-beta` client library has been deprecated. 
+Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -48,7 +48,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 
 ## [NER, PII, and entity linking](#tab/named-entity-recognition)
 
-> [!TIP]
+> [!NOTE]
 > Want to use the latest version of the API in your application? See the following articles for information on the current version of the APIs:
 >
 > * [NER quickstart](../named-entity-recognition/quickstart.md)
@@ -61,7 +61,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 
 In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md).
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -115,7 +115,7 @@ The following table lists the entity categories returned for NER v2.1.
 
 ## [Language detection](#tab/language-detection)
 
-> [!TIP]
+> [!NOTE]
 > * Want to use the latest version of the API in your application? See the [language detection](../language-detection/how-to/call-api.md) how-to article and [quickstart](../language-detection/quickstart.md) for information on the current version of the API. 
 > * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client libraries has been deprecated.
 
@@ -123,7 +123,7 @@ The following table lists the entity categories returned for NER v2.1.
 
 The language detection feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -140,7 +140,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 
 ## [Key phrase extraction](#tab/key-phrase-extraction)
 
-> [!TIP]
+> [!NOTE]
 > * Want to use the latest version of the API in your application? See the [key phrase extraction](../key-phrase-extraction/how-to/call-api.md) how-to article and [quickstart](../key-phrase-extraction/quickstart.md) for information on the current version of the API. 
 > * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client library has been deprecated.
 
@@ -148,7 +148,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 
 The key phrase extraction feature currently has not changed outside of the endpoint version.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
