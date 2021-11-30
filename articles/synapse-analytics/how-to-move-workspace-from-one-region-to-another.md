@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/29/2021
 author: phanir
 ms.author: phanir
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Move an Azure Synapse Analytics workspace from one region to another
