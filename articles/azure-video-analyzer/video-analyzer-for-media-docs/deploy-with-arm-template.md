@@ -1,13 +1,13 @@
 ---
 title:  Deploy Azure Video Analyzer for Media with ARM template 
 titleSuffix: Azure Video Analyzer for Media (formerly Video Indexer)
-description: This article gives a brief overview of Azure Video Analyzer for Media (formerly Video Indexer) terminology and concepts.
+description: In this tutorial you will create an Azure Video Analyzer for Media account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
 ms.date: 12/01/2021
 ms.author: juliako
 ---
 
-# Tutorial: eeploy Azure Video Analyzer for Media with ARM template 
+# Tutorial: deploy Azure Video Analyzer for Media with ARM template 
 
 ## Overview
 
@@ -28,7 +28,6 @@ The resource will be deployed to your subscription and will create the Azure Vid
 ----
 
 ### Option 1: Click the "Deploy To Azure Button", and fill in the missing parameters
-
 
 [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Samples%2FCreate-Account%2Favam.template.json)  
 
