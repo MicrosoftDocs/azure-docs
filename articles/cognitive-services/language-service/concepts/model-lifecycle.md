@@ -20,9 +20,11 @@ Language service features utilize AI models that are versioned. We update the la
 
 As new models and new functionality become available and older, less accurate models are retired, see the following timelines for model and endpoint expiration:
 
-New Langauge AI models are being released every few months. So, an expiration of any publicly available model is set for 6 months. An expiration timeline of a preview model is for even a shorter duration i.e. for 3 months.
+New Langauge AI models are being released every few months. So, an expiration of any publicly available model is 6 months after a deprecation notice is issued followed by new model-version release. 
 
-When a model is retired, The API you're using will typically fall back to the newest available model version. 
+Model-version retirement period is defined from a release of a newer model-version for the capability until a specific older version is deprecated. This period is defined as 6 months for stable model versions, and 3 months for previews. For example, a stable model-version 2021-01-01 will be deprecated 6 months after a successor model-version 2021-07-01 is released, on January 1st 2022. Note, that preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
+
+After model-version deprecation, API calls to deprecated model-versions will return an error. 
 
 ## Next steps
 
