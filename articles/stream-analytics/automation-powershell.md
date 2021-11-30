@@ -1,6 +1,6 @@
 ---
-title: Auto-pause via PowerShell
-description: This article describes how to auto-pause a job on a schedule with PowerShell
+title: Auto-pause an Azure Stream Analytics with PowerShell
+description: This article describes how to auto-pause an Azure Stream Analytics job on a schedule with PowerShell
 services: stream-analytics
 author: fleid
 
