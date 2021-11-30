@@ -16,12 +16,12 @@ ms.custom: ignite-fall-2021
 This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
 -   Data access policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2
 
-> [!IMPORTANT]
+> [!NOTE]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
->[!Note]
+>[!IMPORTANT]
 > The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
 - Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription.md).
 - Create a new Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
