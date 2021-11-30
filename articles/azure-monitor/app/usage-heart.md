@@ -23,7 +23,8 @@ HEART is an acronym that stands for Happiness, Engagement, Adoption, Retention, 
 
 These dimensions are measured independently, but they interact with each other as shown below:
 
-:::image type="content" source="/media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions":::
+:::image type="content" source="media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions":::
+
 
 
 - Adoption, engagement, and retention form a user activity funnel. Only a portion of users who adopt the tool come back to use it.
@@ -89,7 +90,7 @@ A brief description of the tabs can be seen below:
 - **Happiness** -  We recommend using a survey tool to measure customer satisfaction score (CSAT) over a 5-point scale. In this tab, we've provided the likelihood of happiness by using usage and performance metrics. 
 - **Feature Metrics** - Enables understanding of HEART metrics at feature granularity. 
 
-> ⚠️ **Warning**:
+> [!WARNING]
 > The HEART Workbook is currently built on logs and effectively are [log-based metrics](pre-aggregated-metrics-log-metrics.md). The accuracy of these metrics will be negatively affected by sampling and filtering.
 ## How HEART dimensions are defined and measured
 
