@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 11/02/2021
+ms.date: 11/15/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -40,9 +40,9 @@ The following table describes the key differences between service tiers.
 | | SQL Managed Instance pools | 2, 4, 8, 16, 24, 32, 40, 64, 80  vCores | N/A | N/A |
 | **Storage type** | All | Remote storage | Tiered remote and local SSD storage | Local SSD storage |
 | **Database size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
-| | SQL Managed Instance  | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only| N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 16 TB| N/A | 32 GB – 16 TB |
 | **Storage size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
-| | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 16 TB | N/A | 32 GB – 16 TB |
 | **TempDB size** | SQL Database | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) |
 | | SQL Managed Instance  | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/A | Up to 4 TB - [limited by storage size](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | SQL Database | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md)| 100 MB/s | Single databases: [12 MB/s per vCore (max 96 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [15 MB/s per vCore (max 120 MB/s)](resource-limits-vcore-elastic-pools.md)|
@@ -65,7 +65,7 @@ For more information on resource limits, see:
 
  - [Azure SQL Database (vCore)](resource-limits-vcore-single-databases.md)
  - [Single Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
- - [Pooled Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
+ - [Pooled Azure SQL Database (DTU)](resource-limits-dtu-elastic-pools.md)
  - [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
 
 ## Data and log storage

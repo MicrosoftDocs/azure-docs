@@ -16,7 +16,7 @@ ms.topic: how-to
 This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
 
 > [!IMPORTANT]
-> This article does not apply to a directly connected Azure Arc-enabled data controller. For the latest information about how to upgrade a directly connected data controller, see the [release notes](release-notes.md#data-controller-upgrade).
+> This article does not apply to a directly connected Azure Arc-enabled data controller. For the latest information about how to upgrade a directly connected data controller, see the [release notes](./release-notes.md#data-controller-upgrade).
 
 ## Prerequisites
 
@@ -61,7 +61,7 @@ This section shows how to upgrade a data controller in indirect mode.
 > Some of the data services tiers and modes are generally available and some are in preview.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](/release-notes).
+> and preview services in the [Release Notes](./release-notes.md).
 
 ### Indirect mode
 

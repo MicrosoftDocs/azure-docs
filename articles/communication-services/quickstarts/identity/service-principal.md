@@ -4,7 +4,6 @@ titleSuffix: An Azure Communication Services quickstart
 description: Azure Active Directory lets you authorize Azure Communication Services access from applications running in Azure VMs, function apps, and other resources.
 services: azure-communication-services
 author: peiliu
-
 ms.service: azure-communication-services
 ms.subservice: identity
 ms.topic: quickstart
@@ -12,6 +11,7 @@ ms.date: 06/30/2021
 ms.author: peiliu
 ms.reviewer: mikben
 zone_pivot_groups: acs-js-csharp-java-python
+ms.custom: mode-other
 ---
 
 # Quickstart: Authenticate using Azure Active Directory
@@ -51,4 +51,3 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 - [Send an SMS message](../../quickstarts/telephony-sms/send.md)
 - [Learn more about SMS](../../concepts/telephony-sms/concepts.md)
 - [Quickly create an identity for testing](./quick-create-identity.md).
-

@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/09/2021
+ms.date: 11/12/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ Privileged Identity Management provides optional enforcement of Azure AD Multi-F
 
 ### Require multifactor authentication on active assignment
 
-This option requires admins must complete a multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
+This option requires admins must complete multifactor authentication before creating an active (as opposed to eligible) role assignment. Privileged Identity Management can't enforce multifactor authentication when the user uses their role assignment because they are already active in the role from the time that it is assigned.
 
 To require multifactor authentication when creating an active role assignment, select the **Require Multi-Factor Authentication on active assignment** check box.
 
@@ -105,7 +105,7 @@ For more information, see [Multifactor authentication and Privileged Identity Ma
 
 ## Activation maximum duration
 
-Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from one to 24 hours.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that an activation request for a role assignment remains active before it expires. This value can be from one to 24 hours.
 
 ## Require justification
 

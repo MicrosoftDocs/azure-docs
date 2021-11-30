@@ -156,7 +156,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     # logout
     ```
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 
 ### RHEL 7 using Hyper-V Manager
@@ -204,7 +204,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
-    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1
+    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
    
     This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
@@ -356,7 +356,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
 	```
     
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 ### RHEL 8 using Hyper-V Manager
 
@@ -545,7 +545,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     > If you are migrating a specific virtual machine and do not wish to create a generalized image, skip the deprovision step. Running the command `waagent -force -deprovision+user` will render the source machine unusable, this step is intended only to create a generalized image.
 
 
-1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+1. Click **Action** > **Shut Down** in Hyper-V Manager. Your Linux VHD is now ready to be [**uploaded to Azure**](./upload-vhd.md#option-1-upload-a-vhd).
 
 
 ## KVM

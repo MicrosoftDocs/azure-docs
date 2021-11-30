@@ -64,10 +64,16 @@ For AKS to automatically rotate non-CA certificates, the cluster must have [TLS 
 * australiacentral
 * australiaest
 
+#### How to check whether current agent node pool is TLS Bootstrapping enabled?
+To verify if TLS Bootstrapping is enabled on your cluster browse to the following paths.  On a Linux node: /var/lib/kubelet/bootstrap-kubeconfig, on a Windows node, it’s c:\k\bootstrap-config.
+
+> [Note]
+> The file path may change as k8s version evolves in the future.
+
 > [!IMPORTANT]
 >Once a region is configured either create a new cluster or upgrade 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME' an existing cluster to set that cluster for auto-cert rotation. 
 
-### Limititation
+### Limitation
 
 Auto cert rotation won't be enabled on non-rbac cluster.
 

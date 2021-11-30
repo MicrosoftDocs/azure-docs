@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 11/20/2020
+ms.date: 11/11/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -35,6 +35,8 @@ There are many different services in Microsoft 365, such as Azure AD and Intune.
 - Commerce
 
 Other services such as Teams, SharePoint, and Managed Desktop don’t have separate role-based access control systems. They use Azure AD roles for their administrative access. Azure has its own role-based access control system for Azure resources such as virtual machines, and this system is not the same as Azure AD roles.
+
+![Azure RBAC versus Azure AD roles](./media/concept-understand-roles/azure-roles-azure-ad-roles.png)
 
 When we say separate role-based access control system. it means there is a different data store where role definitions and role assignments are stored. Similarly, there is a different policy decision point where access checks happen. For more information , see [Roles for Microsoft 365 services in Azure AD](m365-workload-docs.md) and [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
