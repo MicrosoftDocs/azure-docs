@@ -30,7 +30,7 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 
 The IoT connector works with the Azure Event Hub and the FHIR service. You can create a new [FHIR service](../fhir/get-started-with-fhir.md) or use an existing one in the same or different workspace. Similarly, you can create a new [Event Hub](../../event-hubs/event-hubs-create.md) or use an existing one.
 
-## Create a IoT connector in the workspace
+## Create an IoT connector in the workspace
 
 You can create a IoT connector from the [Azure portal](deploy-iot-connector-in-azure.md) or using PowerShell, Azure CLI, or REST API. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
@@ -40,7 +40,7 @@ Optionally, you can create a [FHIR service](../fhir/fhir-portal-quickstart.md) a
 
 By design, the IoT connector retrieves data from the specified Event Hub using the system-managed identity. For more information on how to assign the role to the IoT connector from [Event Hub](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#granting-iot-connector-access).
 
-## Assign roles to allow IoT to access FHIR service
+## Assign roles to allow IoT connector to access FHIR service
 
 The IoT connector persists the data to the FHIR store using the system-managed identity. See details on how to assign the role to the IoT connector from the [FHIR service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md#accessing-the-iot-connector-from-the-fhir-service).
 
