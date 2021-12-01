@@ -173,10 +173,6 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
-### Healthcare
-
-* [Epic EHR on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
-
 ## Azure platform services solutions
 
 This section provides solutions for Azure platform services. 
