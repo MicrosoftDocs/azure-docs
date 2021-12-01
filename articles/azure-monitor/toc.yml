@@ -314,12 +314,8 @@ items:
           href: logs/api/overview.md
         - name: Using the API
           items:
-          - name: Set up AAD for the API
-            href: logs/api/aad-setup.md
-          - name: Request an authorization token
-            href: logs/api/oath2.md
-          - name: API keys
-            href: logs/api/api-keys.md
+          - name: Set up authentication and authorization
+            href: logs/api/authentication-and-authorization.md
           - name: Access the API
             href: logs/api/access-api.md
           - name: Request format
@@ -1163,6 +1159,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
+      - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
+        href: containers/container-insights-transition-hybrid.md
     - name: Monitor
       items:
       - name: Monitor performance

@@ -1,12 +1,8 @@
 ---
 title: Microsoft Defender for Kubernetes - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Kubernetes.
-author: memildin
-ms.author: memildin
 ms.date: 11/23/2021
 ms.topic: overview
-ms.service: defender-for-cloud
-manager: rkarlin
 ---
 
 # Introduction to Microsoft Defender for Kubernetes

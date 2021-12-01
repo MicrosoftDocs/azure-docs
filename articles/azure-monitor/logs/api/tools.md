@@ -14,7 +14,7 @@ There are several tools available to help you interact with the API.
 Query the Log Analytics Workspace using the [C\# SDK](https://www.nuget.org/packages/Microsoft.Azure.OperationalInsights/). The SDK supports the full query language.
 
 > [!NOTE]
-> Due to the limitations of OpenAPI Specification 2.0, all row values are interpreted as strings. When processing query data, you may need to leverage the column definitions for each column, which indicate the type that can be parsed from each row. You can find the list of data types at <https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/operationalinsights/Microsoft.Azure.OperationalInsights/src>
+> Due to the limitations of OpenAPI Specification 2.0, all row values are interpreted as strings. When processing query data, you may need to leverage the column definitions for each column, which indicate the type that can be parsed from each row. You can find the list of data types at <https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/operationalinsights/Microsoft.Azure.OperationalInsights/src>.
 
 > You can use the [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication/) package for easier authentication with AAD instead of your own implementation of ServiceClientCredentials.
 

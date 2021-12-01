@@ -147,6 +147,7 @@ EXECUTE format($$ GRANT SELECT ON ALL SEQUENCES IN SCHEMA %I TO username $$, sch
 EXECUTE format($$ ALTER DEFAULT PRIVILEGES IN SCHEMA %I GRANT SELECT ON SEQUENCES TO username $$, sch);
 END LOOP;
 END;
+$do$
 ```
 
 ## Using the PG admin tool
