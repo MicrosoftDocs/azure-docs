@@ -1,6 +1,6 @@
 ---
 title: HEART Analytics Workbook
-description: Product teams use the HEART Workbook to measure success across five user-centric dimensions in order to deliver better software.
+description: Product teams use the HEART Workbook to measure success across five user-centric dimensions to deliver better software.
 ms.topic: conceptual
 ms.date: 11/11/2021
 
@@ -40,22 +40,22 @@ These dimensions are measured independently, but they interact with each other a
 
   | Source          | Attribute            | Description                                |
   |-----------------|----------------------|--------------------------------------------|
-  | customEvents    | user_AuthenticatedId | unique authenticated user identifier       |
-  | customEvents    | session_Id           | unique session identifier                  |
-  | customEvents    | appName              | unique Application Insights app identifier |
-  | customEvents    | itemType             | category of customEvents record            |
-  | customEvents    | timestamp            | datetime of event                          |
-  | customEvents    | operation_Id         | correlate telemetry events                 |
-  | customEvents    | user_Id         	    | unique user identifier                  	  |
-  | customEvents*   | parentId             | name of feature                            |
-  | customEvents*   | pageName             | name of page                               |
-  | customEvents*   | actionType           | category of Click Analytics record         |
-  | pageViews       | user_AuthenticatedId | unique authenticated user identifier       |
-  | pageViews       | session_Id           | unique session identifier                  |
-  | pageViews       | appName              | unique Application Insights app identifier |
-  | pageViews       | timestamp            | datetime of event                          |
-  | pageViews       | operation_Id         | correlate telemetry events                 |
-  | pageViews       | user_Id            	 | unique user identifier                     |
+  | customEvents    | user_AuthenticatedId | Unique authenticated user identifier       |
+  | customEvents    | session_Id           | Unique session identifier                  |
+  | customEvents    | appName              | Unique Application Insights app identifier |
+  | customEvents    | itemType             | Category of customEvents record            |
+  | customEvents    | timestamp            | Datetime of event                          |
+  | customEvents    | operation_Id         | Correlate telemetry events                 |
+  | customEvents    | user_Id         	    | Unique user identifier                  	  |
+  | customEvents*   | parentId             | Name of feature                            |
+  | customEvents*   | pageName             | Name of page                               |
+  | customEvents*   | actionType           | Category of Click Analytics record         |
+  | pageViews       | user_AuthenticatedId | Unique authenticated user identifier       |
+  | pageViews       | session_Id           | Unique session identifier                  |
+  | pageViews       | appName              | Unique Application Insights app identifier |
+  | pageViews       | timestamp            | Datetime of event                          |
+  | pageViews       | operation_Id         | Correlate telemetry events                 |
+  | pageViews       | user_Id            	 | Unique user identifier                     |
 
 *Use the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
 
@@ -81,7 +81,7 @@ See the "Development Requirements" tab as shown below to validate that data is f
 
 :::image type="content" source="media/usage-overview/workbookpreview3.png" alt-text="Screenshot highlighting the 'Development Requirements' tab of the 'HEART Analytics - All Sections' workbook":::
 
-If the data is not flowing as expected, this tab will highlight the specific attributes which have issues as shown in the below example.
+If the data isn't flowing as expected, this tab will highlight the specific attributes with issues as shown in the below example.
 
 :::image type="content" source="media/usage-overview/developerrequirements.png" alt-text="Screenshot highlighting data discrepancies in the 'Development Requirements' tab of the HEART workbook":::
 
@@ -107,7 +107,7 @@ A brief description of the tabs can be seen below:
 
 Happiness is a user-reported dimension that measures how users feel about the product offered to them. 
 
-A common approach to measure hapiness is to ask users a Customer Satisfaction (CSAT) question like *How satisfied are you with this product?*. Users' responses on a three or a five-point scale (for example, *no, maybe,* and *yes*) are aggregated to create a product-level score ranging from 1-5. Since user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
+A common approach to measure happiness is to ask users a Customer Satisfaction (CSAT) question like *How satisfied are you with this product?*. Users' responses on a three or a five-point scale (for example, *no, maybe,* and *yes*) are aggregated to create a product-level score ranging from 1-5. Since user-initiated feedback tends to be negatively biased, HEART tracks happiness from surveys displayed to users at pre-defined intervals.
 
 Common happiness metrics include values such as *Average Star Rating* and *Customer Satisfaction Score*. Send these values to Azure Monitor using one of the custom ingestion methods described in [Custom sources](../agents/data-sources.md#custom-sources).
 
@@ -129,7 +129,7 @@ Measuring engagement can vary based on the type of product being used. For examp
 
 ### Adoption
 
-Adoption enables understanding of penetration among the relevant users, who are we gaining as our user base, and how we are gaining them. Adoption metrics are useful for measuring the below scenarios:
+Adoption enables understanding of penetration among the relevant users, who we're gaining as our user base, and how we're gaining them. Adoption metrics are useful for measuring the below scenarios:
 
 a. Newly released products  
 b. Newly updated products  
@@ -187,7 +187,7 @@ Set up a custom task using the below parameters.
 ### How do I view the data at different grains? (Daily, Monthly, Weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)
 
-:::image type="content" source="media/usage-overview/monthlygrainfaq.png" alt-text="Screenshot highlighting the filter to change date grain to daily, monthly or weekly in the workbook. The date grain filter is available across all the dimension tabs":::
+:::image type="content" source="media/usage-overview/monthlygrainfaq.png" alt-text="Screenshot highlighting the filter to change date grain to daily, monthly, or weekly in the workbook. The date grain filter is available across all the dimension tabs":::
 
 
 ### How do I access insights from my application that aren't available on the HEART workbooks?
@@ -215,7 +215,7 @@ To view your saved workbook, navigate to the 'Workbooks' section under 'Monitori
 
 :::image type="content" source="media/usage-overview/workbookeditfaq3.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
 
-For more on editing workbook templates, click [here](../visualize/workbooks-overview.md#exploring-a-workbook-template).
+For more on editing workbook templates, [click here](../visualize/workbooks-overview.md#exploring-a-workbook-template).
 
 
  
