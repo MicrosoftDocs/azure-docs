@@ -58,6 +58,8 @@ items:
         href: concept-best-practices-classification.md 
       - name: Automation best practices 
         href: concept-best-practices-automation.md
+      - name: Default purview account 
+        href: concept-default-purview-account.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
