@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 12/01/2021
 
 ms.author: justinha
 author: justinha
@@ -27,7 +27,7 @@ Azure AD Kerberos authentication is supported as part of a public preview. For m
 For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](/azure/virtual-desktop/create-profile-container-azure-ad).
 
 ## How Azure AD Kerberos authentication works 
-<!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy. Only Azure Files scenario requires AAD or hybrid domain join. SQL will require only domain join.--->
+
 
 This feature allows customers to access Azure AD resources using Kerberos. This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. 
 
@@ -36,9 +36,6 @@ Azure AD becomes an independent Kerberos realm (KERBEROS.MICROSOFTONLINE.COM) th
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional Active Directory.
 
-
-
-<!--- add image. Below, device must be AAD or hybrid joined for Azure files scenario but for SQL, only regular domain join is required. Do we say this here or in each scenario doc or both?--->
 
 ## Prerequisites for Azure AD Kerberos authentication
 
@@ -57,7 +54,7 @@ In the case of an upgrade or new deployment, there is potential that user accoun
 ```cmd
 dsregcmd.exe /RefreshPrt
 ```
-<!---device CA and --->
+
 ## Azure AD set up 
 
 There is no Azure AD set up required to enable native Azure AD Authentication for access to Azure AD Kerberos resources. You need to enable the following Group Policy setting for hybrid-joined devices:
