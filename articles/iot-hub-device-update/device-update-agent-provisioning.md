@@ -26,7 +26,6 @@ The following IoT device types are currently supported with Device Update:
 * Linux devices (IoT Edge and Non-IoT Edge devices):
     * Image A/B update:
         - Yocto - ARM64 (reference image), extensible via open source to [build you own images](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) for other architecture as needed.
-        - Ubuntu 18.04 simulator
        
     * Package Agent supported builds for the following platforms/architectures:
         - Ubuntu Server 18.04 x64 Package Agent 
@@ -86,7 +85,7 @@ Follow these instructions to provision the Device Update agent on [IoT Edge enab
 
 1. Install the Device Update image update agent.
 
-    We provide sample images in the [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) repository. The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board. The .gz file is the update you would import through Device Update for IoT Hub. For an example, see [How to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).  
+    We provide sample images in the [Assets here](https://github.com/Azure/iot-hub-device-update/releases) repository. The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board. The .gz file is the update you would import through Device Update for IoT Hub. For an example, see [How to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).  
 
 1. Install the Device Update package update agent.
 
@@ -157,7 +156,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
     sudo aziotctl config apply
     ```
     
-1. Finally install the Device Update agent. We provide sample images in [Artifacts](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
+1. Finally install the Device Update agent. We provide sample images in [Assets here](https://github.com/Azure/iot-hub-device-update/releases), the swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board, and the .gz file is the update you would import through Device Update for IoT Hub. See example of [how to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
 1. You are now ready to start the Device Update agent on your IoT device. 
 
@@ -165,32 +164,30 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
 
 The Device Update agent can also be configured without the IoT Identity service for testing or on constrained devices. Follow the below steps to provision the Device Update agent using a connection string (from the Module or Device).
 
-1. We provide sample images in the [Artifacts](https://github.com/Azure/iot-hub-device-update/releases) repository. The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board. The .gz file is the update you would import through Device Update for IoT Hub. For an example, see [How to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
+1. We provide sample images in the [Assets here](https://github.com/Azure/iot-hub-device-update/releases) repository. The swUpdate file is the base image that you can flash onto a Raspberry Pi B3+ board. The .gz file is the update you would import through Device Update for IoT Hub. For an example, see [How to flash the image to your IoT Hub device](./device-update-raspberry-pi.md#flash-sd-card-with-image).
 
 1. Log onto the machine or IoT Edge device/IoT device.
 	
 1. Open a terminal window.
-
+----
 1. Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
 
     1. Enter the below in the terminal window:
    
-        - [For Package updates](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/adu-conf.txt
-        - [For Image updates](device-update-raspberry-pi.md) use: sudo nano /adu/adu-conf.txt
+        - [For Ubuntu agent](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/du-config.json
+        - [For Yocto reference image](device-update-raspberry-pi.md) use: sudo nano /adu/du-config.json 
        
-    1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
-    
-    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
-	
-        ```text
-        connection_string=<ADD CONNECTION STRING HERE>
-        ```   
-	    
-    > [!Important]
-    > Do not add quotes around the connection string.
+    1. Use the Delete key to delete "HostName=…" 
+		a. Example remove everything that is struck out: "connectionData" : "HostName=mscontoso-green-iothub-canary.azure-devices.net;DeviceId=bugbash-default-dont-use;SharedAccessKey=DFHhipac1w/u0tlVChStQWnh1S1dfhIhz/Rl6x9PiYE="},
+
+ Copy the IoT deviceConnectionString you saved in section 4.6 above. Then right click the upper-left corner menu in PowerShell and select Edit -> Paste to append the deviceConnectionString after the text from step 7.3 above. Or worse case you may have to type in the information.
+		Example:  "connectionData" : "<your value>"
+
+	Press Ctrl+X, Y, Enter to save and close the file
+
 	
 1. Now you are now ready to start the Device Update agent on your IoT device. 
-
+-----
 
 ## How to start the Device Update Agent
 
