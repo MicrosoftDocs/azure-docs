@@ -94,7 +94,7 @@ For more information, use the command `Get-Help Connect-EflowVm -full`.
 
 ## Copy-EflowVmFile
 
-The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths as well as the direction of the copy.
+The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths and the direction of the copy.
 
 The user **iotedge-user** must have read permission to any origin directories or write permission to any destination directories on the virtual machine.
 
@@ -269,7 +269,7 @@ For more information, use the command `Get-Help Provision-EflowVm -full`.
 
 ## Remove-EflowNetwork
 
-The **Remove-EflowNetwork** command removes an existing network attached to the EFLOW virtual machine. This command takes one parameters. 
+The **Remove-EflowNetwork** command removes an existing network attached to the EFLOW virtual machine. This command takes one parameter. 
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -279,7 +279,7 @@ For more information, use the command `Get-Help Remove-EflowNetwork -full`.
 
 ## Remove-EflowVmEndpoint
 
-The **Remove-EflowVmEndpoint** command removes an existing network endpoint attached to the EFLOW virtual machine. This command takes one parameters. 
+The **Remove-EflowVmEndpoint** command removes an existing network endpoint attached to the EFLOW virtual machine. This command takes one parameter. 
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
