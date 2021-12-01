@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 11/29/2021
+ms.date: 12/03/2021
 ---
 
 # Microsoft Business Applications Independent Software Vendor (ISV) Connect Program onboarding guide
 
-The [Business Applications ISV Connect Program](https://partner.microsoft.com/solutions/business-applications/isv-overview) aims to accelerate the growth and overall success of Independent Software Vendors (ISVs) building modern, cloud-based, line-of-business (LOB) solutions with Dynamics 365 Customer Engagement and Power Apps (Dynamics CE applications) or Dynamics 365 Finance and Operations (Dynamics Ops applications).
+The [Business Applications ISV Connect Program](https://partner.microsoft.com/solutions/business-applications/isv-overview) aims to accelerate the growth and overall success of Independent Software Vendors (ISVs) building modern, cloud-based, line-of-business (LOB) solutions with _Dynamics 365 apps on Dataverse and Power Apps_ or _Dynamics 365 Operations Apps_.
 
 To enroll and take advantage of all the technical, marketing, and sales enablement benefits of the Business Applications ISV Connect Program, complete the following sections in this article.
 
@@ -59,12 +59,12 @@ Set up billing information for the Business Applications ISV Connect Program.
 
 ## Publish and certify your application
 
-After you have completed the steps above, your existing Dynamics 365 CE and/or Dynamics 365 Ops applications will be available for editing in the Partner Center. You will also have the option to create new applications.
+After you have completed the steps above, your existing Dynamics 365 apps on Dataverse and Power Apps and/or Dynamics 365 Operations Apps will be available for editing in the Partner Center. You will also have the option to create new applications.
 
 The final step for enrollment in the Business Applications ISV Connect program is to publish and certify your existing applications. To publish and certify your application to AppSource, follow the appropriate link:
 
-- [For Dynamics 365 Customer Engagement](/powerapps/developer/common-data-service/publish-app-appsource) 
-- [For Dynamics 365 for Finance and Operations](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
+- [For Dynamics 365 apps on Dataverse and Power Apps](/powerapps/developer/common-data-service/publish-app-appsource)
+- [For Dynamics 365 Operations Apps](/dynamics365/fin-ops-core/dev-itpro/lcs-solutions/lcs-solutions-app-source)
 
 > [!IMPORTANT]
 > You need to re-certify your apps every 6 months to keep them live on AppSource. For details, see marketplace policy [Commercial Marketplace Certification Policies](/legal/marketplace/certification-policies).
