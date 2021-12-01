@@ -103,7 +103,7 @@ services.Configure<MsalDistributedTokenCacheAdapterOptions>(options =>
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
-    options.sizeLimit = 1024*1024*1024, // 1Gb
+    options.sizeLimit = 1024 * 1024 * 1024, // 1 GB
 
     // You can choose if you encrypt or not encrypt the cache
     options.Encrypt = false;
@@ -270,7 +270,7 @@ You can also specify options to limit the size of the in-memory token cache:
       // Configure the memory cache options
       services.Configure<MemoryCacheOptions>(options =>
       {
-          options.SizeLimit = 500 * 1024 * 1024; // in bytes (500 Mb)
+          options.SizeLimit = 500 * 1024 * 1024; // in bytes (500 MB)
       });
   }
   );
@@ -301,7 +301,7 @@ Here's the code for a distributed in-memory token cache:
         options.DisableL1Cache = false;
         
         // Or limit the memory (by default, this is 500 MB)
-        options.sizeLimit = 1024*1024*1024, // 1Gb
+        options.sizeLimit = 1024 * 1024 * 1024, // 1 GB
 
         // You can choose to encrypt the cache or not
         options.Encrypt = false;
