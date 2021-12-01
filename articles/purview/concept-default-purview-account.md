@@ -22,7 +22,7 @@ In general, our guidance is to have a single Purview account for entire customer
 
 Having multiple Purview accounts in a tenant now poses the challenge of which Purview account should all other services like PBI, Synapse connect to. A PBI admin or Synapse Admin who is given the responsibility of pairing their PBI tenant or Synapse account with right Purview account. This is where default purview account will help our customers. Azure global administrator (or tenant admin) can designate a Purview account as default Purview account at tenant level. At any point in time a tenant can have only 0 or 1 default accounts. Once this is set PBI Admin or Synapse Admin or any user in your organization has clear understanding that this account is the "right" one, discover the same and all other services should connect to this one.
 
-## Manage Default Account for Tenant
+## Manage default account for tenant
 
 * You can set default flag as 'Yes' only after the account is created. 
 
