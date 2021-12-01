@@ -40,7 +40,7 @@ For the failover strategy, your logic apps and locations must meet these require
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, either both instances are deployed to regions in global multi-tenant Azure, or both instances are deployed to ISEs, which let your logic apps directly access resources in an Azure virtual network. For best practices and more information about paired regions for BCDR, see [Business continuity and disaster recovery (BCDR): Azure paired regions](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, either both instances are deployed to regions in global multi-tenant Azure, or both instances are deployed to ISEs, which let your logic apps directly access resources in an Azure virtual network. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
   For example, both the primary and secondary locations must be ISEs when the primary logic app runs in an ISE and uses [ISE-versioned connectors](../connectors/managed.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app must also have a similar setup in the secondary location as the primary logic app.
 
