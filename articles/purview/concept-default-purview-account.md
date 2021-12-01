@@ -30,7 +30,7 @@ Having multiple Purview accounts in a tenant now poses the challenge of which Pu
 
 * Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default Purview account and then set the flag as 'Yes' to the new Purview account.
 
-* Setting up default account is a control plane operation and hence purview studio will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default purview account.
+* Setting up default account is a control plane operation and hence Purview studio will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default Purview account.
 
 ## Next steps
 
