@@ -148,7 +148,7 @@ The default is to auto-resolve the Azure IR in the public network.  With this op
 - For Data Flow, the IR in the Data Factory or Synapse Workspace region is used. 
 
   > [!TIP] 
-  > A best practice is to ensure data flows run in the same region as your corresponding data stores when possible. You can either achieve this with auto-resolve for the Azure IR (if the data store location is same as the Data Factory or Synapse Workspace location), or by creating a new Azure IR instance in the same region as your data stores and then executing the data flows on it. 
+  > A best practice is to ensure data flows run in the same region as your corresponding data stores when possible. You can either achieve this with auto-resolve for the Azure IR (if the data store location is the same as the Data Factory or Synapse Workspace location), or by creating a new Azure IR instance in the same region as your data stores and then executing the data flows on it. 
 
 If you enable Managed Virtual Network with auto-resolve for the Azure IR, the IR in the Data Factory or Synapse Workspace region is used. 
 
@@ -173,7 +173,7 @@ Selecting the right location for your Azure-SSIS IR is essential to achieve high
 
 The following diagram shows the location settings for Data Factory and its integration runtimes:
 
-:::image type="content" source="media/concepts-integration-runtime/integration-runtime-location.png" alt-text="Shows Data Factory integration runtime locations":::
+:::image type="content" source="media/concepts-integration-runtime/integration-runtime-location.png" alt-text="Shows Data Factory integration runtime locations.":::
 
 ## Determining which IR to use
 If an activity associates with more than one type of integration runtime, it will resolve to one of them. The self-hosted integration runtime takes precedence over the Azure integration runtime in Azure Data Factory or Synapse Workspace instances using a managed virtual network. And the latter takes precedence over the global Azure integration runtime.
