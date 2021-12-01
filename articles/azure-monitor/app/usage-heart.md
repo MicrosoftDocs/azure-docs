@@ -58,6 +58,9 @@ These dimensions are measured independently, but they interact with each other a
   | pageViews       | user_Id            	 | unique user identifier                     |
 
 *Use the [Click Analytics Auto collection plugin](javascript-click-analytics-plugin.md) via npm to emit these attributes.
+
+>[!TIP]
+> To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-click-analytics-plugin.md#how-to-effectively-use-the-plugin).
  
 ### Open the Workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
@@ -80,7 +83,7 @@ See the "Development Requirements" tab as shown below to validate that data is f
 
 
 ## Workbook Structure
-The workbook shows metric trends for the HEART dimensions split over eight tabs. Each tab contains descriptions of the metrics and how to use them.
+The workbook shows metric trends for the HEART dimensions split over eight tabs. Each tab contains descriptions of the dimensions, the metrics contained within each dimension, and how to use them.
 
 A brief description of the tabs can be seen below: 
 
@@ -175,7 +178,7 @@ Set up a custom task using the below parameters.
 
 
 
-## FAQ 
+## FAQs
 
 ### How do I view the data at different grains? (Daily, Monthly, Weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)
