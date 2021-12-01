@@ -2,7 +2,7 @@
 title: Troubleshoot Agent and extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 11/10/2021
+ms.date: 12/01/2021
 ms.service: backup
 author: v-amallick
 ms.author: v-amallick
@@ -159,7 +159,16 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 1: [The agent installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**<br>
+**Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**
+
+To resolve the error, follow these steps:
+
+1. In the affected VM, go to **Control panel** -> **Program and features**.
+1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
+1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
+   1. Go to _C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\`<LatestVersion>`_ folder.
+   1. Search and run the **vcredist2013_x64** file to install.
+1. Retry backup operation.
 
 ## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup
 
