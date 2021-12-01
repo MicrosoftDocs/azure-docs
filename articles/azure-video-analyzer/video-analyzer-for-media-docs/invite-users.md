@@ -1,8 +1,9 @@
 ---
-title: Invite users to Azure Video Analyzer for Media (former Video Analyzer for Media) - Azure  
+title: Invite users to Azure Video Analyzer for Media (former Video Analyzer for Media) - Azure
 description: This article shows how to invite users to Azure Video Analyzer for Media (former Video Analyzer for Media).
 ms.topic: quickstart
 ms.date: 09/14/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Invite users to Video Analyzer for Media

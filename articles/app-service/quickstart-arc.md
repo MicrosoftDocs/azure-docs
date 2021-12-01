@@ -3,6 +3,7 @@ title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
 ms.date: 11/02/2021
+ms.custom: mode-other
 ---
 
 # Create an App Service app on Azure Arc (Preview)

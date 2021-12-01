@@ -6,7 +6,6 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -16,6 +15,7 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-other
 ---
 
 # Configure a VM with managed identities for Azure resources using an Azure SDK

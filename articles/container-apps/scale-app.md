@@ -61,7 +61,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
             "name": "http-rule",
             "http": {
               "metadata": {
-                  "concurrentRequests": 100
+                  "concurrentRequests": "100"
               }
             }
           }]
