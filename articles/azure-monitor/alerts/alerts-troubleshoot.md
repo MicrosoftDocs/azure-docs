@@ -31,7 +31,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
 1. **Is the type of action "Email Azure Resource Manager Role"?**
 
@@ -61,11 +61,11 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     1. Open the action group in the portal and check the Status column:
 
-    ![action group status column](media/alerts-troubleshoot/action-group-status.png)
+    ![Screenshot of action group status column.](media/alerts-troubleshoot/action-group-status.png)
 
     2. Search your email for the unsubscribe confirmation:
 
-    ![unsubscribed from alert action group](media/alerts-troubleshoot/unsubscribe-action-group.png)
+    ![Screenshot of email about being unsubscribed from alert action group.](media/alerts-troubleshoot/unsubscribe-action-group.png)
 
     To subscribe again – either use the link in the unsubscribe confirmation email you have received, or remove the email address from the action group, and then add it back again. 
  
@@ -73,7 +73,7 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
     Email is [rate limited](alerts-rate-limiting.md) to no more than 100 emails every hour to each email address. If you pass this threshold, additional email notifications are dropped.  Check if you have received a message indicating that your email address has been temporarily rate limited: 
  
-   ![Email rate limited](media/alerts-troubleshoot/email-paused.png)
+   ![Screenshot of an email about being rate limited.](media/alerts-troubleshoot/email-paused.png)
 
    If you would like to receive high-volume of notifications without rate limiting, consider using a different action, such as webhook, logic app, Azure function, or automation runbooks, none of which are rate limited. 
 
@@ -85,7 +85,7 @@ If you can see a fired alert in the portal, but did not receive the SMS, voice c
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md): 
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
    If that was unintentional, you can modify, disable, or delete the alert processing rule.
  
@@ -118,7 +118,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     Check by clicking on the fired alert in the portal, and look at the history tab for suppressed [action groups](./action-groups.md):
 
-    ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+    ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
  
     If that was unintentional, you can modify, disable, or delete the alert processing rule.
 
@@ -155,7 +155,7 @@ If you have received a notification for an alert (such as an email or an SMS) mo
 
     To check which action groups were triggered, check the alert history tab. You would see there both action groups defined in the alert rule, and action groups added to the alert by alert processing rules: 
 
-    ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Screenshot of multiple action groups in an alert.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
 
 ## Action or notification has an unexpected content
 
@@ -167,7 +167,7 @@ If you have received the alert, but believe some of its fields are missing or in
 
     For example, for webhook action: 
 
-    ![webhook action schema option](media/alerts-troubleshoot/webhook.png)
+    ![Screenshot of webhook action schema option.](media/alerts-troubleshoot/webhook.png)
 
     Check if the format specified at the action level is what you expect. For example, you may have developed code that responds to alerts (webhook, function, logic app, etc.), expecting one format, but later in the action you or another person specified a different format.  
 
@@ -186,7 +186,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
    Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
 
-    ![alert processing rule list highlighting the status field and status filter.](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
+    ![Screenshot of alert processing rule list highlighting the status field and status filter.](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
 
     If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
@@ -200,11 +200,11 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
     Here is an example of alert processing rule suppressing all action groups: 
  
-     ![Alert history tab with suppression from alert processing rule](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
+     ![Screenshot of alert history tab with suppression from alert processing rule.](media/alerts-troubleshoot/history-tab-alert-processing-rule-suppression.png)
 
     Here is an example of an alert processing rule adding another action group:
 
-    ![Action repeated in multiple action groups](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
+    ![Screenshot of action repeated in multiple action groups.](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
 1. **Does the alert processing rule scope and filter match the fired alert?** 
@@ -224,7 +224,7 @@ To locate it, follow these steps:
 
 1. Scroll down in the alert fields of the first tab (the summary tab) until you locate it, and copy it. That field also includes a "Copy to clipboard" helper button you can use.  
 
-    ![finding the alert ID field in the alert summary tab.](media/alerts-troubleshoot/get-alert-id.png)
+    ![Screenshot of finding the alert ID field in the alert summary tab.](media/alerts-troubleshoot/get-alert-id.png)
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
