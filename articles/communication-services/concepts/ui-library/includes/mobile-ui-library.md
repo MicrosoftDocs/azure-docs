@@ -12,13 +12,12 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
-The Mobile UI Library's objective is to provide these capabilities to you in a turnkey, composite format. You drop the SDK into your favorite mobile development app's canvas, and the SDK generates a complete user experience. Because this user experience is light, you can take advantage of the reduced development time and engineering complexity.
-
 - **Composites.** 
-  These components are turn-key solutions that implement common communication scenarios. You can quickly add video calling experience to your applications. Composites are open-source higher-order components.
+  These components are turn-key solutions that implement common communication scenarios. You can quickly add video calling experience to your applications. Composites are open-source higher-order components this developer can take advantage of the reduced development time and engineering complexity.
 
+## Composites overview
 
-| Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                  |
+| Composite                                                                   | Use Cases                                                                                                                                                                                                                                                                                                 |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so users can wait to be admitted. |
 
