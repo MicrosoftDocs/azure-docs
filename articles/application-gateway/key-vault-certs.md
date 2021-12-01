@@ -104,7 +104,7 @@ When you're using a restricted key vault, use the following steps to configure A
 ### Configure Application Gateway Listener
 
 #### Key Vault permission Vault access policy model
-Navigate to your Application Gateway in the Azure Portal and select the Listeners tab.  Click Add Lister (or select an existing) and specify the Protocol to HTTPS.
+Navigate to your Application Gateway in the Azure Portal and select the **Listeners** tab.  Select **Add Listener** (or select an existing one) and specify **HTTPS** for the protocol.
 
 On *Choose a certificate*, select *Create new* and then select *Choose a certificate from Key Vault* under *Https settings*
 
