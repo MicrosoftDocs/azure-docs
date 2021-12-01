@@ -21,7 +21,7 @@
     - name: Troubleshoot orders
       href: azure-edge-hardware-center-troubleshoot-order.md
   - name: References
-    href: azure-edge-hardware-center-placeholder.md           
+    href: azure-edge-hardware-center-overview.md           
   - name: Resources
     items:
     - name: Azure Stack Edge product  

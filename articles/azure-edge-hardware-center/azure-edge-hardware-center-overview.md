@@ -49,7 +49,7 @@ You can create an Edge Hardware Center order via the Azure portal or via the Azu
 
 The independent Edge Hardware Center RP decouples the ordering process from that of the resource creation for the service which is managed by the device management RP. For example, you'll create an order for Azure Stack Edge order using the Edge Hardware Center RP. You'll then create a separate resource for Azure Stack Edge using the Azure Stack Edge device management RP. The service resource is used to activate the Azure Stack Edge device.
 
-For more information, see [Create an Azure Stack Edge resource after you place the order via the Edge Hardware Center](../databox-online/azure-stack-edge-gpu-deploy-prep?tabs=azure-edge-hardware-center#create-a-management-resource-for-each-device).
+For more information, see [Create an Azure Stack Edge resource after you place the order via the Edge Hardware Center](../databox-online/azure-stack-edge-gpu-deploy-prep.md?tabs=azure-edge-hardware-center#create-a-management-resource-for-each-device).
 
 ### Track orders
 
