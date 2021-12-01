@@ -65,7 +65,7 @@ In this tutorial, you learn how to:
 2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > The step will be optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
+    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json

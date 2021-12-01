@@ -3580,6 +3580,21 @@
     "source_path_from_root": "/articles/cosmos-db/table/tutorial-develop-table-dotnet.md",
     "redirect_url": "/azure/cosmos-db/table/create-table-dotnet",
     "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/sql-api-dotnet-samples.md",
+    "redirect_url": "/azure/cosmos-db/sql/sql-api-dotnet-v3sdk-samples",
+    "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/mobile-apps-with-xamarin.md",
+    "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
+    "redirect_document_id": false
+  },   
+  {
+    "source_path_from_root": "/articles/cosmos-db/sql/create-sql-api-xamarin-dotnet.md",
+    "redirect_url": "/azure/architecture/solution-ideas/articles/gaming-using-cosmos-db",
+    "redirect_document_id": false
   }
     ]
 }
