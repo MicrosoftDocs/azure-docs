@@ -119,7 +119,7 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md#what-are-paired-regions).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).
 
 ## Data box
 
