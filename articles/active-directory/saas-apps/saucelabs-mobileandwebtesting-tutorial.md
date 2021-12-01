@@ -106,31 +106,31 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, sign in to your Sauce Labs - Mobile and Web Testing company site as an administrator.
 
-2. Click on the **User icon** and select **Team Management** tab.
+2. Click on the **Account** dropdown and select **Team Management** tab.
 
-	![Screenshot that shows the "User" icon and "Team Management" drop-down selected.](./media/saucelabs-mobileandwebtesting-tutorial/user.png)
+	![Screenshot that shows the "Account" dropdown and "Team Management" drop-down item selected.](./media/saucelabs-mobileandwebtesting-tutorial/user.png)
 
-3. Enter your **Domain name** in the textbox.
+3. Click **View Settings** under **Organization Settings**.
 
-	![Screenshot that shows an example domain name in the textbox.](./media/saucelabs-mobileandwebtesting-tutorial/domain.png)
+	![Screenshot that shows the View Settings button in the Organization Settings box.](./media/saucelabs-mobileandwebtesting-tutorial/org-settings.png)
 
-4. Click **Configure** tab.
+4. Click **Single Sign-On** tab.
 
-	![Screenshot that shows the "Configure" tab selected under "Single Sign On is Enabled".](./media/saucelabs-mobileandwebtesting-tutorial/configure.png)
+	![Screenshot that shows the "Single Sign-On" tab selected under "Organization Settings".](./media/saucelabs-mobileandwebtesting-tutorial/configure.png)
 
-5. In the **Configure Single Sign On** section, perform the following steps.
+5. In the **Single Sign-On** section, perform the following steps.
 
 	![Configure Single Sign-On](./media/saucelabs-mobileandwebtesting-tutorial/browse.png)
 
-	a. Click **Browse** and upload the downloaded metadata file from the Azure AD.
+	a. Define your Unique Identifier String (UIS) and click Save.
 
-	b. Select the **ALLOW JUST-IN-TIME PROVISIONING** checkbox.
+	b. Click **Upload New Metadata File** and upload the downloaded metadata file from the Azure AD.
 
-	c. Click **Save**.
+	c. Enable the Single Sign-On switch
 
 ### Create Sauce Labs - Mobile and Web Testing test user
 
-In this section, a user called Britta Simon is created in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Sauce Labs - Mobile and Web Testing, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Sauce Labs - Mobile and Web Testing. Sauce Labs - Mobile and Web Testing supports just-in-time user provisioning, which is always enabled. There is no action item for you in this section. If a user doesn't already exist in Sauce Labs - Mobile and Web Testing, a new one is created after authentication.
 
 > [!Note]
 > If you need to create a user manually, contact [Sauce Labs - Mobile and Web Testing support team](mailto:support@saucelabs.com).
