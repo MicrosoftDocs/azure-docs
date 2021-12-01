@@ -113,7 +113,10 @@ For Cert name, type a friendly name for the certificate to be referenced in Key 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
 #### Key Vault Azure role-based access control permission model
-Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. However, the first few steps to reference the key vault must be completed via ARM, Bicep, CLI, or  PowerShell. Azure portal support for this scenario isn't offered yet.
+Application Gateway supports certificates referenced in Key Vault via the Role-based access control permission model. The first few steps to reference the key vault must be completed via ARM, Bicep, CLI, or  PowerShell.
+
+> [!Note]
+> Azure portal support for this scenario isn't offered for Azure role-based access control permission model.
 
 In this example, we will use PowerShell to reference a new Key Vault certificate.
 ```
