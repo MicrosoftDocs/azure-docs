@@ -81,6 +81,10 @@ See the "Development Requirements" tab as shown below to validate that data is f
 
 :::image type="content" source="media/usage-overview/workbookpreview3.png" alt-text="Screenshot highlighting the 'Development Requirements' tab of the 'HEART Analytics - All Sections' workbook":::
 
+If the data is not flowing as expected, this tab will highlight the specific attributes which have issues as shown in the below example.
+
+:::image type="content" source="media/usage-overview/developerrequirements.png" alt-text="Screenshot highlighting data discrepancies in the 'Development Requirements' tab of the HEART workbook":::
+
 
 ## Workbook Structure
 The workbook shows metric trends for the HEART dimensions split over eight tabs. Each tab contains descriptions of the dimensions, the metrics contained within each dimension, and how to use them.
@@ -192,6 +196,8 @@ You can dig into the data that feeds the HEART workbook if the visuals don't ans
 
 :::image type="content" source="media/usage-overview/logquery.png" alt-text="Screenshot highlighting the log section under 'Monitoring' in App Insights. Also displays a sample query in the log section to retrieve application data.":::
 
+Navigate to the [Azure Monitor Logs Overview](../logs/data-platform-logs.md) page to learn more about Logs in Azure Monitor.
+
 
 ### Can I edit visuals in the workbook?
 
@@ -208,6 +214,8 @@ After making your changes, click 'Done Editing' and then the 'Save' icon.
 To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You'll see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
 
 :::image type="content" source="media/usage-overview/workbookeditfaq3.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
+
+For more on editing workbook templates, click [here](../visualize/workbooks-overview.md#exploring-a-workbook-template).
 
 
  
