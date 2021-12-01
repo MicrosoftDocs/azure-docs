@@ -147,6 +147,12 @@ The cause of this problem might be that acquiring your own stream from the same 
 
 Simulcast is a technique by which a client encodes the same video stream twice, in different resolutions and bitrates. The client then lets Communication Services decide which stream a client should receive. The Communication Services calling library SDK for Windows, Android, or iOS supports sending simulcast streams. The Communication Services Web SDK doesn't currently support sending simulcast streams out.
 
+## .NET SDK
+
+### Azure Resources with names having underscores cause SSL exception in Linux environments
+
+Since .NET Core utilizes OpenSSL, which does not support URL host names with underscores, Azure Resources with names having underscores trigger a SSL Common Name Mismatch error when trying to call Azure APIs The client would see a System.Security.Authentication.AuthenticationException with message "The remote certificate is invalid according to the validation procedure.". This issue has been observed mainly on Linux environments. Workaround is to create a new resource with no underscores in the name. There is a fix planned for 2020.
+
 ## Communication Services Call Automation APIs
 
 The following are known issues in the Communication Services Call Automation APIs:
