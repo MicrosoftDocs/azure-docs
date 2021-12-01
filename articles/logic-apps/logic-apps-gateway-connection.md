@@ -101,7 +101,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
 1. In the Azure portal, create or open your logic app in the Logic App Designer.
 
-1. Add a connector that supports on-premises connections, for example, **SQL Server**.
+1. Add a connector that supports on-premises connections, for example, **SQL Server**. Specifcally, this needs to be a [managed connector](/azure/connectors/managed#on-premises-connectors), not a [built-in connector](/azure/connectors/built-in).
 
 1. Select **Connect via on-premises data gateway**.
 
