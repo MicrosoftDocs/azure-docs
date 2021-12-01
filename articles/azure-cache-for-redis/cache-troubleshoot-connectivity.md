@@ -32,7 +32,7 @@ Sometimes, your cache undergoes a planned or an unplanned server maintenance. Yo
 
 ## Number of connected clients
 
-Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance](cache-planning-faq.yml#azure-cache-for-redis-performance) <!-- is this the table -->
+Check if the Max aggregate for `Connected Clients` metric is close or higher than the maximum number of allowed connections for a particular cache size. For more information on sizing per client connections, see [Azure Cache for Redis performance] <!-- is this the table https://azure.microsoft.com/en-us/pricing/details/cache/ -->
 
 ## Kubernetes hosted applications
 
@@ -67,7 +67,7 @@ You can confirm the number of sent packets is equal to the received packets. Con
 
 ## Private endpoint configuration
 
-1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. <!-- where is the flag? -->
+1. `Public Network Access` flag is disabled by default on creating a private endpoint. Ensure that you have set the `Public Network Access` correctly. <!-- where is the flag? Look under settings| private endpoint -->
 1. If you're trying to connect to your cache private endpoint from outside your virtual network of your cache, `Public Network Access` needs to be enabled.
 1. If you've deleted your private endpoint, ensure that the public network access is enabled.
 1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Cache for Redis instance](cache-private-link.md#create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance).

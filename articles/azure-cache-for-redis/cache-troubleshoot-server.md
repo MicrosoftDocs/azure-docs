@@ -11,7 +11,6 @@ ms.date: 12/01/2021
 # Troubleshoot Azure Cache for Redis server issues
 
 This section discusses troubleshooting issues caused by conditions on an Azure Cache for Redis server or any of the virtual machines hosting it.
-<!-- Not sure how i feel about the bullet list that is like a TOC. If we like it, maybe we add it to all the troubleshooting -->
 - [High server load](#high-server-load)
 - [High memory usage](#high-memory-usage)
 
@@ -29,7 +28,7 @@ For more information, see [Avoid client connection Spikes](cache-best-practices-
 
 ### Long running or expensive commands
 
-For troubleshooting further, see <!--link to server-side verification for long running commands -->
+For troubleshooting further, see <!--link to server-side verification in the timeouts for long running commands -->
 
 ### Scaling
 
