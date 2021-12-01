@@ -52,7 +52,7 @@ These endpoint differences must be taken into account when you connect to storag
 
 #### C# 
 
-1. Open up Visual Studio and create a new project. Add a reference to the [Azure Data Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
+1. Open Visual Studio and create a new project. Add a reference to the [Azure Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
 
 2. Add these two lines of C# code to connect:
     ```cs
@@ -62,7 +62,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 
-3. At this point, we can interact with storage as we normally would. For example, if we want to retrieve a specific entity from our table storage we could do it like this:
+3. At this point, we can interact with Storage as we normally would. For example, if we want to retrieve a specific entity from our table storage, we could do it like this:
 
    ```cs
     var tableClient = tableServiceClient.GetTableClient("Contacts");
@@ -71,8 +71,8 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Java
-1. Download the [Azure Data Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
-2. Create a "test" class where we'll access Azure Table Storage using the Azure Data Tables API. 
+1. Download the [Azure Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
+2. Create a "test" class where we'll access Azure Table Storage using the Azure Tables client library.  
  Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
     ```java
     import com.azure.data.tables.implementation.ModelHelper;
