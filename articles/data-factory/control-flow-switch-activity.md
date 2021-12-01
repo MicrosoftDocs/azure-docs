@@ -29,7 +29,7 @@ To use a Switch activity in a pipeline, complete the following steps:
 
 :::image type="content" source="media/control-flow-switch-activity/switch-activity-ui.png" alt-text="Shows the UI for a Switch activity with numbered indications of each step to configure it.":::
 
-## JSON Syntax
+## JSON syntax
 
 ```json
 
