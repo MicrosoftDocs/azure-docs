@@ -25,6 +25,7 @@ An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached 
 
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. A public IP address resource has either a dynamic or static public IP address assigned to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](../articles/virtual-network/ip-services/public-ip-addresses.md) article.
 
-Also note that all IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../articles/virtual-machines/windows/multiple-nics.md) article.
+> [!NOTE]
+> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../articles/virtual-machines/windows/multiple-nics.md) article.
 
 There is a limit to how many private IP addresses can be assigned to a NIC. There is also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
