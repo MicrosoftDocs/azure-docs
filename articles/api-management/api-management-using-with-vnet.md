@@ -116,7 +116,7 @@ In external VNET mode, Azure manages the DNS by default. You can optionally conf
 * For reference, see the [required ports](#required-ports) and network requirements.
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2021-08-01/api-management-service/apply-network-configuration-updates).
 
 ### Required ports  
 
@@ -246,7 +246,7 @@ When adding virtual machines running Windows to the VNET, allow outbound connect
 
 ## Control plane IP addresses
 
-The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.
+The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address.  In some cases, two IP addresses are listed.  Permit both IP addresses.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
@@ -256,11 +256,11 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| Australia Central 2| 20.39.99.81|
 | Azure Public| Australia East| 20.40.125.155|
 | Azure Public| Australia Southeast| 20.40.160.107|
-| Azure Public| Brazil South| 191.233.24.179|
+| Azure Public| Brazil South| 191.233.24.179, 191.238.73.14|
 | Azure Public| Brazil Southeast| 191.232.18.181|
-| Azure Public| Canada Central| 52.139.20.34|
+| Azure Public| Canada Central| 52.139.20.34, 20.48.201.76|
 | Azure Public| Canada East| 52.139.80.117|
-| Azure Public| Central India| 13.71.49.1|
+| Azure Public| Central India| 13.71.49.1, 20.192.45.112|
 | Azure Public| Central US| 13.86.102.66|
 | Azure Public| Central US EUAP| 52.253.159.160|
 | Azure Public| East Asia| 52.139.152.27|
@@ -270,20 +270,20 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
 | Azure Public| France Central| 40.66.60.111|
 | Azure Public| France South| 20.39.80.2|
 | Azure Public| Germany North| 51.116.0.0|
-| Azure Public| Germany West Central| 51.116.96.0|
+| Azure Public| Germany West Central| 51.116.96.0, 20.52.94.112|
 | Azure Public| Japan East| 52.140.238.179|
 | Azure Public| Japan West| 40.81.185.8|
-| Azure Public| Jio India Central| 20.192.234.160|
-| Azure Public| Jio India West| 20.193.202.160|
-| Azure Public| Korea Central| 40.82.157.167|
+| Azure Public| India Central| 20.192.234.160|
+| Azure Public| India West| 20.193.202.160|
+| Azure Public| Korea Central| 40.82.157.167, 20.194.74.240|
 | Azure Public| Korea South| 40.80.232.185|
 | Azure Public| North Central US| 40.81.47.216|
 | Azure Public| North Europe| 52.142.95.35|
 | Azure Public| Norway East| 51.120.2.185|
 | Azure Public| Norway West| 51.120.130.134|
-| Azure Public| South Africa North| 102.133.130.197|
+| Azure Public| South Africa North| 102.133.130.197, 102.37.166.220|
 | Azure Public| South Africa West| 102.133.0.79|
-| Azure Public| South Central US| 20.188.77.119|
+| Azure Public| South Central US| 20.188.77.119, 20.97.32.190|
 | Azure Public| South India| 20.44.33.246|
 | Azure Public| Southeast Asia| 40.90.185.46|
 | Azure Public| Switzerland North| 51.107.0.91|
@@ -339,7 +339,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   To address connectivity issues, review [network configuration settings](#network-configuration-issues) and fix required network settings.
 
 * **Incremental updates**  
-  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2020-12-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
+  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2021-08-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource navigation links**  
   An APIM instance hosted on the [`stv1` compute platform](compute-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.

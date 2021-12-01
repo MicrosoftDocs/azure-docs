@@ -154,6 +154,8 @@
           href: f5-big-ip-forms-advanced.md
         - name: F5 BIG-IP with Azure AD SSO for header based authentication
           href: f5-big-ip-header-advanced.md
+        - name: Protect on-premises applications with F5 BIG-IP and Azure AD B2C
+          href: https://docs.microsoft.com/en-us/azure/active-directory-b2c/partner-f5
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
