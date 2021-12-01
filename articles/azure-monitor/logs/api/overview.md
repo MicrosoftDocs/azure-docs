@@ -8,7 +8,7 @@ ms.topic: article
 ---
 # Azure Monitor Log Analytics API Overview
 
-The **Query API** is a REST API that lets you query the full set of data collected by Azure Monitor logs using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
+The Log Analytics **Query API** is a REST API that lets you query the full set of data collected by Azure Monitor logs using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
 
 ## Log Analytics API Authentication
 
