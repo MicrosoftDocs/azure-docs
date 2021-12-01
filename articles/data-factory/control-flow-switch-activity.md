@@ -25,7 +25,7 @@ To use a Switch activity in a pipeline, complete the following steps:
 1. Enter an expression for the Switch to evaluate.  This can be any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 1. Select **Add case** to add additional cases.  If no case matches, the Default case activity will be used.
 1. Enter the value for the new case.
-1. Select the Edit button to add activities that will be executed when the expression evaluates to the case.
+1. Select the Edit button to add activities that will be executed when the expression evaluates to the matched case.
 
 :::image type="content" source="media/control-flow-switch-activity/switch-activity-ui.png" alt-text="Shows the UI for a Switch activity with numbered indications of each step to configure it.":::
 
