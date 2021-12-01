@@ -303,39 +303,28 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    > [!IMPORTANT]
    > Make sure to set the NFS domain in /etc/idmapd.conf on the VM to match the default domain configuration on Azure NetApp Files: **defaultv4iddomain.com**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as nobody.
 
-3.**[1]** Mount the node-specific volumes on node1 (**hanadb1**)
-
-  ```
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb1-log-mnt00001 /hana/log/HN1/mnt00001
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb1-data-mnt00001 /hana/data/HN1/mnt00001
-   ```
-
-4.**[2]** Mount the node-specific volumes on node2 (**hanadb2**)
-
-   ```
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb2-shared-mnt00001 /hana/shared/HN1
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb2-log-mnt00001 /hana/log/HN1/mnt00001
-   sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.3.1.4:/hanadb2-data-mnt00001 /hana/data/HN1/mnt00001
-   ```
-
-5.**[A]** Edit the /etc/fstab on both nodes to permanently mount the volumes relevant to each node.  Below is an example of how you mount the volumes permanently.
+3.**[A]** Edit the /etc/fstab on both nodes to permanently mount the volumes relevant to each node.  Below is an example of how you mount the volumes permanently.
 
    ```
    sudo vi /etc/fstab
    
-   # Add the following entries in /etc/fstab 
-   #Example for hanadb1
+   # Add the following entries in /etc/fstab on both nodes 
+   # Example for hanadb1
    
    10.3.1.4:/hanadb1-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
    10.3.1.4:/hanadb1-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
    10.3.1.4:/hanadb1-shared-mnt00001 /hana/shared/HN1  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0 
    
-   #Mount all volumes 
+   # Example for hanadb2    
+   10.3.1.4:/hanadb2-data-mnt00001 /hana/data/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb2-log-mnt00001 /hana/log/HN1/mnt00001  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+   10.3.1.4:/hanadb2-shared-mnt00001 /hana/shared/HN1  nfs   rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys  0  0
+
+   # Mount all volumes
    sudo mount -a
    ```
 
-6.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
+4.**[A]** Verify that all HANA volumes are mounted with NFS protocol version NFSv4.
 
    ```
    sudo nfsstat -m
@@ -351,7 +340,7 @@ For more information about the required ports for SAP HANA, read the chapter [Co
    Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.3.0.4,local_lock=none,addr=10.3.1.4
    ```
 
-7.**[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
+5.**[A]** Verify **nfs4_disable_idmapping**. It should be set to **Y**. To create the directory structure where **nfs4_disable_idmapping** is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.
 
    ```
    # Check nfs4_disable_idmapping
@@ -466,7 +455,7 @@ a.	Start the hdblcm program from the HANA installation software directory.
 - 	For Enter Database User (SYSTEM) Password: Enter the database user password
 - 	For Confirm Database User (SYSTEM) Password: Enter the database user password again to confirm
 - 	For Restart system after machine reboot? [n]: press Enter to accept the default
-- 	For, Do you want to continue? (y/n): Validate the summary. Enter **y** to continue  
+- 	For Do you want to continue? (y/n): Validate the summary. Enter **y** to continue  
 
 7.**[A]** Upgrade SAP Host Agent
 
@@ -501,84 +490,7 @@ This section describes the necessary steps required to configure the SAP HANA Cl
 
 ### Create SAP HANA cluster resources
 
-First, create the HANA topology. Run the following commands on one of the Pacemaker cluster nodes:
-
-
-```
-sudo crm configure property maintenance-mode=true
-
-# Replace the HN1 with your 'SID' and 03 with your instance number below
-
-sudo crm configure primitive rsc_SAPHanaTopology_HN1_HDB03 ocf:suse:SAPHanaTopology \
-	operations \$id="rsc_sap2_HN1_HDB03-operations" \
-	op monitor interval="10" timeout="600" \
-	op start interval="0" timeout="600" \
-	op stop interval="0" timeout="300" \
-	params SID="HN1" InstanceNumber="03"
-
-sudo crm configure clone cln_SAPHanaTopology_HN1_HDB03 rsc_SAPHanaTopology_HN1_HDB03 \
-    meta clone-node-max="1" target-role="Started" interleave="true"
-```
-
-Next, create the HANA resources:
-
-> [!IMPORTANT]
-> Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
-> For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
-> - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
-> - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
->
-> Note that the change will require brief downtime.  
-> For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
-
-
-> [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
-
-```
-# Replace HN1, 03 and 10.0.0.13 with your 'SID', instance number and front-end IP address respectively.
-
-sudo crm configure primitive rsc_SAPHana_HN1_HDB03 ocf:suse:SAPHana \
-    operations \$id="rsc_sap_HN1_HDB03-operations" \
-    op start interval="0" timeout="3600" \
-    op stop interval="0" timeout="3600" \
-    op promote interval="0" timeout="3600" \
-    op monitor interval="60" role="Master" timeout="700" \
-    op monitor interval="61" role="Slave" timeout="700" \
-    params SID="HN1" InstanceNumber="03" PREFER_SITE_TAKEOVER="true" \
-    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-
-sudo crm configure ms msl_SAPHana_HN1_HDB03 rsc_SAPHana_HN1_HDB03 \
-    meta notify="true" clone-max="2" clone-node-max="1" \
-    target-role="Started" interleave="true"
-
-sudo crm configure primitive rsc_ip_HN1_HDB03 ocf:heartbeat:IPaddr2 \
-    meta target-role="Started" \
-    operations \$id="rsc_ip_HN1_HDB03-operations" \
-    op monitor interval="10s" timeout="20s" \
-    params ip="10.0.0.13"
-
-sudo crm configure primitive rsc_nc_HN1_HDB03 azure-lb port=62503 \
-    meta resource-stickiness=0
-
-sudo crm configure group g_ip_HN1_HDB03 rsc_ip_HN1_HDB03 rsc_nc_HN1_HDB03
-
-sudo crm configure colocation col_saphana_ip_HN1_HDB03 4000: g_ip_HN1_HDB03:Started \
-    msl_SAPHana_HN1_HDB03:Master  
-
-sudo crm configure order ord_SAPHana_HN1_HDB03 Optional: cln_SAPHanaTopology_HN1_HDB03 \
-    msl_SAPHana_HN1_HDB03
-
-# Clean up the HANA resources. The HANA resources might have failed because of a known issue.
-
-sudo crm resource cleanup rsc_SAPHana_HN1_HDB03
-
-sudo crm configure property maintenance-mode=false
-sudo crm configure rsc_defaults resource-stickiness=1000
-sudo crm configure rsc_defaults migration-threshold=5000
-```
-
-Make sure that the cluster status is ok and that all of the resources are started. It's not important on which node the resources are running.
+Follow the steps in [creating SAP HANA cluster resources](./sap-hana-high-availability.md#create-sap-hana-cluster-resources) to create the cluster resources for the HANA server.  Once the resources are created, you should see the status of the cluster with the below command
 
 ```
 sudo crm_mon -r
@@ -607,7 +519,7 @@ Create a dummy file system cluster resource, which will monitor and report failu
    sudo mkdir -p /hana/shared/check
    ```
 
-2.**[1/2]** Configure the cluster to add the directory structure for monitoring
+2.**[1]** Configure the cluster to add the directory structure for monitoring
 
    ```
    crm configure primitive rsc_fs_check_HN1_HDB03 Filesystem params \
@@ -620,12 +532,38 @@ Create a dummy file system cluster resource, which will monitor and report failu
        op stop interval=0 timeout=120
    ```
 
-3.**[1/2]** Clone and check the newly configured volume in the cluster
+3.**[1]** Clone and check the newly configured volume in the cluster
 
    ```
    crm configure clone cln_fs_check_HN1_HDB03 rsc_fs_check_HN1_HDB03 meta clone-node-max=1 interleave=true
    
    crm status
+  #Cluster Summary:
+  # Stack: corosync
+  # Current DC: hanadb1 (version 2.0.5+20201202.ba59be712-4.9.1-2.0.5+20201202.ba59be712) - partition with quorum
+  # Last updated: Tue Nov  2 17:57:39 2021
+  # Last change:  Tue Nov  2 17:57:38 2021 by root via crm_attribute on hanadb1
+  # 2 nodes configured
+  # 11 resource instances configured
+
+# Node List:
+  # Online: [ hanadb1 hanadb2 ]
+
+# Full List of Resources:
+  # Clone Set: cln_azure-events [rsc_azure-events]:
+    # Started: [ hanadb1 hanadb2 ]
+  # Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]:
+    # rsc_SAPHanaTopology_HN1_HDB03     (ocf::suse:SAPHanaTopology):     Started hanadb1 (Monitoring)
+    # rsc_SAPHanaTopology_HN1_HDB03     (ocf::suse:SAPHanaTopology):     Started hanadb2 (Monitoring)
+  # Clone Set: msl_SAPHana_HN1_HDB03 [rsc_SAPHana_HN1_HDB03] (promotable):
+    # rsc_SAPHana_HN1_HDB03     (ocf::suse:SAPHana):     Master hanadb1 (Monitoring)
+    # Slaves: [ hanadb2 ]
+  # Resource Group: g_ip_HN1_HDB03:
+    # rsc_ip_HN1_HDB03  (ocf::heartbeat:IPaddr2):        Started hanadb1
+    # rsc_nc_HN1_HDB03  (ocf::heartbeat:azure-lb):       Started hanadb1
+  # rsc_st_azure        (stonith:fence_azure_arm):       Started hanadb2
+  # Clone Set: cln_fs_check_HN1_HDB03 [rsc_fs_check_HN1_HDB03]:
+    # Started: [ hanadb1 hanadb2 ]
    
    df -kh
    # Filesystem                          Size  Used Avail Use% Mounted on
@@ -652,10 +590,8 @@ Create a dummy file system cluster resource, which will monitor and report failu
 > `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
 >
 > [!IMPORTANT]
-> The filesystem monitor is not related to HANA system replication. Thus on NFS failure the Linux cluster might decide to fence a HANA primary, even if the system replication is not in sync. Due to this srHook=SFAIL state, the HANA secondary will not get promoted to primary. Even if this useless fence could happen due to HANA monitor failure
-> anyway, it is more likely to happen with the intentionally shorter NFS monitor timeouts.
->
-> In some environments NFS is used for /hana/data/`SID`/ and /hana/log/`SID`/ as well as for /hana/shared/`SID`/. In such cases usually all shares are provided by the same NFS server via the same network. If that server or network fails, all shares are affected. Thus the aforementioned dummy resource will cover failures of all three HANA filesystem.
+> Timeouts in the above configuration may need to be adapted to the specific HANA set up to avoid unnecessary fence actions.  Don’t set the timeout values too low.  Be aware that the filesystem monitor is not related to the HANA system replication. For details see [Suse documentation](https://www.suse.com/support/kb/doc/?id=000019904).
+
 
 
 ## Test the cluster setup
