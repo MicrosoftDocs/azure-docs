@@ -144,7 +144,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
 
-- [F5 BIG-IP for SSO to header-based and LDAP applications] (f5-big-ip-ldap-header-easybutton.md)
+- [F5 BIG-IP for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
 ## Additional resources
 
