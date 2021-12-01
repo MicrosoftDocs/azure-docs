@@ -215,8 +215,8 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 ```
 
 > [!NOTE]
-> This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role.
->  After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is up to 60 minutes.
+> This script doesn't remove the Log Analytics agent for Linux from the machine. It only removes the functionality and configuration of the Hybrid Runbook Worker role. </br>
+> After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is up to 60 minutes.
 
 ## Remove a Hybrid Worker group
 

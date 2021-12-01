@@ -262,6 +262,7 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
 1. On the properties page for the selected group, select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
 1. Select **Yes** if you're sure that you want to continue. 
+
 This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
  
