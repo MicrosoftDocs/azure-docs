@@ -143,14 +143,14 @@ To reduce the frequency of having to reenter credentials due to errors like the 
 
 If you have conditional access policies that need to be satisfied for your account, make sure you are using the **Default Web Browser** value for the **Sign in with** setting. For information on that setting, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
-### Browser complains about HTTP redirect during sign in
+### Browser complains about HTTP redirect or insecure connection during sign in
 
 When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have various options:
 - Ignore the warning.
 - Add an exception for `localhost`.
 - Disable force HTTPS, either globally or just for `localhost`.
 
-If you are not able to do any of those options, then you can also [change where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+If you are not able to do any of those options, then you can also [change where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens) to integrated sign-in to avoid having to use your browser altogether.
 
 ### Unable to acquire token, tenant is filtered out
 

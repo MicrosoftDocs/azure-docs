@@ -1,32 +1,32 @@
 ---
-title: Getting started with the Azure Maps Power BI visual | Microsoft Azure Maps
-description: In this article, you will learn how to use the Microsoft Azure Maps visual for Power BI.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+title: Getting started with the Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the Microsoft Azure Maps Power BI visual.
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
-ms.custom: 
 ---
 
 # Getting started with the Azure Maps Power BI visual
 
 **APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
 
-This article shows how to use the Microsoft Azure Maps visual for Power BI.
+This article shows how to use the Microsoft Azure Maps Power BI visual.
 
 > [!NOTE]
 > This visual can be created and viewed in both Power BI Desktop and the Power BI service. The steps and illustrations in this article are from Power BI Desktop.
 
-The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps visual can be used to gain insights into how this location context relates to and influences your business data.
+The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It is estimated that over 80% of business data has a location context. The Azure Maps Power BI visual can be used to gain insights into how this location context relates to and influences your business data.
 
-![Power BI desktop with the Azure Maps visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
+![Power BI desktop with the Azure Maps Power BI visual displaying business data](media/power-bi-visual/azure-maps-visual-hero.png)
 
 ## What is sent to Azure?
 
-The Azure Maps visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates that are used to create the map visualization.
+The Azure Maps Power BI visual connects to cloud service hosted in Azure to retrieve location data such as map images and coordinates that are used to create the map visualization.
 
 - Details about the area the map is focused on are sent to Azure to retrieve images needed to render the map canvas (also known as map tiles).
 - Data in the Location, Latitude, and Longitude buckets may be sent to Azure to retrieve map coordinates (a process called geocoding).
@@ -38,49 +38,45 @@ You, or your administrator, may need to update your firewall to allow access to 
 
 > `https://atlas.microsoft.com`
 
-To learn more, about privacy and terms of use related to the Azure Maps visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
+To learn more, about privacy and terms of use related to the Azure Maps Power BI visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Azure Maps visual (Preview) behavior and requirements
+## Azure Maps Power BI visual (Preview) behavior and requirements
 
-There are a few considerations and requirements for **Azure Maps** visual. :
+There are a few considerations and requirements for the Azure Maps Power BI visual:
 
-- The **Azure Maps** visual (Preview) must be enabled in Power BI Desktop. To enable **Azure Maps** visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
+- The Azure Maps Power BI visual (Preview) must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
 - The data set must have fields that contain **latitude** and **longitude** information.
 
-## Use the Azure Maps visual (Preview)
+## Use the Azure Maps Power BI visual (Preview)
 
-Once the **Azure Maps** visual  is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
+Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
 
-![Azure Maps visual button on the Visualizations pane](media/power-bi-visual/azure-maps-in-visualizations-pane.png)
+:::image type="content" source="media/power-bi-visual/azure-maps-in-visualizations-pane.png" alt-text="Azure Maps visual button on the Visualizations pane.":::
 
 Power BI creates an empty Azure Maps visual design canvas. While in preview, another disclaimer is displayed.
 
-![Power BI desktop with the Azure Maps visual loaded in its initial state](media/power-bi-visual/visual-initial-load.png)
+:::image type="content" source="media/power-bi-visual/visual-initial-load.png" alt-text="Power BI desktop with the Azure Maps visual loaded in its initial state.":::
 
 Take the following steps to load the Azure Maps visual:
 
 1. In the **Fields** pane, drag data fields that contain latitude and longitude coordinate information into the **Latitude** and/or **Longitude** buckets. This is the minimal data needed to load the Azure Maps visual.
 
-    > [!div class="mx-imgBorder"]
-    > ![Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided](media/power-bi-visual/bubble-layer.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer.png" alt-text="Azure Maps visual displaying points as bubbles on the map after latitude and longitude fields provided.":::
 
 2. To color the data based on categorization, drag a categorical field into the **Legend** bucket of the **Fields** pane. In this example, we're using the **AdminDistrict** column (also known as state or province).  
 
-    > [!div class="mx-imgBorder"]
-    > ![Azure Maps visual displaying points as colored bubbles on the map after legend field provided](media/power-bi-visual/bubble-layer-with-legend-color.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color.png" alt-text="Azure Maps visual displaying points as colored bubbles on the map after legend field provided.":::
 
     > [!NOTE]
     > The built-in legend control for Power BI does not currently appear in this preview.
 
 3. To scale the data relatively, drag a measure into the **Size** bucket of the **Fields** pane. In this example, we're using **Sales** column.  
 
-    > [!div class="mx-imgBorder"]
-    > ![Azure Maps visual displaying points as colored and scaled bubbles     on the map after size field provided.](media/power-bi-visual/bubble-layer-with-legend-color-and-size.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-with-legend-color-and-size.png" alt-text="Azure Maps visual displaying points as colored and scaled bubbles on the map after size field provided.":::
 
 4. Use the options in the **Format** pane to customize how data is rendered. The following image is the same map as above, but with the bubble layers fill transparency option set to 50% and the high-contrast outline option enabled.  
 
-    > [!div class="mx-imgBorder"]
-    > ![Azure Maps visual displaying points as bubbles on the map with a custom style](media/power-bi-visual/bubble-layer-styled.png)
+    :::image type="content" source="media/power-bi-visual/bubble-layer-styled.png" alt-text="Azure Maps visual displaying points as bubbles on the map with a custom style.":::
 
 ## Fields pane buckets
 
@@ -121,7 +117,7 @@ If the **Auto zoom** slider is in the **Off** position, the following settings a
 
 ## Considerations and Limitations
 
-The Azure Maps visual is available in the following services and applications:
+The Azure Maps Power BI visual is available in the following services and applications:
 
 | Service/App                              | Availability |
 |------------------------------------------|--------------|
@@ -142,7 +138,7 @@ At this time, Azure Maps is currently available in all countries and regions exc
 
 For coverage details for the different Azure Maps services that power this visual, see the [Geographic coverage information](geographic-coverage.md) document.
 
-**Which web browsers are supported by the Azure Maps visual?**
+**Which web browsers are supported by the Azure Maps Power BI visual?**
 
 See this documentation for information on [Azure Maps Web SDK supported browsers](supported-browsers.md).
 
@@ -162,7 +158,7 @@ Learn more about the Azure Maps Power BI visual:
 > [Understanding layers in the Azure Maps Power BI visual](power-bi-visual-understanding-layers.md)
 
 > [!div class="nextstepaction"]
-> [Manage the Azure Maps visual within your organization](power-bi-visual-manage-access.md)
+> [Manage the Azure Maps Power BI visual within your organization](power-bi-visual-manage-access.md)
 
 Customize the visual:
 
