@@ -32,7 +32,7 @@ Having multiple Purview accounts in a tenant now poses the challenge of which Pu
 
 * Setting up default account is a control plane operation and hence purview studio will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default purview account.
 
-## Next Steps
+## Next steps
 
 - [Create an Azure Purview account](create-catalog-portal.md)
 - [Purview Pricing](https://azure.microsoft.com/pricing/details/azure-purview/)
