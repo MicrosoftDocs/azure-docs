@@ -378,10 +378,6 @@ Microsoft Defender for Kubernetes provides security alerts on the cluster level 
 | **Attempt to stop apt-daily-upgrade.timer service detected (Preview)**<br>(K8S.NODE_TimerServiceDisabled) | Analysis of host/device data detected an attempt to stop apt-daily-upgrade.timer service. Attackers have been observed stopping this service to download malicious files and grant execution privileges for their attacks. This activity can also happen if the service is updated through normal administrative actions. | DefenseEvasion | Informational |
 | **Suspicious file timestamp modification (Preview)**<br>(K8S.NODE_TimestampTampering) | Analysis of host/device data detected a suspicious timestamp modification. Attackers will often copy timestamps from existing legitimate files to new tools to avoid detection of these newly dropped files. | Persistence, DefenseEvasion | Low |
 | **Exploitation of Xorg vulnerability (Preview)**<br>(K8S.NODE_XorgExploit) | Analysis of processes running within a container detected the use of Xorg with suspicious arguments. Attackers may use this technique in privilege escalation attempts. | PrivilegeEscalation, Exploitation | Medium |
-
-
-
-
 |                                                                                                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                                              |          |
 
 
