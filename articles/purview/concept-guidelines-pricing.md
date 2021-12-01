@@ -14,10 +14,6 @@ ms.custom: ignite-fall-2021
 Azure Purview enables a unified governance experience by providing a single pane of glass for managing data governance by enabling automated scanning and classifying data at scale.
 
 
-## Intended audience
-
-- Data governance and management teams
-
 ## Why do you need to understand the components of the Azure Purview pricing? 
 
 - While the pricing for Azure Purview is on a subscription-based **Pay-As-You-Go** model, there are various dimensions that you can consider while budgeting for Purview
