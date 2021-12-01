@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 10/27/2021
 ms.author: zxue 
 ms.custom: devx-track-azurepowershell
-
+---
 # Quickstart: Deploy Azure API for FHIR using PowerShell
 
 In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
