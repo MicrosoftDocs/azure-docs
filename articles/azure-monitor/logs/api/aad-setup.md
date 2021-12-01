@@ -43,4 +43,4 @@ After this step, you can retrieve OAuth2 tokens which you will send to the Log A
 2.  Select your workspace from the list of available options, or search for it.
 3.  From the left menu that opens, select Access Control (IAM). Click Add, and select "Log Analytics Reader" for the Role in the blade that appears. Search for your AAD App by name, and then click save.
 
-You app is now setup to make API calls to your workspace. Next, you must decided on an [OAuth2 flow](oath2.md) to use, and request a token to authorize your access.
+You app is now setup to make API calls to your workspace. Next, you must decided on an [OAuth2 flow](authentication-and-authorization.md) to use, and request a token to authorize your access.
