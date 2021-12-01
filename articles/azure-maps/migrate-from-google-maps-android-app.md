@@ -1327,4 +1327,4 @@ No resources to be cleaned up.
 Learn more about the Azure Maps Android SDK:
 
 > [!div class="nextstepaction"]
-> [Getting started with Azure Maps Android SDK](how-to-use-android-map-control-library.md)
+> [Get started with Azure Maps Android SDK](how-to-use-android-map-control-library.md)
