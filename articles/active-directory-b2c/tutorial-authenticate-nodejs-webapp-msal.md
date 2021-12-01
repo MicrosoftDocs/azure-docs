@@ -13,7 +13,8 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Tutorial: Sign in and sign out users in a Node.js Express web app
+
+# Tutorial: Sign in and sign out users in a Node.js web app using Azure AD B2C
 In this tutorial, you'll build a web app by using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node). Users of the app will be able to use their local accounts to:
 - Sign in 
 - Sign out
@@ -52,10 +53,11 @@ At this point, you have the application (client) ID and client secret. You've al
 
 ## Create Azure AD B2C user flows 
 
-Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a user flow. Repeat the steps to create three separate user flows as follows: 
+Follow the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a user flow. Repeat the steps to create three separate user flows as follows: 
 - A combined **Sign in and sign up** user flow, such as `susi_node_app`. This user flow also supports the **Forgot your password** experience.
 - A **Profile editing** user flow, such as `edit_profile_node_app`.
 - A **Password reset** user flow, such as `reset_password_node_app`.
+
 
 Azure AD B2C prepends `B2C_1_` to the user flow name. For example, `susi_node_app` becomes `B2C_1_susi_node_app`.
 
@@ -199,13 +201,14 @@ LOGOUT_ENDPOINT=https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/sus
 
 Modify the values in the `.env` files as follows:
 - `server-port`: The HTTP port that's used to run your web app, such as 3000.
-- `client-id`: The application (client) ID of the application that you registered.
+- `client-id`: The **Application (client) ID** of the application that you registered.
 - `session-secret`: A random string to be used as your Express session secret. 
 - `client-secret`: The client secret that you created earlier.
 - `tenant-name`: The tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
 - `susi-flow`: The **Sign in and sign up** user flow, such as `b2c_1_susi_node_app`.
 - `reset-password-flow`: The **Password reset** user flow, such as `b2c_1_reset_password_node_app`. 
 - `edit-profile-flow`: The **Profile editing** user flow, such as `b2c_1_edit_profile_node_app`.
+
 
 >[!WARNING]
 > Any plaintext secret in source code poses an increased security risk. This tutorial uses a plaintext client secret for simplicity. Use a certificate credential instead of client secrets in your confidential client applications, especially for the apps that you intend to deploy to production.
@@ -459,11 +462,11 @@ The app endpoints are:
     - It's used when a user signs out.
     - The web app session is cleared, and an HTTP call is made to the Azure AD B2C logout endpoint. 
 - `/redirect`:
+    - It is the endpoint set as Redirect URI for the web app in Azure portal.
     - It uses the `state` query parameter in the request from Azure AD B2C to differentiate between requests that were made from the web app. It handles all redirects from Azure AD B2C, except for sign-out.
     - If the app state is `APP_STATES.LOGIN`, the acquired authorization code is used to retrieve a token through the `acquireTokenByCode()` method. This token includes `idToken` and `idTokenClaims`, which are used for user identification.
     - If the app state is `APP_STATES.PASSWORD_RESET`, it handles any error, such as `user cancelled the operation` identified by error code `AADB2C90091`. Otherwise, it decides the next user experience. 
     - If the app state is `APP_STATES.EDIT_PROFILE`, it uses the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
-
 
 ## Start the Node server 
 To start the Node server, add the following code in the `index.js` file:
@@ -517,4 +520,8 @@ Test the Google identity provider:
 When you use a social identity provider such as Google, that provider manages the user's identity. The following considerations apply:
 - You can't reset your password the same way as you can with a local account.  
 - When you sign out the user in your web app, you don't also sign out the user from the identity provider.  
+
+
+## Next steps
+- Learn how to [Acquire an access token for calling a web API in Azure AD B2C](tutorial-acquire-access-token.md)
 
