@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 The Switch activity provides the same functionality that a switch statement provides in programming languages. It evaluates a set of activities corresponding to a case that matches the condition evaluation.
 
-## Creating a Switch activity in Azure Data Factory or Synapse Studio
+## Create a Switch activity with UI
 
 To use a Switch activity in a pipeline, complete the following steps:
 1. Search for _Switch_ in the pipeline Activities pane, and add a Switch activity to the pipeline canvas.
