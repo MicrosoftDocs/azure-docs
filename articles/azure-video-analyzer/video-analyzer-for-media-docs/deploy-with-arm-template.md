@@ -109,4 +109,4 @@ If you're new to template deployment, see:
 
 ## Next steps
 
-[Overview](video-indexer-overview.md]
+[Connect an existing classic paid Video Analyzer for Media account to ARM-based account](connect-classic-account-to-arm.md)
