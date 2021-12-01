@@ -19,12 +19,6 @@ A collection also provides a security boundary for your metadata in the data map
 - Users have the minimum amount of access they need to do their jobs. 
 - Users don't have access to sensitive data that they don't need.
 
-## Intended audience
-
-- Data architecture team 
-- Data governance and management teams
-- Data security team
-
 ## Why do you need to define collections and an authorization model for your Azure Purview account? 
 
 Consider deploying collections in Azure Purview to fulfill the following requirements: 
