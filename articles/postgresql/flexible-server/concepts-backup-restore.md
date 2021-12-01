@@ -94,7 +94,7 @@ If you have configured your server within a VNET, you can restore to the same VN
 
 ## Geo-redundant backup and restore (Preview)
 
-You can configure geo-redundant backup at the time of server creation. Refer to this [quick start guide](../quickstart-create-server-database-portal.md) on how to enable Geo-redundant backup from Compute+Storage blade. 
+You can configure geo-redundant backup at the time of server creation. Refer to this [quick start guide](./quickstart-create-server-portal.md) on how to enable Geo-redundant backup from Compute+Storage blade. 
 
 >[!IMPORTANT]
 > Geo-redundant backup can only be configured at the time of server creation. 
