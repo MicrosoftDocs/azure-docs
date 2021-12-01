@@ -106,7 +106,7 @@ When you're using a restricted key vault, use the following steps to configure A
 #### Key Vault permission Vault access policy model
 Navigate to your Application Gateway in the Azure Portal and select the **Listeners** tab.  Select **Add Listener** (or select an existing listener) and specify **HTTPS** for the protocol.
 
-On *Choose a certificate*, select *Create new* and then select *Choose a certificate from Key Vault* under *Https settings*
+On **Choose a certificate**, select **Create new** and then select **Choose a certificate from Key Vault** under **Https settings**.
 
 For Cert name, type a friendly name for the certificate to be referenced in Key Vault.  Choose your Managed identity, Key vault, and Certificate.
 
