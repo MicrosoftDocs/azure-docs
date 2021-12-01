@@ -14,7 +14,7 @@ ms.subservice: B2C
 ---
 
 # Tutorial: Acquire an access token for calling a web API in Azure AD B2C 
-In this tutorial, you'll build a web app that is used to acquire an access token for calling a protected web API. A user needs to sign in to the web app for them to acquire the access token. The access token acquisition is made easier by using [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node). 
+In this tutorial, you'll build a web app that acquires an access token for calling a protected web API. A user needs to sign in to the web app to acquire the access token. The access token acquisition is made easier by using [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node). 
 
 Follow the steps in this tutorial to:
 
@@ -366,10 +366,10 @@ App endpoints:
 - `/signin`:
     - Used when the end-user signs in.
     - Calls `getAuthCode()` method and passes the `authority` for **Sign in and sign up** user flow/policy, `APP_STATES.LOGIN`, and `apiConfig.webApiScopes` to it.  
-    - If necessary, it causes the end user to be challenged to enter their logins, or if the user doesn't have an account, they can sign up.
+    - It causes the end user to be challenged to enter their logins, or if the user doesn't have an account, they can sign up.
     - The final response resulting from this endpoint includes an authorization code from B2C posted back to the `/redirect` endpoint.
 - `/redirect`:
-    - It is the endpoint set as Redirect URI for the web app in Azure portal.
+    - It's the endpoint set as Redirect URI for the web app in Azure portal.
     - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app.
     - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. When requesting for a token using `acquireTokenByCode` method, you use the same scopes used while acquiring the authorization code. The acquired token includes an `accessToken`, `idToken`, and `idTokenClaims`. The `accessToken` can be used to call an API, and the `idToken` identifies the user alongside the `idTokenClaims`.
     - Put the `accessToken` in the session, and log it.  
@@ -397,7 +397,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtM.............
 ```
 
 ### Test sign out 
-After you sign in, select **Sign out**. You should see the page with a **Sign in to acquire access token** button again. When you sign out, you clear the app session, and you loose the access token. 
+After you sign in, select **Sign out**. You should see the page with a **Sign in to acquire access token** button again. When you sign out, you clear the app session, and you lose the access token. 
 
 ## Next steps
 

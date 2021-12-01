@@ -13,7 +13,7 @@ ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Tutorial: Sign in and sign out users in a Node.js Express web app
+# Tutorial: Sign in and sign out users in a Node.js web app using Azure AD B2C
 In this tutorial, you'll build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for users use their local accounts to:
 - Sign in 
 - Sign out
