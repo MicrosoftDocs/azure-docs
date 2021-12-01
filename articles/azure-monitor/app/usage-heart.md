@@ -1,6 +1,6 @@
 ---
 title: HEART Analytics Workbook
-description: Overview of HEART analytics workbook and its setup
+description: Product teams use the HEART Workbook to measure success across five user-centric dimensions in order to deliver better software.
 ms.topic: conceptual
 ms.date: 11/11/2021
 
