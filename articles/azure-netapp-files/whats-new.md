@@ -3,7 +3,7 @@ title: What's new in Azure NetApp Files | Microsoft Docs
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 11/19/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 
 # What's new in Azure NetApp Files
