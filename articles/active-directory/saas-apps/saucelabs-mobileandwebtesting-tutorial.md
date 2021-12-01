@@ -108,15 +108,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **Account** dropdown and select the **Team Management** tab.
 
-   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/user.png" alt-text="Screenshot that shows the "Account" dropdown and "Team Management" drop-down item selected.":::
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/user.png" alt-text="Screenshot that shows the Account dropdown and Team Management dropdown item selected.":::
 
 1. Click **View Settings** under **Organization Settings**.
 
-   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/org-settings.png" alt-text="Screenshot that shows the View Settings button in the Organization Settings box.]":::
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/org-settings.png" alt-text="Screenshot that shows the View Settings button in the Organization Settings box.":::
 
 1. Click the **Single Sign-On** tab.
 
-   :::image type="content" source="../media/saucelabs-mobileandwebtesting-tutorial/configure.png" alt-text="Screenshot that shows the "Single Sign-On" tab selected under "Organization Settings".":::
+   :::image type="content" source="../media/saucelabs-mobileandwebtesting-tutorial/configure.png" alt-text="Screenshot that shows the Single Sign-On tab selected under Organization Settings.":::
 
 1. In the **Single Sign-On** section, perform the following steps.
 
