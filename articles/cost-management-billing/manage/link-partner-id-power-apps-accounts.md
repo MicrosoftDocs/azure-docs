@@ -1,12 +1,12 @@
 ---
-title: Link a partner ID to your Power Apps accounts with your Azure credentials 
-description: This article helps Microsoft partners use their Azure credentials to assist customers use Microsoft Power Apps.
+title: Link a partner ID to your Power Platform and Dynamics Customer Insights accounts with your Azure credentials 
+description: This article helps Microsoft partners use their Azure credentials to provide customers with services for Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights.
 author: bandersmsft
-ms.reviewer: akangaw
+ms.reviewer: tpalmer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 12/01/2021
 ms.author: banders 
 ms.custom: devx-track-azurepowershell
 ---
@@ -123,9 +123,9 @@ The partner user that was linked through the Partner Admin Link (PAL) needs to a
 
 | Product           | Primary Metric   | Resource | Attributed User Logic                                                                                                                                                                             |
 |-------------------|------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Power Apps | Monthly Active Users (MAU) | Application |The user must be an owner/co-owner of the application (details on sharing apps [here](/powerapps/maker/canvas-apps/share-app#share-an-app)).In cases of multiple partners being mapped to a single application, the user's activity is reviewed to select the 'latest' partner. |
+| Power Apps | Monthly Active Users (MAU) | Application |The user must be an owner/co-owner of the application (details on sharing apps [here](/powerapps/maker/canvas-apps/share-app)). In cases of multiple partners being mapped to a single application, the user's activity is reviewed to select the 'latest' partner. |
 | Power Automate | Monthly Active Users (MAU) | Flow | The user must be the creator of the flow. There can only be one creator so there is no logic in case of multiple partners.  |
-| Power BI            | Monthly Active Users (MAU)   | Dataset | The user must be an owner/editor of the dataset. In cases of multiple partners being mapped to a single dataset, the user's activity is reviewed to select the 'latest' partner.                                                                                                                                                                             |
+| Power BI            | Monthly Active Users (MAU)   | Dataset | The user must be the publisher of the dataset (details on publishing datasets [here](/power-bi/create-reports/desktop-upload-desktop-files)). In cases of multiple partners being mapped to a single dataset, the user's activity is reviewed to select the 'latest' partner. |
 | Customer Insights | Unified Profiles | Instance | Any active user of an Instance is treated as the attributed user. In cases of multiple partners being mapped to a single Instance, the user's activity is reviewed to select the 'latest' partner |
 
 
