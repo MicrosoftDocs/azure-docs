@@ -69,7 +69,7 @@ To trigger an alert when there was a violation from a Dynamic Thresholds in 20 m
 **Ignore data before** - Users may also optionally define a start date from which the system should begin calculating the thresholds from. A typical use case may occur when a resource was a running in a testing mode and is now promoted to serve a production workload, and therefore the behavior of any metric during the testing phase should be disregarded.
 
 > [!NOTE]
-> An alert will fire when the evaluation is considered anomalous based on the rule configuration (including the **Failing Periods** parameters), and will resolve after three consecutive evaluations where the metric behavior is within the threshold bounds (and not considered anomalous). 
+> An alert fires when the rule is evaluated and the result shows an anomaly. The alert is resolved if the rule is evaluated and does not show an anomaly three times in a row.
 
 ## How do you find out why a Dynamic Thresholds alert was triggered?
 
