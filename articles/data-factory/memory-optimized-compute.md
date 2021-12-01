@@ -1,5 +1,5 @@
 ---
-title: Memory optimized compute type
+title: Memory optimized compute type for Data Flows
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the memory optimized compute type setting in Azure Data Factory and Azure Synapse.
 ms.author: jburchel
@@ -11,7 +11,7 @@ ms.custom: synapse
 ms.date: 11/12/2021
 ---
 
-# Memory optimized compute type in Azure Data Factory and Azure Synapse
+# Memory optimized compute type for Data Flows in Azure Data Factory and Azure Synapse
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
