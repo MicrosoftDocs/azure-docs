@@ -31,7 +31,7 @@ After receiving a token, the process for calling the Log Analytics API is identi
 
 To quickly explore the API without using AAD authentication, we provide a demonstration workspace with sample data, which allows API key authentication. [Learn more about using API key authentication](api-keys.md).
 
-## Azure Monitor Log Analytics API Query Limits
+## Log Analytics API Query Limits
 See [the **Query API** section of this page](../../service-limits.md) for information about query limits.
 ## Trying the Log Analytics API
 
