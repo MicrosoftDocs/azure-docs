@@ -162,7 +162,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**
 
-To resolve the error, follow these steps:
+### Solution
 
 1. In the affected VM, go to **Control panel** -> **Program and features**.
 1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
