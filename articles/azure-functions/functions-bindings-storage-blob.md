@@ -122,7 +122,7 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle
 
