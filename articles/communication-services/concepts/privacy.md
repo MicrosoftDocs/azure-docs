@@ -25,7 +25,7 @@ The list of geographies you can choose from includes:
 - Australia
 - Brazil
 - Canada
-- Europ
+- Europe
 - France
 - Germany
 - India
