@@ -45,7 +45,7 @@ Azure controls planned maintenance and recovery prioritization for regional pair
 
 This does not mean you are limited to using services within your regional pairs. Although an Azure service can rely upon a specific regional pair, you can host your other services in any region that satisfies your business needs. For example, an Azure GRS storage solution can pair data in Canada Central with a peer in Canada East while using Azure Compute resources located in East US.
 
-You are not required to use regional pairs when designing your solutions; however, a resilient business continuity and disaster recovery implementation will leverage regional pairs to benefit from [isolation](../security/fundamentals/isolation-choices) and improve [availability](../availability-zones/az-overview). For applications that support multiple active regions, both regions in a region pair should be leveraged when possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Design your application for [maximum resiliency](../architecture/framework/resiliency/app-design) and ease of [disaster recovery](../architecture/framework/resiliency/backup-and-recovery).
+You are not required to use regional pairs when designing your solutions; however, a resilient business continuity and disaster recovery implementation will leverage regional pairs to benefit from [isolation](../security/fundamentals/isolation-choices) and improve [availability](../availability-zones/az-overview). For applications that support multiple active regions, both regions in a region pair should be leveraged when possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Design your application for maximum resiliency and ease of disaster recovery.
 
 ## Azure cross-region replication pairings for all geographies
 
@@ -77,6 +77,7 @@ Regions are paired for cross-region replication based on proximity and other fac
 | North America |West US 3 |East US |
 | Norway | Norway East | Norway West\* |
 | South Africa | South Africa North |South Africa West\* |
+| Sweden | Sweden Central |Sweden South\* |
 | Switzerland | Switzerland North |Switzerland West\* |
 | UK |UK West |UK South |
 | United Arab Emirates | UAE North | UAE Central\* |
