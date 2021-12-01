@@ -88,8 +88,7 @@ After doing this the Update Content Handler can install and apply the update to 
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
   - See [Steps Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler) for more information.
-- **SWUpdate Installer** and **Motors Firmware Installer**
-  - See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+- In production, device builders can implement a custom handler that invokes any installer needed for an over-the-air update. See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ## How To Implement Component Enumerator for Device Update Agent (C language)
 
