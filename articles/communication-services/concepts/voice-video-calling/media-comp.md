@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 ms.subservice: calling
 ---
 # Media Streaming and Composition
-
+[!INCLUDE Private Preview Disclaimer]
 Azure Communication Services Media Streaming and Composition enables you to build dynamic voice and video calling experiences at large scales, suitable for interactive streaming, virtual events, and broadcast scenarios. In a common video calling scenario, each participant is uploading several media streams captured from:
 
 1. Cameras
@@ -57,4 +57,7 @@ The presenter layout is one of several layouts available through the media compo
 1. **Presenter** - This layout overlays two sources on top of each other.
 1. **Weather Person** - This layout overlays two sources, but in real-time Azure will remove the background behind people.
 
-To try out media composition, check out the quickstart.
+To try out media composition, check out following content:
+
+- [Quick Start - Applying Media Composition to a video call](../../quickstarts/media-composition/get-started-media-composition.md)
+- [Tutorial - Media Composition Layouts](../../quickstarts/media-composition/media-composition-layouts.md)
