@@ -30,7 +30,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: FAQ for Azure Edge Hardware Center
-            url: azure-edge-hardware-center-faq.md
+            url: azure-edge-hardware-center-faq.yml
 
   # Card
   - title: "Create, track, cancel orders"

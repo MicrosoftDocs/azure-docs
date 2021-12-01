@@ -13,7 +13,7 @@
   - name: Concepts
     items:
     - name: FAQ
-      href: azure-edge-hardware-center-faq.md
+      href: azure-edge-hardware-center-faq.yml
   - name: How to
     items:
     - name: Track, cancel your order
