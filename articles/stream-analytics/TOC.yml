@@ -248,10 +248,10 @@
       href: stream-analytics-monitor-jobs-use-vs.md
   - name: Automate
     items:
-    - name: Using .NET SDK
+    - name: Using PowerShell for auto-pausing
+      href: automation-powershell.md
+    - name: Using .NET SDK for management
       href: stream-analytics-dotnet-management-sdk.md
-    - name: Using Azure PowerShell
-      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
     - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
     - name: Export and deploy with Azure Resource Manager
@@ -274,7 +274,7 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Debug queries using job diagram 
+    - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram.md
     - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
@@ -283,12 +283,12 @@
   - name: Visual Studio Code
     items:
     - name: Complete code with IntelliSense
-      href: vs-code-intellisense.md  
+      href: vs-code-intellisense.md
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
       href: visual-studio-code-local-run-live-input.md
-    - name: Debug queries using job diagram 
+    - name: Debug queries using job diagram
       href: debug-locally-using-job-diagram-vs-code.md
     - name: Explore jobs
       href: visual-studio-code-explore-jobs.md

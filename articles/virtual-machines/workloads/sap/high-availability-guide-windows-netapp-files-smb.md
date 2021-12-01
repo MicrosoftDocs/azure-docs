@@ -24,6 +24,7 @@ ms.author: radeltch
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 [high-availability-guide]:high-availability-guide.md
+[dfs-n-reference]:high-availability-guide-windows-dfs.md
 
 [anf-azure-doc]:../../../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-avail-matrix]:https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all
@@ -241,6 +242,8 @@ While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction 
 > [!NOTE]
 > The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
 >
+### Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
+Using DFS-N allows you to utilize individual sapmnt volumes for SAP systems deployed within the same Azure region and subscription. The documentation for this setup can be found [here][dfs-n-reference]
 
 ## Next steps
 
