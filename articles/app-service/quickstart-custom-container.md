@@ -166,7 +166,7 @@ The streamed logs looks like this:
 
    ![Restart web app in Azure](./media/quickstart-custom-container/portal-restart-app.png)
 
-[Browse to the custom container](#browse-to-the-container-app) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
+[Browse to the custom container](#browse-to-the-custom-container) again. As you refresh the webpage, the app should revert to the "Starting up" page at first, then display the updated webpage again after a few minutes.
 
 ![Updated web app in Azure](./media/quickstart-custom-container/azure-web-app-updated.png)
 
