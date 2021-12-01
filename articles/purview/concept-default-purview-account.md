@@ -10,7 +10,7 @@ ms.date: 12/01/2021
 
 # Default Purview Account 
 
-In general, our guidance is to have a single Purview account for entire customer's data estate. However, there are cases in which customers would like to have multiple purview accounts in their organization. The top reasons for different purview accounts are listed below:
+In general, our guidance is to have a single Purview account for entire customer's data estate. However, there are cases in which customers would like to have multiple Purview accounts in their organization. The top reasons for different Purview accounts are listed below:
 
 * Testing new configurations - Customers want to create multiple catalogs for testing out configurations such as scan or classification rules before moving the configuration to a higher environment like pre-production or production.
 
