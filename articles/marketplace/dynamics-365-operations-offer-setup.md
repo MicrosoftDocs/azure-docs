@@ -72,15 +72,9 @@ Enter a descriptive name that we'll use to refer to this offer solely within Par
 
 ## Setup details
 
-For **How do you want potential customers to interact with this listing offer?**, select the option you'd like to use for this offer.
+For **How do you want potential customers to interact with this listing offer?**, select **Contact me**.
 
-- **Get it now (free)** – List your offer to customers for free.
-- **Free trial (listing)** – List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
-
-    > [!NOTE]
-    > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
-
-- **Contact me** – Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where the customer found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Customer leads](#customer-leads).
 
 ## Test drive
 

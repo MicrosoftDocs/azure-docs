@@ -4,16 +4,13 @@ description: Quickstart showing how to create Azure key vaults, and add key to t
 services: key-vault
 author: sebansal
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: mvc,subject-armqs, devx-track-azurepowershell
+ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
 ms.date: 10/14/2020
 ms.author: sebansal
-
 #Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure.
-
 ---
 
 # Quickstart: Create an Azure key vault and a key by using ARM template 

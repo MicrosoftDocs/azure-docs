@@ -28,6 +28,8 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - A stable connection to Azure from your on-premises network.
 
+- Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
+
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
 To set up Azure Virtual Desktop for Azure Stack HCI:

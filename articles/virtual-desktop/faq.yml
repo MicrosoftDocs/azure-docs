@@ -158,17 +158,21 @@ sections:
       - question: |
          Which availability option is best for me?
         answer: |
-          The availability option you should use for your VMs depends on your image's location and its managed disk fields. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
+          The availability option you should use for your VMs depends on your image's location. The following table explains the relationship each setting has with these variables to help you figure out which option is best for your deployment. 
           
-          | Availability option | Image location | Use managed disk option button (radio button) |
-          |---|---|---|
-          | None | Gallery | Disabled with "Yes" as default |
-          | None | Blob storage | Enabled with "No" as default |
-          | Availability zone | Gallery (blob storage option disabled) | Disabled with "Yes" as default |
-          | Availability set with managed SKU (managed disk) | Gallery | Disabled with "Yes" as default |
-          | Availability set with managed SKU (managed disk) | Blob storage | Enabled with "No" as default |
-          | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | Disabled with "No" as default |
-          | Availability set (newly created by user) | Gallery | Disabled with "Yes" as default |
-          | Availability set (newly created by user) | Blob storage | Enabled with "No" as default |
+          | Availability option | Image location |
+          |---|---|
+          | None | Gallery | 
+          | None | Blob storage | 
+          | Availability zone | Gallery (blob storage option disabled) |
+          | Availability set with managed SKU (managed disk) | Gallery | 
+          | Availability set with managed SKU (managed disk) | Blob storage | 
+          | Availability set with managed SKU (managed disk) | Blob storage (Gallery option disabled) | 
+          | Availability set (newly created by user) | Gallery | 
+          | Availability set (newly created by user) | Blob storage |
           
-          
+      - question: |
+         Should I use Windows Defender Application Control or AppLocker to control which applications and drivers are allowed to run on my Windows 10 devices?
+        answer: |
+          We recommend you use Windows Defender Application Control instead of AppLocker. 
+

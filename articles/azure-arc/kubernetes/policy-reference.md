@@ -4,8 +4,6 @@ description: Lists Azure Policy built-in policy definitions for Azure Arc-enable
 ms.date: 10/11/2021
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-author: mlearned
-ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---

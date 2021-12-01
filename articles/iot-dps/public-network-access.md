@@ -1,8 +1,8 @@
 ---
 title: Manage public network access for Azure IoT Device Provisioning Service (DPS)
 description: Documentation on how to disable and enable public network access for Azure IoT Device Provisioning Service (DPS)
-ms.author: v-stharr
-author: anastasia-ms
+ms.author: wesmc
+author: wesmc7777
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual

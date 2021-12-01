@@ -55,23 +55,23 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: minimal
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-minimal.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-minimal.yml":::
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-basic.yml":::
 
 ## YAML: custom location
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-location.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-location.yml":::
 
 ## YAML: low priority
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-low-priority.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-low-priority.yml":::
 
 ## YAML: SSH username and password
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/cluster-ssh-password.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/cluster-ssh-password.yml":::
 
 ## Next steps
 

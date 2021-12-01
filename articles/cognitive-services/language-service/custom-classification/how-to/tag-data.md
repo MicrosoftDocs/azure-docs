@@ -23,7 +23,7 @@ Before you can tag data, you need:
 * [A successfully created project](create-project.md) with a configured Azure blob storage account, 
 * Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 
-See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
+See the [application development lifecycle](../overview.md#project-development-lifecycle) for more information.
 
 <!--Tagging your data will let you [train your model](train-model.md), [evaluate it](train-model.md), and use it to [classify text](call-api.md).-->
 
