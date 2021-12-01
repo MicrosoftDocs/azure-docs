@@ -78,7 +78,7 @@ public class Startup
 
 `AddInMemoryTokenCaches` is suitable in production if you request only app tokens. If you use user tokens, you should consider a distributed token cache. 
 
-From the point of view of the cache, the code would be similar in ASP.NET Core web apps and web APIs.
+Token cache configuration code is similar between ASP.NET Core web apps and web APIs.
 
 ### Distributed token caches
 
