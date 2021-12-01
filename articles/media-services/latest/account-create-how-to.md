@@ -49,6 +49,8 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 [!INCLUDE [add system assigned managed identity in the portal](./includes/task-storage-system-managed-identity-portal.md)]
 
+[!INCLUDE [add encryption to media services account](./includes/includes/task-security-encryption-managed-identity-portal.md)]
+
 ## [CLI](#tab/cli/)
 
 [!INCLUDE [the media services account and storage account must be in the same subscription](./includes/note-account-storage-same-subscription.md)]
