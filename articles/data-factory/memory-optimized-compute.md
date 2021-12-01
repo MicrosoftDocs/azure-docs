@@ -15,7 +15,7 @@ ms.date: 11/12/2021
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Data flow activities in Azure Data Factory and Azure Synapse support the [Compute type setting](control-flow-execute-data-flow-activity.md#type-properties) to help optimize the cluster configuration for cost and performance of the workload.  The default selection for the setting is **General** and will be ideal for most data flow workloads. General purpose clusters typically provide the best balance of performance and cost.  However, the **Memory optimized** setting can significantly improve performance in some scenarios by maximizing the memory available per core for the cluster.
+Data flow activities in Azure Data Factory and Azure Synapse support the [Compute type setting](control-flow-execute-data-flow-activity.md#type-properties) to help optimize the cluster configuration for cost and performance of the workload.  The default selection for the setting is **General** and will be sufficient for most data flow workloads. General purpose clusters typically provide the best balance of performance and cost.  However, the **Memory optimized** setting can significantly improve performance in some scenarios by maximizing the memory available per core for the cluster.
 
 ## When to use the memory optimized compute type
 
