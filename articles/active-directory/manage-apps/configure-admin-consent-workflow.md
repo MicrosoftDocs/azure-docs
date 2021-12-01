@@ -3,14 +3,14 @@ title: Configure the admin consent workflow
 titleSuffix: Azure AD
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.author: davidmu
+ms.author: ergreenl
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to configure the admin consent workflow.
@@ -35,7 +35,7 @@ To configure the admin consent workflow, you need:
 
 To enable the admin consent workflow and choose reviewers:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator.
+1. Sign in to the [Azure portal](https://portal.azure.com)  with one of the roles listed in the prerequisites.
 1. Search for and select **Azure Active Directory**.
 1. Select **Enterprise applications**.
 1. Under **Manage**, select **User settings**.

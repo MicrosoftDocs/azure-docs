@@ -3,16 +3,16 @@ title: Review and take action on admin consent requests
 titleSuffix: Azure AD
 description: Learn how to review and take action on admin consent requests that were created after you were designated as a reviewer.
 services: active-directory
-author: davidmu1
+author: eringreenlee
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/17/2021
-ms.author: davidmu
-ms.reviewer: arvindh, luleon, phsignor
-ms.custom: 
+ms.author: ergreenl
+ms.reviewer: ergreenl
+
 
 #customer intent: As an admin, I want to review and take action on admin consent requests.
 ---
