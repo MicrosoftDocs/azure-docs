@@ -10,7 +10,7 @@ ms.date: 04/06/2021
 ms.author: anfeldma
 ---
 
-# .NET Change Feed Processor SDK: Download and release notes
+# .NET Change Feed Processor SDK: Download and release notes (Legacy)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

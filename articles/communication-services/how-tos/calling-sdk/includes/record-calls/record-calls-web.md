@@ -14,7 +14,7 @@ ms.author: rifox
 Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
 
 ```js
-const callRecordingApi = call.api(Features.Recording);
+const callRecordingApi = call.feature(Features.Recording);
 ```
 
 Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingApi`. It returns `Boolean`.

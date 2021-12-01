@@ -73,6 +73,9 @@ Container insights officially supports the following configurations:
 - The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
 - We recommend connecting your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) and enabling monitoring through Container Insights via Azure Arc.
 
+> [!IMPORTANT]
+> Please note that the monitoring add-on is not currently supported for AKS clusters configured with the [HTTP Proxy (preview)](../../aks/http-proxy.md)
+
 ## Network firewall requirements
 
 The following table lists the proxy and firewall configuration information that's required for the containerized agent to communicate with Container insights. All network traffic from the agent is outbound to Azure Monitor.

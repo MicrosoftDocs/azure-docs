@@ -5,7 +5,7 @@ description: Provides you with a resolution to missing data in Azure Active Dire
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7

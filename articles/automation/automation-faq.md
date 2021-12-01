@@ -80,4 +80,4 @@ See [Manage Python 3 packages](python-3-packages.md).
 If your question isn't answered here, you can refer to the following sources for more questions and answers.
 
 - [Azure Automation](/answers/topics/azure-automation.html)
-- [Feedback forum](https://feedback.azure.com/forums/905242-update-management)
+- [Feedback forum](https://feedback.azure.com/d365community/forum/721a322e-bd25-ec11-b6e6-000d3a4f0f1c)
