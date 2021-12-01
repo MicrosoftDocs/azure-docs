@@ -1,12 +1,12 @@
 ---
 title: Request format
-description: The Log Analytics API request format.
+description: The Azure Monitor Log Analytics API request format.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
 ---
-# Request format
+# Azure Monitor Log Analytics API Request format
 
 There are two endpoints through which you can communicate with the Log Analytics API:
 - A direct URL for the API: [api.loganalytics.io](https://api.loganalytics.io/)

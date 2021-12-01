@@ -1,12 +1,12 @@
 ---
 title: Response format
-description: The response is JSON that contains an array of table objects.
+description: The Azure Monitor Log Analytics API response is JSON that contains an array of table objects.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/21/2021
 ms.topic: article
 ---
-# Response format
+# Azure Monitor Log Analytics API Response format
 
 The response is JSON string that contains an array of table objects.
 
@@ -59,7 +59,7 @@ In the following example, we can see the result contains two columns, `Category`
     }
 ```
 
-## Errors
+## Azure Monitor Log Analytics API Errors
 
 If a fatal error occurs during query execution, an error status code is returned with a [OneAPI](https://github.com/Microsoft/api-guidelines/blob/vNext/Guidelines.md#errorresponse--object) error object describing the error. See the [reference](https://dev.loganalytics.io/reference/post-query) for a list of error status codes.
 

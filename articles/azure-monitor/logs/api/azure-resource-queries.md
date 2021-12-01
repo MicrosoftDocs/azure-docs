@@ -3,12 +3,12 @@ title: Querying Logs for Azure Resources
 description: In Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource.
 author: bwren
 ms.author: bwren
-ms.date: 08/18/2021
+ms.date: 11/29/2021
 ms.topic: article
 ---
 # Querying Logs for Azure Resources
 
-In Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource. Resources may additionally send data to multiple workspaces. To simplify this experience, The REST API permits querying Azure resources directly for their logs.
+In Azure Monitor Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource. Resources may additionally send data to multiple workspaces. To simplify this experience, The REST API permits querying Azure resources directly for their logs.
 
 ## Response Format
 

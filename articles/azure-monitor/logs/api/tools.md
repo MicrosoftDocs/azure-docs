@@ -1,12 +1,12 @@
 ---
 title: Tools
-description: In this section, you will find a collection of tools that can help you interact with the API.
+description: In this section, you will find a collection of tools that can help you interact with the Log Analytics API.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
 ---
-# Tools
+# Azure Monitor Log Analytics API Tools
 
 There are several tools available to help you interact with the API.
 ## C\# SDK

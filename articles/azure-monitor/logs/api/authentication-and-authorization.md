@@ -6,7 +6,7 @@ ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
 ---
-# Set Up Authentication and Authorization
+# Set Up Authentication and Authorization for the Azure Monitor Log Analytics API
 
 To set up authentication and authorization for the Azure Monitor Log Analytics API:
 1. [Set up AAD Authentication for the API](../../../active-directory/develop/quickstart-create-new-tenant.md) using these settings:
@@ -108,7 +108,7 @@ Example Response:
 
 ### Authorization Code Flow
 
-The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Log Analytics API. There are two URLs, one endpoint per request. Their formats are:
+The main OAuth2 flow supported is through [authorization codes](/azure/active-directory/develop/active-directory-protocols-oauth-code). This method requires two HTTP requests to acquire a token with which to call the Azure Monitor Log Analytics API. There are two URLs, one endpoint per request. Their formats are:
 
 #### Authorization Code URL (GET request):
 

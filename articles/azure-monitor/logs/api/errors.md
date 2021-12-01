@@ -1,12 +1,12 @@
 ---
 title: Errors
-description: This section contains a non-exhaustive list of known common errors, their causes, and possible solutions.
-author: bwren
-ms.author: bwren
-ms.date: 08/18/2021
+description: This section contains a non-exhaustive list of known common errors that can occur in the Azure Monitor Log Analytics API, their causes, and possible solutions.
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.date: 11/29/2021
 ms.topic: article
 ---
-# Errors
+# Azure Monitor Log Analytics API Errors
 
 This section contains a non-exhaustive list of known common errors, their causes, and possible solutions. It also contains successful responses which often indicate an issue with the request (such as a missing header) or otherwise unexpected behavior.
 

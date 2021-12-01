@@ -1,20 +1,20 @@
 ---
 title: Overview
 description: This site describes the REST API created to make the data collected by Azure Log Analytics easily available.
-author: bwren
+author: AbbyMSFT
 ms.author: abbyweisberg
-ms.date: 11/15/2021
+ms.date: 11/29/2021
 ms.topic: article
 ---
-# Overview
+# Azure Monitor Log Analytics API Overview
 
-The **Query API** is a REST API that lets you query the full set of data collected by Log Analytics using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
+The **Query API** is a REST API that lets you query the full set of data collected by Azure Monitor logs using the same query language used throughout the service. You can use this API to build new visualizations of your data and extend the capabilities of Log Analytics.
 
 ## Log Analytics API Authentication
 
-You must authenticate to access the API. 
+You must authenticate to access the Log Analytics API. 
 - To query your workspaces, you must use [Azure Active Directory authentication](https://azure.microsoft.com/documentation/articles/active-directory-whatis/).
-- To quickly explore the API without using AAD authentication, you can use an API key to query sample data.
+- To quickly explore the API without using AAD authentication, you can use an API key to query sample data in a non-production environment.
 
 ### AAD authentication for workspace data
 
@@ -31,9 +31,9 @@ After receiving a token, the process for calling the Log Analytics API is identi
 
 To quickly explore the API without using AAD authentication, we provide a demonstration workspace with sample data, which allows API key authentication. [Learn more about using API key authentication](api-keys.md).
 
-## Query Limits
+## Azure Monitor Log Analytics API Query Limits
 See [the **Query API** section of this page](../../service-limits.md) for information about query limits.
-## Trying the APIs
+## Trying the Log Analytics API
 
 To try the API without writing any code, you can use:
   - Your favorite client such as [Fiddler](https://www.telerik.com/fiddler) or [Postman](https://www.getpostman.com/) to manually generate queries with a user interface.
