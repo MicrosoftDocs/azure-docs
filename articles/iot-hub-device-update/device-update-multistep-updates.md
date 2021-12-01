@@ -8,18 +8,14 @@ ms.topic: conceptual
 ms.service: iot-hub-device-update
 ---
 
-# Muti-Step Updates
-Using Multiple Steps for Updates with Device Update for Azure IoT Hub
+# Multi-Step Ordered Execution
+Based on customer requests for the ability to run pre-install and post-install tasks when deploying an over-the-air update, a new feature called Multi-Step Ordered Execution (MSOE) has been added to Device Update platform. The MSOE data is part of the Public Preview Referesh Update Manifest v4 schema.  
 
 Please see the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the Public Preview Refresh release.
 
-## Multi-Step Ordered Execution (MSOE) Support
+With MSOE we have introduced are 2 types of Steps:
 
-Based on many Public Preview customers' requests for the ability to run pre-install and post-install tasks, a new feature called Multi-Step Ordered Execution (MSOE) has been added to Device Update platform. The MSOE data is part of the Update Manifest v4 schema.  
-
-There are 2 types of Steps:
-
-- Inline Step
+- Inline Step (Default)
 - Reference Step
 
 Example Update Manifest with 1 Inline Step:
@@ -30,7 +26,7 @@ Example Update Manifest with 1 Inline Step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "adu-device",
+            "deviceManufacturer": "du-device",
             "deviceModel": "e2e-test"
         }
     ],
@@ -62,7 +58,7 @@ Example Update Manifest with 2 Inline Steps:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "adu-device",
+            "deviceManufacturer": "du-device",
             "deviceModel": "e2e-test"
         }
     ],
@@ -106,7 +102,7 @@ Example Update Manifest with 1 Reference Step:
     "isDeployable": true,
     "compatibility": [
         {
-            "deviceManufacturer": "adu-device",
+            "deviceManufacturer": "du-device",
             "deviceModel": "e2e-test"
         }
     ],
@@ -187,7 +183,7 @@ Example Update Manifest with 1 Reference Step:
     },
     "referencedBy": [
         {
-            "provider": "ADU-Client-Eng",
+            "provider": "DU-Client-Eng",
             "name": "MSOE-Update-Demo",
             "version": "3.1"
         }
@@ -203,13 +199,13 @@ Example Update Manifest with 1 Reference Step:
 
 For Public Preview Refresh, we will refer to the top-level Update Manifest as `Parent Update` and refer to an Update Manifest specified in a Reference Step as `Child Update`.  
 
-Currently, a `Child Update` must not contain any Reference Steps. This restriction is validate at import time. If violated, the import will fail.
+Currently, a `Child Update` must not contain any reference steps. This restriction is validate at import time. If violated, the import will fail.
 
 ### Inline Step In Parent Update
 
 Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (aka. Update Content Handler) will not contains a `Selected Components` data. The handler for this type of step should not be a `Component-Aware` handler.  
 
-> **Note** | See [Steps Content Handler](../../src/content_handlers/steps_handler/README.md) and [Implementing a Component-Aware Content Handler](./how-to-implement-custom-update-handler.md#implementing-a-component-aware-content-handler) for more details.
+> **Note** | See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ### Reference Step In Parent Update
 
