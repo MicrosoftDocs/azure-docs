@@ -122,7 +122,7 @@ Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outb
 
 ## SNAT
 
-SNAT rewrites the source of a flow so that the flow originates from a different IP address. NAT gateway resources use a variant of SNAT that's commonly referred to as *port address translation (PAT)*. PAT rewrites the source address and the source port. In SNAT, no fixed relationship exists between the number of private addresses and their translated public addresses.
+SNAT rewrites the source of a flow so that the flow originates from a different IP address. NAT gateway resources use a variant of SNAT that's commonly called *port address translation (PAT)*. PAT rewrites the source address and the source port. In SNAT, no fixed relationship exists between the number of private addresses and their translated public addresses.
 
 <a id="source-network-address-translation"></a>
 
