@@ -294,14 +294,10 @@ The following table explains the binding configuration properties for C# script 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-## Annotations
-
 Annotations are not supported by JavaScript.
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
-
-## Annotations
 
 Annotations are not supported by Python.
 
