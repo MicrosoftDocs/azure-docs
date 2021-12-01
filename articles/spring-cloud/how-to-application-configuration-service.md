@@ -46,8 +46,8 @@ The properties for each entry are described in the following table.
 
 Configuration will be pulled from Git backends using what is defined in a pattern, which is combination of *{application}/{profile}* as described in the following list.
 
-- {application} - The name of an application for which the configuration is being retrieved. If the value is `application`, then this is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application as well as shared properties for the default application.
-- {profile} - Optional. The name of a profile for which properties may be retrieved. If the value is `default` or empty, then this includes properties that are shared across any and all profiles. For any non-default value, then this includes properties for the specified profile as well as properties for the default profile.
+- {application} - The name of an application for which the configuration is being retrieved. The value `application` is considered the default application and includes configuration shared across multiple applications. Any other value specifies a specific application and will include properties for both the specified application and shared properties for the default application.
+- {profile} - Optional. The name of a profile for which properties may be retrieved. An empty value, or the value `default`, includes properties that are shared across any and all profiles. Non-default values include properties for the specified profile and properties for the default profile.
 
 ### Authentication
 
@@ -75,7 +75,7 @@ Application Configuration Service supports three repository types. The following
    | Property | Required? | Explanation |
    | - | - | - |
    | Private key | Yes | The private key that identifies the Git user. Passphrase-encrypted private keys are not supported. |
-   | Host key | No | The host key of the Git server. If you've connected to the server via Git on the command line, this is in your *.ssh/known_hosts* file. Do not include the algorithm prefix; this is specified in `Host key algorithm`. |
+   | Host key | No | The host key of the Git server. If you've connected to the server via Git on the command line, the host key is in your *.ssh/known_hosts* file. Do not include the algorithm prefix as this is specified in `Host key algorithm`. |
    | Host key algorithm | No | The algorithm for `hostKey`: one of `ssh-dss`, `ssh-rsa`, `ecdsa-sha2-nistp256`, `ecdsa-sha2-nistp384`, and `ecdsa-sha2-nistp521`. (Required if supplying `Host key`). |
    | Strict host key checking | No | Optional value that indicates whether the backend should be ignored if it encounters an error when using the provided `Host key`. Valid values are `true` and `false`. The default value is `true`. |
 
