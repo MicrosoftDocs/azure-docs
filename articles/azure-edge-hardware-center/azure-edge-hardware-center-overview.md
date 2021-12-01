@@ -53,9 +53,8 @@ For more information, see [Create an Azure Stack Edge resource after you place t
 
 ### Track orders
 
-The Edge Hardware Center RP also integrates with the third-party shipment APIs for the providers such as UPS, DHL, and TMC.
+The Edge Hardware Center RP also integrates with the third-party shipment APIs for the providers such as UPS, DHL, and TMC. You can track the status of the order that you created through its lifecycle. You can also enable alerts to receive email notifications if the order status changes.
 
-You can track the status of the order that you created through its lifecycle. You can also enable alerts to receive email notifications if the order status changes.
 For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
 
 ## Region availability
@@ -71,7 +70,7 @@ If you have chosen single region data residency, you will not be resilient to re
 
 ## Billing and pricing
 
-The Azure Billing service is integrated with the Edge Hardware Center ordering RP. This integration lets you view your one-time billing charges for the Hardware-as-a-service and recurring billing charges for the data transfer to Azure and Azure Storage usage. 
+The Azure Billing service is integrated with the Edge Hardware Center ordering RP. This integration lets you view your one-time billing charges for the Hardware-as-a-service and recurring monthly billing charges associated with the subscription. 
 
 You will be billed against the resource from where you have placed the order. If you place the order through the Edge Hardware Center, your bill is reflected against the resource created in the process. For each order item resource that you create, you are billed for the respective hardware unit.
 

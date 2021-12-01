@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Edge Hardware Center documentation  # < 60 chars
-summary: Use Azure Edge Hardware Center service to order from a variety of Azure Stack Edge and Azure Stack Hub SKUs as per your business need. # < 160 chars
+summary: Use Azure Edge Hardware Center service to order from a variety of Azure Stack Edge devices as per your business need. # < 160 chars
 
 metadata:
   title: Azure Edge Hardware Center documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: alkohli #Required; your GitHub user alias, with correct capitalization.
   ms.author: alkohli #Required; microsoft alias of author; optional team alias.
-  ms.date: 10/27/2021 #Required; mm/dd/yyyy format.
+  ms.date: 11/30/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
