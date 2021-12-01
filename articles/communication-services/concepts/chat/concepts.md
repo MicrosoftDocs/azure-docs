@@ -32,7 +32,7 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
 
 ### Chat Data 
-Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but they won't be able to send or receive new messages as part of that chat thread. A fully idle thread with no participants will be automatically deleted after 30 days. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
+Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but they won't be able to send or receive new messages as part of that chat thread. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
 
 ### Service limits
 - The maximum number of participants allowed in a chat thread is 250.
@@ -76,8 +76,23 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
  - `participantsAdded` - when a user is added as a chat thread participant.
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
-Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
+## Push notifications 	
+To send push notifications for messages missed by your users while they were away, Communication Services provides two different ways to integrate: 
+ - Use an Event Grid resource to subscribe to chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
+ - Connect a Notification Hub resource with Communication Services resource to send push notifications and notify your application users about incoming chats and messages when the mobile app is not running in the foreground. The client app can subscribe to following chat events:
+   - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
+   - `chatMessageEdited` - when a message is edited in a chat thread.	
+   - `chatMessageDeleted` - when a message is deleted in a chat thread.	
+   - `chatThreadCreated` - when a chat thread is created by a Communication Services user.	
+   - `chatThreadDeleted` - when a chat thread is deleted by a Communication Services user.	
+   - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
+   - `participantsAdded` - when a user is added as a chat thread participant. 	
+   - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
+For more details, see [Push Notifications](../notifications.md).
+
+> [!NOTE]
+> Currently sending chat push notifications with Notification Hub is only supported for Android SDK in version 1.1.0-beta.4.
 
 ## Build intelligent, AI powered chat experiences
 

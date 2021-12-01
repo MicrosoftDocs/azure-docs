@@ -1,10 +1,6 @@
 ---
 title: Workbooks gallery in Microsoft Defender for Cloud
 description: Learn how to create rich, interactive reports of your Microsoft Defender for Cloud data with the integrated Azure Monitor Workbooks gallery
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/09/2021
 ---
@@ -28,7 +24,7 @@ Within Microsoft Defender for Cloud, you can access the built-in workbooks to tr
 | Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | To save workbooks, you must have at least [Workbook Contributor](../role-based-access-control/built-in-roles.md#workbook-contributor) permissions on the target resource group |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 ## Workbooks gallery in Microsoft Defender for Cloud

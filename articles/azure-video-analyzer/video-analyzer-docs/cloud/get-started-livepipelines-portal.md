@@ -4,7 +4,7 @@ description: This quickstart walks you through the steps to capture and record v
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-portal
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
@@ -60,7 +60,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 
     ```
     cd localmedia
-    wget https://lvamedia.blob.core.windows.net/public/camera-1800s.mkv
+    wget https://avamedia.blob.core.windows.net/public/camera-1800s.mkv
     ```
 1. Start the RTSP server on the VM using the pre-built container image as follow
 

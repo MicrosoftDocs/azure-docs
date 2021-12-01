@@ -42,7 +42,7 @@ There are two categories of Communication Service data:
 
 ### Identities
 
-Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
+Azure Communication Services maintains a directory of identities, use the [DeleteIdentity](/rest/api/communication/communicationidentity/communication-identity/delete) API to remove them. Deleting an identity will revoke all associated access tokens and delete their chat messages. For more information on how to remove an identity [see this page](../quickstarts/access-tokens.md).
 
 - DeleteIdentity
 
@@ -59,7 +59,7 @@ Azure Communication Services maintains a directory of phone numbers associated w
 
 ### Chat
 
-Chat threads and messages are retained until explicitly deleted. A fully idle thread with no participants will be automatically deleted after 30 days. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
+Chat threads and messages are retained until explicitly deleted. Use [Chat APIs](/rest/api/communication/chat/chatthread) to get, list, update, and delete messages.
 
 - `Get Thread`
 - `Get Message`
