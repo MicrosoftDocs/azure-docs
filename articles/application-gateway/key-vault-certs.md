@@ -53,21 +53,21 @@ Application Gateway integration with Key Vault is a three-step configuration pro
 > [!Note]
 > Azure Application Gateway integration with Key Vault supports both Vault access policy and Azure role-based access control permission models.
 
-### Create a user-assigned managed identity
+### Obtain a user-assigned managed identity
 
-You either create a user-assigned managed identity or reuse an existing one. Application Gateway uses the managed identity to retrieve certificates from Key Vault on your behalf. For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+Application Gateway uses a managed identity to retrieve certificates from Key Vault on your behalf. 
 
-This step creates a new identity in the Azure Active Directory tenant. The identity is trusted by the subscription that's used to create the identity.
+You can create a new user-assigned managed identity or reuse an existing identity. To create a new user-assigned managed identity, see [Create a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#create-a-user-assigned-managed-identity). 
 
 ### Delegate user-assigned managed identity to Key Vault
 
 Define access policies to use the user-assigned managed identity with your key vault:
-    
+
 1. In the Azure portal, go to **Key Vault**.
 1. Open the **Access policies** pane.
 1. If you're using the permission model **Vault access policy**: Select **+ Add Access Policy**, select **Get** for **Secret permissions**, and choose your user-assigned managed identity for **Select principal**. Then select **Save**.
    
-   If you're using the permission model **Azure role-based access control**: Add a role assignment for the user-assigned managed identity to the Azure key vault for the role **Key Vault Secrets User**.
+   If you're using the permission model **Azure role-based access control**: [Add a role assignment](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md#assign-a-role-to-a-user-assigned-managed-identity) for the user-assigned managed identity to the Azure key vault for the role **Key Vault Secrets User**.
 
 ### Verify Firewall Permissions to Key Vault
 
