@@ -107,6 +107,9 @@ The first example shows a **left-to-right** directional traversal. This query fi
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/reference.sql" id="MatchDirectionLRExample":::
 
+>[!NOTE]
+> MATCH queries that contain `$dtId` filters on any twin other than the starting twin for the MATCH traversal may show empty results. This applies to `factory.$dtId` in the above example. For more information, see [Limitations](#limitations).
+
 The following example shows a **right-to-left** directional traversal. This query looks similar to the one above, but the direction of the relationship between *room* and *factory* is reversed. This query finds twins *room* and *factory* where...
 * *factory* targets *room* (with any name of relationship)
 * *factory* has a `$dtId` of 'ABC'
