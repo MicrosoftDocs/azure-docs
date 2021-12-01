@@ -11,13 +11,13 @@ ms.date: 09/16/2021
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation at two different connection modes. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about conneciton mode, you can find in the [Connectivity modes](sql-sdk-connection-modes.md).
+Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation at two different connection modes. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about connection mode, you can find in the [Connectivity modes](sql-sdk-connection-modes.md).
 
 The below table indicates which server-side latency metrics (Direct versus Gateway) that you should be using based on your request API.
 
 |API               |Server Side Latency Direct          |Server Side Latency Gateway         |
-|------------------|------------------------------------|------------------------------------|
-|SQL               |              X                     |X                                   |
+|------------------|:----------------------------------:|:----------------------------------:|
+|SQL               |X                                   |X                                   |
 |Mongo             |                                    |X                                   |
 |Cassandra         |                                    |X                                   |
 |Gremlin           |                                    |X                                   |
@@ -51,7 +51,7 @@ You can look up the diagnostic log to see the size of the data returned. If you 
 
 You can also filter metrics and get the charts displayed by a specific **CollectionName**, **DatabaseName**, **OperationType**, **Region**, and **PublicAPIType**. 
 
-To filter the metrics, select **Add filter** and choose the required property such as **PublicAPIType** and select the value **sql**. Select **Apply splitting** for **OperationType**. The graph then displays the server-side latency for different operations in gatway connection mode during the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
+To filter the metrics, select **Add filter** and choose the required property such as **PublicAPIType** and select the value **Sql**. Select **Apply splitting** for **OperationType**. The graph then displays the server-side latency for different operations in gatway connection mode during the selected period. The operations executed via Stored procedure are not logged so they are not available under the OperationType metric.
 
 The **Server Side Latency Gateway** metrics for each operation are displayed as shown in the following image:
 
