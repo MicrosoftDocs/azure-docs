@@ -49,4 +49,4 @@ Follow these steps in the Azure portal to track the order you created using the 
 
 ## Next steps
 
-- Review [Azure Edge Hardware Center FAQ](azure-edge-hardware-center-faq.md).
+- Review [Azure Edge Hardware Center FAQ](azure-edge-hardware-center-faq.yml).

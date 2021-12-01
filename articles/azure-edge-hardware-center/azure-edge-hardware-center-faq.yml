@@ -68,6 +68,6 @@ additionalContent: |
 
   ## Next steps
   
-  - Review the [Data Box system requirements](data-box-system-requirements.md).
-  - Understand the [Data Box limits](data-box-limits.md).
-  - Quickly deploy [Azure Data Box](data-box-quickstart-portal.md) in Azure portal.
+  - Review [What is Azure Edge Hardware Center](azure-edge-hardware-center-overview.md).
+  - [Manage Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md).
+  - [Troubleshoot Azure Edge Hardware Center orders](azure-edge-hardware-center-manage-order.md) in Azure portal.
