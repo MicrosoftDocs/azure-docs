@@ -19,9 +19,9 @@ This article outlines how to register Salesforce, and how to authenticate and in
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| No|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| No| No |
 
 When scanning Salesforce, Purview supports extracting metadata including Salesforce organizations, objects, fields, foreign keys, and unique_constraints.
 

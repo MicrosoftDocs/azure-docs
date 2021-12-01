@@ -19,9 +19,9 @@ This article outlines how to register MySQL, and how to authenticate and interac
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes| No|
 
 The supported MySQL server versions are 5.7 to 8.x.
 

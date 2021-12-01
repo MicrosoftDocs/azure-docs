@@ -131,6 +131,19 @@ landingContent:
         - text: Search for assets, terms, annotations, and contacts
           url: how-to-search-catalog.md
   #Card
+  - title: Share data in Azure Purview
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Share data
+          url: how-to-share-data.md
+        - text: Receive shared data
+          url: how-to-receive-share.md
+        - text: Share data from Azure Storage
+          url: register-scan-azure-blob-storage-source.md#data-share
+        - text: Share data from ADLS Gen 2
+          url: register-scan-adls-gen2.md#data-share
+  #Card
   - title: Scan non-Azure data sources
     linkLists:
     - linkListType: how-to-guide

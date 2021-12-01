@@ -19,9 +19,9 @@ This article outlines how to register erwin Mart servers, and how to authenticat
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-erwin.md)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-erwin.md)| No |
 
 The erwin source supports full scan to extract metadata from an erwin Mart server. The metadata includes:
 

@@ -16,9 +16,9 @@ This article outlines how to register SAP ECC, and how to authenticate and inter
 
 ## Supported capabilities
 
-|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
-|---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-sapecc.md)|
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
+|---|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes**](how-to-lineage-sapecc.md)| No |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
