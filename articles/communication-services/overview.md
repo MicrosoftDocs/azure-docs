@@ -39,8 +39,8 @@ To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com
 | Resource                               |Description                           |
 |---                                    |---                                   |
 |**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|Begin using Azure Communication Services by using the Azure portal or Communication Services SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
-|**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
-|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
+|**[Get a phone number](./quickstarts/telephony/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
+|**[Send an SMS from your app](./quickstarts/sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
 
 After creating a Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:
 
@@ -75,7 +75,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[SDK libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDK libraries to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
-|**[SMS SDK overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
+|**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 
 ## Other Microsoft Communication Services
 
