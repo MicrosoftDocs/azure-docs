@@ -122,7 +122,7 @@ e.g.
 
 Note: this will automatically install the delivery-optimization-agent package from packages.micrsofot.com
 
-- Specify a connection string in /etc/adu/du-config.jon
+- Specify a connection string in /etc/adu/du-config.json
 - Ensure that /ect/adu/du-diagnostics-config.json contain correct settings.  
   e.g.  
 
