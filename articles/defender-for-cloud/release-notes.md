@@ -49,6 +49,29 @@ According to the [2021 State of the Cloud report](https://info.flexera.com/CM-RE
 At Ignite 2019, we shared our vision to create the most complete approach for securing your digital estate and integrating XDR technologies under the Microsoft Defender brand. Unifying Azure Security Center and Azure Defender under the new name **Microsoft Defender for Cloud**, reflects the integrated capabilities of our security offering and our ability to support any cloud platform.
 
 
+### Changes to a security alert in Microsoft Defender for Storage: detecting threat actors who are scanning for publicly open storage containers
+
+Threat actors use tools and scripts to scan for publicly open containers in the hope of finding misconfigured open storage containers with sensitive data in them. 
+
+Microsoft Defender for Storage detects these scanners so that you can block them and remediate your posture.
+
+The preview alert that detected this was called **“Anonymous scan of public storage containers”**. It is now divided into two new alerts to provide greater clarity about the suspicious events discovered. These alerts are relevant to Azure Blob Storage only.
+
+We have improved the detection logic and updated the alert documentation. <br>
+**The alert name and alert type are also changing**.
+
+These are the new alerts:
+| Alert   (alert type)                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | MITRE tactic | Severity |
+|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|----------|
+| **Publicly accessible storage containers successfully discovered**<br><br>            (Storage.Blob_OpenContainersScanning.SuccessfulDiscovery) | A successful discovery of   publicly open storage container(s) in your storage account was performed in the last hour by a scanning script or tool.<br><br>            This usually indicates a reconnaissance attack, where the threat actor tries to list blobs by guessing container names, in the hope of finding misconfigured open storage containers with sensitive data in them.<br><br>            The threat actor may use their own script or use known scanning tools like   Microburst to scan for publicly open containers.<br><br>            ✔ Azure Blob Storage<br>      ✖ Azure Files<br>      ✖ Azure Data Lake Storage Gen2 | Collection   | Medium   |
+| **Publicly accessible storage containers unsuccessfully scanned**<br><br>            (Storage.Blob_OpenContainersScanning.FailedAttempt)        | A series of failed attempts to scan for publicly open storage containers were performed in the last hour. <br><br>This usually indicates a reconnaissance attack, where the threat actor tries to list blobs by guessing container names, in the hope of finding misconfigured open storage containers with sensitive data in them.<br><br> The threat actor may use their own script or use known scanning tools like Microburst to scan for publicly open containers.<br><br>            ✔ Azure Blob Storage<br>      ✖ Azure Files<br>      ✖ Azure Data Lake Storage Gen2                                         | Collection   | Low      |
+
+For more information, see:
+- [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
+- [Introduction to Azure Defender for Storage](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction)
+- [List of alerts provided by Azure Defender for Storage](https://docs.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-azurestorage)
+
+
 ### Native CSPM for AWS and threat protection for Amazon EKS, and AWS EC2
 
 A new **environment settings** page provides greater visibility and control over your management groups, subscriptions, and AWS accounts. The page is designed to onboard AWS accounts at scale: connect your AWS **management account**, and you'll automatically onboard existing and future accounts. 
