@@ -6,7 +6,7 @@ ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 12/01/2021
 ---
 # Choose the right PostgreSQL server option in Azure
 
@@ -23,7 +23,7 @@ The main differences between these options are listed in the following table:
 
 | **Attribute** | **Postgres on Azure VMs** | **PostgreSQL as PaaS** |
 | ----- | ----- | ----- |
-| <B> Availability SLA |- 99.99% with availability sets <br> - 99.95% with single VMs | - Single Server – 99.99% <br> - Flexible Server–Not available during Preview <br> - Hyperscale (Citus) - 99.95% (when high availability is enabled)|
+| <B> Availability SLA |- 99.99% with availability sets <br> - 99.95% with single VMs | - Single Server – 99.99% <br> - Flexible Server – 99.99% with zone-redundant HA and 99.9% without zone-redundant HA <br> - Hyperscale (Citus) - 99.95% (when high availability is enabled)|
 | <B> OS and PostgreSQL patching | - Customer managed | - Single Server – Automatic <br> - Flexible Server – Automatic with optional customer managed window <br> - Hyperscale (Citus) – Automatic |
 | <B> High availability | - Customers architect, implement, test, and maintain high availability. Capabilities might include clustering, replication etc. | - Single Server:  built-in <br> - Flexible Server: built-in <br> - Hyperscale (Citus): built with standby |
 | <B> Zone Redundancy | - Azure VMs can be set up to run in different availability zones. For an on-premises solution, customers must create, manage, and maintain their own secondary data center.	| - Single Server: No <br> - Flexible Server: Yes <br> - Hyperscale (Citus): No |
@@ -44,7 +44,7 @@ Azure Database for PostgreSQL is currently available as a service in several tie
 
 With Azure Database for PostgreSQL, Microsoft automatically configures, patches, and upgrades the database software. These automated actions reduce your administration costs. Also, Azure Database for PostgreSQL has [automated backup-link]() capabilities. These capabilities help you achieve significant cost savings, especially when you have a large number of databases. In contrast, with PostgreSQL on Azure VMs you can choose and run any PostgreSQL version. However, you need to pay for the provisioned VM, storage cost associated with the data, backup, monitoring data and log storage and the costs for the specific PostgreSQL license type used (if any).
 
-Azure Database for PostgreSQL provides built-in high availability for any kind of node-level interruption while still maintaining the 99.99% SLA guarantee for the service. However, for database high availability within VMs, you use the high availability options like [Streaming Replication](https://www.postgresql.org/docs/12/warm-standby.html#STREAMING-REPLICATION) that are available on a PostgreSQL database. Using a supported high availability option doesn't provide an additional SLA. But it does let you achieve greater than 99.99% database availability at additional cost and administrative overhead.
+Azure Database for PostgreSQL Single Server provides built-in high availability at the zonal-level (within an AZ) for any kind of node-level interruption while still maintaining the 99.99% SLA guarantee for the service. Flexible Server provides 99.9% uptime SLA without zone-redundant configuration, while it offers 99.99% uptime with zone-redundant HA configuration. However, for database high availability within VMs, you use the high availability options like [Streaming Replication](https://www.postgresql.org/docs/12/warm-standby.html#STREAMING-REPLICATION) that are available on a PostgreSQL database. Using a supported high availability option doesn't provide an additional SLA. But it does let you achieve greater than 99.99% database availability at additional cost and administrative overhead.
 
 For more information on pricing, see the following articles:
 - [Azure Database for PostgreSQL pricing](https://azure.microsoft.com/pricing/details/postgresql/server/)
