@@ -492,5 +492,30 @@
         "redirect_url": "/azure/healthcare-apis/configure-azure-rbac",
         "redirect_document_id": false
     }
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/configure-export-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/configure-export-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/convert-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/de-identified-export.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/de-identified-export",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/export-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/export-data",
+        "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/move-to-synapse.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/move-to-synapse",
+        "redirect_document_id": true
+    },
   ]
 }

@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 12/01/2021
 ms.author: ranku
 ---
 

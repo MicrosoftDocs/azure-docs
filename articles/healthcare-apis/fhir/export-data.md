@@ -5,7 +5,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 5/25/2021
+ms.date: 12/01/2021
 ms.author: cavoeg
 ---
 # How to export FHIR data
