@@ -54,6 +54,8 @@ Use the portal to create a standard internal load balancer.
 
 4. On the **Frontend IP configuration** tab of the **Create load balancer** page, select **Add a frontend IP configuration**, and then enter, or select the following details on the **Add frontend IP address** configuration pane:
 
+    | Setting | Value |
+    |:--- |:--- |
     |Frontend IP name|Enter a name for your frontend IP|
     |Virtual network|Select your virtual network.|
     |Subnet|Select **fe-subnet** created in the previous step.|
