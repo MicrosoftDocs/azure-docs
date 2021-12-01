@@ -116,7 +116,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click the **Single Sign-On** tab.
 
-   :::image type="content" source="../media/saucelabs-mobileandwebtesting-tutorial/configure.png" alt-text="Screenshot that shows the Single Sign-On tab selected under Organization Settings.":::
+   :::image type="content" source="./media/saucelabs-mobileandwebtesting-tutorial/configure.png" alt-text="Screenshot that shows the Single Sign-On tab selected under Organization Settings.":::
 
 1. In the **Single Sign-On** section, perform the following steps.
 
