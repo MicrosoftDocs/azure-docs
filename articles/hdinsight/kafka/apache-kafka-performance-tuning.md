@@ -72,6 +72,31 @@ We recommend that you use at least 3x replication for Kafka in Azure HDInsight. 
 
 For more information on replication, see [Apache Kafka: replication](https://kafka.apache.org/documentation/#replication) and [Apache Kafka: increasing replication factor](https://kafka.apache.org/documentation/#basic_ops_increase_replication_factor).
 
+## Consumer configurations
+
+The following section will highlight some of the important configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
+
+### Number of Consumers
+
+It is good practice to have the number of partitions equal to the number of consumers. If the number of consumers is less than the number of partitions then a few of the consumers will read from multiple partitions, increasing consumer latency. 
+
+If the number of consumers is greater than the number of partitions, then you will be wasting your consumer resources since those consumers will be idle. 
+
+### Avoid Frequent Consumer Rebalance
+
+Consumer rebalance is triggered by partition ownership change  (i.e., consumers scales out or scales down), a broker crash (since brokers are group coordinator for consumer groups), a consumer crash, adding a new topic or adding new partitions. During rebalancing, consumers cannot consume, hence increasing the latency.
+
+Consumers are considered alive if it can send a heartbeat to a broker within `session.timeout.ms`. Otherwise, the consumer will be considered dead or failed. This will lead to a consumer rebalance. The lower the consumer `session.timeout.ms` the faster we will be able to detect those failures. 
+
+If the `session.timeout.ms` is too low, a consumer could experience repeated unnecessary rebalances, due to scenarios such as when a batch of messages takes longer to process or when a JVM GC pause takes too long. If you have a consumer that spends too much time processing messages, you can address this either by increasing the upper bound on the amount of time that a consumer can be idle before fetching more records with `max.poll.interval.ms` or by reducing the maximum size of batches returned with the configuration parameter `max.poll.records`.
+
+### Batching:
+
+Like producers, we can add batching for consumers. The amount of data consumers can get in each fetch request can be configured by changing the configuration `fetch.min.bytes`. This parameter defines the minimum bytes expected from a fetch response of a consumer. Increasing this value will reduce the number of fetch requests made to the broker, therefore reducing extra overhead. By default, this value is 1. Similarly, there is another configuration `fetch.max.wait.ms`. If a fetch request doesn’t have enough messages as per the size of `fetch.min.bytes`, it will wait until the expiration of the wait time based on this config `fetch.max.wait.ms`.
+
+> [!NOTE]: 
+> In few scenarios, consumers may seem to be slow, when it fails to process the message. If you are not committing the offset after an exception, consumer will be stuck at a particular offset in an infinite loop and will not move forward, increasing the lag on consumer side as a result. 
+
 ## Next steps
 
 * [Processing trillions of events per day with Apache Kafka on Azure](https://azure.microsoft.com/blog/processing-trillions-of-events-per-day-with-apache-kafka-on-azure/)
