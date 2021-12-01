@@ -9,11 +9,13 @@ ms.topic: article
 # Set Up Authentication and Authorization for the Azure Monitor Log Analytics API
 
 To set up authentication and authorization for the Azure Monitor Log Analytics API:
-1. [Set up AAD Authentication for the API](../../../active-directory/develop/quickstart-create-new-tenant.md) using these settings:
-     - When asked for the API to connect to, select **APIs my organization uses** and then search for **Log Analytics API**.
+
+## Set Up Authentication
+1. Use [these instructions](../../../active-directory/develop/quickstart-create-new-tenant.md) to set up AAD, using these settings at the relevant steps:
+     - When asked for the API to connect to, select **APIs my organization uses** and then search for "Log Analytics API".
      - For the API permissions, select **Delegated permissions**.
 1. After completing the Active Directory setup, request an authorization token as described in the section below.
-1. (Optional) If you only want to work with sample data, use the API key as described below.
+1. (Optional) If you only want to work with sample data in a non-production environment, use an API key for authentication as described below.
 ## Request an Authorization Token
 
 Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
