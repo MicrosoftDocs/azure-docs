@@ -50,7 +50,7 @@ You can use the API to create a VM restore point collection. The restore point c
 
 Once created, VM restore points can then be used to restore individual disks. To restore a VM, restore all relevant disks and attach them to a new VM.
 
-Learn more about the [Restore Point Collections](/rest/api/compute/restore-point-collections) API.
+Learn more about [working with VM restore points](virtual-machines-create-restore-points.md) and the [restore point collections](/rest/api/compute/restore-point-collections) API.
 
 ## Next steps
 You can try out Azure Backup by following the [Azure Backup quickstart](../backup/quick-backup-vm-portal.md).
