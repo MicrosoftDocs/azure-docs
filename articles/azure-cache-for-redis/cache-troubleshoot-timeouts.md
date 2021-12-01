@@ -11,9 +11,7 @@ ms.date: 12/01/2021
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
 
-A client operation that does not receive a timely response can result in a timeout exception. An operation could timeout at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
-
-<!-- what do we want to say about latency -->
+A client operation that does not receive a timely response can result in a high latency or timeout exception. An operation could timeout at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
 
 This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Cache for Redis.
 

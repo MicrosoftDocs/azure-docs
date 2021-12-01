@@ -15,7 +15,6 @@ This section discusses troubleshooting issues that occur because of a condition 
 - [Traffic burst](#traffic-burst)
 - [High client CPU usage](#high-client-cpu-usage)
 - [Client-side bandwidth limitation](#client-side-bandwidth-limitation)
-<!-- [Large request or response size](#large-request-or-response-size)  this was moved. We could add a link to the new location-->
 
 ## Memory pressure on Redis client
 
