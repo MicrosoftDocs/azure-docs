@@ -105,13 +105,13 @@ In the above Databricks activity definition, you specify these library types: *j
 
 ```
 
-For more details, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
+For more information, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
 
 ## Passing parameters between notebooks and pipelines
 
 You can pass parameters to notebooks using *baseParameters* property in databricks activity.
 
-In certain cases you might require to pass back certain values from notebook back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2MB).
+In certain cases, you might require to pass back certain values from notebook back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2 MB).
 
 1. In your notebook, you may call [dbutils.notebook.exit("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) and corresponding "returnValue" will be returned to the service.
 
