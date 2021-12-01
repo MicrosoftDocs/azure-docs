@@ -1,84 +1,86 @@
 ---
 title: Networking considerations
-description: Learn about the ASE network traffic and how to set network security groups and user defined routes with your ASE.
+description: Learn about App Service Environment network traffic, and how to set network security groups and user defined routes with your environment.
 author: madsd
 ms.topic: article
 ms.date: 11/15/2021
 ms.author: madsd
 ---
-# Networking considerations for an App Service Environment v2
+# Networking considerations for App Service Environment
+
+[App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network. There are two deployment types for an App Service Environment:
+
+- **External:** This type of deployment exposes the hosted apps in your environment by using an IP address that is accessible on the internet. For more information, see [Create an external App Service Environment][MakeExternalASE].
+- **Internal load balancer:** This type of deployment exposes the hosted apps in your environment on an IP address inside your virtual network. The internal endpoint is an internal load balancer. For more information, see [Create and use an internal load balancer App Service Environment][MakeILBASE].
 
 > [!NOTE]
-> This article is about the App Service Environment v2 which is used with Isolated App Service plans
-> 
+> This article is about App Service Environment v2, which is used with isolated App Service plans.
+>
 
-## Overview
+Regardless of the deployment type, all environments have a public virtual IP (VIP). This VIP is used for inbound management traffic, and as the address when you're making calls from the App Service Environment to the internet. Such calls leave the virtual network through the VIP assigned for the environment.
 
- Azure [App Service Environment][Intro] is a deployment of Azure App Service into a subnet in your Azure virtual network. There are two deployment types for an App Service environment (ASE):
+If the apps in your environment make calls to resources in your virtual network or across a VPN, the source IP is one of the IPs in the subnet used by your environment. Because the environment is within the virtual network, it can also access resources within the virtual network without any additional configuration. If the virtual network is connected to your on-premises network, apps in your environment also have access to resources there without additional configuration.
 
-- **External ASE**: Exposes the ASE-hosted apps on an internet-accessible IP address. For more information, see [Create an External ASE][MakeExternalASE].
-- **ILB ASE**: Exposes the ASE-hosted apps on an IP address inside your virtual network. The internal endpoint is an internal load balancer (ILB), which is why it's called an ILB ASE. For more information, see [Create and use an ILB ASE][MakeILBASE].
+![Diagram that shows the elements of an external deployment.][1] 
 
-All ASEs, External, and ILB, have a public VIP that is used for inbound management traffic and as the from address when making calls from the ASE to the internet. The calls from an ASE that go to the internet leave the virtual network through the VIP assigned for the ASE. The public IP of this VIP is the source IP for all calls from the ASE that go to the internet. If the apps in your ASE make calls to resources in your virtual network or across a VPN, the source IP is one of the IPs in the subnet used by your ASE. Because the ASE is within the virtual network, it can also access resources within the virtual network without any additional configuration. If the virtual network is connected to your on-premises network, apps in your ASE also have access to resources there without additional configuration.
-
-![External ASE][1] 
-
-If you have an External ASE, the public VIP is also the endpoint that your ASE apps resolve to for:
+If you have an App Service Environment with an external deployment, the public VIP is also the endpoint to which your environment apps resolve for the following:
 
 * HTTP/S 
 * FTP/S
 * Web deployment
 * Remote debugging
 
-![ILB ASE][2]
+![Diagram that shows the elements of an internal load balancer deployment.][2]
 
-If you have an ILB ASE, the address of the ILB address is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
+If you have an App Service Environment with an internal load balancer deployment, the address of the internal address is the endpoint for HTTP/S, FTP/S, web deployment, and remote debugging.
 
-## ASE subnet size
+## Subnet size
 
-The size of the subnet used to host an ASE cannot be altered after the ASE is deployed.  The ASE uses an address for each infrastructure role as well as for each Isolated App Service plan instance.  Additionally, there are five addresses used by Azure Networking for every subnet that is created.  An ASE with no App Service plans at all will use 12 addresses before you create an app.  If it is an ILB ASE, then it will use 13 addresses before you create an app in that ASE. As you scale out your ASE, infrastructure roles are added every multiple of 15 and 20 of your App Service plan instances.
+After the App Service Environment is deployed, you can't alter the size of the subnet used to host it. App Service Environment uses an address for each infrastructure role, as well as for each isolated App Service plan instance. Additionally, Azure networking uses five addresses for every subnet that is created.
 
-   > [!NOTE]
-   > Nothing else can be in the subnet but the ASE. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
+An App Service Environment with no App Service plans at all will use 12 addresses before you create an app. If you use the internal load balancer deployment for your environment, then it will use 13 addresses before you create an app. As you scale out your environment, be aware that infrastructure roles are added at every multiple of 15 and 20 of your App Service plan instances.
 
-When you scale up or down, new roles of the appropriate size are added and then your workloads are migrated from the current size to the target size. The original VMs are removed only after the workloads have been migrated. If you had an ASE with 100 ASP instances, there would be a period where you need double the number of VMs.  It is for this reason that we recommend the use of a '/24' to accommodate any changes you might require.  
+> [!IMPORTANT]
+> Nothing else can be in the subnet but the App Service Environment. Be sure to choose an address space that allows for future growth. You can't change this setting later. We recommend a size of `/24` with 256 addresses.
 
-## ASE dependencies
+When you scale up or down, new roles of the appropriate size are added, and then your workloads are migrated from the current size to the target size. The original VMs are removed only after the workloads have been migrated. For example, if you had an environment with 100 App Service plan instances, there's a period of time in which you need double the number of VMs.  
 
-### ASE inbound dependencies
+## Inbound and outbound dependencies
 
-Just for the ASE to operate, the ASE requires the following ports to be open:
+The following sections cover dependencies to be aware of for your App Service Environment. Another section discusses DNS settings.
+
+### Inbound dependencies
+
+Just for the App Service Environment to operate, the following ports must be open:
 
 | Use | From | To |
 |-----|------|----|
-| Management | App Service management addresses | ASE subnet: 454, 455 |
-|  ASE internal communication | ASE subnet: All ports | ASE subnet: All ports
-|  Allow Azure load balancer inbound | Azure load balancer | ASE subnet: 16001
+| Management | App Service management addresses | App Service Environment subnet: 454, 455 |
+|  App Service Environment internal communication | App Service Environment subnet: All ports | App Service Environment subnet: All ports
+|  Allow Azure load balancer inbound | Azure load balancer | App Service Environment subnet: 16001
 
-There are 2 other ports that can show as open on a port scan, 7654 and 1221. They reply with an IP address and nothing more. They can be blocked if desired. 
+Ports 7564 and 1221 can show as open on a port scan. They reply with an IP address, and nothing more. You can block them if you want to. 
 
-The inbound management traffic provides command and control of the ASE in addition to system monitoring. The source addresses for this traffic are listed in the [ASE Management addresses][ASEManagement] document. The network security configuration needs to allow access from the ASE management addresses on ports 454 and 455. If you block access from those addresses, your ASE will become unhealthy and then become suspended. The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP or you will have an asymmetric routing problem. 
+The inbound management traffic provides command and control of the App Service Environment, in addition to system monitoring. The source addresses for this traffic are listed in [App Service Environment management addresses][ASEManagement]. The network security configuration needs to allow access from the App Service Environment management addresses on ports 454 and 455. If you block access from those addresses, your App Service Environment will become unhealthy and then become suspended. The TCP traffic that comes in on ports 454 and 455 must go back out from the same VIP, or you will have an asymmetric routing problem. 
 
-Within the ASE subnet, there are many ports used for internal component communication and they can change. This requires all of the ports in the ASE subnet to be accessible from the ASE subnet. 
+Within the environment subnet, there are many ports used for internal component communication, and they can change. This requires all of the ports in the subnet to be accessible from the subnet. 
 
-For the communication between the Azure load balancer and the ASE subnet the minimum ports that need to be open are 454, 455 and 16001. The 16001 port is used for keep alive traffic between the load balancer and the ASE. If you are using an ILB ASE, then you can lock traffic down to just the 454, 455, 16001 ports.  If you are using an External ASE, then you need to take into account the normal app access ports.  
-
-The other ports you need to concern yourself with are the application ports:
+For communication between the Azure load balancer and the App Service Environment subnet, the minimum ports that need to be open are 454, 455, and 16001. If you're using an internal load balancer deployment, then you can lock traffic down to just the 454, 455, 16001 ports. If you're using an external deployment, then you need to take into account the normal app access ports. Specifically, these are:
 
 | Use | Ports |
 |----------|-------------|
 |  HTTP/HTTPS  | 80, 443 |
 |  FTP/FTPS    | 21, 990, 10001-10020 |
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
-|  Web Deploy service | 8172 |
+|  Web deploy service | 8172 |
 
-If you block the application ports, your ASE can still function but your app might not.  If you are using app assigned IP addresses with an External ASE, you will need to allow traffic from the IPs assigned to your apps to the ASE subnet on the ports shown in the ASE portal > IP Addresses page.
+If you block the application ports, your environment can still function, but your app might not. If you're using app-assigned IP addresses with an external deployment of your environment, you need to allow traffic from the IPs assigned to your apps to the subnet. From the App Service Environment portal, go to **IP addresses**, and see the ports from which you need to allow traffic.
 
-### ASE outbound dependencies
+### Outbound dependencies
 
-For outbound access, an ASE depends on multiple external systems. Many of those system dependencies are defined with DNS names and don't map to a fixed set of IP addresses. Thus, the ASE requires outbound access from the ASE subnet to all external IPs across a variety of ports. 
+For outbound access, an environment depends on multiple external systems. Many of those system dependencies are defined with DNS names, and don't map to a fixed set of IP addresses. Thus, the environment requires outbound access from the environment subnet to all external IPs, across a variety of ports. 
 
-The ASE communicates out to internet accessible addresses on the following ports:
+App Service Environment communicates out to internet accessible addresses on the following ports:
 
 | Uses | Ports |
 |-----|------|
@@ -88,18 +90,18 @@ The ASE communicates out to internet accessible addresses on the following ports
 | Azure SQL | 1433 | 
 | Monitoring | 12000 |
 
-The outbound dependencies are listed in the document that describes [Locking down App Service Environment outbound traffic](./firewall-integration.md). If the ASE loses access to its dependencies, it stops working. When that happens long enough, the ASE is suspended. 
+The outbound dependencies are listed in [Locking down an App Service Environment](./firewall-integration.md). If the environment loses access to its dependencies, it stops working. When that happens for a long enough period of time, the environment is suspended. 
 
-### Customer DNS ###
+### Customer DNS
 
-If the virtual network is configured with a customer-defined DNS server, the tenant workloads use it. The ASE uses Azure DNS for management purposes. If the virtual network is configured with a customer-selected DNS server, the DNS server must be reachable from the subnet that contains the ASE.
+If the virtual network is configured with a customer-defined DNS server, the tenant workloads use it. The App Service Environment uses Azure DNS for management purposes. If the virtual network is configured with a customer-selected DNS server, the DNS server must be reachable from the subnet that contains the environment.
 
-   > [!NOTE]
-   > Storage mounts or container images pulls in ASEv2 will not be able to use customer DNS defined in the virtual network or through the `WEBSITE_DNS_SERVER` app setting.
+> [!NOTE]
+> Storage mounts or container image pulls in App Service Environment v2 aren't able to use customer-defined DNS in the virtual network, or through the `WEBSITE_DNS_SERVER` app setting.
 
-To test DNS resolution from your web app, you can use the console command *nameresolver*. Go to the debug window in your scm site for your app or go to the app in the portal and select console. From the shell prompt you can issue the command *nameresolver* along with the DNS name you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use nslookup, you will do a lookup using Azure DNS instead.
+To test DNS resolution from your web app, you can use the console command `nameresolver`. Go to the debug window in your `scm` site for your app, or go to the app in the portal and select console. From the shell prompt, you can issue the command `nameresolver`, along with the DNS name you wish to look up. The result you get back is the same as what your app would get while making the same lookup. If you use `nslookup`, you do a lookup by using Azure DNS instead.
 
-If you change the DNS setting of the virtual network that your ASE is in, you will need to reboot your ASE. To avoid rebooting your ASE, it is highly recommended that you configure your DNS settings for your virtual network before you create your ASE.
+If you change the DNS setting of the virtual network that your App Service Environment is in, you will need to reboot your environment. To avoid rebooting, it's a good idea to configure your DNS settings for your virtual network before you create your environment.
 
 <a name="portaldep"></a>
 
