@@ -31,7 +31,7 @@ To view cost data, you need at least read access for an Azure account. For infor
 ## Estimate costs before using Azure Machine Learning
 
 - Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate costs before you create the resources in an Azure Machine Learning workspace.
-On the left, select **AI + Machine Learning**, then select **Azure Machine Learning** to begin.  
+On the left, select **AI + Machine Learning**, then select **virtual machines** to begin.  
 
 The following screenshot shows the cost estimation by using the calculator:
 
