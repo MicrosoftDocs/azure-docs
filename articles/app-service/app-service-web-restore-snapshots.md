@@ -4,7 +4,7 @@ description: Learn how to restore your app from a snapshot. Recover from unexpec
 
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
-ms.date: 09/02/2021
+ms.date: 12/01/2021
 ms.reviewer: nicking
 ms.custom: seodec18
 
@@ -15,7 +15,7 @@ This article shows you how to restore an app in [Azure App Service](../app-servi
 Restoring from snapshots is available to apps running in **Standard** tier or higher. For information about scaling
 up your app, see [Scale up an app in Azure](manage-scale-up.md).
 
-## Why use snapshots
+## Snapshots vs Backups
 
 Snapshots are incremental shadow copies and offer several advantages over [standard backups](manage-backup.md):
 
@@ -34,7 +34,7 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
 - If you [run your app directly from a ZIP package](deploy-run-package.md), snapshot backups don't include the content of the ZIP package.
 - Snapshots for the last 30 days are available. The retention period and snapshot frequency are not configurable.
 
-## Restore an app from a snapshot
+## Restore from a snapshot
 
 > [!NOTE]
 > You can only restore to apps in the same resource group and region combination.
@@ -42,7 +42,7 @@ Snapshots are incremental shadow copies and offer several advantages over [stand
 
 # [Azure portal](#tab/portal)
 
-1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot(Preview)** section.
+1. On the **Settings** page of your app in the [Azure portal](https://portal.azure.com), click **Backups** to display the **Backups** page. Then click **Restore** under the **Snapshot** section.
    
     ![Screenshot that shows how to restore an app from a snapshot.](./media/app-service-web-restore-snapshots/1.png)
 
