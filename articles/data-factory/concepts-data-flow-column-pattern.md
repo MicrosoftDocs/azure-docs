@@ -48,7 +48,7 @@ You can build pattern matching inside of complex hierarchical structures as well
 
 #### Flattening structures
 
-When your data has complex structures like arrays, hierarchical structures, and maps, you can use the [Flatten transformation](data-flow-flatten.md) to unroll arrays and denormalize your data. For structures and maps, use the derived column transformation with column patterns to form your flattened relational table from the hierarchies. You can use the column patterns that would look like this sample, which flattens the greography hierarchy into a relational table form:
+When your data has complex structures like arrays, hierarchical structures, and maps, you can use the [Flatten transformation](data-flow-flatten.md) to unroll arrays and denormalize your data. For structures and maps, use the derived column transformation with column patterns to form your flattened relational table from the hierarchies. You can use the column patterns that would look like this sample, which flattens the geography hierarchy into a relational table form:
 
 :::image type="content" source="media/data-flow/column-pattern-004.png" alt-text="Screenshot shows the Derived column's flatten structure.":::
 
