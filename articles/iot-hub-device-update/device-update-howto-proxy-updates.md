@@ -113,11 +113,11 @@ sudo cp ~/microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get update
 ```
 
-- Install test **deviceupdat-agent-[version].deb** package on the test device.  
+- Install the **deviceupdat-agent** package on the IoT device.  
 e.g.
 
   ```sh
-  sudo apt-get install ./deviceupdate-agent-0.8.0-publc-preview-refresh.deb
+  sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
   ```
 
 Note: this will automatically install the delivery-optimization-agent package from packages.micrsofot.com
