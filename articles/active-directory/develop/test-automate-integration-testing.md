@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/16/2021
+ms.date: 11/30/2021
 ms.author: arcrowe
-ms.reviewer: 
+ms.reviewer: sahmalik
 ms.custom: aaddev
-#Customer intent: As a developer, I want to run automated integration tests against APIs protected by Microsoft identity platform.
+# Customer intent: As a developer, I want to use ROPC to run automated integration tests against APIs protected by Microsoft identity platform so I don't have to automate the interactive sign-in prompts.
 ---
 
 # Run automated integration tests
 
-As a developer, you want to run automated integration tests on the apps you develop.  This can be challenging if you want to run integration tests on your own API you've protected with Azure AD, or you want to call other Azure AD protected APIs (like [Microsoft Graph](/graph/)) in your integration tests, because Azure AD often requires an interactive user sign-in that is difficult to automate.  This article describes how you can use a non-interactive flow, called [Resource Owner Password Credential Grant (ROPC)](v2-oauth-ropc.md), to automatically sign in users for testing.
+As a developer, you want to run automated integration tests on the apps you develop. Calling your API protected by Microsoft identity platform (or other protected APIs such as [Microsoft Graph](/graph/)) in automated integration tests is a challenge.  Azure AD often requires an interactive user sign-in prompt, which is difficult to automate. This article describes how you can use a non-interactive flow, called [Resource Owner Password Credential Grant (ROPC)](v2-oauth-ropc.md), to automatically sign in users for testing.
 
-To prepare for your automated integration tests, first create some test users, create and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps require admin privileges, and you should consider [creating a separate test tenant](test-setup-environment.md) that you are an administrator of so you can safely and effectively perform these tasks.
+To prepare for your automated integration tests, create some test users, create and configure an app registration, and potentially make some configuration changes to your tenant.  Some of these steps require admin privileges.  Also, Microsoft recommends that you _do not_ use the ROPC flow in a production environment.  [Create a separate test tenant](test-setup-environment.md) that you are an administrator of so you can safely and effectively run your automated integration tests.
 
 > [!WARNING]
-> Microsoft recommends you do _not_ use the ROPC flow in a production environment. In most production scenarios, more secure alternatives are available and recommended. The ROPC flow requires a very high degree of trust in the application, and carries risks which are not present in other flows. You should only use this flow for testing purposes, and only with test users.
+> Microsoft recommends you do _not_ use the ROPC flow in a production environment. In most production scenarios, more secure alternatives are available and recommended. The ROPC flow requires a very high degree of trust in the application, and carries risks which are not present in other authentication flows. You should only use this flow for testing purposes in a [separate test tenant](test-setup-environment.md), and only with test users.
 
 > [!IMPORTANT]
 >
@@ -32,12 +32,17 @@ To prepare for your automated integration tests, first create some test users, c
 > * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
 > * Accounts that don't have passwords can't sign in with ROPC, which means features like SMS sign-in, FIDO, and the Authenticator app won't work with that flow.
 > * If users need to use [multi-factor authentication (MFA)](../authentication/concept-mfa-howitworks.md) to log in to the application, they will be blocked instead.
-> * ROPC is not supported in [hybrid identity federation](../hybrid/whatis-fed.md) scenarios (for example, Azure AD and ADFS used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity providers, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/how-to-connect-pta.md) is supported with ROPC, however.
+> * ROPC is not supported in [hybrid identity federation](../hybrid/whatis-fed.md) scenarios (for example, Azure AD and Active Directory Federation Services (AD FS) used to authenticate on-premises accounts). If users are full-page redirected to an on-premises identity provider, Azure AD is not able to test the username and password against that identity provider. [Pass-through authentication](../hybrid/how-to-connect-pta.md) is supported with ROPC, however.
 > * An exception to a hybrid identity federation scenario would be the following: Home Realm Discovery policy with AllowCloudPasswordValidation set to TRUE will enable ROPC flow to work for federated users when on-premises password is synced to cloud. For more information, see [Enable direct ROPC authentication of federated users for legacy applications](../manage-apps/home-realm-discovery-policy.md#enable-direct-ropc-authentication-of-federated-users-for-legacy-applications).
 
+## Create a separate test tenant
+
+Using the ROPC authentication flow is risky in a production environment, so [create a separate tenant](test-setup-environment.md#set-up-a-test-environment-in-a-separate-tenant) to test your applications. You can use an existing test tenant, but you need to be an admin in the tenant since some of the following steps require admin privileges.
+
 ## Create test users
+
 Create some test users in your tenant for testing:
-1. From the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
+1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 2. Go to **Users**.
 3. Select **New user** and create some new test users in your directory.
 
@@ -100,7 +105,7 @@ To exclude a test application:
 1. Select the app(s) you want to exclude in **Select excluded cloud apps**.
 1. Select the **Select** button and then **Save**.
 
-## Write your tests
+## Write your application tests
 
 Now that you're set up, you can write your automated tests.  The following .NET example code uses [Microsoft Authentication Library (MSAL)](msal-overview.md) and [xUnit](https://xunit.net/), a common testing framework.
 
@@ -209,5 +214,3 @@ public async Task GetRequestTest()
 }
 }
 ```
-
-## Next steps
