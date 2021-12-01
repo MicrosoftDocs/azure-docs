@@ -26,7 +26,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture.md) documentation for [throttling patterns](/azure/architecture/patterns/throttling.md).
 
 ## Acquiring phone numbers
-Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony-sms/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
+Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
 
 | Operation | Scope | Timeframe | Limit (number of requests) |
 | --- | -- | -- | -- |
@@ -35,7 +35,7 @@ Before trying to acquire a phone number, make sure your subscription meets the [
 
 ### Action to take
 
-For more information, see the [phone number types](./telephony-sms/plan-solution.md) concept page and the [telephony concept](./telephony-sms/telephony-concept.md) overview page.
+For more information, see the [phone number types](./telephony/plan-solution.md) concept page and the [telephony concept](./telephony/telephony-concept.md) overview page.
 
 If you would like to purchase more phone numbers or put in a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
 
@@ -67,7 +67,7 @@ Rate Limits for SMS:
 ### Action to take
 If you require sending an amount of messages that exceeds the rate-limits, please email us at phone@microsoft.com.
 
-For more information on the SMS SDK and service, see the [SMS SDK overview](./telephony-sms/sdk-features.md) page or the [SMS FAQ](./telephony-sms/sms-faq.md) page.
+For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
 
 ## Chat
 When using the chat APIs, you might receive a ```429``` error. This indicates you are hitting the service limitations and your requests will be queued to be sent once the number of requests is below the threshold.
