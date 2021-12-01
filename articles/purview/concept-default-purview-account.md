@@ -10,23 +10,25 @@ ms.date: 12/01/2021
 
 # Default Purview Account 
 
-In general, our guidance is to have a single Purview account for entire customer's data estate. However, there a multiple cases in which customers would like to have multiple purview accounts in their organization. The top reasons for different purview accounts are listed below:
+In general, our guidance is to have a single Purview account for entire customer's data estate. However, there are cases in which customers would like to have multiple purview accounts in their organization. The top reasons for different purview accounts are listed below:
 
-1. Testing new configurations - A number of customers have wanted to create multiple catalogs for testing out configurations such as scan or classification rules before moving the configuration to a higher environment like pre-production or production.
+1. Testing new configurations - Customers want to create multiple catalogs for testing out configurations such as scan or classification rules before moving the configuration to a higher environment like pre-production or production.
 
 1. Storing test/pre-production/production data separately - Customers want to create different catalogs for different kinds of data stored in different environments. 
 
-1. Conglomerates - Conglomerates often have many business units (BUs) that operate completely separately, they won't even share billing with each other. Hence, this might require the conglomerates to create different purview accounts for different BUs.
+1. Conglomerates - Conglomerates often have many business units (BUs) that operate separately to the extent that they won't even share billing with each other. Hence, this might require the conglomerates to create different purview accounts for different BUs.
 
-1. Compliance - There are some very strict compliance regimes which treat even metadata as sensitive and require it to be in a particular geography and for the same reason customers might end up with multiple purview accounts per region.
+1. Compliance - There are some strict compliance regulations, which treat even metadata as sensitive and require it to be in a particular geography. For the same reason customers might end up with multiple purview accounts per region.
 
 Having multiple Purview accounts in a tenant now poses the challenge of which Purview account should all other services like PBI, Synapse connect to. A PBI admin or Synapse Admin who is given the responsibility of pairing their PBI tenant or Synapse account with right Purview account. This is where default purview account will help our customers. Azure global administrator (or tenant admin) can designate a Purview account as default Purview account at tenant level. At any point in time a tenant can have only 0 or 1 default accounts. Once this is set PBI Admin or Synapse Admin or any user in your organization has clear understanding that this account is the "right" one, discover the same and all other services should connect to this one.
 
-## Mark Default account flag to 'Yes' for a Purview account
+* You can set default flag as 'Yes' only after the account is created. 
 
-Since setting up wrong default account can have security implications, only Azure global administrator at tenant level (Tenant Admin) can set the default account flag as 'Yes'. Also, changing the default account is a two step process. First you need to change the flag as 'No' to the current default purview account and then set the flag as 'Yes' to the new purview account.
+* Since setting up wrong default account can have security implications, only Azure global administrator at tenant level (Tenant Admin) can set the default account flag as 'Yes'. 
 
-Since setting up default account is a control plane operation, purview studio will not have any changes when an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default purview account.
+* Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default purview account and then set the flag as 'Yes' to the new purview account.
+
+* Since setting up default account is a control plane operation, purview studio will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default purview account.
 
 ## Next Steps
 
