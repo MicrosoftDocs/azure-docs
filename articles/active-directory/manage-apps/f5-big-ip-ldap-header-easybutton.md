@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to Header-based and LDAP applications
+title: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to header-based and LDAP applications
 description: Learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
 author: NishthaBabith-V
@@ -13,7 +13,7 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to Header-based and LDAP applications
+# Tutorial: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to header-based and LDAP applications
 
 In this tutorial, you’ll learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 
@@ -60,7 +60,7 @@ Secure hybrid access for this scenario supports both SP and IdP initiated flows.
 | 3| Azure AD authenticates user and applies any enforced CA policies |
 | 4| User is redirected back to BIG-IP with issued token and claims |
 | 5| BIG-IP authenticates user and requests more attributes from HR system |
-| 6| BIG-IP injects Azure AD & HR system attributes as headers in request to the application |
+| 6| BIG-IP injects Azure AD and HR system attributes as headers in request to the application |
 | 7| Application authorizes access with enriched session permissions |
 
 ## Prerequisites
