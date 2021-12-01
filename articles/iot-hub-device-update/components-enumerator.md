@@ -97,7 +97,7 @@ To enable Proxy Updates, device builders must identify all updateable components
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
   - See [Child Update Handler](../../../../content_handlers/components_update_handler/README.md) for more information.
 - **SWUpdate Installer** and **Motors Firmware Installer**
-  - See [How To Implement Custom Update Content Handler](../../../../../docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+  - See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ## How To Implement Components Enumerator for Device Update Agent (C language)
 ### Requirements
