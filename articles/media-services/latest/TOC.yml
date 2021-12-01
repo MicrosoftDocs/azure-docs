@@ -610,7 +610,7 @@
     items:
       - name: Account security
         items:
-          name: Create a Media Services account
+        - name: Create a Media Services account
           href: account-create-how-to.md
       - name: Network security
         items:
