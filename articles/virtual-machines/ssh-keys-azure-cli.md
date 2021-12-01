@@ -14,9 +14,9 @@ ms.author: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-You can create SSH keys when you first create a VM, and reuse them for other VMs. Or, you can create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. 
+You can create SSH keys before creating a VM, and store them in Azure. Each newly created SSH key is also stored locally.
 
-If you have existing keys and you want to simplify using them, you can upload them and store them in Azure for reuse.
+If you have existing SSH keys, you can upload and store them in Azure for reuse.
 
 For a more detailed overview of SSH, see [Detailed steps: Create and manage SSH keys for authentication to a Linux VM in Azure](./linux/create-ssh-keys-detailed.md).
 
