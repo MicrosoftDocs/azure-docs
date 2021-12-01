@@ -1,8 +1,8 @@
 ---
 title: include file
 description: include file
-author: wiassaf
-ms.author: WilliamDAssafMSFT
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.service: synapse-analytics
 services: synapse-analytics
 ms.topic: include
