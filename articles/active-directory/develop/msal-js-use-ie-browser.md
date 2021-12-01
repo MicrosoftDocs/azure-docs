@@ -23,7 +23,9 @@ For better compatibility with Internet Explorer, we generate the Microsoft Authe
 
 ## Run an app in Internet Explorer
 
-If you intend to use MSAL.js in applications that can run in Internet Explorer, you'll need to add a reference to a promise polyfill before referencing the MSAL.js script.
+Internet Explorer lacks native support for JavaScript Promises, required by MSAL.js.
+
+To support JavaScript Promises in an Internet Explorer app, reference a Promise polyfill before you reference MSAL.js.
 
 ```html
 <script
