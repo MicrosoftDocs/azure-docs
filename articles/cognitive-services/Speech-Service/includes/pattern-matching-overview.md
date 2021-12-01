@@ -1,7 +1,7 @@
 ---
 title: Pattern Matching overview
 titleSuffix: Azure Cognitive Services
-description: Pattern Matching with the IntentRecognizer helps you get started quickly with offline intent matching.
+description: Pattern Matching with the ``IntentRecognizer`` helps you get started quickly with offline intent matching.
 author: chschrae
 manager: travisw
 ms.topic: include
@@ -10,7 +10,7 @@ ms.author: chschrae
 keywords: intent recognition pattern matching
 ---
 
-Pattern matching can be customized to group together pattern intents and entities inside a PatternMatchingModel. Using this grouping, it is possible to access more advanced entity types that will help make your intent recognition more precise.
+Pattern matching can be customized to group together pattern intents and entities inside a ``PatternMatchingModel``. Using this grouping, it is possible to access more advanced entity types that will help make your intent recognition more precise.
 
 ### Patterns vs. Exact Phrases
 There are two types of strings used in the pattern matcher: "exact phrases" and "patterns". It is important to understand the differences. 
@@ -25,15 +25,15 @@ A pattern is a phrase that contains a marked entity. Entities are marked with "{
 
 ### Outline of a PatternMatchingModel
 
-The PatternMatchingModel contains an Id to reference that model by, a list of PatternMatchingIntent objects, and a list of PatternMatchingEntity objects.
+The ``PatternMatchingModel`` contains an Id to reference that model by, a list of ``PatternMatchingIntent`` objects, and a list of ``PatternMatchingEntity`` objects.
 
 #### Pattern Matching Intents
 
-PatternMatchingIntent objects represent a collection of phrases that will be used to evaluate speech or text in the IntentRecognizer. If the phrases are matched, the IntentRecognitionResult returned will have the Id of the PatternMatchingIntent that was matched.
+``PatternMatchingIntent`` objects represent a collection of phrases that will be used to evaluate speech or text in the ``IntentRecognizer``. If the phrases are matched, the ``IntentRecognitionResult`` returned will have the Id of the ``PatternMatchingIntent`` that was matched.
 
 #### Pattern Matching Entities
 
-PatternMatchingEntity objects represent an individual entity and its corresponding properties that tell the IntentRecognizer how to treat it. All PatternMatchingEntity objects must have an Id that is present in a phrase or else it will never be matched.
+``PatternMatchingEntity`` objects represent an individual entity and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an Id that is present in a phrase or else it will never be matched.
 
 ### Types of Entities
 
