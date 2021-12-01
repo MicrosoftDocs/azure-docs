@@ -1,8 +1,8 @@
 ---
 title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
-author: lmasieri
-ms.author: lmasieri
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/20/2021
 ms.topic: how-to
 ms.service: iot-central
@@ -39,7 +39,9 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
     > [!NOTE]
     > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
-  
+
+    To access the application for the first time, the invited users must first navigate to the application URL link that they can receive from the administrator. The application will not be visible on **My Apps** page in IoT Central Application UI until then.
+
     > [!NOTE]
     > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 

@@ -110,6 +110,8 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
 
+ To access the application for the first time, the invited users must first navigate to the application URL link that they can receive from the administrator. The application will not be visible on **My Apps** page in IoT Central Application UI until then.
+
 ## Use organizations
 
 After you've created your organization hierarchy you can use organizations in areas of your application such as:
