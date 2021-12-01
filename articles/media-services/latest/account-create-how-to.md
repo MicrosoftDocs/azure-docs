@@ -45,9 +45,9 @@ You can use either the Azure portal or the CLI to create a Media Services accoun
 
 [!INCLUDE [create a media services account in the portal](./includes/task-create-media-services-account-portal.md)]
 
-For more information about Azure user managed identities, see 
-
 [!INCLUDE [enable a system-assigned managed identity](./includes/task-create-media-services-system-managed-identity.md)]
+
+[!INCLUDE [add system assigned managed identity in the portal](./includes/task-storage-system-managed-identity-portal.md)]
 
 ## [CLI](#tab/cli/)
 
