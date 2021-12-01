@@ -12,7 +12,7 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: mode-portal
+ms.custom: mode-other
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

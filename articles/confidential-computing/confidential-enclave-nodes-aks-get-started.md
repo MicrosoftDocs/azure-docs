@@ -7,7 +7,7 @@ ms.subservice: confidential-computing
 ms.topic: quickstart
 ms.date: 11/1/2021
 ms.author: amgowda
-ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021
+ms.custom: contentperf-fy21q3, devx-track-azurecli, ignite-fall-2021, mode-api
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing nodes by using the Azure CLI

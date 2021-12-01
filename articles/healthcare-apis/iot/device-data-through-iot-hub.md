@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/10/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
 ---
 
@@ -88,7 +88,7 @@ Use your device (real or simulated) to send the sample heart rate message shown 
 }
 ```
 > [!IMPORTANT]
-> Make sure to send the device message that conforms to the [mapping templates](how-to-use-fhir-mapping-iot.md) configured with your IoT connector.
+> Make sure to send the device message that conforms to the [mapping templates](how-to-use-fhir-mappings.md) configured with your IoT connector.
 
 ## View device data in FHIR service
 

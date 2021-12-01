@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Review permissions granted to applications in Azure Active Directory
+# Review permissions granted to applications
 
 In this article you'll learn how to review permissions granted to applications in your Azure Active Directory (Azure AD) tenant. You may need to review permissions when you have detected a malicious application or the application has been granted more permissions than is necessary.
 

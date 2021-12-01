@@ -50,19 +50,22 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Now create a service principal and store its credentials in your key vault.
 
-The following command uses [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault.
+The following commands use [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] to store the service principal's **password** in the vault. Be sure to take note of the service principal's **appId** upon creation.
 
 ```azurecli
-# Create service principal, store its password in vault (the registry *password*)
+# Create service principal
+az ad sp create-for-rbac \
+  --name http://$ACR_NAME-pull \
+  --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
+  --role acrpull
+
+SP_ID=xxxx # Replace with your service principal's appId
+
+# Store the registry *password* in the vault
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
-  --value $(az ad sp create-for-rbac \
-                --name http://$ACR_NAME-pull \
-                --scopes $(az acr show --name $ACR_NAME --query id --output tsv) \
-                --role acrpull \
-                --query password \
-                --output tsv)
+  --value $(az ad sp show --id $SP_ID --query password --output tsv)
 ```
 
 The `--role` argument in the preceding command configures the service principal with the *acrpull* role, which grants it pull-only access to the registry. To grant both push and pull access, change the `--role` argument to *acrpush*.
@@ -74,7 +77,7 @@ Next, store the service principal's *appId* in the vault, which is the **usernam
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
-    --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
+    --value $(az ad sp show --id $SP_ID --query appId --output tsv)
 ```
 
 You've created an Azure key vault and stored two secrets in it:

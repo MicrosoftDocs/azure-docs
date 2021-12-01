@@ -4,13 +4,12 @@ titleSuffix: Azure Storage
 description: In this quickstart, you use Azure PowerShell in object (Blob) storage. Then you use PowerShell to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
-
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 03/31/2020
-ms.author: tamram 
-ms.custom: devx-track-azurepowershell
+ms.author: tamram
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Upload, download, and list blobs with PowerShell
@@ -52,7 +51,7 @@ The following examples upload *Image001.jpg* and *Image002.png* from the *D:\\_T
 # upload a file to the default account (inferred) access tier
 Set-AzStorageBlobContent -File "D:\_TestImages\Image000.jpg" `
   -Container $containerName `
-  -Blob "Image001.jpg" `
+  -Blob "Image000.jpg" `
   -Context $ctx
 
 # upload a file to the Hot access tier

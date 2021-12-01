@@ -266,12 +266,16 @@ function Decoder(bytes, port) {
 After you define the integration, add the following code before the call to `handleMessage` in line 21 of the *IoTCIntegration/index.js* file of your function app. This code translates the body of your HTTP integration to the expected format.
 
 ```javascript
-device: {
-    deviceId: req.body.hardware_serial.toLowerCase()
-},
-measurements: req.body.payload_fields
+req.body = {
+  device: {
+    deviceId: req.body.end_device_ids.device_id.toLowerCase()
+  },
+  measurements: req.body.uplink_message.decoded_payload
 };
 ```
+
+> [!NOTE]
+> The previous snippet uses the human-friendly device ID. The Things Network message also includes a technical ID that you can access using `req.body.dev_eui.toLowerCase()`. To learn more, see [The Things Network - Data Formats](https://www.thethingsindustries.com/docs/reference/data-formats/).
 
 ## Limitations
 

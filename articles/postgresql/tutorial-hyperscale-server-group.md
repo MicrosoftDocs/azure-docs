@@ -8,7 +8,7 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 12/16/2020
+ms.date: 11/16/2021
 ---
 
 # Tutorial: create server group
