@@ -186,7 +186,7 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
    Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
 
-    ![graphic](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
+    ![alert processing rule list highlighting the status field and status filter.](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
 
     If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
@@ -224,7 +224,7 @@ To locate it, follow these steps:
 
 1. Scroll down in the alert fields of the first tab (the summary tab) until you locate it, and copy it. That field also includes a "Copy to clipboard" helper button you can use.  
 
-    ![find alert ID](media/alerts-troubleshoot/get-alert-id.png)
+    ![finding the alert ID field in the alert summary tab.](media/alerts-troubleshoot/get-alert-id.png)
 
 ## Problem creating, updating, or deleting alert processing rules in the Azure portal
 
