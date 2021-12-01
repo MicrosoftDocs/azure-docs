@@ -119,10 +119,7 @@ e.g.
   ```sh
   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
   ```
-
-Note: this will automatically install the delivery-optimization-agent package from packages.micrsofot.com
-
-- Specify a connection string in /etc/adu/du-config.json
+- Enter your IoT module or device's primary connection string in /etc/adu/du-config.json.
 - Ensure that /ect/adu/du-diagnostics-config.json contain correct settings.  
   e.g.  
 
