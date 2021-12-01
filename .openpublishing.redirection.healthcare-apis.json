@@ -378,8 +378,8 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/fhir/export-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/export-data",
+        "source_path_from_root": "/articles/healthcare-apis/data-transformation/export-data.md",
+        "redirect_url": "/azure/healthcare-apis/fhir/export-data",
         "redirect_document_id": true
     },
     {
@@ -500,11 +500,6 @@
     {
         "source_path_from_root": "/articles/healthcare-apis/data-transformation/convert-data.md",
         "redirect_url": "/azure/healthcare-apis/fhir/convert-data",
-        "redirect_document_id": true
-    },
-    {
-        "source_path_from_root": "/articles/healthcare-apis/data-transformation/export-data.md",
-        "redirect_url": "/azure/healthcare-apis/fhir/export-data",
         "redirect_document_id": true
     },
     {
