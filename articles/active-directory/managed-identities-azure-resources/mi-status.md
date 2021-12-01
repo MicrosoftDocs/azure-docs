@@ -1,10 +1,10 @@
 ---
 title: Azure Services that support managed identities - Azure AD
-description: List of services that support managed identities for Azure resources and Azure AD authentication
+description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 11/19/2021
+ms.date: 12/01/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -22,20 +22,20 @@ Managed identities for Azure resources provide Azure services with an automatica
 
 The following Azure services support managed identities for Azure resources:
 
->[!NOTE]
-> Table entries ordered by Resource provider namespace
 
 | Service Name                    | Resource Provider namespace       | Documentation                                                                                                                                                                                |
 |---------------------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | API Management                  | microsoft.apimanagement           | [Use managed identities in Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)                                                                                            |
 | Azure App Configuration         | microsoft.appconfiguration        | [How to use managed identities for Azure App Configuration](../../azure-app-configuration/overview-managed-identity.md)                                                                                                           |
-| Azure Spring Cloud              | microsoft.appplatform             | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
-| Azure Policy                    | microsoft.authorization           | [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md)      |
+| Azure App Services              | microsoft.web                     | [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)    |     
+| Azure Arc enabled servers       | microsoft.hybridcompute           | [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)                                                                                                 |
 | Azure Automanage                | microsoft.automanage              | [Repair an Automanage Account](../../automanage/repair-automanage-account.md)                                                                     |
 | Azure Automation                | microsoft.automation              | [Azure Automation account authentication overview](../../automation/automation-security-overview#managed-identities-preview.md)                                       |
 | Azure Batch                     | microsoft.batch                   | [Configure customer-managed keys for your Azure Batch account with Azure Key Vault and Managed Identity](../../batch/batch-customer-managed-key.md)  </BR>- [Configure managed identities in Batch pools](../../batch/managed-identity-pools.md)          |
 | Azure Blueprints                | microsoft.blueprint               | [Stages of a blueprint deployment](../../governance/blueprints/concepts/deployment-stages.md)                              |
 | Azure Cognitive Services        | microsoft.cognitiveservices       | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
+| Azure Spring Cloud              | microsoft.appplatform             | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
+| Azure Policy                    | microsoft.authorization           | [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md)      |
 | Virtual Machine Scale Sets      | microsoft.compute                 | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
 | Virtual Machines                | microsoft.compute                 | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                   |
 | Azure Managed Disk              | microsoft.compute                 | [Use the Azure portal to enable server-side encryption with customer-managed keys for managed disks](../../virtual-machines/disks-enable-customer-managed-keys-portal.md)                                                                                        |
@@ -47,7 +47,6 @@ The following Azure services support managed identities for Azure resources:
 | Azure Data Share                | microsoft.datashare               | [Roles and requirements for Azure Data Share](../../data-share/concepts-roles-permissions.md)                                                                                                             |
 | Azure IoT Hub                   | microsoft.devices                 | [IoT Hub support for virtual networks with Private Link and Managed Identity](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)                                                                               |
 | Azure Digital Twins             | microsoft.digitaltwins            | [Enable a managed identity for routing Azure Digital Twins events](../../digital-twins/how-to-enable-managed-identities-portal.md)                                                                                            |
-| Azure Arc enabled servers       | microsoft.hybridcompute           | [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)                                                                                                 |
 | Azure Import/Export             | microsoft.importexport            | [Use customer-managed keys in Azure Key Vault for Import/Export service](../../import-export/storage-import-export-encryption-key-portal.md)                                                                                         |
 | Azure Arc enabled Kubernetes    | microsoft.kubernetes              | [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md)                                                                                                   |
 | Azure Data Explorer             | microsoft.kusto                   | [Configure managed identities for your Azure Data Explorer cluster](../../data-explorer/managed-identities.md)                                                                                                     |
@@ -66,5 +65,8 @@ The following Azure services support managed identities for Azure resources:
 | Azure Stream Analytics          | microsoft.streamanalytics         | [Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities](../../stream-analytics/stream-analytics-managed-identities-adls.md)                                                                                         |
 | Azure Synapse                   | microsoft.synapse                 | [Azure Synapse workspace managed identity](../../synapse-analytics/security/synapse-workspace-managed-identity.md)                                                                                         |
 | Azure Image Builder             | microsoft.virtualmachineimages    | [Azure Image Builder overview](../../virtual-machines/image-builder-overview#permissions.md)                                                                                                    |
-| Azure App Services              | microsoft.web                     | [How to use managed identities for App Service and Azure Functions](../../app-service/overview-managed-identity.md)                                                                                                                 |
+                                                                                                        |
 
+## Next steps
+
+- []()
