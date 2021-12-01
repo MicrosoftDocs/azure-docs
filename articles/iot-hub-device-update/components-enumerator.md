@@ -74,7 +74,7 @@ To enable Proxy Updates, device builders must identify all updateable components
 
 #### Figure 2 - Proxy Update Flow Diagram
 
-![Contoso Virtual-Vacuum Update Flow](../contoso-component-enumerator/assets/contoso-virtual-vacuum-update-flow.svg)
+:::image type="content" source="media/understand-device-update/contoso-virtual-vacuum-update-flow.svg" alt-text="Proxy Update Flow Diagram" lightbox="media/understand-device-update/contoso-virtual-vacuum-update-flow.svg":::
 
 - **Device builder reponsobilities**
   - Design and build the device.
