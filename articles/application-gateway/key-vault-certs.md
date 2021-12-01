@@ -108,7 +108,7 @@ Navigate to your Application Gateway in the Azure Portal and select the **Listen
 
 On *Choose a certificate*, select *Create new* and then select *Choose a certificate from Key Vault* under *Https settings*
 
-For Cert name, specify a friendly name for the certificate to be referenced in Key Vault.  Choose your Managed identity, Key vault, and Certificate.
+For Cert name, type a friendly name for the certificate to be referenced in Key Vault.  Choose your Managed identity, Key vault, and Certificate.
 
 Once selected, select  **Add** (if creating) or **Save** (if editing) to apply the referenced Key Vault certificate to the listener.
 
