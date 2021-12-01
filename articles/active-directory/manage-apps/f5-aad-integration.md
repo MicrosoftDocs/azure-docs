@@ -136,15 +136,13 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
 
-- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](../saas-apps/headerf5-tutorial.md#configure-f5-single-sign-on-for-header-based-application)
+- [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-header-advanced.md)
 
 - [Securing F5 BIG-IP SSL-VPN with Azure AD SHA](f5-aad-password-less-vpn.md)
 
 - [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
-
-- [Integrate Azure Active Directory SSO with F5 BIG-IP for header-based authentication](f5-big-ip-header-advanced.md)
 
 ## Additional resources
 

@@ -19,6 +19,7 @@ This page provides latest news and updates regarding feature additions, engine v
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
+*  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3. 
 *  Support for [Azure Stream Analytics (ASA) connector in Preview](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170) to ingest high throughput streaming data to existing table.
 *  Several bug fixes, stability, and performance improvements<sup>$</sup>.
 
