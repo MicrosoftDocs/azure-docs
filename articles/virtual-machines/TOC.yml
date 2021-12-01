@@ -1695,7 +1695,6 @@
             href: ./windows/scheduled-events.md
           - name: Monitor scheduled events
             href: ./windows/scheduled-event-service.md
-
     - name: Track and update VMs
       items:
       - name: Linux
