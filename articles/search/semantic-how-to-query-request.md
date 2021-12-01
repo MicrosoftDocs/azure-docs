@@ -76,6 +76,9 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 ## Create a semantic configuration
 
+> [!NOTE]
+> Semantic configurations are a new addition to the 2021-04-30-Preview API and are now required for semantic queries. If using 2020-06-30-Preview, the **searchFields** is used instead of **semanticConfiguration**. We recommend upgrading to 2021-04-30-Preview for best results.
+
 In order to get the best results from semantic search, it's important to give the underlying models hints about which fields in your index are most important for semantic ranking, captions, highlights, and answers. To provide that information, you'll need to create a semantic configuration.
 
 A semantic configuration contains properties to list three different types of fields which map back to the inputs the underlying models for semantic search expect:
