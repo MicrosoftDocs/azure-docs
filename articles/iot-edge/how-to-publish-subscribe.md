@@ -47,11 +47,11 @@ You can use Azure IoT Edge MQTT broker to publish and subscribe to messages. Thi
     ```
 
     > [!WARNING]
-    > *Don't* install the Mosquitto server since it may cause blocking of the MQTT ports (8883 and 1883) and conflict with the IoT Edge hub.
+    > Don't install the Mosquitto server since it may block the MQTT ports (8883 and 1883) and conflict with the IoT Edge hub.
 
 ## Connect to IoT Edge hub
 
-Connecting to IoT Edge hub follows the same steps as described in the [Connecting to IoT Hub](../iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub) section of the *Concepts: Communicate with your IoT hub using the MQTT protocol* article or in the [Connecting to the IoT Edge hub](../iot-edge/iot-edge-runtime.md#connecting-to-the-iot-edge-hub) section of *Concepts: Understand the Azure IoT Edge runtime and its architecture*. These steps are:
+Connecting to IoT Edge hub follows the same steps as described in [Connecting to IoT Hub](../iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub) or in [Connecting to the IoT Edge hub](../iot-edge/iot-edge-runtime.md#connecting-to-the-iot-edge-hub). These steps are:
 
 1. Optionally, the MQTT client establishes a *secure connection* with the IoT Edge hub using Transport Layer Security (TLS).
 2. The MQTT client *authenticates* itself to IoT Edge hub.
@@ -63,7 +63,7 @@ TLS is used to establish encrypted communication between the client and the IoT 
 
 - To *disable* TLS: use port 1883 (MQTT) and bind the edgeHub container to port 1883.
 
-- To *enable* TLS: if a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain to be validated by the client. To validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate *isn't* trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to install the root certificate of the broker on the client are the same as in the [transparent gateway](how-to-create-transparent-gateway.md) case and are described in the [Prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) section of *How-to: Connect a downstream device to an Azure IoT Edge gateway*.
+- To *enable* TLS: if a client connects on port 8883 (MQTTS) to the MQTT broker, a TLS channel will be initiated. The broker sends its certificate chain to be validated by the client. To validate the certificate chain, the root certificate of the MQTT broker must be installed as a trusted certificate on the client. If the root certificate isn't trusted, the client library will be rejected by the MQTT broker with a certificate verification error. The steps to install the root certificate of the broker on the client are the same as in the [transparent gateway](how-to-create-transparent-gateway.md) case and are described in the [Prepare a downstream device](how-to-connect-downstream-device.md#prepare-a-downstream-device) section of *How-to: Connect a downstream device to an Azure IoT Edge gateway*.
 
 ### Authentication
 
@@ -106,7 +106,7 @@ Each authorization policy statement consists of the combination of `identities`,
 - `operations` define the actions to authorize. `mqtt:connect`, `mqtt:publish`, and `mqtt:subscribe` are the three supported actions currently.
 - `resources` define the object of the policy. It can be a topic or a topic pattern defined with [MQTT wildcards](https://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718107).
 
-The following JSON snippet is an example of an authorization policy that explicitly *doesn't* allow the client "rogue_client" to connect, allows any Azure IoT clients to connect, and allows "sensor_1" to publish to topic `events/alerts`:
+The following JSON snippet is an example of an authorization policy that explicitly doesn't allow the client "rogue_client" to connect, allows any Azure IoT clients to connect, and allows "sensor_1" to publish to topic `events/alerts`:
 
 ```json
 {
@@ -345,7 +345,7 @@ mosquitto_sub \
 In this code snippet, `<edge_device_address>` would be `localhost` since the client is running on the same device as IoT Edge.
 
 > [!NOTE]
-> TLS *isn't* enabled in this first example, so port 1883 (MQTT) is used. For this example to work, edgeHub port 1883 needs to be bound to the host via its create options. An example is given in the [prerequisite section](#prerequisites). Another example with TLS enabled using port 8883 (MQTTS) is shown in the [Symmetric keys authentication with TLS section](#symmetric-keys-authentication-with-tls) further down in this article.
+> TLS isn't enabled in this first example, so port 1883 (MQTT) is used. For this example to work, edgeHub port 1883 needs to be bound to the host via its create options. An example is given in the [prerequisite section](#prerequisites). Another example with TLS enabled using port 8883 (MQTTS) is shown in the [Symmetric keys authentication with TLS section](#symmetric-keys-authentication-with-tls) further down in this article.
 
 The **sub_client** MQTT client is now started and is waiting for incoming messages on `test_topic`.
 
@@ -381,7 +381,7 @@ Because the clients are running on the same device as the MQTT broker in the exa
 
 ## Publish and subscribe on IoT Hub topics
 
-The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let clients perform IoT Hub operations, but they *don't* allow publishing or subscribing to user-defined topics. IoT Hub operations can be performed using any MQTT clients using publish and subscribe semantics as long as IoT Hub primitive protocols are respected. The next sections of this guide go through the specifics to illustrate how these protocols work.
+The [Azure IoT Device SDKs](https://github.com/Azure/azure-iot-sdks) already let clients perform IoT Hub operations, but they don't allow publishing or subscribing to user-defined topics. IoT Hub operations can be performed using any MQTT clients using publish and subscribe semantics as long as IoT Hub primitive protocols are respected. The next sections of this guide go through the specifics to illustrate how these protocols work.
 
 ### Send telemetry data to IoT Hub
 
@@ -394,7 +394,7 @@ Additionally, create a route such as `FROM /messages/* INTO $upstream` to send t
 
 ### Get twin
 
-Getting the device or module twin *isn't* a typical MQTT pattern. The client needs to issue a request for the twin that IoT Hub is going to serve.
+Getting the device or module twin isn't a typical MQTT pattern. The client needs to issue a request for the twin that IoT Hub is going to serve.
 
 To receive twins, the client needs to subscribe to the following topic specific to IoT Hub: `$iothub/twin/res/#`. This topic name is inherited from IoT Hub, and all clients need to subscribe to the same topic. It doesn't mean that devices or modules receive the twin of each other. IoT Hub and IoT Edge hub know which twin should be delivered where, even if all devices listen to the same topic name.
 
@@ -424,7 +424,7 @@ In a nested configuration, the IoT Edge hub MQTT bridge acts as a client of the 
 The IoT Edge MQTT bridge is configured via a JSON structure that's sent to the IoT Edge hub via its twin. Edit an IoT Edge hub twin to configure its MQTT bridge.
 
 > [!NOTE]
-> For the public preview, only the Azure CLI supports deployments containing MQTT bridge configurations. The Azure portal currently *doesn't* support editing the IoT Edge hub twin and its MQTT bridge configuration.
+> For the public preview, only the Azure CLI supports deployments containing MQTT bridge configurations. The Azure portal currently doesn't support editing the IoT Edge hub twin and its MQTT bridge configuration.
 
 The MQTT bridge can be configured to connect an IoT Edge hub MQTT broker to multiple external brokers. For each external broker, the following settings are required:
 
@@ -460,7 +460,7 @@ The following JSON snippet is an example of an IoT Edge MQTT bridge configuratio
 ```
 
 > [!NOTE]
-> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and that IoT Edge is used in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
+> The MQTT protocol will automatically be used as upstream protocol when the MQTT broker is used and IoT Edge is in a nested configuration, for example, with a `parent_hostname` specified. To learn more about upstream protocols, see [Cloud communication](iot-edge-runtime.md#cloud-communication). To learn more about nested configurations, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md#configure-iot-edge-on-devices).
 
 ## Next steps
 

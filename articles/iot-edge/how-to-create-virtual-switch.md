@@ -36,14 +36,14 @@ The following steps in this section are a generic guide for a virtual switch cre
 
     If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
 
-3. Create a new VM switch with a name of your choice and an **Internal** or **Private** *type*. To create an **External** virtual switch, specify either the **NetAdapterInterfaceDescription** or the **NetAdapterName** parameter, which implicitly sets the type of the virtual switch to **External**. For more information about creating an **External** virtual switch, see [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). Create the switch by running the following [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) command, replacing the placeholder values:
+3. Create a new VM switch with a name of your choice and an **Internal** or **Private** switch type. To create an **External** virtual switch, specify either the **NetAdapterInterfaceDescription** or the **NetAdapterName** parameter, which implicitly sets the type of the virtual switch to **External**. For more information, see [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). Create the switch by running the following [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) command, replacing the placeholder values:
 
     ```powershell
     New-VMSwitch -Name "{switchName}" -SwitchType {switchType}
     ```
     
     >[!NOTE]
-    >If you're using an Azure VM, the virtual switch *can't* be **External**.
+    >If you're using an Azure VM, the virtual switch can't be **External**.
 
 4. To get the IP address for the switch you created, you must first get its interface index. You can get this value by running the following [Get-NetAdapter](/powershell/module/netadapter/get-netadapter) command, replacing the placeholder value:
 
@@ -67,7 +67,9 @@ The following steps in this section are a generic guide for a virtual switch cre
 
     :::image type="content" source="media/how-to-create-virtual-switch/get-netipaddress-output.png" alt-text="Screenshot of the output from running the Get-NetIPAddress command, highlighting the IP address." lightbox="media/how-to-create-virtual-switch/get-netipaddress-output.png":::
 
-    The resulting virtual switch IP address will be different for each environment. Take note of the IP address, as the rest of the commands in this guide will make use of more IP addresses that are derived from this outputted address. For the other IP addresses, you'll need to create variations where the last octet (the number separated by each dot in an IP address) is replaced by a different value. You'll create and use the following IP addresses:
+    The resulting virtual switch IP address will be different for each environment. Take note of the IP address, as the rest of the commands in this guide will make use of more IP addresses that are derived from this outputted address.
+
+6. For the other IP addresses, you'll need to create variations where the last octet (the number separated by each dot in an IP address) is replaced by a different value. You'll create and use the following IP addresses:
     
    | IP address        | Template        | Example         |
    |-------------------|-----------------|-----------------|
@@ -77,7 +79,7 @@ The following steps in this section are a generic guide for a virtual switch cre
    | Start IP          | xxx.xxx.xxx.100 | 169.254.229.100 |
    | End IP            | xxx.xxx.xxx.200 | 169.254.229.200 |
 
-6. Set the **gateway IP address** by replacing the last octet of your virtual switch IP with a new numerical value, for example 1. Run the following [New-NetIPAddress](/powershell/module/nettcpip/new-netipaddress) command to set the new gateway IP address, replacing the placeholder values:
+7. Set the **gateway IP address** by replacing the last octet of your virtual switch IP with a new numerical value, for example 1. Run the following [New-NetIPAddress](/powershell/module/nettcpip/new-netipaddress) command to set the new gateway IP address, replacing the placeholder values:
 
     ```powershell
     New-NetIPAddress -IPAddress {gatewayIp} -PrefixLength 24 -InterfaceIndex {interfaceIndex}
@@ -87,9 +89,7 @@ The following steps in this section are a generic guide for a virtual switch cre
 
     :::image type="content" source="media/how-to-create-virtual-switch/new-netipaddress-output.png" alt-text="Screenshot of the output from running the New-NetIPAddress command." lightbox="media/how-to-create-virtual-switch/new-netipaddress-output.png":::
 
-    Take note of the gateway IP address you inputted, as you'll need to use it in future steps.
-
-7. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Use the same IPv4 family address from previous steps. Based on the table from step 5, the **NAT IP address** corresponds to the original virtual switch IP address, except that the last octet is replaced with a new numerical value, for example 0. Run the following [New-NetNat](/powershell/module/netnat/new-netnat) command to set the NAT IP address, replacing the placeholder values:
+8. Create a Network Address Translation (NAT) object that translates an internal network address to an external network. Use the same IPv4 family address from previous steps. Based on the table from step six, the **NAT IP address** corresponds to the original virtual switch IP address, except that the last octet is replaced with a new numerical value, for example 0. Run the following [New-NetNat](/powershell/module/netnat/new-netnat) command to set the NAT IP address, replacing the placeholder values:
 
     ```powershell
     New-NetNat -Name "{switchName}" -InternalIPInterfaceAddressPrefix "{natIp}/24"
@@ -98,8 +98,6 @@ The following steps in this section are a generic guide for a virtual switch cre
     Running this command should output information similar to the following example:
 
     :::image type="content" source="media/how-to-create-virtual-switch/new-netnat-output.png" alt-text="Screenshot of the output from running the New-NetNat command." lightbox="media/how-to-create-virtual-switch/new-netnat-output.png":::
-
-    Take note of the NAT IP address you inputted, as you'll need to use it in future steps.
 
 The switch is now created. Next, you'll set up the DNS.
 
