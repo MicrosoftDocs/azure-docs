@@ -34,7 +34,6 @@ To support JavaScript Promises in an Internet Explorer app, reference a Promise 
 ></script>
 ```
 
-Internet Explorer doesn't support JavaScript promises natively.
 
 ## Debugging an application running in Internet Explorer
 
