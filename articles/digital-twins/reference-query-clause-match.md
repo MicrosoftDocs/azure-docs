@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - MATCH clause
+title: Azure Digital Twins query language reference - MATCH clause (preview)
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/07/2021
+ms.date: 12/01/2021
 ms.topic: article
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Azure Digital Twins query language reference: MATCH clause (preview)
 
-This document contains reference information on the **MATCH clause** for the [Azure Digital Twins query language](concepts-query-language.md).
+This document contains reference information on the **MATCH clause** for the [Azure Digital Twins query language](concepts-query-language.md). This clause is currently in preview.
 
 The `MATCH` clause is used in the Azure Digital Twins query language as part of the [FROM clause](reference-query-clause-from.md). `MATCH` allows you to specify which pattern should be followed while traversing relationships in the Azure Digital Twins graph (this is also known as a "variable hop" query pattern).
 
