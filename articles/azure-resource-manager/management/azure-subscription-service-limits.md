@@ -131,6 +131,10 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
 
+## Azure Healthcare APIs limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
+
 ## Azure Kubernetes Service limits
 
 [!INCLUDE [container-service-limits](../../../includes/container-service-limits.md)]
