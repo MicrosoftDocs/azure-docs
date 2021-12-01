@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 This article helps Microsoft partners, who are Power Platform and Dynamics Customer Insights service providers, to associate their service to customers on Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights. When you (the Microsoft partner) manage, configure, and support Power Platform and Customer Insights resources for your customer, you have access to your customer's environment. You can use your Azure credentials and a Partner Admin Link (PAL) to associate your partner network ID with the account credentials used for service delivery.
 
-The PAL allows Microsoft to identify and recognize partners that have ower Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource group, resource). This attribution can be used for Advanced Specilizaitons, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/en-us/membership/advanced-specialization#tab-content-2), and Partner Incentives. 
+The PAL allows Microsoft to identify and recognize partners that have Power Platform and Customer Insights customers. Microsoft attributes usage to a partner's organization based on the account's permissions (user role) and scope (tenant, resource, etc.). This attribution can be used for Advanced Specilizaitons, such as the [Microsoft Low Code Advanced Specializations](https://partner.microsoft.com/en-us/membership/advanced-specialization#tab-content-2), and Partner Incentives. 
 
 The follow sections explain in more detail how to
 - Get access from your customer
