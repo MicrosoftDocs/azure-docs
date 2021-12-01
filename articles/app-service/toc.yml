@@ -235,7 +235,7 @@
               href: configure-authentication-provider-google.md
             - name: Authenticate with Twitter
               href: configure-authentication-provider-twitter.md
-            - name: Authenticate with an OpenID Connect provider (Preview)
+            - name: Authenticate with an OpenID Connect provider
               href: configure-authentication-provider-openid-connect.md
             - name: Authenticate using Sign in with Apple (Preview)
               href: configure-authentication-provider-apple.md
@@ -386,7 +386,7 @@
         - name: Reference Architectures
           href: /azure/architecture/reference-architectures/app-service-web-app/basic-web-app
         - name: Deployment Scripts
-          href: https://azure.microsoft.com/documentation/scripts/
+          href: /azure/automation/automation-runbook-gallery
     - name: Troubleshooting
       items:
         - name: Troubleshoot intermittent outbound connection errors
@@ -412,7 +412,7 @@
       - name: Configuration and management FAQ
         href: faq-configuration-and-management.yml
       - name: App Service on Linux
-        href: faq-app-service-linux.yml        
+        href: faq-app-service-linux.yml
     - name: IP address change
       items:
       - name: Inbound IP address

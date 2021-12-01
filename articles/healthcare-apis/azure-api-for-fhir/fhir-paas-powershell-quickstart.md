@@ -9,7 +9,6 @@ ms.topic: quickstart
 ms.date: 10/27/2021
 ms.author: zxue 
 ms.custom: devx-track-azurepowershell
----
 
 # Quickstart: Deploy Azure API for FHIR using PowerShell
 

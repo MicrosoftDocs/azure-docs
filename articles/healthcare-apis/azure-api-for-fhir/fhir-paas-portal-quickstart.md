@@ -8,6 +8,7 @@ ms.subservice: fhir
 ms.topic: quickstart 
 ms.date: 10/27/2021
 ms.author: zxue
+ms.custom: mode-portal
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal

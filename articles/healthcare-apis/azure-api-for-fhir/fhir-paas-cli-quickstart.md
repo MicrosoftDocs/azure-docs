@@ -8,7 +8,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 10/27/2021
 ms.author: zxue
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure CLI

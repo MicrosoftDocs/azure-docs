@@ -23,10 +23,6 @@ Currently, this feature has the following limitations:
 
 * Native client support is not yet available for use from your local Linux workstation. If you are connecting to your target VM from a Linux workstation, please use the Azure portal experience.
 
-* Signing in to your target VM using a custom port or protocol is not yet available with native client support. If you want to use a custom port or protocol to sign in to your target VM via Bastion, use the Azure portal experience.
-
-* Signing in using a local username and password to your target VM is not yet supported. If you want to use local username and password credentials to sign into your target VM via Bastion use the Azure portal experience.
-
 * Signing in using an SSH private key stored in Azure Key Vault is not supported with this feature. Download your private key to a file on your local machine before logging into your Linux VM using an SSH key pair.
 
 ## <a name="prereq"></a>Prerequisites
@@ -80,13 +76,13 @@ Verify that the following roles and ports are configured in order to connect.
 
 To connect to a Linux VM using native client support, you must have the following ports open on your Linux VM:
 
-* Inbound port: SSH (22)
+* Inbound port: SSH (22) *or*
+* Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
 To connect to a Windows VM using native client support, you must have the following ports open on your Windows VM:
 
-* Inbound port: RDP (3389)
-
-If you would like to use a custom port to connect to your target VM, use the Azure portal instructions instead.
+* Inbound port: RDP (3389) *or*
+* Inbound port: Custom value (you will then need to specify this custom port when you connect to the VM via Azure Bastion)
 
 ## <a name="connect"></a>Connect to a VM
 
@@ -113,16 +109,28 @@ This section helps you connect to your virtual machine. Use the steps that corre
    * If you are logging in using an SSH key pair, use the following command.
 
       ```azurecli-interactive
-      az network bastion ssh "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
+      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "ssh-key" --username "<Username>" --ssh-key "<Filepath>"
       ```
+   
+   * If you are logging in using a local username and password, use the following command. You will then be prompted for the password for the target VM.
+
+      ```azurecli-interactive
+      az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>" --auth-type "password" --username "<Username>"
+      ```
+> [!NOTE]
+> If you want to specify a custom port value, you should also include the field --resource-port in the login command you choose.
+>
 
 ### Connect to a Windows VM
 
-1. Log into your target Windows VM using the following command with Azure AD login. To learn more about how to use Azure AD to log into your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
+1. Log into your target Windows VM using the following command. You will then be prompted to input your credentials, for which you can provide either a local username and password or your Azure AD credentials. To learn more about how to use Azure AD to log into your Azure Windows VMs, see [Azure Windows VMs and Azure AD](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
       ```azurecli-interactive
       az network bastion rdp --name "<BastionName>" --resource-group "<ResourceGroupName>" --target-resource-id "<VMResourceId>"
       ```
+> [!NOTE]
+> If you want to specify a custom port value, you should also include the field --resource-port in the login command.
+>
 
 1. Once you log into your target VM, the native client on your workstation will open up with your VM session (**mstsc** for RDP sessions and **ssh CLI extension** for SSH sessions).
 
