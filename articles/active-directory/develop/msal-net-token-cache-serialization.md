@@ -98,8 +98,8 @@ Here are examples of possible distributed caches:
 // L1 cache, encrypt, and set eviction policies.
 services.Configure<MsalDistributedTokenCacheAdapterOptions>(options => 
   {
-    // You can disable the L1 cache if you want. For instance, in web apps or web APIs where
-    // session affinity is not configured.
+    // Optional: Disable the L1 cache in apps that don't use session affinity
+    //                 by setting DisableL1Cache to 'false'.
     options.DisableL1Cache = false;
     
     // Or limit the memory (by default, this is 500 MB)
