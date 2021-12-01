@@ -299,7 +299,7 @@ Selected policies should either have an **Include** or **Exclude** option checke
 
   ![Screenshot for CA policies](./media/f5-big-ip-easy-button-ldap/conditional-access-policy.png)
 
->[!Note]
+>[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
 
 ### Virtual Server
@@ -355,7 +355,7 @@ Enabling SSO allows users to access BIG-IP published services without having to 
 
 ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-easy-button-ldap/sso-headers.png)
 
->[!Note]
+>[!NOTE]
 >The APM session variables defined within curly brackets are CASE sensitive. For example, if our queried LDAP attribute was returned as eventroles, then the above variable definition would fail to populate the eventrole header value. In case of any issues, troubleshoot using the session analysis steps to check how the APM has variables defined will avoid any issues.
 
 ### Session Management
@@ -394,7 +394,7 @@ There may be cases where the Guided Configuration templates lack the flexibility
 
 For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
->[!Note]
+>[!NOTE]
 >Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services.
 
 ## Troubleshooting
