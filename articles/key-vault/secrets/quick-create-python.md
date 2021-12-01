@@ -7,8 +7,7 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: "devx-track-python, devx-track-azurepowershell, devx-track-azurecli"
-
+ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Azure Key Vault secret client library for Python
@@ -73,14 +72,6 @@ Create an access policy for your key vault that grants secret permission to your
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
-#### Set environment variables
-
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
-
-```bash
-export KEY_VAULT_NAME=<your-key-vault-name>
-```
-
 ## Create the sample code
 
 The Azure Key Vault secret client library for Python allows you to manage secrets. The following code sample demonstrates how to create a client, set a secret, retrieve a secret, and delete a secret.
@@ -135,9 +126,9 @@ python kv_secrets.py
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
+In this quickstart, the logged in user is used to authenticate to key vault, which is the preferred method for local development. For applications deployed to Azure, a managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
+In the example below, the name of your key vault is expanded using the value of the "KVUri" variable, in the format: "https://\<your-key-vault-name\>.vault.azure.net". This example is using  ['DefaultAzureCredential()'](/python/api/azure-identity/azure.identity.defaultazurecredential) class, which allows to use the same code across different environments with different options to provide identity. For more information, see [Default Azure Credential Authentication](/python/api/overview/azure/identity-readme). 
 
 ```python
 credential = DefaultAzureCredential()
@@ -196,7 +187,6 @@ az group delete --resource-group KeyVault-PythonQS-rg
 ## Next steps
 
 - [Overview of Azure Key Vault](../general/overview.md)
-- [Secure access to a key vault](../general/security-features.md)
 - [Azure Key Vault developer's guide](../general/developers-guide.md)
 - [Key Vault security overview](../general/security-features.md)
 - [Authenticate with Key Vault](../general/authentication.md)

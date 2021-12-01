@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) managed online deployment YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 
 author: lostmygithubaccount

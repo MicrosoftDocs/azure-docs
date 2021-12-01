@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 11/04/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -66,6 +66,8 @@ Devices must be registered in Azure AD before they can be marked as compliant. M
    - For devices enrolled with third-party MDM systems, see [Support third-party device compliance partners in Intune](/mem/intune/protect/device-compliance-partners).
    - Conditional Access cannot consider Microsoft Edge in InPrivate mode as a compliant device.
 
+> [!NOTE]
+> On Windows 7, iOS, Android, macOS, and some third-party web browsers Azure AD identifies the device using a client certificate that is provisioned when the device is registered with Azure AD. When a user first signs in through the browser the user is prompted to select the certificate. The end user must select this certificate before they can continue to use the browser.
 
 ### Require hybrid Azure AD joined device
 
@@ -152,6 +154,7 @@ The following client apps have been confirmed to support this setting:
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Teams
+- Microsoft To Do
 - Microsoft Word
 - MultiLine for Intune
 - Nine Mail - Email & Calendar

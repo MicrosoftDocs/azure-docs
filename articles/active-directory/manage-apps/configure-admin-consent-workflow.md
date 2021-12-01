@@ -15,7 +15,7 @@ ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
 ---
 
-# Configure the admin consent workflow in Azure Active Directory
+# Configure the admin consent workflow
 
 This article describes how to enable the admin consent workflow feature, which gives end users a way to request access to applications that require admin consent.
 

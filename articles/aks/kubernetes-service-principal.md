@@ -61,10 +61,10 @@ New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 
 ### [Azure CLI](#tab/azure-cli)
 
-To manually create a service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command. In the following example, the `--skip-assignment` parameter prevents any additional default assignments being assigned:
+To manually create a service principal with the Azure CLI, use the [az ad sp create-for-rbac][az-ad-sp-create] command.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
+az ad sp create-for-rbac --name myAKSClusterServicePrincipal
 ```
 
 The output is similar to the following example. Make a note of your own `appId` and `password`. These values are used when you create an AKS cluster in the next section.
