@@ -133,7 +133,7 @@ In this step, configure a cloud share witness. If you're unfamiliar with the ste
 
 ## Enable the availability group feature 
 
-In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#enable-availability-groups). 
+In this step, enable the availability group feature. If you're unfamiliar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial-single-subnet.md#enable-availability-groups). 
 
 ## Create keys and certificates
 
@@ -278,7 +278,7 @@ If there are any other nodes in the cluster, repeat these steps there also, modi
 
 ## Configure an availability group
 
-In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
+In this step, configure your availability group, and add your databases to it. Do not create a listener at this time. If you're not familiar with the steps, see the [availability group tutorial](availability-group-manually-configure-tutorial-single-subnet.md#create-the-availability-group). Be sure to initiate a failover and failback to verify that everything is working as it should be. 
 
    > [!NOTE]
    > If there is a failure during the synchronization process, you may need to grant `NT AUTHORITY\SYSTEM` sysadmin rights to create cluster resources on the first node, such as `AGNode1` temporarily. 

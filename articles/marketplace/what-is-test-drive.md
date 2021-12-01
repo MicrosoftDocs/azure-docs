@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 12/08/2020
+ms.date: 10/26/2021
 ---
 
 # What is a test drive?
@@ -14,6 +14,9 @@ ms.date: 12/08/2020
 A test drive is a great way to showcase your offer to potential customers by giving them the option to try before you buy, generating highly qualified leads and resulting in increased conversion. A test drive brings your product to life in a real-world implementation scenario. Customers who try out your product are demonstrating a clear intent to buy a similar solution. Use this to your advantage by following up with more advanced leads.
 
 Your customers benefit from a test drive as well. By allowing them to try your product first, you are reducing the friction of the purchase process. In addition, test drive is pre-provisioned, i.e., customers don’t have to download, set up or configure the product.
+
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## How does it work?
 

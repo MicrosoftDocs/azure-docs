@@ -191,6 +191,12 @@ items:
       displayName: roles
     - name: Data Storage
       href: luis-concept-data-storage.md
+  - name: Security
+    items:
+    - name: Role-based access control
+      href: role-based-access-control.md
+    - name: Authentication with Azure Active Directory
+      href: ../authentication.md#authenticate-with-azure-active-directory
   - name: Using LUIS and QnA Maker
     href: choose-natural-language-processing-service.md
     displayName: nlp, qna maker
@@ -402,7 +408,7 @@ items:
       href: https://azure.microsoft.com/services/cognitive-services/speech/
     - name: Bing Spell Check API
       href: https://azure.microsoft.com/services/cognitive-services/spell-check/
-    - name: Text Analytics
+    - name: Language service
       href: https://azure.microsoft.com/services/cognitive-services/text-analytics/
     - name: Recognizers-Text
       href: https://github.com/Microsoft/Recognizers-Text

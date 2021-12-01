@@ -57,8 +57,9 @@ landingContent:
             url: how-to-cicd.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: how-to-staging-environment.md
-          - text: Use persistent storage in Azure Spring Cloud
-            url: how-to-persistent-storage.md
+          - text: Use built-in persistent storage
+            url: how-to-built-in-persistent-storage.md
+ 
 
   # Card
   - title: Monitor your application

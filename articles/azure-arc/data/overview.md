@@ -56,7 +56,10 @@ The following table describes the scenarios that are currently supported for Azu
 |---------|---------|---------|
 |East US|Available|Available
 |East US 2|Available|Available
+|West US|Available|Available
 |West US 2|Available|Available
+|West US 3|Available|Available
+|North Central US | Available | Available
 |Central US|Not available|Available
 |South Central US|Available|Available
 |UK South|Available|Available

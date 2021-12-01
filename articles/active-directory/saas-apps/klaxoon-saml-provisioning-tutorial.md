@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Klaxoon SAML for automatic user provisioning with Az
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Klaxoon SAML.
 services: active-directory
 documentationcenter: ''
-author: twimmer
-writer: twimmer
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 5aaacb86-4fb0-49f3-9f7d-e9ea94829b2b

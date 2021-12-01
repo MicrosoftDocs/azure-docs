@@ -8,15 +8,13 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> The **Azure AD-only authentication** feature discussed in this article is in **public preview**. For detailed information about this feature, see [Azure AD-only authentication with Azure SQL](authentication-azure-ad-only-authentication.md). Azure AD-only authentication is currently not available for Azure Synapse Analytics.
 
 This how-to guide outlines the steps to create a [logical server](logical-servers.md) for Azure SQL Database or [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md) with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled during provisioning. The Azure AD-only authentication feature prevents users from connecting to the server or managed instance using SQL authentication, and only allows connection using Azure AD authentication.
 
@@ -76,10 +74,10 @@ To change the existing properties after server or managed instance creation, oth
 
 1. Leave **Connection policy** and **Minimum TLS version** settings as their default value.
 
-1. Select **Next: Security** at the bottom of the page. Configure any of the settings for **Azure Defender for SQL**, **Ledger**, **Identity**, and **Transparent data encryption** for your environment. You can also skip these settings.
+1. Select **Next: Security** at the bottom of the page. Configure any of the settings for **Microsoft Defender for SQL**, **Ledger**, **Identity**, and **Transparent data encryption** for your environment. You can also skip these settings.
 
    > [!NOTE]
-   > Using a user-assigned managed identity (UMI) is not supported with Azure AD-only authentication. Do not set the the server identity in the **Identity** section as a UMI.
+   > Using a user-assigned managed identity (UMI) is not supported with Azure AD-only authentication. Do not set the server identity in the **Identity** section as a UMI.
 
 1. Select **Review + create** at the bottom of the page.
 
@@ -303,7 +301,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab ":::
 
-   For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+   For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 1. Under **Authentication**, select **Use only Azure Active Directory (Azure AD) authentication** for the **Authentication method**.
 
@@ -311,7 +309,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab and choosing Azure AD only authentication":::
 
-1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 1. Once you are done with configuring your settings, select **Review + create** to proceed. Select **Create** to start provisioning the managed instance.
 

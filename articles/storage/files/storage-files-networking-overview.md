@@ -12,7 +12,7 @@ ms.subservice: files
 # Azure Files networking considerations 
 You can connect to an Azure file share in two ways:
 
-- Accessing the share directly via the Server Message Block (SMB), Network File System (NFS) (preview), or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
+- Accessing the share directly via the Server Message Block (SMB), Network File System (NFS), or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
 - Creating a cache of the Azure file share on an on-premises server (or on an Azure VM) with Azure File Sync, and accessing the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.) for your use case. This access pattern is handy because it combines the best of both on-premises performance and cloud scale and serverless attachable services, such as Azure Backup.
 
 This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [Azure File Sync networking considerations](../file-sync/file-sync-networking-overview.md).

@@ -12,7 +12,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 06/25/2019
+ms.date: 10/18/2021
 ---
 # Overview of business continuity with Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,14 +36,14 @@ From a database perspective, there are four major potential disruption scenarios
 
 To mitigate the local hardware and software failures, SQL Database includes a [high availability architecture](high-availability-sla.md), which guarantees automatic recovery from these failures with up to 99.995% availability SLA.  
 
-To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes. The backups are stored in RA-GRS storage for at least 7 days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days.
+To protect your business from data loss, SQL Database and SQL Managed Instance automatically create full database backups weekly, differential database backups every 12 hours, and transaction log backups every 5 - 10 minutes. The backups are stored in RA-GRS storage for at least seven days for all service tiers. All service tiers except Basic support configurable backup retention period for point-in-time restore, up to 35 days.
 
 SQL Database and SQL Managed Instance also provide several business continuity features that you can use to mitigate various unplanned scenarios.
 
 - [Temporal tables](../temporal-tables.md) enable you to restore row versions from any point in time.
 - [Built-in automated backups](automated-backups-overview.md) and [Point in Time Restore](recovery-using-backups.md#point-in-time-restore) enables you to restore complete database to some point in time within the configured retention period up to 35 days.
 - You can [restore a deleted database](recovery-using-backups.md#deleted-database-restore) to the point at which it was deleted if the **server has not been deleted**.
-- [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance
+- [Long-term backup retention](long-term-retention-overview.md) enables you to keep the backups up to 10 years. This is in limited public preview for SQL Managed Instance.
 - [Active geo-replication](active-geo-replication-overview.md) enables you to create readable replicas and manually failover to any replica in case of a datacenter outage or application upgrade.
 - [Auto-failover group](auto-failover-group-overview.md#terminology-and-capabilities) allows the application to automatically recover in case of a datacenter outage.
 
@@ -78,9 +78,9 @@ Although rare, an Azure datacenter can have an outage. When an outage occurs, it
 
 As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event. The time required for application to fully recover is known as Recovery time objective (RTO). You also need to understand the maximum period of recent data updates (time interval) the application can tolerate losing when recovering from an unplanned disruptive event. The potential data loss is known as Recovery point objective (RPO).
 
-Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achieve full application recovery. The following table compares RPO and RTO of each recovery option. Auto-failover groups simplify the deployment and usage of geo-replication and adds the additional capabilities as described in the following table.
+Different recovery methods offer different levels of RPO and RTO. You can choose a specific recovery method, or use a combination of methods to achieve full application recovery. The following table compares RPO and RTO of each recovery option. Auto-failover groups simplify the deployment and usage of geo-replication, and add the additional capabilities as described in the following table:
 
-| Recovery method | RTO | RPO |
+| **Recovery method** | **RTO** | **RPO** |
 | --- | --- | --- |
 | Geo-restore from geo-replicated backups | 12 h | 1 h |
 | Auto-failover groups | 1 h | 5 s |
@@ -98,9 +98,6 @@ Use auto-failover groups if your application meets any of these criteria:
 - Has a high rate of data change and 1 hour of data loss is not acceptable.
 - The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
->
-
 You may choose to use a combination of database backups and active geo-replication depending upon your application requirements. For a discussion of design considerations for stand-alone databases and for elastic pools using these business continuity features, see [Design an application for cloud disaster recovery](designing-cloud-solutions-for-disaster-recovery.md) and [Elastic pool disaster recovery strategies](disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 The following sections provide an overview of the steps to recover using either database backups or active geo-replication. For detailed steps including planning requirements, post recovery steps, and information about how to simulate an outage to perform a disaster recovery drill, see [Recover a database in SQL Database from an outage](disaster-recovery-guidance.md).
@@ -109,7 +106,7 @@ The following sections provide an overview of the steps to recover using either 
 
 Regardless of the business continuity feature you use, you must:
 
-- Identify and prepare the target server, including server-level IP firewall rules, logins, and master database level permissions.
+- Identify and prepare the target server, including server-level IP firewall rules, logins, and `master` database level permissions.
 - Determine how to redirect clients and client applications to the new server
 - Document other dependencies, such as auditing settings and alerts
 

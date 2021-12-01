@@ -21,6 +21,15 @@ In a hybrid environment, group policies configured in an on-premises AD DS envir
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
 
+If you are interested in server management strategy, including machines in Azure and
+[hybrid connected](../azure-arc/servers/overview.md),
+consider reading how to
+[convert Group Policy content](../governance/policy/how-to/guest-configuration-create-group-policy.md)
+to the
+[guest configuration](../governance/policy/concepts/guest-configuration.md)
+feature of
+[Azure Policy](../governance/policy/overview.md).
+
 ## Before you begin
 
 To complete this article, you need the following resources and privileges:

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: integration-runtime
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/26/2021
 ms.author: lle
 ---
 
@@ -201,7 +201,7 @@ The reason why you see the *System.ValueTuple.dll* under *%windir%\Microsoft.NET
 
 In the following error, you can clearly see that the *System.ValueTuple* assembly is missing. This issue arises when the application tries to check the *System.ValueTuple.dll* assembly.
  
-"\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
+> "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
 For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
@@ -350,6 +350,66 @@ To solve this issue, you need to add the self-hosted integration runtime service
     1. Select **NT SERVICE\DIAHostService** to grant it full control access to this certificate, apply and safe. 
     1. Select **Check Names** and then select **OK**.
     1. In the "Permissions" pane, select **Apply** and then select **OK**.
+
+### UserErrorJreNotFound error message when you run a copy activity to Azure
+
+#### Symptoms 
+
+When you try to copy content to Microsoft Azure by using a Java-based tool or program (for example, copying ORC or Parquet format files), you receive an error message that resembles the following:
+
+> ErrorCode=UserErrorJreNotFound,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Java Runtime Environment is not found. Go to `http://go.microsoft.com/fwlink/?LinkId=808605` to download and install on your Integration Runtime (Self-hosted) node machine. Note 64-bit Integration Runtime requires 64-bit JRE and 32-bit Integration Runtime requires 32-bit JRE.,Source=Microsoft.DataTransfer.Common,''Type=System.DllNotFoundException,Message=Unable to load DLL 'jvm.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E),Source=Microsoft.DataTransfer.Richfile.HiveOrcBridge
+
+#### Cause
+
+This issue occurs for either of the following reasons:
+
+- Java Runtime Environment (JRE) isn't installed correctly on your Integration Runtime server.
+
+- Your Integration Runtime server lacks the required dependency for JRE.
+
+By default, Integration Runtime resolves the JRE path by using registry entries. Those entries should be automatically set during JRE installation.
+
+#### Resolution
+
+Follow the steps in this section carefully. Serious problems might occur if you modify the registry incorrectly. Before you modify it, [back up the registry for restoration](https://support.microsoft.com/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) in case problems occur. 
+
+To fix this issue, follow these steps to verify the status of the JRE installation:
+
+1. Make sure that Integration Runtime (Diahost.exe) and JRE are installed on the same platform. Check the following conditions:
+    - 64-bit JRE for 64-bit ADF Integration Runtime should be installed in the folder: `C:\Program Files\Java\`
+    
+        > [!NOTE]
+        > The folder is not `C:\Program Files (x86)\Java\`
+    
+    - JRE 7 and JRE 8 are both compatible for this copy activity. JRE 6 and versions that are earlier than JRE 6 have not been validated for this use.
+
+2. Check the registry for the appropriate settings. To do this, follow these steps:
+
+    1. In the **Run** menu, type **Regedit**, and then press Enter.
+    
+    1. In the navigation pane, locate the following subkey:<br/> `HKEY_LOCAL_MACHINE\SOFTWARE\JavaSoft\Java Runtime Environment`. <br/> 
+
+        In the **Details** pane, there should be a Current Version entry that shows the JRE version (for example, 1.8).
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-runtime-environment-image.png" alt-text="Screenshot showing the Java Runtime Environment.":::
+
+    1. In the navigation pane, locate a subkey that is an exact match for the version (for example 1.8) under the JRE folder. In the details pane, there should be a **JavaHome** entry. The value of this entry is the JRE installation path.
+    
+        :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/java-home-entry-image.png" alt-text="Screenshot showing a JavaHome entry.":::
+
+3. Locate the bin\server folder in the following path: <br/> 
+
+    `C:\Program Files\Java\jre1.8.0_74`
+    
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/folder-of-jre.png" alt-text="Screenshot showing the JRE folder.":::
+
+1. Check whether this folder contains a jvm.dll file. If it does not, check for the file in the `bin\client` folder.
+
+    :::image type="content" source="./media/self-hosted-integration-runtime-troubleshoot-guide/file-location-image.png" alt-text="Screenshot showing a jvm.dll file location.":::
+
+> [!NOTE]
+> - If any of these configurations are not as described in these steps, use the [JRE windows installer](https://java.com/en/download/manual.jsp) to fix the problems.
+> - If all the configurations in these steps are correct as described, there may be a VC++ runtime library missing in the system. You can fix this problem by installing the VC++ 2010 Redistributable Package.
 
 ## Self-hosted IR setup
 
@@ -601,7 +661,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
 
 The following is the expected response:
             
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the expected Powershell command response.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the expected PowerShell command response.":::
 
 > [!NOTE] 
 > Proxy considerations:

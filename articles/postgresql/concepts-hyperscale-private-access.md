@@ -65,10 +65,10 @@ nodes' PostgreSQL connection strings.
 
 ## Private link
 
-You can use [private endpoints](/azure/private-link/private-endpoint-overview)
+You can use [private endpoints](../private-link/private-endpoint-overview.md)
 for your Hyperscale (Citus) server groups to allow hosts on a virtual network
 (VNet) to securely access data over a [Private
-Link](/azure/private-link/private-link-overview).
+Link](../private-link/private-link-overview.md).
 
 The server group's private endpoint uses an IP address from the virtual
 network's address space. Traffic between hosts on the virtual network and
@@ -87,7 +87,7 @@ and you can switch from public access to private access at any point.
 A new private DNS zone is automatically provisioned for each private endpoint,
 unless you select one of the private DNS zones previously created by Hyperscale
 (Citus). For more information, see the [private DNS zones
-overview](/azure/dns/private-dns-overview).
+overview](../dns/private-dns-overview.md).
 
 Hyperscale (Citus) service creates DNS records such as
 `c.privatelink.mygroup01.postgres.database.azure.com`  in the selected private
@@ -100,7 +100,7 @@ other. If you want to connect to a node in the server group from a client
 that's provisioned in another virtual network (from the same region or a
 different region), you have to link the private DNS zone with the virtual
 network. For more information, see [Link the virtual
-network](/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+network](../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 > [!NOTE]
 >
@@ -115,7 +115,7 @@ the FQDN of Hyperscale (Citus) nodes. The forwarder IP address should be
 168.63.129.16. The custom DNS server should be inside the virtual network or
 reachable via the virtual network's DNS server setting. To learn more, see
 [Name resolution that uses your own DNS
-server](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 ### Recommendations
 
@@ -128,7 +128,7 @@ consider:
   group. Make sure you have enough private IP addresses for the current and
   future needs. Keep in mind, Azure reserves five IP addresses in each subnet.
   See more details [in this
-  FAQ](/azure/virtual-network/virtual-networks-faq#configuration).
+  FAQ](../virtual-network/virtual-networks-faq.md#configuration).
 * **Private DNS zone**: DNS records with private IP addresses are going to be
   maintained by Hyperscale (Citus) service. Make sure you don’t delete private
   DNS zone used for Hyperscale (Citus) server groups.
@@ -145,7 +145,7 @@ page.
 * Follow a [tutorial](tutorial-hyperscale-private-access.md) to see
   private access (preview) in action.
 * Learn about [private
-  endpoints](/azure/private-link/private-endpoint-overview)
+  endpoints](../private-link/private-endpoint-overview.md)
 * Learn about [virtual
-  networks](/azure/virtual-network/concepts-and-best-practices)
-* Learn about [private DNS zones](/azure/dns/private-dns-overview)
+  networks](../virtual-network/concepts-and-best-practices.md)
+* Learn about [private DNS zones](../dns/private-dns-overview.md)

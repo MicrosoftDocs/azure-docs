@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # Spatial Analysis operations
@@ -36,7 +37,7 @@ Operation Identifier| Description
 | cognitiveservices.vision.spatialanalysis-persondistance.debug | Tracks when people violate a distance rule. <br> Emits a _personDistanceEvent_ periodically with the location of each distance violation. |
 | cognitiveservices.vision.spatialanalysis.debug | Generic operation which can be used to run all scenarios mentioned above. This option is more useful when you want to run multiple scenarios on the same camera or use system resources (e.g. GPU) more efficiently. |
 
-Spatial Analysis can also be run with [Live Video Analytics](../../media-services/live-video-analytics-edge/spatial-analysis-tutorial.md) as their Video AI module. 
+Spatial Analysis can also be run with [Live Video Analytics](../../azure-video-analyzer/video-analyzer-docs/overview.md) as their Video AI module. 
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
@@ -90,32 +91,33 @@ This is an example of the DETECTOR_NODE_CONFIG parameters for all Spatial Analys
 ### Camera calibration node parameter settings
 This is an example of the `CAMERACALIBRATOR_NODE_CONFIG` parameters for all spatial analysis operations.
 
-```
+```json
 {
-"gpu_index": 0,
-"do_calibration": true,
-"enable_breakpad": false,
-"enable_orientation": true
+  "gpu_index": 0,
+  "do_calibration": true,
+  "enable_breakpad": false,
+  "enable_orientation": true
 }
 ```
 
-| Name | Type| Description|
+| Name | Type | Description |
 |---------|---------|---------|
 | `do_calibration` | string | Indicates that calibration is turned on. `do_calibration` must be true for **cognitiveservices.vision.spatialanalysis-persondistance** to function properly. `do_calibration` is set by default to `True`. |
 | `enable_breakpad`| bool | Indicates whether to enable breakpad, which is used to generate a crash dump for debug use. It is `false` by default. If you set it to `true`, you also need to add `"CapAdd": ["SYS_PTRACE"]` in the `HostConfig` part of container `createOptions`. By default, the crash dump is uploaded to the [RealTimePersonTracking](https://appcenter.ms/orgs/Microsoft-Organization/apps/RealTimePersonTracking/crashes/errors?version=&appBuild=&period=last90Days&status=&errorType=all&sortCol=lastError&sortDir=desc) AppCenter app, if you want the crash dumps to be uploaded to your own AppCenter app, you can override the environment variable `RTPT_APPCENTER_APP_SECRET` with your app's app secret.
 | `enable_orientation` | bool | Indicates whether you want to compute the orientation for the detected people or not. `enable_orientation` is set by default to `True`. |
 
 ### Calibration config
+
 This is an example of the `CALIBRATION_CONFIG` parameters for all spatial analysis operations.
 
-```
+```json
 {
-"enable_recalibration": true,
-"calibration_quality_check_frequency_seconds": 86400,
-"calibration_quality_check_sample_collect_frequency_seconds": 300,
-"calibration_quality_check_one_round_sample_collect_num": 10,
-"calibration_quality_check_queue_max_size": 1000,
-"calibration_event_frequency_seconds": -1
+  "enable_recalibration": true,
+  "calibration_quality_check_frequency_seconds": 86400,
+  "calibration_quality_check_sample_collect_frequency_seconds": 300,
+  "calibration_quality_check_one_round_sample_collect_num": 10,
+  "calibration_quality_check_queue_max_size": 1000,
+  "calibration_event_frequency_seconds": -1
 }
 ```
 
@@ -128,10 +130,11 @@ This is an example of the `CALIBRATION_CONFIG` parameters for all spatial analys
 | `calibration_quality_check_queue_max_size` | int | Maximum number of data samples to store when camera model is calibrated. Default is `1000`. Only used when `enable_recalibration=True`.|
 | `calibration_event_frequency_seconds` | int | Output frequency (seconds) of camera calibration events. A value of `-1` indicates that the camera calibration should not be sent unless the camera calibration info has been changed. Default is `-1`.|
 
-
 ### Camera calibration output
+
 This is an example of the output from camera calibration if enabled. Ellipses indicate more of the same type of objects in a list.
-```
+
+```json
 {
   "type": "cameraCalibrationEvent",
   "sourceInfo": {
@@ -231,25 +234,30 @@ You can configure the speed computation through the tracker node parameter setti
 |---------|---------|---------|
 | `enable_speed` | bool | Indicates whether you want to compute the speed for the detected people or not. `enable_speed` is set by default to `True`. It is highly recommended that you enable both speed and orientation to have the best estimated values. |
 
-
 ## Spatial Analysis operations configuration and output
+
 ### Zone configuration for cognitiveservices.vision.spatialanalysis-personcount
 
- This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
+This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
 ```json
 {
-"zones":[{
-       "name": "lobbycamera",
-       "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
-       "events":[{
-              "type": "count",
-              "config":{
-                     "trigger": "event",
+  "zones": [
+    {
+      "name": "lobbycamera",
+      "polygon": [[0.3,0.3], [0.3,0.9], [0.6,0.9], [0.6,0.3], [0.3,0.3]],
+      "events": [
+        {
+          "type": "count",
+          "config": {
+            "trigger": "event",
             "threshold": 16.00,
             "focus": "footprint"
-      }
-       }]
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -314,7 +322,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
- ```json
+```json
 {
 "zones":[
    {
@@ -397,7 +405,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 ### Configuration for cognitiveservices.vision.spatialanalysis
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a line and zone for **cognitiveservices.vision.spatialanalysis**. You may configure multiple lines/zones for this operation and each line/zone can have different events.
 
- ```
+```json
 {
   "lines": [
     {
@@ -468,6 +476,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
   ]
 }
 ```
+
 ## Camera configuration
 
 See the [camera placement](spatial-analysis-camera-placement.md) guidelines to learn about more about how to configure zones and lines.

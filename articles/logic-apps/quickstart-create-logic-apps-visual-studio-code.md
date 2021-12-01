@@ -5,9 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.date: 05/25/2021
-
 # Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
@@ -53,7 +52,7 @@ Before you start, make sure that you have these items:
 
 <a name="access-azure"></a>
 
-## Access Azure from Visual Studio
+## Access Azure from Visual Studio Code
 
 1. Open Visual Studio Code. On the Visual Studio Code toolbar, select the Azure icon.
 
