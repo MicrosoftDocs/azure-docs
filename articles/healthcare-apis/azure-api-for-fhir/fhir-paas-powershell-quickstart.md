@@ -10,6 +10,7 @@ ms.date: 10/27/2021
 ms.author: zxue 
 ms.custom: devx-track-azurepowershell
 ---
+
 # Quickstart: Deploy Azure API for FHIR using PowerShell
 
 In this quickstart, you'll learn how to deploy Azure API for FHIR using PowerShell.
@@ -63,8 +64,10 @@ Remove-AzResourceGroup -Name myResourceGroupName
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
+In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For more information about the settings in Azure API for FHIR and to start using Azure API for FHIR, see
 
+>[!div class="nextstepaction"]
+>[Additional settings in Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
 
 >[!div class="nextstepaction"]
 >[Register Applications Overview](fhir-app-registration.md)
