@@ -52,7 +52,7 @@ At this point, you have the application (client) ID, and client secret, and you'
 
 ## Create Azure AD B2C user flows 
 
-Complete the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a users flow. Repeat the steps to create three separate user flows as follows: 
+Follow the steps in [Tutorial: Create user flows and custom policies in Azure Active Directory B2C](tutorial-create-user-flows.md?pivots=b2c-user-flow) to create a users flow. Repeat the steps to create three separate user flows as follows: 
 - A combined **Sign up and Sign up** user flow, such as `susi_node_app`. This user flow also supports **Forgot your password** experience
 - **Profile editing** user flow such as `edit_profile_node_app`.
 - **Password reset** user flow such as `reset_password_node_app`.
@@ -308,7 +308,7 @@ app.set("views", "./views");
 
 app.use(session(sessionConfig));
 ```
-## App endpoints
+## Add app endpoints
 
 Before you add the app endpoints, add the logic, which retrieves the authorization code URL. This is the first leg of authorization code grant flow. In the `index.js` file add the following code:
 
