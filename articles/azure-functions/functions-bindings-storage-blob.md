@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/22/2021
 ms.author: cshoe
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Blob storage bindings for Azure Functions overview

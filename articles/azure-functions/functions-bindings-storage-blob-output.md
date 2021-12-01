@@ -6,7 +6,7 @@ ms.topic: reference
 ms.date: 11/22/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Blob storage output binding for Azure Functions
