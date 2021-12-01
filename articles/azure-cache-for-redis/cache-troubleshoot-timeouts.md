@@ -32,14 +32,15 @@ Bursts of traffic combined with poor `ThreadPool` settings can result in delay
 
 ### Large key value
 
-See <!-- updated development best practices link --> for an explanation of how large key values lead to timeouts.
+For information about using multiple keys and smaller values, see [Consider more keys and smaller values](cache-best-practices-development.md#consider-more-keys-and-smaller-values).
 
-You can use the `redis-cli --bigkeys` command to check for large keys in your cache. See [redis-cli, the Redis command line interface--Redis](https://redis.io/topics/rediscli) for more information.
-    1. Increase the size of your VM to get higher bandwidth capabilities
-        - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
-        - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
-    1. Increase the number of connection objects your application uses.
-        - Use a round-robin approach to make requests over different connection objects
+You can use the `redis-cli --bigkeys` command to check for large keys in your cache. For more information, see [redis-cli, the Redis command line interface--Redis](https://redis.io/topics/rediscli).
+
+- Increase the size of your VM to get higher bandwidth capabilities
+  - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+  - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+- Increase the number of connection objects your application uses.
+  - Use a round-robin approach to make requests over different connection objects
 
 ### High CPU on client hosts
 
@@ -61,7 +62,7 @@ To mitigate, reduce network bandwidth consumption or increase the client VM size
 
 ### TCP settings for Linux based client applications
 
-Because of optimistic TCP settings in Linux, client applications hosted on Linux could experience connectivity issues. See <!-- link to 15 mins issue -->
+Because of optimistic TCP settings in Linux, client applications hosted on Linux could experience connectivity issues. For more information, see [TCP settings for Linux-hosted client applications](cache-best-practices-connection.md#tcp-settings-for-linux-hosted-client-applications)
 
 ### RedisSessionStateProvider retry timeout
 
@@ -88,11 +89,11 @@ If you're using `RedisSessionStateProvider`, ensure you have set the retry time
 
 ### Server maintenance
 
-Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully. To check whether your Azure Cache for Redis had a failover during when timeouts occured, check the metric "Errors" (Type: Failover) on the portal. See <!-- patching and failover link --> for more information on failovers.
+Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully. To check whether your Azure Cache for Redis had a failover during when timeouts occured, check the metric "Errors" (Type: Failover) on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
 
 ### High CPU load
 
-High CPU load means the Redis server is unable to keep up with the requests leading to timeout. Check the "Server Load" metric on your cache to check CPU load. Common causes for high CPU load are running expensive or long running commands <!-- add link to section below --> and high volume of operations. Depending on the expected operations volume and client connections, your cache may need to be scaled up or out. See <!-- link for when to scale --> for when to scale. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+High CPU load means the Redis server is unable to keep up with the requests leading to timeout. Check the "Server Load" metric on your cache to check CPU load. Common causes for high CPU load are running expensive or [long running commands](#long-running-commands) and high volume of operations. Depending on the expected operations volume and client connections, your cache may need to be scaled up or out. See when to scale. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
 
 ### High Memory usage
 

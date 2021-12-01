@@ -60,7 +60,7 @@ You can confirm the number of sent packets is equal to the received packets. Con
 ## Virtual network configuration
 
 1. Check if a virtual network is assigned to your cache from the "**Virtual Network**" section under the **Settings** on the Resource menu of the Azure portal.
-1. Ensure that the client host machine  <!-- can we avoid the word machine --> is in the same virtual network as the Azure Cache For Redis.
+1. Ensure that the client host machine is in the same virtual network as the Azure Cache For Redis.
 1. When the client application is in a different VNet than your Azure Cache For Redis, both VNets must have VNet peering enabled within the same Azure region.
 1. Validate that the [Inbound](cache-how-to-premium-vnet.md#inbound-port-requirements) and [Outbound](cache-how-to-premium-vnet.md#outbound-port-requirements) rules meet the requirement.
 1. For more information, see [Configure a virtual network - Premium-tier Azure Cache for Redis instance](cache-how-to-premium-vnet.md#how-can-i-verify-that-my-cache-is-working-in-a-virtual-network).

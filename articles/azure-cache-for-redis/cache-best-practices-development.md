@@ -57,7 +57,7 @@ Try to choose a Redis client that supports [Redis pipelining](https://redis.io/t
 
 ## Avoid expensive operations
 
-Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](cache-troubleshoot-timeouts.md#long-running-commands)
+Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](cache-troubleshoot-timeouts.md#long-running-commands).
 
 ## Choose an appropriate tier
 
