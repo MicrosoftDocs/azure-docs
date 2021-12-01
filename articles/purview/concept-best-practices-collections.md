@@ -40,7 +40,7 @@ Consider deploying collections in Azure Purview to fulfill the following require
 
 - For future scalability, we recommend that you create a top-level collection for your organization below the root collection. Assign relevant roles at the top-level collection instead of at the root collection.  
 
-- Consider security and access management a part of your design decision-making process when you build collections in Azure Purview. 
+- Consider security and access management as part of your design decision-making process when you build collections in Azure Purview. 
 
 - Each collection has a name attribute and a friendly name attribute. If you use Azure [Purview Studio](https://web.purview.azure.com/resource/) to deploy a collection, the system automatically assigns a random six-letter name to the collection to avoid duplication. To reduce complexity, avoid using duplicated friendly names across your collections, especially in the same level.  
 
