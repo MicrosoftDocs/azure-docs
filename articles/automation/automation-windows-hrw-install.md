@@ -248,7 +248,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 > [!NOTE]
-> After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is 30 minutes.
+> After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is up to 60 minutes.
 
 ## Remove a Hybrid Worker group
 
@@ -260,15 +260,11 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. On the properties page for the selected group, select **Delete**. A message asks you to confirm this action. Select **Yes** if you're sure that you want to continue.
+1. On the properties page for the selected group, select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Yes** if you're sure that you want to continue. 
+This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
-   ![Confirmation message](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
-
-   This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
-
-> [!NOTE]
-> When you delete a User Hybrid Worker group, the existing worker group in it is not deleted. To remove the existing worker group, use the Automation REST API operations.
-
+ 
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).

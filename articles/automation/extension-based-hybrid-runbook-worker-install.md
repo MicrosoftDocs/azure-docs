@@ -146,7 +146,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
-1. Select **Delete**. You'll be presented with a warning in a dialog box to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
 
 1. Select **Yes**. The hybrid worker group will be deleted.
 
