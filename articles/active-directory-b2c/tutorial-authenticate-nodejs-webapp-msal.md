@@ -200,7 +200,7 @@ Modify the values in the `.env` files as follows:
 - `client-id`: The **Application (client) ID** of the application you registered.
 - `session-secret`: A random string to be used as your express session secret. 
 - `client-secret`: Replace this value with the client secret you created earlier.
-- `tenant-name`: Replace this value with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
+- `tenant-name`: Replace this value with the tenant name in which you created your web app. Learn how to [Get your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your custom domain, such as `contoso.com`.
 - `susi-flow`: The **Sign up and Sign up** user flow such as `b2c_1_susi_node_app`.
 - `reset-password-flow`: The **Password reset** user flow such as `b2c_1_reset_password_node_app`. 
 - `edit-profile-flow`: The **Profile editing** user flow such as `b2c_1_edit_profile_node_app`.
@@ -453,7 +453,8 @@ The app endpoints are explained below:
     - Used when a user signs out.
     - The web app session is cleared and an http call is made to Azure AD B2c logout endpoint. 
 - `/redirect`:
-    - It uses the `state` query parameter in Azure AD B2C's request to it to differentiate between requests, which were made from the web app. It handles all redirect from Azure AD B2C except for sign out.
+    - It is the endpoint set as Redirect URI for the web app in Azure portal.
+    - It uses the `state` query parameter in Azure AD B2C's request to it, to differentiate between requests, which are made from the web app. It handles all redirect from Azure AD B2C except for sign out.
     - If the app state is `APP_STATES.LOGIN`, the authorization code acquired is used to retrieve a token using the `acquireTokenByCode()` method. This token includes an `idToken` and `idTokenClaims`, which used for user identification.
     - If the app state is `APP_STATES.PASSWORD_RESET`, handle any error such `user cancelled the operation` identified by error code `AADB2C90091`. Otherwise, you need to decide the next user experience. 
     - If the app state is `APP_STATES.EDIT_PROFILE`, use the authorization code to acquire a token. The token contains `idTokenClaims`, which includes the new changes. 
@@ -508,4 +509,8 @@ Test the Google identity provider:
 When you use a social identity provider such as Google, the user's identity is managed by it:
 - You can't reset your password the same way as with local account.  
 - When you sign out the user in your web app, you don't also sign out the user from the identity provider.  
+
+
+## Next steps
+- Learn how to [Acquire an access token for calling a web API in Azure AD B2C](tutorial-acquire-access-token.md)
 
