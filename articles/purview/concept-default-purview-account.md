@@ -28,7 +28,7 @@ Having multiple Purview accounts in a tenant now poses the challenge of which Pu
 
 * Setting up wrong default account can have security implications so only Azure global administrator at tenant level (Tenant Admin) can set the default account flag as 'Yes'. 
 
-* Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default purview account and then set the flag as 'Yes' to the new purview account.
+* Changing the default account is a two-step process. First you need to change the flag as 'No' to the current default Purview account and then set the flag as 'Yes' to the new Purview account.
 
 * Setting up default account is a control plane operation and hence purview studio will not have any changes if an account is defined as default. However, in the studio you can see the account name is appended with "(default)" for the default purview account.
 
