@@ -319,10 +319,17 @@ The query also specifies that twin *building* has a `$dtId` of 'building-3' and 
 ## Limitations
 
 The following limits apply to queries using `MATCH`:
-* Only one `MATCH` expression is supported per query statement
-* `$dtId` is required in the `WHERE` clause
-* Assigning a query variable to the relationship is only supported when the query specifies a single hop
-* The maximum hops supported in a query is 10
-* MATCH queries that contain $dtId filters on any node other than the starting node for the MATCH traversal may show empty results. E.g.
-  SELECT A, B, C FROM DIGITALTWINS MATCH A-[contains]->B-[is_part_of]->C WHERE B.$dtId = 'Device01'. If your scenario demands using $dtId on other nodes, then we recommend using   JOIN clause.
-* MATCH queries that contain traverse through the same node multiple times may be unexpectedly removed from results.
+* Only one `MATCH` expression is supported per query statement.
+* `$dtId` is required in the `WHERE` clause.
+* Assigning a query variable to the relationship is only supported when the query specifies a single hop.
+* The maximum hops supported in a query is 10.
+* MATCH queries that contain `$dtId` filters on any twin other than the starting twin for the MATCH traversal may show empty results. For example, the following query is subject to this limitation:
+
+    ```sql
+    SELECT A, B, C FROM DIGITALTWINS 
+    MATCH A-[contains]->B-[is_part_of]->C 
+    WHERE B.$dtId = 'Device01'
+    ```
+
+    If your scenario requires you to use `$dtId` on other twins, consider using the [JOIN clause](reference-query-clause-join.md) instead.
+* MATCH queries that traverse the same twin multiple times may unexpectedly remove this twin from results.
