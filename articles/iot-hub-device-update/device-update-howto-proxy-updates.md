@@ -113,7 +113,7 @@ sudo cp ~/microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get update
 ```
 
-- Install the **deviceupdat-agent** package on the IoT device.  
+- Install the **deviceupdat-agent** on the IoT device.  
 e.g.
 
   ```sh
