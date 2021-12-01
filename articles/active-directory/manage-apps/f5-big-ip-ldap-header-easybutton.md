@@ -250,9 +250,9 @@ When a user successfully authenticates, Azure AD issues a SAML token with a defa
 
 For this example, you can include one more attribute:
 
-1.Enter **Header Name** as *employeeid*
+1. Enter **Header Name** as *employeeid*
 
-2.Enter **Source Attribute** as *user.employeeid*
+2. Enter **Source Attribute** as *user.employeeid*
 
 
 ![Screenshot for user attributes and claims](./media/f5-big-ip-easy-button-ldap/user-attributes-claims.png)
