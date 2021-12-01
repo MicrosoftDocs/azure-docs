@@ -235,7 +235,7 @@ If you want to package your rule to be managed and deployed as code, you can eas
 
 If **event grouping** is set to **trigger an alert for each event**, then in certain scenarios, when viewing the query results at a later time (such as when pivoting back to alerts from an incident), it's possible that no query results will appear. This is because the event's connection to the alert is accomplished by the hashing of the particular event's information, and the inclusion of the hash in the query. If the query results have changed since the alert was generated, the hash will no longer be valid and no results will be displayed.
 
-To see the events, manually remove the line with the hash from the rule's query, and run the query.
+Also, in cases where there is [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually. 
 
 > [!NOTE]
 > This issue has been solved by the addition of a new field, **OriginalQuery**, to the results when this event grouping option is selected. See the [description](#event-grouping-and-rule-suppression) above.
