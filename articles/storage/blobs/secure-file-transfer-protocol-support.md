@@ -106,8 +106,6 @@ SFTP support is available in the following regions:
 
 - North Central US
 - East US 2
-- East US 2 EUAP
-- Central US EUAP
 - Canada East
 - Canada Central
 - North Europe

@@ -14,13 +14,6 @@ ms.custom: ignite-fall-2021
 
 Azure Purview supports automated scanning of on-prem, multi-cloud, and SaaS data sources. Running a "scan" invokes the process to ingest metadata from the registered data sources. The metadata curated at the end of scan and curation process includes technical metadata like data asset names (table names/ file names), file size, columns, data lineage and so on. For structured data sources (for example Relational Database Management System) the schema details are also captured. The curation process applies automated classification labels on the schema attributes based on the scan rule set configured, and sensitivity labels if your Purview account is connected to a Microsoft 365 Security & Compliance Center.
 
-## Intended audience
-
-- Data architecture team
-- Data curator
-- Data source administrator
-- Data engineer
-
 ## Why do you need best practices to manage data sources?
 
 The best practices enable you to optimize cost, build operational excellence, improve security compliance and performance efficiency.
