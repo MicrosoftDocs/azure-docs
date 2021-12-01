@@ -320,7 +320,7 @@ The annotation supports the following configuration options:
 See the output binding [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-csharp,programming-language-java,programming-language-python,programming-language-powershell,programming-language-typescript" 
+::: zone pivot="programming-language-javascript,programming-language-csharp,programming-language-java,programming-language-python,programming-language-powershell" 
  
 ## Configuration
 

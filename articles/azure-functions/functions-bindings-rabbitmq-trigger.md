@@ -252,7 +252,7 @@ The annotation supports the following configuration options:
 |**port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-typescript,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 
