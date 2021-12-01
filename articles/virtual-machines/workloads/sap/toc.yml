@@ -284,8 +284,11 @@
         href: sap-high-availability-infrastructure-wsfc-file-share.md   
       - name: Install HA SAP NetWeaver with WSFC and SOFS file share
         href: sap-high-availability-installation-wsfc-file-share.md              
-      - name: Mlti-SID with WSFC and file share
+      - name: Multi-SID with WSFC and file share
         href: sap-ascs-ha-multi-sid-wsfc-file-share.md
+      - name: Using Windows DFS-N to support flexible SAPMNT share creation for SMB based file share
+        href: high-availability-guide-windows-dfs.md
+
 - name: Automation framework (Azure VMs)
   items:
   - name: About deployment automation framework
