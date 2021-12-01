@@ -3,7 +3,7 @@ title: Microsoft Sentinel content hub catalog  | Microsoft Docs
 description: This article displays and details the currently available Microsoft Sentinel content hub packages.
 author: batamig
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 12/01/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -162,6 +162,12 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |**Fortinet Fortigate** |[Data connector](data-connectors-reference.md#fortinet), playbooks, custom Logic App connector|Security - Automation (SOAR) | Microsoft|
 | | | |
 
+## GitHub
+
+|Name    |Includes  |Categories |Supported by  |
+|---------|---------|---------|---------|
+|**Continuous Threat Monitoring for GitHub** |[Data connector](data-connectors-reference.md#github-preview), parser, workbook, analytics rules |Cloud Provider |Microsoft |
+| | | | |
 
 ## Google
 
