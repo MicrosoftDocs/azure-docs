@@ -1070,3 +1070,6 @@
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
+  - name: Load Testing
+    tocHref: /azure/load-testing/
+    topicHref: /azure/load-testing/overview-what-is-azure-load-testing

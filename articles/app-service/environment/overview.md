@@ -106,12 +106,12 @@ The ASEv3 is available in the following regions.
 |East US|Germany West Central|
 |East US 2|Japan East|
 |France Central|North Europe|
-|Germany West Central|South Central US|
-|Japan East|Southeast Asia|
-|Korea Central|UK South|
-|North Central US|West Europe|
-|North Europe|West US 2|
-|Norway East| |
+|Germany West Central|South Africa North|
+|Japan East|South Central US|
+|Korea Central|Southeast Asia|
+|North Central US|UK South|
+|North Europe|West Europe|
+|Norway East|West US 2|
 |South Africa North| |
 |South Central US| |
 |Southeast Asia| |
