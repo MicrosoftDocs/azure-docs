@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Migrate from Bing Maps to Azure Maps
+title: 'Tutorial: Migrate from Bing Maps to Azure Maps'
 titleSuffix: Microsoft Azure Maps
 description:  A tutorial on how to migrate from Bing Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
 author: stevemunk
