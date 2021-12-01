@@ -79,8 +79,8 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
     * Select the appropriate classification **name** for which the classification **rule** is to be created
 
     * Purview supports two methods for custom classification rule – **Regular Expression** and **Dictionary** 
-        * Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
-        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
+        * Use **Regular Expression** (regex) method if the data element can be consistently expressed using regular expression pattern or the pattern can be generated using data file. Ensure that the sample data is reflective of the population.
+        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified and is expected to conform to a given set of data (considering future values as well)
  
             :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing setting of regular expression and dictionary." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
 
