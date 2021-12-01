@@ -12,106 +12,89 @@ ms.author: shaas
 ms.subservice: blobs
 ---
 
-# Work with blob containers from PowerShell
+# Work with blob containers using PowerShell
 
 <!--Intro TBD (keep it short, do this last)-->
 
-The Azure Storage platform offers a variety of cloud solutions, each designed to be used for a specific use-case. Azure blob storage is the solution which allows you to store large amounts of unstructured object data as block blobs. You can use blob storage to gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics.
+The Azure Storage platform offers a variety of cloud solutions, each designed to address a specific use-case. Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics. Objects stored in blob storage are saved as block blobs, which are optimized for fast and efficient transfer.
 
-Blobs in Azure Storage are organized into containers. Before you can upload a blob, you must first create a container. 
+This article explains how to work with blob containers using Azure PowerShell. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
-To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
-
-
-
-Goal: To provide simple but useful examples for users in one place. It's okay if the examples here are somewhat redundant with those in the PS reference and elsewhere in our docs (but shouldn't be exactly the same).
+<!--Goal: To provide simple but useful examples for users in one place. It's okay if the examples here are somewhat redundant with those in the PS reference and elsewhere in our docs (but shouldn't be exactly the same).
 
 Point users to these resources for further info somewhere:
 
 - PS reference available at [Az.Storage Module](https://docs.microsoft.com/powershell/module/az.storage) / Relative link for doc: [Az.Storage Module](/powershell/module/az.storage)
 - PS Gallery: https://www.powershellgallery.com/packages/Az.Storage
 
-For now, let's avoid using the commands that start with -AzRm. These commands are using the Azure resource manager implementation for storage and are an alternate way to work with containers. We may go back and add them in.
+For now, let's avoid using the commands that start with -AzRm. These commands are using the Azure resource manager implementation for storage and are an alternate way to work with containers. We may go back and add them in.-->
 
 Login? Use `Create-AzConnection`.
 
 ## Create a container
 
-The `New-AzStorageContainer` cmdlet creates an Azure storage container.
+A storage account is the parent container for blob containers. Although billing, configuration, and replication properties are set at the storage account level, all blob data resides within a storage container. Before you can upload a blob, you must first create a container. 
 
-To create a container with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command. 
+There is no limit to the number of blobs or containers that can be created within a storage account, though containers cannot be nested.
 
-Basic example, e.g.:
+To create a container with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet. 
 
-```azurepowershell
-$rgName = "<resource-group>"
-$accountName = "<storage-account>"
-$containerName = "<container>"
+The following is a simplified example used to create a blob container. To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. 
 
-# Get context object, using Azure AD credentials
+ ```azurepowershell
+# Create variables
+$accountName    = "<storage-account>"
+$containerName  = "<new-container-name>"
+
+# Create a context object using Azure AD credentials
 $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
-# Create new container
+# Create a new container
 New-AzStorageContainer -Name $containerName -Context $ctx
 ```
 
 The response provides the URI of the blob endpoint and confirms the creation of the new container.
 
 ```Response
-Blob End Point: https://shaasstorageaccount.blob.core.windows.net/
+Blob End Point: https://demostorageaccount.blob.core.windows.net/
 
 Name                   PublicAccess   LastModified
 ----                   ------------   ------------
 powershellcontainer    Off            11/2/2021 3:58:23 AM +00:00
 ```
 
-
-Here's a couple of possible examples:
-
-Create containers with a for loop:
+You can also automate container creation by leveraging conditional operations with PowerShell as shown in the examples below. To use these examples, supply values for the variables and ensure that you've created a connection to your Azure subscription.
 
 ```azurepowershell
-$rgName = "<resource-group>"
+# Create variables
 $accountName = "<storage-account>"
-$containerName = "<container>"
+$containerName = "<new-container-prefix>"
+
+# Create a context object using Azure AD credentials
 $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
-for ($i = 1; $i -le 6; $i++) { 
+# Iterate through a loop and create containers
+for ($i = 1; $i -le 3; $i++) { 
     New-AzStorageContainer -Name (-join($containerName, $i)) -Context $ctx
     } 
+
+# Split a string into substrings and create containers
+"$($containername)4 $($containername)5 $($containername)6".split() | New-AzStorageContainer -Context $ctx
 ```
 
 The response provides the URI of the blob endpoint and confirms the creation of the new containers.
 
 ```Response
-Blob End Point: https://shaasstorageaccount.blob.core.windows.net/
+Blob End Point: https://demostorageaccount.blob.core.windows.net/
 
-Name                   PublicAccess   LastModified
-----                   ------------   ------------
-powershellcontainer1   Off            11/2/2021 4:09:05 AM +00:00
-powershellcontainer2   Off            11/2/2021 4:09:05 AM +00:00           
-powershellcontainer3   Off            11/2/2021 4:09:05 AM +00:00           
-powershellcontainer4   Off            11/2/2021 4:09:05 AM +00:00           
-powershellcontainer5   Off            11/2/2021 4:09:05 AM +00:00          
-powershellcontainer6   Off            11/2/2021 4:09:05 AM +00:00
-```
-
-The following example creates three new containers from a string of container names:
-
-```azurepowershell
-"container1 container2 container3".split() | New-AzStorageContainer -Context $ctx -Permission Container
-```
-
-The response provides the URI of the blob endpoint and confirms the creation of the new containers.
-
-```Response
-Blob End Point: https://shaasstorageaccount.blob.core.windows.net/
-
-Name                       PublicAccess   LastModified
-----                       ------------   ------------
-powershellcontainernum1    Container      11/2/2021 4:15:36 AM +00:00
-powershellcontainernum2    Container      11/2/2021 4:15:36 AM +00:00
-powershellcontainernum3    Container      11/2/2021 4:15:36 AM +00:00
+Name             PublicAccess   LastModified
+----             ------------   ------------
+democontainer1   Off            11/2/2021 4:09:05 AM +00:00
+democontainer2   Off            11/2/2021 4:09:05 AM +00:00           
+democontainer3   Off            11/2/2021 4:09:05 AM +00:00           
+democontainer4   Off            11/2/2021 4:09:05 AM +00:00           
+democontainer5   Off            11/2/2021 4:09:05 AM +00:00          
+democontainer6   Off            11/2/2021 4:09:05 AM +00:00
 ```
 
 ## List containers
@@ -129,6 +112,7 @@ powershellcontainernum1    Container      11/2/2021 4:15:36 AM +00:00
 powershellcontainernum2    Container      11/2/2021 4:15:36 AM +00:00
 powershellcontainernum3    Container      11/2/2021 4:15:36 AM +00:00
 ```
+
 
 The following example lists all blob storage containers and their associated blobs. Blobs stored in containers configured for anonymous access can be read, but access requests for secured containers must be authorized. You can read more about this topic in the [Authorize access to blobs](authorize-access-azure-active-directory.md) article.
 
