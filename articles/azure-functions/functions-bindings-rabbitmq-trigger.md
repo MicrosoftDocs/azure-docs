@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: cachai
 ms.custom:
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # RabbitMQ trigger for Azure Functions overview
