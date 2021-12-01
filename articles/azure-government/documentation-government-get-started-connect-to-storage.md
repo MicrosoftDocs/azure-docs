@@ -62,7 +62,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 
-3. At this point, we can interact with Storage as we normally would. For example, if we want to retrieve a specific entity from our table storage, we could do it like this:
+3. At this point, we can interact with Storage as we normally would. For example, if we want to retrieve a specific entity from our Table Storage, we could do it like this:
 
    ```cs
     var tableClient = tableServiceClient.GetTableClient("Contacts");
