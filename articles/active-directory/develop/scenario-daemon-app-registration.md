@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/12/2021
+ms.date: 12/01/2021
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a daemon app that can call web APIs by using the Microsoft identity platform for developers.
@@ -23,7 +23,7 @@ For a daemon application, here's what you need to know when you register the app
 
 Daemon applications make sense only in Azure Active Directory (Azure AD) tenants. So when you create the application, choose one of the following options:
 
-- **Accounts in this organizational directory only**. This choice is the most common one because daemon applications are  written by line-of-business (LOB) developers.
+- **Accounts in this organizational directory only**. This choice is the most common one because daemon applications are written by line-of-business (LOB) developers.
 - **Accounts in any organizational directory**. You'll make this choice if you're an Independent Software Vendor (ISV) providing a utility tool to your customers. You'll need your customers' tenant admins to approve it.
 
 ## Authentication - no reply URI needed
