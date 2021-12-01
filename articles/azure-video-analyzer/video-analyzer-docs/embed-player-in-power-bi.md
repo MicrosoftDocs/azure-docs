@@ -1,5 +1,5 @@
 ---
-title: Embed player widget in Power BI - Azure Video Analyzer
+title: Embed player widget in Power BI
 description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This article talks about how to embed videos in Microsoft Power BI to provide a customizable UI for your users.
 ms.service: azure-video-analyzer
 ms.topic: how-to

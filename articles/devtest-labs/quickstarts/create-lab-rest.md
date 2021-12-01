@@ -4,6 +4,7 @@ description: In this quickstart, you create a lab in Azure DevTest Labs by using
 ms.topic: quickstart
 ms.date: 10/27/2021
 # Customer intent: As an administrator, I want to set up a lab so that my developers have a test environment.
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a lab in Azure DevTest Labs using Azure REST API

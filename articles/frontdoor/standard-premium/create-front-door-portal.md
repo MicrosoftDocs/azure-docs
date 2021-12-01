@@ -12,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2021
 ms.author: duau
+ms.custom: mode-other
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal
