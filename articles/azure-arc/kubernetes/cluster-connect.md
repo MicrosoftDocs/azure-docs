@@ -21,7 +21,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
 
-- Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
+- Install the `connectedk8s` Azure CLI extension of version >= 1.2.0:
 
     ```console
     az extension add --name connectedk8s
@@ -35,7 +35,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
-    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
+    - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.5.3.
 
 - Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
 

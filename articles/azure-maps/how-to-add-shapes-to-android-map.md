@@ -252,7 +252,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 
 | ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
 |:-----------------------------------------------------------------------:|
-| fill_checker_red.png                                                    |
+| fill-checker-red.png                                                    |
 
 The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 

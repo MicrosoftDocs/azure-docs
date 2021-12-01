@@ -63,12 +63,6 @@ landingContent:
             url: deploy-nextjs.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
-  - title: Infrastructure as code
-    linkLists:
-     - linkListType: tutorial
-       links:
-         - text: Create an Azure Static Web App using an ARM template 
-           url: publish-azure-resource-manager.md  
   - title: Key concepts
     linkLists:
       - linkListType: concept
@@ -85,3 +79,9 @@ landingContent:
             url: publish-devops.md?tabs=github-actions
           - text: Build configuration with Azure DevOps
             url: publish-devops.md?tabs=azure-devops
+  - title: Infrastructure as code
+    linkLists:
+     - linkListType: tutorial
+       links:
+         - text: Create an Azure Static Web App using an ARM template 
+           url: publish-azure-resource-manager.md  

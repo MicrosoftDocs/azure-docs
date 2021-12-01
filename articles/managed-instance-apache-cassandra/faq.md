@@ -6,7 +6,7 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
@@ -27,6 +27,10 @@ Azure Managed Instance for Apache Cassandra is delivered by the Azure Cosmos DB 
 ### Is Azure Managed Instance for Apache Cassandra dependent on Azure Cosmos DB?
 
 No, there is no architectural dependency between Azure Managed Instance for Apache Cassandra and the Azure Cosmos DB backend. 
+
+### Does Azure Managed Instance for Apache Cassandra have an SLA?
+
+Yes, the SLA is published [here](https://azure.microsoft.com/support/legal/sla/managed-instance-apache-cassandra/v1_0/). 
 
 #### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
