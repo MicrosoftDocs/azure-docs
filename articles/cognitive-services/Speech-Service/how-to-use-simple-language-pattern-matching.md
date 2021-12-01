@@ -31,10 +31,10 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 
 Use this sample code if: 
 * You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
-* You do not have access to a [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) app, but still want intents. This can be helpful since it is embedded within the SDK.
-* You cannot or do not want to create a [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) app but you still want some voice commanding capability.
+* You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
+* You cannot or do not want to create a [LUIS](../LUIS/index.yml) app but you still want some voice commanding capability.
 
-If you do not have access to a [LUIS](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/what-is-luis) app, but still want intents, this can be helpful since it is embedded within the SDK.
+If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
 
 
 ## Prerequisites
