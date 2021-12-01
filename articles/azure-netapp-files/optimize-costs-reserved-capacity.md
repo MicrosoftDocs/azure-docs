@@ -3,7 +3,7 @@ title: Optimize costs for Azure NetApp Files with reserved capacity | Microsoft 
 description: Describes the terms for Azure NetApp Files capacity reservation and how to purchase, exchange, and refund for reserved capacity.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Optimize costs for Azure NetApp Files with reserved capacity
 
