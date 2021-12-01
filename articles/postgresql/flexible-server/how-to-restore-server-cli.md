@@ -5,14 +5,13 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 05/29/2021
+ms.date: 11/30/2021
 ---
 
 # Point-in-time restore of a Azure Database for PostgreSQL - Flexible Server with Azure CLI
 
 
-> [!IMPORTANT]
-> Azure Database for PostgreQL - Flexible Server is currently in public preview.
+
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 

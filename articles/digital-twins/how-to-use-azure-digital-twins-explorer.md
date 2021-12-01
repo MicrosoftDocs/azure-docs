@@ -307,9 +307,9 @@ You can also view a model's full definition by selecting it in the **Model Graph
 
 You can rearrange the models into different configurations by clicking and dragging them around the Model Graph screen.
 
-You can also apply one of several layout algorithms to the model graph from the options in the **Run Layout** menu. 
+You can also apply one of several layout algorithms to the model graph from the options in the **Choose Layout** menu. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Choose Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
 
 ### Filter and highlight model graph elements
 
@@ -557,7 +557,7 @@ You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a l
 
 There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
 * **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
-* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
+* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh. This feature is off by default.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 * **High Contrast**: This feature changes the colors of the Azure Digital Twins Explorer so they appear with greater contrast.

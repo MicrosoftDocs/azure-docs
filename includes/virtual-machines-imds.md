@@ -13,8 +13,7 @@ ms.custom: references_regions
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances. You can use it to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data available, see the [Endpoint Categories Summary](#endpoint-categories).
 
-IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only
-the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
+IMDS is available for running instances of virtual machines (VMs) and virtual machine scale set instances. All endpoints support VMs created and managed by using [Azure Resource Manager](/rest/api/resources/). Only the Attested category and Network portion of the Instance category support VMs created by using the classic deployment model. The Attested endpoint does so only to a limited extent.
 
 IMDS is a REST API that's available at a well-known, non-routable IP address (`169.254.169.254`). You can only access it from within the VM. Communication between the VM and IMDS never leaves the host.
 Have your HTTP clients bypass web proxies within the VM when querying IMDS, and treat `169.254.169.254` the same as [`168.63.129.16`](../articles/virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -649,7 +648,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -767,7 +766,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "azEnvironment": "AZUREPUBLICCLOUD",
     "extendedLocation": {
       "type": "edgeZone",
-      "location": "microsoftlosangeles"
+      "name": "microsoftlosangeles"
     },
     "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
@@ -1396,7 +1395,7 @@ If you aren't able to get a metadata response after multiple attempts, you can c
 
 ## Product feedback
 
-You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627)
+You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c)
 
 ## Next steps
 

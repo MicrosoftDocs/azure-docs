@@ -1,35 +1,26 @@
 ---
-title: Azure Sentinel content hub catalog  | Microsoft Docs
-description: This article displays and details the currently available Azure Sentinel content hub packages.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel content hub catalog  | Microsoft Docs
+description: This article displays and details the currently available Microsoft Sentinel content hub packages.
 author: batamig
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 10/12/2021
+ms.date: 11/09/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel content hub catalog
+# Microsoft Sentinel content hub catalog
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
-> The Azure Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel content hub experience is currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Azure Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Azure Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
+[Microsoft Sentinel solutions](sentinel-solutions.md) provide a consolidated way to acquire Microsoft Sentinel content - like data connectors, workbooks, analytics, and automation - in your workspace with a single deployment step.
 
-This article lists the out-of-the-box (built-in), on-demand, Azure Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Azure Sentinel. 
+This article lists the out-of-the-box (built-in), on-demand, Microsoft Sentinel data connectors and solutions available for you to deploy in your workspace. Deploying a solution makes any included security content, such as data connectors, playbooks, workbooks, or rules, in the relevant area of Microsoft Sentinel. 
 
-For more information, see [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
+For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
 ## Domain solutions
 
@@ -37,10 +28,9 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |---------|---------|---------|---------|
 |**Microsoft Insider Risk Management** |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
 | **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
-| **Azure Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
-|**Zero Trust** (TIC3.0) |Workbooks |Identity, Security - Others |Microsoft |
+| **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
+|**Zero Trust** (TIC3.0) |[Workbooks](https://techcommunity.microsoft.com/t5/public-sector-blog/announcing-the-azure-sentinel-zero-trust-tic3-0-workbook/ba-p/2313761) |Identity, Security - Others |Microsoft  |
 | | | | |
-
 
 ## Arista Networks
 
@@ -65,8 +55,8 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
 |**Azure Firewall Solution for Sentinel**| [Data connector](data-connectors-reference.md#azure-firewall), workbook, analytics rules, playbooks, hunting queries, custom Logic App connector |Security - Network Security, Networking | Community|
-|**Azure Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
-|**Azure Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
+|**Microsoft Sentinel for SQL PaaS**     |  [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics rules, playbooks, hunting queries     | Application        |      Community   |
+|**Microsoft Sentinel Training Lab** |Workbook, analytics rules, playbooks, hunting queries | Training and tutorials |Microsoft |
 |**Azure SQL** | [Data connector](data-connectors-reference.md#azure-sql-databases), workbook, analytics, playbooks, hunting queries  | Application |Microsoft  |
 | | | | |
 
@@ -83,7 +73,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name   |Includes  |Categories |Supported by  |
 |------------------|---------|---------|---------|
-|**Check Point Azure Sentinel Solutions**   |[Data connector](data-connectors-reference.md#check-point), playbooks, custom Logic App connector  | Security - Automation (SOAR) | [Checkpoint](https://www.checkpoint.com/support-services/contact-support/)|
+|**Check Point Microsoft Sentinel Solutions**   |[Data connector](data-connectors-reference.md#check-point), playbooks, custom Logic App connector  | Security - Automation (SOAR) | [Checkpoint](https://www.checkpoint.com/support-services/contact-support/)|
 | | | | |
 
 
@@ -118,7 +108,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Contrast Protect Azure Sentinel Solution**|Data connector, workbooks, analytics rules |Security - Threat protection |Microsoft  |
+|**Contrast Protect Microsoft Sentinel Solution**|Data connector, workbooks, analytics rules |Security - Threat protection |Microsoft  |
 | | | | |
 
 ## Crowdstrike
@@ -187,7 +177,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**HYAS Insight for Azure Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |Microsoft |
+|**HYAS Insight for Microsoft Sentinel Solutions Gallery**| Playbooks| Security - Threat Intelligence, Security - Automation (SOAR) |Microsoft |
 | | | | |
 
 ## Imperva
@@ -209,7 +199,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**IronNet CyberSecurity Iron Defense - Azure Sentinel** | |Security - Network |Microsoft |
+|**IronNet CyberSecurity Iron Defense - Microsoft Sentinel** | |Security - Network |Microsoft |
 | | | |
 
 
@@ -234,7 +224,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Lookout Mobile Threat Defense for Azure Sentinel**| [Data connector](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|Security - Network |[Lookout](https://www.lookout.com/support) |
+|**Lookout Mobile Threat Defense for Microsoft Sentinel**| [Data connector](data-connectors-reference.md#lookout-mobile-threat-defense-preview)|Security - Network |[Lookout](https://www.lookout.com/support) |
 | | | |
 
 ## McAfee
@@ -249,8 +239,8 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Azure Sentinel 4 Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
-|**Azure Sentinel for Teams**     | Data connector, analytics rules, playbooks, hunting queries      |   Application      |    Community     |
+|**Microsoft Sentinel 4 Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
+|**Microsoft Sentinel for Teams**     | Data connector, analytics rules, playbooks, hunting queries      |   Application      |    Community     |
 | | | | |
 
 
@@ -341,7 +331,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Senserva Offer for Azure Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |[Senserva](https://www.senserva.com/contact/) |
+|**Senserva Offer for Microsoft Sentinel** |Data connector, workbooks, analytics rules, hunting queries |Compliance |[Senserva](https://www.senserva.com/contact/) |
 | | | | |
 
 
@@ -349,7 +339,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Sonrai Security - Azure Sentinel** |Data connector, workbooks, analytics rules   | Compliance|Sonrai Security |
+|**Sonrai Security - Microsoft Sentinel** |Data connector, workbooks, analytics rules   | Compliance|Sonrai Security |
 | | | | |
 
 ## Slack
@@ -407,7 +397,7 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**vArmour Application Controller and Azure Sentinel Solution**|Data connector, workbook, analytics rules |IT Operations |[vArmour](https://www.varmour.com/contact-us/) |
+|**vArmour Application Controller and Microsoft Sentinel Solution**|Data connector, workbook, analytics rules |IT Operations |[vArmour](https://www.varmour.com/contact-us/) |
 | | | | |
 
 ## Vectra
@@ -429,13 +419,13 @@ For more information, see [Centrally discover and deploy Azure Sentinel out-of-t
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
-|**Corelight for Azure Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
+|**Corelight for Microsoft Sentinel**|Data connector, workbooks, analytics rules, hunting queries, parser | IT Operations, Security - Network | [Zeek Network](https://support.corelight.com/)|
 | | | | |
 
 
 ## Next steps
 
-In this document, you learned about Azure Sentinel solutions and how to find and deploy them.
+In this document, you learned about Microsoft Sentinel solutions and how to find and deploy them.
 
-- Learn more about [Azure Sentinel Solutions](sentinel-solutions.md).
-- [Find and deploy Azure Sentinel Solutions](sentinel-solutions-deploy.md).
+- Learn more about [Microsoft Sentinel Solutions](sentinel-solutions.md).
+- [Find and deploy Microsoft Sentinel Solutions](sentinel-solutions-deploy.md).

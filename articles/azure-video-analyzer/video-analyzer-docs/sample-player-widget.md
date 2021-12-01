@@ -3,7 +3,7 @@ title: The Azure Video Analyzer player widget sample
 description: This reference article gives a brief overview of the Video Analyzer player widget sample application
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 

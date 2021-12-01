@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: laobri
 author: lobrien
-ms.date: 8/25/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 

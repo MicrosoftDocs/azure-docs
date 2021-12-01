@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.author: trkeya
 author: trkeya
-ms.date: 09/09/2021
+ms.date: 10/26/2021
 ---
 
 # Azure Resource Manager test drive
@@ -16,6 +16,9 @@ Use this type if you have an offer on Azure Marketplace or AppSource but want to
 If you are unfamiliar with what an ARM template is, read [What is Azure Resource Manager?](../azure-resource-manager/management/overview.md) and [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/syntax.md) to better understand how to build and test your own templates.
 
 For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
+
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Technical configuration
 

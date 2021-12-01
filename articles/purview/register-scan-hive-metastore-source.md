@@ -18,7 +18,9 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 > [!Important]
 > The supported platforms are Apache Hadoop, Cloudera, Hortonworks and Databricks.
@@ -81,7 +83,7 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md] to set up a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -133,13 +135,14 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
 
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail.
+       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your VM. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+       >
+       > When you enter local file system paths in the Purview Studio scan configuration, remember to change the Windows path separator character from `\` to `/`. For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it is placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
-       To this URL, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
 
-       The metastore JDBC URL will be:
+       The **Metastore JDBC URL** will look like this example:
 
-       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
     1. **Metastore database name**: Provide the Hive Metastore Database name.
 

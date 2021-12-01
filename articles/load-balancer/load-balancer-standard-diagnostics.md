@@ -214,7 +214,7 @@ The chart displays the following information:
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
 </details>
 
-## Configure alerts for multi-dimensional metrics ###
+## Configure alerts for multi-dimensional metrics
 
 Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
 

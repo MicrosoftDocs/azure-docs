@@ -12,17 +12,13 @@ ms.date: 11/02/2021
 
 # What's new in Azure Synapse Analytics?
 
-This article describes updates to Azure Synapse Analytics and lists features that are currently in public preview.
+This article lists updates to Azure Synapse Analytics that are now available as of October 2021.
 
-The links beside each feature in the list are as follows:
-
-- [blog]: Most features are explained in a section in the monthly update blog post.
-- [article]: Some features have an article that provides more detail
-- The remaining features are self-explanatory and don't need an article.
+Each update links to the Azure Synapse Analytics blog and an article that provides more information.
 
 ## October 2021 Update
 
-The following updates are new to Azure Synapse Analytics this month:
+The following updates are new to Azure Synapse Analytics this month.
 
 ### General
 

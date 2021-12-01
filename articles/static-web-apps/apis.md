@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 08/24/2021
+ms.date: 11/08/2021
 ms.author: cshoe
 ---
 
@@ -28,7 +28,7 @@ The following table contrasts the differences between using managed and existing
 | Feature | Managed Functions | Bring your own Functions |
 | --- | --- | --- |
 | Access to Azure Functions [triggers](../azure-functions/functions-triggers-bindings.md#supported-bindings) | Http only | All |
-| Supported Azure Functions [runtimes](../azure-functions/supported-languages.md#languages-by-runtime-version) | Node.js 12<br>.NET Core 3.1<br>Python 3.8 | All |
+| Supported Azure Functions [runtimes](../azure-functions/supported-languages.md#languages-by-runtime-version) | Node.js 12<br>.NET Core 3.1<br>.NET 6.0<br>Python 3.8 | All |
 | Supported Azure Functions [hosting plans](../azure-functions/functions-scale.md) | Consumption | Consumption<br>Premium<br>Dedicated |
 | [Integrated security](user-information.md) with direct access to user authentication and role-based authorization data | ✔ | ✔ |
 | [Routing integration](./configuration.md?#routes) that makes the _api_ route available to the web app securely without requiring custom CORS rules. | ✔ | ✔ |
@@ -61,7 +61,7 @@ Logs are only available if you add [Application Insights](monitor.md).
 
 | Managed functions | Bring your own functions |
 | --- | --- |
-| <ul><li>Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, .NET Core 3.1, or Python 3.8.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>You are responsible to manage the Functions app deployment.</li></ul> |
+| <ul><li>Triggers are limited to [HTTP](../azure-functions/functions-bindings-http-webhook.md).</li><li>The Azure Functions app must either be in Node.js 12, .NET Core 3.1, .NET 6.0, or Python 3.8.</li><li>Some application settings are managed by the service, therefore the following prefixes are reserved by the runtime:<ul><li>*APPSETTING\_, AZUREBLOBSTORAGE\_, AZUREFILESSTORAGE\_, AZURE_FUNCTION\_, CONTAINER\_, DIAGNOSTICS\_, DOCKER\_, FUNCTIONS\_, IDENTITY\_, MACHINEKEY\_, MAINSITE\_, MSDEPLOY\_, SCMSITE\_, SCM\_, WEBSITES\_, WEBSITE\_, WEBSOCKET\_, AzureWeb*</li></ul></li></ul> | <ul><li>You are responsible to manage the Functions app deployment.</li></ul> |
 
 ## Next steps
 

@@ -5,13 +5,14 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 03/03/2021
 ms.topic: article
-author: mlearned
-ms.author: mlearned
 description: "Use GitOps with Helm for an Azure Arc-enabled cluster configuration"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers"
 ---
 
 # Deploy Helm Charts using GitOps on an Azure Arc-enabled Kubernetes cluster
+
+> [!NOTE]
+> This article is for GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial for GitOps with Flux v2](./tutorial-use-gitops-flux2.md).
 
 Helm is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications. Similar to Linux package managers like APT and Yum, Helm is used to manage Kubernetes charts, which are packages of pre-configured Kubernetes resources.
 
