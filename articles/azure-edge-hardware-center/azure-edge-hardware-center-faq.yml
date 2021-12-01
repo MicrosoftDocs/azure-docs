@@ -16,6 +16,9 @@ title: "Azure Edge Hardware Center: Frequently Asked Questions"
 summary: |
   Use Azure Edge Hardware Center service to order from a variety of Azure Stack Edge devices as per your business need. This FAQ contains questions and answers that you may have when you use the Azure Edge Hardware Center in the Azure portal.
 
+sections:
+  - name: Ignored
+    questions:
       - question: |
           What is Azure Edge Hardware Center? 
         answer: |
