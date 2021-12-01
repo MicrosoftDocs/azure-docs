@@ -166,7 +166,7 @@ To resolve the error, follow these steps:
 1. In the affected VM, go to **Control panel** -> **Program and features**.
 1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
 1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
-   1. Go to _C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\`<LatestVersion>`_ folder.
+   1. Go to _C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\{LatestVersion}_ folder.
    1. Search and run the **vcredist2013_x64** file to install.
 1. Retry backup operation.
 
