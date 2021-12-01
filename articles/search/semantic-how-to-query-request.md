@@ -47,7 +47,7 @@ POST https://[service name].search.windows.net/indexes/[index name]/docs/search?
 {    
     "search": " Where was Alan Turing born?",    
     "queryType": "semantic",  
-    "semanticConfiguration": "my-semantic-config",  
+    "semanticConfiguration": "my-semantic-config",
     "queryLanguage": "en-us"  
 }
 ```
@@ -76,9 +76,83 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 ## Create a semantic configuration
 
-The models used for semantic search...
+In order to get the best results from semantic search, it's important to give the underlying models hints about which fields in your index are most important for semantic ranking, captions, highlights, and answers. To provide that information, you'll need to create a semantic configuration.
 
+A semantic configuration contains properties to list three different types of fields which map back to the inputs the underlying models for semantic search expect:
 
++ **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
++ **Content fields** - Content fields should contain text in natural language form. Common examples of content are the text of a document, the description of a product, or other free-form text.
++ **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
+
+You can only specify a single title field as part of your semantic configuration but you can specify as many content and keyword fields as you like. However, it's important that you list the content and keyword fields in priority order because lower priority fields may get truncated. Fields listed first will be given higher priority. Any field of type `Edm.String` or `Collection(Edm.String)` can be used as part of a semantic configuration.
+
+You're only required to specify one field between `titleField`, `prioritizedContentFields`, and `prioritizedKeywordsFields`, but it's best to add the fields to your semantic configuration if they exist in your search index.
+
+Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
+
+### [**REST API**](#tab/rest)
+
+ ```json
+"semantic": {
+      "configurations": [
+        {
+          "name": "my-semantic-config",
+          "prioritizedFields": {
+            "titleField": {
+                  "fieldName": "hotelName"
+                },
+            "prioritizedContentFields": [
+              {
+                "fieldName": "description"
+              },
+              {
+                "fieldName": "description_fr"
+              }
+            ],
+            "prioritizedKeywordsFields": [
+              {
+                "fieldName": "tags"
+              },
+              {
+                "fieldName": "category"
+              }
+            ]
+          }
+        }
+      ]
+    }
+```
+
+### [**.NET SDK**](#tab/sdk)
+
+```c#
+var definition = new SearchIndex(indexName, searchFields);
+
+SemanticSettings semanticSettings = new SemanticSettings();
+semanticSettings.Configurations.Add(new SemanticConfiguration
+    (
+        "my-semantic-config",
+        new PrioritizedFields()
+        {
+            TitleField = new SemanticField { FieldName = "HotelName" },
+            ContentFields = {
+            new SemanticField { FieldName = "Description" },
+            new SemanticField { FieldName = "Description_fr" }
+            },
+            KeywordFields = {
+            new SemanticField { FieldName = "Tags" },
+            new SemanticField { FieldName = "Category" }
+            }
+        }
+    )
+);
+
+definition.SemanticSettings = semanticSettings;
+
+adminClient.CreateOrUpdateIndex(definition);
+```
+
+---
 
 ## Query using REST
 
@@ -94,9 +168,10 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
     "search": "newer hotel near the water with a great restaurant",
     "queryType": "semantic",
     "queryLanguage": "en-us",
-    "searchFields": "HotelName,Category,Description",
+    "semanticConfiguration": "my-semantic-config",
     "speller": "lexicon",
     "answers": "extractive|count-3",
+    "captions": "extractive|highlight-true",
     "highlightPreTag": "<strong>",
     "highlightPostTag": "</strong>",
     "select": "HotelId,HotelName,Description,Category",
@@ -117,7 +192,7 @@ The following table summarizes the parameters used in a semantic query. For a li
 
 ### [**searchFields**](#tab/searchFields)
 
-```
+```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
 {
     "search": "newer hotel near the water with a great restaurant",
@@ -186,41 +261,16 @@ While content in a search index can be composed in multiple languages, the query
 
 <a name="searchfields"></a>
 
-#### Step 2: Set searchFields
+#### Step 2: Set semanticConfiguration
 
-Add searchFields to the request. It's optional but strongly recommended.
+Add a semanticConfiguration to the request. A semantic configuration is required and important for getting the best results from semantic search.
 
 ```json
-"searchFields": "HotelName,Category,Description",
+"semanticConfiguration": "my-semantic-config",
 ```
 
-The searchFields parameter is used to identify passages to be evaluated for "semantic similarity" to the query. For the preview, we do not recommend leaving searchFields blank as the model requires a hint as to which fields are the most important to process.
+The [semantic configuration](#create-a-semantic-configuration) is used to tell semantic search's models which fields are most important for re-ranking search results based on semantic similarity. 
 
-In contrast with other parameters, searchFields is not new. You might already be using searchFields in existing code for simple or full Lucene queries. If so, revisit how the parameter is used so that you can check for field order when switching to a semantic query type.
-
-##### Allowed data types
-
-When setting searchFields, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
-
-| Data type | Example from hotels-sample-index |
-|-----------|----------------------------------|
-| Edm.String | HotelName, Category, Description |
-| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
-| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
-
-##### Order of fields in searchFields
-
-Field order is critical because the semantic ranker limits the amount of content it can process while still delivering a reasonable response time. Content from fields at the start of the list are more likely to be included; content from the end could be truncated if the maximum limit is reached. For more information, see [Pre-processing during semantic ranking](semantic-ranking.md#pre-processing).
-
-+ If you're specifying just one field, choose a descriptive field where the answer to semantic queries might be found, such as the main content of a document. 
-
-+ For two or more fields in searchFields:
-
-  + The first field should always be concise (such as a title or name), ideally a string that is under 25 words.
-
-  + If the index has a URL field that is human readable such as `www.domain.com/name-of-the-document-and-other-details`, (rather than machine focused, such as `www.domain.com/?id=23463&param=eis`), place it second in the list (or first if there is no concise title field).
-
-  + Follow the above fields with other descriptive fields, where the answer to semantic queries may be found, such as the main content of a document.
 
 #### Step 3: Remove or bracket query features that bypass relevance scoring
 
@@ -230,15 +280,16 @@ Several query capabilities in Cognitive Search do not undergo relevance scoring,
 
 + Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
 
-#### Step 4: Add answers
+#### Step 4: Add answers ans captions
 
-Optionally, add "answers" if you want to include additional processing that provides an answer. For details about this parameter, see [How to specify semantic answers](semantic-answers.md).
+Optionally, add "answers" and "captions" if you want to include additional processing that provides an answer and captions. For details about this parameter, see [How to specify semantic answers](semantic-answers.md).
 
 ```json
 "answers": "extractive|count-3",
+"captions": "extractive|highlight-true",
 ```
 
-Answers (and captions) are extracted from passages found in fields listed in searchFields. This is why you want to include content-rich fields in searchFields, so that you can get the best answers in a response. Answers are not guaranteed on every request. The query must look like a question, and the content must include text that looks like an answer.
+Answers (and captions) are extracted from passages found in fields listed in the semantic configuration. This is why you want to include content-rich fields in the prioritizedContentFields of a semantic configuration, so that you can get the best answers and captions in a response. Answers are not guaranteed on every request. To get an answer, the query must look like a question and the content must include text that looks like an answer.
 
 #### Step 5: Add other parameters
 
@@ -351,10 +402,10 @@ Beta versions of the Azure SDKs include support for semantic search. Because the
 
 | Azure SDK | Package |
 |-----------|---------|
-| .NET | [Azure.Search.Documents package 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2)  |
-| Java | [com.azure:azure-search-documents 11.4.0-beta.2](https://search.maven.org/artifact/com.azure/azure-search-documents/11.4.0-beta.2/jar)  |
-| JavaScript | [azure/search-documents 11.2.0-beta.2](https://www.npmjs.com/package/@azure/search-documents/v/11.2.0-beta.2)|
-| Python | [azure-search-documents 11.2.0b3](https://pypi.org/project/azure-search-documents/11.2.0b3/) |
+| .NET | [Azure.Search.Documents package 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5)  |
+| Java | [com.azure:azure-search-documents 11.5.0-beta.5](https://search.maven.org/artifact/com.azure/azure-search-documents/11.5.0-beta.5/jar)  |
+| JavaScript | [azure/search-documents 11.3.0-beta.5](https://www.npmjs.com/package/@azure/search-documents/v/11.3.0-beta.5)|
+| Python | [azure-search-documents 11.3.0b6](https://pypi.org/project/azure-search-documents/11.3.0b6/) |
 
 ### [**searchFields**](#tab/searchFields)
 
