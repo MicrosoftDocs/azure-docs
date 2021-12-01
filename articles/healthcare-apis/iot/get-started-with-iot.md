@@ -5,19 +5,21 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 11/24/2021
+ms.date: 12/01/2021
 ms.author: zxue
 ---
 
-# Get Started with the IOT connector
+# Get Started with the IoT connector
 
 This article outlines the basic steps to get started with the IoT connector in [Azure Healthcare APIs](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource group and deploy Azure resources.
+
+You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts.
 
 [![Get Started with DICOM](media/get-started-with-iot.png)](media/get-started-with-iot.png#lightbox)
 
-## Create a workspace in your Azure Subscription
+## Create a workspace in your Azure subscription
 
 You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md) or using PowerShell, Azure CLI and Rest API]. You can find scripts from the [Healthcare APIs samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
@@ -27,7 +29,6 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 ## Create the FHIR service and an Event Hub
 
 The IoT connector works with the Azure Event Hub and the FHIR service. You can create a new [FHIR service](../fhir/get-started-with-fhir.md) or use an existing one in the same or different workspace. Similarly, you can create a new [Event Hub](../../event-hubs/event-hubs-create.md) or use an existing one.
-
 
 ## Create a IoT connector in the workspace
 
@@ -45,7 +46,7 @@ The IoT connector persists the data to the FHIR store using the system-managed i
 
 ## Sending data to the IoT connector
 
-You can send data to the Event Hub, which is associated with the IoT connector. If you don't see any data in the FHIR store, check the mappings and role assignments for the IoT connector.
+You can send data to the Event Hub, which is associated with the IoT connector. If you don't see any data in the FHIR service, check the mappings and role assignments for the IoT connector.
 
 ## IoT connector mappings, data flow, ML, Power BI, and Teams notifications
 
