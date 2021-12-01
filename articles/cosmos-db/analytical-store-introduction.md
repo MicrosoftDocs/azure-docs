@@ -160,7 +160,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
    * Change your data model in advance to avoid these characters.
    * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
    * Use Change Feed to create a materialized view of your container without these characters in properties names.
-   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loading data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
+   * Use the `dropColumn` Spark option to ignore the affected columns and load all other columns into a DataFrame. The syntax is:
 
 ```Python
 df = spark.read\
@@ -168,10 +168,32 @@ df = spark.read\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
      .option("spark.synapse.dropColumn","FirstName,LastName")\
-     .load()
+     .load()  
 ```
+> [!NOTE]
+> To drop multiple columns, just add more `dropColumn` options, in any order. Example:
+> 
+> ```Python
+> df = spark.read\
+>     .format("cosmos.olap")\
+>     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+>     .option("spark.synapse.container","<your-container-name>")\
+>     .option("spark.synapse.dropColumn","FirstName,LastName")\
+>     .option("spark.synapse.dropColumn","StreetName,StreetNumber")\
+>     .load()  
+> ```
+ 
 
-* Azure Synapse Spark now supports properties with whitespaces in their names.
+* Azure Synapse Spark now supports properties with whitespaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.cosmos.allowWhiteSpaceInFieldNames", "true")\
+    .load()
+```
 
 * The following BSON datatypes are not supported and won't be represented in analytical store:
   * Decimal128
