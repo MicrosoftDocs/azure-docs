@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 > [!IMPORTANT] 
-> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021 See the Supplemental Terms of Use for Microsoft Azure Previews for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021.
 
 The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption - Multi Key, customers can ensure their data is always encrypted and protected in use. 
 
