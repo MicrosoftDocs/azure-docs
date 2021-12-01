@@ -31,7 +31,7 @@ ms.author: radeltch
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
-In Azure, there are two options to set up stonith in Pacemaker cluster for SLES. You can either use an Azure fence agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device. To configure stonith using SBD device, two different methods available in Azure. Details about each stonith option and methods are as follows -
+In Azure, there are two options to set up stonith in Pacemaker cluster for SLES. You can either use an Azure fence agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device. To configure stonith using SBD device, two different methods available in Azure.
 
 - SBD device using iSCSI target server
   
@@ -43,22 +43,22 @@ In Azure, there are two options to set up stonith in Pacemaker cluster for SLES.
   > When planning and deploying Linux Pacemaker clustered nodes and SBD devices, it is essential for the overall reliability of the complete cluster configuration that the routing between the VMs involved and the VM(s) hosting the SBD device(s) is not passing through any other devices like [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Otherwise, issues and maintenance events with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. In order to avoid such obstacles, don't define routing rules of NVAs or [User Defined Routing rules](../../../virtual-network/virtual-networks-udr-overview.md) that route traffic between clustered nodes and SBD devices through NVAs and similar devices when planning and deploying Linux Pacemaker clustered nodes and SBD devices.
 
 - SBD device using Azure shared disk
-
-  To configure SBD device, you require to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using Azure shared disk is that you don’t need to deploy additional virtual machines.
-
+  
+  To configure SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using Azure shared disk is that you don’t need to deploy additional virtual machines.
+  
   ![Azure shared disk SBD device for SLES Pacemaker cluster](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
-
+  
   **Important Consideration for SBD device using Azure shared disk**
 
-   - Azure shared disk with Premium SSD is supported with SBD device.
-   - SBD device using Azure premium shared disk is supported for [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
-   - Depending on the type of your deployment - availability set or availability zones, you require to choose the appropriate redundant storage for Azure shared disk as your SBD device.
+   - Azure shared disk with Premium SSD is supported as SBD device.
+   - SBD device using Azure premium shared disk is supported on [locally redundant storage (LRS)](../../disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+   - Depending on the type of your deployment - availability set or availability zones, choose the appropriate redundant storage for Azure shared disk as your SBD device.
      - SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
      - SBD device using ZRS for Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
    - ZRS for managed disk is currently not available in all regions with availability zones. Review the [limitations](../../disks-redundancy.md#limitations) section of ZRS for managed disks for more details.
-   - The disk size of SBD device using Azure shared disk don’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two node cluster like SAP ASCS/ERS, SAP HANA scale-up.
-   - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you cannot use Azure shared disk as SBD device with more than four nodes because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
-   - We recommend attaching a single SBD device with Azure shared disk to the nodes of only one Pacemaker cluster.
+   - The Azure shared disk used for SBD device doesn’t need to be large. The [maxShares](../../disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster like SAP ASCS/ERS, SAP HANA scale-up.
+   - For [HANA scale-out with HANA system replication (HSR) and pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use Azure shared disk for SBD device in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../disks-shared-enable.md#disk-sizes).
+   - We don’t recommend to attach Azure shared disk SBD device across Pacemaker clusters.
    - For further details on limitations for Azure shared disk, please review carefully the [limitations](../../disks-shared.md#limitations) section of Azure Shared Disk documentation.
 
 - Azure fence agent
@@ -83,7 +83,7 @@ Run the following commands on all **iSCSI target virtual machines**.
    </code></pre>
 
    > [!NOTE]
-   > You might need to reboot the OS after you upgrade or update the OS. 
+   > You might need to reboot the OS after you upgrade or update the OS.
 
 1. Remove packages
 
@@ -447,9 +447,9 @@ You can also refer to [Deploy a ZRS disk](../../disks-deploy-zrs.md) document if
    <pre><code>sudo modprobe -v softdog
    </code></pre>
 
-## SBD device using Azure fence agent
+## STONITH device using Azure fence agent
 
-This section is only applicable, if you want to use SBD device using Azure shared disk.
+This section is only applicable, if you want to use STONITH device using Azure shared disk.
 
 ### Create Azure Fence agent STONITH device
 
