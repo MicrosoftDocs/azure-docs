@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/25/2021
+ms.date: 12/01/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -33,7 +33,6 @@ To support JavaScript Promises in an Internet Explorer app, reference a Promise 
   class="pre"
 ></script>
 ```
-
 
 ## Debugging an application running in Internet Explorer
 
