@@ -2,11 +2,9 @@
 title: Create a security automation for specific security alerts by using an Azure Resource Manager template (ARM template)
 description: Learn how to create a Microsoft Defender for Cloud automation to trigger a logic app, which will be triggered by specific Defender for Cloud alerts by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
-author: memildin
 ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.author: memildin
 ms.date: 11/09/2021
 ---
 # Quickstart: Create an automatic response to a specific security alert using an ARM template

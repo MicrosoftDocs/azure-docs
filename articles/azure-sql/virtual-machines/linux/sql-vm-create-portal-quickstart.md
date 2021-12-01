@@ -10,7 +10,6 @@ ms.service: virtual-machines-sql
 ms.subservice: deployment
 ms.workload: iaas-sql-server
 ms.author: mathoma
-ms.reviewer: jroth
 ms.custom: mode-portal
 ---
 

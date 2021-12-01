@@ -1,12 +1,8 @@
 ---
 title: Microsoft Defender for Cloud's enhanced security features
 description: Learn how to enable Microsoft Defender for Cloud's enhanced security features.
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.author: memildin
 ms.custom: mode-other
 ---
 
