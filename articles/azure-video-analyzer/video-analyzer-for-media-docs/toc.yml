@@ -39,7 +39,7 @@
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed in a video people  
+  - name: Observed people in a video   
     href: observed-people-tracing.md
   - name: People's detected clothing
     href: detected-clothing.md
