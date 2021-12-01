@@ -13,9 +13,9 @@ ms.date: 09/14/2020
 # Apache Cassandra features supported by Azure Cosmos DB Cassandra API 
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
-Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the CQL Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
+Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB Cassandra API through the Cassandra Query Language (CQL) Binary Protocol v4 [wire protocol](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec) compliant open-source Cassandra client [drivers](https://cassandra.apache.org/doc/latest/cassandra/getting_started/drivers.html?highlight=driver). 
 
-By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs as well as the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
+By using the Azure Cosmos DB Cassandra API, you can enjoy the benefits of the Apache Cassandra APIs and the enterprise capabilities that Azure Cosmos DB provides. The enterprise capabilities include [global distribution](../distribute-data-globally.md), [automatic scale out partitioning](cassandra-partitioning.md), availability and latency guarantees, encryption at rest, backups, and much more.
 
 ## Cassandra protocol 
 
@@ -40,33 +40,33 @@ Azure Cosmos DB Cassandra API supports the following CQL data types:
 
 |Type  |Supported |
 |---------|---------|
-| ascii  | Yes |
-| bigint  | Yes |
-| blob  | Yes |
-| boolean  | Yes |
-| counter  | Yes |
-| date  | Yes |
-| decimal  | Yes |
-| double  | Yes |
-| float  | Yes |
-| frozen  | Yes |
-| inet  | Yes |
-| int  | Yes |
-| list  | Yes |
-| set  | Yes |
-| smallint  | Yes |
-| text  | Yes |
-| time  | Yes |
-| timestamp  | Yes |
-| timeuuid  | Yes |
-| tinyint  | Yes |
-| tuple  | Yes |
-| uuid  | Yes |
-| varchar  | Yes |
-| varint  | Yes |
-| tuples | Yes | 
-| udts  | Yes |
-| map | Yes |
+| `ascii`  | Yes |
+| `bigint`  | Yes |
+| `blob`  | Yes |
+| `boolean`  | Yes |
+| `counter` | Yes |
+| `date`  | Yes |
+| `decimal`  | Yes |
+| `double`  | Yes |
+| `float`  | Yes |
+| `frozen`  | Yes |
+| `inet`  | Yes |
+| `int`  | Yes |
+| `list`  | Yes |
+| `set`  | Yes |
+| `smallint`  | Yes |
+| `text`  | Yes |
+| `time`  | Yes |
+| `timestamp`  | Yes |
+| `timeuuid`  | Yes |
+| `tinyint`  | Yes |
+| `tuple`  | Yes |
+| `uuid`  | Yes |
+| `varchar`  | Yes |
+| `varint`  | Yes |
+| `tuples` | Yes | 
+| `udts`  | Yes |
+| `map` | Yes |
 
 Static is supported for data type declaration.
 
@@ -76,10 +76,10 @@ Azure Cosmos DB Cassandra API supports the following CQL functions:
 
 |Command  |Supported |
 |---------|---------|
-| Token * | Yes |
-| ttl *** | Yes |
-| writetime *** | Yes |
-| cast ** | Yes |
+| `Token` * | Yes |
+| `ttl` *** | Yes |
+| `writetime` *** | Yes |
+| `cast` ** | Yes |
 
 > [!NOTE] 
 > \* Cassandra API supports token as a projection/selector, and only allows token(pk) on the left-hand side of a where clause. For example, `WHERE token(pk) > 1024` is supported, but `WHERE token(pk) > token(100)` is **not** supported.  
@@ -92,11 +92,11 @@ Aggregate functions:
 
 |Command  |Supported |
 |---------|---------|
-| avg | Yes |
-| count | Yes |
-| min | Yes |
-| max | Yes |
-| sum | Yes |
+| `avg` | Yes |
+| `count` | Yes |
+| `min` | Yes |
+| `max` | Yes |
+| `sum` | Yes |
 
 > [!NOTE]
 > Aggregate functions work on regular columns, but aggregates on clustering columns are **not** supported.
@@ -106,25 +106,25 @@ Blob conversion functions:
  
 |Command  |Supported |
 |---------|---------|
-| typeAsBlob(value)   | Yes |
-| blobAsType(value) | Yes |
+| `typeAsBlob(value)`   | Yes |
+| `blobAsType(value)` | Yes |
 
 
 UUID and timeuuid functions:
  
 |Command  |Supported |
 |---------|---------|
-| dateOf()  | Yes |
-| now()  | Yes |
-| minTimeuuid()  | Yes |
-| unixTimestampOf()  | Yes |
-| toDate(timeuuid)  | Yes |
-| toTimestamp(timeuuid)  | Yes |
-| toUnixTimestamp(timeuuid)  | Yes |
-| toDate(timestamp)  | Yes |
-| toUnixTimestamp(timestamp)  | Yes |
-| toTimestamp(date)  | Yes |
-| toUnixTimestamp(date) | Yes |
+| `dateOf()`  | Yes |
+| `now()`  | Yes |
+| `minTimeuuid()`  | Yes |
+| `unixTimestampOf()`  | Yes |
+| `toDate(timeuuid)`  | Yes |
+| `toTimestamp(timeuuid)`  | Yes |
+| `toUnixTimestamp(timeuuid)`  | Yes |
+| `toDate(timestamp)`  | Yes |
+| `toUnixTimestamp(timestamp)`  | Yes |
+| `toTimestamp(date)`  | Yes |
+| `toUnixTimestamp(date)` | Yes |
 
 
   
@@ -134,59 +134,59 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 
 |Command  |Supported |
 |---------|---------|
-| ALLOW FILTERING | Yes |
-| ALTER KEYSPACE | N/A (PaaS service, replication managed internally)|
-| ALTER MATERIALIZED VIEW | No |
-| ALTER ROLE | No |
-| ALTER TABLE | Yes |
-| ALTER TYPE | No |
-| ALTER USER | No |
-| BATCH | Yes (unlogged batch only)|
-| COMPACT STORAGE | N/A (PaaS service) |
-| CREATE AGGREGATE | No | 
-| CREATE CUSTOM INDEX (SASI) | No |
-| CREATE INDEX | Yes (without [specifying index name](secondary-indexing.md), and indexes on clustering keys or full FROZEN collection not supported) |
-| CREATE FUNCTION | No |
-| CREATE KEYSPACE (replication settings ignored) | Yes |
-| CREATE MATERIALIZED VIEW | No |
-| CREATE TABLE | Yes |
-| CREATE TRIGGER | No |
-| CREATE TYPE | Yes |
-| CREATE ROLE | No |
-| CREATE USER (Deprecated in native Apache Cassandra) | No |
-| DELETE | Yes |
-| DISTINCT | No |
-| DROP AGGREGATE | No |
-| DROP FUNCTION | No |
-| DROP INDEX | Yes |
-| DROP KEYSPACE | Yes |
-| DROP MATERIALIZED VIEW | No |
-| DROP ROLE | No |
-| DROP TABLE | Yes |
-| DROP TRIGGER | No | 
-| DROP TYPE | Yes |
-| DROP USER (Deprecated in native Apache Cassandra) | No |
-| GRANT | No |
-| INSERT | Yes |
-| LIST PERMISSIONS | No |
-| LIST ROLES | No |
-| LIST USERS (Deprecated in native Apache Cassandra) | No |
-| REVOKE | No |
-| SELECT | Yes |
-| UPDATE | Yes |
-| TRUNCATE | No |
-| USE | Yes |
+| `ALLOW FILTERING` | Yes |
+| `ALTER KEYSPACE` | N/A (PaaS service, replication managed internally)|
+| `ALTER MATERIALIZED VIEW` | No |
+| `ALTER ROLE` | No |
+| `ALTER TABLE` | Yes |
+| `ALTER TYPE` | No |
+| `ALTER USER` | No |
+| `BATCH` | Yes (unlogged batch only)|
+| `COMPACT STORAGE` | N/A (PaaS service) |
+| `CREATE AGGREGATE` | No | 
+| `CREATE CUSTOM INDEX (SASI)` | No |
+| `CREATE INDEX` | Yes (without [specifying index name](secondary-indexing.md), and indexes on clustering keys or full FROZEN collection not supported) |
+| `CREATE FUNCTION` | No |
+| `CREATE KEYSPACE` (replication settings ignored) | Yes |
+| `CREATE MATERIALIZED VIEW` | No |
+| `CREATE TABLE` | Yes |
+| `CREATE TRIGGER` | No |
+| `CREATE TYPE` | Yes |
+| `CREATE ROLE` | No |
+| `CREATE USER` (Deprecated in native Apache Cassandra) | No |
+| `DELETE` | Yes |
+| `DISTINCT` | No |
+| `DROP AGGREGATE` | No |
+| `DROP FUNCTION` | No |
+| `DROP INDEX` | Yes |
+| `DROP KEYSPACE` | Yes |
+| `DROP MATERIALIZED VIEW` | No |
+| `DROP ROLE` | No |
+| `DROP TABLE` | Yes |
+| `DROP TRIGGER` | No | 
+| `DROP TYPE` | Yes |
+| `DROP USER` (Deprecated in native Apache Cassandra) | No |
+| `GRANT` | No |
+| `INSERT` | Yes |
+| `LIST PERMISSIONS` | No |
+| `LIST ROLES` | No |
+| `LIST USERS` (Deprecated in native Apache Cassandra) | No |
+| `REVOKE` | No |
+| `SELECT` | Yes |
+| `UPDATE` | Yes |
+| `TRUNCATE` | No |
+| `USE` | Yes |
 
 ## Lightweight Transactions (LWT)
 
 | Component  |Supported |
 |---------|---------|
-| DELETE IF EXISTS | Yes |
-| DELETE conditions | Yes |
-| INSERT IF NOT EXISTS | Yes |
-| UPDATE IF EXISTS | Yes |
-| UPDATE IF NOT EXISTS | Yes |
-| UPDATE conditions | Yes |
+| `DELETE IF EXISTS` | Yes |
+| `DELETE conditions` | Yes |
+| `INSERT IF NOT EXISTS` | Yes |
+| `UPDATE IF EXISTS` | Yes |
+| `UPDATE IF NOT EXISTS` | Yes |
+| `UPDATE conditions` | Yes |
 
 > [!NOTE]
 > Lightweight transactions currently aren't supported for accounts that have multi-region writes enabled.
@@ -197,19 +197,19 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 
 |Command  |Supported |
 |---------|---------|
-| CAPTURE | Yes |
-| CLEAR | Yes |
-| CONSISTENCY * | N/A |
-| COPY | No |
-| DESCRIBE | Yes |
-| cqlshExpand | No |
-| EXIT | Yes |
-| LOGIN | N/A (CQL function `USER` is not supported, hence `LOGIN` is redundant) |
-| PAGING | Yes |
-| SERIAL CONSISTENCY * | N/A |
-| SHOW | Yes |
-| SOURCE | Yes |
-| TRACING | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
+| `CAPTURE` | Yes |
+| `CLEAR` | Yes |
+| `CONSISTENCY` * | N/A |
+| `COPY` | No |
+| `DESCRIBE` | Yes |
+| `cqlshExpand` | No |
+| `EXIT` | Yes |
+| `LOGIN` | N/A (CQL function `USER` is not supported, hence `LOGIN` is redundant) |
+| `PAGING` | Yes |
+| `SERIAL CONSISTENCY` * | N/A |
+| `SHOW` | Yes |
+| `SOURCE` | Yes |
+| `TRACING` | N/A (Cassandra API is backed by Azure Cosmos DB - use [diagnostic logging](../cosmosdb-monitor-resource-logs.md) for troubleshooting) |
 
 > [!NOTE] 
 > Consistency works differently in Azure Cosmos DB, see [here](apache-cassandra-consistency-mapping.md) for more information.  
@@ -218,10 +218,10 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 ## JSON Support
 |Command  |Supported |
 |---------|---------|
-| SELECT JSON | Yes |
-| INSERT JSON | Yes |
-| fromJson() | No |
-| toJson() | No |
+| `SELECT JSON` | Yes |
+| `INSERT JSON` | Yes |
+| `fromJson()` | No |
+| `toJson()` | No |
 
 
 ## Cassandra API limits
@@ -230,7 +230,7 @@ Azure Cosmos DB Cassandra API does not have any limits on the size of data store
 
 ## Tools 
 
-Azure Cosmos DB Cassandra API is a managed service platform. It does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. It supports tools such as cqlsh that utilizes Binary CQLv4 compatibility. 
+Azure Cosmos DB Cassandra API is a managed service platform. The platform does not require any management overhead or utilities such as Garbage Collector, Java Virtual Machine(JVM), and nodetool to manage the cluster. Tools such as cqlsh that utilizes Binary CQLv4 compatibility are supported. 
 
 * Azure portal's data explorer, metrics, log diagnostics, PowerShell, and CLI are other supported mechanisms to manage the account.
 
@@ -316,11 +316,11 @@ ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
 
 ```
 ## Secondary Index
-Cassandra API supports secondary indexes on all data types except frozen collection types, decimal and variant types. 
+Cassandra API supports secondary indexes on all data types except frozen collection types, decimal, and variant types. 
 
 ## Usage of Cassandra retry connection policy
 
-Azure Cosmos DB is a resource governed system. This means you can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to Cassandra API in Azure Cosmos DB. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a connection policy to retry on these exceptions.
+Azure Cosmos DB is a resource governed system. You can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to Cassandra API in Azure Cosmos DB. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a connection policy to retry on these exceptions.
 
 ## Next steps
 
