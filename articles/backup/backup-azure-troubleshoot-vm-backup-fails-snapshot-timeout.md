@@ -168,7 +168,7 @@ To resolve the error, follow these steps:
 1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
    1. Go to **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ *{LatestVersion}*** folder.
    1. Search and run the **vcredist2013_x64** file to install.
-1. Retry backup operation.
+1. Retry the backup operation.
 
 ## UserErrorUnsupportedDiskSize - The configured disk size(s) is currently not supported by Azure Backup
 
