@@ -9,6 +9,7 @@ ms.author: chpalm
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.custom: references_regions
 ---
 
 # Region availability and data residency
