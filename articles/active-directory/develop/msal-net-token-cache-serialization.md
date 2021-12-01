@@ -39,7 +39,7 @@ The recommendation is:
 
 ## [ASP.NET Core web apps and web APIs](#tab/aspnetcore)
 
-The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library provides the NuGet package [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache), which contains token cache serialization:
+The [Microsoft.Identity.Web.TokenCache](https://www.nuget.org/packages/Microsoft.Identity.Web.TokenCache) NuGet package provides token cache serialization within the [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) library.
 
 | Extension method | Description  |
 | ---------------- | ------------ |
