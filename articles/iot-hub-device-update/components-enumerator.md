@@ -88,7 +88,7 @@ After doing this the Update Content Handler can install and apply the update to 
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
   - See [Steps Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler) for more information.
-- In production, device builders can implement a custom handler that invokes any installer needed for an over-the-air update. See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+- In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom handler that invokes any installer needed for an over-the-air update. See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ## How To Implement Component Enumerator for Device Update Agent (C language)
 
@@ -452,10 +452,10 @@ For example, for `hostfw`, the value of property `properties.version` will be po
 
 This example is written in `C++`. You can choose to use `C` if desired.
 
-- [CMakeLists.txt](../contoso-component-enumerator/CMakeLists.txt)
-- [contoso-component-enumerator.cpp](../contoso-component-enumerator/contoso-component-enumerator.cpp)
-- [inc/aduc/component_enumerator_extension.hpp](../../inc/aduc/../../../inc/aduc/component_enumerator_extension.hpp)
+- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/CMakeLists.txt)
+- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/contoso-component-enumerator.cpp)
+- [inc/aduc/component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
 
 ### Example Proxy Update
 
-See [Proxy Update Demo](./demo/README.md) for various sample updates for components connected to the Contoso Virtual Vacuum device.
+See [Proxy Update Demo](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/README.md) for various sample updates for components connected to the Contoso Virtual Vacuum device.
