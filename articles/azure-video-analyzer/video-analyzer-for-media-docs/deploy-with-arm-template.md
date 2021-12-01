@@ -91,8 +91,6 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
     Required: false
 
-### Additional notes
-
 ## Reference documentation
 
 If you're new to Azure Video Analyzer for Media (formerly Video Indexer), see:
