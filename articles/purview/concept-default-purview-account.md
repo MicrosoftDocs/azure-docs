@@ -16,7 +16,7 @@ In general, our guidance is to have a single Purview account for entire customer
 
 * Storing test/pre-production/production data separately - Customers want to create different catalogs for different kinds of data stored in different environments. 
 
-* Conglomerates - Conglomerates often have many business units (BUs) that operate separately to the extent that they won't even share billing with each other. Hence, this might require the conglomerates to create different purview accounts for different BUs.
+* Conglomerates - Conglomerates often have many business units (BUs) that operate separately to the extent that they won't even share billing with each other. Hence, this might require the conglomerates to create different Purview accounts for different BUs.
 
 * Compliance - There are some strict compliance regulations, which treat even metadata as sensitive and require it to be in a particular geography. For the same reason customers might end up with multiple purview accounts per region.
 
