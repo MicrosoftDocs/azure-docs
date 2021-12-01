@@ -2,6 +2,7 @@
 title: Create SSH keys with the Azure CLI
 description: Learn how to generate and store SSH keys with the Azure CLI for connecting to Linux VMs.
 author: cynthn
+ms.collection: linux
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
