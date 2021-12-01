@@ -40,7 +40,7 @@ There could be some rare situations when a data center experiences extended outa
 >[!NOTE]
 > Some Azure services provide an additional option called **customer-initiated failover**, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently **not supported** by Azure Digital Twins. 
 
-If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../availability-zones/cross-region-replication-azure.md#azure-regional-pairs) for the region where you're creating your instance, to ensure that it meets your data residency requirements.
+If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) for the region where you're creating your instance, to ensure that it meets your data residency requirements.
 
 >[!NOTE]
 > Some Azure services provide an option for users to configure a different region for failover, as a way to meet data residency requirements. This capability is currently **not supported** by Azure Digital Twins. 
