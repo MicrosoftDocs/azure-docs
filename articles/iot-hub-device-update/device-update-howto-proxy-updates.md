@@ -160,15 +160,17 @@ For testing and demonstration purposes, we'll be creating following mock compone
 **IMPORTANT**  
 This components configuration depends on the implementation of an example Component Enuerator extension called libcontoso-component-enumerator.so, which required a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
 
-> Tip: you can copy [`demo`](https://github.com/Azure/adu-private-preview/tree/user/wewilair/v0.8.0-docs/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM an run `~/demo/tools/reset-demo-components.sh` to copy required files to the right locations.
+> Tip: you can copy [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM an run `~/demo/tools/reset-demo-components.sh` to copy required files to the right locations.
+
+The reset-demo-components.sh will perform the following steps on your behalf:
 
 #### Add /usr/local/contoso-devices/components-inventory.json
 
-- Copy [components-inventory.json](./demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
+- Copy [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
   
 #### Register Contoso Components Enumerator extension
 
-- Copy [libcontoso-component-enumerator.so](./sample-components-enumerator/libcontoso-component-enumerator.so) to /var/lib/adu/extensions/sources folder
+- Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
 - Register the extension
 
 ```sh
