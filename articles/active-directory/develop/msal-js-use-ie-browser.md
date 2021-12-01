@@ -52,7 +52,7 @@ If you want to run and debug your application locally in Internet Explorer, be 
   1. Clear the **Enable Protected Mode (requires restarting Internet Explorer)** checkbox.
   1. Select **OK** to restart Internet Explorer.
 
-When you're done, restore the Internet Explorer security settings. Select **Settings** -> **Internet Options** -> **Security** -> **Reset all zones to default level**.
+When you're done debugging, follow the previous steps and select (instead of clear) the **Enable Protected Mode (requires restarting Internet Explorer)** checkbox.
 
 ## Next steps
 
