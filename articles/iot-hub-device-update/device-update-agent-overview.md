@@ -64,33 +64,7 @@ instance, the `SWUpdate` Update Handler invokes a shell script to call into the
 ## Update Handlers
 
 Update Handlers are components that handle content or installer-specific parts
-of the update. Update Handler implementations are in `src/content_handlers`.
-
-### Simulator Update Handler
-
-The Simulator Update Handler are used by the Simulator Platform Layer and can
-be used with the Linux Platform Layer to fake interactions with a Content
-Handler. The Simulator Update Handler implements the Update Handler APIs with
-mostly no-ops. The implementation of the Simulator Update Handler can be found below:
-* [Image update simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/swupdate_handler/inc/aduc/swupdate_simulator_handler.hpp)
-* [Package update apt simulator](https://github.com/Azure/iot-hub-device-update/blob/main/src/content_handlers/apt_handler/inc/aduc/apt_simulator_handler.hpp)
-
-Note: The InstalledCriteria field in
-the AzureDeviceUpdateCore PnP interface should be the sha256 hash of the
-content. This is the same hash that is present in the [Import Manifest
-Object](import-update.md#create-a-device-update-import-manifest). [Learn
-More](device-update-plug-and-play.md) about `installedCriteria` and the `AzureDeviceUpdateCore` interface.
-
-### `SWUpdate` Update Handler
-
-The `SWUpdate` Update Handler" integrates with the `SWUpdate` command-line
-executable and other shell commands to implement A/B updates specifically for
-the Raspberry Pi reference image. Find the latest Raspberry Pi reference image [here](https://github.com/Azure/iot-hub-device-update/releases). The `SWUpdate` Update Handler is implemented in [src/content_handlers/swupdate_content_handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/swupdate_handler).
-
-### APT Update Handler
-
-The APT Update Handler processes an APT-specific Update Manifest and invokes APT to
-install or update the specified Debian package(s).
+of the update. You can either use [existing Device Update handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or [implement a custom Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) that invokes any installer needed for your use case.
 
 ## Self-update Device update agent
 
