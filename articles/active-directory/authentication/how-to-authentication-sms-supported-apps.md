@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # App support for SMS-based authentication
 
-SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/forums/169401-azure-active-directory). 
+SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 | App | Web/browser app | Native mobile app |
 | --- |:---:|:---:|
@@ -32,6 +32,7 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
+| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_SMS sign-in isn't available for office applications, such as Word, Excel, etc., when accessed directly on the web, but is available when accessed through the [Office 365 web app](https://www.office.com)_

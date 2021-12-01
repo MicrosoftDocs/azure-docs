@@ -9,11 +9,12 @@ ms.subservice: qna-maker
 zone_pivot_groups: URL-test-interface
 ms.topic: how-to
 ms.date: 07/16/2020
-
+ms.custom: ignite-fall-2021
 ---
 
-# Get an answer from a knowledge base
+# Get an answer from a QNA Maker knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ::: zone pivot="url-test-tool-curl"
 
@@ -36,4 +37,3 @@ ms.date: 07/16/2020
 Learn more about metadata:
 * [Authoring - add metadata to QnA pair](../How-To/edit-knowledge-base.md#add-metadata)
 * [Query prediction - filter answers by metadata](../How-To/query-knowledge-base-with-metadata.md)
-

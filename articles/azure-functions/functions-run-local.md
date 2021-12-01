@@ -35,13 +35,13 @@ There are four versions of Azure Functions Core Tools. The version you use depen
 
 Choose a version tab below to learn about each specific version and for detailed installation instructions:
 
+# [Version 4.x](#tab/v4)
+
+Supports [version 4.x](functions-versions.md) of the Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
+
 # [Version 3.x](#tab/v3)
 
-Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
-
-# [Version 4.x (preview)](#tab/v4)
-
-Supports [version 4.x](functions-versions.md) of the Functions runtime, which is in preview. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. Unless you need to run you C# functions on .NET 6.0, consider using version 3.x of the Functions runtime and Core Tools.
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
 
 # [Version 2.x](#tab/v2)
 

@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 # Create a VM from a generalized image version
 
-Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
+Create a VM from a [generalized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in an Azure Compute Gallery (formerly known as Shared Image Gallery). If you want to create a VM using a specialized image, see [Create a VM from a specialized image](vm-specialized-image-version.md). 
 
 
 ### [Portal](#tab/portal)

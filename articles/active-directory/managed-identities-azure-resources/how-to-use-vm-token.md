@@ -365,6 +365,9 @@ This section documents the possible error responses. A "200 OK" status is a succ
 |           | invalid_scope | The requested scope is invalid, unknown, or malformed. |  |
 | 500 Internal server error | unknown | Failed to retrieve token from the Active directory. For details see logs in *\<file path\>* | Verify that managed identities for Azure resources has been enabled on the VM. See [Configure managed identities for Azure resources on a VM using the Azure portal](qs-configure-portal-windows-vm.md) if you need assistance with VM configuration.<br><br>Also verify that your HTTP GET request URI is formatted correctly, particularly the resource URI specified in the query string. See the "Sample request" in the preceding REST section for an example, or [Azure services that support Azure AD authentication](./services-support-managed-identities.md) for a list of services and their respective resource IDs.
 
+> [!IMPORTANT]
+> - IMDS is not intended to be used behind a proxy and doing so is unsupported. For examples of how to bypass proxies, refer to the [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).  
+
 ## Retry guidance 
 
 It is recommended to retry if you receive a 404, 429, or 5xx error code (see [Error handling](#error-handling) above).

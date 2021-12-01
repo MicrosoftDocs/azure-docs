@@ -82,6 +82,9 @@ Note down the appId, password, and tenantID.
 
 7. Click **Apply** (Wait 3 minutes for permission to take effect.)
 
+> [!NOTE]
+> Please make sure your service principal is at least "Reader" role in your Synapse workspace. Go to Access Control (IAM) tab of the Azure portal and check the permission settings.
+
 ## Install connector, Prometheus server, Grafana dashboard
 
 1. Add synapse-charts repo to Helm client.

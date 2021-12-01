@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Edit QnA pairs in your knowledge base
@@ -12,6 +13,8 @@ ms.date: 07/16/2020
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 
 QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="add-an-editorial-qna-set"></a>
 
@@ -50,7 +53,7 @@ If you do not have pre-existing content to populate the knowledge base, you can 
 
 1. Optionally, add **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. To view metadata, select **View options** in the context menu. Metadata provides filters to the answers that the client application, such as a chat bot, provides.
 
-1. Optionally, add **[follow-up prompts](multiturn-conversation.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
+1. Optionally, add **[follow-up prompts](multi-turn.md)**. Follow-up prompts provide additional conversation paths to the client application to present to the user.
 
 1. Select **Save and train** to see predictions including the new QnA pair.
 

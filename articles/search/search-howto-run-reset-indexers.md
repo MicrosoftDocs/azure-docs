@@ -1,30 +1,30 @@
 ---
 title: Run or reset indexers
 titleSuffix: Azure Cognitive Search
-description: Reset an indexer, skills, or individual documents to refresh all or part of and index or knowledge store.
+description: Run indexers in full, or reset an indexer, skills, or individual documents to refresh all or part of a search index or knowledge store.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 11/02/2021
 ---
 
-# How to run or reset indexers, skills, or documents
+# Run or reset indexers, skills, or documents
 
-Indexer execution can occur when you first create the [indexer](search-indexer-overview.md), when running an indexer on demand, or when setting an indexer on a schedule. After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
+Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer). After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
 
 You can clear the high water mark by resetting the indexer if you want to reprocess from scratch. Reset APIs are available at decreasing levels in the object hierarchy:
 
 + The entire search corpus (use [Reset Indexers](#reset-indexers))
 + A specific document or list of documents (use [Reset Documents - preview](#reset-docs))
-+ A specific skill or enrichment in a document (use [Reset Skills - preview](#reset-skills))
++ A specific skill or enrichment (use [Reset Skills - preview](#reset-skills))
 
 The Reset APIs are used to refresh cached content (applicable in [AI enrichment](cognitive-search-concept-intro.md) scenarios), or to clear the high water mark and rebuild the index.
 
 Reset, followed by run, can reprocess existing documents and new documents, but does not remove orphaned search documents in the search index that were created on previous runs. For more information about deletion, see [Add, Update or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents).
 
-## Run indexers
+## How to run indexers
 
 [Create Indexer](/rest/api/searchservice/create-indexer) creates and runs the indexer unless you create it in a disabled state ("disabled": true). The first run takes a bit longer because its covering object creation as well.
 
@@ -36,15 +36,17 @@ You can run an indexer using any of these approaches:
 + [Run Indexer (REST)](/rest/api/searchservice/run-indexer)
 + [RunIndexers method](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) in the Azure .NET SDK (or using the equivalent RunIndexer method in another SDK)
 
+## Indexer execution
+
 Indexer execution is subject to the following limits:
 
-+ Maximum number of indexer jobs is 1 per replica  No concurrent jobs.
++ Maximum number of indexer jobs is 1 per replica.
 
   If indexer execution is already at capacity,  you will get this notification: "Failed to run indexer '\<indexer-name\>', error: "Another indexer invocation is currently in progress; concurrent invocations are not allowed."
 
-+ Maximum running time is 2 hours if using a skillset, and 24 hours without. 
++ Maximum running time is 2 hours if using a skillset, or 24 hours without. 
 
-  You can stretch out processing by putting the indexer on a schedule. The Free tier has lower run time limits. For the full list, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
+  If you are [indexing a large data set](search-howto-large-index.md), you can stretch out processing by putting the indexer on a schedule. The Free tier has lower run time limits. For the full list, see [indexer limits](search-limits-quotas-capacity.md#indexer-limits)
 
 <a name="reset-indexers"></a>
 
@@ -67,12 +69,9 @@ A reset flag is cleared after the run is finished. Any regular change detection 
 
 ## Reset skills (preview)
 
-> [!IMPORTANT] 
-> [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
-
 For indexers that have skillsets, you can reset specific skills to force processing of that skill and any downstream skills that depend on its output. [Cached enrichments](search-howto-incremental-index.md) are also refreshed. Resetting skills invalidates the cached skill results, which is useful when a new version of a skill is deployed and you want the indexer to rerun that skill for all documents. 
 
-[Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is available through REST **`api-version=2020-06-30-Preview`**.
+[Reset Skills](/rest/api/searchservice/preview-api/reset-skills) is available through REST **`api-version=2020-06-30-Preview`** or later.
 
 ```http
 POST https://[service name].search.windows.net/skillsets/[skillset name]/resetskills?api-version=2020-06-30-Preview
@@ -93,9 +92,6 @@ If no skills are specified, the entire skillset is executed and if caching is en
 
 ## Reset docs (preview)
 
-> [!IMPORTANT] 
-> [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) is in public preview, available through the preview REST API only. Preview features are offered as-is, under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 The [Reset documents API](/rest/api/searchservice/preview-api/reset-documents) accepts a list of document keys so that you can refresh specific documents. If specified, the reset parameters become the sole determinant of what gets processed, regardless of other changes in the underlying data. For example, if 20 blobs were added or updated since the last indexer run, but you only reset one document, only that one document will be processed.
 
 On a per-document basis, all fields in that search document are refreshed with values from the data source. You cannot pick and choose which fields to refresh. 
@@ -104,8 +100,8 @@ If the document is enriched through a skillset and has cached data, the  skillse
 
 When testing this API for the first time, the following APIs will help you validate and test the behaviors:
 
-+ [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with API version `2020-06-30-Preview`, to check reset status and execution status. You can find information about the reset request at the end of the status response.
-+ [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) with API version `2020-06-30-Preview`, to specify which documents to process.
++ [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with API version **`api-version=2020-06-30-Preview`** or later, to check reset status and execution status. You can find information about the reset request at the end of the status response.
++ [Reset Documents](/rest/api/searchservice/preview-api/reset-documents) with API version **`api-version=2020-06-30-Preview`** or later, to specify which documents to process.
 + [Run Indexer](/rest/api/searchservice/run-indexer) to run the indexer (any API version).
 + [Search Documents](/rest/api/searchservice/search-documents) to check for updated values, and also to return document keys if you are unsure of the value. Use `"select": "<field names>"` if you want to limit which fields appear in the response.
 
@@ -140,7 +136,7 @@ POST https://[service name].search.windows.net/indexers/[indexer name]/resetdocs
 
 ## Check reset status
 
-To check the status of a reset and to see which document keys are queued up for processing, use [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with **`api-version=06-30-2020-Preview`**. The preview API will return the **`currentState`** section, which you can find at the end of the Get Indexer Status response.
+To check the status of a reset and to see which document keys are queued up for processing, use [Get Indexer Status](/rest/api/searchservice/get-indexer-status) with **`api-version=06-30-2020-Preview`** or later. The preview API will return the **`currentState`** section, which you can find at the end of the Get Indexer Status response.
 
 The "mode" will be **`indexingAllDocs`** for Reset Skills (because potentially all documents are affected, for the fields that are populated through AI enrichment).
 

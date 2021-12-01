@@ -135,4 +135,4 @@ In this quickstart, you created a new App Configuration store and learned how to
 For additional code samples, visit:
 
 > [!div class="nextstepaction"]
-> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/samples)
+> [Azure App Configuration client library samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/app-configuration/samples/v1/javascript)

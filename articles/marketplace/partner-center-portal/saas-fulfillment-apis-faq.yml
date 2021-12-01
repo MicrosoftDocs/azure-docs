@@ -52,7 +52,7 @@ sections:
           
           ![Customer subscription flow](media/saas-metering-service-integration-flow-a.png)
           
-          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-api-v2.md).
+          For more information about the API contract for handling transact scenarios in the life cycle of a SaaS offer, see [SaaS fulfillment API](pc-saas-fulfillment-apis.md).
           
       - question: |
           How do you know the SaaS offer to which the user subscribes in Azure?

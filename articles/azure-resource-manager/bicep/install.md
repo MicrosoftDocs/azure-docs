@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/18/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -26,6 +26,8 @@ To create Bicep files, you need a good Bicep editor. We recommend:
 To verify you've installed the extension, open any file with the `.bicep` file extension. You should see the language mode in the lower right corner change to **Bicep**.
 
 :::image type="content" source="./media/install/language-mode.png" alt-text="Bicep language mode":::
+
+If you get an error during installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).
 
 ## Deployment environment
 
@@ -72,6 +74,8 @@ For more commands, see [Bicep CLI](bicep-cli.md).
 > [!IMPORTANT]
 > Azure CLI installs a self-contained instance of the Bicep CLI. This instance doesn't conflict with any versions you may have manually installed. Azure CLI doesn't add Bicep CLI to your PATH.
 
+You're done with setting up your Bicep environment. The rest of this article describes installation steps that you don't need when using Azure CLI.
+
 ## Azure PowerShell
 
 You must have Azure PowerShell version **5.6.0 or later** installed. To update or install, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
@@ -116,7 +120,7 @@ bicep --help
 
 ### macOS
 
-#### via homebrew
+#### Via homebrew
 
 ```sh
 # Add the tap for bicep
@@ -126,7 +130,7 @@ brew tap azure/bicep
 brew install bicep
 ```
 
-#### via BASH
+#### Via BASH
 
 ```sh
 # Fetch the latest Bicep CLI binary
@@ -210,3 +214,5 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 ## Next steps
 
 For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+
+If you have problems with your Bicep installation, see [Troubleshoot Bicep installation](installation-troubleshoot.md).

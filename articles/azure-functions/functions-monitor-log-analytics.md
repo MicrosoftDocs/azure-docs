@@ -30,7 +30,7 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
    The **FunctionAppLogs** table contains the desired logs.
 
-1. Under **Destination details**, choose **Send to Log Analytics**.and then select your **Log Analytics workspace**. 
+1. Under **Destination details**, choose **Send to Log Analytics** and then select your **Log Analytics workspace**. 
 
 1. Enter a **Diagnostic settings name**, and then select **Save**.
 

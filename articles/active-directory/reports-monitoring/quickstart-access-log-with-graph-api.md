@@ -10,7 +10,7 @@ ms.date: 06/03/2021
 
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
 
 # Customer intent: As an IT admin, you need to how to use the Graph API to access the log files so that you can fix issues.

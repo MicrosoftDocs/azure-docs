@@ -7,7 +7,7 @@ ms.date: 04/30/2021
 ms.author: juliako
 ---
 
-# Trace observed people in a video
+# Trace observed people in a video (preview)
 
 Video Indexer detects observed people in videos and provides information such as the location of the person in the video frame and the exact timestamp (start, end) when a person appears. The API returns the bounding box coordinates (in pixels) for each person instance detected, including detection confidence.  
  
@@ -21,7 +21,6 @@ Some scenarios where this feature could be useful:
 For example, if a video contains a person, the detect operation will list the person’s appearances together with their coordinates in the video frames. You can use this functionality to determine the person’s path in a video. It also lets you determine whether there are multiple instances of the same person in a video.
 
 The newly added **Observed people tracing** feature is available when indexing your file by choosing the **Advanced option** -> **Advanced video** or **Advanced video + audio** preset (under **Video + audio indexing**). Standard indexing will not include this new advanced model. 
-
 
 :::image type="content" source="./media/observed-people-tracing/youtube-trailer.png" alt-text="Observed people tracing screenshot":::  
  

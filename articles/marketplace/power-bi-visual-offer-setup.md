@@ -68,7 +68,7 @@ Select **Create** to generate the offer. Partner Center opens the **Offer setup*
 
 For **Additional purchases**, select whether or not your offer requires purchases of a service or additional in-app purchases.
 
-For **Power BI certification** (optional), read the description carefully and if you want to request Power BI certification, select the check box. [Certified](https://aka.ms/PBIvisualcertification) Power BI visuals meet certain specified code requirements that the Microsoft Power BI team has tested and approved. We recommend that you submit and publish your Power BI visual *before* you request certification, because the certification process takes extra time that could delay publishing of your offer.
+For **Power BI certification** (optional), read the description carefully and if you want to request Power BI certification, select the check box. [Certified](/power-bi/developer/visuals/power-bi-custom-visuals-certified) Power BI visuals meet certain specified code requirements that the Microsoft Power BI team has tested and approved. We recommend that you submit and publish your Power BI visual *before* you request certification, because the certification process takes extra time that could delay publishing of your offer.
 
 ## Customer leads
 

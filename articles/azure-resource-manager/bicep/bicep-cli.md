@@ -132,7 +132,7 @@ For example:
 az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
-The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config.md) file. Provide the full module path.
+The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.
 
 > [!WARNING]
 > Publishing to the same target overwrites the old module. We recommend that you increment the version when updating.

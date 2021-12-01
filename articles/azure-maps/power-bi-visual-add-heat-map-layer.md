@@ -27,8 +27,8 @@ A heat map is useful when users want to visualize vast comparative data:
 
 ## Prerequisites
 
-- [Getting started with the Azure Maps visual for Power BI](/power-bi-visual-getting-started.md).
-- [Understanding layers in the Azure Maps visual for Power BI](/power-bi-visual-understanding-layers.md).
+- [Getting started with the Azure Maps visual for Power BI](./power-bi-visual-getting-started.md).
+- [Understanding layers in the Azure Maps visual for Power BI](./power-bi-visual-understanding-layers.md).
 
 ## Add the heat map layer
 

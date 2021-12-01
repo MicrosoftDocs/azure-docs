@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: anastasia-ms
-ms.author: v-stharr
+author: wesmc7777
+ms.author: wesmc
 ms.date: 9/22/2021
 ms.topic: quickstart
 ms.service: iot-dps
@@ -588,7 +588,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     ```
 
     > [!NOTE]
-    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
+    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples).
     > 
 
 6. Add **globalDeviceEndpoint** and **idScope** variables and use them to create a **ProvisioningDeviceClient** instance. Replace **{globalDeviceEndpoint}** and **{idScope}** with the **_Global Device Endpoint_** and **_ID Scope_** values from **Step 1**:

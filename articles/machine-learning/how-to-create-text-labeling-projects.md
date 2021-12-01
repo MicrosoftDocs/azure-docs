@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
+ms.date: 10/21/2021
+ms.custom: data4ml, ignite-fall-2021
 ---
 
 # Create a text labeling project and export labels (preview)
 
-Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each piece of text.
+Learn how to create and run data labeling projects to label text data in Azure Machine Learning.  Specify either a single label or multiple labels to be applied to each text item.
 
 You can also use the data labeling tool to [create an image labeling project](how-to-create-image-labeling-projects.md).
 
@@ -34,10 +34,10 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 > [!Important]
 > Text data must be available in an Azure blob datastore. (If you do not have an existing datastore, you may upload files during project creation.)
 
-Text data can be either ".txt" or ".csv" files.
+Data formats available for text data:
 
-* For ".txt" files, each file represents one item to be labeled.
-* For ".csv" files, each row represents one item presented to the labeler.  You can display one or more columns to use when labeling that row.
+* **.txt**: each file represents one item to be labeled.
+* **.csv** or **.tsv**: each row represents one item presented to the labeler.  You decide which columns the labeler can see in order to label the row.
 
 ## Prerequisites
 
@@ -78,8 +78,8 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you are using a .csv file, where each row contains a response.
-    * Select **File** if you are using separate .txt files for each response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
+    * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
 1. Select the datastore.
@@ -96,16 +96,16 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you are using a .csv file, where each row is a response.
-    * Select **File** if you are using separate .txt files for each response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response.
+    * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
 1. (Optional) Select or create a datastore. Or keep the default to upload to the default blob store ("workspaceblobstore") of your Machine Learning workspace.
 1. Select **Upload** to select the local file(s) or folder(s) to upload.
 1. Select **Next**.
-1. If uploading .csv files:
+1. If uploading .csv or .tsv files:
     * Confirm the settings and preview, select **Next**.
-    * Include all columns of text you'd like the labeler to see when classifying that row.
+    * Include all columns of text you'd like the labeler to see when classifying that row.  If you'll be using ML assisted labeling, adding numeric columns may degrade the ML assist model.
     * Select **Next**.
 1.  Confirm the details. Select **Back** to modify the settings or **Create** to create the dataset.
 
@@ -113,6 +113,9 @@ To directly upload your data:
 ## <a name="incremental-refresh"> </a> Configure incremental refresh
 
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
+
+> [!NOTE]
+> Incremental refresh isn't available for projects that use tabular (.csv or .tsv) dataset input.
 
 ## Specify label classes
 
@@ -125,6 +128,34 @@ To directly upload your data:
 >[!NOTE]
 > Be sure to note that the labelers will be able to select the first 9 labels by using number keys 1-9.
 
+## Use ML-assisted data labeling
+
+The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. ML-assisted labeling is available for both file (.txt) and tabular (.csv) text data inputs.
+
+To use **ML-assisted labeling**:
+
+* Select **Enable ML assisted labeling**.
+* Select the **Dataset language** for the project. All languages supported by the [TextDNNLanguages Class](/python/api/azureml-automl-core/azureml.automl.core.constants.textdnnlanguages?view=azure-ml-py&preserve-view=true) are present in this list.
+* Specify a compute target to use. If you don't have one in your workspace, a compute cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
+
+### How does ML-assisted labeling work?
+
+At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. 
+
+For training the text DNN model used by ML-assist, the input text per training example will be limited to approximately the first 128 words in the document.  For tabular input, all text columns are first concatenated before applying this limit. This is a practical limit imposed to allow for the model training to complete in a timely manner. The actual text in a document (for file input) or set of text columns (for tabular input) can exceed 128 words.  The limit only pertains to what is internally leveraged by the model during the training process.
+
+The exact number of labeled items necessary to start assisted labeling is not a fixed number. This can vary significantly from one labeling project to another, depending on many factors, including the number of labels classes and label distribution.
+
+Since the final labels still rely on input from the labeler, this technology is sometimes called *human in the loop* labeling.
+
+> [!NOTE]
+> ML assisted data labeling does not support default storage accounts secured behind a [virtual network](how-to-network-security-overview.md). You must use a non-default storage account for ML assisted data labelling. The non-default storage account can be secured behind the virtual network.
+
+### Pre-labeling
+
+After enough labels are submitted for training, the trained model is used to predict tags. The labeler now sees pages that contain predicted labels already present on each item. The task is then to review these predictions and correct any mis-labeled items before submitting the page.  
+
+Once a machine learning model has been trained on your manually labeled data, the model is evaluated on a test set of manually labeled items to determine its accuracy at different confidence thresholds. This evaluation process is used to determine a confidence threshold above which the model is accurate enough to show pre-labels. The model is then evaluated against unlabeled data. Items with predictions more confident than this threshold are used for pre-labeling.
 
 ## Initialize the text labeling project
 
@@ -144,7 +175,7 @@ The **Dashboard** tab shows the progress of the labeling task.
 
 The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
 
-The middle section shows the queue of tasks yet to be assigned. 
+The middle section shows the queue of tasks yet to be assigned. If ML-assisted labeling is on, you'll also see the number of pre-labeled items.
 
 
 On the right side is a distribution of the labels for those tasks that are complete.  Remember that in some project types, an item can have multiple labels, in which case the total number of labels can be greater than the total number items.
@@ -192,4 +223,3 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 ## Next steps
 
 * [How to tag text](how-to-label-data.md#label-text)
-

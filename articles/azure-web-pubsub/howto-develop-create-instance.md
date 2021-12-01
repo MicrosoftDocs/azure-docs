@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: quickstart 
-ms.date: 03/17/2021
+ms.date: 11/08/2021
 ---
 
 # Quickstart: Create a Web PubSub instance from Azure portal

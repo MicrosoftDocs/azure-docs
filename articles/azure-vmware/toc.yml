@@ -58,7 +58,7 @@
     items:
     - name: Protect, monitor, and manage VMs
       href: integrate-azure-native-services.md
-    - name: Integrate Azure Security Center
+    - name: Integrate Microsoft Defender for Cloud
       href: azure-security-integration.md
     - name: Integrate Azure NetApp Files
       href: netapp-files-with-azure-vmware-solution.md
@@ -136,6 +136,14 @@
       href: deploy-disaster-recovery-using-vmware-hcx.md
     - name: Deploy VMware SRM for disaster recovery
       href: disaster-recovery-using-vmware-site-recovery-manager.md
+    - name: Deploy Zerto disaster recovery
+      href: deploy-zerto-disaster-recovery.md
+  - name: Deploy virtual desktops
+    items:
+    - name: Deploy Horizon on Azure VMware Solution
+      href: azure-vmware-solution-horizon.md
+    - name: Deploy Citrix on Azure VMware Solution
+      href: azure-vmware-solution-citrix.md
   - name: Move resources
     items:
     - name: Move Azure VMware Solution subscriptions
@@ -148,7 +156,7 @@
     href: rotate-cloudadmin-credentials.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
-  - name: VMware ecosystem
+  - name: Partner solution ecosystem
     items:
     - name: Backup solutions for VMs
       href: ecosystem-back-up-vms.md
@@ -187,27 +195,27 @@
     - name: General
       href: ./faq.yml
     - name: Billing
-      href: /azure/azure-vmware/faq#billing
+      href: ./faq.yml
     - name: Customer communication
-      href: /azure/azure-vmware/faq#customer-communication
+      href: ./faq.yml
     - name: Configuration and setup
-      href: /azure/azure-vmware/faq#configuration-and-setup
+      href: ./faq.yml
     - name: VMware software
-      href: /azure/azure-vmware/faq#vmware-software
+      href: ./faq.yml
     - name: Third-party backup solutions
-      href: /azure/azure-vmware/faq#third-party-backup-and-recovery
+      href: ./faq.yml
     - name: Compute
-      href: /azure/azure-vmware/faq#compute
+      href: ./faq.yml
     - name: Networking and interconnectivity
-      href: /azure/azure-vmware/faq#networking-and-interconnectivity
+      href: ./faq.yml
     - name: Storage
-      href: /azure/azure-vmware/faq#storage
+      href: ./faq.yml
     - name: Hosts, clusters, and private clouds
-      href: /azure/azure-vmware/faq#hosts,-clusters,-and-private-clouds
+      href: ./faq.yml
     - name: Identity management
-      href: /azure/azure-vmware/faq#identity-management
+      href: ./faq.yml
     - name: CSP and multi-tenancy
-      href: /azure/azure-vmware/faq#csp-and-multi-tenancy
+      href: ./faq.yml
   - name: Videos
     items:
     - name: Playlist

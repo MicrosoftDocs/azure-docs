@@ -114,7 +114,7 @@ Select the **GET Resource** operation, click **Open Console**, and then select *
 When **Authorization code** is selected, a pop-up window is displayed with the sign-in form of the OAuth 2.0 provider. In this example the sign-in form is provided by Azure Active Directory.
 
 > [!NOTE]
-> If you have pop-ups disabled you will be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
+> If you have pop-ups disabled, you'll be prompted to enable them by the browser. After you enable them, select **Authorization code** again and the sign-in form will be displayed.
 
 ![Sign in][api-management-oauth2-signin]
 

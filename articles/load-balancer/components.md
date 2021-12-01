@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/04/2020
+ms.date: 10/26/2021
 ms.author: allensu
 
 ---
@@ -45,7 +45,9 @@ Load balancer can have multiple frontend IPs. Learn more about [multiple fronten
 
 The group of virtual machines or instances in a virtual machine scale set that is serving the incoming request. To scale cost-effectively to meet high volumes of incoming traffic, computing guidelines generally recommend adding more instances to the backend pool.
 
-Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in a single virtual network.
+Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without additional operations. The scope of the backend pool is any virtual machine in a single virtual network. 
+
+Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md).
 
 When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 
@@ -132,8 +134,8 @@ Basic load balancer doesn't support outbound rules.
 
 - See [Create a public Standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
-- Learn about [Private IP Address](../virtual-network/private-ip-addresses.md)
+- Learn about [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
+- Learn about [Private IP Address](../virtual-network/ip-services/private-ip-addresses.md)
 - Learn about using [Standard load balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Standard load balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).

@@ -22,7 +22,7 @@ Azure Purview can scan data sources in Azure or an on-premises environment by us
 
  - Blob private endpoint is linked to an Azure Purview managed storage account.
  - Queue private endpoint is linked to an Azure Purview managed storage account.
- - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
+ - namespace private endpoint is linked to an Azure Purview managed Event Hub namespace.
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
@@ -176,7 +176,7 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Screenshot that shows running an Azure scan by using self-hosted IR.":::
 
 > [!IMPORTANT]
-> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+> Make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Firewalls to restrict public access
 

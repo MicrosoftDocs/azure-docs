@@ -83,7 +83,7 @@ W3C TraceContext based distributed tracing is enabled by default in all recent
 
 #### Java 3.0 agent
 
-  Java 3.0 agent supports W3C out of the box and no additional configuration is needed. 
+  Java 3.0 agent supports W3C out of the box and no additional configuration is needed.
 
 #### Java SDK
 - **Incoming configuration**
@@ -139,7 +139,7 @@ Add the following configuration:
   ```
       distributedTracingMode: 2 // DistributedTracingModes.W3C
   ```
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > To see all configurations required to enable correlation, see the [JavaScript correlation documentation](./javascript.md#enable-correlation).
 
 ## Telemetry correlation in OpenCensus Python
@@ -250,7 +250,6 @@ with tracer.span(name='hello'):
    function_1(tracer)
 logger.warning('After the span')
 
-
 # module2.py
 
 import logging
@@ -288,10 +287,10 @@ The Application Insights .NET SDK uses `DiagnosticSource` and `Activity` to coll
 [Java agent](./java-in-process-agent.md) supports automatic correlation of telemetry. It automatically populates `operation_id` for all telemetry (like traces, exceptions, and custom events) issued within the scope of a request. It also propagates the correlation headers (described earlier) for service-to-service calls via HTTP, if the [Java SDK agent](java-2x-agent.md) is configured.
 
 > [!NOTE]
-> Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK. 
+> Application Insights Java agent auto-collects requests and dependencies for JMS, Kafka, Netty/Webflux, and more. For Java SDK only calls made via Apache HttpClient are supported for the correlation feature. Automatic context propagation across messaging technologies (like Kafka, RabbitMQ, and Azure Service Bus) isn't supported in the SDK.
 
 > [!NOTE]
-> To collect custom telemetry you need to instrument the application with Java 2.6 SDK. 
+> To collect custom telemetry you need to instrument the application with Java 2.6 SDK.
 
 ### Role names
 
@@ -311,7 +310,7 @@ You might want to customize the way component names are displayed in the [Applic
 - With Application Insights Java SDK 2.5.0 and later, you can specify the `cloud_RoleName`
   by adding `<RoleName>` to your ApplicationInsights.xml file:
 
-  ```XML
+  ```xml
   <?xml version="1.0" encoding="utf-8"?>
   <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>

@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 11/08/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -70,9 +70,9 @@ If you enable FQDN filtering in network rules, and you don't configure client vi
 
 When Azure Firewall is a DNS proxy, two caching function types are possible:
 
-- **Positive cache**: DNS resolution is successful. The firewall uses the TTL (time to live) of the packet or object. 
+- **Positive cache**: DNS resolution is successful. The firewall caches these responses according to the TTL (time to live) in the response up to a maximum of 1 hour. 
 
-- **Negative cache**: DNS resolution results in no response or no resolution. The firewall caches this information for one hour.
+- **Negative cache**: DNS resolution results in no response or no resolution. The firewall caches these responses according to the TTL in the response, up to a max of 30 minutes.
 
 The DNS proxy stores all resolved IP addresses from FQDNs in network rules. As a best practice, use  FQDNs that resolve to one IP address.
 

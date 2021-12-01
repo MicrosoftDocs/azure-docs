@@ -44,4 +44,4 @@ az network route-table route create -g MyResourceGroup --route-table-name MyRout
 
 ---
 
-For information on configuring UDR, see [Route network traffic with a routing table](/azure/virtual-network/tutorial-create-route-table-portal).
+For information on configuring UDR, see [Route network traffic with a routing table](../articles/virtual-network/tutorial-create-route-table-portal.md).

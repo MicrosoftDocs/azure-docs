@@ -1,4 +1,4 @@
---- 
+---
 title:  Create an iOS app
 description: Steps to create an Azure Maps account and the first iOS App.
 author: stevemunk
@@ -61,13 +61,13 @@ Once your Maps account is successfully created, retrieve the primary key that en
 >[!NOTE]
 > This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 <!--
-> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](/azure/key-vault/secrets/tutorial-rotation-dual)
+> If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 -->
 ![Get the subscription key.](./media/ios-sdk/quick-ios-app/get-key.png)
 
 ## Create a project in Xcode
 
-First, create a new iOS App project. Complete these steps to create an Xcode project:
+First, create a new iOS App project. Complete these steps to create a Xcode project:
 
 1. Under **File**, select **New** -> **Project**.
 
@@ -75,7 +75,7 @@ First, create a new iOS App project. Complete these steps to create an Xcode pro
 
 3. Enter app name, bundle ID then select **Next**.
 
-See the [Creating an Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
+See the [Creating a Xcode Project for an App](https://developer.apple.com/documentation/xcode/creating-an-xcode-project-for-an-app) for more help with creating a new project.
 
 ![Create the first iOS application.](./media/ios-sdk/quick-ios-app/create-app.png)
 

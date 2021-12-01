@@ -38,27 +38,20 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 # [Resource-specific](#tab/resource-specific)
    ```Kusto
-   let topRequestsByRUcharge = CDBDataPlaneRequests 
-   | where TimeGenerated > ago(24h)
-   | project  RequestCharge , TimeGenerated, ActivityId;
+   //Enable full-text query to view entire query text
    CDBMongoRequests
-   | project PIICommandText, ActivityId, DatabaseName , CollectionName
-   | join kind=inner topRequestsByRUcharge on ActivityId
-   | project DatabaseName , CollectionName , PIICommandText , RequestCharge, TimeGenerated
+   | where TimeGenerated > ago(24h)
+   | project PIICommandText, ActivityId, DatabaseName , CollectionName, RequestCharge
    | order by RequestCharge desc
    | take 10
    ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
    ```Kusto
-   let topRequestsByRUcharge = AzureDiagnostics
-   | where Category == "DataPlaneRequests" and TimeGenerated > ago(1h)
-   | project  requestCharge_s , TimeGenerated, activityId_g;
    AzureDiagnostics
    | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
-   | join kind=inner topRequestsByRUcharge on activityId_g
-   | project databaseName_s , collectionName_s , piiCommandText_s , requestCharge_s, TimeGenerated
+   | where TimeGenerated > ago(24h)
+   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s, requestCharge_s
    | order by requestCharge_s desc
    | take 10
    ```    
@@ -68,25 +61,17 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 # [Resource-specific](#tab/resource-specific)
    ```Kusto
-   let throttledRequests = CDBDataPlaneRequests
-   | where StatusCode == "429" or StatusCode == "16500"
-    | project  OperationName , TimeGenerated, ActivityId;
    CDBMongoRequests
-   | project PIICommandText, ActivityId, DatabaseName , CollectionName
-   | join kind=inner throttledRequests on ActivityId
-   | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
+   | where TimeGenerated > ago(24h)
+   | where ErrorCode == "429" or ErrorCode == "16500"
+   | project DatabaseName, CollectionName, PIICommandText, OperationName, TimeGenerated
    ```
 
 # [Azure Diagnostics](#tab/azure-diagnostics)
    ```Kusto
-   let throttledRequests = AzureDiagnostics
-   | where Category == "DataPlaneRequests"
-   | where statusCode_s == "429" or statusCode_s == "16500" 
-   | project  OperationName , TimeGenerated, activityId_g;
    AzureDiagnostics
-   | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
-   | join kind=inner throttledRequests on activityId_g
+   | where Category == "MongoRequests" and TimeGenerated > ago(24h)
+   | where ErrorCode == "429" or ErrorCode == "16500"
    | project databaseName_s , collectionName_s , piiCommandText_s , OperationName, TimeGenerated
    ```    
 ---
@@ -95,24 +80,16 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 # [Resource-specific](#tab/resource-specific)
    ```Kusto
-   let throttledRequests = CDBDataPlaneRequests
-   | where StatusCode == "50"
-   | project  OperationName , TimeGenerated, ActivityId;
    CDBMongoRequests
-   | project PIICommandText, ActivityId, DatabaseName , CollectionName
-   | join kind=inner throttledRequests on ActivityId
-   | project DatabaseName , CollectionName , PIICommandText , OperationName, TimeGenerated
+   | where TimeGenerated > ago(24h)
+   | where ErrorCode == "50"
+   | project DatabaseName, CollectionName, PIICommandText, OperationName, TimeGenerated
    ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
    ```Kusto
-   let throttledRequests = AzureDiagnostics
-   | where Category == "DataPlaneRequests"
-   | where statusCode_s == "50"
-   | project  OperationName , TimeGenerated, activityId_g;
    AzureDiagnostics
-   | where Category == "MongoRequests"
-   | project piiCommandText_s, activityId_g, databaseName_s , collectionName_s
-   | join kind=inner throttledRequests on activityId_g
+   | where Category == "MongoRequests" and TimeGenerated > ago(24h)
+   | where ErrorCode == "50"
    | project databaseName_s , collectionName_s , piiCommandText_s , OperationName, TimeGenerated
    ```    
 ---
@@ -121,27 +98,20 @@ Common queries are shown in the resource-specific and Azure Diagnostics tables.
 
 # [Resource-specific](#tab/resource-specific)
    ```Kusto
-   let operationsbyUserAgent = CDBDataPlaneRequests
-   | project OperationName, DurationMs, RequestCharge, ResponseLength, ActivityId;
    CDBMongoRequests
    //specify collection and database
    //| where DatabaseName == "DBNAME" and CollectionName == "COLLECTIONNAME"
-   | join kind=inner operationsbyUserAgent on ActivityId
-   | summarize max(ResponseLength) by PIICommandText
+   | summarize max(ResponseLength) by PIICommandText, RequestCharge, DurationMs, OperationName, TimeGenerated
    | order by max_ResponseLength desc
    ```
 # [Azure Diagnostics](#tab/azure-diagnostics)
    ```Kusto
-   let operationsbyUserAgent = AzureDiagnostics
-   | where Category=="DataPlaneRequests"
-   | project OperationName, duration_s, requestCharge_s, responseLength_s, activityId_g;
    AzureDiagnostics
    | where Category == "MongoRequests"
    //specify collection and database
    //| where databaseName_s == "DBNAME" and collectionName_s == "COLLECTIONNAME"
-   | join kind=inner operationsbyUserAgent on activityId_g
-   | summarize max(responseLength_s1) by piiCommandText_s
-   | order by max_responseLength_s1 desc
+   | summarize max(responseLength_s) by piiCommandText_s, OperationName, duration_s, requestCharge_s
+   | order by max_responseLength_s desc
    ```    
 ---
 

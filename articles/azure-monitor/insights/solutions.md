@@ -2,13 +2,16 @@
 title: Monitoring solutions in Azure Monitor | Microsoft Docs
 description: Get information on prepackaged collections of logic, visualization, and data acquisition rules for different problem areas.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 10/16/2020
+author: rboucher
+ms.author: robb
+ms.date: 10/16/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Monitoring solutions in Azure Monitor
+
+> [!CAUTION]
+> Monitoring solutions are no longer in active development.  The replacement technology is called [Azure Monitor Insights](../monitor-reference.md). We suggest you use the insights and not deploy new instances of solutions.  
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 

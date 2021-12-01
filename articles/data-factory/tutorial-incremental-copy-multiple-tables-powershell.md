@@ -125,7 +125,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
         Project varchar(255),
         Creationtime datetime
     );
-	```
+    ```
 
 ### Create another table in Azure SQL Database to store the high watermark value
 
@@ -296,7 +296,7 @@ In this step, you link your SQL Server database to the data factory.
 
     If you use SQL authentication, copy the following JSON definition:
 
-	```json
+    ```json
     {  
         "name":"SqlServerLinkedService",
         "properties":{  
@@ -800,9 +800,9 @@ The pipeline takes a list of table names as a parameter. The **ForEach activity*
     ```
 2. Run the pipeline IncrementalCopyPipeline by using the **Invoke-AzDataFactoryV2Pipeline** cmdlet. Replace placeholders with your own resource group and data factory name.
 
-	```powershell
+    ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
-	``` 
+    ```
 
 ## Monitor the pipeline
 

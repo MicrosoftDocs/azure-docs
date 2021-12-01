@@ -5,17 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
-# Differences between Azure Managed Instance for Apache Cassandra (Preview) and Azure Cosmos DB Cassandra API 
+# Differences between Azure Managed Instance for Apache Cassandra and Azure Cosmos DB Cassandra API 
 
 In this article, you will learn the differences between Azure Managed Instance for Apache Cassandra and the Cassandra API in Azure Cosmos DB. This article provides recommendations on how to choose between the two services, or when to host your own Apache Cassandra environment.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key differences
 

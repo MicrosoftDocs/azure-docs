@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sonarqube | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Sonarqube'
 description: Learn how to configure single sign-on between Azure Active Directory and Sonarqube.
 services: active-directory
 author: jeevansd
@@ -13,7 +13,7 @@ ms.date: 06/25/2021
 ms.author: jeedes
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Sonarqube
+# Tutorial: Azure AD SSO integration with Sonarqube
 
 In this tutorial, you'll learn how to integrate Sonarqube with Azure Active Directory (Azure AD). When you integrate Sonarqube with Azure AD, you can:
 
@@ -74,7 +74,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
 	a. In the **Reply URL** text box, type a URL using the following pattern:
-	`https://servicessonar.<YOUR_ORGANIZATION>.com`
+	` https://sonar.<companyspecificurl>.io/oauth2/callback/saml`
 
     b. In the **Sign-on URL** text box, type one of the following URLs:
 
@@ -176,4 +176,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-* Once you configure the Sonarqube you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure the Sonarqube you can enforce session controls, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session controls extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

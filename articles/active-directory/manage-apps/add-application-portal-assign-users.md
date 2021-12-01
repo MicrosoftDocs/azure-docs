@@ -15,7 +15,7 @@ ms.reviewer: alamaral
 # Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ---
 
-# Quickstart: Create and assign a user account in Azure Active Directory
+# Quickstart: Create and assign a user account
 
 In this quickstart, you use the Azure Active Directory Admin Center to create a user account in your Azure Active Directory (Azure AD) tenant. After you create the account, you can assign it to the enterprise application that you added to your tenant.
 

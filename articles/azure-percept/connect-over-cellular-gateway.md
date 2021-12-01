@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Percept over 5G or LTE networks using a gateway
-description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using cellular gateway.
+title: Connect Azure Percept DK over 5G and LTE networks by using a gateway
+description: This article explains how to connect Azure Percept DK over 5G and LTE networks by using a cellular gateway.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
@@ -8,35 +8,36 @@ ms.topic: how-to
 ms.date: 09/23/2021
 ms.custom: template-how-to
 ---
-# Connect Azure Percept over 5G or LTE networks using a gateway
-A gateway that connects to the internet over 5G or LTE and provides ethernet ports is a simple way of connecting Azure Percept to the internet. In this case, Azure Percept is not even aware that it is connected over 5G or LTE, all it knows that its ethernet port has connectivity and it routes all traffic through that.  
+# Connect Azure Percept DK over 5G and LTE networks by using a gateway
+
+A simple way to connect Azure Percept to the internet is to use a gateway that connects to the internet over 5G or LTE and provides Ethernet ports. In this case, Azure Percept isn't even aware that it's connected over 5G or LTE. It "knows" only that its Ethernet port has connectivity and it's routing all traffic through that port.  
 
 
-## 5G/LTE gateway topology overview
-Below you can see how a 5G/LTE gateway can be easily paired with the Azure Percept DK.
+## Overview of 5G and LTE gateway topology
 
-:::image type="Image" source="media/connect-over-cellular/topology.png" alt-text="This diagram shows how the Azure Percept DK connects to a 5G/LTE gateway via Ethernet." lightbox="media/connect-over-cellular/topology-expanded.png":::
+The following diagram shows how a 5G or LTE gateway can be easily paired with Azure Percept DK (development kit).
 
-## Considerations when connecting to a 5G or LTE gateway
-Here are some important points to consider when connecting the Azure Percept DK to a 5G/LTE gateway.
-- Set up the gateway first and then validate that it's receiving a connection via the SIM. It will then be easier to troubleshoot any issues found while connecting the Azure Percept DK.
-- Ensure both ends of the Ethernet cable are firmly connected to the gateway and Azure Percept DK.
-- Follow the [default instructions](./how-to-connect-over-ethernet.md) for connecting the Azure Percept DK over Ethernet.
-- If your 5G/LTE plan has a quota, it's recommended that you optimize how much data your Azure Percept DK models send to the cloud.
-- Ensure you have a [properly configured firewall](./concept-security-configuration.md) that blocks externally originated inbound traffic.
+:::image type="Image" source="media/connect-over-cellular/topology-v2.png" alt-text="Diagram showing how Azure Percept DK connects to a 5G or LTE gateway via Ethernet." lightbox="media/connect-over-cellular/topology-expanded-v2.png":::
 
-## Considerations when doing SSH to the devkit
-To SSH into the dev kit via a 5G/LTE ethernet gateway, you have these options:
-- **Using the dev kit's Wi-Fi access point**. If you have Wi-Fi disabled, you can re-enable it by rebooting your dev kit. From there, you can connect to the dev kit's Wi-Fi access point and follow [how to SSH into Azure Percept DK](./how-to-ssh-into-percept-dk.md).
-- **Using a Ethernet connection to a local network (LAN)**. With this option, you'll unplug your dev kit from the 5G/LTE gateway and plug it into LAN router. For more information, see [How to Connect over Ethernet](./how-to-connect-over-ethernet.md). 
-- **Using the gateway's remote access features**. Many 5G/LTE gateways include remote access managers that can be used to connect to devices on the network via SSH. Check with manufacturer of your 5G/LTE gateway to see if it has this feature. Here's an example of a remote access manager for [Cradlepoint 5G/LTE gateways](https://customer.cradlepoint.com/s/article/NCM-Remote-Connect-LAN-Manager).
-- **Using the dev kit's serial port**. The Azure Percept DK includes a serial connection port that can be used to connect directly to the device. See [Connect your Azure Percept DK over serial](./how-to-connect-to-percept-dk-over-serial.md) for detailed instructions.
+## If you're connecting to a 5G or LTE gateway
+
+If you're connecting the Azure Percept DK to a 5G or LTE gateway, consider the following important points:
+- Set up the gateway first, and then validate that it's receiving a connection via the SIM. Following this order makes it easier to troubleshoot any issues you find when you connect Azure Percept DK.
+- Make sure that both ends of the Ethernet cable are firmly connected to the gateway and Azure Percept DK.
+- Follow the [default instructions](./how-to-connect-over-ethernet.md) for connecting Azure Percept DK over Ethernet.
+- If your 5G or LTE plan has a quota, we recommend that you optimize for the amount of data that your Azure Percept DK models send to the cloud.
+- Make sure that you have a [properly configured firewall](./concept-security-configuration.md) that blocks externally originated inbound traffic.
+
+## If you're connecting to the dev kit via SSH protocol
+
+If you're using the Secure Shell (SSH) network protocol to connect with the dev kit via a 5G or LTE Ethernet gateway, use one of the following options:
+- **Use the dev kit's Wi-Fi access point**: If you have Wi-Fi disabled, you can re-enable it by rebooting your dev kit. From there, you can connect to the dev kit's Wi-Fi access point and follow the instructions in [Connect to Azure Percept DK over SSH](./how-to-ssh-into-percept-dk.md).
+- **Use an Ethernet connection to a local area network (LAN)**: With this option, you unplug your dev kit from the 5G or LTE gateway and plug it into a LAN router. For more information, see [Connect to Azure Percept DK over Ethernet](./how-to-connect-over-ethernet.md). 
+- **Use the gateway's remote access features**: Many 5G and LTE gateways include remote access managers that can be used to connect to devices on the network via SSH. Check with the 5G or LTE gateway manufacturer to see whether it has this feature. For an example of a remote access manager, see [Cradlepoint 5G and LTE gateways](https://customer.cradlepoint.com/s/article/NCM-Remote-Connect-LAN-Manager).
+- **Use the dev kit's serial port**: Azure Percept DK includes a serial connection port that can be used to connect directly to the device. For more information, see [Connect to Azure Percept DK over serial cable](./how-to-connect-to-percept-dk-over-serial.md).
 
 ## Next steps
-Depending on what cellular device you might have access to, you might want to consider connecting over a USB mode:
+Depending on the cellular device you have access to, you can connect in one of two ways:
 
-[Connect using USB modem](./connect-over-cellular-usb.md).
-
-Back to the main article on 5G or LTE:
-
-[Connect using 5G or LTE](./connect-over-cellular.md).
+* [Connect by using a USB modem](./connect-over-cellular-usb.md)
+* [Connect by using 5G or LTE](./connect-over-cellular.md)

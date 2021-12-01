@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/18/2021
 ms.author: jianleishen
 ---
 
@@ -17,7 +17,21 @@ ms.author: jianleishen
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
 
-JSON format is supported for the following connectors: [Amazon S3](connector-amazon-simple-storage-service.md), [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure Files](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [Oracle Cloud Storage](connector-oracle-cloud-storage.md) and [SFTP](connector-sftp.md).
+JSON format is supported for the following connectors: 
+
+- [Amazon S3](connector-amazon-simple-storage-service.md)
+- [Amazon S3 Compatible Storage](connector-amazon-s3-compatible-storage.md),
+- [Azure Blob](connector-azure-blob-storage.md)
+- [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
+- [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+- [Azure Files](connector-azure-file-storage.md)
+- [File System](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [Google Cloud Storage](connector-google-cloud-storage.md)
+- [HDFS](connector-hdfs.md)
+- [HTTP](connector-http.md)
+- [Oracle Cloud Storage](connector-oracle-cloud-storage.md)
+- [SFTP](connector-sftp.md)
 
 ## Dataset properties
 
@@ -193,7 +207,7 @@ When copying data from JSON files, copy activity can automatically detect and pa
 
 ## Mapping data flow properties
 
-In mapping data flows, you can read and write to JSON format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties), and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+In [mapping data flows](concepts-data-flow-overview.md), you can read and write to JSON format in the following data stores: [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties), and you can read JSON format in [Amazon S3](connector-amazon-simple-storage-service.md#mapping-data-flow-properties).
 
 ### Source properties
 
@@ -411,6 +425,15 @@ If this expression were entered for a column named "complexColumn", then it woul
     ]
 )
 ```
+
+## Related connectors and formats
+
+Here are some common connectors and formats related to the JSON format:
+
+- Azure Blob Storage (connector-azure-blob-storage.md)
+- Delimited text format(format-delimited-text.md)
+- OData connector(connector-odata.md)
+- Parquet format(format-parquet.md)
 
 ## Next steps
 

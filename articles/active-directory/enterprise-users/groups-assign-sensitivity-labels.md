@@ -30,7 +30,7 @@ To apply published labels to groups, you must first enable the feature. These st
 1. Open a Windows PowerShell window on your computer. You can open it without elevated privileges.
 1. Run the following commands to prepare to run the cmdlets.
 
-    ```PowerShell
+    ```powershell
     Install-Module AzureADPreview
     Import-Module AzureADPreview
     Connect-AzureAD
@@ -39,8 +39,8 @@ To apply published labels to groups, you must first enable the feature. These st
     In the **Sign in to your account** page, enter your admin account and password to connect you to your service, and select **Sign in**.
 1. Fetch the current group settings for the Azure AD organization.
 
-    ```PowerShell
-    $setting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
+    ```powershell
+    $grpUnifiedSetting = (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ)
     $template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
     $setting = $template.CreateDirectorySetting()
     ```
@@ -50,20 +50,26 @@ To apply published labels to groups, you must first enable the feature. These st
 
 1. Next, display the current group settings.
 
-    ```PowerShell
+    ```powershell
     $Setting.Values
     ```
 
-1. Then enable the feature:
+1. Enable the feature:
 
-    ```PowerShell
+    ```powershell
     $Setting["EnableMIPLabels"] = "True"
     ```
+ 
+1. Check the new applied value:
 
-1. Then save the changes and apply the settings:
+    ```powershell
+    $Setting.Values
+    ```
+    
+1. Save the changes and apply the settings:
 
-    ```PowerShell
-    New-AzureADDirectorySetting -DirectorySetting $setting
+    ```powershell
+    Set-AzureADDirectorySetting -Id $grpUnifiedSetting.Id -DirectorySetting $setting
     ```
 
 You will also need to synchronize your sensitivity labels to Azure AD. For instructions, see [How to enable sensitivity labels for containers and synchronize labels](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).

@@ -71,5 +71,4 @@ A new resource group in Azure Resource Manager is created using the name of the 
 For more information on public IP addresses in Azure, see:
 
 - [Public IP addresses in Azure](public-ip-addresses.md)
-- [Create a public IP - Azure portal](../../virtual-network/create-public-ip-portal.md)
-
+- [Create a public IP - Azure portal](./create-public-ip-portal.md)

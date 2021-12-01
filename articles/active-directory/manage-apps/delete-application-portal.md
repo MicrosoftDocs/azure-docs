@@ -15,7 +15,7 @@ ms.reviewer: ergleenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 
-# Quickstart: Delete an enterprise application in Azure Active Directory
+# Quickstart: Delete an enterprise application
 
 In this quickstart, you use the Azure Active Directory Admin Center to delete an application that was added to your Azure Active Directory (Azure AD) tenant.
 

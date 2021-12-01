@@ -23,29 +23,38 @@ In Xcode, create a new iOS project and select the **App** template. We will be u
 
 ![Screenshot showing the New Project template selection within Xcode.](../../media/xcode-new-project-template-select.png)
 
-Name the project `UILibraryQuickStart`.
+Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interface` dropdown.
 
 ![Screenshot showing the New Project details within Xcode.](../../media/xcode-new-project-details.png)
 
 ### Install the package and dependencies with CocoaPods
 
-1. Create a Podfile for your application:
+1. Create a Podfile in your project root directory by running `pod init`.
+    - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
+2. Add the following to your Podfile:
 
 ```
-source 'https://github.com/Azure/AzurePrivatePodspecs'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/Azure/AzurePrivatePodspecs.git'
 
 platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'azure-communication-ui', '1.0.0-alpha.1'
-    pod 'AzureCommunicationCalling', '2.0.1-beta.1'
-    pod 'MicrosoftFluentUI', '0.3.3'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
 end
 ```
 
-2. Run `pod install`.
-3. Open the generated `.xcworkspace` with Xcode.
+3. Run `pod install --repo-update`. (This process may take 10-15 min.)
+4. Open the generated `.xcworkspace` with Xcode.
 
 ### Request access to the microphone, camera, etc.
 
@@ -60,6 +69,10 @@ Right-click the `Info.plist` entry of the project tree and select **Open As** > 
 <string></string>
 ```
 
+To verify requesting the permission is added correctly, view the `Info.plist` as **Open As** > **Property List** and should expect to see the following:
+
+![Screenshot showing the Camera and Microphone privacy in Xcode.](../../media/xcode-info-plist.png)
+
 ### Turn off `Bitcode`
 Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the setting, you have to change the filter from `Basic` to `All`, you can also use the search bar on the right.
 
@@ -67,12 +80,12 @@ Set `Enable Bitcode` option to `No` in the project `Build Settings`. To find the
 
 ## Initialize composite
 
-Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with your group ID for your call, `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
+Go to 'ViewController'. Here we'll drop the following code to initialize our Composite Components for Call. Replace `<GROUP_CALL_ID>` with either your call group ID or `UUID()` to generate one. Also replace `<DISPLAY_NAME>` with your name, and `<USER_ACCESS_TOKEN>` with your token.
 
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import CallingComposite
+import CallComposite
 
 class ViewController: UIViewController {
 
@@ -102,8 +115,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: displayName,
-                                       groupId: uuid)
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
+                                       displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
     }
 }
@@ -119,22 +132,24 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 ![Final look and feel of the quick start app](../../media/quick-start-calling-composite-running-ios.gif)
 
+## Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/ui-library-quickstart)
+
 ## Object Model
 
 The following classes and interfaces handle some of the major features of the Azure Communication Services UI client library:
 
 | Name                                                                        | Description                                                                                  |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| CallComposite | The composite renders a call experience with participant gallery and controls. |
-| CallCompositeOptions | Includes options such as the theme configuration and the events handler. |
-| CallCompositeEventsHandler | Allows you to receive events from composite. |
-| GroupCallOptions | The options for joining a group call, such as groupId. |
-| TeamsMeetingOptions | The options for joining a Team's meeting, such as the meeting link. |
-| ThemeConfiguration | Allows you to customize the theme. |
+| [CallComposite](#create-call-composite) | The composite renders a call experience with participant gallery and controls. |
+| [CallCompositeOptions](#create-call-composite) | Includes options such as the theme configuration and the events handler. |
+| [CallCompositeEventsHandler](#subscribe-to-events-from-callcomposite) | Allows you to receive events from composite. |
+| [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
+| [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
+| [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
 
 ## UI Library functionality
 
-### Create call composite options and call composite
+### Create call composite
 
 Initialize a `CallCompositeOptions` instance and a `CallComposite` instance inside the `startCallComposite` function.
 
@@ -165,9 +180,11 @@ Depending on what type of Call/Meeting you would like to setup, use the appropri
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function. Replace `<GROUP_CALL_ID>` with your group ID for your call and `<DISPLAY_NAME>` with your name.
 
 ```swift
+// let uuid = UUID() to create a new call
+let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: displayName,
-                               groupId: uuid)
+                               groupId: uuid,
+                               displayName: "<DISPLAY_NAME>")
 ```
 
 #### Teams meeting
@@ -176,8 +193,8 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: displayName,
-                                  meetingLink: link)
+                                  meetingLink: "<TEAMS_MEETING_LINK>",
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### Get a Microsoft Teams meeting link
@@ -194,7 +211,7 @@ Call `launch` on the `CallComposite` instance inside the `startCallComposite` fu
 callComposite?.launch(with: options)
 ```
 
-### Implement the closure for events handler
+### Subscribe to events from `CallComposite`
 
 You can implement the closures from `CallCompositeEventsHandler` to act on the events and pass the implementation to `CallCompositeOptions`. An event for when the composite ended with an error is an example.
 
@@ -208,7 +225,7 @@ let handler = CallCompositeEventsHandler(didFail: { error in
 let callCompositeOptions = CallCompositeOptions(callCompositeEventsHandler: handler)
 ```
 
-### Customizing the theme
+### Apply theme configuration
 
 You can customize the theme by creating a custom theme configuration that implements the ThemeConfiguration protocol. You then include an instance of that new class in your CallCompositeOptions.
 

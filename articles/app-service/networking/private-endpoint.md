@@ -139,7 +139,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 <!--Links-->
 [serviceendpoint]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [privatelink]: ../../private-link/private-link-overview.md
-[vnetintegrationfeature]: ../web-sites-integrate-with-vnet.md
+[vnetintegrationfeature]: ../overview-vnet-integration.md
 [disablesecuritype]: ../../private-link/disable-private-endpoint-network-policy.md
 [accessrestrictions]: ../app-service-ip-restrictions.md
 [tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2

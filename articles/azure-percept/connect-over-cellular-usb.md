@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Percept over 5G or LTE networks using a USB Modem
-description: This article explains how to connect the Azure Percept DK over 5G or LTE networks using USB modem.
+title: Connect Azure Percept DK over 5G and LTE networks by using a USB modem
+description: This article explains how to connect Azure Percept DK over 5G and LTE networks by using a USB modem.
 author: juhaluoto
 ms.author: amiyouss
 ms.service: azure-percept
@@ -8,68 +8,89 @@ ms.topic: how-to
 ms.date: 09/03/2021
 ms.custom: template-how-to
 ---
-# Connect Azure Percept over 5G or LTE networks using a USB Modem
 
-Here below you can find steps to prepare and connect Azure Percept DK using USB modems to 5G or LTE networks. These instructions are applicable to only the special Azure Percept DK SW that you can download following the instruction here below. This special Azure Percept image includes ModemManager open-source SW that supports wide variety of USB modems. NOTE, this image does not support OTA updates to the OS or other SW. With this SW, you can use simple cost efficient LTE USB modem or more sophisticated 5G modems to connect your Azure Percept to internet and Azure. 
+# Connect Azure Percept DK over 5G and LTE networks by using a USB modem
 
-> [!Note]
-> These instructions are intended to be used with USB modems that support MBIM interface. Before obtaining a USB modem, please ensure it supports MBIM interface. Then make sure it is listed in the ModemManager supported modem list. ModemManager SW can be used with other interfaces, but we focused on MBIM interface. More info on ModemManager can be found here: https://www.freedesktop.org/wiki/Software/ModemManager/
+This article discusses how to connect Azure Percept DK to 5G or LTE networks by using a USB modem. 
+
+> [!NOTE]
+> The information in this article applies only to special Azure Percept DK software that you can download according to the instructions in the next section. A special Azure Percept DK image includes ModemManager open-source software, which supports a wide variety of USB modems. The image doesn't support over-the-air (OTA) updates to the operating system or other software. With ModemManager open-source software, you can use a simple, cost-efficient LTE USB modem or more sophisticated 5G modems to connect Azure Percept DK to the internet and Azure. 
+>
+> The instructions in this article are intended to be used with USB modems that support a Mobile Broadband Interface Model (MBIM) interface. Before you obtain a USB modem, make sure that it supports the MBIM interface. Also make sure that it's listed in the ModemManager list of supported modems. ModemManager software can be used with other interfaces, but in this article we focus on the MBIM interface. For more information, go to the [freedesktop.org ModemManager](https://www.freedesktop.org/wiki/Software/ModemManager/) page.
 
 
-:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems.png" alt-text="USB modems connected to Azure Percept.":::
+:::image type="Image" source="media/connect-over-cellular/azure-percept-all-modems-v2.png" alt-text="A photographic illustration of Azure Precept DK using USB modems to connect to 5G and LTE networks.":::
 
-## Setting up the Devkit for using USB Modem
+## Set up Azure Percept DK to use a USB modem
 
-- **Download Azure Percept SW image that supports ModemManager** - [Azure Percept 5G SW image files zipped](https://aka.ms/azpercept5gimage) to download the 3 files needed to update your Azure Percept SW to support USB modems
-- **Update your Azure Percept with the downloaded files using USB method** - Follow [How-to-update-via-USB](./how-to-update-via-usb.md) to update your devkit with the special LTE/5G enabled Azure Percept SW you downloaded in the previous step. Remember to ONLY use the files downloaded in *the previous step* and not the ones pointed in the how-to-update-via-USB!
-- **Go through the normal set up process** - [quickstart-percept-dk-set-up](./quickstart-percept-dk-set-up.md) to follow through the setup process if it is not familiar to you. The setup experience is not different on this ModemManager enabled version of Azure Percept.
-- **Connect to your Azure Percept over SSH** - [how-to-ssh-into-percept-dk](./how-to-ssh-into-percept-dk.md) for instructions
+1. [Download the Azure Percept 5G software image](https://aka.ms/azpercept5gimage) that supports ModemManager. 
 
-## Step by step instructions for connecting three different modems
+   These three files are needed to update your Azure Percept DK software to support USB modems.
 
-Here below you can find instructions for three different USB modems. First one is a simple LTE CAT-4 USB dongle (Vodafone) that does not have any special features. The instructions for this modem can be used for similar simple cost efficient USB modems. The second one (MultiTech) is an example of a USB modem that has different USB modes of operation. For this type of modem, you have to enable the proper USB mode first to enable the MBIM interface that ModemManager supports. The third one is a 5G modem (Quectel DK) and it also has different modes and you have to enable the proper MBIM mode first.  
+1. [Update the Azure Percept DK software](./how-to-update-via-usb.md) with the special 5G/LTE-enabled Azure Percept DK software that you downloaded in the preceding step. 
+
+   > [!IMPORTANT]
+   > Follow the instructions in [Update Azure Percept DK over a USB-C connection](./how-to-update-via-usb.md), but be sure to use *only* the files that you downloaded in the preceding step, and not the files that are mentioned in the article.
+
+1. Follow the normal process to [set up the Azure Percept DK device](./quickstart-percept-dk-set-up.md), if it's unfamiliar to you. 
+
+   The setup experience is not different on this ModemManager-enabled version of Azure Percept DK.
+
+1. [Connect to Azure Percept DK by using the Secure Shell (SSH) network protocol](./how-to-ssh-into-percept-dk.md).
+
+## Connect to a modem
+
+The next three sections have instructions for connecting to various USB modems.  
 
 ### Vodafone USB Connect 4G v2 modem
-:::image type="Image" source="media/connect-over-cellular/vodafone-usb-modem-75.png" alt-text="Vodafone USB modem":::
 
-Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the Vodafone USB Connect 4G v2.
+This Vodafone USB modem is a simple LTE CAT-4 USB dongle that has no special features. The instructions for this modem can be used for other similar, simple, cost-efficient USB modems.
 
-[Connecting using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md).   
+:::image type="Image" source="media/connect-over-cellular/vodafone-usb-modem-75.png" alt-text="Illustration of the top and bottom views of a Vodafone 4G v2 USB modem.":::
+
+For instructions for connecting your Azure Percept DK by using a simple USB modem such as the Vodafone USB Connect 4G v2, see [Connect by using the Vodafone Connect 4G v2 USB modem](./connect-over-cellular-usb-vodafone.md).   
 
 ### MultiTech Multiconnect USB modem
-:::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="MultiTech USB modem":::
 
-Here are the instructions for connecting your Azure Percept DK using a simple USB modem like the MultiTech USB modem (MTCM-LNA3-B03).
+This MultiTech USB modem offers several USB modes of operation. For this type of modem, you first have to enable the proper USB mode before you enable the MBIM interface that ModemManager supports.
 
-[Connecting using MultiTech USB modem](./connect-over-cellular-usb-multitech.md).   
+:::image type="Image" source="media/connect-over-cellular/multitech-usb-modem-75.png" alt-text="Illustration of the MultiTech Multiconnect USB modem.":::
+
+To connect Azure Percept DK by using a simple USB modem such as the MultiTech USB modem (MTCM-LNA3-B03), follow the instructions in [Connect by using the MultiTech USB modem](./connect-over-cellular-usb-multitech.md).
 
 ### Quectel 5G developer kit
-:::image type="Image" source="media/connect-over-cellular/quectel-5-g-dk-75.png" alt-text="Quectel 5G DK":::
 
-Here are the instructions for connecting your Azure Percept DK using a 5G USB modem like Quectel RM500Q-GL.
+The third modem is the Quectel 5G DK. It also offers several modes, and you have to enable the proper MBIM mode first.
 
-[Connecting using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md). 
+:::image type="Image" source="media/connect-over-cellular/quectel-5-g-dk-75.png" alt-text="Illustration of the Quectel 5G DK USB modem.":::
 
-## How to make your LTE/5G connection recover from reboot 
-With the above instructions you can configure the USB modem to connect to the network, but if you reboot your device you have to reconnect again manually. We are working on a solution for improving this. If you are interested in getting more info please send a mail to azpercept5G@microsoft.com with a short note referencing here. 
+For instructions for connecting your Azure Percept DK by using a 5G USB modem such as Quectel RM500Q-GL, see [Connect by using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md). 
+
+## Help your 5G or LTE connection recover from reboot 
+You can configure the USB modem to connect to the network, but if you reboot your device, you have to reconnect again manually. We're currently working on a solution to improve this experience. For more information, contact [our support team](mailto:azpercept5G@microsoft.com) with a short note referencing this issue. 
 
 ## Debugging information 
-Always remember to check that your SIM card works on the specific HW you intend to use. Several carriers limit the data only IoT SIM cards to work on only one device. So if that is the case, you have to make sure your device IMEI/Serial number is listed in the SIM card "allowed device list" by the carrier.
+Check to ensure that your SIM card works on the specific hardware that you intend to use. Several carriers limit the data-only IoT SIM cards to work on only one device. For this reason, make sure that your device International Mobile Equipment Identity (IMEI) or serial number is listed on the carrier's SIM card allowed device list.
 
-### ModemManager Debug mode
+### ModemManager debug mode
 
-ModemManager's debug mode can be enabled by editing file `/lib/systemd/system/ModemManager.service` at line: `ExecStart=/usr/sbin/ModemManager [...]` , and appending `--debug`, just like in the below example:
+You can enable the ModemManager debug mode by editing the */lib/systemd/system/ModemManager.service* file at the `ExecStart=/usr/sbin/ModemManager [...]` line by appending `--debug`, as shown in the following example:
+
 ```  
 [...]  
 ExecStart=/usr/sbin/ModemManager [...] --debug  
 [...]  
 ```
-You will then need to reload services and restart ModemManager for changes to take effect:
+
+For your changes to take effect, reload the services and restart ModemManager, as shown here:
+
 ```
 systemctl daemon-reload
 systemctl restart ModemManager
 ```
-And here are few commands that allow you to see the logs and clean the log files:
+
+By running the following commands, you can view the logs and clean the log files:
+
 ```
 journalctl -u ModemManager.service
 journalctl --rotate
@@ -77,34 +98,27 @@ journalctl --vacuum-time=1s
 
 ```
 
-### Reliability and stability enhancement
+### Enhance reliability and stability
 
-#### Strict mode
-To prevent ModemManager from interacting with non-modem serial interfaces, you can restrict which interfaces are probed (to determine which are modems) by changing [filter policies](https://www.freedesktop.org/software/ModemManager/api/latest/ch03s02.html). We recommend using the `STRICT` mode
+To prevent ModemManager from interacting with non-modem serial interfaces, you can restrict the interfaces to be probed (to determine which are modems) by changing the [filter policies](https://www.freedesktop.org/software/ModemManager/api/latest/ch03s02.html). 
 
-For this, you would need to edit `/lib/systemd/system/ModemManager.service` at line: `ExecStart=/usr/sbin/ModemManager [...]` , and add `--filter-policy=STRICT` , just like in the below example:
+We recommend that you use the `STRICT` mode.
+
+To do so, edit the */lib/systemd/system/ModemManager.service* file at the `ExecStart=/usr/sbin/ModemManager [...]` line by appending `--filter-policy=STRICT`, as shown in the following example:
+
 ```
 [...]
 ExecStart=/usr/sbin/ModemManager --filter-policy=STRICT
 [...]
 ```
-You will then need to reload services and restart ModemManager for changes to take effect:
+For your changes to take effect, reload the services and restart ModemManager, as shown here:
+
 ```
 systemctl daemon-reload
 systemctl restart ModemManager
 ```
 
 ## Next steps
-Now check out the instructions for different USB modems:
 
-[Connect using Vodafone Connect 4G vs USB modem](./connect-over-cellular-usb-vodafone.md)
-
-[Connect using MultiTech USB modem](./connect-over-cellular-usb-multitech.md)
-
-[Connect using Quectel 5G Developer Kit](./connect-over-cellular-usb-quectel.md)
-
-Back to the main article on 5G or LTE:
-
-[Connect using 5G or LTE](./connect-over-cellular.md).
-
-[Connect using cellular gateway](./connect-over-cellular-gateway.md).
+* [Connect by using 5G or LTE](./connect-over-cellular.md)
+* [Connect by using a cellular gateway](./connect-over-cellular-gateway.md)

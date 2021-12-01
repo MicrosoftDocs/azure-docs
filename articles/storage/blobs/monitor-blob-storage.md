@@ -5,7 +5,7 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/10/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: "subject-monitoring, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell"
@@ -203,10 +203,10 @@ For more information, see [Stream Azure Resource Logs to Log Analytics workspace
 
 2. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account that you want to enable logs for.
 
-   ```azurecli-interactive
-   az account set --subscription <subscription-id>
+   ```azurecli
+      az account set --subscription <subscription-id>
    ```
-
+   
    Replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
 #### Archive logs to a storage account
@@ -458,6 +458,17 @@ You can read account-level metric values of your storage account or the Blob sto
    Get-AzMetric -ResourceId $resourceId -MetricNames "UsedCapacity" -TimeGrain 01:00:00
 ```
 
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [Get-AzMetric](/powershell/module/Az.Monitor/Get-AzMetric) cmdlet.
+
+```powershell
+$resourceId = "<resource-ID>"
+$dimFilter = [String](New-AzMetricFilter -Dimension ApiName -Operator eq -Value "GetBlob" 3> $null)
+Get-AzMetric -ResourceId $resourceId -MetricName Transactions -TimeGrain 01:00:00 -MetricFilter $dimFilter -AggregationType "Total"
+```
+
+
 ### [Azure CLI](#tab/azure-cli)
 
 #### List the account-level metric definition
@@ -466,7 +477,7 @@ You can list the metric definition of your storage account or the Blob storage s
 
 In this example, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the resource ID of the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list-definitions --resource <resource-ID>
 ```
 
@@ -474,8 +485,16 @@ In this example, replace the `<resource-ID>` placeholder with the resource ID of
 
 You can read the metric values of your storage account or the Blob storage service. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
 
-```azurecli-interactive
+```azurecli
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
+```
+
+#### Reading metric values with dimensions
+
+When a metric supports dimensions, you can read metric values and filter them by using dimension values. Use the [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) command.
+
+```azurecli
+az monitor metrics list --resource <resource-ID> --metric "Transactions" --interval PT1H --filter "ApiName eq 'GetBlob' " --aggregation "Total" 
 ```
 
 ### [Template](#tab/template)
@@ -615,19 +634,19 @@ This table shows how this feature is supported in your account and the impact on
 
 ### Logs in Azure Monitor
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup>|![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 
 ### Metrics in Azure Monitor
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and Secure File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 <sup>2</sup>    Feature is supported at the preview level.
 

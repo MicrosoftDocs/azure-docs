@@ -66,7 +66,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-powershell-project-vscode.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

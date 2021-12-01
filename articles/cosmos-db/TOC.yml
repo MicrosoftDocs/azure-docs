@@ -33,10 +33,10 @@
     - name: Capacity
       items:
         - name: Request units
-          displayName: RUs, RU     
+          displayName: RUs, RU
           href: request-units.md
         - name: Convert vcores to request units
-          href: convert-vcore-to-request-unit.md                 
+          href: convert-vcore-to-request-unit.md
         - name: Provisioned throughput
           displayName: request units, RUs, RU, limits, database throughput, shared throughput, container throughput
           href: set-throughput.md
@@ -84,18 +84,20 @@
           href: synapse-link-use-cases.md
         - name: Synapse Link FAQ
           href: synapse-link-frequently-asked-questions.yml
+        - name: Custom partitioning - Overview
+          href: custom-partitioning-analytical-store.md
     - name: Backup and restore
       items:
         - name: Backup and restore introduction
           href: online-backup-and-restore.md
         - name: Continuous backup
           items:
-          - name: Continuous backup - Introduction
-            href: continuous-backup-restore-introduction.md
-          - name: Continuous backup - FAQ
-            href: continuous-backup-restore-frequently-asked-questions.yml
-          - name: Continuous backup - Resource model
-            href: continuous-backup-restore-resource-model.md
+            - name: Continuous backup - Introduction
+              href: continuous-backup-restore-introduction.md
+            - name: Continuous backup - FAQ
+              href: continuous-backup-restore-frequently-asked-questions.yml
+            - name: Continuous backup - Resource model
+              href: continuous-backup-restore-resource-model.md
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -130,7 +132,7 @@
       href: cosmosdb-jupyter-notebooks.md
     - name: Service quotas
       href: concepts-limits.md
-    - name: Enterprise readiness 
+    - name: Enterprise readiness
       items:
         - name: Compliance
           href: compliance.md
@@ -165,8 +167,6 @@
               href: sql/create-sql-api-nodejs.md
             - name: Python app
               href: sql/create-sql-api-python.md
-            - name: Xamarin app
-              href: sql/create-sql-api-xamarin-dotnet.md
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -189,10 +189,6 @@
                   href: sql/sql-api-java-application.md
                 - name: Node.js
                   href: sql/sql-api-nodejs-application.md
-            - name: Build a mobile app
-              items:
-                - name: Xamarin
-                  href: sql/mobile-apps-with-xamarin.md
         - name: 2 - Migrate data
           items:
             - name: Using the Data Migration tool
@@ -207,10 +203,8 @@
           href: sql/tutorial-global-distribution-sql-api.md
     - name: Samples
       items:
-        - name: .NET V2 SDK samples
-          href: sql/sql-api-dotnet-samples.md
         - name: .NET V3 SDK samples
-          href: sql/sql-api-dotnet-v3sdk-samples.md
+          href: sql/sql-api-dotnet-samples.md
         - name: Java SDK v4 samples
           href: sql/sql-api-java-sdk-samples.md
         - name: Spring Data v3 samples
@@ -227,6 +221,8 @@
           href: sql/templates-samples-sql.md
         - name: Bicep
           href: sql/bicep-samples.md
+        - name: .NET V2 SDK samples (legacy)
+          href: sql/sql-api-dotnet-v2sdk-samples.md
     - name: Concepts
       items:
         - name: Modeling and partitioning
@@ -622,7 +618,7 @@
               href: sql/change-feed-design-patterns.md
             - name: Reading change feed
               href: sql/read-change-feed.md
-            - name: sql/Change feed processor
+            - name: Change feed processor
               href: sql/change-feed-processor.md
             - name: Trigger Azure Functions
               displayName: change feed
@@ -650,6 +646,14 @@
               href: secure-access-to-data.md
             - name: Advanced threat protection
               href: sql/advanced-threat-protection.md
+        - name: Partial document update
+          items:
+            - name: Partial document update overview
+              href: partial-document-update.md
+            - name: Getting started with Partial document update
+              href: partial-document-update-getting-started.md
+            - name: Partial document update FAQ
+              href: partial-document-update-faq.yml
         - name: Connectivity modes
           href: sql/sql-sdk-connection-modes.md
     - name: How-to guides
@@ -921,13 +925,13 @@
           items:
             - name: .NET SDK v3
               href: sql/sql-api-sdk-dotnet-standard.md
-            - name: .NET SDK v2
+            - name: .NET SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet.md
-            - name: .NET Core SDK v2
+            - name: .NET Core SDK v2 (legacy)
               href: sql/sql-api-sdk-dotnet-core.md
-            - name: .NET change feed library v2
+            - name: .NET change feed library v2 (legacy)
               href: sql/sql-api-sdk-dotnet-changefeed.md
-            - name: .NET bulk executor library v2
+            - name: .NET bulk executor library v2 (legacy)
               href: sql/sql-api-sdk-bulk-executor-dot-net.md
         - name: Java SDKs and Connectors
           items:
@@ -948,7 +952,7 @@
             - name: Java bulk executor library v2
               href: sql/sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db           
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
         - name: Node.js
           href: sql/sql-api-sdk-node.md
         - name: Python
@@ -1077,6 +1081,10 @@
           href: cassandra/powershell-samples.md
         - name: Manage using Azure CLI
           href: cassandra/cli-samples.md
+        - name: Glowroot using Cassandra API
+          href: cassandra/glowroot-cassandra.md
+        - name: Error codes definitions
+          href: cassandra/error-codes-solution.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1086,7 +1094,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: MongoDB API
   items:
     - name: Overview
@@ -1097,6 +1105,8 @@
       items:
         - name: .NET
           href: mongodb/create-mongodb-dotnet.md
+        - name: Python 
+          href: mongodb/create-mongodb-python.md
         - name: Java
           href: mongodb/create-mongodb-java.md
         - name: Node.js
@@ -1106,7 +1116,7 @@
         - name: Golang
           href: mongodb/create-mongodb-go.md
         - name: Rust
-          href: mongodb/create-mongodb-rust.md
+          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1152,13 +1162,13 @@
             - name: Pre-migration guide
               href: mongodb/pre-migration-steps.md
             - name: MongoDB native tools (offline)
-              href: mongodb/tutorial-mongotools-cosmos-db.md                            
+              href: mongodb/tutorial-mongotools-cosmos-db.md
             - name: Database Migration Service (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Database Migration Service (offline)
               href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Azure Databricks and Spark (offline)
-              href: mongodb/migrate-databricks.md 
+              href: mongodb/migrate-databricks.md
             - name: Post-migration guide
               href: mongodb/post-migration-optimization.md
         - name: Upgrade to API version 4.0 or 3.6
@@ -1228,7 +1238,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Gremlin API
   displayName: graph, graph database
   items:
@@ -1318,7 +1328,7 @@
         - name: Resource Manager template
           href: /azure/templates/microsoft.documentdb/allversions
         - name: Azure CLI
-          href: /cli/azure/azure-cli-reference-for-cosmos-db          
+          href: /cli/azure/azure-cli-reference-for-cosmos-db
 - name: Table API
   items:
     - name: Overview
@@ -1410,6 +1420,9 @@
     - name: Free tier
       href: free-tier.md
       displayName: free tier
+    - name: Limit total account throughput
+      displayName: cost, RUs, RU
+      href: limit-total-account-throughput.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos account
@@ -1435,11 +1448,11 @@
             - name: Install and use the emulator
               href: local-emulator.md
             - name: Run the emulator on Docker
-              items:  
-              - name: Run the emulator on Docker for Linux
-                href: linux-emulator.md
-              - name: Run the emulator on Docker for Windows
-                href: local-emulator-on-docker-windows.md
+              items:
+                - name: Run the emulator on Docker for Linux
+                  href: linux-emulator.md
+                - name: Run the emulator on Docker for Windows
+                  href: local-emulator-on-docker-windows.md
             - name: Export emulator certificates
               href: local-emulator-export-ssl-certificates.md
             - name: Emulator command-line parameters
@@ -1472,6 +1485,8 @@
           href: ../synapse-analytics/sql/query-cosmos-db-analytical-store.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Use Power BI with Synapse Link
           href: synapse-link-power-bi.md
+        - name: Configure custom partitioning
+          href: configure-custom-partitioning.md
     - name: Backup and restore
       items:
         - name: Manage continuous backup
@@ -1485,7 +1500,11 @@
             - name: Migrate to continuous backup
               href: migrate-continuous-backup.md
         - name: Manage periodic backup
-          href: configure-periodic-backup-restore.md 
+          items:
+          - name: Configure periodic backup
+            href: configure-periodic-backup-restore.md
+          - name: Update backup storage redundancy 
+            href: update-backup-storage-redundancy.md
     - name: Security
       items:
         - name: Configure IP firewall
@@ -1518,7 +1537,7 @@
             - name: Azure Monitor for Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Scenarios to monitor
-              href: use-metrics.md 
+              href: use-metrics.md
             - name: Monitor server-side latency
               href: monitor-server-side-latency.md
             - name: Monitor request unit usage
@@ -1534,10 +1553,10 @@
             - name: Troubleshoot issues using basic queries
               href: cosmosdb-monitor-logs-basic-queries.md
             - name: Troubleshoot issues using advanced queries
-              href: cosmos-db-advanced-queries.md                      
+              href: cosmos-db-advanced-queries.md
             - name: Audit control plane logs
               href: audit-control-plane-logs.md
-        - name: Configure alerts 
+        - name: Configure alerts
           href: create-alerts.md
         - name: Monitoring data reference
           href: monitor-cosmos-db-reference.md
