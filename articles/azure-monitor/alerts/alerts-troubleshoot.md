@@ -49,13 +49,11 @@ If you can see a fired alert in the Azure portal, but did not receive the email 
 
 1. **Was the email processed by inbox rules or a spam filter?**
 
-    Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject.
+    Verify that there are no inbox rules that delete those emails or move them to a side folder. For example, inbox rules could catch specific senders or specific words in the subject. Also, check:
 
-    Also, check:
-
-   - the spam settings of your email client (like Outlook, Gmail)
-      - the sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
-      - the settings of your email security appliance, if any (like Barracuda, Cisco).
+   - The spam settings of your email client (like Outlook, Gmail)
+   - The sender limits / spam settings / quarantine settings of your email server (like Exchange, Microsoft 365, G-suite)
+   - The settings of your email security appliance, if any (like Barracuda, Cisco).
 
 1. **Have you accidentally unsubscribed from the action group?**
 
@@ -128,7 +126,7 @@ If you can see a fired alert in the portal, but its configured action did not tr
 
     1. **Have the source IP addresses been blocked?**
     
-       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allow list.
+       Add the [IP addresses](./action-groups.md#action-specific-information) that the webhook is called from to your allowlist.
 
     1. **Does your webhook endpoint work correctly?**
 
@@ -186,9 +184,9 @@ If you can see a fired alert in the portal, but a related alert processing rule 
 
 1. **Is the alert processing rule enabled?** 
 
-    Check the alert processing rule status column to verify that the related action role is enabled. 
+   Check the alert processing rule status field to verify that the related action role is enabled. By default, the portal rule list only shows rules that are enabled, but you can change the filter to show all rules. 
 
-    ![graphic](media/alerts-troubleshoot/action-rule-status.png) 
+    ![graphic](media/alerts-troubleshoot/alerts-troubleshoot-alert-processing-rules-status.png) 
 
     If it is not enabled, you can enable the alert processing rule by selecting it and clicking Enable. 
 
