@@ -58,7 +58,7 @@ Each component's directory contains a JSON file that stores a mock software vers
 
 ```json
 {
-    "version":"motor-fw-1.0"
+    "version":"1.0"
 }
 ```
 
