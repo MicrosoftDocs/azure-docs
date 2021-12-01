@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Insight4GRC | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Insight4GRC'
 description: Learn how to configure single sign-on between Azure Active Directory and Insight4GRC.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/30/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Insight4GRC
+# Tutorial: Azure AD SSO integration with Insight4GRC
 
 In this tutorial, you'll learn how to integrate Insight4GRC with Azure Active Directory (Azure AD). When you integrate Insight4GRC with Azure AD, you can:
 
@@ -27,6 +27,9 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Insight4GRC single sign-on (SSO) enabled subscription.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
@@ -35,7 +38,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 * Insight4GRC supports **Just In Time** user provisioning.
 * Insight4GRC supports [Automated user provisioning](insight4grc-provisioning-tutorial.md).
 
-## Adding Insight4GRC from the gallery
+## Add Insight4GRC from the gallery
 
 To configure the integration of Insight4GRC into Azure AD, you need to add Insight4GRC from the gallery to your list of managed SaaS apps.
 
@@ -45,7 +48,6 @@ To configure the integration of Insight4GRC into Azure AD, you need to add Insig
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Insight4GRC** in the search box.
 1. Select **Insight4GRC** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Insight4GRC
 
@@ -143,4 +145,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Insight4GRC you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Insight4GRC you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

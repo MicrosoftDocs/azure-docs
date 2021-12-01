@@ -74,7 +74,11 @@ You'll be taken to the deployment page for the connector. When it's finished dep
 
 Next, you'll configure the connector you've created to reach Azure Digital Twins.
 
-First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Download the [Azure Digital Twins custom Swaggers (Logic Apps connector) sample](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) by selecting the **Download ZIP** button. Navigate to the downloaded *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* folder and unzip it. 
+First, download a custom Azure Digital Twins Swagger that has been modified to work with Logic Apps. Navigate to the sample at [Azure Digital Twins custom Swaggers (Logic Apps connector) sample](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) and select the **Browse code** button underneath the title to go to the GitHub repo for the sample. Get the sample on your machine by by selecting the selecting the **Code** button followed by **Download ZIP**.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/download-repo-zip.png" alt-text="Screenshot of the digital-twins-custom-swaggers repo on GitHub, highlighting the steps to download it as a zip." lightbox="media/how-to-integrate-logic-apps/download-repo-zip.png"::: 
+
+Navigate to the downloaded folder and unzip it. 
 
 The custom Swagger for this tutorial is located in the *digital-twins-custom-swaggers-main\LogicApps* folder. This folder contains subfolders called *stable* and *preview*, both of which hold different versions of the Swagger organized by date. The folder with the most recent date will contain the latest copy of the Swagger definition file. Whichever version you select, the Swagger file is named _digitaltwins.json_.
 

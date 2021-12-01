@@ -88,6 +88,22 @@ Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whet
 
 The minimum supported TLS version in AKS is TLS 1.2.
 
+## My application is failing with `argument list too long`
+
+You may receive an error message similar to:
+
+```
+standard_init_linux.go:228: exec user process caused: argument list too long
+```
+
+There are two potential causes:
+- The argument list provided to the executable is too long
+- The set of environment variables provided to the executable is too big
+
+If you have many services deployed in one namespace, it can cause the environment variable list to become too large, and will produce the above error message when Kubelet tries to run the executable. The error is caused by Kubelet injecting environment variables recording the host and port for each active service, so that services can use this information to locate one another (read more about this [in the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/connect-applications-service/#accessing-the-service)). 
+
+As a workaround, you can disable this Kubelet behaviour by setting `enableServiceLinks: false` inside your [Pod spec](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.21/#podspec-v1-core). **However**, if your service relies on these environment variables to locate other services, then this will cause it to fail. One fix is to use DNS for service resolution rather than environment variables (using [CoreDNS](https://kubernetes.io/docs/tasks/administer-cluster/coredns/)). Another option is to reduce the number of services that are active.
+
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modify or delete tags and other properties of resources in the MC_* resource group can lead to unexpected results. Altering the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
@@ -101,7 +117,7 @@ This error occurs when clusters enter a failed state for multiple reasons. Follo
 1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
     * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-portal/supportability/regional-quota-requests.md) before trying to scale up again beyond initial quota limits.
     * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/templates/error-resource-quota.md#solution) before trying to scale up again beyond initial quota limits.
-2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
+2. Once the underlying cause of upgrade failure is addressed, retry the original operation. This retry operation should bring your cluster to the succeeded state. 
 
 ## I'm receiving errors when trying to upgrade or scale that state my cluster is being upgraded or has failed upgrade
 

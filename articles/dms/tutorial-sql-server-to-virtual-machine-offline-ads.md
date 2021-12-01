@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine offline using Azure Data Studio"
 titleSuffix: Azure Database Migration Service
-description: Migrate SQL Server to an SQL Server on Azure Virtual Machine offline using Azure Data Studio with Azure Database Management Service (Preview)
+description: Migrate SQL Server to an SQL Server on Azure Virtual Machine offline using Azure Data Studio with Azure Database Migration Service (Preview)
 services: dms
 author: kbarlett001
 ms.author: kebarlet
@@ -11,7 +11,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
 ms.topic: tutorial
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ---
 
 # Tutorial: Migrate SQL Server to SQL Server on Azure Virtual Machine offline using Azure Data Studio with DMS (Preview)
@@ -32,7 +32,9 @@ In this tutorial, you learn how to:
 This article describes an offline migration from SQL Server to a SQL Server on Azure Virtual Machine. For an online migration, see [Migrate SQL Server to a SQL Server on Azure Virtual Machine online using Azure Data Studio with DMS](tutorial-sql-server-to-virtual-machine-online-ads.md).
 
 ## Prerequisites
+
 To complete this tutorial, you need to:
+
 * [Download and install Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 * [Install the Azure SQL Migration extension](/sql/azure-data-studio/extensions/azure-sql-migration-extension) from the Azure Data Studio marketplace
 * Have an Azure account that is assigned to one of the built-in roles listed below:
@@ -48,7 +50,6 @@ To complete this tutorial, you need to:
     > [!IMPORTANT]
     > - If your database backup files are provided in an SMB network share, [Create an Azure storage account](../storage/common/storage-account-create.md) that allows the DMS service to upload the database backup files.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
     > - Azure Database Migration Service does not initiate any backups, and instead uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
-    > - You should take [backups using the `WITH CHECKSUM` option](/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server). 
     > - Each backup can be written to either a separate backup file or multiple backup files. However, appending multiple backups (i.e. full and t-log) into a single backup media is not supported. 
     > - Use compressed backups to reduce the likelihood of experiencing potential issues associated with migrating large backups.
 * Ensure that the service account running the source SQL Server instance has read and write permissions on the SMB network share that contains database backup files.
@@ -74,23 +75,22 @@ To complete this tutorial, you need to:
 
 1. Open Azure Data Studio and select on the server icon to connect to your on-premises SQL Server (or SQL Server on Azure Virtual Machine).
 1. On the server connection, right-click and select **Manage**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/manage-sql-server.png" alt-text="Manage SQL Server":::
 1. On the server's home page, Select **Azure SQL Migration** extension.
 1. On the Azure SQL Migration dashboard, select **Migrate to Azure SQL** to launch the migration wizard.
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-online-ads/launch-migrate-to-azure-sql-wizard.png" alt-text="Launch Migrate to Azure SQL wizard":::
 1. In the first step of the migration wizard, link your existing or new Azure account to Azure Data Studio.
 
 ## Run database assessment and select target
+
 1. Select the database(s) to run assessment and select **Next**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/select-database-for-assessment.png" alt-text="Select database for assessment":::
 1. Select SQL Server on Azure Virtual Machine as the target.
     :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/assessment-complete-target-selection.png" alt-text="Assessment confirmation":::
 1. Select on the **View/Select** button to view details of the assessment results for your database(s), select the database(s) to migrate, and select **OK**.
 1. Specify your **target SQL Server on Azure Virtual Machine** by selecting your subscription, location, resource group from the corresponding drop-down lists and select **Next**.
 
-    :::image type="content" source="./media/tutorial-sql-server-to-virtual-machine-offline-ads/target-virtual-machine.png" alt-text="Target SQL Server on Azure Virtual Machine":::
 
 ## Configure migration settings
+
 1. Select **Offline migration** as the migration mode.
     > [!NOTE]
     > In the offline migration mode, the source SQL Server database is not available for write activity while database backup files are restored on the target Azure SQL database. Application downtime persists through the start until the completion of the migration process.
@@ -98,7 +98,6 @@ To complete this tutorial, you need to:
     > [!NOTE]
     > If your database backups are provided in an on-premises network share, DMS will require you to setup self-hosted integration runtime in the next step of the wizard. Self-hosted integration runtime is required to access your source database backups, check the validity of the backup set and upload them to Azure storage account.<br/> If your database backups are already on an Azure storage blob container, you do not need to setup self-hosted integration runtime.
 1. After selecting the backup location, provide details of your source SQL Server and source backup location.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/configure-backup-location-details.png" alt-text="Configure backup location":::
 
     |Field    |Description  |
     |---------|-------------|
@@ -114,25 +113,21 @@ To complete this tutorial, you need to:
     > If loopback check functionality is enabled and the source SQL Server and file share are on the same computer, then source won't be able to access the files hare using FQDN. To fix this issue, disable loopback check functionality using the instructions [here](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd)
 
 ## Create Azure Database Migration Service
+
 1. Create a new Azure Database Migration Service or reuse an existing Service that you previously created.
     > [!NOTE]
     > If you had previously created DMS using the Azure Portal, you cannot reuse it in the migration wizard in Azure Data Studio. Only DMS created previously using Azure Data Studio can be reused.
 1. Select the **Resource group** where you have an existing DMS or need to create a new one. The **Azure Database Migration Service** dropdown will list any existing DMS in the selected resource group.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/configure-dms.png" alt-text="Configure DMS":::
 1. To reuse an existing DMS, select it from the dropdown list and the status of the self-hosted integration runtime will be displayed at the bottom of the page.
 1. To create a new DMS, select on **Create new**.
 1. On the **Create Azure Database Migration Service**, screen provide the name for your DMS and select **Create**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/create-dms-progress.png" alt-text="Create DMS":::
 1. After successful creation of DMS, you'll be provided with details to **Setup integration runtime**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/create-dms-complete.png" alt-text="Setup Integration Runtime":::
 1. Select on **Download and install integration runtime** to open the download link in a web browser. Complete the download. Install the integration runtime on a machine that meets the pre-requisites of connecting to source SQL Server and the location containing the source backup.
 1. After the installation is complete, the **Microsoft Integration Runtime Configuration Manager** will automatically launch to begin the registration process.
 1. Copy and paste one of the authentication keys provided in the wizard screen in Azure Data Studio. If the authentication key is valid, a green check icon is displayed in the Integration Runtime Configuration Manager indicating that you can continue to **Register**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/register-integration-runtime.png" alt-text="Register Integration Runtime":::
 1. After successfully completing the registration of self-hosted integration runtime, close the **Microsoft Integration Runtime Configuration Manager** and switch back to the migration wizard in Azure Data Studio.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/register-integration-runtime-complete.png" alt-text="Integration Runtime registration complete":::
 1. Select **Test connection** in the **Create Azure Database Migration Service** screen in Azure Data Studio to validate that the newly created DMS is connected to the newly registered self-hosted integration runtime and select **Done**.
-    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/create-dms-integration-runtime-complete.png" alt-text="Test connection integration runtime":::
+    :::image type="content" source="media/tutorial-sql-server-to-virtual-machine-offline-ads/test-connection-integration-runtime-complete.png" alt-text="Test connection integration runtime":::
 1. Review the summary and select **Done** to start the database migration.
 
 ## Monitor your migration

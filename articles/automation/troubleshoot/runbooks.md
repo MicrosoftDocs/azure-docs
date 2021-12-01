@@ -261,7 +261,7 @@ If you have multifactor authentication on your Azure account, you can't use an A
 
 ### Resolution
 
-To use a Classic Run As account with Azure classic deployment model cmdlets, see [Create a Classic Run As account to manage Azure services](../automation-create-standalone-account.md#create-a-classic-run-as-account). To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+To use a service principal with Azure Resource Manager cmdlets, see [Creating service principal using Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) and [Authenticating a service principal with Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: Runbook fails with "A task was canceled" error message
 

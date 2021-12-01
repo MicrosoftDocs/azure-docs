@@ -1,10 +1,11 @@
 ---
-title: Change feed in Azure Blob Storage | Microsoft Docs
+title: Change feed in Blob Storage
+titleSuffix: Azure Storage
 description: Learn about change feed logs in Azure Blob Storage and how to use them.
 author: tamram
 
 ms.author: tamram
-ms.date: 05/17/2021
+ms.date: 10/01/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
@@ -51,7 +52,7 @@ Here's a few things to keep in mind when you enable the change feed.
 
 - The change feed captures *all* of the changes for all of the available events that occur on the account. Client applications can filter out event types as required. (See the [conditions](#conditions) of the current release).
 
-- Only general-purpose v2 and Blob storage accounts can enable the change feed. Premium block blob accounts and hierarchical namespace enabled accounts are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
+- Only standard general-purpose v2, premium block blob, and Blob storage accounts can enable the change feed. Accounts with a hierarchical namespace enabled are not currently supported. General-purpose v1 storage accounts are not supported but can be upgraded to general-purpose v2 with no downtime, see [Upgrade to a GPv2 storage account](../common/storage-account-upgrade.md) for more information.
 
 ### [Portal](#tab/azure-portal)
 
@@ -288,7 +289,6 @@ For a description of each property, see [Azure Event Grid event schema for Blob 
 This section describes known issues and conditions in the current release of the change feed.
 
 - Change event records for any single change might appear more than once in your change feed.
-- You can't yet manage the lifetime of change feed log files by setting time-based retention policy on them and you cannot delete the blobs.
 - The `url` property of the log file is currently always empty.
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments after the first hour are accurately captured in the `LastConsumable` property.
 - You currently cannot see the **$blobchangefeed** container when you call ListContainers API and the container does not show up on Azure portal or Storage Explorer. You can view the contents by calling the ListBlobs API on the $blobchangefeed container directly.
@@ -298,12 +298,12 @@ This section describes known issues and conditions in the current release of the
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![No](../media/icons/no-icon.png)              | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![No](../media/icons/no-icon.png)|![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | 
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled
 
 ## FAQ
 

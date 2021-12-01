@@ -58,6 +58,9 @@ Role-assignable groups are designed to help prevent potential breaches by having
 
 If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
 
+> [!NOTE]
+> For privileged access groups that are used to elevate into Azure AD roles, we recommend that you require an approval process for eligible member assignments. Assignments that can be activated without approval might create a security risk from administrators who have a lower level of permissions. For example, the Helpdesk Administrator has permissions to reset an eligible user's password.
+
 ## Scenarios not supported
 
 The following scenarios are not supported:  

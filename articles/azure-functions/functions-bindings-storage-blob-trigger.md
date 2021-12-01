@@ -261,7 +261,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
 
   You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-   ```csharp
+  ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
       [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
@@ -269,7 +269,7 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   {
       ....
   }
-   ```
+  ```
 
   For a complete example, see [Trigger example](#example).
 
@@ -329,9 +329,11 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. |
 |**path** | **BlobPath** |The [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) to monitor.  May be a [blob name pattern](#blob-name-patterns). |
-|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
+|**connection** | **Connection** | The name of an app setting or setting collection that specifies how to connect to Azure Blobs. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 
 ## Usage
 

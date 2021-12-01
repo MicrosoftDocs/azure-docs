@@ -328,7 +328,7 @@ The methods prefixed with `Send` manage conversation with the bot and LUIS. The 
 
 #### Calling Rank API and display results
 
-The method `ChooseRankAsync` builds the JSON data to send to Personalizer's Rank API by collecting the actions with features and the context features.
+The method `ChooseRankAsync` builds the JSON data to send to the Personalizer Rank API by collecting the actions with features and the context features.
 
 ```csharp
 private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, string eventId, CancellationToken cancellationToken)
@@ -397,7 +397,7 @@ private async Task<RankResponse> ChooseRankAsync(ITurnContext turnContext, strin
 
 #### Calling Reward API and display results
 
-The method `RewardAsync` builds the JSON data to send to Personalizer's Reward API by determining score. The score is determined from the LUIS intent identified in the user text and sent from the `OnTurnAsync` method.
+The method `RewardAsync` builds the JSON data to send to the Personalizer Reward API by determining score. The score is determined from the LUIS intent identified in the user text and sent from the `OnTurnAsync` method.
 
 ```csharp
 private async Task RewardAsync(ITurnContext turnContext, string eventId, double reward, CancellationToken cancellationToken)

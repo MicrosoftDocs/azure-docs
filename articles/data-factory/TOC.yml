@@ -114,6 +114,8 @@ items:
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Adventure Works retail example for Synapse pipelines
+        href: tutorial-data-flow-adventure-works-retail-template.md
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
       - name: Dynamically set column names
@@ -226,6 +228,9 @@ items:
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -641,6 +646,9 @@ items:
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -664,6 +672,8 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+    - name: Stringify
+      href: data-flow-stringify.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
     - name: Union
@@ -703,6 +713,8 @@ items:
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
       displayName: self hosted
+    - name: Credentials in Data Factory
+      href: credentials.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Encrypt data factory with customer managed key
@@ -735,6 +747,10 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Pipeline failure and error handling
+      href: tutorial-pipeline-failure-error-handling.md
+    - name: Monitor pipelines with email notifications
+      href: how-to-send-email.md
     - name: Monitor pipelines with Microsoft Teams notifications
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
@@ -810,7 +826,19 @@ items:
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Express virtual network injection
+          href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+        - name: Standard virtual network injection
+          href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+        - name: Using Azure Data Factory UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
@@ -865,8 +893,10 @@ items:
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
-    items:    
-    - name: Monitor pipelines with Microsoft Teams notifications
+    items: 
+    - name: Send email from a pipeline
+      href: how-to-send-email.md
+    - name: Send Microsoft Teams notifications from a pipeline
       href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
@@ -921,6 +951,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -967,6 +999,8 @@ items:
         href: connector-troubleshoot-dynamics-dataverse.md
       - name: FTP, SFTP, and HTTP
         href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
       - name: Oracle
         href: connector-troubleshoot-oracle.md
       - name: ORC format
@@ -1049,5 +1083,7 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Request quota increases from support
+    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

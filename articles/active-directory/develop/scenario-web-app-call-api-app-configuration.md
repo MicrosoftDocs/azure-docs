@@ -104,7 +104,7 @@ Your web app will need to acquire a token for the downstream API. You specify it
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                .AddInMemoryTokenCaches();
       // ...
@@ -134,7 +134,7 @@ If you want to call Microsoft Graph, *Microsoft.Identity.Web* enables you to dir
      {
      // ...
      services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
                .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
                   .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
                .AddInMemoryTokenCaches();

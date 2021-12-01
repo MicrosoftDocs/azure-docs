@@ -62,7 +62,7 @@ At the end of this article, you run two Node.js console apps:
 
 ## Upload a file from a device app
 
-In this section, you create a device app to upload a file to IoT hub. The code is based on code available in the [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/upload_to_blob_advanced.js) sample in the [Azure IoT node.js SDK](https://github.com/Azure/azure-iot-sdk-node) device samples.
+In this section, you create a device app to upload a file to IoT hub. The code is based on code available in the [upload_to_blob_advanced.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/upload_to_blob_advanced.js) sample in the [Azure IoT node.js SDK](https://github.com/Azure/azure-iot-sdk-node) device samples.
 
 1. Create an empty folder called `fileupload`.  In the `fileupload` folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 

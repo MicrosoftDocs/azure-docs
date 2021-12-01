@@ -77,7 +77,7 @@ Finally, to prepare for Data-in Replication:
 
 - Verify that the target Azure Database for MySQL server can connect to the source Amazon RDS for MySQL server over port 3306.
 - Ensure that the source Amazon RDS for MySQL server allows both inbound and outbound traffic on port 3306.
-- Make sure you provide [site-to-site connectivity](../vpn-gateway/tutorial-site-to-site-portal.md) to your source server by using either [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Azure Virtual Network documentation](/azure/virtual-network/). Also see the quickstart articles with step-by-step details.
+- Make sure you provide [site-to-site connectivity](../vpn-gateway/tutorial-site-to-site-portal.md) to your source server by using either [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). For more information about creating a virtual network, see the [Azure Virtual Network documentation](../virtual-network/index.yml). Also see the quickstart articles with step-by-step details.
 - Configure your source database server's network security groups to allow the target Azure Database for MySQL's server IP address.
 
 > [!IMPORTANT]

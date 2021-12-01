@@ -1,11 +1,11 @@
 ---
 title: How to administer Azure Cache for Redis
 description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
-author: yegu-ms
+author: curib
 ms.service: cache
 ms.topic: conceptual
 ms.date: 07/05/2017
-ms.author: yegu 
+ms.author: cauribeg 
 ms.custom: devx-track-azurepowershell
 
 ---

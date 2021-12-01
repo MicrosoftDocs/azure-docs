@@ -46,6 +46,12 @@ To learn more, see [X.509 group enrollment](concepts-get-connected.md#x509-group
 
 The administrator can also create and manage the API tokens that a client application uses to authenticate with your IoT Central application. Client applications use the REST API to interact with IoT Central.
 
+For data exports, the administrator can configure [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to secure the connections to the [export destinations](howto-export-data.md). To learn more, see:
+
+- [Configure a managed identity (Azure portal)](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
+- [Configure a managed identity (REST API)](howto-manage-iot-central-with-rest-api.md)
+- [Configure a managed identity (Azure CLI)](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
+
 ## Configure an application
 
 The administrator can configure the behavior and appearance of an IoT Central application. To learn more, see:

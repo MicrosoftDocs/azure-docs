@@ -1,9 +1,9 @@
 ---
 title: "Assessment rules for SQL Server to Azure SQL Database migration"
-description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database. 
+description: Assessment rules to identify issues with the source SQL Server instance that must be addressed before migrating to Azure SQL Database.
 ms.service: sql-database
 ms.subservice: migration-guide
-ms.custom: 
+ms.custom: ignite-fall-2021
 ms.devlang: 
 ms.topic: how-to
 author: rajeshsetlem
@@ -128,9 +128,6 @@ This server uses the Database Mail feature, which is not supported in Azure SQL 
 **Recommendation**   
 Consider migrating to Azure SQL Managed Instance that supports Database Mail.  Alternatively, consider using Azure functions and Sendgrid to accomplish mail functionality on Azure SQL Database.
 
-More information: [Send email from Azure SQL Database using Azure Functions script](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/AF%20SendMail)
-
-
 ## Database principal alias<a id="DatabasePrincipalAlias"></a>
 
 **Title: SYS.DATABASE_PRINCIPAL_ALIASES is discontinued and has been removed.**   
@@ -214,7 +211,7 @@ Distributed transaction started by Transact SQL BEGIN DISTRIBUTED TRANSACTION an
 **Recommendation**   
 Review impacted objects section in Azure Migrate to see all objects using BEGIN DISTRUBUTED TRANSACTION. Consider migrating the participant databases to Azure SQL Managed Instance where distributed transactions across multiple instances are supported (Currently in preview). Alternatively, migrate to SQL Server on Azure Virtual Machine.
 
-More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-across-multiple-servers-for-azure-sql-managed-instance)
+More information: [Transactions across multiple servers for Azure SQL Managed Instance ](../../database/elastic-transactions-overview.md#transactions-for-sql-managed-instance)
 
 
 ## OPENROWSET (bulk)<a id="OpenRowsetWithNonBlobDataSourceBulk"></a>

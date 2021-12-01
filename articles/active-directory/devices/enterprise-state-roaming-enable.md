@@ -55,13 +55,8 @@ Follow these steps to view a per-user device sync status report.
 1. Sign in to [Azure AD admin center](https://aad.portal.azure.com/).
 1. Select **Azure Active Directory** > **Users** > **All users**.
 1. Select the user, and then select **Devices**.
-1. Under **Show**, select **Devices syncing settings and app data** to show sync status.
-  
-   ![image of device sync data setting](./media/enterprise-state-roaming-enable/sync-status.png)
-  
-1. If there are devices syncing for this user, you see the devices as shown here.
-  
-   ![image of device sync columnar data](./media/enterprise-state-roaming-enable/device-status-row.png)
+1. Select **View devices syncing settings and app data** to show sync status.
+1. Devices syncing for the user are shown and can be downloaded.
 
 ## Data retention
 
