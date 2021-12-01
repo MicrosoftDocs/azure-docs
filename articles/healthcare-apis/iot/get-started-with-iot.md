@@ -9,7 +9,7 @@ ms.date: 12/01/2021
 ms.author: zxue
 ---
 
-# Get Started with the IoT connector
+# Get started with the IoT connector
 
 This article outlines the basic steps to get started with the IoT connector in [Azure Healthcare APIs](../healthcare-apis-overview.md). 
 
