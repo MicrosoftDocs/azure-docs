@@ -114,11 +114,11 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 3. Under Manage, select **App registrations > New registration**
 
-4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*.
+4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
 
 5. Specify who can use the application > **Accounts in this organizational directory only**
 
-6. Select **Register** to complete the initial app registration.
+6. Select **Register** to complete the initial app registration
 
 7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
@@ -152,15 +152,15 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for secure hybrid access enabled services.
 
-1. From a browser, sign-in to the F5 BIG-IP management console.
+1. From a browser, sign-in to the F5 BIG-IP management console
 2. Navigate to **System > Certificate Management > Traffic Certificate Management  SSL Certificate List > Import**
-3. Select **PKCS 12 (IIS)** and import your certificate along with its private key.
+3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
    
     Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
 
     ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-easy-button-ldap/configure-easy-button.png)
 
-1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**.  
+1. Navigate to **Access > Guided Configuration > Microsoft Integration** and select  **Azure AD Application**
    
    You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
@@ -210,7 +210,7 @@ The Service Provider settings define the SAML SP properties for the APM instance
 
 4. Select **Assertion Decryption Private Key**. The private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
 
-5. Select **Assertion Decryption Certificate**. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions. This can be the certificate you provisioned earlier.
+5. Select **Assertion Decryption Certificate**. This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions. This can be the certificate you provisioned earlier
 
     ![Screenshot for Service Provider security settings](./media/f5-big-ip-easy-button-ldap/service-provider-security-settings.png)
 
@@ -224,9 +224,9 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
 #### Azure Configuration
 
-1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see on [MyApps portal](https://myapplications.microsoft.com/).
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see on [MyApps portal](https://myapplications.microsoft.com/)
 
-2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on.
+2. Do not enter anything in the **Sign On URL (optional)** to enable IdP initiated sign-on
 
     ![Screenshot for Azure configuration add display info](./media/f5-big-ip-easy-button-ldap/azure-configuration-properties.png)
 
@@ -240,7 +240,7 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
     ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-easy-button-ldap/azure-configuration-sign-certificates.png)
 
-7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied.
+7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied
 
     ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-easy-button-ldap/azure-configuration-add-user-groups.png)
 
@@ -263,9 +263,9 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 1. Enable the **Advanced Settings** option
 
-2. Check the **LDAP Attributes** check box.
+2. Check the **LDAP Attributes** check box
     
-3. Choose **Create New** in Choose Authenication Server.
+3. Choose **Create New** in Choose Authenication Server
 
 4. Depending on your setup, select either **Use pool** or **Direct** Server Connection mode to provide the **Server Address** of the target LDAP service. If using a single LDAP server, choose *Direct*
 
@@ -291,9 +291,9 @@ The **Selected Policies** list, by default, displays all policies targeting All 
 
 To select a policy to be applied to the application being published:
 
-1. Select the desired policy in the **Available Policies** list.
+1. Select the desired policy in the **Available Policies** list
 
-2. Select the right arrow and move it to the **Selected Policies** list.
+2. Select the right arrow and move it to the **Selected Policies** list
 
 Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. **Exclude** all policies while testing.  You can go back and enable them later.
 
@@ -312,7 +312,7 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
-4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the pre-reqs or leave the default if testing.
+4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the pre-reqs or leave the default if testing
 
     ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
