@@ -92,7 +92,7 @@ If you want to perform data integration securely in a private network environmen
 Install a Self-hosted IR on an on-premises machine or a virtual machine inside a private network. Currently, the self-hosted IR is only supported on a Windows operating system.  
 For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see the article on [how to create and configure a self-hosted IR](create-self-hosted-integration-runtime.md) for details.
 
-## Azure-SSIS Integration Runtime
+## Azure-SSIS integration runtime
 
 > [!NOTE]
 > Azure-SSIS integration runtimes are not currently supported in Synapse pipelines.
