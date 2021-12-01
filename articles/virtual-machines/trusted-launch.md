@@ -156,7 +156,7 @@ Hyper-V Shielded VM is currently available on Hyper-V only. [Hyper-V Shielded VM
 
 ### How can I convert existing VMs to trusted launch?
 
-For Generation 2 VM, migration path to convert to trusted launch is targeted after general availability (GA).
+You can update a VM to use Trusted Launch. For more information, see 
 
 ### What is VM Guest State (VMGS)?  
 

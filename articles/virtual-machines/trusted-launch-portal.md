@@ -1,13 +1,13 @@
 ---
-title: "Deploy a trusted launch VM"
+title: Deploy a trusted launch VM
 description: Deploy a VM that uses trusted launch.
-author: khyewei
+author: 
 ms.author: khwei
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 12/01/2021
 ms.custom: template-how-to
 ---
 
