@@ -103,7 +103,7 @@ When you need to create multiple environments for a development or testing scena
 
 To automate ARM environment template deployment with Azure PowerShell:
 
-1. Make sure you have an ARM environment template [checked in to a Git repository](#configure-your-own-template-repositories), and the repository is [added to the lab](#add-template-repositories-to-the-lab).
+1. Make sure you have an ARM environment template [checked in to a Git repository](devtest-lab-use-resource-manager-template.md#configure-your-own-template-repositories), and the repository is [added to the lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-the-lab).
 
 1. Save the following sample PowerShell script to your computer as *deployenv.ps1*. This script creates an environment in your lab.
 
@@ -203,6 +203,4 @@ To automate ARM environment template deployment with Azure PowerShell:
    ```
 
 ## Next steps
-- Once you create a VM, you can connect to the VM by selecting **Connect** on the VM's management pane.
-- You can [add a VM to a d) at a time](devtest-lab-add-vm.md) to a lab by using the [Azure portal](https://portal.azure.com). 
 - Explore [ARM templates from the Azure Quickstart template gallery](https://github.com/Azure/azure-quickstart-templates).
