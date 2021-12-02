@@ -7,8 +7,8 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 11/18/2020
-ms.author: alzam
+ms.date: 12/01/2021
+ms.author: cherylmc
 
 ---
 # Set up alerts on resource log events from VPN Gateway
@@ -19,7 +19,7 @@ The following resource logs are available in Azure:
 
 |***Name*** | ***Description*** |
 |--- | --- |
-|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes and maintenance events |
+|GatewayDiagnosticLog | Contains resource logs for gateway configuration events, primary changes, and maintenance events |
 |TunnelDiagnosticLog | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable |
 |RouteDiagnosticLog | Logs changes to static routes and BGP events that occur on the gateway |
 |IKEDiagnosticLog | Logs IKE control messages and events on the gateway |
@@ -27,16 +27,17 @@ The following resource logs are available in Azure:
 
 ## <a name="setup"></a>Set up alerts in the Azure portal
 
-The following example steps creates an alert for a disconnection event that involves a site-to-site VPN tunnel:
-
+The following example steps create an alert for a disconnection event that involves a site-to-site VPN tunnel:
 
 1. In the Azure portal, search for **Log Analytics** under **All services** and select **Log Analytics workspaces**.
 
-   ![Selections for going to Log Analytics workspaces](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png" alt-text="Selections for going to Log Analytics workspaces. "lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png":::
 
 2. Select **Create** on the **Log Analytics** page.
 
    ![Log Analytics page with Create button](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Select")
+
+   :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png" alt-text="Log Analytics page with Create button." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png":::
 
 3. Select **Create New** and fill in the details.
 
