@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021
 
 ## What are customizable anomalies?
 
-With attackers and defenders constantly fighting for advantage in the cybersecurity arms race, attackers are always finding ways to evade detection. Inevitably, though, attacks will still result in unusual behavior in the systems being attacked. Microsoft Sentinel's customizable machine learning-based anomalies can identify this behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting:
+With attackers and defenders constantly fighting for advantage in the cybersecurity arms race, attackers are always finding ways to evade detection. Inevitably, though, attacks will still result in unusual behavior in the systems being attacked. Microsoft Sentinel's customizable, machine learning-based anomalies can identify this behavior with analytics rule templates that can be put to work right out of the box. While anomalies don't necessarily indicate malicious or even suspicious behavior by themselves, they can be used to improve detections, investigations, and threat hunting:
 
 - **Additional signals to improve detection**: Security analysts can use anomalies to detect new threats and make existing detections more effective. A single anomaly is not a strong signal of malicious behavior, but when combined with several anomalies that occur at different points on the kill chain, their cumulative effect is much stronger. Security analysts can enhance existing detections as well by making the unusual behavior identified by anomalies a condition for alerts to be fired.
 
@@ -30,7 +30,7 @@ Anomalies can be powerful tools, but they are notoriously very noisy. They typic
 
 ## Next steps
 
-In this document, you learned how customizable helps you detect anomalies in Microsoft Sentinel.
+In this document, you learned how to take advantage of customizable anomalies in Microsoft Sentinel.
 
 - Learn how to [view, create, manage, and fine-tune anomaly rules](work-with-anomaly-rules.md).
 - Learn about [other types of analytics rules](detect-threats-built-in.md).
