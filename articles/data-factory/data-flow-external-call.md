@@ -15,7 +15,9 @@ ms.date: 11/24/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams. 
+The external call transformation enables data engineers to call out to external REST end points row-by-row in order to add custom or 3rd party results into your data flow streams.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPXGN]
 
 ## Configuration
 
