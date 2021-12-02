@@ -15,12 +15,7 @@ ms.author: allensu
 ---
 # Azure Load Balancer components
 
-Azure Load Balancer includes a few key components. These components can be configured in your subscription via:
-
-* Azure portal
-* Azure CLI
-* Azure PowerShell
-* Resource Manager Templates
+Azure Load Balancer includes a few key components. These components can be configured in your subscription through the Azure portal, Azure CLI, Azure PowerShell, Resource Manager Templates or appropriate alternatives.
 
 ## Frontend IP configuration <a name = "frontend-ip-configurations"></a>
 
@@ -65,11 +60,11 @@ Load balancer provides different health probe types for endpoints: TCP, HTTP, an
 
 Basic load balancer doesn't support HTTPS probes. Basic load balancer closes all TCP connections (including established connections).
 
-## Load-balancing rules
+## Load Balancer rules
 
-A load balancer rule is used to define how incoming traffic is distributed to **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports.
+A load balancer rule is used to define how incoming traffic is distributed to **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports. Load Balancer rules are for inbound traffic only.
 
-For example, use a load-balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
+For example, use a load balancer rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 
 :::image type="content" source="./media/load-balancer-components/lbrules.png" alt-text="Load balancer rule reference diagram" border="false":::
 
@@ -77,9 +72,7 @@ For example, use a load-balancing rule for port 80 to route traffic from your fr
 
 ## High Availability Ports
 
-A load balancer rule configured with **'protocol - all and port - 0'**. 
-
-This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. 
+A load balancer rule configured with **'protocol - all and port - 0'** is known as an High Availability (HA) port rule. This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. 
 
 The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
 

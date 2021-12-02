@@ -3,13 +3,13 @@ title: The Azure Speech CLI
 titleSuffix: Azure Cognitive Services
 description: The Speech CLI is a command-line tool for using the Speech service without writing any code. The Speech CLI requires minimal setup, and it's easy to immediately start experimenting with key features of the Speech service to see if your use-cases can be met.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/13/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: devx-track-azurecli
 ---
 

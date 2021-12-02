@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/06/2021
+ms.date: 10/21/2021
 ms.custom: data4ml
 
 # Customer intent: As low code experience data scientist, I need to make my data in storage on Azure available to my remote compute to train my ML models.

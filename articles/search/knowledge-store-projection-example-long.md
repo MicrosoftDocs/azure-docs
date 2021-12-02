@@ -8,20 +8,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 10/20/2021
 ---
 
 # Detailed example of shapes and projections in a knowledge store
 
 This article provides a detailed example that supplements [high-level concepts](knowledge-store-projection-overview.md) and [syntax-based articles](knowledge-store-projections-examples.md) by walking you through the shaping and projection steps required for fully expressing the output of a rich skillset in a [knowledge store](knowledge-store-concept-intro.md).
 
-If your application requirements call for multiple skills and projections, this example can give you a better understanding of how shapes and projections intersect.
+If your application requirements call for multiple skills and projections, this example can give you a better idea of how shapes and projections intersect.
 
 ## Download sample definitions
 
+This example uses [Postman Desktop application](https://www.postman.com/downloads/) and the [Search REST APIs](/rest/api/searchservice/).
+
 Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
 
-Sample documents aren't specifically included with the collection, but the [mixed media files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from [azure-search-sample-data](https://github.com/Azure-Samples/azure-search-sample-data) have both text and images to support the projections described in this example.
+## Set up sample data
+
+Sample documents aren't specifically included with the Projections collection, but the [AI enrichment demo data files](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) from the [azure-search-sample-data repo](https://github.com/Azure-Samples/azure-search-sample-data) contain text and images, and will work with the projections described in this example.
+
+Create a blob container in Azure Storage and upload all 14 items.
+
+While in Azure Storage, copy a connection string so that you can specify it in the Postman collection.
 
 ## Example skillset
 

@@ -149,7 +149,7 @@ sections:
       - question: |
           Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
         answer: |
-          This feature is available in public preview. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
+          Yes, you can use your own domain. For details, see [Azure AD B2C custom domains](./custom-domain.md?pivots=b2c-user-flow).
           
       - question: |
           How do I delete my Azure AD B2C tenant?

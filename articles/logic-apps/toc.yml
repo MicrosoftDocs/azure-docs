@@ -75,6 +75,8 @@
       href: create-single-tenant-workflows-azure-portal.md
     - name: Create single-tenant workflows - Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Set up SQL storage for single-tenant workflows
+      href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Edit host and app settings for logic apps in single-tenant
       href: edit-app-settings-host-settings.md
     - name: Create parameters for single-tenant workflows
@@ -247,8 +249,6 @@
         href: logic-apps-enterprise-integration-liquid-transform.md
     - name: Troubleshoot B2B errors
       href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-    - name: Build a disaster recovery plan
-      href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Connectors - In-depth topics
     items:
     - name: AS2
@@ -257,6 +257,8 @@
       href: ../connectors/connectors-create-api-azureblobstorage.md
     - name: Azure Container Instances
       href: ../connectors/connectors-create-api-container-instances.md
+    - name: Azure Cosmos DB
+      href: ../connectors/connectors-create-api-cosmos-db.md
     - name: Azure Event Grid
       href: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Azure Event Hubs
@@ -395,12 +397,18 @@
         href: monitor-logic-apps.md
       - name: Monitor logic apps with Azure Monitor logs
         href: monitor-logic-apps-log-analytics.md
-      - name: Monitor logic apps in Azure Security Center
+      - name: Monitor logic apps in Microsoft Defender for Cloud
         href: healthy-unhealthy-resource.md
       - name: Monitor B2B messages with Azure Monitor logs
         href: monitor-b2b-messages-log-analytics.md
       - name: Create monitoring and tracking queries
         href: create-monitoring-tracking-queries.md
+  - name: Business continuity and disaster recovery
+    items:
+    - name: Replicate Azure resources for business continuity and disaster recovery
+      href: create-replication-tasks-azure-resources.md
+    - name: Build a B2B business continuity and disaster recovery plan
+      href: logic-apps-enterprise-integration-b2b-business-continuity.md
   - name: Examples, scenarios, and walkthroughs
     href: logic-apps-examples-and-scenarios.md
     items:
@@ -479,6 +487,6 @@
   - name: Twitter
     href: https://twitter.com/logicappsio
   - name: Provide product feedback
-    href: https://feedback.azure.com/forums/287593-logic-apps
+    href: https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=logic-apps

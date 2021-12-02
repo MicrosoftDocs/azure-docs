@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/07/2020
 ms.author: v-jawe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
@@ -13,11 +13,11 @@ In this quickstart, you learn basic design patterns for Speaker Recognition usin
 * Speaker identification to identify a voice sample among a group of voices
 * Deleting voice profiles
 
-For a high-level look at Speech Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article.
+For a high-level look at Speaker Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the Reference node on left nav for a list of the supported platforms.
 
 ## Skip to samples on GitHub
 
-If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/fa6428a0837779cbeae172688e0286625e340942/quickstart/javascript/node/speaker-recognition) on GitHub.
+If you want to skip straight to sample code, see the [JavaScript quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/speaker-recognition) on GitHub.
 
 ## Prerequisites
 
