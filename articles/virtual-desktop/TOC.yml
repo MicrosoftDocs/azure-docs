@@ -98,6 +98,8 @@
     href: apply-windows-license.md
   - name: Customize session host image
     items:
+      - name: Set up golden image in Azure
+        href: set-up-golden-image.md
       - name: Set up a master VHD image
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
