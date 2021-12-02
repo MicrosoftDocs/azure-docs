@@ -258,14 +258,39 @@ You can select the **Reset** button that appears in the **Config Server** tab to
 
 When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, in Azure Spring Cloud you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
 
-- First include spring-cloud-starter-azure-spring-cloud-client in the dependency section of your pom.xml.
+We provide a sample code here for you to refer. In this example, we register a [TaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/TaskScheduler.html) to poll for config changes every 5 seconds.
 
-  ```xml
-  <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-      <version>2.4.0</version>
-  </dependency>
+- First register a TaskScheduler to pull changes from config server.
+
+  ```java
+  @ConditionalOnBean({RefreshEndpoint.class})
+  @Configuration
+  @AutoConfigureAfter({RefreshAutoConfiguration.class, RefreshEndpointAutoConfiguration.class})
+  @EnableScheduling
+  public class ConfigClientAutoRefreshConfiguration implements SchedulingConfigurer {
+
+      @Value("${spring.cloud.config.refresh-interval:60}")
+      private long refreshInterval;
+
+      @Value("${spring.cloud.config.auto-refresh:false}")
+      private boolean autoRefresh;
+
+      private RefreshEndpoint refreshEndpoint;
+
+      public ConfigClientAutoRefreshConfiguration(RefreshEndpoint refreshEndpoint) {
+          this.refreshEndpoint = refreshEndpoint;
+      }
+
+      @Override
+      public void configureTasks(ScheduledTaskRegistrar scheduledTaskRegistrar) {
+          if (autoRefresh) {
+              // set minimal refresh interval to 5 seconds
+              refreshInterval = Math.max(refreshInterval, 5);
+              scheduledTaskRegistrar.addFixedRateTask(() -> refreshEndpoint.refresh(), refreshInterval * 1000);
+          }
+      }
+
+  }
   ```
 
 - Second enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
