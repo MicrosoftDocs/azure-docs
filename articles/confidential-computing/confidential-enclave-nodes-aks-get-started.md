@@ -163,7 +163,7 @@ spec:
         image: oeciteam/sgx-test:1.0
         resources:
           limits:
-            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. Alternatively, you can target deployment to node pools with node selector.
+            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. sgx limit setting needs "confcom" AKS Addon as referenced above.
       restartPolicy: Never
   backoffLimit: 0
   ```
