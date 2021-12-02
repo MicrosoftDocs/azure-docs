@@ -19,6 +19,46 @@ ms.custom: references_regions
 
 The following services support Azure AD authentication.
 
+| Service Name                    |  Documentation                                                                                                                                                                                |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| API Management                  | [Authorize developer accounts by using Azure Active Directory in Azure API Management](../../api-management/api-management-howto-aad.md)                                                                                            |
+| Azure App Configuration         | [Authorize access to Azure App Configuration using Azure Active Directory](../../azure-app-configuration/azure-app-configuration/concept-enable-rbac.md)                                                                                                           |
+| Azure App Services              | [Configure your App Service or Azure Functions app to use Azure AD login](../../app-service/configure-authentication-provider-aad.md)    |     
+| Azure Batch                     | [Authenticate Batch service solutions with Active Directory](../../batch/batch-aad-auth.md)         |
+| Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
+| Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
+| Azure DataBricks                | [Authenticate using Azure Active Directory tokens](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/aad/)
+| Azure Data Explorer             | [How-To Authenticate with AAD for Azure Data Explorer Access](https://docs.microsoft.com/azure/data-explorer/how-to-authenticate-with-aad)                                                                                                     |
+| Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../storage/common/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
+| Azure Digital Twins             | [Set up an Azure Digital Twins instance and authentication (portal)](../../digital-twins/how-to-set-up-instance-portal.md#set-up-user-access-permissions)                                                                                            |
+| Azure Event Hubs                | [Authenticate an application with Azure Active Directory to access Event Hubs resources](../../event-hubs/authenticate-application.md)
+| Azure IoT Hub                   | [Control access to IoT Hub](../../iot-hub/iot-hub-devguide-security.md)                                                                               |
+| Azure Kubernetes Service (AKS)  | [Control access to cluster resources using Kubernetes role-based access control and Azure Active Directory identities in Azure Kubernetes Service](../../aks/azure-ad-rbac.md)                                                                                                                           |
+| Azure Machine Learning Services | [Set up authentication for Azure Machine Learning resources and workflows](/machine-learning/how-to-setup-authentication.md)                                                                                         |
+| Azure Maps                      | [Manage authentication in Azure Maps](../../azure-maps/how-to-manage-authentication.md) |
+| Azure Media services            | [Access the Azure Media Services API with Azure AD authentication](../../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md) |
+| Azure Monitor                   | [Azure AD authentication for Application Insights (Preview)](../../azure-monitor/app/azure-ad-authentication?tabs=net)                                                                                              |
+
+
+| Azure Policy                    | [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md)      |
+| Azure Purview                   | [Credentials for source authentication in Azure Purview](../../purview/manage-credentials.md)                                                                                                                          |
+| Azure Resource Mover            | [Move resources across regions (from resource group)](../../resource-mover/move-region-within-resource-group.md)
+| Azure Site Recovery             | [Replicate machines with private endpoints](../../site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)                                  |
+| Azure Search                    | [Set up an indexer connection to a data source using a managed identity](../../search/search-howto-managed-identities-data-sources.md)                                                                                            |
+| Azure Service Fabric            | [Using Managed identities for Azure with Service Fabric](../../service-fabric/concepts-managed-identity.md)                                                                                                        |
+| Azure SignalR Service           | [Managed identities for Azure SignalR Service](../../azure-signalr/howto-use-managed-identity.md)                                                                                                     |
+| Azure Spring Cloud              | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
+| Azure SQL                       | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                     |
+| Azure SQL Managed Instance      | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                       |
+| Azure Stack Edge                | [Manage Azure Stack Edge secrets using Azure Key Vault](../../databox-online/azure-stack-edge-gpu-activation-key-vault.md#recover-managed-identity-access)
+| Azure Static Web Apps           | [Securing authentication secrets in Azure Key Vault](../../static-web-apps/key-vault-secrets.md)
+| Azure Stream Analytics          | [Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities](../../stream-analytics/stream-analytics-managed-identities-adls.md)                                                                                         |
+| Azure Synapse                   | [Azure Synapse workspace managed identity](../../synapse-analytics/security/synapse-workspace-managed-identity.md)                                                                                         |
+| Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](../../virtual-machines/linux/image-builder-permissions-cli.md#using-managed-identity-for-azure-storage-access)|
+| Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
+| Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                  |
+
+
 ## Azure Resource Manager
 
 Refer to the following list to configure access to Azure Resource Manager:
