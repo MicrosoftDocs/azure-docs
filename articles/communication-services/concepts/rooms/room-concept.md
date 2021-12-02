@@ -60,7 +60,7 @@ Use the  **JS Calling SDKs** (with other Calling SDKs and chat support on the ro
 
 The picture below illustrates the concept of managing and joining the rooms.
 
- :::image type="content" source="../media/rooms/rooms-manangement.png" alt-text="Diagram showing Rooms Management.":::
+ :::image type="content" source="../media/rooms/rooms-management.png" alt-text="Diagram showing Rooms Management.":::
  
  ## Runtime operations
  
@@ -75,7 +75,7 @@ Full list of capabilities that are available in JS SDK are listed in the [Callin
 | Add or remove a VoIP participant  | ❌ | ✔️ |
 | Add or remove a new PSTN participant  | ❌ | ❌ |
 
-Next steps:
+## Next steps:
 -	Use the QuickStart to create and manage a room. 
 -	Use the JS Calling SDKs to join the rooms. 
 -	Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md)
