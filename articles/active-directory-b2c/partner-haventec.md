@@ -21,11 +21,11 @@ In this sample tutorial, learn how to integrate Azure Active Directory (AD) B2C 
 
 The Haventec integration includes the following components:
 
-- Azure AD B2C - The authorization server, responsible for verifying the user's credentials, also known as the Identity provider (IdP).
+- Azure AD B2C - The authorization server, responsible for verifying the user's credentials, also known as the Identity Provider.
 
-- Web and mobile applications - Any OIDC mobile or web applications protected by Haventec and Azure AD B2C.
+- Web and mobile applications - Any Open ID Connect (OIDC) mobile or web applications protected by Haventec and Azure AD B2C.
 
-- Haventec Authenticate service - Acts as the external IdP to your Azure AD B2C tenant.
+- Haventec Authenticate service - Acts as the external Identity Provider to your Azure AD B2C tenant.
 
 The following architecture diagram shows the implementation.
 
@@ -37,7 +37,7 @@ The following architecture diagram shows the implementation.
 | 2. | The application sends the user attributes to Azure AD B2C for identity verification.|
 | 3.|  Azure AD B2C collects the user attributes and sends the attributes to Haventec to authenticate the user through the Haventec Authenticate app.|
 | 4. |For new users only, Haventec Authenticate sends a push notification to the registered users' mobile device. It can also send an email with an OTP for device registration.|
-| 5. | After the user responds to the push notification, the user is either granted or denied access to the customer application based on the verification results. New cryptographic keys are generated and pushed to user's device ready for the next session. |
+| 5. | After the user responds to the push notification, the user is either granted or denied access to the customer application based on the verification results. New cryptographic keys are generated and pushed into the user's device to have it ready for the next session. |
 
 ## Onboard with Haventec
 
