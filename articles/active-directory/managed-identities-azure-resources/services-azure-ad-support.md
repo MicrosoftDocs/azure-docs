@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 10/25/2021
+ms.date: 12/02/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -22,11 +22,11 @@ The following services support Azure AD authentication.
 | Service Name                    |  Documentation                                                                                                                                                                                |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | API Management                  | [Authorize developer accounts by using Azure Active Directory in Azure API Management](../../api-management/api-management-howto-aad.md)                                                                                            |
-| Azure App Configuration         | [Authorize access to Azure App Configuration using Azure Active Directory](../../azure-app-configuration/azure-app-configuration/concept-enable-rbac.md)                                                                                                           |
+| Azure App Configuration         | [Authorize access to Azure App Configuration using Azure Active Directory](../../azure-app-configuration/concept-enable-rbac.md)                                                                                                           |
 | Azure App Services              | [Configure your App Service or Azure Functions app to use Azure AD login](../../app-service/configure-authentication-provider-aad.md)    |     
 | Azure Batch                     | [Authenticate Batch service solutions with Active Directory](../../batch/batch-aad-auth.md)         |
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
-| Azure Cognitive Services        | [Configure customer-managed keys with Azure Key Vault for Cognitive Services](../../cognitive-services/encryption/cognitive-services-encryption-keys-portal.md)                                                                          |
+| Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
 | Azure DataBricks                | [Authenticate using Azure Active Directory tokens](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with AAD for Azure Data Explorer Access](https://docs.microsoft.com/azure/data-explorer/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../storage/common/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
