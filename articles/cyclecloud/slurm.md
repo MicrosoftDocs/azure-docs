@@ -81,9 +81,16 @@ Slurm clusters running in CycleCloud versions 7.8 and later implement an updated
 The Slurm cluster deployed in CycleCloud contains a script that facilitates this. After making any changes to the cluster, run the following command as root (e.g., by running `sudo -i`) on the Slurm scheduler node to rebuild the `slurm.conf` and update the nodes in the cluster:
 
 ``` bash
-cd /opt/cycle/jetpack/system/bootstrap/slurm
+cd /opt/cycle/slurm
 ./cyclecloud_slurm.sh scale
 ```
+::: moniker range="=cyclecloud-7"
+For CycleCloud versions < 7.9.10 the script is located under /opt/cycle/jetpack/system/bootstrap/slurm
+::: moniker-end
+
+::: moniker range=">=cyclecloud-8"
+For CycleCloud versions > 8.2 the script is located under /opt/cycle/slurm
+::: moniker-end
 
 ### Removing all execute nodes
 
