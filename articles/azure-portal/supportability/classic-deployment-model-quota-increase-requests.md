@@ -15,7 +15,7 @@ When a new subscription is created, a default quota of vCPUs is assigned to it. 
 
 You can request vCPU quota increases for the Classic deployment model in the Azure portal by using **Help + support** or **Usage + quotas**.
 
-## Request per VM series vCPU quota increase at subscription level using Help + support
+## Request quota increase for the Classic deployment model using Help + support
 
 Follow the instructions below to create a vCPU quota increase request for the Classic deployment model by using **Help + support** in the Azure portal.
 
@@ -29,7 +29,7 @@ Follow the instructions below to create a vCPU quota increase request for the Cl
 
    :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Screenshot showing a support request to increase a VM-family vCPU quota in the Azure portal.":::
 
-1. In the **Problem details** section, select **Enter details**. For deployment model, select **Classic**, then select a location.  location, the resources to include in your request, and the new limit you would like on the subscription for those resources. 
+1. In the **Problem details** section, select **Enter details**. For deployment model, select **Classic**, then select a location.
 
 1. For **SKU family**, select one or more SKU families to increase.
 
@@ -39,7 +39,7 @@ Follow the instructions below to create a vCPU quota increase request for the Cl
 
 1. On the **Review + create** screen, review the details that you'll send to support, and then select **Create**.
 
-## Request per VM series vCPU quota increase at subscription level using Usage + quotas
+## Request quota increase for the Classic deployment model from Usage + quotas
 
 Follow the instructions below to create a vCPU quota increase request for the Classic deployment model from **Usage + quotas** in the Azure portal.
 

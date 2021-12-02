@@ -20,7 +20,7 @@ You can request an increase in the Azure portal by using **Help + support** or i
 > [!Note]
 > To change the default size of **Public IP Prefixes**, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
 
-## Request networking quota increase at subscription level using Help + support
+## Request networking quota increase by using Help + support
 
 Follow the instructions below to create a networking quota increase request by using **Help + support** in the Azure portal.
 
@@ -42,7 +42,7 @@ Follow the instructions below to create a networking quota increase request by u
 
 1. On the **Review + create** screen, review the details that you'll send to support, and then select **Create**.
 
-## Request networking quota increase at subscription level using Usages + quotas
+## Request networking quota increase from Usages + quotas
 
 Follow these instructions to create a networking quota increase request from **Usage + quota** in the Azure portal.
 
