@@ -13,11 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-<<<<<<< HEAD
-ms.date: 11/15/2021
-=======
 ms.date: 11/11/2021
->>>>>>> e1a75660ef7bdfba3a4af9d219deca81a5b4c981
 ms.author: b-juche
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
