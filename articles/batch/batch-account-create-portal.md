@@ -115,7 +115,7 @@ For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must b
 
 ### Accept legal terms
 
-In user subscription mode, some legal terms related to the image need to be accepted before using the subscription. To accept these legal terms, you can run the [Get-AzMarketplaceTerms](https://docs.microsoft.com/en-us/powershell/module/az.marketplaceordering/get-azmarketplaceterms) and [Set-AzMarketplaceTerms](https://docs.microsoft.com/en-us/powershell/module/az.marketplaceordering/set-azmarketplaceterms) commands in PowerShell.
+In user subscription mode, some legal terms related to the image need to be accepted before using the subscription. To accept these legal terms, you can run the [Get-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/get-azmarketplaceterms) and [Set-AzMarketplaceTerms](/powershell/module/az.marketplaceordering/set-azmarketplaceterms) commands in PowerShell.
 
 An example below:
 
