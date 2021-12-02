@@ -32,7 +32,7 @@ Follow the steps in this tutorial to:
 
 
 ## Register the web application in Azure portal
-Register the web application in Azure portal so that Azure B2C can provide authentication service for your application and its users.
+Register the web application in Azure portal so that Azure Active Directory B2C (Azure AD B2C) can provide authentication service for your application and its users.
 
 First, complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md) to register the web app. 
 
@@ -46,7 +46,7 @@ At this point, you've the web application (client) ID, and client secret, and yo
 
 ## Register the web API and configure scopes in Azure portal
 
-Register the web API is Azure portal so that you can use Azure B2C to protect it. 
+Register the web API is Azure portal so that you can use Azure AD B2C to protect it. 
 
 First, complete the steps in [Add a web API application to your Azure Active Directory B2C tenant](add-web-api-application.md) to register the web API, configure API scopes, and grant API permissions to the web app.
 
@@ -170,11 +170,11 @@ SIGN_UP_SIGN_IN_POLICY_AUTHORITY=https://tenant-name.b2clogin.com/tenant-name.on
 AUTHORITY_DOMAIN=https://tenant-name.b2clogin.com
 #client redirect url
 APP_REDIRECT_URI=http://localhost:server-port/redirect
-LOGOUT_ENDPOINT=https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/b2c_1_susi_node_app/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:server-port
+LOGOUT_ENDPOINT=https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/susi-flow/oauth2/v2.0/logout?post_logout_redirect_uri=http://localhost:server-port
 ``` 
 Modify the values in the `.env` files as follows:
 - `server-port`: The HTTP port on which your web app is running such as `3000`.
-- `client-id`: The **Application (client) ID** of the application you registered.
+- `client-id`: The **Application (client) ID** of the web app you registered.
 - `session-secret`: A random string to be used as your express session secret. 
 - `client-secret`: Replace this value with the client secret you created earlier.
 - `tenant-name`: Replace this value with the tenant name in which you created your web app. Learn how to [Read your tenant name](tenant-management.md#get-your-tenant-name). If you're using a custom domain, then replace `tenant-name.b2clogin.com` with your domain, such as `contoso.com`.
@@ -401,7 +401,7 @@ After you sign in, select **Sign out**. You should see the page with a **Sign in
 
 ## Next steps
 
-- Learn how to [Call a web API protected by Azure AD B2C using access token as a bearer token](tutorial-call-api-using-access-token.md)
+- Learn how to [Call a web API protected by Azure AD B2C](tutorial-call-api-using-access-token.md).
 
 
 

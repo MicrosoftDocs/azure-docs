@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Sign in and sign out users in a Node.js Express web app
+title: Tutorial - Sign in and sign out users with Azure AD B2C in a Node.js web app using
 description: Follow this tutorial to learn how to integrate nodejs web app, which allows users to sign in, sign out, update profile, and reset password using Azure AD B2C user flows, and  Microsoft Authentication Library (MSAL) for Node.
 services: active-directory-b2c
 author: kengaderdus
@@ -8,13 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/1/2021
+ms.date: 12/7/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
-# Tutorial: Sign in and sign out users in a Node.js web app using Azure AD B2C
-In this tutorial, you'll build a web app using Azure AD B2C user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for users use their local accounts to:
+# Tutorial: Sign in and sign out users with Azure AD B2C in a Node.js web app
+In this tutorial, you'll build a web app using Azure Active Directory B2C (Azure AD B2C) user flows and the [Microsoft Authentication Library (MSAL) for Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) for users to use their local accounts to:
 - Sign in 
 - Sign out
 - Update profile
@@ -38,7 +38,7 @@ Follow the steps in this tutorial to:
 
 
 ## Register the web application in Azure portal
-Register the web application in Azure portal so that Azure B2C can provide authentication service for your application and its users.
+Register the web application in Azure portal so that Azure AD B2C can provide authentication service for your application and its users.
 
 First, complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md) to register the web app. 
 
@@ -512,5 +512,5 @@ When you use a social identity provider such as Google, the user's identity is m
 
 
 ## Next steps
-- Learn how to [Acquire an access token for calling a web API in Azure AD B2C](tutorial-acquire-access-token.md)
+- Learn how to [Acquire an access token for calling a web API in Azure AD B2C](tutorial-acquire-access-token.md).
 
