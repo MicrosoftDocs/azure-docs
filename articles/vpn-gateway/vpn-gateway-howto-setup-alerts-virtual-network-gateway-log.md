@@ -35,8 +35,6 @@ The following example steps create an alert for a disconnection event that invol
 
 2. Select **Create** on the **Log Analytics** page.
 
-   ![Log Analytics page with Create button](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Select")
-
    :::image type="content" source="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png" alt-text="Log Analytics page with Create button." lightbox="./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png":::
 
 3. Select **Create New** and fill in the details.
