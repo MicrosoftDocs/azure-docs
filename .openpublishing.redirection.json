@@ -7462,6 +7462,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4.md",
+      "redirect_url": "/composer/how-to-add-luis",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4.md",
+      "redirect_url": "/composer/how-to-add-luis",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/LUIS/migration.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-migration-api-v3",
       "redirect_document_id": true
