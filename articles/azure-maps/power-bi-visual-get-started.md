@@ -1,17 +1,17 @@
 ---
-title: Getting started with the Azure Maps Power BI visual
+title: Get started with Azure Maps Power BI visual
 titleSuffix: Microsoft Azure Maps
-description: In this article, you will learn how to use the Microsoft Azure Maps Power BI visual.
+description: In this article, you will learn how to use Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-manager: erikland
+manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ---
 
-# Getting started with the Azure Maps Power BI visual
+# Get started with Azure Maps Power BI visual (Preview)
 
 **APPLIES TO:** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for ***consumers*** ![Green check mark.](media/power-bi-visual/yes.png) Power BI service for designers & developers ![Green check mark.](media/power-bi-visual/yes.png) Power BI Desktop ![X indicating no.](media/power-bi-visual/no.png) Requires Pro or Premium license
 
@@ -40,14 +40,14 @@ You, or your administrator, may need to update your firewall to allow access to 
 
 To learn more, about privacy and terms of use related to the Azure Maps Power BI visual see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-## Azure Maps Power BI visual (Preview) behavior and requirements
+## Azure Maps Power BI visual behavior and requirements
 
 There are a few considerations and requirements for the Azure Maps Power BI visual:
 
-- The Azure Maps Power BI visual (Preview) must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
+- The Azure Maps Power BI visual must be enabled in Power BI Desktop. To enable Azure Maps Power BI visual, select **File** &gt; **Options and Settings** &gt; **Options** &gt; **Preview features**, then select the **Azure Maps Visual** checkbox. If the Azure Maps visual is not available after enabling this setting, it's likely that a tenant admin switch in the Admin Portal needs to be enabled.
 - The data set must have fields that contain **latitude** and **longitude** information.
 
-## Use the Azure Maps Power BI visual (Preview)
+## Use the Azure Maps Power BI visual
 
 Once the Azure Maps Power BI visual is enabled, select the **Azure Maps** icon from the **Visualizations** pane.
 

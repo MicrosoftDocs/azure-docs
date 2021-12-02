@@ -16,7 +16,7 @@ This topic shows how you can create a managed identity for an Azure Load Testing
 
 A managed identity from Azure Active Directory (Azure AD) allows your resource to easily access other Azure AD-protected resources such as Azure Key Vault. The identity is managed by the Azure platform. For more about managed identities in Azure AD, see [Managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Currently, Azure Load Testing supports only system-assigned identity. The system-assigned identity is tied to your Azure Load Testing resource and is deleted if your resource is deleted. A resource can only have one system-assigned identity.
+Azure Load Testing supports only system-assigned identity. The system-assigned identity is associated with your Azure Load Testing resource and is removed when your resource is deleted. A resource can only have one system-assigned identity.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -30,11 +30,11 @@ Currently, Azure Load Testing supports only system-assigned identity. The system
 
 ## Add a system-assigned identity  
 
-To create a system-assigned identity for Azure Load Testing, requires that you set a property on the resource. You can enable the system-assigned identity by using the Azure portal, or by using an Azure Resource Manager (ARM) template.
+To add a system-assigned identity for your Azure Load Testing resource, you need to enable a property on the resource. You can set this property by using the Azure portal, or by using an Azure Resource Manager (ARM) template.
 
 ### Set a system-assigned identity by using the Azure portal
 
-To set up a managed identity in the portal, you'll first create an Azure Load Testing resource and then enable the feature.
+To set up a managed identity in the portal you'll first create an Azure Load Testing resource, and then enable the feature.
 
 1. Navigate to your Azure Load Testing resource in the [Azure portal](https://portal.azure.com).
 
