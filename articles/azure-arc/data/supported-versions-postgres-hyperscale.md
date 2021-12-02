@@ -1,4 +1,4 @@
---- 
+---
 title: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
 description: Supported versions Postgres with Azure Arc-enabled PostgreSQL Hyperscale
 services: azure-arc

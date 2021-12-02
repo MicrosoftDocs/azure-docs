@@ -2,14 +2,13 @@
 title: 'Quickstart: Create a search index in JavaScript'
 titleSuffix: Azure Cognitive Search
 description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
-
 author: dereklegenzoff
 ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/08/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK

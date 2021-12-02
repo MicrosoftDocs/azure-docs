@@ -54,7 +54,7 @@ The main differences between these options are listed in the following table:
 | SSL/TLS | Enabled by default with support for TLS v1.2, 1.1 and 1.0 | Enabled by default with support for TLS v1.2, 1.1 and 1.0| Supported with TLS v1.2, 1.1 and 1.0 |
 | Data Encryption at rest | Supported with customer managed keys (BYOK) | Supported with service managed keys | Not Supported|
 | Azure AD Authentication | Supported | Not Supported | Not Supported|
-| Azure defender support | Yes | No | No |
+| Microsoft Defender for Cloud support | Yes | No | No |
 | Server Audit | Supported | Supported | User Managed |
 | [**Patching & Maintenance**](flexible-server/concepts-maintenance.md) | | |
 | Operating system patching| Automatic  | Automatic  | User managed |

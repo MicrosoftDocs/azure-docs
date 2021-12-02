@@ -3,15 +3,12 @@ title: "Quickstart: Get image insights using the REST API and Java - Bing Visual
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
-
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-java
-
+ms.custom: devx-track-java, mode-other
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Java

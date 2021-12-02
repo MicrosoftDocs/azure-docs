@@ -6,18 +6,18 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 11/16/2021
 ms.author: jasteppe
 ---
 # IoT connector troubleshooting guide
 
 > [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal.  
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 > [!TIP]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include copies of your Device and FHIR destination mappings to assist in the troubleshooting process.
+
+This article provides steps for troubleshooting common IoT connector error messages and conditions. You'll also learn how to create copies of the IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings. Also, you can use the Device and FHIR destination mapping copies for editing and archiving outside of the Azure portal. 
 
 ## Device and FHIR destination mappings validations
 
@@ -153,7 +153,7 @@ The mapping copies should be provided to Azure Technical Support when opening a 
 > JSON is the only supported format for Device and FHIR destination mappings at this time.
 
 > [!TIP]
-> Learn more about IoT connector [Device mappings](how-to-use-device-mapping-iot.md) and [FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+> Learn more about IoT connector [Device mappings](how-to-use-device-mappings.md) and [FHIR destination mappings](how-to-use-fhir-mappings.md)
 
 1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
 

@@ -2,13 +2,12 @@
 title: "Quickstart: Azure Blob storage client library v10 for JavaScript"
 description: Create, upload, and delete blobs and containers in Node.js with the Azure Storage client library v10 for JavaScript
 author: normesta
-
 ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Manage blobs with JavaScript v10 SDK in Node.js

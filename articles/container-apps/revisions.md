@@ -68,4 +68,4 @@ New revisions remain active until you deactivate them, or you set your container
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Secure an app](get-started.md)
+> [Secure an app](secure-app.md)
