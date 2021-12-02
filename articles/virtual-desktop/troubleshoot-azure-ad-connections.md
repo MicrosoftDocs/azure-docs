@@ -39,7 +39,7 @@ If you answered "no" to either of these questions, follow the instructions in [E
 > [!WARNING] 
 > VM sign-ins don't support per-user enabled or enforced Azure AD multifactor authentication. If you try to sign in with multifactor authentication on a VM, then you won't be able to sign in and will receive an error message.
 
-If you are able to access your Azure AD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactive user login events that are performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses Azure AD from. 
+If you can access your Azure Active Director (AD) Sign-in logs through Log Analytics, you can see if you've enabled MFA and which Conditional Access policy is triggering the event. The events shown are non-interactive user login events for the VM, which means the IP address will appear to come from the external IP address that your VM accesses Azure AD from. 
 
 You can access your sign-in logs by running the following Kusto query:
 
