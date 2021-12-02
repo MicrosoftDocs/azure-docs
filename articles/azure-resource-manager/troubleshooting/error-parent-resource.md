@@ -96,6 +96,10 @@ To resolve this error when the parent resource was deployed in a different templ
 This example uses the [existing](../bicep/resource-declaration.md#existing-resources) keyword to reference a parent that was deployed in a separate file. The child resource uses the `parent` element and the parent resource's symbolic name.
 
 ```bicep
+param location string = resourceGroup().location
+param sqlServerName string
+param databaseName string
+
 resource sqlServer 'Microsoft.Sql/servers@2021-05-01-preview' existing = {
   name: sqlServerName
 }
@@ -103,7 +107,7 @@ resource sqlServer 'Microsoft.Sql/servers@2021-05-01-preview' existing = {
 resource sqlDatabase 'Microsoft.Sql/servers/databases@2021-05-01-preview' = {
   parent: sqlServer
   name: databaseName
-  ...
+  location: location
 }
 ```
 
