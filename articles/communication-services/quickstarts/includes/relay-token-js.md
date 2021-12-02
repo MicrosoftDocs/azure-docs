@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: Communication Services
-author: shahen
+author: sphenry
 manager: anvalent
 ms.service: Communication Services
 ms.subservice: Communication Services
