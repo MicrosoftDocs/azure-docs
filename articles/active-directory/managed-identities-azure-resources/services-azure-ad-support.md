@@ -12,12 +12,12 @@ manager: karenh444
 ms.custom: references_regions
 ---
 
-
-
-
 # Azure services that support Azure AD authentication
 
 The following services support Azure AD authentication.
+
+## New format
+
 
 | Service Name                    |  Documentation                                                                                                                                                                                |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -38,27 +38,15 @@ The following services support Azure AD authentication.
 | Azure Maps                      | [Manage authentication in Azure Maps](../../azure-maps/how-to-manage-authentication.md) |
 | Azure Media services            | [Access the Azure Media Services API with Azure AD authentication](../../media-services/previous/media-services-use-aad-auth-to-access-ams-api.md) |
 | Azure Monitor                   | [Azure AD authentication for Application Insights (Preview)](../../azure-monitor/app/azure-ad-authentication?tabs=net)                                                                                              |
+| Azure Service Fabric            | [Set up Azure Active Directory for client authentication](../../service-fabric/service-fabric-cluster-creation-setup-aad.md)                                                                                                        |
+| Azure SignalR Service           | [Authorize access with Azure Active Directory for Azure SignalR Service](../../azure-signalr/signalr-concept-authorize-azure-active-directory.md)                                                                                                     |
+| Azure SQL                       | [Use Azure Active Directory authentication](../../azure-sql/database/authentication-aad-overview.md)                                                                                     |
+| Azure SQL Managed Instance      | [What is Azure SQL Managed Instance?](../../azure-sql/managed-instance/sql-managed-instance-paas-overview.md#azure-active-directory-integration)                                                                                       |
+| Azure Static Web Apps           | [Authentication and authorization for Azure Static Web Apps](../../static-web-apps/authentication-authorization.md?tabs=invitations)
+| Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../devices/howto-vm-sign-in-azure-ad-windows.md)                                                                  |
 
 
-| Azure Policy                    | [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md)      |
-| Azure Purview                   | [Credentials for source authentication in Azure Purview](../../purview/manage-credentials.md)                                                                                                                          |
-| Azure Resource Mover            | [Move resources across regions (from resource group)](../../resource-mover/move-region-within-resource-group.md)
-| Azure Site Recovery             | [Replicate machines with private endpoints](../../site-recovery/azure-to-azure-how-to-enable-replication-private-endpoints.md#enable-the-managed-identity-for-the-vault)                                  |
-| Azure Search                    | [Set up an indexer connection to a data source using a managed identity](../../search/search-howto-managed-identities-data-sources.md)                                                                                            |
-| Azure Service Fabric            | [Using Managed identities for Azure with Service Fabric](../../service-fabric/concepts-managed-identity.md)                                                                                                        |
-| Azure SignalR Service           | [Managed identities for Azure SignalR Service](../../azure-signalr/howto-use-managed-identity.md)                                                                                                     |
-| Azure Spring Cloud              | [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md) |
-| Azure SQL                       | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                     |
-| Azure SQL Managed Instance      | [Azure SQL Transparent Data Encryption with customer-managed key](../../azure-sql/database/transparent-data-encryption-byok-overview.md)                                                                                       |
-| Azure Stack Edge                | [Manage Azure Stack Edge secrets using Azure Key Vault](../../databox-online/azure-stack-edge-gpu-activation-key-vault.md#recover-managed-identity-access)
-| Azure Static Web Apps           | [Securing authentication secrets in Azure Key Vault](../../static-web-apps/key-vault-secrets.md)
-| Azure Stream Analytics          | [Authenticate Stream Analytics to Azure Data Lake Storage Gen1 using managed identities](../../stream-analytics/stream-analytics-managed-identities-adls.md)                                                                                         |
-| Azure Synapse                   | [Azure Synapse workspace managed identity](../../synapse-analytics/security/synapse-workspace-managed-identity.md)                                                                                         |
-| Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](../../virtual-machines/linux/image-builder-permissions-cli.md#using-managed-identity-for-azure-storage-access)|
-| Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
-| Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                  |
-
-
+Old format shown below. 
 ## Azure Resource Manager
 
 Refer to the following list to configure access to Azure Resource Manager:
