@@ -8,7 +8,7 @@ ms.date: 12/19/2019
 
 # Performance optimization for Apache Kafka HDInsight clusters
 
-This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer and broker configuration. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
+This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer, broker and consumer configuration. Sometimes, you also need to adjust OS settings to tune the performance with heavey workload. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
 
 ## Architecture overview
 
@@ -94,8 +94,59 @@ If the `session.timeout.ms` is too low, a consumer could experience repeated unn
 
 Like producers, we can add batching for consumers. The amount of data consumers can get in each fetch request can be configured by changing the configuration `fetch.min.bytes`. This parameter defines the minimum bytes expected from a fetch response of a consumer. Increasing this value will reduce the number of fetch requests made to the broker, therefore reducing extra overhead. By default, this value is 1. Similarly, there is another configuration `fetch.max.wait.ms`. If a fetch request doesn’t have enough messages as per the size of `fetch.min.bytes`, it will wait until the expiration of the wait time based on this config `fetch.max.wait.ms`.
 
-> [!NOTE]: 
+> [!NOTE]
 > In few scenarios, consumers may seem to be slow, when it fails to process the message. If you are not committing the offset after an exception, consumer will be stuck at a particular offset in an infinite loop and will not move forward, increasing the lag on consumer side as a result. 
+
+## Linux OS tuning with heavy workload
+
+### File Descriptors
+
+Each partition maps to a log directory in the file system. Each partition in log directory contains segment files and their corresponding index files. Each of these files is opened by brokers. So, more the number of partitions, higher will be the number of file descriptors. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling period** and generally tends to be more than one. `Number of open files = 2*((partition size)/*(segment size))*partitions`
+
+If number of file descriptors exceeds the limit of open file limit on vm, Broker would raise an error **"Too many open files"**. To avoid this error, use the below commands to check and increase the open files limit on the VM.
+
+```
+# check the file descriptor limit setting for Apache Kafka process
+cat  /proc/[kafka_pid]/limits
+
+# check open file discriptors for a kafka process
+losf -p [kafka_pid]
+
+# increase the ulimit and reboot
+echo "kafka hard nofile <new number>" | sudo tee --append /etc/security/limits.conf
+echo "kafka soft nofile <new number>" | sudo tee --append /etc/security/limits.conf
+reboot
+```
+
+Make sure to set the limit a bit higher than the above value since you will need open files for other operations of Apache Kafka and VM apart from partitions.
+
+
+
+### Memory Maps
+
+`vm.max_map_count` defines maximum number of mmap a process can have. By default, on HDInsight Apache Kafka cluster linux VM, the value is 65535. 
+
+In Apache Kafka, each log segment requires a pair of index/timeindex files, and each of these files consumes 1 mmap. In other words, each log segment uses 2 mmap. Thus, if each partition hosts a single log segment, it requires minimum 2 mmap. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling perio**d and, generally tends to be more than one. `Mmap value = 2*((partition size)/(segment size))*(partitions)`
+
+If required mmap value exceeds the `vm.max_map_count`, broker would rais **"Map failed"** exception.
+
+To avoid this exception, use the below commands to check the size for mmap in vm and increase the size if needed.
+
+```
+# command to find number of index files:
+find . -name '*index' | wc -l
+
+# command to view vm.max_map_count for a process:
+cat /proc/[kafka-pid]/maps | wc -l
+
+# command to set the limit of vm.max_map_count:
+sysctl -w vm.max_map_count=<new_mmap_value>
+
+# This will make sure value remains, even after vm is rebooted:
+echo 'vm.max_map_count=<new_mmap_value>' >> /etc/sysctl.conf
+sysctl -p
+
+```
 
 ## Next steps
 
