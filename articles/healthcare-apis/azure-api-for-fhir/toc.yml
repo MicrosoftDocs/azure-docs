@@ -157,7 +157,7 @@ items:
   - name: Use Custom HTTP headers to add data to Audit Logs
     href: use-custom-headers.md
   - name: Azure IoT Connector for FHIR (preview) workings
-    expanded: true
+    expanded: false
     items:
     - name: Azure IoT Connector for FHIR (preview) data flow
       href: iot-data-flow.md
