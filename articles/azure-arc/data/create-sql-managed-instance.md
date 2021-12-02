@@ -23,7 +23,7 @@ To view available options for create command for SQL Managed Instance, use the f
 az sql mi-arc create --help
 ```
 
-To create an SQL Managed Instance, use `az sql mi-arc create ...` See the following examples for different connectivity modes:
+To create a SQL Managed Instance, use `az sql mi-arc create`. See the following examples for different connectivity modes:
 
 ### [Indirectly connected mode](#tab/indirectly)
 
