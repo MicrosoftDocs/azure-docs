@@ -47,7 +47,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance. The subnet may contain other Azure resources.
 
-* **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity as the [Standard SKU load Balancer](../load-balancer/skus.md) we are using is secure by default and rejects all inbound traffic. 
+* **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
