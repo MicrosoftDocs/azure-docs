@@ -341,7 +341,7 @@ Virtual machine scale sets are supported, but the steps are slightly different f
 1. Create a virtual machine scale set or choose one that already exists. Enable a system assigned managed identity for your virtual machine scale set.
 
 ```azurecli
-az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVM
+az vmss identity assign --name myVMSS --resource-group AzureADLinuxVM
 ```
 
 2. Install the Azure AD extension on your virtual machine scale set.

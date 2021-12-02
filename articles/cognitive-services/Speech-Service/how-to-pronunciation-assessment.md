@@ -161,29 +161,29 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 ::: zone-end
 
-### Pronunciation assessment configuration parameters
+## Configuration parameters
 
 This table lists the configuration parameters for pronunciation assessment.
 
 | Parameter | Description | Required? |
 |-----------|-------------|---------------------|
-| ReferenceText | The text that the pronunciation will be evaluated against. | Required |
-| GradingSystem | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
-| Granularity | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. Default: `Phoneme`. | Optional |
-| EnableMiscue | Enables miscue calculation. With this enabled, the pronounced words will be compared to the reference text, and will be marked with omission/insertion based on the comparison. Accepted values are `False` and `True`. Default: `False`. | Optional |
-| ScenarioId | A GUID indicating a customized point system. | Optional |
+| `ReferenceText` | The text that the pronunciation will be evaluated against. | Required |
+| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
+| `Granularity` | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. Default: `Phoneme`. | Optional |
+| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | Optional |
+| `ScenarioId` | A GUID indicating a customized point system. | Optional |
 
-### Pronunciation assessment result parameters
+## Result parameters
 
 This table lists the result parameters of pronunciation assessment.
 
 | Parameter | Description |
 |-----------|-------------|
-| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy score is aggregated from phoneme level accuracy score. |
+| `AccuracyScore` | Pronunciation accuracy of the speech. Accuracy indicates how closely the phonemes match a native speaker's pronunciation. Word and full text level accuracy scores are aggregated from phoneme level accuracy score. |
 | `FluencyScore` | Fluency of the given speech. Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words. |
-| `CompletenessScore` | Completeness of the speech, determined by calculating the ratio of pronounced words to reference text input. |
+| `CompletenessScore` | Completeness of the speech, calculated by the ratio of pronounced words to the input reference text. |
 | `PronScore` | Overall score indicating the pronunciation quality of the given speech. This is aggregated from `AccuracyScore`, `FluencyScore`, and `CompletenessScore` with weight. |
-| `ErrorType` | This value indicates whether a word is omitted, inserted or badly pronounced, compared to `ReferenceText`. Possible values are `None` (meaning no error on this word), `Omission`, `Insertion`, and `Mispronunciation`. |
+| `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. |
 
 ### Sample responses
 
@@ -236,8 +236,6 @@ A typical pronunciation assessment result in JSON:
 ```
 
 ## Next steps
-
-<!-- TODO: update JavaScript sample links after release -->
 
 * Watch the [video introduction](https://www.youtube.com/watch?v=cBE8CUHOFHQ) and [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment
 
