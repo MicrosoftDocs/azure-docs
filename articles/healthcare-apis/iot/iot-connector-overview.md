@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 11/29/2021
+ms.date: 12/1/2021
 ms.author: jasteppe
 ---
 
@@ -23,6 +23,9 @@ IoT connector transforms device data into Fast Healthcare Interoperability Resou
 
 Below is an overview of each step IoT connector does once IoMT device data is received. Each step will be further explained in the [IoT connector data flow](./iot-data-flow.md) article.
 
+> [!TIP]
+> Learn more about [Azure Event Hubs](/azure/event-hubs) use cases, features and architecture.
+
 :::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by IoT connector as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
 ## Scalable
@@ -31,13 +34,7 @@ IoT connector is designed out-of-the-box to handle even the most demanding IoMT 
 
 ## Configurable 
 
-IoT connector is configured by using [Device](./how-to-use-device-mappings.md) and [FHIR destination mappings](./how-to-use-fhir-mappings.md). These mappings allow for control of capturing the contents of the IoMT device messages you wish to persist in the FHIR service.
-
-IoT connector also allows use of the JMESPath query language for JSON:
-* [Calculated Functions](./how-to-use-calculated-functions-mappings.md)
-* [Custom Functions](./how-to-use-custom-functions.md) 
-
-Functions can be used for extracting and transforming elements from the IoMT device messages before persisting them to the FHIR service.
+IoT connector is configured by using [Device](./how-to-use-device-mappings.md) and [FHIR destination](./how-to-use-fhir-mappings.md) mappings. The mappings instruct the filtering and transformation of your IoMT device messages into the FHIR format.
 
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
