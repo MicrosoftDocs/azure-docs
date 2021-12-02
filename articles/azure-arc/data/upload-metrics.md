@@ -47,6 +47,10 @@ export MSI_OBJECT_ID=`az k8s-extension show --resource-group <resource group>  -
 export MSI_OBJECT_ID=`az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | jq '.identity.principalId' | tr -d \"`
 ```
 
+# [Windows](#tab/windows)
+
+N/A
+
 ---
 
 ### (2) Assign role to the managed identity
@@ -61,6 +65,11 @@ az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metri
 ```console
 az role assignment create --assignee ${MSI_OBJECT_ID} --role 'Monitoring Metrics Publisher' --scope "/subscriptions/${subscription}/resourceGroups/${resourceGroup}"
 ```
+
+# [Windows](#tab/windows)
+
+N/A
+
 ---
 
 ### Automatic upload of metrics can be enabled as follows:
