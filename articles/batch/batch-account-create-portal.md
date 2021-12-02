@@ -67,6 +67,9 @@ If you choose to create a Batch account in user subscription mode, perform the f
 > [!IMPORTANT]
 > The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
 
+>[!IMPORTANT]
+> In user subscription mode, some legal terms of the image need to be accepted before using the subscription. If you haven’t done this before, you may encounter the error of **Allocation failed due to marketplace purchase eligibilty** when trying to allocate Batch nodes. For more details, please navigate to the [Accept legal terms](#accept-legal-terms) section.
+
 ### Allow Azure Batch to access the subscription (one-time operation)
 
 When creating your first Batch account in user subscription mode, you need to register your subscription with Batch. (If you already did this, skip to the next section.)
@@ -109,6 +112,18 @@ For user subscription Batch accounts, [core quotas](batch-quota-limit.md) must b
 
 1. In the [Azure portal](https://portal.azure.com), select your user subscription mode Batch account to display its settings and properties.
 1. From the left menu, select **Quotas** to view and configure the core quotas associated with your Batch account.
+
+### Accept legal terms
+
+In user subscription mode, some legal terms related to the image need to be accepted before using the subscription. To accept these legal terms, you can run the [Get-AzMarketplaceTerms](https://docs.microsoft.com/en-us/powershell/module/az.marketplaceordering/get-azmarketplaceterms) and [Set-AzMarketplaceTerms](https://docs.microsoft.com/en-us/powershell/module/az.marketplaceordering/set-azmarketplaceterms) commands in PowerShell.
+
+An example below:
+
+```powershell
+Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
+```
+
+Please notice that you will need to set the Publisher, Product(Offer) and Name(Sku) based on your Batch pool's setting.
 
 ## Other Batch account management options
 
