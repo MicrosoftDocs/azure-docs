@@ -3,7 +3,7 @@ title: Azure Policy definitions for Azure NetApp Files  | Microsoft Docs
 description: Describes the Azure Policy custom definitions and built-in definitions that you can use with Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Azure Policy definitions for Azure NetApp Files  
 
