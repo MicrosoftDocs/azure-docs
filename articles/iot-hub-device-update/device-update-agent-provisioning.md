@@ -173,7 +173,7 @@ The Device Update agent can also be configured without the IoT Identity service 
 1. Log onto the machine or IoT Edge device/IoT device.
 	
 1. Open a terminal window.
-----
+
 1. Add the connection string to the [Device Update configuration file](device-update-configuration-file.md):
 
     1. Enter the below in the terminal window:
@@ -181,17 +181,11 @@ The Device Update agent can also be configured without the IoT Identity service 
         - [For Ubuntu agent](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/du-config.json
         - [For Yocto reference image](device-update-raspberry-pi.md) use: sudo nano /adu/du-config.json 
        
-    1. Use the Delete key to delete "HostName=…" 
-		a. Example remove everything that is struck out: "connectionData" : "HostName=mscontoso-green-iothub-canary.azure-devices.net;DeviceId=bugbash-default-dont-use;SharedAccessKey=DFHhipac1w/u0tlVChStQWnh1S1dfhIhz/Rl6x9PiYE="},
-
- Copy the IoT deviceConnectionString you saved in section 4.6 above. Then right click the upper-left corner menu in PowerShell and select Edit -> Paste to append the deviceConnectionString after the text from step 7.3 above. Or worse case you may have to type in the information.
-		Example:  "connectionData" : "<your value>"
-
-	Press Ctrl+X, Y, Enter to save and close the file
-
-	
+    1. If Device Update agent is configured as a module, from the IoT device copy the module's primary connection string. Otherwise copy the device's primary connection string. 
+    2. Add the primary connection string to the connectionDate in the du-config.json file and then save and close the file.
+		Example:  "connectionData" : "<your primary connection string>"
+ 
 1. Now you are now ready to start the Device Update agent on your IoT device. 
------
 
 ## How to start the Device Update Agent
 
