@@ -139,7 +139,7 @@ You can delete the Hybrid Runbook Worker from the portal.
 
    > [!NOTE]
    > - A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. </br> </br>
-   > - After you disable the Private Link in your Automation account, it takes approximately 60 minutes to remove the Hybrid Runbook worker.
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
 
 ## Delete a Hybrid Runbook Worker group
 
