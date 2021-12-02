@@ -7463,12 +7463,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4.md",
-      "redirect_url": "/composer/how-to-add-luis",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4.md",
-      "redirect_url": "/composer/how-to-add-luis",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
       "redirect_document_id": false
     },
     {
