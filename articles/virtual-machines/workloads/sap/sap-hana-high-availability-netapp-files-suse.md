@@ -60,6 +60,9 @@ Read the following SAP Notes and papers first:
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 - [Azure Virtual Machines planning and implementation for SAP on Linux](./planning-guide.md)
 
+>[!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+
 ## Overview
 
 Traditionally in scale-up environment all file systems for SAP HANA are mounted from local storage. Setting up High Availability of SAP HANA System Replication on SUSE Enterprise Linux is published in guide [Set up SAP HANA System Replication on SLES](./sap-hana-high-availability.md)
@@ -83,7 +86,7 @@ Mounted on node2 (**hanadb2**)
 - 10.3.1.4:/**hanadb2**-shared-mnt0001 on /hana/shared
 
 > [!NOTE]
-> File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.   
+> File systems /hana/shared, /hana/data and /hana/log are not shared between the two nodes. Each cluster node has its own, separate file systems.
 
 SAP high availability HANA System Replication configuration uses a dedicated virtual hostname and virtual IP addresses. On Azure, a load balancer is required to use a virtual IP address. The following list shows the configuration of the load balancer:
 
