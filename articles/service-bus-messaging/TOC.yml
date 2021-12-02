@@ -320,7 +320,7 @@
   - name: Ruby
     href: https://github.com/Azure/azure-sdk-for-ruby
   - name: Go
-    href: https://github.com/Azure/azure-service-bus-go
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus
   - name: Azure CLI
     href: /cli/azure/servicebus
   - name: Azure PowerShell
