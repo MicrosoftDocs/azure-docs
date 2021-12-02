@@ -45,27 +45,11 @@ The functionality of the extension varies depending on the extension version:
 
 A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
-This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following lines in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
-
-To learn more, see [Update your extensions].
+This extension version is available by installing the [NuGet package], version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
-Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
-
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [NuGet package], version 3.x | |
+Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install NuGet package, version 3.x. The package is used for .NET class libraries while the extension bundle is used for all other application types.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
@@ -79,7 +63,7 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions 2.x and higher](#tab/functionsv2/isolated-process)
 
-Add the extension to your project by installing the [NuGet package], version 3.x.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Storage), version 3.x.
 
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
@@ -87,9 +71,7 @@ Functions version 1.x doesn't support isolated process.
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 
-A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
-
-This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following lines in your `host.json` file:
+This extension version is available from the extension bundle v3 by adding the following lines in your `host.json` file:
 
 ```json
 {
@@ -100,6 +82,8 @@ This extension version is available by installing the [NuGet package], version 5
   }
 }
 ```
+
+When editing C# script functions in Azure portal, you can edit the `host.json` file in **Functions** > **App files** in the left navigation pane.
 
 To learn more, see [Update your extensions].
 

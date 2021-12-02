@@ -333,15 +333,36 @@ See the [Example section](#example) for complete examples.
 ## Metadata
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
+
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](/dotnet/api/microsoft.azure.storage.blob.cloudblob) type.
+
+|Property  |Type  |Description  |
+|----------|---------|---------|
+|`BlobTrigger`|`string`|The path to the triggering blob.|
+|`Uri`|`System.Uri`|The blob's URI for the primary location.|
+|`Properties` |[BlobProperties](/dotnet/api/microsoft.azure.storage.blob.blobproperties)|The blob's system properties. |
+|`Metadata` |`IDictionary<string,string>`|The user-defined metadata for the blob.|
+
+The following example logs the path to the triggering blob, including the container:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, ILogger log)
+{
+    log.LogInformation($"Full blob path: {blobTrigger}");
+} 
 ::: zone-end
-::: zone pivot="programming-language-csharp"  
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
-::: zone-end  
-::: zone pivot="programming-language-java"
-Metadata is not available in Java.
-::: zone-end  
 ::: zone pivot="programming-language-javascript"  
+
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. 
+
+|Property     |Description  |
+|-------------|--------|
+|`blobTrigger`|The path to the triggering blob.|
+|`uri`        |The blob's URI for the primary location.|
+|`properties` |The blob's system properties. |
+|`metadata`   |The user-defined metadata for the blob.|
+
+Metadata can be obtained from the `bindingData` property of the supplied `context` object, as shown in the following example, which logs the path to the triggering blob (`blobTrigger`), including the container:
 
 ```javascript
 module.exports = function (context, myBlob) {
@@ -354,9 +375,6 @@ module.exports = function (context, myBlob) {
 ::: zone pivot="programming-language-powershell"  
 Metadata is available through the `$TriggerMetadata` parameter.
 ::: zone-end  
-::: zone pivot="programming-language-python"  
-Metadata is not available in Python.
-::: zone-end
 
 ## Usage
 
