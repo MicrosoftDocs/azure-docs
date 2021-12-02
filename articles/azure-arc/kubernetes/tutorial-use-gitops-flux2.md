@@ -580,7 +580,7 @@ az k8s-extension delete -g flux-demo-rg -c flux-demo-arc -n flux -t managedClust
 
 ### Control which controllers are deployed with the Flux cluster extension
 
-The `source`, `helm`, `kustomize`, and `notification` Flux controllers are installed by default. The `image-automation` and `image-reflector` controllers must be enabled explicitly. You can use the Flux cluster extension to make those choices:
+The `source`, `helm`, `kustomize`, and `notification` Flux controllers are installed by default. The `image-automation` and `image-reflector` controllers must be enabled explicitly. You can use the `k8s-extension` CLI to make those choices:
 
 * `--config source-controller.enabled=<true/false>` (default `true`)
 * `--config helm-controller.enabled=<true/false>` (default `true`)
