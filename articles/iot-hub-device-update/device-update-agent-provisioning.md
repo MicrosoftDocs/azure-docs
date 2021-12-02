@@ -184,8 +184,12 @@ The Device Update agent can also be configured without the IoT Identity service 
         - [For Ubuntu agent](device-update-ubuntu-agent.md) use: sudo nano /etc/adu/du-config.json
         - [For Yocto reference image](device-update-raspberry-pi.md) use: sudo nano /adu/du-config.json 
        
-    1. If Device Update agent is configured as a module, from the IoT device copy the module's primary connection string. Otherwise copy the device's primary connection string. 
-    2. Add the primary connection string to the connectionDate in the du-config.json file and then save and close the file.
+    1. Copy the primary connection string
+    
+    	- If Device Update agent is configured as a module copy the module's primary connection string. 
+    	- Otherwise copy the device's primary connection string.
+     
+    3. Enter the copied primary connection string to 'connectionData' in the du-config.json file. Then save and close the file.
 		Example:  "connectionData" : "<your primary connection string>"
  
 1. Now you are now ready to start the Device Update agent on your IoT device. 
