@@ -283,7 +283,7 @@ Several query capabilities in Cognitive Search do not undergo relevance scoring,
 
 + Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
 
-#### Step 4: Add answers ans captions
+#### Step 4: Add answers and captions
 
 Optionally, add "answers" and "captions" if you want to include additional processing that provides an answer and captions. For details about this parameter, see [How to specify semantic answers](semantic-answers.md).
 
