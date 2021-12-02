@@ -5599,6 +5599,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/availability-zones/index.md",
       "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
@@ -6841,6 +6846,11 @@
     {
       "source_path_from_root": "/articles/azure-maps/mobility-service-data-structure.md ",
       "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+      "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
       "redirect_document_id": false
     },
     {
