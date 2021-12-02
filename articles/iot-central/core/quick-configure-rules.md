@@ -20,7 +20,11 @@ Before you begin, you should complete the previous quickstart [Create and use an
 
 ## Create a telemetry-based rule
 
-The smartphone app sends telemetry that includes values from the accelerometer sensor. When the phone is lying on it's back, the **z** value is greater than `9`, when the phone is lying on it's front, the **z** value is less than `-9`.
+The smartphone app sends telemetry that includes values from the accelerometer sensor. The sensor works slightly differently on Android and iOS devices:
+
+# [Android](#tab/android)
+
+When the phone is lying on its back, the **z** value is greater than `9`, when the phone is lying on its front, the **z** value is less than `-9`.
 
 1. To add a new telemetry-based rule to your application, in the left pane, select **Rules**.
 
@@ -36,11 +40,37 @@ The smartphone app sends telemetry that includes values from the accelerometer s
     |------------------|------------------|
     | Time aggregation | On, 5 minutes    |
     | Telemetry        | Acceleration / Z |
-    | Operator         | is less than     |
+    | Operator         | Is less than     |
     | Aggregation      | Minimum          |
     | Value            | -9               |
 
-    :::image type="content" source="media/quick-configure-rules/rule-target-condition.png" alt-text="Screenshot that shows the rule condition.":::
+    :::image type="content" source="media/quick-configure-rules/rule-target-condition-android.png" alt-text="Screenshot that shows the rule condition.":::
+
+# [iOS](#tab/ios)
+
+When the phone is lying on its back, the **z** value is less than `-0.9`, when the phone is lying on its front, the **z** value is greater than `0.9`.
+
+1. To add a new telemetry-based rule to your application, in the left pane, select **Rules**.
+
+1. To create a new rule, select **Create a rule**.
+
+1. Enter **Phone turned over** as the rule name.
+
+1. In the **Target devices** section, select **IoT Plug and Play mobile** as the **Device template**. This option filters the devices the rule applies to by device template type. You can add more filter criteria by selecting **+ Filter**.
+
+1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a single condition based on accelerometer z-axis telemetry. This rule uses aggregation so you receive a maximum of one email for each device every five minutes:
+
+    | Field            | Value            |
+    |------------------|------------------|
+    | Time aggregation | On, 5 minutes    |
+    | Telemetry        | Acceleration / Z |
+    | Operator         | Is greater than  |
+    | Aggregation      | Maximum          |
+    | Value            | 0.9              |
+
+    :::image type="content" source="media/quick-configure-rules/rule-target-condition-ios.png" alt-text="Screenshot that shows the rule condition.":::
+
+---
 
 1. To add an email action to run when the rule triggers, in the **Actions** section, select **+ Email**.
 
