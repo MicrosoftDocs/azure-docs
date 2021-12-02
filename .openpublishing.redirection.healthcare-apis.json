@@ -93,11 +93,6 @@
         "redirect_document_id": true
     },
     {
-        "source_path_from_root": "/articles/healthcare-apis/convert-data.md",
-        "redirect_url": "/azure/healthcare-apis/data-transformation/convert-data",
-        "redirect_document_id": true
-    },
-    {
         "source_path_from_root": "/articles/healthcare-apis/customer-managed-key.md",
         "redirect_url": "/azure/healthcare-apis/fhir/customer-managed-key",
         "redirect_document_id": true
