@@ -91,12 +91,6 @@ Before you proceed, make sure you have created the required service principal an
 
 Set the SPN authority URL in an environment variable:
 
-# [Windows](#tab/windows)
-
-```console
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
 # [PowerShell](#tab/powershell)
 
 ```PowerShell
@@ -107,6 +101,12 @@ $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
+```
+
+# [Windows](#tab/windows)
+
+```console
+SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
 ---
