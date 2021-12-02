@@ -29,7 +29,12 @@ If you come across an error saying **Your account is configured to prevent you f
 
 ### I can't sign in even though I'm using the right credentials
 
-If you experience a login problem presented by incorrect user credentials and have verified they are correct and have ruled out other errors, verify that Conditional Access policies excludes multifactor authentication requirements on the **Azure Windows VM Sign-in** cloud application. Also verify that you have assigned the **Virtual Machine User Login** RBAC permissions on the VM or Resource Group for each user. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms)
+If you can't sign in and keep receiving an error message that says your credentials are incorrect, first make sure you're using the right credentials. If you keep seeing error messages, ask yourself the following questions:
+
+- Does your Conditional Access policy exclude multifactor authentication (MFA) requirements for the Azure Windows VM sign-in cloud application?
+- Have you assigned the **Virtual Machine User Login** role-based access control (RBAC) permission to the VM or resource group for each user? 
+
+If you answered "no" to either of these questions, follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms) to reconfigure your multifactor authentication.
 
 > [!WARNING] 
 > VM sign-ins don't support per-user enabled or enforced Azure AD multifactor authentication. If you try to sign in with multifactor authentication on a VM, then you won't be able to sign in and will receive an error message.
