@@ -136,7 +136,8 @@ Remote into the VM, open **Computer Management** (or **Disk Management**) and ex
 
 When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using [Using Diskpart](#using-diskpart) or [Using Disk Manager](#using-disk-manager).
 
-### Using Diskpart
+### Using DiskPart
+
 
 When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
