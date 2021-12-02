@@ -72,7 +72,10 @@ Azure supports up to **500** role assignments per management group. This limit i
 
     To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment. You must also set the `apiVersion` of the role assignment to `2018-09-01-preview` or later. For more information, see [Assign Azure roles to a new service principal using the REST API](role-assignments-rest.md#new-service-principal) or [Assign Azure roles to a new service principal using Azure Resource Manager templates](role-assignments-template.md#new-service-principal)
 
-- If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md).
+- If you attempt to remove the last Owner role assignment for a subscription, you might see the error "Cannot delete the last RBAC admin assignment." Removing the last Owner role assignment for a subscription is not supported to avoid orphaning the subscription. If you want to cancel your subscription, see [Cancel your Azure subscription](../cost-management-billing/manage/cancel-azure-subscription.md). 
+
+> [!NOTE]
+> We do allow deletion of last ‘Owner (or User Access Administrator) ’ role assignment at subscription scope, if the request is made by the tenant Admin. In this case, there is no constraint for deletion. But, If the call comes from some other principal, then we make sure we don’t delete the last  ‘Owner’ role assignment at subscription scope and throw the error as mentioned above.
 
 ## Problems with custom roles
 
