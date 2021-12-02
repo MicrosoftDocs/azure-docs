@@ -62,7 +62,7 @@ The following table lists the latest versions of the WebSocket Service:
 #### Updates for version 1.4.2111.18001
 
 - Fixed a mute notification problem.
-- Multiple z-ordering fixes in Teams on Azure Virtual Desktop.
+- Multiple z-ordering fixes in Teams on Azure Virtual Desktop and Teams on Microsoft 365.
 - Removed timeout that prevented the WebRTC redirector service from starting when the user connects.
 - Fixed setup problems that prevented side-by-side installation from working.
 
