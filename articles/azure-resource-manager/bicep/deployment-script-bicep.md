@@ -101,7 +101,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '3.0' // or azCliVersion: '2.0.80'
+    azPowerShellVersion: '6.4' // or azCliVersion: '2.28.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
