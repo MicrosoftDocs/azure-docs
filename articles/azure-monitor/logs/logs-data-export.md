@@ -674,6 +674,7 @@ Supported tables are currently limited to those specified below. All data from t
 | AegDeliveryFailureLogs |  |
 | AegPublishFailureLogs |  |
 | AEWAuditLogs |  |
+| AEWComputePipelinesLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodApplicationAuditLogs |  |
 | AgriFoodFarmManagementLogs |  |
@@ -687,6 +688,7 @@ Supported tables are currently limited to those specified below. All data from t
 | AgriFoodWeatherLogs |  |
 | Alert |  |
 | AlertEvidence |  |
+| AlertInfo |  |
 | AmlOnlineEndpointConsoleLog |  |
 | ApiManagementGatewayLogs |  |
 | AppCenterError |  |
@@ -704,11 +706,21 @@ Supported tables are currently limited to those specified below. All data from t
 | AWSCloudTrail |  |
 | AWSGuardDuty |  |
 | AWSVPCFlow |  |
+| AZFWApplicationRule |  |
+| AZFWApplicationRuleAggregation |  |
+| AZFWDnsQuery |  |
+| AZFWIdpsSignature |  |
+| AZFWNatRule |  |
+| AZFWNatRuleAggregation |  |
+| AZFWNetworkRule |  |
+| AZFWNetworkRuleAggregation |  |
 | AzureAssessmentRecommendation |  |
 | AzureDevOpsAuditing |  |
 | BehaviorAnalytics |  |
 | BlockchainApplicationLog |  |
 | BlockchainProxyLog |  |
+| CassandraAudit |  |
+| CassandraLogs |  |
 | CDBCassandraRequests |  |
 | CDBControlPlaneRequests |  |
 | CDBDataPlaneRequests |  |
@@ -717,6 +729,8 @@ Supported tables are currently limited to those specified below. All data from t
 | CDBPartitionKeyRUConsumption |  |
 | CDBPartitionKeyStatistics |  |
 | CDBQueryRuntimeStatistics |  |
+| CIEventsAudit |  |
+| CIEventsOperational |  |
 | CloudAppEvents |  |
 | CommonSecurityLog |  |
 | ComputerGroup |  |
@@ -741,6 +755,7 @@ Supported tables are currently limited to those specified below. All data from t
 | DeviceNetworkInfo |  |
 | DnsEvents |  |
 | DnsInventory |  |
+| DSMAzureBlobStorageLogs |  |
 | DummyHydrationFact |  |
 | Dynamics365Activity |  |
 | EmailAttachmentInfo |  |
@@ -759,8 +774,10 @@ Supported tables are currently limited to those specified below. All data from t
 | HDInsightHBaseMetrics |  |
 | HDInsightHiveAndLLAPLogs |  |
 | HDInsightHiveAndLLAPMetrics |  |
+| HDInsightHiveQueryAppStats |  |
 | HDInsightHiveTezAppStats |  |
 | HDInsightJupyterNotebookEvents |  |
+| HDInsightKafkaLogs |  |
 | HDInsightKafkaMetrics |  |
 | HDInsightOozieLogs |  |
 | HDInsightRangerAuditLogs |  |
@@ -777,6 +794,9 @@ Supported tables are currently limited to those specified below. All data from t
 | HDInsightSparkTaskEvents |  |
 | Heartbeat |  |
 | HuntingBookmark |  |
+| IdentityDirectoryEvents |  |
+| IdentityLogonEvents |  |
+| IdentityQueryEvents |  |
 | InsightsMetrics | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | IntuneAuditLogs |  |
 | IntuneDevices |  |
@@ -790,6 +810,7 @@ Supported tables are currently limited to those specified below. All data from t
 | LAQueryLogs |  |
 | McasShadowItReporting |  |
 | MCCEventLogs |  |
+| MCVPAuditLogs |  |
 | MicrosoftAzureBastionAuditLogs |  |
 | MicrosoftDataShareReceivedSnapshotLog |  |
 | MicrosoftDataShareSentSnapshotLog |  |
@@ -800,8 +821,10 @@ Supported tables are currently limited to those specified below. All data from t
 | OfficeActivity | Partial support in government clouds – some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
 | Operation | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | Perf | Partial support – only windows perf data is currently supported. The Linux perf data is missing in export currently. |
+| PowerBIActivity |  |
 | PowerBIDatasetsWorkspace |  |
-| HDInsightRangerAuditLogs |  |
+| ProjectActivity |  |
+| PurviewDataSensitivityLogs |  |
 | PurviewScanStatusLogs |  |
 | SCCMAssessmentRecommendation |  |
 | SCOMAssessmentRecommendation |  |
@@ -838,6 +861,10 @@ Supported tables are currently limited to those specified below. All data from t
 | SynapseSqlPoolWaits |  |
 | Syslog | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported in export. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported in export. |
 | ThreatIntelligenceIndicator |  |
+| UCClient |  |
+| UCClientUpdateStatus |  |
+| UCDeviceAlert |  |
+| UCServiceUpdateStatus |  |
 | Update | Partial support – some of the data is ingested through internal services that aren't supported in export. This portion is missing in export currently. |
 | UpdateRunProgress |  |
 | UpdateSummary |  |
