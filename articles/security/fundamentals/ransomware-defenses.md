@@ -50,6 +50,8 @@ Any business or organization that operates an IT system with data in it can be a
 
 represents one of the most targeted sectors, along with the financial, healthcare, and entertainment sectors.  And despite continued promises not to attack hospitals or healthcare companies during a pandemic, as shown in Figure 1, healthcare remains the number one target of human operated ransomware.
 
+:::image type="content" source="./media/ransomware/ransomware1.png" alt-text="Dummy text":::
+
 ### How can my assets in the cloud be targeted?
 
 When attacking cloud infrastructure, adversaries often attack multiple resources to try to obtain access to customer data or company secrets. The cloud kill chain model (Figure 2) explains how attackers attempt to gain access to any of your resources running in the public cloud through a four-step process: exposure, access, lateral movement, and actions.
@@ -58,6 +60,8 @@ When attacking cloud infrastructure, adversaries often attack multiple resources
 1. Attackers will try to exploit an exposure to gain access to your public cloud infrastructure. This can be done through compromised user credentials, compromised instances, or misconfigured resources. 
 1. During the lateral movement stage, attackers discover what resources they have access to and what the scope of that access is. Successful attacks on instances give attackers access to databases and other sensitive information. The attacker then searches for additional credentials. Our Microsoft Defender for Cloud data shows that without a security tool to quickly notify you of the attack, it takes organizations on average 101 days to discover a breach. Meanwhile, in just 24-48 hours after a breach, the attacker will usually have complete control of the network. 
 1. The actions an attacker takes after lateral movement are largely dependent on the resources they were able to gain access to during the lateral movement phase. Attackers can take actions that cause data exfiltration, data loss or launch other attacks. For enterprises, the average financial impact of data loss is now reaching $1.23 million.
+
+:::image type="content" source="./media/ransomware/ransomware2.png" alt-text="Dummy text":::
 
 ### Why do ransomware attacks succeed?
 
@@ -76,6 +80,8 @@ There are several reasons why ransomware attacks succeed. Businesses that are vu
 - Poor security architecture
 
 As illustrated in Figure 3, attackers use different techniques, such as RDP brute force attack to exploit vulnerabilities.
+
+:::image type="content" source="./media/ransomware/ransomware3.png" alt-text="Dummy text":::
 
 ### Should you pay ransom if attacked?
 
@@ -96,6 +102,8 @@ The impact of a ransomware attack on any organization is difficult to quantify a
 
 Colonial Pipeline paid about $4.4 Million in ransom to have their data released.  This does not include the cost of downtime, lost productive, lost sales and the cost of restoring services. More broadly, a significant impact is the "knock-on effect" of impacting high numbers of businesses and organizations of all kinds including towns and cities in their local areas. The financial impact is also staggering. According to Microsoft, the global cost associated with ransomware recovery is projected to exceed $20 billion in 2021. 
 
+:::image type="content" source="./media/ransomware/ransomware4.png" alt-text="Dummy text":::
+
 ## Ransomware evolution
 
 Since the first known ransomware attack was disclosed in 1989, much of the industry has significantly changed not just with the number of attacks occurring every year and the sophistication of those attacks, but the emergence and evolution of new ransomware business models.  The two common types are "Commodity Ransomware" and "Human Operated Ransomware." Each has its distinctive attributes. 
@@ -108,6 +116,8 @@ The most recent phase in ransomware evolution, as illustrated in Figure 5, can b
 
 This fusion inspired the new generation of human operated ransomware that started popping up around June 2019, and vastly expanded the ransomware business model into an enterprise scale operation blending targeted attack techniques and the extortion business model (threatening disclosure of data and/or encryption in exchange for payment).
 
+:::image type="content" source="./media/ransomware/ransomware5.png" alt-text="Dummy text":::
+
 ## Azure provides native ransomware protections
 
 Microsoft has invested in Azure native security capabilities that organizations can leverage to defeat ransomware attack techniques found in both high volume everyday/commodity and sophisticated targeted attacks.
@@ -118,6 +128,8 @@ Key capabilities include:
   - Ensure effective security monitoring, which often enables security teams to rapidly approve use of Azure services.
 **Passwordless and Multi-factor authentication**: Azure MFA, Azure AD Authenticator App, and Windows Hello provide these capabilities. This helps protect accounts against commonly seen password attacks (which account for 99.9% of the volume of identity attacks we see in Azure AD). While no security is perfect, eliminating password-only attack vectors dramatically lowers the ransomware attack risk to Azure resources. 
 - **Native Firewall and Network Security**: Microsoft built native DDoS attack mitigations, Firewall, Web Application Firewall, and many other controls into Azure. These security 'as a service' help simplify the configuration and implementation of security controls. These give organizations the choice of using native services or virtual appliances versions of familiar vendor capabilities to simplify their Azure security. 
+
+:::image type="content" source="./media/ransomware/ransomware6.png" alt-text="Dummy text":::
 
 ### Microsoft Defender for Cloud
 
@@ -131,6 +143,8 @@ Microsoft Defender for Cloud delivers protection for all resources from directly
 - Protects cloud-native services from threats​
 - Protects data services against ransomware attacks​
 - Protects your managed and unmanaged IoT / OT devices with continuous asset discovery, vulnerability management and threat monitoring​
+
+:::image type="content" source="./media/ransomware/ransomware7.png" alt-text="Dummy text":::
 
 ### TBD
 
@@ -155,6 +169,8 @@ Key Features:
 - Streamlined investigation: Quickly investigate the scope and impact of an attack with a visual, interactive experience. Use ad hoc queries for deeper exploration of security data. 
 - Automation and orchestration: Automate common security workflows to address threats quickly using built-in integration with Azure Logic Apps. Create security playbooks that can route alerts to existing ticketing system or trigger incident response actions. 
 
+:::image type="content" source="./media/ransomware/ransomware8.png" alt-text="Dummy text":::
+:::image type="content" source="./media/ransomware/ransomware9.png" alt-text="Dummy text":::
 
 ### Microsoft Sentinel
 
@@ -176,7 +192,15 @@ Respond to incidents rapidly with built-in orchestration and automation of 
 
 Microsoft Defender for Cloud scans virtual machines across an Azure subscription and makes a recommendation to deploy endpoint protection where an existing solution is not detected. This recommendation can be accessed via the Recommendations section as shown below:
 
+:::image type="content" source="./media/ransomware/ransomware10.png" alt-text="Dummy text":::
+
 Microsoft Defender for Cloud provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more. When Microsoft Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response.
+
+:::image type="content" source="./media/ransomware/ransomware11.png" alt-text="Dummy text":::
+
+The alert below is an example of a detected Petya ransomware alert:
+
+:::image type="content" source="./media/ransomware/ransomware12.png" alt-text="Dummy text":::
 
 #### Azure Native Backup Solution Protects Your Data 
 
@@ -206,6 +230,10 @@ A good place to start is to adopt Azure Security Benchmark to secure the Azure e
 
 Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks. 
 
+:::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Dummy text":::
+
+(ASB STACK)
+
 ### Prioritized Mitigation
 
 Based on our experience with ransomware attacks, we've found that prioritization should focus on: 1) prepare, 2) limit, 3) prevent. This may seem counterintuitive, since most people want to simply prevent an attack and move on. But the unfortunate truth is that we must assume breach (a key Zero Trust principle) and focus on reliably mitigating the most damage first. This prioritization is critical because of the high likelihood of a worst-case scenario with ransomware. While it's not a pleasant truth to accept, we're facing creative and motivated human attackers who are adept at finding a way to control the complex real-world environments in which we operate. Against that reality, it's important to prepare for the worst and establish frameworks to contain and prevent attackers' ability to get what they're after. 
@@ -220,6 +248,9 @@ To achieve this, organizations should identify and execute quick wins to strengt
 - Improving security hygiene by focusing efforts on attack surface reduction and threat and vulnerability management for assets in their estate.  
 - Implementing Protection, Detection and Response controls for their digital assets that can protect against commodity and advanced threats, provide visibility and alerting on attacker activity and respond to active threats. 
 
+:::image type="content" source="./media/ransomware/ransomware14.png" alt-text="Dummy text":::
+
+
 #### Limit Scope of Damage: Protect Privileged Roles (starting with IT Admins)
 
 Ensure you have strong controls (prevent, detect, respond) for privileged accounts like IT Admins and other roles with control of business-critical systems. This slows and/or blocks attackers from gaining complete access to your resources to steal and encrypt them. Taking away the attackers' ability to use IT Admin accounts as a shortcut to resources will drastically lower the chances they are successful at attacking you and demanding payment / profiting.
@@ -229,6 +260,8 @@ Organizations should have elevated security for privileged accounts (tightly pro
 - Protect and Monitor Identity Systems
 - Mitigate Lateral Traversal
 - Rapid Threat Response
+
+:::image type="content" source="./media/ransomware/ransomware15.png" alt-text="Dummy text":::
 
 #### Prepare your recovery plan: recover without paying
 
@@ -246,6 +279,8 @@ Protect backups against deliberate erasure and encryption with offline storage, 
 - Test 'Recover from Zero' Scenario – test to ensure your business continuity / disaster recovery (BC/DR) can rapidly bring critical business operations online from zero functionality (all systems down). Conduct practice exercise(s) to validate cross-team processes and technical procedures, including out-of-band employee and customer communications (assume all email/chat/etc. is down).  
   - IMPORTANT: Protect (or print) supporting documents and systems required for recovery including restoration procedure documents, CMDBs, network diagrams, SolarWinds instances, etc. Attackers destroy these regularly.
 - Reduce on-premises exposure – by moving data to cloud services with automatic backup & self-service rollback.
+
+:::image type="content" source="./media/ransomware/ransomware16.png" alt-text="Dummy text":::
 
 ### Promote awareness and ensure there is no knowledge gap
 
@@ -311,6 +346,8 @@ Ensure your organization undertakes a number of activities roughly following the
 1. **Remediation / Recovery**:  This stage covers the steps that may be taken to remediate or recover from damage that was caused by the incident before it was contained and mitigated.
 1. **Post-Incident Activity**:  This stage covers the activities that should be performed once the incident has been closed.  This can include capturing the final narrative associated with the incident as well as identifying lessons learned.
 
+:::image type="content" source="./media/ransomware/ransomware17.png" alt-text="Dummy text":::
+
 ## Preparing for a quick recovery
 
 Ensure that you have appropriate processes and procedures in place. Almost all ransomware incidents result in the need to restore compromised systems. So appropriate and tested backup and restore processes and procedures should be in place for most systems.  There should also be suitable containment strategies in place with suitable procedures to stop ransomware from spreading and recovery from ransomware attacks. 
@@ -343,15 +380,17 @@ Microsoft Defender for Cloud provides high quality threat detection and response
 
 Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, Web applications, and identity.
 
-Prioritize Common Entry Points – Ransomware (and other) operators favor Endpoint/Email/Identity + RDP
-Integrated XDR - Use integrated Extended Detection and Response (XDR) tools like Microsoft Defender for Cloud to provide high quality alerts and minimize friction and manual steps during response
-Brute Force - Monitor for brute-force attempts like password spray
-Monitor for Adversary Disabling Security – as this is often part of Human Operated Ransomware (HumOR) attack chain
-Event Logs Clearing – especially the Security Event log and PowerShell Operational logs
-Disabling of security tools/controls (associated with some groups)
-Don't Ignore Commodity Malware - Ransomware attackers regularly purchase access to target organizations from dark markets
-Integrate outside experts – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART).
-Rapidly isolate compromised computers using Defender for Endpoint in on-premises deployment.
+- **Prioritize Common Entry Points** – Ransomware (and other) operators favor Endpoint/Email/Identity + RDP
+  - **Integrated XDR** - Use integrated Extended Detection and Response (XDR) tools like Microsoft Defender for Cloud to provide high quality alerts and minimize friction and manual steps during response
+  - **Brute Force** - Monitor for brute-force attempts like password spray
+- **Monitor for Adversary Disabling Security** – as this is often part of Human Operated Ransomware (HumOR) attack chain
+  - **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
+  - ***Disabling of security tools/controls*** (associated with some groups)
+- **Don't Ignore Commodity Malware** - Ransomware attackers regularly purchase access to target organizations from dark markets
+- **Integrate outside experts** – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART).
+- **Rapidly isolate** compromised computers using Defender for Endpoint in on-premises deployment.
+
+:::image type="content" source="./media/ransomware/ransomware18.png" alt-text="Dummy text":::
 
 ## Responding to ransomware attacks
 
