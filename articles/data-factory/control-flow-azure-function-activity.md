@@ -30,9 +30,9 @@ Function Key provides secure access to function name with each one having separa
 
 | **Property** | **Description** | **Required** |
 | --- | --- | --- |
-| type   | The type property must be set to: **AzureFunction** | yes |
-| function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | yes |
-| function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | yes |
+| Type   | The type property must be set to: **AzureFunction** | Yes |
+| Function app url | URL for the Azure Function App. Format is `https://<accountname>.azurewebsites.net`. This URL is the value under **URL** section when viewing your Function App in the Azure portal  | Yes |
+| Function key | Access key for the Azure Function. Click on the **Manage** section for the respective function, and copy either the **Function Key** or the **Host key**. Find out more here: [Azure Functions HTTP triggers and bindings](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) | Yes |
 |   |   |   |
 
 ## Azure Function activity
@@ -45,7 +45,7 @@ Function Key provides secure access to function name with each one having separa
 | Function name  | Name of the function in the Azure Function App that this activity calls | String | Yes |
 | Method  | REST API method for the function call | String Supported Types: "GET", "POST", "PUT"   | Yes |
 | Header  | Headers that are sent to the request. For example, to set the language and type on a request: "headers": { "Accept-Language": "en-us", "Content-Type": "application/json" } | String (or expression with resultType of string) | No |
-| Body  | body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
+| Body  | Body that is sent along with the request to the function api method  | String (or expression with resultType of string) or object.   | Required for PUT/POST methods |
 |   |   |   | |
 
 See the schema of the request payload in [Request payload schema](control-flow-web-activity.md#request-payload-schema) section.
