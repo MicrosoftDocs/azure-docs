@@ -1,12 +1,12 @@
 ---
-title: HEART Analytics Workbook
+title: HEART analytics workbook
 description: Product teams use the HEART Workbook to measure success across five user-centric dimensions to deliver better software.
 ms.topic: conceptual
 ms.date: 11/11/2021
 
 ---
 
-# Analyzing Product Usage with HEART
+# Analyzing product usage with HEART
 This article describes how to enable and use the Heart Workbook on Azure Monitor. The HEART workbook is based on the HEART measurement framework, originally introduced by Google. Several Microsoft internal teams use HEART to deliver better software.
 
  
@@ -23,7 +23,7 @@ HEART is an acronym that stands for Happiness, Engagement, Adoption, Retention, 
 
 These dimensions are measured independently, but they interact with each other as shown below:
 
-:::image type="content" source="media/usage-overview/heartfunnel3.png" alt-text="Image that displays the funnel relationship between HEART dimensions. The funnel path is as follows: Adoption to Engagement to Retention to Happiness. Task Success is a driver of this funnel":::
+:::image type="content" source="media/usage-overview/heart-funnel.png" alt-text="Image that displays the funnel relationship between HEART dimensions. The funnel path is as follows: Adoption to Engagement to Retention to Happiness. Task Success is a driver of this funnel":::
 
 
 
@@ -32,7 +32,7 @@ These dimensions are measured independently, but they interact with each other a
 - Happiness is an outcome of the other dimensions and not a stand-alone measurement. Users who have progressed down the funnel and are showing a higher level of activity should ideally be happier.   
 
 
-## Get Started
+## Get started
 ### Prerequisites
  - Azure subscription: [Create an Azure subscription for free](https://azure.microsoft.com/free/)
  - Application Insights resource: [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
@@ -62,14 +62,14 @@ These dimensions are measured independently, but they interact with each other a
 >[!TIP]
 > To understand how to effectively use the Click Analytics plugin, please refer to [this section](javascript-click-analytics-plugin.md#how-to-effectively-use-the-plugin).
  
-### Open the Workbook
+### Open the workbook
 The workbook can be found in the gallery under 'public templates'. The workbook will be shown in the section titled **"Product Analytics using the Click Analytics Plugin"** as shown in the following image:
 
-:::image type="content" source="media/usage-overview/gallery.png" alt-text="Screenshot highlighting location of the HEART workbooks in Azure App Insights.":::
+:::image type="content" source="media/usage-overview/workbook-gallery.png" alt-text="Screenshot highlighting location of the HEART workbooks in Azure App Insights.":::
 
 Users will notice that there are seven workbooks as shown in the following image:
 
-:::image type="content" source="media/usage-overview/heartworkbooktemplates.png" alt-text="Screenshot highlighting the names of the seven HEART workbooks under public templates in Azure App Insights' Workbook section":::
+:::image type="content" source="media/usage-overview/heart-workbook-templates.png" alt-text="Screenshot highlighting the names of the seven HEART workbooks under public templates in Azure App Insights' Workbook section":::
 
 
 The workbook is designed in a way that users only have to interact with the main workbook, 'HEART Analytics - All Sections'. This workbook contains the rest of the six workbooks as tabs. If needed, users can access the individual workbooks related to reach tab through the gallery as well.
@@ -79,25 +79,25 @@ The workbook is designed in a way that users only have to interact with the main
 
 See the "Development Requirements" tab as shown below to validate that data is flowing as expected to light up the metrics accurately. 
 
-:::image type="content" source="media/usage-overview/workbookpreview3.png" alt-text="Screenshot highlighting the 'Development Requirements' tab of the 'HEART Analytics - All Sections' workbook":::
+:::image type="content" source="media/usage-overview/development-requirements-1.png" alt-text="Screenshot highlighting the 'Development Requirements' tab of the 'HEART Analytics - All Sections' workbook":::
 
 If the data isn't flowing as expected, this tab will highlight the specific attributes with issues as shown in the below example.
 
-:::image type="content" source="media/usage-overview/developerrequirements.png" alt-text="Screenshot highlighting data discrepancies in the 'Development Requirements' tab of the HEART workbook":::
+:::image type="content" source="media/usage-overview/development-requirements-2.png" alt-text="Screenshot highlighting data discrepancies in the 'Development Requirements' tab of the HEART workbook":::
 
 
-## Workbook Structure
+## Workbook structure
 The workbook shows metric trends for the HEART dimensions split over eight tabs. Each tab contains descriptions of the dimensions, the metrics contained within each dimension, and how to use them.
 
 A brief description of the tabs can be seen below: 
 
-- **Summary Tab** - Usage funnel metrics giving a high-level view of visits, interactions, and repeat usage. 
+- **Summary tab** - Usage funnel metrics giving a high-level view of visits, interactions, and repeat usage. 
 - **Adoption** - This tab helps understand what is the penetration among the target audience, acquisition velocity, and total user base. 
 - **Engagement** -  Frequency, depth, and breadth of usage. 
 - **Retention** - Repeat usage 
-- **Task Success** - Enabling understanding of user flows and their time distributions. 
+- **Task success** - Enabling understanding of user flows and their time distributions. 
 - **Happiness** -  We recommend using a survey tool to measure customer satisfaction score (CSAT) over a 5-point scale. In this tab, we've provided the likelihood of happiness by using usage and performance metrics. 
-- **Feature Metrics** - Enables understanding of HEART metrics at feature granularity. 
+- **Feature metrics** - Enables understanding of HEART metrics at feature granularity. 
 
 > [!WARNING]
 > The HEART Workbook is currently built on logs and effectively are [log-based metrics](pre-aggregated-metrics-log-metrics.md). The accuracy of these metrics will be negatively affected by sampling and filtering.
@@ -116,9 +116,9 @@ Common happiness metrics include values such as *Average Star Rating* and *Custo
 
 ### Engagement
 Engagement is a measure of user activity, specifically intentional user actions such as clicks. Active usage can be broken down into three subdimensions:
-1. **Activity Frequency** – Measures how often a user interacts with the product. For example, user typically interacts daily, weekly, or monthly.
-2. **Activity Breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of five features in June 2021.
-3. **Activity Depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with two features on every launch.
+- **Activity frequency** – Measures how often a user interacts with the product. For example, user typically interacts daily, weekly, or monthly.
+- **Activity breadth** – Measures the number of features users interact with over a given time period. For example, users interacted with a total of five features in June 2021.
+- **Activity depth** – Measures the number of features users interact with each time they launch the product. For example, users interacted with two features on every launch.
 
 Measuring engagement can vary based on the type of product being used. For example, a product like Microsoft Teams is expected to have a high daily usage, making it an important metric to track. But for a product like a paycheck portal, measurement would make more sense at a monthly or weekly level.
 
@@ -131,14 +131,14 @@ Measuring engagement can vary based on the type of product being used. For examp
 
 Adoption enables understanding of penetration among the relevant users, who we're gaining as our user base, and how we're gaining them. Adoption metrics are useful for measuring the below scenarios:
 
-a. Newly released products  
-b. Newly updated products  
-c. Marketing campaigns  
+- Newly released products  
+- Newly updated products  
+- Marketing campaigns  
 
 
 
 ### Retention
-A Retained User is a user who was active in a specified reporting period and its previous reporting period. Retention is typically measured with the following metrics:
+A Retained user is a user who was active in a specified reporting period and its previous reporting period. Retention is typically measured with the following metrics:
 
 | Metric         | Definition                                                                          | Question Answered                                              |
 |----------------|-------------------------------------------------------------------------------------|----------------------------------------------------------------|
@@ -146,32 +146,32 @@ A Retained User is a user who was active in a specified reporting period and its
 | Retention      | Proportion of active users from the previous period who are also Active this period | What percent of users are staying engaged with the product? |
 
 >[!IMPORTANT]
->Since active users must have at least one telemetry event with an actionType, Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application
+>Since active users must have at least one telemetry event with an actionType, Retention metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
 
 
-### Task Success
-Task Success tracks whether users can do a task efficiently and effectively using the product's features. Many products include structures that are designed to funnel users through completing a task. Some examples include:
+### Task success
+Task success tracks whether users can do a task efficiently and effectively using the product's features. Many products include structures that are designed to funnel users through completing a task. Some examples include:
 - Add items to a cart and then complete a purchase
 - Search a keyword and then click on a result
 - Start a new account and then complete account registration
 
 A successful task meets three requirements:
-- Expected Task Flow - The intended task flow of the feature was completed by the user and aligns with the expected task flow.
-- High Performance - The intended functionality of the feature was accomplished in a reasonable amount of time.
-- High Reliability – The intended functionality of the feature was accomplished without failure.
+- Expected task flow - The intended task flow of the feature was completed by the user and aligns with the expected task flow.
+- High performance - The intended functionality of the feature was accomplished in a reasonable amount of time.
+- High reliability – The intended functionality of the feature was accomplished without failure.
 
 A task is considered unsuccessful if any of the above requirements isn't met.
 
 >[!IMPORTANT]
->Task Success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
+>Task success metrics require the [Click Analytics plugin for Application Insights](javascript-click-analytics-plugin.md) implemented in the application.
 
 Set up a custom task using the below parameters.
 
 | Parameter         | Description                                                                                                                                                                                                                         |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| First Step           | The feature that starts the task. Using the cart/purchase example above, "adding items to a cart" would be the First Step.                                                                                                          |
-| Expected Task Duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint is considered a failure. Not all tasks necessarily have a time constraint: for such tasks, select "No Time Expectation". |
-| Last Step        | The feature that completes the task. Using the cart/purchase example above, "purchasing items from the cart" would be the Last Step.                                                                                               |
+| First step           | The feature that starts the task. Using the cart/purchase example above, "adding items to a cart" would be the First step.                                                                                                          |
+| Expected task duration | The time window to consider a completed task a success. Any tasks completed outside of this constraint is considered a failure. Not all tasks necessarily have a time constraint: for such tasks, select "No Time Expectation". |
+| Last step        | The feature that completes the task. Using the cart/purchase example above, "purchasing items from the cart" would be the Last step.                                                                                               |
 
 
 
@@ -184,17 +184,17 @@ Set up a custom task using the below parameters.
 
 ## FAQs
 
-### How do I view the data at different grains? (Daily, Monthly, Weekly)?
+### How do I view the data at different grains? (Daily, monthly, weekly)?
 You can click on the 'Date Grain' filter to change the grain (As shown below)
 
-:::image type="content" source="media/usage-overview/monthlygrainfaq.png" alt-text="Screenshot highlighting the filter to change date grain to daily, monthly, or weekly in the workbook. The date grain filter is available across all the dimension tabs":::
+:::image type="content" source="media/usage-overview/date-grain-monthly.png" alt-text="Screenshot highlighting the filter to change date grain to daily, monthly, or weekly in the workbook. The date grain filter is available across all the dimension tabs":::
 
 
 ### How do I access insights from my application that aren't available on the HEART workbooks?
 
 You can dig into the data that feeds the HEART workbook if the visuals don't answer all your questions. To do this task, navigate to 'Logs' under 'Monitoring' section and query the customEvents table. Some of the click analytics attributes are contained within the customDimensions field. A sample query is shown in the image below:
 
-:::image type="content" source="media/usage-overview/logquery.png" alt-text="Screenshot highlighting the log section under 'Monitoring' in App Insights. Also displays a sample query in the log section to retrieve application data.":::
+:::image type="content" source="media/usage-overview/log-query-faq.png" alt-text="Screenshot highlighting the log section under 'Monitoring' in App Insights. Also displays a sample query in the log section to retrieve application data.":::
 
 Navigate to the [Azure Monitor Logs Overview](../logs/data-platform-logs.md) page to learn more about Logs in Azure Monitor.
 
@@ -203,24 +203,24 @@ Navigate to the [Azure Monitor Logs Overview](../logs/data-platform-logs.md) pag
 
 Yes, when you click on the public template of the workbook, you can navigate to the top-left corner, click edit, and make your changes.
 
-:::image type="content" source="media/usage-overview/workbookeditfaq2.png" alt-text="Screenshot highlighting the 'Edit' button at the top of the workbook template":::
+:::image type="content" source="media/usage-overview/workbook-edit-faq.png" alt-text="Screenshot highlighting the 'Edit' button at the top of the workbook template":::
 
 
 After making your changes, click 'Done Editing' and then the 'Save' icon.
 
-:::image type="content" source="media/usage-overview/workbookeditfaq2.5.png" alt-text="Screenshot highlighting the 'Save' icon at the top of the workbook template that becomes available after making edits":::
+:::image type="content" source="media/usage-overview/workbook-save-faq.png" alt-text="Screenshot highlighting the 'Save' icon at the top of the workbook template that becomes available after making edits":::
 
 
 To view your saved workbook, navigate to the 'Workbooks' section under 'Monitoring', and then click on the 'Workbooks' tab instead of the 'Public templates' tab. You'll see a copy of your customized workbook there (Shown below). You can make any further changes you want on this particular copy.
 
-:::image type="content" source="media/usage-overview/workbookeditfaq3.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
+:::image type="content" source="media/usage-overview/workbook-view-faq.png" alt-text="Screenshot highlighting the 'Workbooks' button next to the 'Public templates' tab, where the edited copy of the workbook will be found.":::
 
-For more on editing workbook templates, [click here](../visualize/workbooks-overview.md#exploring-a-workbook-template).
+For more on editing workbook templates, refer to the [Exploring a Workbook Template](../visualize/workbooks-overview.md#exploring-a-workbook-template) page.
 
 
  
 
-## Next Steps
+## Next steps
 - Set up the [Click Analytics Auto Collection Plugin](javascript-click-analytics-plugin.md) via npm.
 - Check out the [GitHub Repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [NPM Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Auto Collection Plugin.
 - Use [Events Analysis in Usage Experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
