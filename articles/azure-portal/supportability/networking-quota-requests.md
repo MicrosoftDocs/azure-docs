@@ -9,13 +9,13 @@ ms.topic: how-to
 
 This article shows how to request increases for VM-family vCPU quotas in the [Azure portal](https://portal.azure.com).
 
-To view your current networking usage and quota in the Azure portal, open your subscription, then select **Usages + quotas**. You can also use the following options to view your network usage and limits.
+To view your current networking usage and quota in the Azure portal, open your subscription, then select **Usage + quotas**. You can also use the following options to view your network usage and limits.
 
-* [Usage CLI](/cli/azure/network#az_network_list_usages)
-* [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
-* [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
+- [Usage CLI](/cli/azure/network#az_network_list_usages)
+- [PowerShell](/powershell/module/azurerm.network/get-azurermnetworkusage)
+- [The network usage API](/rest/api/virtualnetwork/virtualnetworks/listusage)
 
-You can request an increase in the Azure portal by using **Help + support** or in **Usages + quotas** for your subscription.
+You can request an increase in the Azure portal by using **Help + support** or in **Usage + quotas** for your subscription.
 
 > [!Note]
 > To change the default size of **Public IP Prefixes**, select **Min Public IP InterNetwork Prefix Length** from the dropdown list.
@@ -42,7 +42,7 @@ Follow the instructions below to create a networking quota increase request by u
 
 1. On the **Review + create** screen, review the details that you'll send to support, and then select **Create**.
 
-## Request networking quota increase from Usages + quotas
+## Request networking quota increase from Usage + quotas
 
 Follow these instructions to create a networking quota increase request from **Usage + quota** in the Azure portal.
 
