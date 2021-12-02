@@ -130,4 +130,4 @@ parse(csv = csvString ? (id as integer,
 ## Next steps
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
-* Use the [Derived column transformation](data-flow-derived-column.md) to pivot columns to rows.
+* Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.
