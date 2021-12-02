@@ -413,7 +413,7 @@ Write a single queue message by using a method parameter such as `out T paramNam
 * `byte[]`
 * [CloudQueueMessage] 
 
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md?tabs=in-process%2Cfunctionsv1%2Cextensionv3&pivots=programming-language-csharp#tabpanel_2_functionsv1_in-process).
 
 In C# and C# script, write multiple queue messages by using one of the following types: 
 
@@ -440,7 +440,7 @@ Write a single queue message by using a method parameter such as `out T paramNam
 * `byte[]`
 * [CloudQueueMessage] 
 
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md?tabs=in-process%2Cfunctionsv1%2Cextensionv3&pivots=programming-language-csharp#tabpanel_2_functionsv1_in-process).
 
 In C# and C# script, write multiple queue messages by using one of the following types: 
 
