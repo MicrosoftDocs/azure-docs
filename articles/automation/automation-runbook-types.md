@@ -105,17 +105,18 @@ The following are current known issues with PowerShell runbooks:
 
 ### Known Issues - 7.1 (preview)
 
--  Executing child scripts using `.\child-runbook.ps1` is not supported in this preview. 
+- Executing child scripts using `.\child-runbook.ps1` is not supported in this preview. 
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
--  Runbook properties defining logging preference is not supported in PowerShell 7 runtime.  
+- Runbook properties defining logging preference is not supported in PowerShell 7 runtime.  
   **Workaround**: Explicitly set the preference at the start of the runbook as below -
 
       `$VerbosePreference = "Continue"`
 
       `$ProgressPreference = "Continue"`
 
--   Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
--    You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+- Avoid importing `Az.Accounts` module to version 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Azure Automation. 
+- You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+- When you import a PowerShell 7.1 module that’s dependent on other modules, you may find that the import button is gray even when PowerShell 7.1 version of the dependent module is installed. For example, Az.Compute version 4.20.0, has a dependency on Az.Accounts being >= 2.6.0. This issue occurs when an equivalent dependent module in PowerShell 5.1 doesn't meet the version requirements. For example, 5.1 version of Az.Accounts was < 2.6.0.
 
 ## PowerShell Workflow runbooks
 
