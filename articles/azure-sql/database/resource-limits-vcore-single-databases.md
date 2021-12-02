@@ -15,11 +15,15 @@ ms.date: 07/21/2021
 # Resource limits for single databases using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](resource-limits-vcore-single-databases.md)
+> * [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
+
 This article provides the detailed resource limits for single databases in Azure SQL Database using the vCore purchasing model.
 
 * For DTU purchasing model limits for single databases on a server, see [Overview of resource limits on a server](resource-limits-logical-server.md).
 * For DTU purchasing model resource limits for Azure SQL Database, see [DTU resource limits single databases](resource-limits-dtu-single-databases.md) and [DTU resource limits elastic pools](resource-limits-dtu-elastic-pools.md).
-* For vCore resource limits, see [vCore resource limits - Azure SQL Database](resource-limits-vcore-single-databases.md) and [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
+* For elastic pool vCore resource limits, [vCore resource limits - elastic pools](resource-limits-vcore-elastic-pools.md).
 * For more information regarding the different purchasing models, see [Purchasing models and service tiers](purchasing-models.md).
 
 > [!IMPORTANT]

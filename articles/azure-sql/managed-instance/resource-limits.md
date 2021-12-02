@@ -16,10 +16,14 @@ ms.date: 10/18/2021
 # Overview of Azure SQL Managed Instance resource limits
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](database/resource-limits-vcore-single-databases.md)
+> * [Azure SQL Managed Instance](managed-instance/resource-limits.md)
+
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance see [Service tier comparison](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [general purpose](service-tier-general-purpose.md) and [business critical](service-tier-business-critical.md) service tiers. 
 
 ## Hardware generation characteristics
 
@@ -38,7 +42,7 @@ Hardware generations have different characteristics, as described in the followi
 | **Number of vCores** <BR>vCore=1 LP (hyper-thread) | 4-80 vCores | 4-80 vCores | 4-64 vCores |
 | **Max memory (memory/vCore ratio)** | 5.1 GB per vCore<br/>Add more vCores to get more memory. | 7 GB per vCore | 13.6 GB per vCore |
 | **Max In-Memory OLTP memory** |  Instance limit: 0.8 - 1.65 GB per vCore | Instance limit: 1.1 - 2.3 GB per vCore | Instance limit: 2.2 - 4.5 GB per vCore |
-| **Max instance reserved storage**\* | **General Purpose:** up to 16 TB<br/> **Business Critical:** up to 4 TB | **General Purpose:** up to 16 TB<br/> **Business Critical:** up to 5.5 TB | **General Purpose:** up to 16 TB <br/> **Business Critical:** up to 16 TB |
+| **Max instance reserved storage**\* | **general purpose:** up to 16 TB<br/> **business critical:** up to 4 TB | **general purpose:** up to 16 TB<br/> **business critical:** up to 5.5 TB | **general purpose:** up to 16 TB <br/> **business critical:** up to 16 TB |
 
 \* Dependent on [the number of vCores](#service-tier-characteristics).
 
@@ -60,7 +64,7 @@ Support for the premium-series hardware generations (public preview) is currentl
 
 ### In-memory OLTP available space 
 
-The amount of in-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists the limits of memory that can be used for in-memory OLTP objects.
+The amount of in-memory OLTP space in [business critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists the limits of memory that can be used for in-memory OLTP objects.
 
 | **vCores** | **Standard-series (Gen5)** | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |:--- |
@@ -75,12 +79,12 @@ The amount of in-memory OLTP space in [Business Critical](../database/service-ti
 
 ## Service tier characteristics
 
-SQL Managed Instance has two service tiers: [General Purpose](../database/service-tier-general-purpose.md) and [Business Critical](../database/service-tier-business-critical.md). These tiers provide [different capabilities](../database/service-tiers-general-purpose-business-critical.md), as described in the table below.
+SQL Managed Instance has two service tiers: [general purpose](../database/service-tier-general-purpose.md) and [business critical](../database/service-tier-business-critical.md). 
 
 > [!Important]
-> Business Critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
+> business critical service-tier provides an additional built-in copy of the SQL Managed Instance (secondary replica) that can be used for read-only workload. If you can separate read-write queries and read-only/analytic/reporting queries, you are getting twice the vCores and memory for the same price. The secondary replica might lag a few seconds behind the primary instance, so it is designed to offload reporting/analytic workloads that don't need exact current state of data. In the table below, **read-only queries** are the queries that are executed on secondary replica.
 
-| **Feature** | **General Purpose** | **Business Critical** |
+| **Feature** | **General purpose** | **Business critical** |
 | --- | --- | --- |
 | Number of vCores\* | 4, 8, 16, 24, 32, 40, 64, 80 |  **Standard-series (Gen5)**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Premium-series**: 4, 8, 16, 24, 32, 40, 64, 80 <BR> **Memory optimized premium-series**: 4, 8, 16, 24, 32, 40, 64<br/>\*Same number of vCores is dedicated for read-only queries. |
 | Max memory | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore)<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore)<BR> **Memory optimized premium-series**: 54.4 GB - 870.4 GB (13.6 GB/vCore) | **Standard-series (Gen5)**: 20.4 GB - 408 GB (5.1 GB/vCore) on each replica<BR> **Premium-series**: 28 GB - 560 GB (7 GB/vCore) on each replica<BR> **Memory optimized premium-series**: 54.4 GB - 870.4 GB (13.6 GB/vCore) on each replica |
@@ -99,14 +103,14 @@ SQL Managed Instance has two service tiers: [General Purpose](../database/servic
 | Max sessions | 30000 | 30000 |
 | Max concurrent workers (requests) | 105 * number of vCores + 800 | 105 * vCore count + 800 |
 | [Read-only replicas](../database/read-scale-out.md) | 0 | 1 (included in price) |
-| Compute isolation | Not supported as General Purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
+| Compute isolation | Not supported as general purpose instances may share physical hardware with other instances| **Standard-series (Gen5)**:<br/> Supported for 40, 64, 80 vCores<BR> **Premium-series**: Supported for 64, 80 vCores <BR> **Memory optimized premium-series**: Supported for 64 vCores |
 
 
 A few additional considerations: 
 
 - **Currently available instance storage size** is the difference between reserved instance size and the used storage space.
 - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the max storage size limit. Use the [sys.master_files](/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql) system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
-- Throughput and IOPS in the General Purpose tier also depend on the [file size](#file-io-characteristics-in-general-purpose-tier) that is not explicitly limited by the SQL Managed Instance.
+- Throughput and IOPS in the general purpose tier also depend on the [file size](#file-io-characteristics-in-general-purpose-tier) that is not explicitly limited by the SQL Managed Instance.
   You can create another readable replica in a different Azure region using [auto-failover groups](../database/auto-failover-group-configure.md)
 - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1 TB files with max 5 K IOPS each and seven small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some IOPS are also used for auto-backups.
 
@@ -114,17 +118,17 @@ Find more information about the [resource limits in SQL Managed Instance pools i
 
 ### Data and log storage
 
-The following factors affect the amount of storage used for data and log files, and apply to General Purpose and Business Critical tiers. 
+The following factors affect the amount of storage used for data and log files, and apply to general purpose and business critical tiers. 
 
 - Each compute size supports a maximum data size, with a default of 32 GB.
 - When you configure maximum data size, an additional 30 percent of storage is automatically added for log files.
 - You can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments.
-- In the General Purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
-- In the Business Critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
+- In the general purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.
+- In the business critical service tier, `tempdb` shares local SSD storage with data and log files, and `tempdb` storage cost is included in the vCore price.
 - The maximum storage size for a SQL Managed Instance must be specified in multiples of 32 GB.
 
 > [!IMPORTANT]
-> In the General Purpose and Business Critical tiers, you are charged for the maximum storage size configured for a managed instance. 
+> In the general purpose and business critical tiers, you are charged for the maximum storage size configured for a managed instance. 
 
 To monitor total consumed instance storage size for SQL Managed Instance, use the *storage_space_used_mb* [metric](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances). To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
 
@@ -135,12 +139,12 @@ To monitor total consumed instance storage size for SQL Managed Instance, use th
 
 Storage for database backups is allocated to support the [point-in-time restore (PITR)](../database/recovery-using-backups.md) and [long-term retention (LTR)](../database/long-term-retention-overview.md) capabilities of SQL Managed Instance. This storage is separate from data and log file storage, and is billed separately.
 
-- **PITR**: In General Purpose and Business Critical tiers, individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by full, differential, and transaction log backups. The storage consumption depends on the rate of change of the database and the retention period configured for backups. You can configure a separate retention period for each database between  0 to 35 days for SQL Managed Instance. A backup storage amount equal to the configured maximum data size is provided at no extra charge.
+- **PITR**: In general purpose and business critical tiers, individual database backups are copied to [read-access geo-redundant (RA-GRS) storage](../../storage/common/geo-redundant-design.md) automatically. The storage size increases dynamically as new backups are created. The storage is used by full, differential, and transaction log backups. The storage consumption depends on the rate of change of the database and the retention period configured for backups. You can configure a separate retention period for each database between  0 to 35 days for SQL Managed Instance. A backup storage amount equal to the configured maximum data size is provided at no extra charge.
 - **LTR**: You also have the option to configure long-term retention of full backups for up to 10 years. If you set up an LTR policy, these backups are stored in RA-GRS storage automatically, but you can control how often the backups are copied. To meet different compliance requirements, you can select different retention periods for weekly, monthly, and/or yearly backups. The configuration you choose determines how much storage will be used for LTR backups. For more information, see [Long-term backup retention](../database/long-term-retention-overview.md).
 
-### File IO characteristics in General Purpose tier
+### File IO characteristics in general purpose tier
 
-In the General Purpose service tier, every database file gets dedicated IOPS and throughput that depend on the file size. Larger files get more IOPS and throughput. IO characteristics of database files are shown in the following table:
+In the general purpose service tier, every database file gets dedicated IOPS and throughput that depend on the file size. Larger files get more IOPS and throughput. IO characteristics of database files are shown in the following table:
 
 | **File size** | **>=0 and <=128 GiB** | **>128 and <= 512 GiB** | **>0.5 and <=1 TiB**    | **>1 and <=2 TiB**    | **>2 and <=4 TiB** | **>4 and <=8 TiB** | **>8 and <=16 TiB** |
 |:--|:--|:--|:--|:--|:--|:--|:--|
@@ -199,7 +203,7 @@ The following table shows the **default regional limits** for supported subscrip
 |Visual Studio Professional|3|32|
 |MSDN Platforms|3|32|
 
-\* In planning deployments, please take into consideration that Business Critical (BC) service tier requires four (4) times more vCore capacity than General Purpose (GP) service tier. For example: 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where SQL Managed Instance is deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
+\* In planning deployments, please take into consideration that business critical (BC) service tier requires four (4) times more vCore capacity than general purpose (GP) service tier. For example: 1 GP vCore = 1 vCore unit and 1 BC vCore = 4 vCore. To simplify your consumption analysis against the default limits, summarize the vCore units across all subnets in the region where SQL Managed Instance is deployed and compare the results with the instance unit limits for your subscription type. **Max number of vCore units** limit applies to each subscription in a region. There is no limit per individual subnets except that the sum of all vCores deployed across multiple subnets must be lower or equal to **max number of vCore units**.
 
 \*\* Larger subnet and vCore limits are available in the following regions: Australia East, East US, East US 2, North Europe, South Central US, Southeast Asia, UK South, West Europe, West US 2.
 
@@ -224,11 +228,11 @@ This section includes details on previous generation hardware generations. Consi
 | **Number of vCores** | 8, 16, 24 vCores | 
 | **Max memory (memory/core ratio)** | 7 GB per vCore<br/>Add more vCores to get more memory. |  
 | **Max In-Memory OLTP memory** |  Instance limit: 1-1.5 GB per vCore |
-| **Max instance reserved storage** |  General Purpose: 8 TB <br/>Business Critical: 1 TB | 
+| **Max instance reserved storage** |  general purpose: 8 TB <br/>business critical: 1 TB | 
 
 ### In-memory OLTP available space 
 
-The amount of In-memory OLTP space in [Business Critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
+The amount of In-memory OLTP space in [business critical](../database/service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. The following table lists limits of memory that can be used for In-memory OLTP objects.
 
 | In-memory OLTP space    |  **Gen4** |
 | --- |  --- |
@@ -239,7 +243,7 @@ The amount of In-memory OLTP space in [Business Critical](../database/service-ti
 
 ### Service tier characteristics
 
-| **Feature** | **General Purpose** | **Business Critical** |
+| **Feature** | **general purpose** | **business critical** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24 | Gen4: 8, 16, 24 <BR>\*Same number of vCores is dedicated for read-only queries. |
 | Max memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Add more vCores to get more memory. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>+ additional 20.4 GB - 408 GB (5.1GB/vCore) for read-only queries.<br/>Add more vCores to get more memory. |

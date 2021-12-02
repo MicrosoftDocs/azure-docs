@@ -15,9 +15,11 @@ ms.date: 09/21/2021
 # What's new in Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](service-tiers-sql-database-vcore.md)
+> * [Azure SQL Managed Instance](../managed-instance/doc-changes-updates-release-notes-whats-new.md)
 
-For Azure SQL Managed Instance, see [What's new](../managed-instance/doc-changes-updates-release-notes-whats-new.md).
+This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
 
 > [!div class="nextstepaction"]
 > [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)

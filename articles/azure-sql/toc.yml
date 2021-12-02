@@ -9,21 +9,19 @@
 
 - name: Shared SQL DB & SQL MI docs
   items:
-  - name: Purchasing models
+  - name: Billing options
     items:
-    - name: Overview
-      href: database/purchasing-models.md
-    - name: vCore model overview
+    - name: vCore purchasing model 
       href: database/service-tiers-vcore.md
     - name: Azure Hybrid Benefit
       href: azure-hybrid-benefit.md
     - name: Reserved capacity
       href: database/reserved-capacity-overview.md
-  - name: Compute & storage
+  - name: Service tiers
     items:
-    - name: General purpose / Standard
+    - name: General purpose
       href: database/service-tier-general-purpose.md
-    - name: Business critical / Premium
+    - name: Business critical
       href: database/service-tier-business-critical.md
 
   - name: Shared concepts 
@@ -296,26 +294,29 @@
       href: database/elastic-pool-overview.md
     - name: Logical SQL servers
       href: database/logical-servers.md
+    - name: Purchasing model
+      href: database/purchasing-models.md
 
     - name: Service tiers
       items: 
-      - name: Overview
-        href: database/service-tiers-general-purpose-business-critical.md
+      - name: vCore
+        href: database/service-tiers-sql-database-vcore.md
         displayName: provisioned compute tier
       - name: Serverless
         href: database/serverless-tier-overview.md
       - name: DTU model overview
         href: database/service-tiers-dtu.md
       - name: Hyperscale
-        href: database/service-tier-hyperscale.md
-      - name: Hyperscale FAQ
-        href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
-      - name: Hyperscale replicas
-        href: database/service-tier-hyperscale-replicas.md
-      - name: Hyperscale replicas FAQ
-        href: database/service-tier-hyperscale-named-replicas-faq.yml
-      - name: vCore
-        href: database/service-tiers-sql-database-vcore.md
+        items: 
+        - name: Overview
+          href: database/service-tier-hyperscale.md
+        - name: Frequently asked questions
+          href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
+        - name: Replicas
+          href: database/service-tier-hyperscale-replicas.md
+        - name: Replicas FAQ
+          href: database/service-tier-hyperscale-named-replicas-faq.yml
+
     - name: Plan and manage costs 
       href: database/cost-management.md
 
