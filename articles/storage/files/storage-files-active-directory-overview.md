@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 12/01/2021
 ms.author: rogarana
 ---
 
