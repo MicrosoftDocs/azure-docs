@@ -37,16 +37,16 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
-* Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine (VM) where the self-hosted integration runtime is running.
+* Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 
-* Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the VM where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
+* Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* Download and install the Hive Metastore database's JDBC driver on the VM where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+* Download and install the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
   > [!Note]
-  > The driver should be accessible to all accounts in the VM. Don't install it in a user account.
+  > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
 
-## Register a database
+## Register
 
 This section describes how to register a Hive Metastore database in Azure Purview by using [Azure Purview Studio](https://web.purview.azure.com/).
 
@@ -58,13 +58,11 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 
 1. Select **Register**.
 
-1. In **Register sources**, select **Hive Metastore** > **Continue**.
-
-    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources.png" alt-text="Screenshot that shows selections for registering a Hive source." border="true":::
+1. In **Register sources**, select **Hive Metastore** > **Continue**.    
 
 1. On the **Register sources (Hive Metastore)** screen, do the following:
 
-   1. For **Name**, enter a name that the catalog will list as the data source.
+   1. For **Name**, enter a name that Azure Purview will list as the data source.
 
    1. For **Hive Cluster URL**, enter a value that you get from the Ambari URL or the Azure Databricks workspace URL. For example, enter **hive.azurehdinsight.net** or **adb-19255636414785.5.azuredatabricks.net**.
 
@@ -76,7 +74,7 @@ The only supported authentication for a Hive Metastore database is Basic Authent
 
 1. Select **Finish**.   
 
-## Scan a database
+## Scan
 
 Use the following steps to scan Hive Metastore databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Azure Purview](concept-scans-and-ingestion.md).
 
@@ -108,12 +106,12 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="Screenshot that shows Azure Databricks username and password examples as property values." border="true":::
 
-    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your VM where the self-hosted integration runtime is running. This should be a valid path to the folder for JAR files.
+    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your machine where the self-hosted integration runtime is running. This should be a valid path to the folder for JAR files.
 
        If you're scanning Azure Databricks, refer to the information on Azure Databricks in the next step.
 
        > [!Note]
-       > The driver should be accessible to all accounts in the VM. Don't install it in a user account.
+       > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
 
     1. **Metastore JDBC Driver Class**: Provide the class name for the connection driver. For example, enter **\com.microsoft.sqlserver.jdbc.SQLServerDriver**.
 
@@ -132,7 +130,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
        :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="Screenshot that shows an example connection U R L property." border="true":::
 
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your VM. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your machine. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
        >
        > When you enter local file system paths in the Purview Studio scan configuration, remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it's placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
@@ -161,7 +159,7 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 
         Usage of `NOT` and special characters is not acceptable.
 
-    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's VM for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
+    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
 
     :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
 
