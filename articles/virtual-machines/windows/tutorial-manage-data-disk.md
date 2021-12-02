@@ -451,14 +451,6 @@ You can detach a data disk from a VM when you want to attach it to a different V
        -Name $azVMName
     ```
 
-1. Select the disk you want to remove with the `Get-AzDisk` cmdlet.
-
-     ```azurepowershell-interactive
-    $vm = Get-AzVM `
-       -ResourceGroupName $azResourceGroup `
-       -Name $azVMName
-    ```
-
 1. Next, detach the disk from the VM with the `Remove-AzVMDataDisk` cmdlet.
 
     ```azurepowershell-interactive

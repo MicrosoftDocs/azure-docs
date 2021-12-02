@@ -7,7 +7,7 @@ ms.date: 06/09/2021
 ms.topic: quickstart
 ms.service: signalr
 ms.devlang: python
-ms.custom: devx-track-python, mode-api
+ms.custom: devx-track-python, mode-other
 ---
 # Quickstart: Create an App showing GitHub star count with Azure Functions and SignalR Service using Python
 

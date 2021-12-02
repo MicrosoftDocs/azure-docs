@@ -1,5 +1,5 @@
 ---
-title: CLI script - List and change server parameters of an Azure Database for MySQL - Flexible Server (Preview)
+title: CLI script - List and change server parameters of an Azure Database for MySQL - Flexible Server
 description: This Azure CLI sample script shows how to list and change server parameters of an Azure Database for MySQL - Flexible Server
 author: shreyaaithal
 ms.author: shaithal
@@ -10,7 +10,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.date: 09/15/2021
 ---
 
-# List and change server parameters of an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
+# List and change server parameters of an Azure Database for MySQL - Flexible Server using Azure CLI
 
 This sample CLI script lists all available [server parameters](../concepts-server-parameters.md) as well as their allowable values for Azure Database for MySQL - Flexible Server, and sets the *max_connections* and global *time_zone* parameters to values other than the default ones.
 
@@ -49,5 +49,5 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server (Preview)](../sample-scripts-azure-cli.md)
+- Try additional scripts: [Azure CLI samples for Azure Database for MySQL - Flexible Server](../sample-scripts-azure-cli.md)
 - For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).

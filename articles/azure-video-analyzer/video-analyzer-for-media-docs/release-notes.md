@@ -26,6 +26,16 @@ Azure Video Analyzer for Media introduces a public preview of Azure Resource Man
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
+### People’s clothing detection
+
+When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player. 
+
+### Face bounding box (preview)
+
+You can now turn on a bounding box for detected faces during indexing of the media file. The face bounding box feature is available when indexing your file by choosing the **standard**, **basic**, or **advanced** indexing presets.
+
+You can enable the bounding boxes through the player.
+
 ## October 2021
 
 ### Embed widgets in your app using Azure Video Analyzer for Media package
@@ -124,7 +134,7 @@ The newly added bundle is available when indexing or re-indexing your file by ch
 
 ### New developer portal 
 
-Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/forums/932041-cognitive-services?category_id=399016) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
+Video Analyzer for Media has a new [Developer Portal](https://api-portal.videoindexer.ai/), try out the new Video Analyzer for Media APIs and find all the relevant resources in one place: [GitHub repository](https://github.com/Azure-Samples/media-services-video-indexer), [Stack overflow](https://stackoverflow.com/questions/tagged/video-indexer), [Video Analyzer for Media tech community](https://techcommunity.microsoft.com/t5/azure-media-services/bg-p/AzureMediaServices/label-name/Video%20Indexer) with relevant blog posts, [Video Analyzer for Media FAQs](faq.yml), [User Voice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) to provide your feedback and suggest features, and  ['CodePen' link](https://codepen.io/videoindexer) with widgets code samples. 
  
 ### Advanced customization capabilities for insight widget 
 

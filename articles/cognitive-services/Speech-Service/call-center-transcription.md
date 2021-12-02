@@ -3,14 +3,14 @@ title: Call Center Transcription - Speech service
 titleSuffix: Azure Cognitive Services
 description: A common scenario for speech-to-text is transcribing large volumes of telephony data that come from various systems, such as Interactive Voice Response (IVR). Using Speech service and the Unified speech model, a business can get high-quality transcriptions with audio capture systems.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: pafarley
+ms.author: eur
 ---
 
 # Speech service for telephony data
@@ -127,7 +127,7 @@ Another scenario is direct integration with Session Initiation Protocol (SIP). A
 
 ## Sample code
 
-Sample code is available on GitHub for each of the Speech service features. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition, and working with custom models. Use these links to view SDK and REST samples:
+Sample code is available on GitHub for each of the Speech service features. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition, and working with custom models. Use these links to view SDK and REST samples:
 
 - [Speech-to-text and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)

@@ -3,7 +3,7 @@ title: How caching works | Microsoft Docs
 description: Caching is the process of storing data locally so that future requests for that data can be accessed more quickly.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2021
-ms.author: allensu
+ms.author: duau
 
 ---
 # How caching works

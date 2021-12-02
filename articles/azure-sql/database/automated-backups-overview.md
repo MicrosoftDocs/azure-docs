@@ -18,6 +18,9 @@ ms.date: 08/28/2021
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
 ## What is a database backup?
 
 Database backups are an essential part of any business continuity and disaster recovery strategy, because they protect your data from corruption or deletion. These backups enable database restore to a point in time within the configured retention period. If your data protection rules require that your backups are available for an extended time (up to 10 years), you can configure [long-term retention](long-term-retention-overview.md) for both single and pooled databases.
@@ -30,7 +33,7 @@ When you restore a database, the service determines which full, differential, an
 
 ### Backup storage redundancy
 
-By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../best-practices-availability-paired-regions.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
+By default, SQL Database and SQL Managed Instance store data in geo-redundant [storage blobs](../../storage/common/storage-redundancy.md) that are replicated to a [paired region](../../availability-zones/cross-region-replication-azure.md). Geo-redundancy helps to protect against outages impacting backup storage in the primary region and allows you to restore your server to a different region in the event of a disaster. 
 
 The option to configure backup storage redundancy provides the flexibility to choose between locally redundant, zone-redundant, or geo-redundant storage blobs. To ensure that your data stays within the same region where your managed instance or SQL database is deployed, you can change the default geo-redundant backup storage redundancy and configure either locally redundant or zone-redundant storage blobs for backups. Storage redundancy mechanisms store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failure, network or power outages, or massive natural disasters. The configured backup storage redundancy is applied to both short-term backup retention settings that are used for point in time restore (PITR) and long-term retention backups used for long-term backups (LTR). 
 
@@ -44,7 +47,7 @@ For SQL Database, the backup storage redundancy can be configured at the time of
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in all Azure regions and generally available in Southeast Asia Azure region  only. 
+> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
 
 ### Backup usage
 
@@ -219,7 +222,10 @@ Backup storage redundancy impacts backup costs in the following way:
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> Configurable backup storage redundancy for SQL Managed instance is available in all Azure regions and currently available in Southeast Asia Azure region only for SQL Database. For Managed Instance it can only be specified during the create managed instance process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
+> Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
+
+> [!NOTE]
+> Backup storage redundancy for SQL Database and Hyperscale is currently in preview. 
 
 ### Monitor costs
 
@@ -468,10 +474,7 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 
 ## Configure backup storage redundancy
 
-> [!NOTE]
-> Configurable storage redundancy for backups for SQL Managed Instance can only be specified during the create managed instance process. Once the resource is provisioned, you can't change the backup storage redundancy option. For SQL Database, public preview of this feature is currently available in all Azure regions and it is generally available in Southeast Asia Azure region. 
-
-A backup storage redundancy of a managed instance can be set during instance creation only. For a SQL Database it can be set when creating the database or can be updated for an existing database. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Configurable storage redundancy for SQL Databases can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. For SQL Managed Instance and HyperScale backup storage redundancy can only be specified during the create process. Once the resource is provisioned, you can't change the backup storage redundancy option. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### Configure backup storage redundancy by using the Azure portal
 
