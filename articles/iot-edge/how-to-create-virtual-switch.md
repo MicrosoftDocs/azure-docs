@@ -26,6 +26,10 @@ This article shows you how to create a virtual switch on a Windows device to ins
 ## Create virtual switch 
 The following steps in this section are a generic guide for a virtual switch creation. Ensure that the virtual switch configuration aligns with your networking environment.
 
+> [!NOTE]
+> The following steps describe how to create an **Internal** or **Private** virtual switch. For more information on creating an **External** switch instead, see [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
+Note that if you're using an Azure VM, the virtual switch can't be **External**.
+
 1. Open PowerShell in an elevated session. You can do so by opening the **Start** pane on Windows and typing in "PowerShell". Right-click the **Windows PowerShell** app that shows up and select **Run as administrator**.
 
 2. Check the virtual switches on the Windows host and make sure you don't already have a virtual switch that can be used. You can do so by running the following [Get-VMSwitch](/powershell/module/hyper-v/get-vmswitch) command in PowerShell:
@@ -36,14 +40,11 @@ The following steps in this section are a generic guide for a virtual switch cre
 
     If a virtual switch named **Default Switch** is already created and you don't need a custom virtual switch, you should be able to install IoT Edge for Linux on Windows without following the rest of the steps in this guide.
 
-3. Create a new VM switch with a name of your choice and an **Internal** or **Private** switch type. To create an **External** virtual switch, specify either the **NetAdapterInterfaceDescription** or the **NetAdapterName** parameter, which implicitly sets the type of the virtual switch to **External**. For more information, see [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) and [Create a virtual switch for Hyper-V virtual machines](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines). Create the switch by running the following [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) command, replacing the placeholder values:
+3. Create a new VM switch with a name of your choice and an **Internal** or **Private** switch type by running the following [New-VMSwitch](/powershell/module/hyper-v/new-vmswitch) command, replacing the placeholder values:
 
     ```powershell
     New-VMSwitch -Name "{switchName}" -SwitchType {switchType}
     ```
-    
-    >[!NOTE]
-    >If you're using an Azure VM, the virtual switch can't be **External**.
 
 4. To get the IP address for the switch you created, you must first get its interface index. You can get this value by running the following [Get-NetAdapter](/powershell/module/netadapter/get-netadapter) command, replacing the placeholder value:
 
