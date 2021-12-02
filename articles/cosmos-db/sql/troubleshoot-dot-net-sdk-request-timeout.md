@@ -37,7 +37,7 @@ The following list contains known causes and solutions for request timeout excep
 ### High CPU utilization
 High CPU utilization is the most common case. For optimal latency, CPU usage should be roughly 40 percent. Use 10 seconds as the interval to monitor maximum (not average) CPU utilization. CPU spikes are more common with cross-partition queries where it might do multiple connections for a single query.
 
-# [V3 SDK](#tab/cpu-v3)
+# [3.21 and 2.16 or greater SDK](#tab/cpu-new)
 
 The timeouts will contain *Diagnostics*, which contain:
 
@@ -70,7 +70,7 @@ The timeouts will contain *Diagnostics*, which contain:
 * If the `cpu` values are over 70%, the timeout is likely to be caused by CPU exhaustion. In this case, the solution is to investigate the source of the high CPU utilization and reduce it, or scale the machine to a larger resource size.
 * If the `threadInfo/isThreadStarving` nodes have `True` values, the cause is thread starvation. In this case the solution is to investigate the source/s of the thread starvation (potentially locked threads), or scale the machine/s to a larger resource size.
 
-# [V2 SDK](#tab/cpu-v2)
+# [Older SDK](#tab/cpu-old)
 
 If the error contains `TransportException` information, it might contain also `CPU History`:
 
