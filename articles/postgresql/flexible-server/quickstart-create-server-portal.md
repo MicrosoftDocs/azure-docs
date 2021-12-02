@@ -56,18 +56,26 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     Compute + storage | **General Purpose**, **4 vCores**, **512 GB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *General Purpose*, *4 vCores*, *512 GB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
     :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="The Pricing tier pane":::
-    
-5. Configuring Networking options
 
-    On the Network tab, you can choose how your server is reachable. Azure Database for PostgreSQL creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless you create a rule to open the firewall for specific IP addresses. We recommend making the server publicly accessible:
+    
+5. Configure Networking options
+6. 
+    On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two ways to connect to your server:
+   - Public access (allowed IP addresses)
+   - Private access (VNet Integration)
+
+    When you use public access, access to your server is limited to allowed IP addresses that you add to a firewall rule. This method prevents external applications and tools from     connecting to the server and any databases on the server, unless you create a rule to open the firewall for a specific IP address or range. When you use private access (VNet       Integration), access to your server is limited to your virtual network. [Learn more about connectivity methods in the concepts article.](./concepts-networking.md)
+
+     In this quickstart, you'll learn how to enable public access to connect to the server. On the **Networking tab**, for **Connectivity method** select **Public access**. For configuring **Firewall rules**, select **Add current client IP address**.
+
+    > [!NOTE]
+    > You can't change the connectivity method after you create the server. For example, if you select **Public access (allowed IP addresses)** when you create the server, you can't change to **Private access (VNet Integration)** after the server is created. We highly recommend that you create your server with private access to help secure access to your server via VNet Integration. [Learn more about private access in the concepts article.](./concepts-networking.md)
+
 
     :::image type="content" source="./media/quickstart-create-database-portal/5-networking.png" alt-text="The Networking pane":::
 
-    And then restricting it to your own client IP address:
+  
 
-    :::image type="content" source="./media/quickstart-create-database-portal/6-add-client-ip.png" alt-text="Select Add current client IP address":::
-
-    If you choose private access 
 6. Select **Review + create** to review your selections. Select **Create** to provision the server. This operation may take a few minutes.
 
 7. On the toolbar, select the **Notifications** icon (a bell) to monitor the deployment process. Once the deployment is done, you can select **Pin to dashboard**, which creates a tile for this server on your Azure portal dashboard as a shortcut to the server's **Overview** page. Selecting **Go to resource** opens the server's **Overview** page.
