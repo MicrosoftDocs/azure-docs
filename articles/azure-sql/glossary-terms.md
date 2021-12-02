@@ -25,7 +25,7 @@ ms.date: 5/18/2021
 ||vCore-based purchasing model|[vCore-based purchasing model](database/service-tiers-sql-database-vcore.md)|
 |Deployment option |Single database|[Single databases](database/single-database-overview.md)|
 ||Elastic pool|[Elastic pool](database/elastic-pool-overview.md)|
-|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [SQL Database service tiers](database/service-tiers-sql-database-vcore.md#service-tiers). For service tiers in the DTU model, see [DTU model](database/service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Service tier|Basic, Standard, Premium, General Purpose, Hyperscale, Business Critical|For service tiers in the vCore model, see [SQL Database service tiers](database/service-tiers-sql-database-vcore.md#service-tiers). For service tiers in the DTU model, see [DTU model](database/service-tiers-dtu.md#compare-service-tiers).|
 |Compute tier|Serverless compute|[Serverless compute](database/service-tiers-sql-database-vcore.md#compute-tiers)
 ||Provisioned compute|[Provisioned compute](database/service-tiers-sql-database-vcore.md#compute-tiers)
 |Compute generation|Gen5, M-series, Fsv2-series, DC-series|[Hardware generations](database/service-tiers-sql-database-vcore.md#hardware-generations)

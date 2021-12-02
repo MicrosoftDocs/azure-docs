@@ -17,13 +17,13 @@ ms.date: 10/18/2021
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure SQL Database](database/resource-limits-vcore-single-databases.md)
-> * [Azure SQL Managed Instance](managed-instance/resource-limits.md)
+> * [Azure SQL Database](../database/resource-limits-vcore-single-databases.md)
+> * [Azure SQL Managed Instance](resource-limits.md)
 
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [general purpose](service-tier-general-purpose.md) and [business critical](service-tier-business-critical.md) service tiers. 
+> For differences in supported features and T-SQL statements see [Feature differences](../database/features-comparison.md) and [T-SQL statement support](transact-sql-tsql-differences-sql-server.md). For general differences between service tiers for Azure SQL Database and SQL Managed Instance review [general purpose](../database/service-tier-general-purpose.md) and [business critical](../database/service-tier-business-critical.md) service tiers. 
 
 ## Hardware generation characteristics
 

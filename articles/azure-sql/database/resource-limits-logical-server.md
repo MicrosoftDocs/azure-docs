@@ -209,5 +209,5 @@ Because all data is copied to local storage volumes on different machines, movin
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
-- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-based-purchasing-model).
+- For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-purchasing-model).
 - For information about tempdb size limits, see [TempDB in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
