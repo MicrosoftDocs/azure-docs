@@ -3,13 +3,13 @@ title: Speech Synthesis Markup Language (SSML) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
-ms.author: pafarley
+ms.author: eur
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -83,7 +83,7 @@ The `voice` element is required. It is used to specify the voice that is used fo
 > [!NOTE]
 > This example uses the `en-US-ChristopherNeural` voice. For a complete list of supported voices, see [Language support](language-support.md#text-to-speech).
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         This is the text that is spoken.
@@ -448,14 +448,14 @@ The `s` element can contain text and the following elements: `audio`, `break`, `
 
 **Syntax**
 
-```XML
+```xml
 <p></p>
 <s></s>
 ```
 
 **Example**
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         <p>
@@ -481,7 +481,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 **Syntax**
 
-```XML
+```xml
 <phoneme alphabet="string" ph="string"></phoneme>
 ```
 
@@ -531,7 +531,7 @@ Sometimes the text-to-speech service cannot accurately pronounce a word. For exa
 
 **Syntax**
 
-```XML
+```xml
 <lexicon uri="string"/>
 ```
 
@@ -587,7 +587,8 @@ It's important to note, that you cannot directly set the pronunciation of a phra
     <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
   </lexeme>
 ```
-> [!Note]
+
+> [!NOTE]
 > The syllable boundary is '.' in the International Phonetic Alphabet.
 
 You could also directly provide your expected `alias` for the acronym or abbreviated term. For example:
@@ -667,7 +668,7 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 
 **Syntax**
 
-```XML
+```xml
 <prosody pitch="value" contour="value" range="value" rate="value" duration="value" volume="value"></prosody>
 ```
 
@@ -750,8 +751,8 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 
 **Syntax**
 
-```XML
-<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+```xml
+<say-as interpret-as="string" format="digit string" detail="string"> </say-as>
 ```
 
 **Attributes**
@@ -787,7 +788,7 @@ The `say-as` element can only contain text.
 
 The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five PM."
 
-```XML
+```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="en-US">
     <voice name="en-US-ChristopherNeural">
         <p>
@@ -849,7 +850,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 **Syntax**
 
-```XML
+```xml
 <mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
 ```
 

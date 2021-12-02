@@ -1,6 +1,6 @@
 ---
 title: Manage and monitor IoT Central in the Azure portal | Microsoft Docs
-description: This article describes how to create, manage, and monitor your IoT Central applications from the Azure portal.
+description: This article describes how to create, manage, and monitor your IoT Central applications and enable managed identities from the Azure portal.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -66,6 +66,31 @@ To move the application to a different resource group, select **change** beside 
 To move the application to a different subscription, select  **change** beside the subscription. On the **Move resources** page, choose the subscription you'd like to move this application to:
 
 ![Management portal: resource management](media/howto-manage-iot-central-from-portal/highlight-subscription.png)
+
+## Configure a managed identity
+
+When you configure a data export in your IoT Central application, you can choose to configure the connection to the destination with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+
+* You don't store the credentials for your resource in a connection string in your IoT Central application.
+* The credentials are automatically tied to the lifetime of your IoT Central application.
+* Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
+
+> [!NOTE]
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+
+When you configure a managed identity, the configuration includes a *scope* and a *role*:
+
+* The scope defines where you can use the managed identity. For example, you can use an Azure resource group as the scope. In this case, both the IoT Central application and the destination must be in the same resource group.
+* The role defines what permissions the IoT Central application is granted in the destination service. For example, for an IoT Central application to send data to an event hub, the managed identity needs the **Azure Event Hubs Data Sender** role assignment.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+You can configure role assignments in the Azure portal or use the Azure CLI:
+
+* To learn more about to configure role assignments in the Azure portal for specific destinations, see [Export IoT data to cloud destinations using data export](howto-export-data.md).
+* To learn more about how to configure role assignments using the Azure CLI, see [Manage IoT Central from Azure CLI or PowerShell](howto-manage-iot-central-from-cli.md).
 
 ## Monitor application health
 

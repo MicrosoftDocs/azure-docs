@@ -29,16 +29,7 @@ This article describes how to enable live transcription when streaming a Live Ev
 
 ## Live transcription preview regions and languages
 
-Live transcription is available in the following regions:
-
-- Southeast Asia
-- West Europe
-- North Europe
-- East US
-- Central US
-- South Central US
-- West US 2
-- Brazil South
+Live transcription is available in the regions as documented [here](azure-clouds-regions.md).
 
 This is the list of available languages that can be transcribed, use the language code in the API.
 

@@ -120,11 +120,10 @@ It could take several minutes to install and configure the SQL Server IaaS Agent
 To disable Automated Patching, run the same script without the **-Enable** parameter to the **New-AzVMSqlServerAutoPatchingConfig**. The absence of the **-Enable** parameter signals the command to disable the feature.
 
 > [!NOTE]
-> There are also several other ways to enable automatic patching of Azure VMs, such as [Update Management](/azure/automation/update-management/overview) or [Automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). Choose only one option to automatically update your VM as overlapping tools may lead to failed updates. 
+> There are also several other ways to enable automatic patching of Azure VMs, such as [Update Management](../../../automation/update-management/overview.md) or [Automatic VM guest patching](../../../virtual-machines/automatic-vm-guest-patching.md). Choose only one option to automatically update your VM as overlapping tools may lead to failed updates. 
 
 
 ## Next steps
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](sql-server-iaas-agent-extension-automate-management.md).
 
 For more information about running SQL Server on Azure VMs, see [SQL Server on Azure virtual machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md).
-

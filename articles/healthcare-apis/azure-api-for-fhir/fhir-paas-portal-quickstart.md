@@ -5,9 +5,10 @@ services: healthcare-apis
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 08/05/2021
 ms.author: zxue
+ms.custom: mode-portal
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure portal

@@ -14,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
-# Manage consent to applications and evaluate consent requests in Azure Active Directory
+# Manage consent to applications and evaluate consent requests
 
 Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 
@@ -37,7 +37,7 @@ After end-user consent is disabled or restricted, there are several important co
 
 3. If your organization has the appropriate license:
 
-    * Use additional [OAuth application auditing features in Microsoft Cloud App Security](/cloud-app-security/investigate-risky-oauth).
+    * Use additional [OAuth application auditing features in Microsoft Defender for Cloud Apps](/cloud-app-security/investigate-risky-oauth).
     * Use [Azure Monitor Workbooks to monitor permissions and consent](../reports-monitoring/howto-use-azure-monitor-workbooks.md) related activity. The *Consent Insights* workbook provides a view of apps by number of failed consent requests. This can be helpful to prioritize applications for administrators to review and decide whether to grant them admin consent.
 
 ### Additional considerations for reducing friction
@@ -95,7 +95,7 @@ See [Grant tenant-wide admin consent to an application](grant-admin-consent.md) 
 
 ### Granting consent on behalf of a specific user
 
-Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
+Instead of granting consent for the entire organization, an administrator can also use the [Microsoft Graph API](/graph/use-the-api) to grant consent to delegated permissions on behalf of a single user. For a detailed example using Microsoft Graph PowerShell, see [Grant consent on behalf of a single user using PowerShell](#grant-consent-on-behalf-of-a-single-user-using-powershell).
 
 ## Limiting user access to applications
 
@@ -115,6 +115,88 @@ To disable all future user consent operations in your entire directory, follow t
 4. Select **Enterprise applications** and select **User settings** in the **Manage** section.
 :::image type="content" source="media/manage-consent-requests/disable-user-consent-operations.png" alt-text="disabling user consent operations for all apps.":::
 5. Disable all future user consent operations by setting the **Users can consent to apps accessing company data on their behalf** toggle to **No** and click the **Save** button.
+
+## Grant consent on behalf of a single user using PowerShell
+
+When a user grants consent on behalf of themselves, the following happens:
+
+1. A service principal for the client application is created, if does not already exist. A service principal is the instance of an application or a service, in your Azure AD tenant. Access granted to the app or service is associated with this service principal object.
+1. For each API to which the application requires access, a delegated permission grant is created for the permissions needed by the application to that API, for access on behalf of the user. A delegated permission grant authorizes an application to access an API on behalf of a user, when that user has signed in.
+1. The user is assigned the client application. Assigning the application to the user ensures the application is listed in the [My Apps](my-apps-deployment-plan.md) portal for that user, allowing them to review and revoke the access granted on their behalf.
+
+To manually perform the steps which are equivalent to granting consent to an application on behalf of one user, you will need the following details:
+
+* The app ID for app for which you are granting consent (we'll call this the "client application").
+* The API permissions required by the client application. You will need to know the app ID of the API and the permission IDs or claim values.
+* The username or object ID for the user on behalf of who access will be granted.
+
+In the following example, we will use [Microsoft Graph PowerShell](/graph/powershell/get-started) to perform the three steps listed above to grant consent on behalf of a single user. For this example, the client application will be [Microsoft Graph Explorer](https://aka.ms/ge), and we will be granting access to the Microsoft Graph API.
+
+```powershell
+# The app for which consent is being granted. In this example, we're granting access
+# to Microsoft Graph Explorer, an application published by Microsoft.
+$clientAppId = "de8bc8b5-d9f9-48b1-a8ad-b748da725064" # Microsoft Graph Explorer
+
+# The API to which access will be granted. Microsoft Graph Explorer makes API 
+# requests to the Microsoft Graph API, so we'll use that here.
+$resourceAppId = "00000003-0000-0000-c000-000000000000" # Microsoft Graph API
+
+# The permissions to grant. Here we're including "openid", "profile", "User.Read"
+# and "offline_access" (for basic sign-in), as well as "User.ReadBasic.All" (for 
+# reading other users' basic profile).
+$permissions = @("openid", "profile", "offline_access", "User.Read", "User.ReadBasic.All")
+
+# The user on behalf of who access will be granted. The app will be able to access 
+# the API on behalf of this user.
+$userUpnOrId = "user@example.com"
+
+# Step 0. Connect to Microsoft Graph PowerShell. We need User.ReadBasic.All to get
+#    users' IDs, Application.ReadWrite.All to list and create service principals, 
+#    DelegatedPermissionGrant.ReadWrite.All to create delegated permission grants, 
+#    and AppRoleAssignment.ReadWrite.All to assign an app role.
+#    WARNING: These are high-privilege permissions!
+Connect-MgGraph -Scopes ("User.ReadBasic.All Application.ReadWrite.All " `
+                        + "DelegatedPermissionGrant.ReadWrite.All " `
+                        + "AppRoleAssignment.ReadWrite.All")
+
+# Step 1. Check if a service principal exists for the client application. 
+#     If one does not exist, create it.
+$clientSp = Get-MgServicePrincipal -Filter "appId eq '$($clientAppId)'"
+if (-not $clientSp) {
+   $clientSp = New-MgServicePrincipal -AppId $clientAppId
+}
+
+# Step 2. Create a delegated permission grant granting the client app access to the
+#     API, on behalf of the user. (This example assumes that an existing delegated 
+#     permission grant does not already exist, in which case it would be necessary 
+#     to update the existing grant, rather than create a new one.)
+$user = Get-MgUser -UserId $userUpnOrId
+$resourceSp = Get-MgServicePrincipal -Filter "appId eq '$($resourceAppId)'"
+$scopeToGrant = $permissions -join " "
+$grant = New-MgOauth2PermissionGrant -ResourceId $resourceSp.Id `
+                                     -Scope $scopeToGrant `
+                                     -ClientId $clientSp.Id `
+                                     -ConsentType "Principal" `
+                                     -PrincipalId $user.Id
+
+# Step 3. Assign the app to the user. This ensure the user can sign in if assignment
+#     is required, and ensures the app shows up under the user's My Apps.
+if ($clientSp.AppRoles | ? { $_.AllowedMemberTypes -contains "User" }) {
+    Write-Warning ("A default app role assignment cannot be created because the " `
+                 + "client application exposes user-assignable app roles. You must " `
+                 + "assign the user a specific app role for the app to be listed " `
+                 + "in the user's My Apps access panel.")
+} else {
+    # The app role ID 00000000-0000-0000-0000-000000000000 is the default app role
+    # indicating that the app is assigned to the user, but not for any specific 
+    # app role.
+    $assignment = New-MgServicePrincipalAppRoleAssignedTo `
+          -ServicePrincipalId $clientSp.Id `
+          -ResourceId $clientSp.Id `
+          -PrincipalId $user.Id `
+          -AppRoleId "00000000-0000-0000-0000-000000000000"
+}
+```
 
 ## Next steps
 

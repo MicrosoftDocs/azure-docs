@@ -3,11 +3,11 @@ title: Configure consulting service offer properties for the commercial marketpl
 description: Configure consulting service offer properties in the commercial marketplace using Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.reviewer: anbene
+ms.reviewer: emuench
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/30/2021
 ---
 
 # Configure consulting service offer properties
@@ -18,7 +18,7 @@ On the **Properties** tab of your offer in Partner Center, you’ll define the p
 
 ## Select the primary product
 
-In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer. The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace. Accurately representing your offer makes it easier for customers to find your offer. Keep in mind that you must meet the [eligibility requirements](https://aka.ms/AAacrbv) for the products you select. 
+In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer. The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace. Accurately representing your offer makes it easier for customers to find your offer. Keep in mind that you must meet the [eligibility requirements](./plan-consulting-service-offer.md#eligibility-requirements) for the products you select. 
 
 - If you select Azure, the offer will be listed on Azure Marketplace. Select up to three **Solution Areas** which best represent your offer.
 - If you select Microsoft 365, also choose up to three **Solution Areas** which best represent your offer. The offer will be listed in Microsoft AppSource.

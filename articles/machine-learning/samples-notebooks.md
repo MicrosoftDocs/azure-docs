@@ -40,7 +40,7 @@ The easiest way to get started with the samples is to complete the [Quickstart: 
 
 ## Get samples on your notebook server
 
-If you'd like to bring your own notebook server for local development, follow these steps:
+If you'd like to bring your own notebook server for local development, follow these steps on your computer.
 
 [!INCLUDE [aml-your-server](../../includes/aml-your-server.md)]
 

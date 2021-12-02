@@ -265,4 +265,4 @@ When the Azure resources you deployed are no longer needed, delete the resource 
 In this tutorial, you deployed a server and a database and imported a BACPAC file. To learn how to troubleshoot template deployment, see:
 
 > [!div class="nextstepaction"]
-> [Troubleshoot ARM template deployments](./template-tutorial-troubleshoot.md)
+> [Troubleshoot ARM template deployments](../troubleshooting/quickstart-troubleshoot-arm-deployment.md)

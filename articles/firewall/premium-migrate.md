@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 11/02/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,6 +29,21 @@ The firewall throughput might be lower than 30 Gbps when you have one or more si
 ## Downtime
 
 Migrate your firewall during a planned maintenance time, as there will be some downtime during the migration.
+
+## Migrate Classic rules to Standard policy
+
+During your migration process, you may need to migrate your Classic firewall rules to a Standard policy. You can do this using the Azure portal:
+
+1. From the Azure portal, select your standard firewall. On the **Overview** page, select **Migrate to firewall policy**.
+
+   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy":::
+
+1. On the **Migrate to firewall policy** page, select **Review + create**.
+1. Select **Create**.
+
+   The deployment takes a few minutes to complete.
+
+You can also migrate existing Classic rules from Azure Firewall using Azure PowerShell to create policies. For more information, see [Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell](../firewall-manager/migrate-to-policy.md)
 
 ## Migrate an existing policy using Azure PowerShell
 
@@ -120,7 +135,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id
+                        BasePolicy = $Policy.BasePolicy.Id 
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -149,12 +164,18 @@ function TransformPolicyToPremium {
 
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
-    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
+    $networkModule = Get-InstalledModule -Name "Az.Network" -MinimumVersion 4.5 -ErrorAction SilentlyContinue
+    if ($null -eq $networkModule) {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
+    $resourceModule = Get-InstalledModule -Name "Az.Resources" -MinimumVersion 4.2 -ErrorAction SilentlyContinue
+    if ($null -eq $resourceModule) {
+        Write-Host "Please install Az.Resources module version 4.2.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
     Import-Module Az.Network -MinimumVersion 4.5.0
+    Import-Module Az.Resources -MinimumVersion 4.2.0
 }
 
 ValidateAzNetworkModuleExists
@@ -164,45 +185,52 @@ TransformPolicyToPremium -Policy $policy
 
 ```
 
-## Migrate an existing standard firewall using the Azure portal
+## Migrate Azure Firewall using stop/start
 
-This example shows how to use the Azure portal to migrate a standard firewall (classic rules) to Azure Firewall Premium with a Premium policy.
+If you use Azure Firewall Standard SKU with Firewall Policy, you can use the Allocate/Deallocate method to migrate your Firewall SKU to Premium. This migration approach is supported on both VNet Hub and Secure Hub Firewalls. When you migrate a Secure Hub deployment, it will preserve the firewall public IP address.
 
-1. From the Azure portal, select your standard firewall. On the **Overview** page, select **Migrate to firewall policy**.
+The minimum Azure PowerShell version requirement is 6.5.0. For more information, see [Az 6.5.0](https://www.powershellgallery.com/packages/Az/6.5.0).
 
-   :::image type="content" source="media/premium-migrate/firewall-overview-migrate.png" alt-text="Migrate to firewall policy":::
+ 
+### Migrate a VNET Hub Firewall
 
-1. On the **Migrate to firewall policy** page, select **Review + create**.
-1. Select **Create**.
+- Deallocate the Standard Firewall 
 
-   The deployment takes a few minutes to complete.
-1. Use the `Transform-Policy.ps1` [Azure PowerShell script](#migrate-an-existing-policy-using-azure-powershell) to transform this new standard policy into a Premium policy.
-1. On the portal, select your standard firewall resource. 
-1. Under **Automation**, select **Export template**. Keep this browser tab open. You'll come back to it later.
-   > [!TIP]
-   > To ensure you don't lose the template, download and save it in case your browser tab gets closed or refreshed.
-1. Open a new browser tab, navigate to the Azure portal, and open the resource group that contains your firewall.
-1. Delete the existing standard firewall instance.
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-   This takes a few minutes to complete.
 
-1. Return to the browser tab with the exported template.
-1. Select **Deploy**, then on the **Custom deployment** page select **Edit template**.
-1. Edit the template text:
-   
-   1. Under the `Microsoft.Network/azureFirewalls` resource, under `Properties`, `sku`, change the `tier` from "Standard" to "Premium".
-   1. Under the template `Parameters`, change `defaultValue` for the `firewallPolicies_FirewallPolicy_,<your policy name>_externalid` from:
-      
-       `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>"`
+- Allocate Firewall Premium
 
-      to:
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($vnet,$pip, $mgmtpip)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
-      `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>_premium"`
-1. Select **Save**.
-1. Select **Review + Create**.
-1. Select **Create**.
+### Migrate a Secure Hub Firewall
 
-When the deployment completes, you can now configure all the new Azure Firewall Premium features.
+
+- Deallocate the Standard Firewall
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
+
+- Allocate Firewall Premium
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
+   $azfw.Sku.Tier="Premium"
+   $azfw.Allocate($hub.id)
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
 
 ## Next steps
 

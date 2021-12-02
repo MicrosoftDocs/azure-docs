@@ -119,7 +119,7 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).
 
 ## Data box
 
@@ -181,7 +181,7 @@ Restoring individual files or folders inside the machine from the recovery point
 
 ## Job
 
-A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+A backup-related task that is created by a user or the Azure Backup service. Jobs can be either scheduled or on-demand (ad-hoc). There are different types of jobs - backup, restore, configure protection, and so on. [Learn more about jobs](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 ## MABS / Azure Backup Server
 
@@ -267,7 +267,7 @@ A backup job that is automatically triggered by the backup policy configured for
 
 ## Secondary region / Paired region
 
-A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../best-practices-availability-paired-regions.md).
+A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../availability-zones/cross-region-replication-azure.md).
 
 ## Soft delete
 

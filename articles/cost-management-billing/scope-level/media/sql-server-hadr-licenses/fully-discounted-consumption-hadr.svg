@@ -622,7 +622,7 @@
 			<title>Art caption, FL.1243</title>
 			<desc>Hyperscale AHB meter $0*4</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st38"/>
-			<text x="4" y="465.1" class="st48">Hyperscale AHB <tspan x="4" dy="1.2em" class="st40">meter $0*4</tspan></text>		</g>
+			<text x="4" y="465.1" class="st48">Hyperscale AHB <tspan x="4" dy="1.2em" class="st40">meter $0*8</tspan></text>		</g>
 		<g id="shape1244-230" transform="translate(34.6758,-373.875)">
 			<title>Art caption, FL.1244</title>
 			<desc>Assigned SQL Enterprise licenses: 5 Assigned SQL Standard lic...</desc>

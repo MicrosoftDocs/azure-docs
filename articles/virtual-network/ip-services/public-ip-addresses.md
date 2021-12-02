@@ -7,7 +7,7 @@ author: asudbring
 ms.service: virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 04/29/2021
+ms.date: 11/19/2021
 ms.author: allensu
 ---
 
@@ -50,41 +50,21 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 Public IP addresses are created with one of the following SKUs:
 
-### Standard
+| | Standard  | Basic |
+| --- | --- | --- |
+| Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
+| | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|
+| Security | Secure by default model and be closed to inbound traffic when used as a frontend.  Allow traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).| Open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.| 
+| [Availability zones](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) | Supported. Standard IPs can be non-zonal, zonal, or zone-redundant. **Zone redundant IPs can only be created in [regions where 3 availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant. | Not supported. | 
+| [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
+| Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
-Standard SKU public IP addresses:
-
-- Always use static allocation method.
-- Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Designed to align with the "secure by default" model and be closed to inbound traffic when used as a frontend.  Allowlisting data plane traffic with [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) (NSG) is required (for example, on the NIC of a virtual machine with a Standard SKU Public IP attached).
-- Can be zone-redundant (which is advertised from all three zones), zonal (which is guaranteed in a specific pre-selected availability zone), or "no-zone" (which isn't associated with a specific pre-selected availability zone). To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json). **Zone redundant IPs can only be created in [regions where three availability zones](../../availability-zones/az-region.md) are live.** IPs created before zones are live won't be zone redundant.
-- Can be utilized with the [routing preference](routing-preference-overview.md) to enable more granular control of how traffic is routed between Azure and the Internet.
-- Can be used as anycast frontend IPs for [cross-region load balancers](../../load-balancer/cross-region-overview.md) (preview functionality).
-
-> [!NOTE]
-> Only public IP addresses with basic SKU are available when using [instance metadata service IMDS](../../virtual-machines/windows/instance-metadata-service.md). Standard SKU is not supported.
-
-> [!NOTE]
-> Diagnostic settings don't appear under the resource blade when using a standard SKU public IP address. To enable logging on your standard public IP address resource, navigate to diagnostic settings under the Azure Monitor blade and select your IP address resource.
-
-> [!NOTE]
-> Inbound communication with a Standard SKU resource fails until you create and associate a [network security group](../../virtual-network/network-security-groups-overview.md#network-security-groups) and explicitly allow the desired inbound traffic.
-
-### Basic
-
-Basic SKU addresses:
-
-- For IPv4: Can be assigned using the dynamic or static allocation method.  For IPv6: Can only be assigned using the dynamic allocation method.
-- Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.
-- Are open by default.  Network security groups are recommended but optional for restricting inbound or outbound traffic.
-- Don't support Availability Zone scenarios. Use standard SKU public IP for Availability Zone scenarios in applicable regions. To learn more about availability zones, see [Availability zones overview](../../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Don't support [routing preference](routing-preference-overview.md) or [cross-region load balancers](../../load-balancer/cross-region-overview.md) functionality.
 
 > [!NOTE]
 > Basic SKU IPv4 addresses can be upgraded after creation to Standard SKU.  To learn about SKU upgrade, refer to [Public IP upgrade](public-ip-upgrade-portal.md).
 
 >[!IMPORTANT]
-> Matching SKUs are required for load balancer and public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
+> Matching SKUs are required for Load Balancer and Public IP resources. You can't have a mixture of Basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources.  Please review [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for details.
 
 ## IP address assignment
 
@@ -101,7 +81,7 @@ Static public IP addresses are commonly used in the following scenarios:
 * Your Azure resources communicate with other apps or services that use an IP address-based security model.
 * You use TLS/SSL certificates linked to an IP address.
 
-Basic public IPv4 and IPv6 addresses support a **dynamic** assignment.  The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource.   For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned. Any associated IP address is released if the allocation method is changed from **static** to **dynamic**. Set the allocation method to **static** to ensure the IP address remains the same.
+Basic public IPv4 and IPv6 addresses support a **dynamic** assignment.  The IP address **isn't** given to the resource at the time of creation when selecting dynamic.  The IP is assigned when you associate the public IP address with a resource. The IP address is released when you stop, or delete the resource.   For example, a public IP resource is released from a resource named **Resource A**. **Resource A** receives a different IP on start-up if the public IP resource is reassigned. Any associated IP address is released if the allocation method is changed from **static** to **dynamic**. Any associated IP address is unchanged if the allocation method is changed from **dynamic** to **static**. Set the allocation method to **static** to ensure the IP address remains the same.
 
 > [!NOTE]
 > Azure allocates public IP addresses from a range unique to each region in each Azure cloud. You can download the list of ranges (prefixes) for the Azure [Public](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062), and [Germany](https://www.microsoft.com/download/details.aspx?id=57064) clouds.
@@ -158,4 +138,4 @@ For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 
 ## Next steps
 * Learn about [Private IP Addresses in Azure](private-ip-addresses.md)
-* [Deploy a VM with a static public IP using the Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using the Azure portal](./virtual-network-deploy-static-pip-arm-portal.md)
