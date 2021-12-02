@@ -6,6 +6,7 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling SDK for Android.

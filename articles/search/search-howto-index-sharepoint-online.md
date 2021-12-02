@@ -2,8 +2,11 @@
 title: Index data from SharePoint Online (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint Online indexer to automate indexing of document library content in Azure Cognitive Search.
-author: nitinme
-ms.author: nitinme
+
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
@@ -147,6 +150,9 @@ api-key: [admin key]
 
 ```
 
+> [!IMPORTANT]
+> Only [`metadata_spo_site_library_item_id`](#metadata) may be used as the key field in an index populated by the SharePoint Online indexer. If a key field doesn't exist in the data source, `metadata_spo_site_library_item_id` is automatically mapped to the key field.
+
 For more information, see [Create Index (REST API)](/rest/api/searchservice/create-index).
 
 ### Step 5: Create an indexer
@@ -256,6 +262,8 @@ Once the data source has been updated, follow the below steps:
 1.	Login
 
 1.	Manually kick off an indexer run again and check the indexer status. This time the indexer run should successfully start.
+
+<a name="metadata"></a>
 
 ## Indexing document metadata
 If you have set the indexer to index document metadata, the following metadata will be available to index.

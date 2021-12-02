@@ -7,6 +7,7 @@ ms.date: 04/06/2020
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
+
 # Compile DSC configurations in Azure Automation State Configuration
 
 You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:

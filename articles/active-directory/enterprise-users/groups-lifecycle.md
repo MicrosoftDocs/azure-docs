@@ -124,7 +124,7 @@ When a group expires and is deleted, then 30 days after deletion the group's dat
 
 ## How Microsoft 365 group expiration works with retention policy
 
-The retention policy is configured by way of the Security and Compliance Center. If you have set up a retention policy for Microsoft 365 groups, when a group expires and is deleted, the group conversations in the group mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
+The retention policy is configured by way of the Security & Compliance Center. If you have set up a retention policy for Microsoft 365 groups, when a group expires and is deleted, the group conversations in the group mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
 
 ## PowerShell examples
 

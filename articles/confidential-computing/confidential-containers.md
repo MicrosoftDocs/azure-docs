@@ -4,7 +4,7 @@ description: Learn about unmodified container support with confidential containe
 services: container-service
 author: agowdamsft
 ms.topic: article
-ms.date: 11/01/2011
+ms.date: 11/04/2021
 ms.author: amgowda
 ms.service: container-service
 ms.custom: ignite-fall-2021
@@ -18,7 +18,7 @@ A hardware-based Trusted Execution Environment (TEE) provides strong assurances.
 
 Confidential containers support custom applications developed with any programming languages. You can also run Docker container apps off the shelf.
 
-![Diagram of confidential container protection boundary in Kubernetes.](./media/confidential-containers/sgx-confidential-container.jpg)
+:::image type="content" source="./media/confidential-containers/sgx-confidential-container.png" alt-text="Diagram of confidential container protection boundary in Kubernetes, showing no access for admins.":::
 
 ## Enablers with Intel SGX on Azure Kubernetes Service(AKS)
 
@@ -26,7 +26,7 @@ Confidential containers support custom applications developed with any programmi
 
 Azure Kubernetes Service (AKS) fully supports confidential containers. You can run existing containers confidentially on AKS.
 
-![Diagram of confidential container conversion, with new steps for enabling Intel SGX and AKS](./media/confidential-containers/confidential-containers-deploy-steps.jpg)
+:::image type="content" source="./media/confidential-containers/confidential-containers-deploy-steps.png" alt-text="Diagram of confidential container conversion, with new steps for enabling Intel SGX and AKS.":::
 
 ## Partner enablers
 

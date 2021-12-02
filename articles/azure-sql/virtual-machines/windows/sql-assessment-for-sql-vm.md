@@ -23,9 +23,9 @@ The SQL Assessment feature is currently in preview.
 Once the SQL Assessment feature is enabled, your SQL Server instance and databases are scanned to provide recommendations for things like indexes, deprecated features, enabled or missing trace flags, statistics, etc. Recommendations are surfaced to the [SQL VM management page](manage-sql-vm-portal.md) of the [Azure portal](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines). 
 
 
-Assessment results are uploaded to your [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) using [Microsoft Monitoring Agent (MMA)](../../../azure-monitor/agents/log-analytics-agent.md). If your VM is already configured to use Log Analytics, the SQL Assessment feature uses the the existing connection.  Otherwise, the MMA extension is installed to the SQL Server VM and connected to the specified Log Analytics workspace.
+Assessment results are uploaded to your [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) using [Microsoft Monitoring Agent (MMA)](../../../azure-monitor/agents/log-analytics-agent.md). If your VM is already configured to use Log Analytics, the SQL Assessment feature uses the existing connection.  Otherwise, the MMA extension is installed to the SQL Server VM and connected to the specified Log Analytics workspace.
 
-Assessment run time depends on your environment (number of databases, objects, and so on), with a duration from a few minutes, up to an hour. Similarly, the size of the assessment result also depends on your environment. 
+Assessment run time depends on your environment (number of databases, objects, and so on), with a duration from a few minutes, up to an hour. Similarly, the size of the assessment result also depends on your environment. Assessment runs against your instance and all databases on that instance.
 
 ## Prerequisites
 
@@ -33,6 +33,7 @@ To use the SQL Assessment feature, you must have the following prerequisites:
 
 - Your SQL Server VM must be registered with the [SQL Server IaaS extension in full mode](sql-agent-extension-manually-register-single-vm.md#full-mode). 
 - A [Log Analytics workspace](../../../azure-monitor/logs/quick-create-workspace.md) in the same subscription as your SQL Server VM to upload assessment results to. 
+- SQL Server needs to be 2012 or higher version.
 
 
 ## Enable
@@ -96,22 +97,26 @@ If there are multiple runs in a single day, only the latest run is included in t
 
 You may encounter some of the following known issues when using SQL assessments. 
 
+### Configuration error for Enable Assessment
+
+If your virtual machine is already associated with a Log Analytics workspace that you don't have access to or that is in another subscription, you will see an error in the configuration blade. For the former, you can either obtain permissions for that workspace or switch your VM to a different Log Analytics workspace by following [these instructions](../../../azure-monitor/agents/agent-manage.md) to remove Microsoft Monitoring Agent. We are working on enabling the scenario where the Log Analytics workspace is in another subscription.
+
 ### Deployment failure for Enable or Run Assessment 
 
 Refer to the [deployment history](../../../azure-resource-manager/templates/deployment-history.md) of the resource group containing the SQL VM to view the error message associated with the failed action. 
  
 ### Failed assessments 
 
-**Assessment run failed**
+**Assessment run failed** - 
 This indicates that the SQL IaaS extension encountered a problem while running assessment. The detailed error message will be available in the extension log inside the VM at `C:\WindowsAzure\Logs\Plugins\Microsoft.SqlServer.Management.SqlIaaSAgent\2.0.X.Y` where `2.0.X.Y `is the latest version folder present.  
 
-**Upload result to Log Analytics workspace failed**
-This indicates the Microsoft Monitoring Agent (MMA) was unable to upload the results in a time-bound manner. Ensure the MMA extension is [provisioned correctly](../../../azure-monitor/visualize/vmext-troubleshoot.md) and refer to the [troubleshooting guide](../../../azure-monitor/agents/agent-windows-troubleshoot.md) for MMA to identify "Custom logs issue" noted in the guide. 
+**Upload result to Log Analytics workspace failed** - 
+This indicates the Microsoft Monitoring Agent (MMA) was unable to upload the results in a time-bound manner. Ensure the MMA extension is [provisioned correctly](../../../azure-monitor/visualize/vmext-troubleshoot.md) and refer to the Connectivity issues and Data collection issues listed in this [troubleshooting guide](../../../azure-monitor/agents/agent-windows-troubleshoot.md). 
 
 >[!TIP]
 >If you have enforced TLS 1.0 or higher in Windows and disabled older SSL protocols as described [here](/troubleshoot/windows-server/windows-security/restrict-cryptographic-algorithms-protocols-schannel#schannel-specific-registry-keys), then you must also ensure that .NET Framework is [configured](../../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12) to use strong cryptography. 
 
-**Result expired due to Log Analytics workspace data retention**
+**Result expired due to Log Analytics workspace data retention** - 
 This indicates that the results are no longer retained in the Log Analytics workspace based on its retention policy. You can [change the retention period](../../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period) for the workspace
 
 ## Next steps

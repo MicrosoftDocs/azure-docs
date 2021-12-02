@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to build a HoloLens app using Spa
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
 ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: mode-other
 ---
 # Quickstart: Create a HoloLens app with Azure Spatial Anchors, in C++/WinRT and DirectX
 

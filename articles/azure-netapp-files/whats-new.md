@@ -3,7 +3,7 @@ title: What's new in Azure NetApp Files | Microsoft Docs
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/14/2021
-ms.author: b-juche
+ms.date: 11/19/2021
+ms.author: b-hchen
 ---
 
 # What's new in Azure NetApp Files
@@ -26,6 +26,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Azure Policy built-in definitions for Azure NetApp](azure-policy-definitions.md#built-in-policy-definitions)  
 
     Azure Policy helps to enforce organizational standards and assess compliance at scale. Through its compliance dashboard, it provides an aggregated view to evaluate the overall state of the environment, with the ability to drill down to the per-resource, per-policy granularity. It also helps to bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Azure NetApp Files already supports Azure Policy via custom policy definitions. Azure NetApp Files now also provides built-in policy to enable organization admins to restrict creation of unsecure NFS volumes or audit existing volumes more easily. 
+
+## November 2021
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) (Preview)
+
+    Application volume group (AVG) for SAP HANA enables you to deploy all volumes required to install and operate an SAP HANA database according to best practices, including the use of proximity placement group (PPG) with VMs to achieve automated, low-latency deployments. Application volume group for SAP HANA has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for SAP HANA. 
  
 ## October 2021
 

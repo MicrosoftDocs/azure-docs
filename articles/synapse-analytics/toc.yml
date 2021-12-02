@@ -157,12 +157,10 @@ items:
           href: ./security/synapse-workspace-synapse-rbac-roles.md
         - name: Understand Synapse RBAC roles
           href: ./security/synapse-workspace-understand-what-role-you-need.md  
-        - name: Synapse workspace managed identity
-          href: ./security/synapse-workspace-managed-identity.md
         - name: System and user-assigned managed identity 
-          href: ../data-factory/data-factory-service-identity.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context
         - name: Credentials for user-assigned managed identity
-          href: ../data-factory/credentials.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json&tabs=synapse-analytics
+          href: ../data-factory/credentials.md?context=/azure/synapse-analytics/context/context
   - name: How-to guides
     items:
     - name: Manage and Monitor
@@ -219,6 +217,9 @@ items:
     - name: Database templates overview
       href: database-designer/overview-database-templates.md
       displayName: overview
+    - name: Map data overview
+      href: database-designer/overview-map-data.md
+      displayName: map data
   - name: Quickstarts
     items:
     - name: Create a lake database
@@ -228,7 +229,7 @@ items:
     - name: Database templates
       href: database-designer/concepts-database-templates.md
     - name: Lake database
-      href: database-designer/concepts-lake-database.md   
+      href: database-designer/concepts-lake-database.md
   - name: How-to guides      
     items:
     - name: Create an empty lake database
@@ -502,6 +503,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context
       - name: Monitor your workload - portal
         href: ./sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md?context=/azure/synapse-analytics/context/context
+      - name: Query history and analysis
+        href: ./sql/query-history-storage-analysis.md
       - name: Manage workloads
         items:
         - name: Analyze your workload
@@ -679,6 +682,8 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
+    - name: Create a GPU-accelerated Apache Spark pool
+      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
@@ -701,6 +706,8 @@ items:
       href: ./spark/apache-spark-concepts.md
     - name: Apache Spark pool configurations
       href: ./spark/apache-spark-pool-configurations.md
+    - name: GPU-accelerated Apache Spark pools
+      href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Apache Spark autoscale behavior
@@ -759,6 +766,8 @@ items:
           href: ./spark/apache-spark-performance.md
         - name: Performance optimization for Apache Spark using Hyperspace indexes
           href: ./spark/apache-spark-performance-hyperspace.md
+        - name: Accelerate ETL operations with NVIDIA RAPIDS
+          href: ./spark/apache-spark-rapids-gpu.md
     - name: Manage and monitor
       items:
       - name: Navigate the Apache Spark pool history server
@@ -1425,19 +1434,19 @@ items:
         - name: Anomaly detection wizard
           displayName: cognitive services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
-        - name: Text Analytics with Apache Spark (MMLSpark)
+        - name: Text Analytics with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
-        - name: Computer Vision with Apache Spark (MMLSpark)
+        - name: Computer Vision with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (MMLSpark)
+        - name: Form Recognizer with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
-        - name: Translator with Apache Spark (MMLSpark)
+        - name: Translator with Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-translator-use-mmlspark.md
-        - name: With Apache Spark (MMLSpark)
+        - name: With Apache Spark (SynapseML)
           displayName: cognitive services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
   
@@ -1457,6 +1466,8 @@ items:
   items:
   - name: Plan and manage costs
     href: plan-manage-costs.md
+  - name: Browse an ADLS Gen2 folder with ACLs
+    href: how-to-access-container-with-access-control-lists.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -1473,6 +1484,8 @@ items:
     href: /rest/api/synapse/
   - name: Microsoft Spark Utilities
     href: ./spark/microsoft-spark-utilities.md
+  - name: File mount/unmount API in Synapse
+    href: ./spark/synapse-file-mount-api.md
   - name: Samples
     href: https://github.com/Azure-Samples/Synapse
   - name: System views

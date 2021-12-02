@@ -22,11 +22,11 @@ ms.custom: ignite-fall-2021
 
 #### Highlights 
 
-- Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java and Javascript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [document](speaker-recognition-overview.md) for more details. 
+- Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java and Javascript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [documentation](speaker-recognition-overview.md) for more details. 
 
-- Ubuntu 16.04 reached end of life back in April of 2021. In conjunction with Azure DevOps and Github we have dropped support for Ubuntu 16.04 in this release.  Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer.   
+- We have dropped support for Ubuntu 16.04 in conjunction with Azure DevOps and Github. Ubuntu 16.04 reached end of life back in April of 2021. Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer.   
 
-- OpenSSL linking in Linux binaries changed to dynamic. Linux binary size has been reduced about 50%. 
+- OpenSSL linking in Linux binaries changed to dynamic. Linux binary size has been reduced by about 50%. 
 
 - Mac M1 ARM based silicon support added. 
 
@@ -38,11 +38,11 @@ ms.custom: ignite-fall-2021
 
 - **C++**: New APIs for intent recognition to facilitate more advanced pattern matching. This includes List and Prebuilt Integer entities as well as support for grouping intents and entities as models (Documentation, updates, and samples are under development and will be published in the near future). 
 
-- **Mac**: Support for ARM64 (M1) based silicon for Cocoapod, Python, Java and NuGet packages [Related customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244).
+- **Mac**: Support for ARM64 (M1) based silicon for Cocoapod, Python, Java, and NuGet packages related to [GitHub issue 1244](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1244).
 
-- **iOS/Mac**: iOS and MacOS binaries are now packaged into xcframework [Related customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919).
+- **iOS/Mac**: iOS and MacOS binaries are now packaged into xcframework related to [GitHub issue 919](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/919).
 
-- **iOS/Mac**: Support for Mac catalyst [Related customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
+- **iOS/Mac**: Support for Mac catalyst related to [GitHub issue 1171](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
 
 - **Linux**: New tar package added for CentOS7 [About the Speech SDK](speech-sdk.md).
 
@@ -50,19 +50,19 @@ ms.custom: ignite-fall-2021
 
 - **Javascript**: Support added for US government Azure regions. 
 
-- **Windows**: Support playback on Universal Windows Platform (UWP). 
+- **Windows**: Support added for playback on Universal Windows Platform (UWP). 
 
   
 
 #### Bug fixes 
 
-- **Android**: OpenSSL security update (updated to 1.1.1l version) for Android packages. 
+- **Android**: OpenSSL security update (updated to version 1.1.1l) for Android packages. 
 
-- **Python**: Fix bug selecting speaker device on Python fails. 
+- **Python**: Resolved bug where selecting speaker device on Python fails. 
 
 - **Core**: Automatically reconnect when a connection attempt fails. 
 
-- **iOS**: Audio compression disabled on iOS packages due instability and bitcode build problems when using Gstreamer. Details [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209).
+- **iOS**: Audio compression disabled on iOS packages due instability and bitcode build problems when using Gstreamer. Details are available via [GitHub issue 1209](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1209).
 
  
 
@@ -162,8 +162,8 @@ ms.custom: ignite-fall-2021
 
 #### New features
 
-- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Identification via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that.
-- **C++/C#**: Speech Recognition and Translation Recognition now support both single-shot and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](how-to-automatic-language-detection.md) and [here for Speech Translation](get-started-speech-translation.md).
+- **C++/C#**: New stand-alone Single-Shot/At-Start and Continuous Language Detection via the `SourceLanguageRecognizer` API. If you only want to detect the language(s) spoken in audio content, this is the API to do that. See details for [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/sourcelanguagerecognizer) and [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.sourcelanguagerecognizer).
+- **C++/C#**: Speech Recognition and Translation Recognition now support both at-start and continuous Language Identification so you can programmatically determine which language(s) are being spoken before they are transcribed or translated. See documentation [here for Speech Recognition](how-to-automatic-language-detection.md) and [here for Speech Translation](get-started-speech-translation.md).
 - **C#**:  Added support Unity support to macOS (x64). This unlocks speech recognition and speech synthesis use cases in mixed reality and gaming!
 - **Go**: We added support for speech synthesis/text-to-speech to the Go programming language to make speech synthesis available in even more use cases. See our [quickstart](get-started-text-to-speech.md?tabs=windowsinstall&pivots=programming-language-go) or our [reference documentation](https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go).
 - **C++/C#/Java/Python/Objective-C/Go**: The speech synthesizer now supports the `connection` object. This helps you manage and monitor the connection to the speech service, and is especially helpful to pre-connect to reduce latency. See documentation [here](how-to-lower-speech-synthesis-latency.md).

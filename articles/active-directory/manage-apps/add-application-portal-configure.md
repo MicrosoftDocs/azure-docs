@@ -13,9 +13,10 @@ ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 # Customer intent: As an administrator of an Azure AD tenant, I want to configure the properties of an enterprise application.
+ms.custom: mode-other
 ---
 
-# Quickstart: Configure enterprise application properties in Azure Active Directory
+# Quickstart: Configure enterprise application properties
 
 In this quickstart, you use the Azure Active Directory Admin Center to configure the properties of an enterprise application that you previously added to your Azure Active Directory (Azure AD) tenant.
 
