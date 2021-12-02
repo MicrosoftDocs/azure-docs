@@ -247,6 +247,12 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
+## Attach a Premium policy to a Premium Firewall
+
+You can attach a Premium policy to the new Premium Firewall using the Azure portal:
+
+:::image type="content" source="media/premium-migrate/premium-firewall-policy.png" alt-text="Screenshot showing firewall policy":::
+
 ## Next steps
 
 - [Learn more about Azure Firewall Premium features](premium-features.md)
