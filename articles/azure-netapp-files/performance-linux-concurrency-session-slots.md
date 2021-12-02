@@ -3,7 +3,7 @@ title: Linux concurrency best practices for Azure NetApp Files - Session slots a
 description: Describes best practices about session slots and slot table entries for Azure NetApp Files NFS protocol.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
 
