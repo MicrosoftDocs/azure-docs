@@ -12,6 +12,10 @@ ms.custom: include file
 ms.author: shahen
 ---
 
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/network-traversal-get-relay-config)
+
+
 ## Setting Up
 
 ### Create a new Node.js Application
