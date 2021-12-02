@@ -60,7 +60,7 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     
 5. Configure Networking options
 6. 
-    On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two ways to connect to your server:
+    On the **Networking** tab, you can choose how your server is reachable. Azure Database for PostgreSQL Flexible Server provides two ways to connect to your server:
    - Public access (allowed IP addresses)
    - Private access (VNet Integration)
 
