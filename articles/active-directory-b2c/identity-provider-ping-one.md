@@ -27,24 +27,24 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a PingOne application
 
-To enable sign-in for users with a PingOne account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in PingIdentity Administrator Console. For more information, see [Add or update an OIDC application](https://docs.pingidentity.com/bundle/pingoneforenterprise/page/agd1564020501024-1.html). If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
+To enable sign-in for users with a PingOne (PingIdentity) account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in PingIdentity Administrator Console. For more information, see [Add or update an OIDC application](https://docs.pingidentity.com/bundle/pingoneforenterprise/page/agd1564020501024-1.html). If you don't already have a PingOne account, you can sign up at [`https://admin.pingone.com/web-portal/register`](https://admin.pingone.com/web-portal/register).
 
 1. Sign in to the PingIdentity Administrator Console with your PingOne account credentials.
 1. In the left menu of the page, select **Connections**, then next to **Applications**, select **+**.
-1. On the **New Application** page, select **WEB APP**, then under **OIDC**, select **Configure**.
-1. Enter an **APPLICATION NAME**, and select **Next**.
-1. For the **REDIRECT URLS**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. 
+1. On the **New Application** page, select **web app**, then under **OIDC**, select **Configure**.
+1. Enter an **Application name**, and select **Next**.
+1. For the **Redirect URLs**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. If you use a [custom domain](custom-domain.md), enter `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Replace `your-domain-name` with your custom domain, and `your-tenant-name` with the name of your tenant. Use all lowercase letters when entering your tenant name even if the tenant is defined with uppercase letters in Azure AD B2C. 
 1. Select **Save and Continue**.
 1. Under **SCOPES** select **email**, and **profile**, then select **Save and Continue**.
-1. Under **OIDC ATTRIBUTES** page, select **Save and Close**.
+1. Under **OIDC attributes** page, select **Save and Close**.
 1. From the list of applications, select the application you created.
 1. In the application **Profile** page, do the following:
     1. Next to the application name enable the app using the switch button.
     1. Copy the values of **Client ID**.
 1. Select the **Configuration** tab, and do the following:
-    1. Copy the **OIDC DISCOVERY ENDPOINT**.
-    1. Show and copy the **CLIENT SECRET**.
-    1. Change the mode to **edit**. Then, under the **TOKEN ENDPOINT AUTHENTICATION METHOD** change the value to **Client Secret Post**, and select **Save**
+    1. Copy the **OIDC discovery endpoint**.
+    1. Show and copy the **Client secret**.
+    1. Change the mode to **edit**. Then, under the **Token endpoint authentication method** change the value to **Client Secret Post**, and select **Save**
 
 ::: zone pivot="b2c-user-flow"
 
@@ -61,8 +61,8 @@ To enable sign-in for users with a PingOne account in Azure Active Directory B2C
     https://auth.pingone.eu/00000000-0000-0000-0000-000000000000/as/.well-known/openid-configuration
     ```
 
-1. For **Client ID**, enter the *Client ID* that you previously recorded.
-1. For **Client secret**, enter the *CLIENT SECRET* that you previously recorded.
+1. For **Client ID**, enter the client ID that you previously recorded.
+1. For **Client secret**, enter the client secret that you previously recorded.
 1. For **Scope**, enter `openid email profile`.
 1. Leave the default values for **Response type**, and **Response mode**.
 1. (Optional) For the **Domain hint**, enter `pingone.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
@@ -108,7 +108,7 @@ You need to store the client secret that you previously recorded in your Azure A
 1. Select **Policy Keys** and then select **Add**.
 1. For **Options**, choose `Manual`.
 1. Enter a **Name** for the policy key. For example, `PingOneSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
-1. In **Secret**, enter your *CLIENT SECRET* that you previously recorded.
+1. In **Secret**, enter your client secret that you previously recorded.
 1. For **Key usage**, select `Signature`.
 1. Click **Create**.
 
@@ -125,14 +125,14 @@ You can define a PingOne account as a claims provider by adding it to the **Clai
     ```xml
     <ClaimsProvider>
       <Domain>pingone.com</Domain>
-      <DisplayName>Ping Identity</DisplayName>
+      <DisplayName>PingOne</DisplayName>
       <TechnicalProfiles>
         <TechnicalProfile Id="PingOne-OpenIdConnect">
           <DisplayName>Ping Identity</DisplayName>
           <Protocol Name="OpenIdConnect" />
           <Metadata>
-            <Item Key="METADATA">Your PingOne OIDC DISCOVERY ENDPOINT</Item>
-            <Item Key="client_id">Your PingOne Client ID</Item>
+            <Item Key="METADATA">Your PingOne OIDC discovery endpoint</Item>
+            <Item Key="client_id">Your PingOne client ID</Item>
             <Item Key="response_types">code</Item>
             <Item Key="scope">openid email profile</Item>
             <Item Key="HttpBinding">POST</Item>
@@ -162,8 +162,8 @@ You can define a PingOne account as a claims provider by adding it to the **Clai
     </ClaimsProvider>
     ```
 
-4. Set the `METADATA` metadata to your PingOne *OIDC DISCOVERY ENDPOINT*.
-5. Set `client_id` metadata to your PingOne Client ID.
+4. Set the `METADATA` metadata to your PingOne OIDC discovery endpoint.
+5. Set `client_id` metadata to your PingOne client ID.
 6. Save the file.
 
 [!INCLUDE [active-directory-b2c-add-identity-provider-to-user-journey](../../includes/active-directory-b2c-add-identity-provider-to-user-journey.md)]
