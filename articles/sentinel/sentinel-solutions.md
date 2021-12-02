@@ -1,14 +1,7 @@
 ---
 title: About Microsoft Sentinel content and solutions | Microsoft Docs
 description: This article describes Microsoft Sentinel content and solutions, which customers can use to find data analysis tools packaged together with data connectors.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: bagol

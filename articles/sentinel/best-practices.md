@@ -1,7 +1,6 @@
 ---
 title: Best practices for Microsoft Sentinel
 description: Learn about best practices to employ when managing your Microsoft Sentinel workspace.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
@@ -31,7 +30,7 @@ The Microsoft Sentinel documentation has best practice guidance scattered throug
     - [Design your Microsoft Sentinel workspace architecture](design-your-workspace-architecture.md)
     - [Microsoft Sentinel sample workspace designs](sample-workspace-designs.md)
     - [Data collection best practices](best-practices-data.md)
-    - [Microsoft Sentinel costs and billing](azure-sentinel-billing.md)
+    - [Microsoft Sentinel costs and billing](billing.md)
     - [Permissions in Microsoft Sentinel](roles.md)
     - [Protecting MSSP intellectual property in Microsoft Sentinel](mssp-protect-intellectual-property.md)
     - [Threat intelligence integration in Microsoft Sentinel](threat-intelligence-integration.md)

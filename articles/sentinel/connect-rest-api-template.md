@@ -1,15 +1,8 @@
 ---
 title: Connect your data source to the Microsoft Sentinel Data Collector API to ingest data | Microsoft Docs
 description: Learn how to connect external systems to the Microsoft Sentinel Data Collector API to ingest their log data to custom logs in your workspace.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

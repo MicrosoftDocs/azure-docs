@@ -1,19 +1,10 @@
 ---
 title: Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel
 description: Plant Azure Key Vault honeytoken keys and secrets, and monitor them with Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: batamig
-manager: rkarlin
-editor: ''
-
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: bagol
-
 ---
 
 # Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel (Public preview)
@@ -288,7 +279,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 1. On the ARM template's **Deception Solution Policy Deployment** > **Basics** tab, select your management group value and region. Then, select **Next: Deployment Target >** to continue.
 
-1. On the **Deployment Target** tab, select your management group again, and then select **Nex: Management Workbook >**.
+1. On the **Deployment Target** tab, select your management group again, and then select **Next: Management Workbook >**.
 
 1. On the **Management Workbook** tab, paste the link to your **SOCHTManagement** workbook.
 
@@ -325,6 +316,8 @@ An audit recommendation, with a link to the **SOCHTManagement** workbook, is add
 For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
 
 ## Next steps
+
+Watch our demo! See [Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel](https://youtu.be/WEzteImYuDs)
 
 For more information, see:
 

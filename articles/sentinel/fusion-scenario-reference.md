@@ -1,13 +1,8 @@
 ---
 title: Scenarios detected by the Microsoft Sentinel Fusion engine
 description: Learn about the scenarios detected by Fusion, listed here grouped by threat classification.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

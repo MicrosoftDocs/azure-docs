@@ -2,7 +2,7 @@
 title: Configure NFSv4.1 domain for Azure NetApp Files | Microsoft Docs
 description: Describes how to configure NFSv4.1 domain for using NFSv4.1 with Azure NetApp Files.
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Configure NFSv4.1 domain for Azure NetApp Files
 

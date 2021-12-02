@@ -470,8 +470,6 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="install-azure-policy-add-on-for-aks-engine"></a>Install Azure Policy Add-on for AKS Engine (preview)
 
-> Note: Azure Policy Add-on for AKS Engine is soon to begin deprecation. We recommend that you install the [Azure Policy Extension using Arc-enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
-
 1. Ensure your Kubernetes cluster is a supported distribution.
 
 Before installing the Azure Policy Add-on or enabling any of the service features, your subscription

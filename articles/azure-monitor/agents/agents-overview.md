@@ -63,7 +63,7 @@ Use the Azure Monitor agent if you need to:
 
 Limitations of the Azure Monitor Agent include:
 
-- Cannot use the Azure Monitor agent in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
+- Not yet supported by all features in production. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features).
 - No support yet for networking scenarios involving private links. 
 - No support yet collecting custom logs (files) or IIS log files. 
 - No support yet for Event Hubs and Storage accounts as destinations.

@@ -3,7 +3,7 @@ title: Create and manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 11/18/2021
 ms.author: dukek
 ---
 # Create and manage action groups in the Azure portal
@@ -158,8 +158,6 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 > The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
 
 An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
-
-Currently the Event Hub action may only be defined using an [Azure Resource Manager template](./action-groups-create-resource-manager-template.md).
 
 ### Function
 Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.

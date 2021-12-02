@@ -1,7 +1,6 @@
 ---
 title: Prerequisites for deploying Microsoft Sentinel
 description: Learn about pre-deployment activities and prerequisites for deploying Microsoft Sentinel.
-services: sentinel
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
@@ -31,13 +30,13 @@ Before deploying Microsoft Sentinel, we recommend taking the following steps to 
 
     For more information, see [Workspace architecture best practices](best-practices-workspace-architecture.md) and [Sample workspace designs](sample-workspace-designs.md).
 
-1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](azure-sentinel-billing.md), considering cost implications for each planned scenario.
+1. After the business use cases, data sources, and data size requirements have been identified, [start planning your budget](billing.md), considering cost implications for each planned scenario.
 
     Make sure that your budget covers the cost of data ingestion for both Microsoft Sentinel and Azure Log Analytics, any playbooks that will be deployed, and so on.
 
     For more information, see:
 
-    - [Microsoft Sentinel costs and billing](azure-sentinel-billing.md)
+    - [Microsoft Sentinel costs and billing](billing.md)
     - [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/azure-sentinel/)
     - [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor/)
     - [Logic apps (playbooks) pricing](https://azure.microsoft.com/pricing/details/logic-apps/)

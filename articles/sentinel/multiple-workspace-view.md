@@ -1,15 +1,8 @@
 ---
 title: Work with Microsoft Sentinel incidents in many workspaces at once | Microsoft Docs
 description: How to view incidents in multiple workspaces concurrently in Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

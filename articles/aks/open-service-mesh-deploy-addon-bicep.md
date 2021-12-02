@@ -4,7 +4,6 @@ description: Deploy Open Service Mesh on Azure Kubernetes Service (AKS) using Bi
 services: container-service
 ms.topic: article
 ms.date: 9/20/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
@@ -21,40 +20,6 @@ This article will discuss how to deploy the OSM add-on to AKS using a [Bicep](..
 - An SSH Public Key used for deploying AKS
 - [Visual Studio Code](https://code.visualstudio.com/) utilizing a Bash terminal
 - Visual Studio Code [Bicep extension](../azure-resource-manager/bicep/install.md)
-
-## Install the aks-preview extension
-
-You will need the _aks-preview_ Azure CLI extension version 0.5.24 or greater. Install the _aks-preview_ Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-## Register the `AKS-OpenServiceMesh` preview feature
-
-To create an AKS cluster that can use the Open Service Mesh add-on, you must enable the `AKS-OpenServiceMesh` feature flag on your subscription.
-
-Register the `AKS-OpenServiceMesh` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-OpenServiceMesh"
-```
-
-It takes a few minutes for the status to show _Registered_. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-OpenServiceMesh')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the _Microsoft.ContainerService_ resource provider by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 
 ## Install the OSM AKS add-on for a new AKS cluster using Bicep
 
@@ -271,6 +236,8 @@ When the Azure resources are no longer needed, use the Azure CLI to delete the d
 az group delete --name osm-bicep-test
 ```
 
+Alternatively, you can uninstall the OSM add-on and the related resources from your cluster. For more information, see [Uninstall the Open Service Mesh (OSM) add-on from your AKS cluster][osm-uninstall].
+
 <!-- Links -->
 <!-- Internal -->
 
@@ -279,3 +246,4 @@ az group delete --name osm-bicep-test
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[osm-uninstall]: open-service-mesh-uninstall-add-on.md
