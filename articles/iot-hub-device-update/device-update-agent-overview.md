@@ -68,7 +68,11 @@ of the update. You can either use [existing Device Update handlers](https://gith
 
 ## Self-update Device update agent
 
-The device update agent and its dependencies can be updated through the Device Update for IoT Hub pipeline. If you are using an image-based update, include the latest device update agent in your new image. If you are using a package-based update, include the device update agent and its desired version in the apt manifest like any other package. [Learn more](device-update-apt-manifest.md) about apt manifest. You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
+We have added many new capabilities in the latest Public Preview Refresh agent. See [here](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for more details.
+
+If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version. See [Public Preview Refresh agent changes and how to upgrade](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/upgrade-guide.md)
+
+You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 
 ## Next Steps
 [Understand Device Update agent configuration file](device-update-configuration-file.md)
