@@ -474,16 +474,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
-      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes-whats-new",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -797,16 +787,6 @@
       "source_path_from_root": "/articles/remoteapp/remoteapp-whatsnew.md",
       "redirect_url": "/azure",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-single-subnet",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/active-directory-b2c/active-directory-b2c-landing-custom.md",
@@ -11806,11 +11786,7 @@
       "redirect_url": "/azure/azure-sql/database/az-cli-script-samples-content-guide",
       "redirect_document_id": true
     },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/advanced-data-security.md",
-      "redirect_url": "/azure/azure-sql/database/azure-defender-for-sql",
-      "redirect_document_id": false
-    },
+
     {
       "source_path_from_root": "/articles/sql-database/sql-database-business-continuity.md",
       "redirect_url": "/azure/azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview",
@@ -11900,11 +11876,6 @@
       "source_path_from_root": "/articles/sql-database/sql-database-connect-query-r.md",
       "redirect_url": "/azure/azure-sql/database/connect-query-r",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/connect-query-r.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-connect-query-ruby.md",
@@ -12010,11 +11981,6 @@
       "source_path_from_root": "/articles/sql-database/dns-alias-powershell.md",
       "redirect_url": "/azure/azure-sql/database/dns-alias-powershell-create",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/service-tiers-prs.md",
-      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-release-notes.md",
@@ -12367,11 +12333,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-sql/database/sql-data-sync-monitor-sync.md",
-      "redirect_url": "/azure/azure-sql/database/monitor-tune-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/sql-database/sql-database-monitor-tune-overview.md",
       "redirect_url": "/azure/azure-sql/database/monitor-tune-overview",
       "redirect_document_id": true
@@ -12395,11 +12356,6 @@
       "source_path_from_root": "/articles/sql-database/sql-database-planned-maintenance.md",
       "redirect_url": "/azure/azure-sql/database/planned-maintenance",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/policy-samples.md",
-      "redirect_url": "/azure/azure-sql/database/policy-reference",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/policy-samples.md",
@@ -12750,11 +12706,6 @@
       "source_path_from_root": "/articles/sql-database/sql-database-security-tutorial.md",
       "redirect_url": "/azure/azure-sql/database/secure-database-tutorial",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/security-controls.md",
-      "redirect_url": "/azure/azure-sql/database/security-baseline",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/sql-database/security-baseline.md",
@@ -13232,16 +13183,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-sql/database/machine-learning-services-differences.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-differences",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/machine-learning-services-overview.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/machine-learning-services-overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-find-management-endpoint-ip-address.md",
       "redirect_url": "/azure/azure-sql/managed-instance/management-endpoint-find-ip-address",
       "redirect_document_id": true
@@ -13260,11 +13201,6 @@
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-migrate.md",
       "redirect_url": "/azure/azure-sql/managed-instance/migrate-to-instance-from-sql-server",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/managed-instance/migrate-to-instance-from-sql-server.md",
-      "redirect_url": "/azure/azure-sql/migration-guides/managed-instance/sql-server-to-managed-instance-guide",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/sql-database/sql-database-managed-instance-point-in-time-restore.md",
@@ -13330,11 +13266,6 @@
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md",
       "redirect_url": "/azure/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/managed-instance/scripts/create-powershell-azure-resource-manager-template.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/create-template-quickstart",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/sql-database/scripts/sql-managed-instance-restore-geo-backup.md",
@@ -13432,11 +13363,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/linux/index.yml",
-      "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/linux/sql/sql-server-linux-virtual-machines-overview.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview",
       "redirect_document_id": true
@@ -13470,11 +13396,6 @@
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-cli.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-cli-configure",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-az-cli-configure.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-az-commandline-configure",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups.md",
@@ -13517,18 +13438,8 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/availability-group-azure-marketplace-template-configure.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-availability-group-quickstart-template.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-quickstart-template-configure",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure",
       "redirect_document_id": true
     },
     {
@@ -13574,11 +13485,6 @@
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-release-notes.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure",
       "redirect_document_id": true
     },
     {
@@ -13632,21 +13538,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-automatic-registration-all-vms",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-register.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vm-resource-provider-bulk-register.md",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-2008-extend-end-of-support",
       "redirect_document_id": true
@@ -13655,11 +13546,6 @@
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/index.yml",
-      "redirect_url": "/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md",
@@ -25477,11 +25363,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/sql-vulnerability-assessment-enable.md",
-      "redirect_url": "/azure/security-center/defender-for-sql-on-machines-vulnerability-assessment",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/security-center/security-center-powerbi.md",
       "redirect_url": "/azure/security-center",
       "redirect_document_id": false
@@ -36272,63 +36153,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-sql/database/machine-learning-services-add-r-packages.md",
-      "redirect_url": "/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/r-script-create-quickstart.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/machine-learning-services-data-issues.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/machine-learning-services-functions.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/r-train-score-model-create-quickstart.md",
-      "redirect_url": "/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/clustering-model-build-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md",
       "redirect_url": "/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/clustering-model-deploy-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/clustering-model-prepare-data-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/predictive-model-deploy-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/predictive-model-prepare-data-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/predictive-model-build-compare-tutorial.md",
-      "redirect_url": "/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current",
       "redirect_document_id": false
     },
     {
@@ -45905,11 +45731,6 @@
       "source_path_from_root": "/articles/cognitive-services/Translator/document-translation/client-libraries.md",
       "redirect_url": "/azure/cognitive-services/Translator/document-translation/client-sdks",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
-      "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
-      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/storage/files/storage-files-compare-protocols.md",
