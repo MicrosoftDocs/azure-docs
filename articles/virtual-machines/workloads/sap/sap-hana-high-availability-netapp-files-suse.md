@@ -64,7 +64,7 @@ Read the following SAP Notes and papers first:
 
 Traditionally in scale-up environment all file systems for SAP HANA are mounted from local storage. Setting up High Availability of SAP HANA System Replication on SUSE Enterprise Linux is published in guide [Set up SAP HANA System Replication on SLES](./sap-hana-high-availability.md)
 
-To achieve SAP HANA High Availability of scale-up system on Azure NetApp Files NFS shares, we need some extra resource configuration in the cluster in order for HANA resources to recover, when one node loses access to the NFS shares on ANF.  The dependencies between the file system mounts and the SAP HANA resources are enforced.
+To achieve SAP HANA High Availability of scale-up system on Azure NetApp Files NFS shares, we need some extra resource configuration in the cluster in order for HANA resources to recover, when one node loses access to the NFS shares on ANF.
 
 ![SAP HANA HA Scale-up on ANF](./media/sap-hana-high-availability-sles/sap-hana-scale-up-netapp-files-suse.png)
 
@@ -564,31 +564,12 @@ Create a dummy file system cluster resource, which will monitor and report failu
   # rsc_st_azure        (stonith:fence_azure_arm):       Started hanadb2
   # Clone Set: cln_fs_check_HN1_HDB03 [rsc_fs_check_HN1_HDB03]:
     # Started: [ hanadb1 hanadb2 ]
-   
-   df -kh
-   # Filesystem                          Size  Used Avail Use% Mounted on
-   # devtmpfs                            4.0M     0  4.0M   0% /dev
-   # tmpfs                               126G   49M  126G   1% /dev/shm
-   # tmpfs                                51G  9.0M   51G   1% /run
-   # tmpfs                               4.0M     0  4.0M   0% /sys/fs/cgroup
-   # /dev/sda4                            29G  8.7G   20G  31% /
-   # /dev/sda3                          1014M  123M  892M  13% /boot
-   # /dev/sda2                           512M  3.0M  509M   1% /boot/efi
-   # 10.3.1.4:/hanadb1-data-mnt00001 10     10T  3.7G   10T   1% # /hana/data/HN1/mnt00001
-   # 10.3.1.4:/hanadb1-log-mnt00001      6.0T  6.8G  6.0T   1% /hana/log/HN1/mnt00001
-   # 10.3.1.4:/hanadb1-shared-HN1        1.0T   15G 1010G   2% /hana/shared/HN1
-   # 10.3.1.4:/hanadb1-usr-HN1           1.0T  1.0M  1.0T   1% /usr/sap/HN1
-   # tmpfs                                26G     0   26G   0% /run/user/1001
-   # tmpfs                                26G     0   26G   0% /run/user/467
-   # tmpfs                                26G     0   26G   0% /run/user/0
-   # 10.3.1.4:/hanadb1-shared-HN1/check  1.0T   15G 1010G   2% /hana/shared/check
-   # tmpfs                                26G     0   26G   0% /run/user/469
    ```
 
-> `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
->
-> `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
->
+`OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
+
+on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
+
 > [!IMPORTANT]
 > Timeouts in the above configuration may need to be adapted to the specific HANA set up to avoid unnecessary fence actions.  Don’t set the timeout values too low.  Be aware that the filesystem monitor is not related to the HANA system replication. For details see [Suse documentation](https://www.suse.com/support/kb/doc/?id=000019904).
 
