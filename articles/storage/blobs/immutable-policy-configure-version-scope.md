@@ -134,7 +134,7 @@ az storage container-rm show \
 
 #### Migrate an existing container to support version-level immutability
 
-To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed.
+To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed. You can migrate only one container at a time per storage account.
 
 To migrate an existing container to support version-level immutability policies, the container must have a container-level time-based retention policy configured. The migration fails unless the container has an existing policy. The retention interval for the container-level policy is maintained as the retention interval for the default version-level policy on the container.
 
