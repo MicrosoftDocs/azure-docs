@@ -1,0 +1,79 @@
+cloudknox-api
+
+---
+title: CloudKnox product integrations - CloudKnox API
+description: How to configure the CloudKnox API Integration.
+services: active-directory
+manager: karenh444
+ms.service: active-directory
+ms.topic: overview
+author: Yvonne-deQ
+ms.date: 11/23/2021
+ms.author: v-ydequadros
+---
+
+# CloudKnox product integrations - CloudKnox API
+
+## How to configure a CloudKnox API integration
+
+- On the **Integrations** page, click **CloudKnox API**.
+
+### How to use the CloudKnox API tab
+
+- Click the link provided on the CloudKnox API tab to read additional documentation.
+
+### How to use the Integration tab
+
+1. Click the **Integration** tab, and view the following columns:
+
+    - **Email** - Lists the email address of the user who created the integration.
+    - **Created By** - Lists the first and last name of the user who create the integration.
+    - **Created On** - Lists the date and time the integration was created.
+    - **Recent Activity** - Lists the date and time the integration was last used, or notes if the integration was never used.
+    - **Service Account ID** - Lists the service account ID.
+    - **Access Key** - Lists the access key code.
+
+2. Click **Create Service Account**. The following information is pre-populated on the page:
+    - **API Endpoint**
+    - **Service Account ID**
+    - **Access Key**
+    - **Secret Key**
+
+3. Click the ![icon](images/icons/Duplicate.svg) icon next to the respective information to copy the codes.
+
+    > [!NOTE]
+    > The codes are time sensitive and will regenerate after the box is closed.
+
+4. To re-generate the codes, at the bottom of the column, click **Re-generate**.
+
+### How to use the Settings tab
+
+1. Click the **Settings** tab, and view the following columns.
+
+2. Under **Roles can create service account**, select **Super Admin**, **Viewer**, or **Controller**.
+
+3. In the **Access Key Rotation Policy** column, select options for the following:
+
+    - **How often should the users rotate their access keys?** - Select **30 days**, **60 days**, **90 days**, or **Never**.
+    - **Notification** - Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
+    - **Action (after the key rotation period ends)** - Select **Disable Action Key** or **No Action**.
+
+4. In the **Access Key Usage Policy** column, select options for the following:
+
+    - **How often should the users go without using their access keys?** - Select **30 days**, **60 days**, **90 days**, or **Never**.
+    - **Notification** - Enter a whole number in the blank space within **Notify "X" days before the selected period**, or select **Don't Notify**.
+    - **Action (after the key rotation period ends)** - Select **Disable Action Key** or **No Action**.
+
+5. Click **Save**.
+
+## How to delete a CloudKnox API integration
+
+1. Click **Delete Integration**.
+
+     On the **Validate OTP To Delete [Service Name] Integration** page, a message displays asking you to check your email for a code sent to the email address on file.
+
+     If you do not receive the code, click **Resend OTP**.
+
+2. In the **Enter OTP** box, enter the code from the email.
+
+3. Click **Verify**.
