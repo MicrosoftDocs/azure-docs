@@ -32,7 +32,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 #### Elastic data map
 
-- The **Data map** is the foundation of the Purview architecture and hence needs to be up to date with asset information in the data estate at any given point
+- The **Data map** is the foundation of the Purview architecture and so needs to be up to date with asset information in the data estate at any given point
 
 - The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 2 GB of metadata storage and serves up to 25 data map operations/sec
 
@@ -47,11 +47,11 @@ Direct costs impacting Azure Purview pricing are based on the following three di
         - Creating an asset in Data Map
         - Adding a relationship to an asset such as owner, steward, parent, lineage
         - Editing an asset to add business metadata such as description, glossary term
-        - Keyword search returning results to search result page
+        - Keyword-search returning results to search result page
         - Importing or exporting information using API
 - If there are multiple queries executed on the Data Map, the number of I/O operations also increases resulting in the scaling up of the data map
 - The number of concurrent users also forms a factor governing the data map capacity unit
-- Other factors to consider are type of search query, API interaction, workflows, approvals, etc.,
+- Other factors to consider are type of search query, API interaction, workflows, approvals and so on
 - Data burst level
     - When there is a need for more operations/second throughput, the Data map can autoscale within the elasticity window to cater to the changed load
     - This constitutes the **burst characteristic** that needs to be estimated and planned for
@@ -62,7 +62,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 ##### Metadata storage
 
-- If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and hence the data map scales down
+- If the number of assets reduces in the data estate, and are then removed in the data map through subsequent incremental scans, the storage component automatically reduces and so the data map scales down
 
 
 #### Automated scanning & classification
