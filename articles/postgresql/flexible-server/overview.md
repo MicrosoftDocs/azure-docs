@@ -60,7 +60,7 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally on zone redundant (ZRS). Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
+The flexible server service automatically creates server backups and stores them on zone redundant (ZRS) storage within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
 
 ## Adjust performance and scale within seconds
 

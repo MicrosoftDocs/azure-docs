@@ -66,7 +66,6 @@ NAME                                STATUS   ROLES   AGE     VERSION
 aks-nodepool1-34164736-vmss000000   Ready    agent   4h28m   v1.20.9
 aks-nodepool1-34164736-vmss000001   Ready    agent   4h28m   v1.20.9
 aks-nodepool1-34164736-vmss000002   Ready    agent   4h28m   v1.20.9
-aks-nodepool1-34164736-vmss000003   Ready    agent   4h28m   v1.20.9
 ```
 
 ## Next steps
