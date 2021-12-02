@@ -35,7 +35,11 @@ Before you can apply a time-based retention policy to a blob version, you must e
 
 ### Enable version-level immutability support on a storage account
 
-You can enable support for version-level immutability when you create a new storage account. Follow these steps to enable support for version-level immutability for an account:
+You can enable support for version-level immutability only when you create a new storage account.
+
+##### [Portal](#tab/azure-portal)
+
+To enable support for version-level immutability when you create a storage account in the Azure portal, follow these steps:
 
 1. Navigate to the **Storage accounts** page in the Azure portal.
 1. Select the **Create** button to create a new account.
@@ -44,6 +48,28 @@ You can enable support for version-level immutability when you create a new stor
 1. Select **Review + Create** to validate your account parameters and create the storage account.
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-account-version-level-immutability.png" alt-text="Screenshot showing how to create a storage account with version-level immutability support":::
+
+After the storage account is created, you can configure a default version-level policy for the account. For more details, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
+
+##### [PowerShell](#tab/azure-powershell)
+
+TBD
+
+##### [Azure CLI](#tab/azure-cli)
+
+To enable support for version-level immutability when you create a storage account with Azure CLI, call the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) command with the `--enable-alw` parameter specified. You can optionally specify a default policy for the storage account at the same time, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage account create \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --enable-alw \
+    --immutability-period-in-days 90 \
+    --immutability-state unlocked \
+    --allow-protected-append-writes true
+```
+
+---
 
 ### Enable version-level immutability support on a container
 
@@ -214,19 +240,30 @@ az storage container-rm show \
 
 ---
 
-## Configure a time-based retention policy on a container
+## Configure a default time-based retention policy
 
-After you have enabled version-level immutability support for a storage account or container, you can specify a default version-level time-based retention policy for the container. When you specify a default policy for a container, that policy applies by default to all new blob versions that are created in the container. You can override the default policy for any individual blob version in the container.
+After you have enabled version-level immutability support for a storage account or for an individual container, you can specify a default version-level time-based retention policy for the account or container. When you specify a default policy for an account or container, that policy applies by default to all new blob versions that are created in the account or container. You can override the default policy for any individual blob version in the account or container.
 
 The default policy is not automatically applied to blob versions that existed before the default policy was configured.
 
 If you migrated an existing container to support version-level immutability, then the container-level policy that was in effect before the migration is migrated to a default version-level policy for the container.
 
-### Configure a default time-based retention policy on a container
-
-To configure a default version-level immutability policy for a container, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs. Make sure that you have enabled support for version-level immutability for the storage account or container, as described in [Enable support for version-level immutability](#enable-support-for-version-level-immutability).
+To configure a default version-level immutability policy for a storage account or container, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs. Make sure that you have enabled support for version-level immutability for the storage account or container, as described in [Enable support for version-level immutability](#enable-support-for-version-level-immutability).
 
 #### [Portal](#tab/azure-portal)
+
+To configure a default version-level immutability policy for a storage account in the Azure portal, follow these steps:
+
+1. In the Azure portal, navigate to your storage account.
+1. Under **Data management**, select **Data protection**.
+1. On the **Data protection** page, locate the **Access control** section. If the storage account was created with support for version-level immutability, then the **Manage policy** button appears in the **Access control** section.
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/manage-default-policy-account.png" alt-text="Screenshot showing how to manage the default version-level immutability policy for a storage account ":::
+
+1. Select the **Manage policy** button to display the **Manage version-level immutability policy** dialog.
+1. Add a default time-based retention policy for the storage account.
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/configure-default-retention-policy-account.png" alt-text="Screenshot showing how to configure a default version-level retention policy for a storage account":::
 
 To configure a default version-level immutability policy for a container in the Azure portal, follow these steps:
 
