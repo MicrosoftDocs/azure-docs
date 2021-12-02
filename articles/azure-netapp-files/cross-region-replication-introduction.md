@@ -3,7 +3,7 @@ title: Cross-region replication of Azure NetApp Files volumes | Microsoft Docs
 description: Describes what Azure NetApp Files cross-region replication does, supported region pairs, service-level objectives, data durability, and cost model.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2021
-ms.author: b-juche
+ms.author: b-hchen
 ms.custom: references_regions
 ---
 # Cross-region replication of Azure NetApp Files volumes

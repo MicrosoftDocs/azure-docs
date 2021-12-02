@@ -1,6 +1,6 @@
 ---
 title: Introduction to file mount in synapse
-description: "Tutorial: How to play with file mount/unmount API in Synapse"
+description: "Tutorial: How to use file mount/unmount API in Synapse"
 author: ruixinxu 
 services: synapse-analytics 
 ms.service: synapse-analytics 
@@ -12,11 +12,11 @@ ms.reviewer:
 ms.custom: subject-rbac-steps
 ---
 
-# How to play with file mount/unmount API in Synapse 
+# How to use file mount/unmount API in Synapse 
 
 Synapse studio team built two new mount/unmount APIs in mssparkutils package, you can use mount to attach remote storage (Blob, Gen2, Azure File Share) to all working nodes (driver node and worker nodes), after that, you can access data in storage as if they were one the local file system with local file API. 
 
-The document will show you how to play with mount/unmount API in your workspace, mainly includes below sections: 
+The document will show you How to use mount/unmount API in your workspace, mainly includes below sections: 
 
 + How to mount ADLS Gen2 Storage or Azure Blob Storage 
 + How to mount Azure File share 

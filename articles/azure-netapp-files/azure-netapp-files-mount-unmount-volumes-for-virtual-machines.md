@@ -1,8 +1,8 @@
 ---
 title: Mount Azure NetApp Files volumes for virtual machines
 description: Learn how to mount or unmount a volume for Windows virtual machines or Linux virtual machines in Azure.
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to

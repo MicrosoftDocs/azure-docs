@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In this article, you'll learn how to gain more insights from Azure App Service workloads with Azure Load Testing Preview and App Service Diagnostics.
 
-App Service diagnostics is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, App Service diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
+[App Service Diagnostics](/azure/app-service/overview-diagnostics/) is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, App Service diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
 You can take advantage of App Service diagnostics when running load tests on application that run on Azure App Service.
 
@@ -31,7 +31,7 @@ You can take advantage of App Service diagnostics when running load tests on app
 
 ## Get more insights when testing an App Service Workload  
 
-In this section, you'll use App Service Diagnostics to get more insights from load testing an Azure App Service workload.
+In this section, you'll use [App Service Diagnostics](/azure/app-service/overview-diagnostics/) to get more insights from load testing an Azure App Service workload.
 
 1. Navigate to your Azure Load Testing resource in the [Azure portal](https://portal.azure.com).
 
@@ -70,4 +70,4 @@ In this section, you'll use App Service Diagnostics to get more insights from lo
 
 - To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md)
 
-- You can learn more about App Service diagnostics at [Azure App Service diagnostics overview](/app-service/overview-diagnostics/).
+- You can learn more about App Service diagnostics at [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics/).
