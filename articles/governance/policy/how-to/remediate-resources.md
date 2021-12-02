@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 08/17/2021
+ms.date: 12/1/2021
 ms.topic: how-to
 ---
 # Remediate non-compliant resources with Azure Policy
@@ -15,16 +15,16 @@ understand and accomplish remediation with Azure Policy.
 
 ## How remediation security works
 
-When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
+When Azure Policy runs the template in the **deployIfNotExists** policy definition or runs **modify operations**, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy creates a managed identity for each assignment, but must have details about what roles
+Azure Policy allows the option to either create a managed identity(system assignmend) or select an exisiting managed identity (user assigned) for each assignment, but must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
 doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot of a deployIfNotExists policy that is missing a defined permission on the managed identity." border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png NEED NEW IMAGE" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US wit Log Analytics Contributor permissions." border="false":::
 
 > [!IMPORTANT]
 > In the following scenarios, the assignment's managed identity must be
@@ -40,7 +40,7 @@ doesn't impact its operation with Azure Policy.
 
 The first step is to define the roles that **deployIfNotExists** and **modify** needs in the policy
 definition to successfully deploy the content of your included template. Under the **details**
-property, add a **roleDefinitionIds** property. This property is an array of strings that match
+property in the policy definition, add a **roleDefinitionIds** property. This property is an array of strings that match
 roles in your environment. For a full example, see the [deployIfNotExists
 example](../concepts/effects.md#deployifnotexists-example) or the
 [modify examples](../concepts/effects.md#modify-examples).
@@ -63,9 +63,9 @@ following code:
 az role definition list --name 'Contributor'
 ```
 
-## Manually configure the managed identity
+## Manually configure the system assign managed identity
 
-When creating an assignment using the portal, Azure Policy both generates the managed identity and
+When creating an assignment using the portal, Azure Policy both generates the system assigned managed identity and
 grants it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
 the managed identity and assign it permissions must be done manually:
 
@@ -73,9 +73,9 @@ the managed identity and assign it permissions must be done manually:
 - When a resource outside the assignment scope is modified by the template
 - When a resource outside the assignment scope is read by the template
 
-### Create managed identity with PowerShell
+### Create system assigned managed identity with PowerShell
 
-To create a managed identity during the assignment of the policy, **Location** must be defined and
+To create a system assigned managed identity during the assignment of the policy, **Location** must be defined and
 **AssignIdentity** used. The following example gets the definition of the built-in policy **Deploy
 SQL DB transparent data encryption**, sets the target resource group, and then creates the
 assignment.
@@ -97,9 +97,9 @@ The `$assignment` variable now contains the principal ID of the managed identity
 standard values returned when creating a policy assignment. It can be accessed through
 `$assignment.Identity.PrincipalId`.
 
-### Grant defined roles with PowerShell
+### Grant a system assigned managed identity defined roles with PowerShell
 
-The new managed identity must complete replication through Azure Active Directory before it can be
+The new system assigned managed identity must complete replication through Azure Active Directory before it can be
 granted the needed roles. Once replication is complete, the following example iterates the policy
 definition in `$policyDef` for the **roleDefinitionIds** and uses
 [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to
@@ -118,9 +118,9 @@ if ($roleDefinitionIds.Count -gt 0)
 }
 ```
 
-### Grant defined roles through portal
+### Grant a system assigned managed idntity defined roles through portal
 
-There are two ways to grant an assignment's managed identity the defined roles using the portal, by
+There are two ways to grant an assignment's  system assigned managed identity the defined roles using the portal, by
 using **Access control (IAM)** or by editing the policy or initiative assignment and selecting
 **Save**.
 
