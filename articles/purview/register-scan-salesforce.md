@@ -33,7 +33,7 @@ When scanning Salesforce, Purview supports extracting metadata including Salesfo
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md). The minimal supported Self-hosted Integration Runtime version is 5.11.7953.1.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -116,7 +116,7 @@ To create and run a new scan, do the following:
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Salesforce source to be scanned.
 
         > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+        > As a rule of thumb, please provide 1GB memory for every 1000 tables
 
         :::image type="content" source="media/register-scan-salesforce/scan.png" alt-text="scan Salesforce" border="true":::
 

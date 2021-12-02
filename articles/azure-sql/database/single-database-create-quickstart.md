@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: deployment-configuration
 ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.topic: quickstart
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: 
 ms.date: 01/27/2021
 ---
