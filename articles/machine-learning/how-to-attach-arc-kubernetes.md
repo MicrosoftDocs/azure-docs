@@ -352,9 +352,18 @@ Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` ma
 > [!IMPORTANT]
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 
-##Trouble & Debug**
+## Troubleshoot & Debug
+#### Azure Arc setup related issues
+- [Prerequisites for Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#prerequisites)
+- [Azure Arc-enabled Kubernetes Troubleshooting](../azure-arc/kubernetes/troubleshooting.md)
 
-**Prerequisites
+#### Azure Resource Creation Failure
+An Azure Relay and a Service Bus are created while installing extensions, therefore the subscription should be registered as these [resource providers](../azure/azure-resource-manager/management/resource-providers-and-types) and be granted with the permission to create these resources.
+Check all registered providers
+```azurecli
+az provider list
+```
+
 
 
 ---
