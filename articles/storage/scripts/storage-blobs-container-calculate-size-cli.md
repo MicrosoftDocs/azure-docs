@@ -25,7 +25,7 @@ This script calculates the size of a container in Azure Blob storage by totaling
 > This CLI script provides an estimated size for the container and should not be used for billing calculations.
 
 > [!IMPORTANT]
-> Please note, if you are going to run this on a container with large number of blob, you must use a continuation token to retrieve the list of blobs
+> Please note, if you are going to run this on a container with large number of blobs, you must use a continuation token to retrieve the list of blobs.
 
 ## Sample script
 
