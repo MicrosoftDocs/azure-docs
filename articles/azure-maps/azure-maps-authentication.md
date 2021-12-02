@@ -228,7 +228,7 @@ First, you should create an [User Assigned Managed Identity](../active-directory
 > [!TIP]
 > Microsoft's general recommendation to pick the same location for the Managed Identity and the Azure Maps account.
 
-Once a Managed Identity is created, you can create or update an Azure Maps account to attach the Manage Identity. To attach a Managed Identity, you can go use steps described in [manage your Azure Maps account](./how-to-manage-account-keys.md) to create the account and attach the Managed Identity.
+Once a Managed Identity is created, you can create or update an Azure Maps account to attach the Managed Identity. To attach a Managed Identity, you can go use steps described in [manage your Azure Maps account](./how-to-manage-account-keys.md) to create the account and attach the Managed Identity.
 
 After the account has been successfully created or updated with the Managed Identity; assign role based access control for the Managed Identity to an Azure Maps data role on the account scope. This will allow the managed identity to be given access to the Azure Maps REST APIs for your map account.
 
