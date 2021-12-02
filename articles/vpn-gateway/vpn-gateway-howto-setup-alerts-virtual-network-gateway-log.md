@@ -88,6 +88,10 @@ The following example steps create an alert for a disconnection event that invol
 
     ![Entering a query and selecting a threshold](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Select")
 
+    > [!NOTE]
+    > Bringing the tunnel down and back up will generate logs for this query.
+    >
+
 11. On the **Create rule** page, select **Create New** under the **ACTION GROUPS** section. Fill in the details and select **OK**.
 
     ![Details for a new action group](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Select")
