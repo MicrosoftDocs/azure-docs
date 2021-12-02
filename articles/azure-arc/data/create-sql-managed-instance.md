@@ -23,7 +23,9 @@ To view available options for create command for SQL Managed Instance, use the f
 az sql mi-arc create --help
 ```
 
-To create an SQL Managed Instance, use the following command:
+To create an SQL Managed Instance, use `az sql mi-arc create ...` See the following examples for different connectivity modes:
+
+### [Indirectly connected mode](#tab/indirectly)
 
 ```azurecli
 az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
@@ -34,6 +36,23 @@ Example:
 ```azurecli
 az sql mi-arc create -n sqldemo --k8s-namespace my-namespace --use-k8s
 ```
+
+### [Directly connected mode](#tab/directly)
+
+```azurecli
+az sql mi-arc create --name <name> --resource-group <group>  --location <Azure location> –subscription <subscription>  --custom-location <custom-location>
+```
+
+Example:
+
+```azurecli
+az sql mi-arc create --name sqldemo --resource-group rg  --location uswest2 –subscription a97da202-47ad-4de9-8991-9f7cf689eeb9  --custom-location private-location
+```
+
+---
+
+
+
 > [!NOTE]
 >  Names must be less than 13 characters in length and conform to [DNS naming conventions](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names)
 >
