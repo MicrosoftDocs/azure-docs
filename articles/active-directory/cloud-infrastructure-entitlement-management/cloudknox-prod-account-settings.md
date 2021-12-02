@@ -1,5 +1,3 @@
-cloudknox-prod-account-settings
-
 ---
 title: CloudKnox product account settings
 description: How to use CloudKnox product account settings to set personal information, passwords, and account preferences.
@@ -8,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 11/23/2021
+ms.date: 12/01/2021
 ms.author: v-ydequadros
 ---
 
@@ -22,16 +20,14 @@ The CloudKnox **Account Settings** page allows you to set personal information, 
 
 1. Under **Personal Information**, click **Edit**.
 
-2. Enter the user's name in the **First Name** and **Last Name** boxes.
-
+2. Enter the user's name in the **First Name** and **Last Name** boxes. <br>
      The **Email** field cannot be modified because the CloudKnox account is linked to the email address used to register on the application.
 
 ## How to edit company information
 
 1. Under **Company Information**, click **Edit**.
 
-2. Enter the name of the company in the **Company** box.
-
+2. Enter the name of the company in the **Company** box. <br>
      The company name appears in the top-left part of the application.
 
 3. Enter the user's title in the **Title** box.

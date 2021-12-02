@@ -1,5 +1,3 @@
-cloudknox-install-aws-agentless-deployment
-
 ---
 title: Install CloudKnox with an Amazon Web Services (AWS) role (agentless deployment)
 description: How to install CloudKnox with Amazon Web Services (AWS) role (agentless deployment).
@@ -8,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 11/23/2021
+ms.date: 12/01/2021
 ms.author: v-ydequadros
 ---
 

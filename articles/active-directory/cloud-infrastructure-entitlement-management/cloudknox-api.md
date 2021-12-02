@@ -1,18 +1,16 @@
-cloudknox-api
-
 ---
-title: CloudKnox product integrations - CloudKnox API
-description: How to configure the CloudKnox API Integration.
+title: CloudKnox integration with CloudKnox API
+description: How to configure CloudKnox API integration.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 11/23/2021
+ms.date: 12/01/2021
 ms.author: v-ydequadros
 ---
 
-# CloudKnox product integrations - CloudKnox API
+# CloudKnox integration with CloudKnox API
 
 ## How to configure a CloudKnox API integration
 
@@ -39,10 +37,10 @@ ms.author: v-ydequadros
     - **Access Key**
     - **Secret Key**
 
-3. Click the ![icon](images/icons/Duplicate.svg) icon next to the respective information to copy the codes.
+3. Click the **Duplicate** icon next to the respective information to copy the codes. 
 
-    > [!NOTE]
-    > The codes are time sensitive and will regenerate after the box is closed.
+   > [!NOTE]
+   >  The codes are time sensitive and will regenerate after the box is closed.
 
 4. To re-generate the codes, at the bottom of the column, click **Re-generate**.
 
@@ -68,8 +66,7 @@ ms.author: v-ydequadros
 
 ## How to delete a CloudKnox API integration
 
-1. Click **Delete Integration**.
-
+1. Click **Delete Integration**. <br>
      On the **Validate OTP To Delete [Service Name] Integration** page, a message displays asking you to check your email for a code sent to the email address on file.
 
      If you do not receive the code, click **Resend OTP**.

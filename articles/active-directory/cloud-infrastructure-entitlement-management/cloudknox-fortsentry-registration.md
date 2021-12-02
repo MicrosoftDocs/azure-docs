@@ -1,4 +1,3 @@
-cloudknox-fortsentry-registration
 ---
 title: CloudKnox FortSentry registration
 description: How to register in CloudKnox FortSentry and create an organization.
@@ -7,7 +6,7 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 11/23/2021
+ms.date: 12/01/2021
 ms.author: v-ydequadros
 ---
 
@@ -17,8 +16,7 @@ This article guides you through the process of signing up with CloudKnox FortSen
 
 ## How to register in CloudKnox FortSentry
 
-1. Click [https://app.cloudknox.io/](https://app.cloudknox.io/sign-up) to sign up with CloudKnox and create an organization for *Customer Company*, where *Customer Company* is the name of your company.
-
+1. Click [https://app.cloudknox.io/](https://app.cloudknox.io/sign-up) to sign up with CloudKnox and create an organization for *Customer Company*, where *Customer Company* is the name of your company. <br>
    The sign-up system sends an email to CloudKnox to create the account.
 
 2. Click **Confirm** to confirm you want to create the account.
