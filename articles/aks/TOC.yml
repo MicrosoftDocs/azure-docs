@@ -89,6 +89,14 @@
         - name: Baseline architecture for an AKS cluster
           href: /azure/architecture/reference-architectures/containers/aks/secure-baseline-aks
           maintainContext: True
+        - name: Security
+          items:
+            - name: Authentication and authorization
+              href: operator-best-practices-identity.md
+            - name: Cluster security
+              href: operator-best-practices-cluster-security.md
+            - name: Container image management
+              href: operator-best-practices-container-image-management.md
         - name: For cluster operators
           items:
             - name: Multi-tenancy and cluster isolation
@@ -97,12 +105,6 @@
               href: operator-best-practices-scheduler.md
             - name: Advanced scheduler features
               href: operator-best-practices-advanced-scheduler.md
-            - name: Authentication and authorization
-              href: operator-best-practices-identity.md
-            - name: Cluster security
-              href: operator-best-practices-cluster-security.md
-            - name: Container image management
-              href: operator-best-practices-container-image-management.md
             - name: Networking
               href: operator-best-practices-network.md
             - name: Storage
