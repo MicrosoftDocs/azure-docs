@@ -815,6 +815,7 @@
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.media-services.json",
     ".openpublishing.redirection.security-benchmark.json",
+    ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
     ".openpublishing.redirection.azure-percept.json",
