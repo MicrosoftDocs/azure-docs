@@ -364,6 +364,20 @@ Check all registered providers
 az provider list
 ```
 
+#### Make sure the extension is installed successfully
+TODO
+
+#### The extension installation is pending
+```azurecli
+kubectl get extensionconfigs -A
+```
+#### The extension installation fails
+    Get error from Portal
+    Get error from extension configurations
+    Get error from extension operator
+
+
+
 
 
 ---
