@@ -11,7 +11,7 @@ services: iot-central
 # This topic applies to solution builders.
 ---
 
-# Transform data for IoT Central
+# Transform data externally for IoT Central
 
 IoT devices send data in various formats. To use the device data with your IoT Central application, you may need to use a transformation to:
 

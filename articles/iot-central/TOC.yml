@@ -116,6 +116,8 @@
       href: core/concepts-architecture.md
     - name: Scalability and high availability
       href: core/concepts-scalability-availability.md
+    - name: Quotas and limits
+      href: core/concepts-quotas-limits.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
@@ -125,8 +127,7 @@
     - name: Operator guide
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
-      href: core/concepts-app-templates.md
-        
+      href: core/concepts-app-templates.md        
     - name: What are device templates?
       href: core/concepts-device-templates.md
     - name: Device connectivity
@@ -156,6 +157,8 @@
           href: core/how-to-connect-devices-x509.md
         - name: Monitor device connectivity using Azure CLI
           href: core/howto-monitor-devices-azure-cli.md
+        - name: Connect IoT Edge for Linux on Windows device 
+          href: core/howto-connect-eflow.md
         - name: Connect devices through an IoT Edge transparent gateway
           href: core/how-to-connect-iot-edge-transparent-gateway.md
         - name: Prepare and connect an Azure Sphere DevKit
@@ -178,7 +181,9 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
-        - name: Transform data
+        - name: Transform data internally for export
+          href: core/howto-transform-data-internally.md
+        - name: Transform data externally
           href: core/howto-transform-data.md
         - name: Use workflows to integrate with other services
           href: core/howto-configure-rules-advanced.md
@@ -255,6 +260,8 @@
     href: /samples/browse/?expanded=azure&products=azure-iot-central
   - name: Support and help options
     href: ../iot-fundamentals/iot-support-help.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
+  - name: Video resources
+    href: https://www.youtube.com/playlist?list=PL1ljc761XCiYlm8Rx58jLsUp4gAspw1SG
   - name: IoT Glossary
     href: ../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json
 

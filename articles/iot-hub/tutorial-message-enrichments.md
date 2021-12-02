@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Use Azure IoT Hub message enrichments
 description: Tutorial showing how to use message enrichments for Azure IoT Hub messages
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 12/20/2019
-ms.author: robinsh
+ms.author: lizross
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
 ---
@@ -246,7 +246,7 @@ At this point, the resources are all set up and the message routing is configure
 
 1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Message routing** for the IoT hub.
 
-   ![Select message routing](./media/tutorial-message-enrichments/select-iot-hub.png)
+   :::image type="content" source="./media/tutorial-message-enrichments/select-iot-hub.png" alt-text="Screenshot that shows how to select message routing." border="true":::
 
    The message routing pane has three tabs labeled **Routes**, **Custom endpoints**, and **Enrich messages**. Browse the first two tabs to see the configuration set up by the script. Use the third tab to add message enrichments. Let's enrich messages going to the endpoint for the storage container called **enriched**. Fill in the name and value, and then select the endpoint **ContosoStorageEndpointEnriched** from the drop-down list. Here's an example of how to set up an enrichment that adds the IoT hub name to the message:
 

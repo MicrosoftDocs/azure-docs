@@ -19,9 +19,9 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | Setup and maintenance of Power BI Visuals is migrating from the Office Store to the commercial marketplace this month. [This FAQ](power-bi-visual-faq.yml) provides a summary of improvements to the offer submission process. To start, see [Plan a Power BI visual offer](marketplace-power-bi-visual.md).| 2021-09-21 |
 | Offers | While [private plans](private-plans.md) were previously only available on the Azure portal, they are now also available on Microsoft AppSource. | 2021-09-10 |
 | Analytics | Publishers of Azure application offers can view offer deployment health in the Quality of service (QoS) reports. QoS helps publishers understand the reasons for offer deployment failures and provides actionable insights for their remediation. For details, see [Quality of service (QoS) dashboard](quality-of-service-dashboard.md). | 2021-09-07 |
-| Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-create-plans.md#properties) article for more information. | 2021-07-26 |
+| Offers | Additional properties at the plan level are now available for Azure Virtual Machine offers. See the [virtual machine technical configuration properties](azure-vm-plan-overview.md#properties) article for more information. | 2021-07-26 |
 | Fees | Microsoft has reduced its standard store service fee to 3%. See [Commercial marketplace transact capabilities](marketplace-commercial-transaction-capabilities-and-considerations.md#examples-of-pricing-and-store-fees) and Common questions about payouts and taxes, "[How do I find the current Store Service Fee and the payout rate?](/partner-center/payout-faq)". | 2021-07-14 |
-| Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](azure-vm-create-using-own-image.md). | 2021-06-23 |
+| Offers | Publishers can publish a virtual machine (VM) that they have built on premises. To learn more, see [Create a virtual machine using your own image](azure-vm-use-own-image.md). | 2021-06-23 |
 | Customer engagement | Publishers can now respond to user reviews on Azure Marketplace or AppSource. To learn more, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md). | 2021-06-03 |
 |
 
@@ -33,7 +33,6 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Taxation | End-customer taxation in Australia is managed by Microsoft, except for customer purchases made through an enterprise agreement, which are managed by the publisher. | 2021-07-01 |
 | Taxation | Updated [tax details page](/partner-center/tax-details-marketplace) country list to include the following: <ul><li>Argentina</li><li>Bulgaria</li><li>Hong Kong SAR</li><li>Korea (South)</li><li>Pakistan</li><li>Palestinian Authority</li><li>Panama</li><li>Paraguay</li><li>Peru</li><li>Philippines</li><li>Saint Kitts and Nevis</li><li>Senegal</li><li>Sri Lanka</li><li>Tajikistan</li><li>Tanzania</li><li>Thailand</li><li>Trinidad and Tobago</li><li>Tunisia</li><li>Turkmenistan</li><li>Uganda</li><li>Uzbekistan</li><li>Zimbabwe</li></ul> | 2021-07-01 |
 | Taxation | Nigeria moved from the "shared publisher/developer-managed countries" list to the “end-customer taxation with differences in Marketplaces".  | 2021-07-01 |
-| Payouts | Added commercial marketplace payout scenarios to the [tax details page](/partner-center/tax-details-marketplace). | 2021-04-26 |
 |
 
 ## Documentation updates
@@ -51,7 +50,4 @@ Learn about important updates in the commercial marketplace program of Partner C
 | Offers | Additional information regarding VM pricing options and descriptions. To learn more see [How to plan a SaaS offer for the commercial marketplace](plan-saas-offer.md). | 2021-05-25|
 | API guidance | This topic gives publishers a single convenient location to find recent changes to the commercial marketplace, including updates to certification policy, changes to tax rules, and more. To learn more, see [Align your business with our e-commerce platform](marketplace-apis-guide.md). | 2021-05-13 |
 | Policy | Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-05-07 |
-| Policy | The [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement) has been updated. To see what’s changed, see [Change history for Microsoft Publisher Agreement](/legal/marketplace/mpa-change-history). | 2021-04-16 |
-| Offers | Microsoft 365 independent software vendors (ISVs) can now link their software as a service (SaaS) offer to their related Teams apps, Office add-ins (WXPO), and SharePoint SPFx solutions in Partner Center. SaaS ISVs can also declare if their SaaS offer is integrated with Microsoft Graph API. To learn more, see [Test and deploy Microsoft 365 Apps by partners in the Integrated apps portal](/microsoft-365/admin/manage/test-and-deploy-microsoft-365-apps). | 2021-04-08 |
-| Policy | Updated [certification](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) policy; see [change history](/legal/marketplace/offer-policies-change-history). | 2021-04-02 |
 |

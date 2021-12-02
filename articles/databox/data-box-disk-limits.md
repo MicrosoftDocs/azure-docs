@@ -88,7 +88,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 
 | Entity | Conventions                                             |
 |-------------------|-----------------------------------------------------------|
-| Managed disk names       | <li> The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number or underscore. </li><li> The name may contain only letters, numbers, underscores, periods, or hyphens. </li><li> 	The name should not have spaces or `/`.                                              |
+| Managed disk names       | <li> The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number or underscore. </li><li> The name may contain only letters, numbers, underscores, periods, or hyphens. </li><li>     The name should not have spaces or `/`.                     |
 
 ## Next steps
 

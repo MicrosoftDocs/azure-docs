@@ -27,7 +27,7 @@ If you haven't already, create your first application by completing a quickstart
 - [Quickstart: Acquire a token and call Microsoft Graph API from a Windows desktop app](./quickstart-v2-windows-desktop.md)
 - [Quickstart: Acquire a token and call Microsoft Graph API from a UWP app](./quickstart-v2-uwp.md)
 - [Quickstart: Acquire a token and call Microsoft Graph API from a macOS native app](./quickstart-v2-ios.md)
-- [Quickstart: Acquire a token and call Microsoft Graph API from an Node.js & Electron app](./quickstart-v2-nodejs-desktop.md)
+- [Quickstart: Acquire a token and call Microsoft Graph API from a Node.js & Electron app](./quickstart-v2-nodejs-desktop.md)
 
 ## Overview
 

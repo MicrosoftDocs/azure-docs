@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 11/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -127,7 +127,7 @@ Each storage account supports up to 200 virtual network rules, which may be comb
 
 ### Available virtual network regions
 
-In general, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, this scope grows to include the [paired region](../../best-practices-availability-paired-regions.md). Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+In general, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, this scope grows to include the [paired region](../../availability-zones/cross-region-replication-azure.md). Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
@@ -264,7 +264,7 @@ IP network rules can't be used in the following cases:
 
   IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
-- To restrict access to clients in a [paired region](../../best-practices-availability-paired-regions.md) which are in a VNet that has a service endpoint.
+- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
 
 - To restrict access to Azure services deployed in the same region as the storage account.
 
@@ -380,9 +380,6 @@ The types of operations that a resource instance can perform on storage account 
 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions.
-
-> [!NOTE]
-> Resource instance rules are currently only supported for Azure Synapse. Support for other Azure services listed in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article will be available in the coming weeks.
 
 ### [Portal](#tab/azure-portal)
 
@@ -593,12 +590,16 @@ You can use the same technique for an account that has the hierarchical namespac
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. | 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Allows access to storage accounts through DevTest Labs. |
+| Azure Event Grid  | Microsoft.EventGrid/topics | Allows access to storage accounts through the Azure Event Grid. |
+| Azure Healthcare APIs | Microsoft.HealthcareApis/services | Allows access to storage accounts through Azure Healthcare APIs. |
+| Azure IoT Central Applications | Microsoft.IoTCentral/IoTApps | Allows access to storage accounts through Azure IoT Central Applications. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |

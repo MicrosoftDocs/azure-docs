@@ -1,15 +1,17 @@
 ---
 title: Manage an Azure support request
-description: Describes how to view support requests, send messages, change the severity level, allow or deny collection of advanced diagnostic information, reopen a closed support request, and upload files.
+description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/10/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com). You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
+
+To manage a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ## View support requests
 
@@ -48,7 +50,7 @@ On this page, you can search, filter, and sort support requests. Select a suppor
 
 ## Allow collection of advanced diagnostic information
 
-When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue.
+When you create a support request, you can select **Yes** or **No** in the **Advanced diagnostic information** section. This option determines whether Azure support can gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) such as [log files](how-to-create-azure-support-request.md#advanced-diagnostic-information-logs) from your Azure resources that can potentially help resolve your issue. Azure support can only access advanced diagnostic information if your case was created through the Azure portal and you've granted permission to allow it.
 
 To change your **Advanced diagnostic information** selection after the request has been created:
 
@@ -74,7 +76,7 @@ You can use the file upload option to upload diagnostic files or any other files
 
 Follow these guidelines when you use the file upload option:
 
-- To protect your privacy, do not include any personal information in your upload.
+- To protect your privacy, don't include personal information in your upload.
 - The file name must be no longer than 110 characters.
 - You can't upload more than one file.
 - Files can't be larger than 4 MB.
@@ -113,7 +115,7 @@ Follow these guidelines when you use the file upload option:
 
 ## Close a support request
 
-To close a support request, [send a message](#send-a-message) asking that the request be closed.
+To close a support request, [send a message](#send-a-message) and let us know you'd like to close the request.
 
 ## Reopen a closed request
 

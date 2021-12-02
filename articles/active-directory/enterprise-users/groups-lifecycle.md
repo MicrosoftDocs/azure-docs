@@ -64,7 +64,7 @@ The following are roles that can configure and use expiration for Microsoft 365 
 Role | Permissions
 -------- | --------
 Global administrator, Group administrator, or User administrator | Can create, read, update, or delete the Microsoft 365 groups expiration policy settings<br>Can renew any Microsoft 365 group
-User | Can renew an Microsoft 365 group that they own<br>Can restore an Microsoft 365 group that they own<br>Can read the expiration policy settings
+User | Can renew a Microsoft 365 group that they own<br>Can restore a Microsoft 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted group, see [Restore a deleted Microsoft 365 group in Azure Active Directory](groups-restore-deleted.md).
 
@@ -113,7 +113,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 ## How to retrieve Microsoft 365 group expiration date
 
-In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
+In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of a Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example&preserve-view=true).
 
 > [!NOTE]
 > In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.
@@ -124,7 +124,7 @@ When a group expires and is deleted, then 30 days after deletion the group's dat
 
 ## How Microsoft 365 group expiration works with retention policy
 
-The retention policy is configured by way of the Security and Compliance Center. If you have set up a retention policy for Microsoft 365 groups, when a group expires and is deleted, the group conversations in the group mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
+The retention policy is configured by way of the Security & Compliance Center. If you have set up a retention policy for Microsoft 365 groups, when a group expires and is deleted, the group conversations in the group mailbox and files in the group site are retained in the retention container for the specific number of days defined in the retention policy. Users won't see the group or its content after expiration, but can recover the site and mailbox data via e-discovery.
 
 ## PowerShell examples
 
