@@ -120,7 +120,7 @@ In the next section, you'll create a load test using the Apache JMeter script.
 
 ## <a name="create_test"></a> Create a load test
 
-With Azure Load Testing you can use an Apache JMeter script to create a load test. This script defines the application test plan. The script contains information about the web endpoint, the number of virtual users, and other test configuration settings.
+With Azure Load Testing, you can use an Apache JMeter script to create a load test. This script defines the application test plan. The script contains information about the web endpoint, the number of virtual users, and other test configuration settings.
 
 Next, you'll create a new load test by using an existing Apache JMeter script.
 
@@ -161,9 +161,9 @@ In the next section, you'll run the load test. If you've checked the **Run test 
 
 ## <a name="run"></a> Run the load test
 
-In this section, you will run the load test you created in the previous section.
+In this section, you'll run the load test you created in the previous section.
 
-If you checked the **Run test after creation** box when creating the load test, you can skip to [View the load test results](#view).
+If you checked the **Run test after creation** box when you created the load test, you can skip to [View the load test results](#view).
 
 1. Navigate to your Load Testing resource, select **Tests** from the left navigation, and then select the test you created previously.
 
@@ -173,7 +173,7 @@ If you checked the **Run test after creation** box when creating the load test, 
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test.png" alt-text="Screenshot that shows how to run a load test." :::
 
-1. On the **Run** confirmation page, optionally modify the test details, and then select **Run** to start the load test.
+1. On the **Run** confirmation page, optionally modify the test details. Then, select **Run** to start the load test.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 
@@ -184,7 +184,7 @@ In the next section, you'll look at the test run details and monitor the load te
 
 ## <a name="view"></a> View the load test results
 
-While the load test is running, Azure Load Testing captures both client-side and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
+While the load test is running, Azure Load Testing captures both client-side metrics and server-side metrics. In this section, you'll use the dashboard to monitor the client-side metrics.
 
 1. Navigate to the test runs page, and select the most recent test run to navigate to the test run details page.
 
@@ -193,9 +193,6 @@ While the load test is running, Azure Load Testing captures both client-side and
     You can see the streaming client-side metrics while the test is running. By default, the data refreshes every five seconds.
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/test-run-aggregated-by-percentile.png" alt-text="Screenshot that shows the load test results.":::
-        
-    > [!NOTE]
-    > In this quickstart, you've run a load test for an external website. Azure Load Testing captures server-side metrics only for Azure-hosted applications. You can try the [tutorial on how to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md) for an end-to-end example.
 
 1. You can also change the display filters to view a specific time range, result percentile, or error type.
 
@@ -209,7 +206,7 @@ While the load test is running, Azure Load Testing captures both client-side and
 
 You now have an Azure Load Testing resource, which you used to load test an external website.
 
-Use this resource to learn how to identify performance bottlenecks in an Azure-hosted application.
+You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using the server-side metrics.
 
 > [!div class="nextstepaction"]
 > [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
