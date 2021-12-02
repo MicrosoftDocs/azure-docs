@@ -110,7 +110,7 @@ You can assign the same user to multiple organizations. The user can have a diff
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
 
- To access the application for the first time, the invited users must first navigate to the application URL link that they can receive from the administrator. The application will not be visible on **My Apps** page in IoT Central Application UI until then.
+To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
 
 ## Use organizations
 
