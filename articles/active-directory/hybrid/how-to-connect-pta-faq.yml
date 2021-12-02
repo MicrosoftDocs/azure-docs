@@ -186,6 +186,17 @@ sections:
           
           Tenants created after June 15th 2015 have the default behavior of synchronizing UPN changes.   
           
+          - question: |
+            How to capture PTA Agent ID from Azure AD Sign-In logs and PTA Server to validate which PTA Server was used for a sign-in event?
+            A: If you would like to validate which Local Server/Authentication Agent was used for a particular Sign-In event, you can try following steps to capture the details:
+
+	          - Browse to Sign-In event on Azure Portal.
+	          - Click on Authentication Details and under Authentication Method Detail column, you would see Agent ID details in following format: "Pass-through Authentication; PTA AgentId: XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
+	          - To get Agent ID details for installed agent on your local server, Login to your local server and use following command: 
+		            ○ Get-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Azure AD Connect Agents\Azure AD Connect Authentication Agent' | Select *Instance*
+	          - The GUID value returned by above command, is the Agent ID of Authentication Agent installed on that particular server. If you have multiple agents in your environment, you can run this command on each Agent Server and capture the Agent ID details.
+	          - You can later correlate these Agent Id's obtained from local server as well as Azure AD Sign-In log to validate which Agent/Server is the Sign-request being acknowledged by.
+            
 additionalContent: |
 
   ## Next steps
