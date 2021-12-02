@@ -30,6 +30,12 @@ For more information go to [create a Video Analyzer for Media account](https://t
 
 When indexing a video through the advanced video settings, you can view the new **People’s clothing detection** capability. If there are people detected in your media file, you can now view the clothing type they are wearing through the media player. 
 
+### Face bounding box (preview)
+
+You can now turn on a bounding box for detected faces during indexing of the media file. The face bounding box feature is available when indexing your file by choosing the **standard**, **basic**, or **advanced** indexing presets.
+
+You can enable the bounding boxes through the player.
+
 ## October 2021
 
 ### Embed widgets in your app using Azure Video Analyzer for Media package

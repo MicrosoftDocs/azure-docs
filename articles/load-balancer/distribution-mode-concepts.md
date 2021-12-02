@@ -35,7 +35,9 @@ The five tuple is consists of:
 The hash is used to route traffic to healthy backend instances within the backend pool. The algorithm provides stickiness only within a transport session. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different backend instance.
 In order to configure hash based distribution, you must select session persistence to be **None** in the Azure portal. This specifies that successive requests from the same client may be handled by any virtual machine.
 
-![Five-tuple hash-based distribution mode](./media/distribution-mode-concepts/load-balancer-distribution.png)
+![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+
+*Figure: Default 5 tuple hash based distribution*
 
 
 ## Session persistence 
