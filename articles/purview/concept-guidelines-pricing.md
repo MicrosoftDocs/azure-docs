@@ -51,7 +51,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
         - Importing or exporting information using API
 - If there are multiple queries executed on the Data Map, the number of I/O operations also increases resulting in the scaling up of the data map
 - The number of concurrent users also forms a factor governing the data map capacity unit
-- Other factors to consider are type of search query, API interaction, workflows, approvals and so on
+- Other factors to consider are type of search query, API interaction, workflows, approvals, and so on
 - Data burst level
     - When there is a need for more operations/second throughput, the Data map can autoscale within the elasticity window to cater to the changed load
     - This constitutes the **burst characteristic** that needs to be estimated and planned for
@@ -73,21 +73,21 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - It is important to consider and avoid the scenarios when multiple people or groups belonging to different departments  set up scans for the same data source resulting in additional pricing for duplicate scanning
 
-- It is recommended to schedule **frequent incremental scans** post the initial full scan aligned with the changes in the data estate. This will ensure the data map is kept up to date always and the incremental scans consume lesser v-core hours as compared to a full scan
+- Schedule **frequent incremental scans** post the initial full scan aligned with the changes in the data estate. This will ensure the data map is kept up to date always and the incremental scans consume lesser v-core hours as compared to a full scan
 
-- The **“View Details”** link for a data source will enable users to run a full scan. However, it is recommended to consider running incremental scans after a full scan for optimized scanning excepting when there is a change to the scan rule set (classifications/file types)
+- The **“View Details”** link for a data source will enable users to run a full scan. However, consider running incremental scans after a full scan for optimized scanning excepting when there is a change to the scan rule set (classifications/file types)
 
-- It is recommended to **register the data source at a parent collection** and **scope scans at child collection** with different access controls to ensure there are no duplicate scanning costs being entailed
+- **Register the data source at a parent collection** and **Scope scans at child collection** with different access controls to ensure there are no duplicate scanning costs being entailed
 
-- It is recommended to curtail the users who are allowed to register data sources for scanning through **fine grained access control** and **Data Source Administrator** role using [Collection authorization](./catalog-permissions.md). This will ensure only valid data sources are allowed to be registered and scanning v-core hours is controlled resulting in lower costs for scanning
+- Curtail the users who are allowed to register data sources for scanning through **fine grained access control** and **Data Source Administrator** role using [Collection authorization](./catalog-permissions.md). This will ensure only valid data sources are allowed to be registered and scanning v-core hours is controlled resulting in lower costs for scanning
 
 - Consider that the **type of data source** and the **number of assets** being scanned impact the scan duration
 
-- It is recommended to **create custom scan rule sets** to include only the subset of **file types** available in your data estate and **classifications** that are relevant to your business requirements to ensure optimal use of the scanners
+- **Create custom scan rule sets** to include only the subset of **file types** available in your data estate and **classifications** that are relevant to your business requirements to ensure optimal use of the scanners
 
-- While creating a new scan for a data source, it is recommended to follow the **order of preparation** recommended before actually running the scan. This includes gathering the requirements for **business specific classifications** and **file types** (for storage accounts) to enable appropriate scan rule sets to be defined to avoid multiple scans and control unnecessary costs for multiple scans through missed requirements
+- While creating a new scan for a data source, follow the **order of preparation** recommended before actually running the scan. This includes gathering the requirements for **business specific classifications** and **file types** (for storage accounts) to enable appropriate scan rule sets to be defined to avoid multiple scans and control unnecessary costs for multiple scans through missed requirements
 
-- It is recommended to align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
+- Align your scan schedules with Self-Hosted Integration Runtime (SHIR) VMs (Virtual Machines) size to avoid extra costs linked to virtual machines
 
 
 #### Advanced resource sets
@@ -96,7 +96,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - **Advanced Resource Set** is an optional feature, which allows for customers to get enriched resource set information computed such as Total Size, Partition Count, etc., and enables the customization of resource set grouping via pattern rules. If Advanced Resource Set feature is not enabled, your data catalog will still contain resource set assets, but without the aggregated properties. There will be no "Resource Set" meter billed to the customer in this case.
 
-- It is recommended to use the basic resource set feature, before switching on the Advanced Resource Sets in Purview to verify if requirements are met
+- Use the basic resource set feature, before switching on the Advanced Resource Sets in Purview to verify if requirements are met
 
 - Consider turning on Advanced Resource Sets if:
     - your data lakes schema is constantly changing, and you are looking for additional value beyond the basic Resource Set feature to enable Purview to compute parameters such as #partitions, size of the data estate, etc., as a service
