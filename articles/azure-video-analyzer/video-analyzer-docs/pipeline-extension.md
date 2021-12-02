@@ -1,5 +1,5 @@
 ---
-title: Pipeline extension - Azure Video Analyzer
+title: Pipeline extension 
 description: Azure Video Analyzer allows you to extend the pipeline processing capabilities through a pipeline extension node. This article describes the pipeline extension node.
 ms.service: azure-video-analyzer
 ms.topic: conceptual

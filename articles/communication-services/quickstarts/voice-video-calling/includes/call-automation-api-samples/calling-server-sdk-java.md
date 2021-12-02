@@ -18,7 +18,7 @@ Before you get started, make sure to:
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 11 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this sample.
-- Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](../../../telephony-sms/get-phone-number.md?pivots=platform-azp).
+- Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](../../../telephony/get-phone-number.md?pivots=platform-azp).
 - Download and install [ngrok](https://www.ngrok.com/download). As the sample is run locally, ngrok will enable the receiving of all the events.
 - (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [this guidance](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) to create the resource.
 

@@ -120,6 +120,9 @@
       href: concept-rtos-security-module.md
     - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations 
       href: concept-rtos-security-alerts-recommendations.md
+  - name: Manage cloud device inventory
+    href: how-to-manage-device-inventory-on-the-cloud.md
+    displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Classic
     items:
       - name: Which agent should I deploy?

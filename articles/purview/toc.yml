@@ -53,7 +53,13 @@ items:
       - name: Network architecture
         href: concept-best-practices-network.md
       - name: Scanning best practices 
-        href: concept-best-practices-scanning.md       
+        href: concept-best-practices-scanning.md
+      - name: Classification best practices 
+        href: concept-best-practices-classification.md 
+      - name: Automation best practices 
+        href: concept-best-practices-automation.md
+      - name: Default Purview account 
+        href: concept-default-purview-account.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
@@ -131,6 +137,8 @@ items:
       href: register-scan-azure-synapse-analytics.md
     - name: Cassandra
       href: register-scan-cassandra-source.md
+    - name: DB2
+      href: register-scan-db2.md
     - name: Erwin
       href: register-scan-erwin-source.md
     - name: Google BigQuery

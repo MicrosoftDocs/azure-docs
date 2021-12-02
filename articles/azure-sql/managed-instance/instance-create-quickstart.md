@@ -1,10 +1,10 @@
 ---
 title: "Quickstart: Create an Azure SQL Managed Instance (portal)"
-description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart. 
+description: Create a managed instance, network environment, and client VM for access using the Azure portal in this quickstart.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: 
+ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
 author: urosmil

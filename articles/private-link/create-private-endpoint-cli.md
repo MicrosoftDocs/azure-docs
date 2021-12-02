@@ -8,7 +8,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-
+ms.custom: mode-other
 ---
 # Quickstart: Create a Private Endpoint using Azure CLI
 

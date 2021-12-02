@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 11/30/2021
 ---
 
 # Backup and restore in Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Backups form an essential part of any business continuity strategy. They help with protecting data from accidental corruption or deletion. Azure Database for PostgreSQL - Flexible Server automatically performs regular backup of your server.  You can then do a point-in-time recovery within the retention period where you can specify the date and time to which you want to restore to. The overall time to restore and recovery typically depends on the size of data and amount of recovery to be performed. 
 
@@ -35,7 +34,7 @@ Backup redundancy ensures that your database meets its availability and durabili
 
 - **Locally redundant backup storage** : This is automatically chosen for regions that do not support Availability zones yet. When the backups are stored in locally redundant backup storage, multiple copies of backups are stored in the same datacenter. This option protects your data against server rack and drive failures. Also this provides at least 99.999999999% (11 9's) durability of Backups objects over a given year. By default backup storage for servers with same-zone high availability (HA) or no high availability configuration is set to locally redundant. 
 
-- **Geo-Redundant backup storage (Preview)** : You can choose this option at the time of server creation. When the backups are stored in geo-redundant backup storage, in addition to three copies of data stored within the region in which your server is hosted, but are also replicated to it's geo-paired region. This provides better protection and ability to restore your server in a different region in the event of a disaster. Also this provides at least 99.99999999999999% (16 9's) durability of Backups objects over a given year. One can enable Geo-Redundancy option at server create time to ensure geo-redundant backup storage. Geo redundancy is supported for servers hosted in any of the [Azure paired regions](../../best-practices-availability-paired-regions.md). 
+- **Geo-Redundant backup storage (Preview)** : You can choose this option at the time of server creation. When the backups are stored in geo-redundant backup storage, in addition to three copies of data stored within the region in which your server is hosted, but are also replicated to it's geo-paired region. This provides better protection and ability to restore your server in a different region in the event of a disaster. Also this provides at least 99.99999999999999% (16 9's) durability of Backups objects over a given year. One can enable Geo-Redundancy option at server create time to ensure geo-redundant backup storage. Geo redundancy is supported for servers hosted in any of the [Azure paired regions](../../availability-zones/cross-region-replication-azure.md). 
 
 > [!NOTE]
 > Geo-redundancy backup option can be configured at the time of server creates only.
@@ -67,7 +66,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 In Flexible server, performing a point-in-time restore creates a new server in the same region as your source server, but you can choose the availability zone. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
 
- ### Point-in-time restore process
+ ### Point-in-time restore
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
 
@@ -93,15 +92,22 @@ If you have configured your server within a VNET, you can restore to the same VN
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored by the user. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md). If you accidentally deleted your server, please reach out to support. In some cases, your server may be restored with or without data loss.
 
-## Geo-restore (Preview) Process
+## Geo-redundant backup and restore (Preview)
 
-If you configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../best-practices-availability-paired-regions.md). Please refer to the geo-redundant backup supported [regions](overview.md#azure-regions).
+You can configure geo-redundant backup at the time of server creation. Refer to this [quick start guide](./quickstart-create-server-portal.md) on how to enable Geo-redundant backup from Compute+Storage blade. 
+
+>[!IMPORTANT]
+> Geo-redundant backup can only be configured at the time of server creation. 
+
+Once you have configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../availability-zones/cross-region-replication-azure.md). Please refer to the geo-redundant backup supported [regions](overview.md#azure-regions).
 
 When the server is configured with geo-redundant backup, the backup data is copied to the paired region asynchronously using storage replication. This includes copying of data backup and also transaction logs. After the server creation, please wait at least for one hour before initiating a geo-restore. That will allow the first set of backup data to be replicated to the paired region. Subsequently, the transaction logs and the daily backups are asynchronously copied to the paired region and there could be up to one hour of delay in data transmission. Hence, you can expect up to one hour of RPO when you restore. You can only restore to the last available backup data that is available at the paired region. Currently, point-in-time restore of geo-backup is not available.
 
 The estimated time to recover the server (RTO) depends on factors including the size of the database, the last database backup time, and the amount of WAL to process till the last received backup data. The overall recovery time usually takes from few minutes up to few hours.
 
 During the geo-restore, the server configurations that can be changed include VNET settings and the ability to remove geo-redundant backup from the restored server.  Changing other server configurations such as compute, storage or pricing tier (Burstable, General Purpose, or Memory Optimized) during geo-restore are not supported.
+
+Refer to the [how to guide](how-to-restore-server-portal.md#performing-geo-restore-preview) on performing Geo-restore.
 
 > [!IMPORTANT]
 > When primary region is down, you cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. You must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
