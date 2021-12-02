@@ -23,8 +23,8 @@ IoT connector transforms device data into Fast Healthcare Interoperability Resou
 
 Below is an overview of each step IoT connector does once IoMT device data is received. Each step will be further explained in the [IoT connector data flow](./iot-data-flow.md) article.
 
-> [!TIP]
-> Learn more about [Azure Event Hubs](/azure/event-hubs) use cases, features and architecture.
+> [!NOTE]
+> Learn more about [Azure Event Hubs](/azure/event-hubs) use cases, features and architectures.
 
 :::image type="content" source="media/iot-data-flow/iot-data-flow.png" alt-text="IoMT data flows from IoT devices into an event hub. IoMT data is ingested by IoT connector as it is normalized, grouped, transformed, and persisted in the FHIR service." lightbox="media/iot-data-flow/iot-data-flow.png":::
 
