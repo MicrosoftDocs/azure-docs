@@ -40,7 +40,7 @@ For more information, see [Microsoft account help](https://support.microsoft.com
     > [!NOTE]
     > A user who is in a custom role that grants them the permission to add other users, can only add users to a role with same or fewer permissions than their own role.
 
-    To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
+    When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
     > [!NOTE]
     > If a user is deleted from Azure Active Directory and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
