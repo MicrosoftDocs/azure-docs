@@ -11,9 +11,9 @@ ms.custom: portal
 
 ## Use a system-managed identity with a Media Services storage account
 
-Once you have created a Media Services account with an associated storage account, you can assign a system-managed identity to it.
+After you've created a Media Services account with an associated storage account, you can assign a system-managed identity to it.
 
 1. Navigate to the Media Services account in the Azure portal.
 1. Select **Storage** from the left navigation menu. The managed-identity radio button should already be selected.
-1. Select **System-assigned** from the managed-identity drop down list of the storage account.
+1. Select **System-assigned** from the managed-identity dropdown list of the storage account.
 1. Select **Save**.
