@@ -36,7 +36,7 @@ Follow the instructions below to create a networking quota increase request by u
 
 1. In the **Problem details** section, select **Enter details**. Follow the prompts to select a deployment model, location, the resources to include in your request, and the new limit you would like on the subscription for those resources. When you're finished, select **Save and continue** to continue creating your support request.
 
-    :::image type="content" source="media/networking-quota-request/network-new-limits.png" alt-text="Screenshot of the Quota details screen for a networking quota increase request in the Azure portal.":::
+    :::image type="content" source="media/networking-quota-request/quota-details-network.png" alt-text="Screenshot of the Quota details screen for a networking quota increase request in the Azure portal.":::
 
 1. Complete the rest of the **Additional information** screen, and then select **Next**.
 
