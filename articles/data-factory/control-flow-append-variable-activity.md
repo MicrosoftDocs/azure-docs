@@ -35,11 +35,11 @@ To use a Append Variable activity in a pipeline, complete the following steps:
 
 Property | Description | Required
 -------- | ----------- | --------
-name | Name of the activity in pipeline | Yes
-description | Text describing what the activity does | no
-type | Activity Type is AppendVariable | yes
-value | String literal or expression object value used to append into specified variable | yes
-variableName | Name of the variable that will be modified by activity, the variable must be of type ‘Array’ | yes
+Name | Name of the activity in pipeline | Yes
+Description | Text describing what the activity does | No
+Type | Activity Type is AppendVariable | Yes
+Value | String literal or expression object value used to append into specified variable | Yes
+VariableName | Name of the variable that will be modified by activity, the variable must be of type ‘Array’ | Yes
 
 ## Next steps
 Learn about a related control flow activity: 
