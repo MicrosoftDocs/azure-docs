@@ -3,7 +3,7 @@ title: Azure Virtual Desktop host pool service updates - Azure
 description: How to create a validation host pool to monitor service updates before rolling out updates to production.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 12/01/2021
 ms.author: helohr 
 ms.custom: devx-track-azurepowershell
 manager: femila
@@ -21,9 +21,6 @@ You can debug issues in the validation host pool with either [the diagnostics fe
 
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
-
->[!IMPORTANT]
->Azure Virtual Desktop with Azure Resource Management integration currently has trouble enabling and disabling validation environments. We'll update this article when we've resolved the issue.
 
 ## Create your host pool
 

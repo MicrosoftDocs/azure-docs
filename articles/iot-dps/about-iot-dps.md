@@ -2,7 +2,7 @@
 title: Overview of the Microsoft Azure IoT Hub Device Provisioning Service
 description: Describes device provisioning in Azure with the Device Provisioning Service (DPS) and IoT Hub
 author: wesmc7777
-ms.author: v-stharr
+ms.author: wesmc
 ms.date: 11/22/2021
 ms.topic: overview
 ms.service: iot-dps
@@ -26,6 +26,8 @@ There are many provisioning scenarios in which DPS is an excellent choice for ge
 * Connecting a device to the IoT hub with the lowest latency (geo-sharding)
 * Reprovisioning based on a change in the device
 * Rolling the keys used by the device to connect to IoT Hub (when not using X.509 certificates to connect)
+
+Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 >[!NOTE]
 >**Data residency consideration:**
@@ -185,6 +187,9 @@ The tables below show the current billable status for each DPS service API opera
 ## Related Azure components
 
 DPS automates device provisioning with Azure IoT Hub. Learn more about [IoT Hub](../iot-hub/index.yml).
+
+> [!NOTE]
+> Provisioning of nested edge devices (parent/child hierarchies) is not currently supported by DPS.
 
 ## Next steps
 
