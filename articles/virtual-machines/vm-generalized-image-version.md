@@ -312,7 +312,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }
@@ -363,7 +363,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
             "osDisk": {
                 "caching": "ReadWrite",
                 "managedDisk": {
-                    "storageAccountType": "Standard_LRS"
+                    "storageAccountType": "StandardSSD_LRS"
                 },
                 "createOption": "FromImage"
             }
