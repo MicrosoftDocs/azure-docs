@@ -483,7 +483,7 @@ app.listen(process.env.SERVER_PORT, () => {
    node index.js
    ``` 
 
-2. In your browser, go to `http://localhost:3000` or `http://localhost:<port>`, where <port> is the port that your web server is listening on. You should see the page with a **Sign in** button.
+2. In your browser, go to `http://localhost:3000` or `http://localhost:port`, where `port` is the port that your web server is listening on. You should see the page with a **Sign in** button.
 
    :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-login-page.png" alt-text="Screenshot that shows a Node web app sign-in page.":::
 

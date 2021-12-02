@@ -382,7 +382,7 @@ App endpoints:
 ```
 node index.js
 ``` 
-2. In your browser, navigate to `http://localhost:3000` or `http://localhost:<port>`, where <port> is the port that your web server is listening on. You should see the page with a **Sign in to acquire access token** button.
+2. In your browser, navigate to `http://localhost:3000` or `http://localhost:port`, where `port` is the port that your web server is listening on. You should see the page with a **Sign in to acquire access token** button.
 
 :::image type="content" source="./media/tutorial-acquire-access-token/signin-acquire-access-token.png" alt-text="Node web app sign in page for acquiring access token":::
 
