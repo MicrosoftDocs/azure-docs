@@ -363,8 +363,6 @@ converted_model.delete()
 
 + [Hyperscale hardware: ML at scale on top of Azure + FPGA: Build 2018 (video)](/events/Build/2018/BRK3202)
 
-+ [Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
-
 + [Project Brainwave for real-time AI](https://www.microsoft.com/research/project/project-brainwave/)
 
 + [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)

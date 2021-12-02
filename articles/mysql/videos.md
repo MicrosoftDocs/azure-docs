@@ -36,7 +36,4 @@ Azure Database for PostgreSQL and Azure Database for MySQL bring together commun
 
 ## How to get started with the new Azure Database for MySQL service
 
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8045/player]
-[Open in Channel 9](https://channel9.msdn.com/events/Build/2017/B8045)
-
 In this video from the May 2017 Microsoft //Build conference, learn about Microsoft’s managed MySQL offering in Azure. The video walks through Microsoft’s strategy for supporting Open-Source database systems in Azure. The video discusses what it means to you as a developer to develop or deploy applications that use MySQL in Azure. This video shows an overview of the architecture of the service, and demonstrates Azure Database for MySQL is integrated with other Azure Services such as Web Apps.

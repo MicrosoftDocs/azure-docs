@@ -7,12 +7,6 @@ ms.date: 06/26/2020
 
 # Create custom artifacts for your DevTest Labs virtual machine
 
-Watch the following video for an overview of the steps described in this article:
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
->
->
-
 ## Overview
 You can use *artifacts* to deploy and set up your application after you provision a VM. An artifact consists of an artifact definition file and other script files that are stored in a folder in a Git repository. Artifact definition files consist of JSON expressions that specify what you want to install on a VM. For example, you can define the name of an artifact, a command to run, and available parameters for the command. You can refer to other script files within the artifact definition file by name.
 

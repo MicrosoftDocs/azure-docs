@@ -41,7 +41,5 @@ Azure Database for PostgreSQL brings together community edition database engine 
 
 ## How to get started with the new Azure Database for PostgreSQL service
 
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/B8046/player]
-[Open in Channel 9](https://channel9.msdn.com/events/Build/2017/B8046)
 
 In this video from the 2017 Microsoft //Build conference, learn from two early adopting customers how they've used Azure Database for PostgreSQL service to innovate faster. Learn how they migrated to the service, and discuss next steps in their application development. The video walks through some of the key service features and discusses how you as a developer can migrate your existing applications or develop new applications that use this managed PostgreSQL service in Azure.
