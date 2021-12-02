@@ -195,7 +195,7 @@ Flexible servers that are configured with high availability, log data is replica
 
 For Flexible servers configured **without** zone-redundant high availability, the service still provides built-in availability, storage redundancy and resiliency to help to recover from any planned or unplanned downtime events.
 
-:::image type="content" source="./media\business-continuity\concepts-availability-Without -Zone- Redundant -HA.architecture.png" alt-text="concepts-availability-Without -Zone- Redundant -HA - failover"::: 
+:::image type="content" source="./media/business-continuity/concepts-availability-without -zone-redundant-ha.architecture.png" alt-text="availability without zone redundant ha - steady state"::: 
 
 ### Planned downtime 
 
