@@ -26,7 +26,7 @@
             "redirect_document_id": false
         },
 	{
-            "source_path_from_root": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites",
+            "source_path_from_root": "/azure/defender-for-iot/organizations/quickstart-system-prerequisites.md",
             "redirect_url": "/azure/defender-for-iot/organizations/getting-started",
             "redirect_document_id": false
         },
