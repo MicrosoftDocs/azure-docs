@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/23/2021
+ms.date: 12/02/2021
 ms.author: victorh
 ---
 
@@ -44,15 +44,15 @@ The following set of performance results demonstrates the maximal Azure Firewall
 > [!NOTE]
 > IPS (Intrusion Prevention System) takes place when one or more signatures are configured to *Alert and Deny* mode.
 
-Azure Firewall's new accelerated networking functionality is now in private preview and provides you with enhancements to the overall firewall performance as shown below:
+Azure Firewall Premium’s new performance boost functionality is now in public preview and provides you with enhancements to the overall firewall performance as shown below:
 
 
-|Firewall use case  |Without Accelerated Networking (Gbps)  |With Accelerated Networking (Gbps)  |
+|Firewall use case  |Without performance boost (Gbps)  |With performance boost (Gbps)  |
 |---------|---------|---------|
 |Standard<br>Max bandwidth for single TCP connection     |1.3|-|
 |Premium<br>Max bandwidth for single TCP connection     |2.6|9.5|
 
-Performance values are calculated with Azure Firewall at full scale and with Accelerated networking enabled. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
+Performance values are calculated with Azure Firewall at full scale and with Premium performance boost enabled. Actual performance may vary depending on your rule complexity and network configuration. These metrics are updated periodically as performance continuously evolves with each release.
 
 
 ## Next steps
