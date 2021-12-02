@@ -28,7 +28,7 @@ SQL Database enables you to easily define and scale performance within two diffe
 > [!div class="nextstepaction"]
 > [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
-If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](https://docs.microsoft.com/en-us/shows/Azure-SQL-for-Beginners/?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](/shows/Azure-SQL-for-Beginners/?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://docs.microsoft.com/shows/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 
