@@ -107,66 +107,68 @@ If you change the DNS setting of the virtual network that your App Service Envir
 
 ## Portal dependencies
 
-In addition to the ASE functional dependencies, there are a few extra items related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to _SCM site_. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
+In addition to the dependencies described in the previous sections, there are a few extra considerations you should be aware of that are related to the portal experience. Some of the capabilities in the Azure portal depend on direct access to the source control manager (SCM) site. For every app in Azure App Service, there are two URLs. The first URL is to access your app. The second URL is to access the SCM site, which is also called the _Kudu console_. Features that use the SCM site include:
 
--   Web jobs
--   Functions
--   Log streaming
--   Kudu
--   Extensions
--   Process Explorer
--   Console
+- Web jobs
+- Functions
+- Log streaming
+- Kudu
+- Extensions
+- Process Explorer
+- Console
 
-When you use an ILB ASE, the SCM site isn't accessible from outside the virtual network. Some capabilities will not work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly instead of using the portal. 
+When you use an internal load balancer environment, the SCM site isn't accessible from outside the virtual network. Some capabilities don't work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly, instead of by using the portal. 
 
-If your ILB ASE is the domain name *contoso.appserviceenvironment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
+If your internal load balancer environment is the domain name `contoso.appserviceenvironment.net`, and your app name is *testapp*, the app is reached at `testapp.contoso.appserviceenvironment.net`. The SCM site that goes with it is reached at `testapp.scm.contoso.appserviceenvironment.net`.
 
-## ASE IP addresses ##
+## IP addresses
 
-An ASE has a few IP addresses to be aware of. They are:
+An App Service Environment has a few IP addresses to be aware of. They are:
 
-- **Public inbound IP address**: Used for app traffic in an External ASE, and management traffic in both an External ASE and an ILB ASE.
-- **Outbound public IP**: Used as the "from" IP for outbound connections from the ASE that leave the virtual network, which aren't routed down a VPN.
-- **ILB IP address**: The ILB IP address only exists in an ILB ASE.
-- **App-assigned IP-based TLS/SSL addresses**: Only possible with an External ASE and when IP-based TLS/SSL binding is configured.
+- **Public inbound IP address:** Used for app traffic in an external deployment, and management traffic in both internal and external deployments.
+- **Outbound public IP:** Used as the "from" IP for outbound connections from the environment that leave the virtual network. These connections aren't routed down a VPN.
+- **Internal load balancer IP address:** This address only exists in an internal deployment of your environment.
+- **App-assigned IP-based TLS/SSL addresses:** These addresses are only possible with an external deployment, and when IP-based TLS/SSL binding is configured.
 
-All these IP addresses are visible in the Azure portal from the ASE UI. If you have an ILB ASE, the IP for the ILB is listed.
+All these IP addresses are visible in the Azure portal from the App Service Environment UI. If you have an internal deployment, the IP for the internal load balancer is listed.
 
-   > [!NOTE]
-   > These IP addresses will not change so long as your ASE stays up and running.  If your ASE becomes suspended and restored, the addresses used by your ASE will change. The normal cause for an ASE to become suspended is if you block inbound management access or block access to an ASE dependency. 
+> [!NOTE]
+> These IP addresses don't change, as long as your App Service Environment is running. If your environment becomes suspended and is then restored, the addresses used will change. The normal cause for an environment to become suspended is if you block inbound management access, or you block access to an environment dependency. 
 
-![IP addresses][3]
+![Screenshot that shows IP addresses.][3]
 
-### App-assigned IP addresses ###
+### App-assigned IP addresses
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
+With an external deployment of your environment, you can assign IP addresses to individual apps. You can't do that with an internal deployment. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
 
-When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
+When an app has its own IP-based SSL address, the App Service Environment reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the **IP addresses** section of your environment portal. Traffic must be able to reach those ports from the VIP. Otherwise, the apps are inaccessible. This requirement is important to remember when you configure network security groups (NSGs).
 
-## Network Security Groups ##
+## Network security groups
 
-[Network Security Groups][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit deny rule at the lowest priority to deny everything. What you build are your allow rules.
+[NSGs][NSGs] provide the ability to control network access within a virtual network. When you use the portal, there's an implicit *deny rule* at the lowest priority to deny everything. What you build are your *allow rules*.
 
-In an ASE, you don't have access to the VMs used to host the ASE itself. They're in a Microsoft-managed subscription. If you want to restrict access to the apps on the ASE, set NSGs on the ASE subnet. In doing so, pay careful attention to the ASE dependencies. If you block any dependencies, the ASE stops working.
+You don't have access to the VMs used to host the App Service Environment itself. They're in a subscription that Microsoft manages. If you want to restrict access to the apps on the environment, set NSGs on the environment subnet. In doing so, pay careful attention to the dependencies. If you block any dependencies, the environment stops working.
 
-NSGs can be configured through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
+You can configure NSGs through the Azure portal or via PowerShell. The information here shows the Azure portal. You create and manage NSGs in the portal as a top-level resource under **Networking**.
 
-The required entries in an NSG, for an ASE to function, are to allow traffic:
+The required entries in an NSG, for an environment to function, are to allow traffic:
 
 **Inbound**
-* TCP from the IP service tag AppServiceManagement on ports 454,455
+
+* TCP from the IP service tag `AppServiceManagement` on ports 454, 455
 * TCP from the load balancer on port 16001
-* from the ASE subnet to the ASE subnet on all ports
+* From the environment subnet to the environment subnet on all ports
 
 **Outbound**
+
 * UDP to all IPs on port 53
 * UDP to all IPs on port 123
 * TCP to all IPs on ports 80, 443
-* TCP to the IP service tag `Sql` on ports 1433
+* TCP to the IP service tag `Sql` on port 1433
 * TCP to all IPs on port 12000
-* to the ASE subnet on all ports
+* To the environment subnet on all ports
 
-These ports do not include the ports that your apps require for successful use. As an example, your app may need to call a MySQL server on port 3306. Network Time Protocol (NTP) on port 123 is the time synchronization protocol used by the operating system. The NTP endpoints are not specific to App Services, can vary with the operating system, and are not in a well defined list of addresses. To prevent time synchronization issues, you then need to allow UDP traffic to all addresses on port 123. The outbound TCP to port 12000 traffic is for system support and analysis. The endpoints are dynamic and are not in a well defined set of addresses.
+These ports don't include the ports that your apps require for successful use. For example, suppose your app needs to call a MySQL server on port 3306. Network Time Protocol (NTP) on port 123 is the time synchronization protocol used by the operating system. The NTP endpoints aren't specific to App Service, can vary with the operating system, and aren't in a well-defined list of addresses. To prevent time synchronization issues, you then need to allow UDP traffic to all addresses on port 123. The outbound TCP to port 12000 traffic is for system support and analysis. The endpoints are dynamic, and aren't in a well-defined set of addresses.
 
 The normal app access ports are:
 
@@ -177,52 +179,55 @@ The normal app access ports are:
 |  Visual Studio remote debugging  |  4020, 4022, 4024 |
 |  Web Deploy service | 8172 |
 
-When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in this example. 
+When the inbound and outbound requirements are taken into account, the NSGs should look similar to the NSGs shown in the following screenshot: 
 
-![Inbound security rules][4]
+![Screenshot that shows inbound security rules.][4]
 
-A default rule enables the IPs in the virtual network to talk to the ASE subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the ASE. To see the default rules, select **Default rules** next to the **Add** icon. If you put a deny everything else rule before the default rules, you prevent traffic between the VIP and the ASE. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to AzureLoadBalancer with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the ASE subnet, you don't need to be specific in the destination.
+A default rule enables the IPs in the virtual network to talk to the environment subnet. Another default rule enables the load balancer, also known as the public VIP, to communicate with the environment. To see the default rules, select **Default rules** (next to the **Add** icon).
+
+If you put a *deny everything else* rule before the default rules, you prevent traffic between the VIP and the App Service Environment. To prevent traffic coming from inside the virtual network, add your own rule to allow inbound. Use a source equal to `AzureLoadBalancer`, with a destination of **Any** and a port range of **\***. Because the NSG rule is applied to the environment subnet, you don't need to be specific in the destination.
 
 If you assigned an IP address to your app, make sure you keep the ports open. To see the ports, select **App Service Environment** > **IP addresses**.  
 
-All the items shown in the following outbound rules are needed, except for the last item. They enable network access to the ASE dependencies that were noted earlier in this article. If you block any of them, your ASE stops working. The last item in the list enables your ASE to communicate with other resources in your virtual network.
+All the items shown in the following outbound rules are needed, except for the last item. They enable network access to the environment dependencies that were noted earlier in this article. If you block any of them, your environment stops working. The last item in the list enables your environment to communicate with other resources in your virtual network.
 
-![Outbound security rules][5]
+![Screenshot that shows outbound security rules.][5]
 
-After your NSGs are defined, assign them to the subnet that your ASE is on. If you don’t remember the ASE virtual network or subnet, you can see it from the ASE portal page. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
+After your NSGs are defined, assign them to the subnet that your environment is on. If you don't remember the environment virtual network or subnet, you can see it from the App Service Environment portal. To assign the NSG to your subnet, go to the subnet UI and select the NSG.
 
-## Routes ##
+## Routes
 
-Forced tunneling is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet but somewhere else like an ExpressRoute gateway or a virtual appliance.  If you need to configure your ASE in such a manner, then read the document on [Configuring your App Service Environment with Forced Tunneling][forcedtunnel].  This document will tell you the options available to work with ExpressRoute and forced tunneling.
+*Forced tunneling* is when you set routes in your virtual network so the outbound traffic doesn't go directly to the internet. Instead, the traffic goes somewhere else, like an Azure ExpressRoute gateway or a virtual appliance. If you need to configure your App Service Environment in such a manner, see [Configuring your App Service Environment with forced tunneling][forcedtunnel].
 
-When you create an ASE in the portal we also create a set of route tables on the subnet that is created with the ASE.  Those routes simply say to send outbound traffic directly to the internet.  
+When you create an App Service Environment in the portal, you automatically create a set of route tables on the subnet that is created with the environment. Those routes simply say to send outbound traffic directly to the internet.  
+
 To create the same routes manually, follow these steps:
 
-1. Go to the Azure portal. Select **Networking** > **Route Tables**.
+1. Go to the Azure portal, and select **Networking** > **Route Tables**.
 
 2. Create a new route table in the same region as your virtual network.
 
 3. From within your route table UI, select **Routes** > **Add**.
 
-4. Set the **Next hop type** to **Internet** and the **Address prefix** to **0.0.0.0/0**. Select **Save**.
+4. Set the **Next hop type** to **Internet**, and the **Address prefix** to **0.0.0.0/0**. Select **Save**.
 
     You then see something like the following:
 
-    ![Functional routes][6]
+    ![Screenshot that shows functional routes.][6]
 
-5. After you create the new route table, go to the subnet that contains your ASE. Select your route table from the list in the portal. After you save the change, you should then see the NSGs and routes noted with your subnet.
+5. After you create the new route table, go to the subnet that contains your environment. Select your route table from the list in the portal. After you save the change, you should then see the NSGs and routes noted with your subnet.
 
-    ![NSGs and routes][7]
+    ![Screenshot that shows NSGs and routes.][7]
 
-## Service Endpoints ##
+## Service endpoints
 
-Service Endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. You can read more about Service Endpoints in the [Virtual Network Service Endpoints][serviceendpoints] documentation. 
+Service endpoints enable you to restrict access to multi-tenant services to a set of Azure virtual networks and subnets. For more information, see [Virtual Network service endpoints][serviceendpoints]. 
 
-When you enable Service Endpoints on a resource, there are routes created with higher priority than all other routes. If you use Service Endpoints on any Azure service, with a forced tunneled ASE, the traffic to those services will not be forced tunneled. 
+When you enable service endpoints on a resource, there are routes created with higher priority than all other routes. If you use service endpoints on any Azure service, with a force-tunneled environment, the traffic to those services isn't force-tunneled. 
 
-When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Azure SQL instances connected to from that subnet must have Service Endpoints enabled. if you want to access multiple Azure SQL instances from the same subnet, you can't enable Service Endpoints on one Azure SQL instance and not on another. No other Azure service behaves like Azure SQL with respect to Service Endpoints. When you enable Service Endpoints with Azure Storage, you lock access to that resource from your subnet but can still access other Azure Storage accounts even if they do not have Service Endpoints enabled.  
+When service endpoints are enabled on a subnet with an instance of Azure SQL, all Azure SQL instances connected to from that subnet must have service endpoints enabled. If you want to access multiple Azure SQL instances from the same subnet, you can't enable service endpoints on one Azure SQL instance and not on another. No other Azure service behaves like Azure SQL with respect to service endpoints. When you enable service endpoints with Azure Storage, you lock access to that resource from your subnet. You can still access other Azure Storage accounts, however, even if they don't have service endpoints enabled.  
 
-![Service Endpoints][8]
+![Diagram that shows service endpoints.][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
