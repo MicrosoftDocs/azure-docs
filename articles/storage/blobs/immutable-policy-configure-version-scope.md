@@ -53,11 +53,11 @@ After the storage account is created, you can configure a default version-level 
 
 ##### [PowerShell](#tab/azure-powershell)
 
-TBD
+N/A
 
 ##### [Azure CLI](#tab/azure-cli)
 
-To enable support for version-level immutability when you create a storage account with Azure CLI, call the [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create) command with the `--enable-alw` parameter specified. You can optionally specify a default policy for the storage account at the same time, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
+To enable support for version-level immutability when you create a storage account with Azure CLI, call the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command with the `--enable-alw` parameter specified. You can optionally specify a default policy for the storage account at the same time, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
 
 ```azurecli
 az storage account create \
@@ -75,7 +75,7 @@ az storage account create \
 
 Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.
 
-Keep in mind that enabling version-level immutability support for a container does not make data in that container immutable. You must also configure either a default immutability policy for the container, or an immutability policy on a specific blob version.
+Keep in mind that enabling version-level immutability support for a container does not make data in that container immutable. You must also either configure a default immutability policy for the container, or an immutability policy on a specific blob version. If you enabled version-level immutability for the storage account when it was created, you can also configure a default immutability policy for the account.
 
 #### Enable version-level immutability for a new container
 
@@ -322,8 +322,8 @@ Time-based retention policies maintain blob data in a WORM state for a specified
 
 You have three options for configuring a time-based retention policy for a blob version:
 
-- Option 1: You can configure a default policy that is scoped to the container and that applies to all objects in the container by default. Objects in the container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy on a container](#configure-a-default-time-based-retention-policy-on-a-container).
-- Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the container, if one exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
+- Option 1: You can configure a default policy on the storage account or container that applies to all objects in the account or container. Objects in the account or container will inherit the default policy unless you explicitly override it by configuring a policy on an individual blob version. For more details, see [Configure a default time-based retention policy](#configure-a-default-time-based-retention-policy).
+- Option 2: You can configure a policy on the current version of the blob. This policy can override a default policy configured on the storage account or container, if a default policy exists and it is unlocked. By default, any previous versions that are created after the policy is configured will inherit the policy on the current version of the blob. For more details, see [Configure a retention policy on the current version of a blob](#configure-a-retention-policy-on-the-current-version-of-a-blob).
 - Option 3: You can configure a policy on a previous version of a blob. This policy can override a default policy configured on the current version, if one exists and it is unlocked. For more details, see [Configure a retention policy on a previous version of a blob](#configure-a-retention-policy-on-a-previous-version-of-a-blob).
 
 For more information on blob versioning, see [Blob versioning](versioning-overview.md).
