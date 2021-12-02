@@ -214,7 +214,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
    Set-AzFirewall -AzureFirewall $azfw
    ```
 
-= Allocate Firewall Premium in Forced Tunnel Mode
+- Allocate Firewall Premium in Forced Tunnel Mode
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
