@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Securing workload identities with Identity Protection
 
-A key component to any organization’s Zero Trust approach must include securing identities for users and applications. This new capability builds upon Identity Protection’s foundation in detecting identity-based threats and expands that foundation to include threat detection for applications and service principals. We're now combining this signal with Conditional Access to enable adaptive risk-based authentication controls. 
+A key component to any organization’s Zero Trust approach must include securing identities for users and applications. This new capability builds upon Identity Protection’s foundation in detecting identity-based threats and expands that foundation to include threat detection for applications, service principals, and Managed Identities. We refer to these accounts as workload identities.
 
 Organizations can now view risky application or service principal accounts and risk detection events using two new Graph API collections:
 
