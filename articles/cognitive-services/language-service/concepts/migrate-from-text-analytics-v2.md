@@ -46,6 +46,8 @@ See the reference documentation for examples of the JSON response.
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../sentiment-opinion-mining/quickstart.md) lists the commands you can use for your preferred language, with example code.
 
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
+
 ## [NER, PII, and entity linking](#tab/named-entity-recognition)
 
 > [!NOTE]
@@ -83,6 +85,8 @@ See the reference documentation for examples of the JSON response.
 ### Client libraries
 
 To use the latest version of the NER and entity linking client libraries, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The quickstart article for [Named Entity Recognition](../named-entity-recognition/quickstart.md) and [entity linking](../entity-linking/quickstart.md) lists the commands you can use for your preferred language, with example code.
+
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
 
 #### Version 2.1 entity categories
 
@@ -138,6 +142,8 @@ See the reference documentation for examples of the JSON response.
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../language-detection/quickstart.md) lists the commands you can use for your preferred language, with example code.
 
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
+
 ## [Key phrase extraction](#tab/key-phrase-extraction)
 
 > [!NOTE]
@@ -162,6 +168,8 @@ See the reference documentation for examples of the JSON response.
 ### Client libraries
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../key-phrase-extraction/quickstart.md) lists the commands you can use for your preferred language, with example code.
+
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
 
 ---
 
