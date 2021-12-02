@@ -68,6 +68,8 @@ New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azur
 
 ## Use integer index
 
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+
 
 
 ## Add resource snippet
