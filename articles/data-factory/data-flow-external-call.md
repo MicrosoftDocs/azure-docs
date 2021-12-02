@@ -27,7 +27,7 @@ In the external call transformation configuration panel, you will first pick the
 
 ### Settings
 
-Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for explanations of the settings properties.
+Choose the inline dataset type and associated linked service. Today, only REST is supported. However, SQL stored procedures and other linked service types will become available as well. See the [REST source configuration](connector-rest.md) for explanations of the settings properties.
 
 ### Mapping
 
@@ -111,4 +111,4 @@ ExternalCall1 sink(allowSchemaDrift: true,
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.
-* See the [REST source](https://docs.microsoft.com/azure/data-factory/connector-rest?tabs=data-factory#source-transformation) for more information on REST settings.
+* See the [REST source](connector-rest.md) for more information on REST settings.
