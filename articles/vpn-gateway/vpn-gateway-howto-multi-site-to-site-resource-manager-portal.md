@@ -58,7 +58,7 @@ Verify the following items:
 1. On the **Create local network gateway** page, fill out the following fields:
 
    * **Name:** The name you want to give to the local network gateway resource.
-   * **Endpoint:** The public IP address of the VPN device on the site that you want to connect to, or the FQDN of the endpoint.
+   * **Endpoint:** The public IP address of the VPN device on the site that you want to connect to, or the FQDN of the endpoint. If you want to create a connection to another VPN gateway, you can use the IP address of the other gateway in this field.
    * **Address space:** The address space that you want to be routed to the new local network site.
 1. Select **OK** on the **Create local network gateway** page to save the changes.
 

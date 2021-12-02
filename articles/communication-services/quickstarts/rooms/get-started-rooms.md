@@ -165,5 +165,6 @@ In this section you learned how to:
 > - Delete a room
 
 You may also want to:
+ - Learn about [rooms concept](../../concepts/rooms/room-concept.md)
  - Learn about [voice and video calling concepts](../../concepts/voice-video-calling/about-call-types.md)
  - Review Azure Communication Services [samples](../../samples/overview.md)
