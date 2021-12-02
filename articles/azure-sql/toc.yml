@@ -801,8 +801,10 @@
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: What's new?
       href: managed-instance/doc-changes-updates-release-notes-whats-new.md
-    - name: Instance pools
-      href: managed-instance/instance-pools-overview.md
+    - name: Resource limits
+      href: managed-instance/resource-limits.md
+    - name: vCore purchasing model
+      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.yml
@@ -877,10 +879,6 @@
 
   - name: Concepts
     items:
-    - name: Resource limits
-      href: managed-instance/resource-limits.md
-    - name: Compute Hardware
-      href: managed-instance/service-tiers-managed-instance-vcore.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
@@ -889,8 +887,8 @@
       href: managed-instance/replication-transactional-overview.md
     - name: Link feature for SQL MI
       href: managed-instance/link-feature.md
-
-
+    - name: Instance pools
+      href: managed-instance/instance-pools-overview.md
     - name: Management operations
       items:
       - name: Overview
