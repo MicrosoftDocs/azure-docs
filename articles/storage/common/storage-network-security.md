@@ -127,7 +127,7 @@ Each storage account supports up to 200 virtual network rules, which may be comb
 
 ### Available virtual network regions
 
-In general, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, this scope grows to include the [paired region](../../best-practices-availability-paired-regions.md). Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
+In general, service endpoints work between virtual networks and service instances in the same Azure region. When using service endpoints with Azure Storage, this scope grows to include the [paired region](../../availability-zones/cross-region-replication-azure.md). Service endpoints allow continuity during a regional failover and access to read-only geo-redundant storage (RA-GRS) instances. Network rules that grant access from a virtual network to a storage account also grant access to any RA-GRS instance.
 
 When planning for disaster recovery during a regional outage, you should create the VNets in the paired region in advance. Enable service endpoints for Azure Storage, with network rules granting access from these alternative virtual networks. Then apply these rules to your geo-redundant storage accounts.
 
@@ -264,7 +264,7 @@ IP network rules can't be used in the following cases:
 
   IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
-- To restrict access to clients in a [paired region](../../best-practices-availability-paired-regions.md) which are in a VNet that has a service endpoint.
+- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
 
 - To restrict access to Azure services deployed in the same region as the storage account.
 
