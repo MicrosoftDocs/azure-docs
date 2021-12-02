@@ -61,7 +61,8 @@ Configure rotation policy on existing keys.
 :::image type="content" source="../media/keys/key-rotation/key-rotation-3.png" alt-text="Configure rotation on existing key":::
 
 ### Azure CLI
-Save rotation policy to a file 
+
+Save  key rotation policy to a file. Key rotation policy example:
 
 ```json
 {
@@ -89,7 +90,8 @@ Save rotation policy to a file
   }
 }
 ```
-Set rotation policy on a key
+Set rotation policy on a key passing previously saved file. 
+
 ```azurecli
 az keyvault key rotation-policy update --vault-name <vault-name> --name <key-name> --value </path/to/policy.json>
 ```
