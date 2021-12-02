@@ -66,7 +66,7 @@ The primary means of controlling the backup storage cost is by setting the appro
 
 In Flexible server, performing a point-in-time restore creates a new server in the same region as your source server, but you can choose the availability zone. It is created with the source server's configuration for the pricing tier, compute generation, number of vCores, storage size, backup retention period, and backup redundancy option. Also, tags and settings such as VNET and firewall settings are inherited from the source server.
 
- ### Point-in-time restore process
+ ### Point-in-time restore
 
 The physical database files are first restored from the snapshot backups to the server's data location. The appropriate backup that was taken earlier than the desired point-in-time is automatically chosen and restored. A recovery process is then initiated using WAL files to bring the database to a consistent state. 
 
@@ -92,15 +92,22 @@ If you have configured your server within a VNET, you can restore to the same VN
 > [!IMPORTANT]
 > Deleted servers **cannot** be restored by the user. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](../../azure-resource-manager/management/lock-resources.md). If you accidentally deleted your server, please reach out to support. In some cases, your server may be restored with or without data loss.
 
-## Geo-restore (Preview) Process
+## Geo-redundant backup and restore (Preview)
 
-If you configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../availability-zones/cross-region-replication-azure.md). Please refer to the geo-redundant backup supported [regions](overview.md#azure-regions).
+You can configure geo-redundant backup at the time of server creation. Refer to this [quick start guide](./quickstart-create-server-portal.md) on how to enable Geo-redundant backup from Compute+Storage blade. 
+
+>[!IMPORTANT]
+> Geo-redundant backup can only be configured at the time of server creation. 
+
+Once you have configured your server with geo-redundant backup, you can restore it to a [geo-paired region](../../availability-zones/cross-region-replication-azure.md). Please refer to the geo-redundant backup supported [regions](overview.md#azure-regions).
 
 When the server is configured with geo-redundant backup, the backup data is copied to the paired region asynchronously using storage replication. This includes copying of data backup and also transaction logs. After the server creation, please wait at least for one hour before initiating a geo-restore. That will allow the first set of backup data to be replicated to the paired region. Subsequently, the transaction logs and the daily backups are asynchronously copied to the paired region and there could be up to one hour of delay in data transmission. Hence, you can expect up to one hour of RPO when you restore. You can only restore to the last available backup data that is available at the paired region. Currently, point-in-time restore of geo-backup is not available.
 
 The estimated time to recover the server (RTO) depends on factors including the size of the database, the last database backup time, and the amount of WAL to process till the last received backup data. The overall recovery time usually takes from few minutes up to few hours.
 
 During the geo-restore, the server configurations that can be changed include VNET settings and the ability to remove geo-redundant backup from the restored server.  Changing other server configurations such as compute, storage or pricing tier (Burstable, General Purpose, or Memory Optimized) during geo-restore are not supported.
+
+Refer to the [how to guide](how-to-restore-server-portal.md#performing-geo-restore-preview) on performing Geo-restore.
 
 > [!IMPORTANT]
 > When primary region is down, you cannot create geo-redundant servers in the respective geo-paired region as storage cannot be provisioned in the primary region. You must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
