@@ -189,8 +189,7 @@ The Device Update agent can also be configured without the IoT Identity service 
     	- If Device Update agent is configured as a module copy the module's primary connection string. 
     	- Otherwise copy the device's primary connection string.
      
-    3. Enter the copied primary connection string to 'connectionData' in the du-config.json file. Then save and close the file.
-		Example:  "connectionData" : "<your primary connection string>"
+    3. Enter the copied primary connection string to the 'connectionData' field's value in the du-config.json file. Then save and close the file.
  
 1. Now you are now ready to start the Device Update agent on your IoT device. 
 
