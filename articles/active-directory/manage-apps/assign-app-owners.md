@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: app-mgmt
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 12/02/2021
 ms.author: saibandaru
 #Customer intent: As an Azure AD administrator, I want to assign owners to enterprise applications.
 
