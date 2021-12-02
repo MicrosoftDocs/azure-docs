@@ -20,7 +20,7 @@ This feature enables end-to-end zero-touch rotation for encryption at rest for A
 
 ## Pricing
 
-Additional cost will occur when a key is automatically rotated. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
+Key rotation feature is free during preview. Additional cost will occur when a key is automatically rotated once feature GA. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
 
 ## Assign an Azure role for key rotation management
 
@@ -32,7 +32,7 @@ For more information on how to use RBAC permission model and assign Azure roles,
 > [!NOTE]
 > If you use an access policies permission model, it is required to set 'Rotate', 'Set Rotation Policy', and 'Get Rotation Policy' key permissions to manage rotation policy on keys. 
 
-## Key Rotation Policy
+## Key rotation policy
 
 The key rotation policy allows users to configure rotation interval, expiration interval for rotated keys, and near expiry notification period for monitoring expiration using event grid notifications.
 
@@ -48,21 +48,53 @@ Key rotation policy settings:
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-1.png" alt-text="Rotation policy configuration":::
 
-## Configure automated key rotation policy during key creation 
+## Configure key rotation policy
 
-Automated key rotation policy can be configured during key creation.
+Configure key rotation policy during key creation.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-2.png" alt-text="Configure rotation during key creation":::
 
-## Configure automated key rotation policy for existing keys
-
-Key rotation policy can be set or updated on existing keys.
+Configure rotation policy on existing keys.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-3.png" alt-text="Configure rotation on existing key":::
 
+### Azure CLI
+Save rotation policy to a file 
+
+```json
+{
+  "lifetimeActions": [
+    {
+      "trigger": {
+        "timeAfterCreate": "P18M",
+        "timeBeforeExpiry": null
+      },
+      "action": {
+        "type": "Rotate"
+      }
+    },
+    {
+      "trigger": {
+        "timeBeforeExpiry": "P30D"
+      },
+      "action": {
+        "type": "Notify"
+      }
+    }
+  ],
+  "attributes": {
+    "expiryTime": "P2Y"
+  }
+}
+```
+Set rotation policy on a key
+```azurecli
+az keyvault key rotation-policy update --vault-name <vault-name> --name <key-name> --value </path/to/policy.json>
+```
+
 ## Rotation on demand
 
-You can invoke rotation of the key manually.
+Key rotation can be invoked manually.
 
 ### Portal
 Click 'Rotate Now' to invoke rotation
