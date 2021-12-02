@@ -13,6 +13,8 @@ ms.author: mbaldwin
 ---
 # Configure key auto-rotation in Azure Key Vault (preview)
 
+## Overview
+
 Automated key rotation in Key Vault allows users to configure Key Vault to automatically generate a new key version at a specified frequency. You can use rotation policy to configure rotation for each individual
 key. Our recommendation is to rotate encryption keys at least every two years to meet cryptographic best practices.
 
@@ -22,7 +24,7 @@ This feature enables end-to-end zero-touch rotation for encryption at rest for A
 
 Key rotation feature is free during preview. Additional cost will occur when a key is automatically rotated once feature GA. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
 
-## Assign an Azure role for key rotation management
+## Permissions required
 
 Key Vault key rotation feature requires key management permissions. You can assign a "Key Vault Crypto Officer" role to manage rotation policy and on-demand rotation.
 
@@ -107,6 +109,7 @@ az keyvault key rotate --vault-name <vault-name> --name <key-name>
 ```
 
 ## Configure key near expiry notification
+
 Configuration of expiry notification for event grid key near expiry event. You can configure notification with days, months and years before expiry to trigger near expiry event. 
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-5.png" alt-text="Configure Notification":::
@@ -114,7 +117,7 @@ Configuration of expiry notification for event grid key near expiry event. You c
 For more information about event grid notifications in Key Vault, see
 [Azure Key Vault as Event Grid source](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault?tabs=event-grid-event-schema)
 
-## Configure automated key rotation with ARM template
+## Configure key rotation with ARM template
 
 Key rotation policy can also be configured using ARM templates.
 
