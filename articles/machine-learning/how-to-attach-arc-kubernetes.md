@@ -352,6 +352,11 @@ Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` ma
 > [!IMPORTANT]
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 
+##Trouble & Debug**
+
+**Prerequisites
+
+
 ---
 
 ## Next steps
