@@ -3,7 +3,7 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
@@ -28,8 +28,11 @@ Create a new runbook in Azure Automation using the Azure portal or PowerShell. O
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From the Automation account, select **Runbooks** under **Process Automation** to open the list of runbooks.
 1. Click **Create a runbook**.
-1. Enter a name for the runbook and select its [type](automation-runbook-types.md). The runbook name must start with a letter and can contain letters, numbers, underscores, and dashes.
-1. Click **Create** to create the runbook and open the editor.
+    1. Name the runbook.
+    1. From the **Runbook type** drop-down. Select its [type](automation-runbook-types.md). The runbook name must start with a letter and can contain letters, numbers, underscores, and dashes
+    1. Select the **Runtime version**
+    1. Enter applicable **Description**
+1. Click **Create** to create the runbook.
 
 ### Create a runbook with PowerShell
 
@@ -69,11 +72,14 @@ You can use the following procedure to import a script file into Azure Automatio
 1. In the Azure portal, search for and select **Automation Accounts**.
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From the Automation account, select **Runbooks** under **Process Automation** to open the list of runbooks.
-1. Click **Import a runbook**.
-1. Click **Runbook file** and select the file to import.
+1. Click **Import a runbook**. You can select either of the following options:
+    1. **Browse for file** - selects a file from your local machine.
+    1. **Browse from Gallery** - You can browse and select an existing runbook from gallery.
+1. Select the file.
 1. If the **Name** field is enabled, you have the option of changing the runbook name. The name must start with a letter and can contain letters, numbers, underscores, and dashes.
-1. The [runbook type](automation-runbook-types.md) is automatically selected, but you can change the type after taking the applicable restrictions into account.
-1. Click **Create**. The new runbook appears in the list of runbooks for the Automation account.
+1. The [**Runbook type**](automation-runbook-types.md) is automatically populated, but you can change the type after taking the applicable restrictions into account.
+1. The **Runtime version** is either auto-populated or pick the version from the drop-down list.
+1. Click **Import**. The new runbook appears in the list of runbooks for the Automation account.
 1. You have to [publish the runbook](#publish-a-runbook) before you can run it.
 
 > [!NOTE]

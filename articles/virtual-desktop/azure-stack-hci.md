@@ -28,26 +28,30 @@ In order to use Azure Virtual Desktop for Azure Stack HCI, you'll need the follo
 
 - A stable connection to Azure from your on-premises network.
 
+- Access from your on-premises network to all the required URLs listed in Azure Virtual Desktop's [required URL list](safe-url-list.md) for virtual machines.
+
 ## Configure Azure Virtual Desktop for Azure Stack HCI
 
 To set up Azure Virtual Desktop for Azure Stack HCI:
 
 1. Create a new host pool with no virtual machines by following the instructions in [Begin the host pool setup process](create-host-pools-azure-marketplace.md#begin-the-host-pool-setup-process). At the end of that section, come back to this article and start on step 2.
 
-2. Follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information) to create a workspace for yourself.
+2. Configure the newly created host pool to be a validation host pool by following the steps in [Define your host pool as a validation host pool](create-validation-host-pool.md#define-your-host-pool-as-a-validation-host-pool) to enable the Validation environment property.
 
-3. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
+3. Follow the instructions in [Workspace information](create-host-pools-azure-marketplace.md#workspace-information) to create a workspace for yourself.
+
+4. Deploy a new virtual machine on your Azure Stack HCI infrastructure by following the instructions in [Create a new VM](/azure-stack/hci/manage/vm#create-a-new-vm). Deploy a VM with a supported OS and join it to a domain.
 
    >[!NOTE]
    >Install the Remote Desktop Session Host (RDSH) role if the VM is running a Windows Server OS.
 
-4. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
+5. Enable Azure to manage the new virtual machine through Azure Arc by installing the Connected Machine agent to it. Follow the directions in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) to install the Windows agent to the virtual machine.
 
-5. Add the virtual machine to the Azure Virtual Desktop host pool you created earlier by installing the [Azure Virtual Desktop Agent](agent-overview.md). After that, follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
+6. Add the virtual machine to the Azure Virtual Desktop host pool you created earlier by installing the [Azure Virtual Desktop Agent](agent-overview.md). After that, follow the instructions in [Register the VMs to the Azure Virtual Desktop host pool](create-host-pools-powershell.md#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool) to register the VM to the Azure Virtual Desktop service.
 
-6. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
+7. Follow the directions in [Create app groups and manage user assignments](manage-app-groups.md) to create an app group for testing and assign user access to it.
 
-7. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
+8. Go to [the web client](./user-documentation/connect-web.md) and grant your users access to the new deployment.
 
 ## Optional configurations
 
@@ -159,6 +163,13 @@ To export the VHD:
 
 2. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
 
+>[!NOTE]
+>If you're running azcopy, you may need to skip the md5check by running this command:
+>
+> ```azure
+> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> ```
+
 ### Clean up the managed disk
 
 When you're done with your VHD, you'll need to free up space by deleting the managed disk.
@@ -171,6 +182,13 @@ az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
 This command may take a few minutes to finish, so be patient.
+
+>[!NOTE]
+>Optionally, you can also convert the download VHD to a dynamic VHDx by running this command:
+>
+> ```powershell
+> Convert-VHD -Path " destination_path_on_cluster\file_name.vhd" -DestinationPath " destination_path_on_cluster\file_name.vhdx" -VHDType Dynamic
+> ```
 
 ## Next steps
 

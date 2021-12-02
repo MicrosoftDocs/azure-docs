@@ -354,7 +354,7 @@ sections:
       - question: |
           Are returns and refunds supported with the commercial marketplace?
         answer: |
-          Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring SaaS charges are eligible for a refund within 72 hours of purchase or renewal. 
+          Refunds are available to customers under certain conditions and for certain charges. Requests for refunds of recurring charges billed monthly must be received within 24 hours of purchase. Similarly, requests for refunds of recurring charges billed annually must be received within 14 days of purchase. 
           
           Refunds are not issued for variable charges resulting from usage (from either virtual machine offers or metered billing).
           

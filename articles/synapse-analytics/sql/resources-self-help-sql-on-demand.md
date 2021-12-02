@@ -86,6 +86,56 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
+### Content of directory on the path cannot be listed
+
+This error indicates that the user who is querying Azure Data Lake cannot list the files on a storage. There are several scenarios where this error might happen:
+- Azure AD user who is using [Azure AD pass-through authentication](develop-storage-files-storage-access-control.md?tabs=user-identity) do not have permissions to list the files on Azure Data Lake storage.
+- Azure AD or SQL user is reading data using [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity), and that key/identity do not have permission to list the files on the storage.
+- User who is accessing DataVerse data does not have permission to query data in DataVerse. This might happen if you are using SQL users.
+- User who is accessing Delta Lake might not have permission to read Delta Lake transaction log.
+ 
+The easiest way is to resolve this issue is grant yourself `Storage Blob DataContributor` role on the storage account you're trying to query.
+- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md).
+- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+ 
+#### Content of DataVerse table cannot be listed
+
+If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
+
+```
+External table '???' is not accessible because content of directory cannot be listed.
+```
+
+DataVerse external tables always use **Azure AD passthrough** authentication. You **cannot** configure them to use [SAS key](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) or [workspace Managed Identity](develop-storage-files-storage-access-control.md?tabs=managed-identity).
+
+#### Content of Delta Lake transaction log cannot be listed
+
+The following error is returned when a serverless SQL pool cannot read the Delta Lake transaction log folder.
+
+```Msg 13807, Level 16, State 1, Line 6
+Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+```
+
+Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format). If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders. Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
+
+```sql
+select top 10 *
+from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json',FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b',ROWTERMINATOR = '0x0b') 
+with (line varchar(max)) as logs
+```
+
+If this query fails, the caller does not have permission to read the underlying storage files.  
+
+###  Invalid object name
+
+This error indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
+- List the tables/views and check does the object exists. Use SSMS or ADS because Synapse studio might show some tables that are not available in the serverless SQL pool.
+- If you see the object, check are you using some case-sensitive/binary database collation. Maybe the object name does not match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
+- If you don't see the object, maybe you are trying to query a table from a Lake/Spark database. There are a few reasons why the table might not be available in the serverless pool:
+  - The table has some column types that cannot be represented in serverless SQL.
+  - The table has a format that is not supported in serverless SQL pool (Delta, ORC, etc.)
+
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
 This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
@@ -431,9 +481,9 @@ This error indicates that there are some external tables with the columns contai
 
 ### Inserting value to batch for column type DATETIME2 failed
 
-The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian-proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. If you stored the files using the Spark 2.4, the date time values before are written using the Julain calendar that is not aligned with the Gregorian Proleptic calendar used in serverless SQL pools. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian Proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
 
-Try to use Spark to update these values. The following sample shows how to update the values in Delta Lake:
+Try to use Spark to update these values because they are treated as invalid date values in SQL. The following sample shows how to update the values that are out of SQL date ranges to `NULL` in Delta Lake:
 
 ```spark
 from delta.tables import *
@@ -442,6 +492,14 @@ from pyspark.sql.functions import *
 deltaTable = DeltaTable.forPath(spark, 
              "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
 deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
+
+Note this change will remove the values that cannot be represented. The other date values might be properly loaded but incorrectly represented because there is still a difference between Julian and Gregorian Proleptic calendars. You might see an unexpected date shifts even for the dates before `1900-01-01` if you are using Spark 3.0 or older versions.
+Consider [migrating to Spark 3.1 or higher](https://spark.apache.org/docs/latest/sql-migration-guide.html) where it is used Gregorian Proleptic calendar that is aligned with the calendar in the serverless SQL pool.
+You should reload your legacy data with the higher version of Spark, and use the following setting to correct the dates:
+
+```spark
+spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 ```
 
 ## Configuration
@@ -510,7 +568,7 @@ Possible errors and troubleshooting actions are listed in the following table.
 | Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
 | Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
 
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ### UTF-8 collation warning is returned while reading CosmosDB string types
 
@@ -556,44 +614,34 @@ There are some limitations and known issues that you might see in Delta Lake sup
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
-- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
 
-### Content of directory on path cannot be listed
+### JSON text is not properly formatted
 
-The following error is returned when serverless SQL pool cannot read the Delta Lake transaction log folder.
+This error indicates that serverless SQL pool cannot read Delta Lake transaction log. You will probably see the error like the following error:
 
 ```
-Msg 13807, Level 16, State 1, Line 6
-Content of directory on path 'https://.....core.windows.net/.../_delta_log/*.json' cannot be listed.
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
 ```
+Make sure that your Delta Lake data set is not corrupted. Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
 
-Make sure that `_delta_log` folder exists (maybe you are querying plain Parquet files that are not converted to Delta Lake format).
+**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
-If the `_delta_log` folder exists, make sure that you have both read and list permission on the underlying Delta Lake folders.
-Try to read \*.json files directly using FORMAT='CSV' (put your URI in the BULK parameter):
+If the data set is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide an additional info:
+- Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
+- Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
+- Try to read the content that you copied in new folder and verify that you are getting the same error.
+- Send the content of the copied `_delta_log` file to Azure support.
 
-```sql
-select top 10 * 
-from openrowset(BULK 'https://.....core.windows.net/.../_delta_log/*.json', 
-FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0b') with (line varchar(max)) as logs
-```
-
-If this query fails, the caller does not have permission to read the underlying storage files. 
-
-The easiest way is to grant yourself `Storage Blob Data Contributor` role on the storage account you're trying to query. 
-- [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
-- [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this. Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
 ### Partitioning column returns NULL values
-
-**Status**: Resolved
-
-**Release**: August 2021
-
-### Query failed because of a topology change or compute container failure
 
 **Status**: Resolved
 
@@ -616,31 +664,6 @@ The easiest way is to grant yourself `Storage Blob Data Contributor` role on the
 **Status**: Resolved
 
 **Release**: November 2021
-
-### JSON text is not properly formatted
-
-This error indicates that serverless SQL pool cannot read Delta Lake transaction log. You will probably see the error like the following error:
-
-```
-Msg 13609, Level 16, State 4, Line 1
-JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
-Msg 16513, Level 16, State 0, Line 1
-Error reading external metadata.
-```
-First, make sure that your Delta Lake data set is not corrupted.
-- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
-- Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
-
-**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
-
-If the data set is valid, and the workarounds cannot help, report a support ticket and provide an additional info  to Azure support:
-- Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
-- Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
-- Try to read the content that you copied in new folder and verify that you are getting the same error.
-- Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this.
-- Send the content of the copied `_delta_log` file to Azure support.
-
-Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
@@ -692,10 +715,10 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application ID from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
-Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
+Navigate to Azure portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
 
 #### Solution #2
 You need to manually create a proper login through SQL code:

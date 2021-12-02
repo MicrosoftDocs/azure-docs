@@ -3,13 +3,13 @@ title: "Prepare data for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "When testing the accuracy of Microsoft speech recognition or training your custom models, you'll need audio and text data. On this page, we cover the types of data, how to use, and manage them."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/08/2021
-ms.author: pafarley
+ms.date: 11/09/2021
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
@@ -44,10 +44,10 @@ This table lists accepted data types, when each data type should be used, and th
 
 | Data type | Used for testing | Recommended quantity | Used for training | Recommended quantity |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
+| [Audio only](#audio-data-for-testing) | Yes<br>Used for visual inspection | 5+ audio files | No | N/A |
 | [Audio + Human-labeled transcripts](#audio--human-labeled-transcript-data-for-trainingtesting) | Yes<br>Used to evaluate accuracy | 0.5-5 hours of audio | Yes | 1-20 hours of audio |
 | [Plain text](#plain-text-data-for-training) | No | N/a | Yes | 1-200 MB of related text |
-| [Structured text](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 20 classes with up to 2000 items and up to 50,000 training sentences |
+| [Structured text](#structured-text-data-for-training-public-preview) (Public Preview) | No | N/a | Yes | Up to 10 classes with up to 4000 items and up to 50,000 training sentences |
 | [Pronunciation](#pronunciation-data-for-training) | No | N/a | Yes | 1 KB - 1 MB of pronunciation text |
 
 Files should be grouped by type into a dataset and uploaded as a .zip file. Each dataset can only contain a single data type.
@@ -87,9 +87,7 @@ After your dataset is uploaded, you have a few options:
 
 You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) to automate any operations related to your custom models. In particular, you can use it to upload a dataset. This is particularly useful when your dataset file exceeds 128 MB, because files that large cannot be uploaded using *Local file* option in Speech Studio. (You can also use *Azure Blob or shared location* option in Speech Studio for the same purpose as described in the previous section.)
 
-Use either of the following requests to create and upload a dataset:
-* [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset)
-* [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm)
+To create and upload a dataset use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
 **REST API created datasets and Speech Studio projects**
 
@@ -97,7 +95,7 @@ A dataset created with the Speech-to-text REST API v3.0 will *not* be connected 
 
 When you log on to the Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference) and offer to connect such objects to an existing project. 
 
-To connect the new dataset to an existing project in the Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) or [Create Dataset from Form](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/UploadDatasetFromForm) and fill out the request body according to the following format:
+To connect the new dataset to an existing project in the Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) and fill out the request body according to the following format:
 ```json
 {
   "kind": "Acoustic",
@@ -111,7 +109,7 @@ To connect the new dataset to an existing project in the Speech Studio during it
 }
 ```
 
-The Project URL required for the `project` element can be obtained with the [Get Projects](https://westeurope.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
+The Project URL required for the `project` element can be obtained with the [Get Projects](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
 
 ## Audio + human-labeled transcript data for training/testing
 
@@ -187,14 +185,14 @@ Additionally, you'll want to account for the following restrictions:
 
 ## Structured text data for training (Public Preview)
 
-Often the expected utterances follow a certain pattern. One common pattern is that utterances only differ by words or phrases from a list. Examples of this could be “I have a question about `product`,” where `product` is a list of possible products. Or, “Make that `object` `color`,” where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown format shares its format with the _.lu_ markdown used to train Language Understanding models, in particular list entities and example utterances. See the <a href="https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0" target="_blank">.lu file format</a> doc for more information on the complete _.lu_ markdown. 
+Often the expected utterances follow a certain pattern. One common pattern is that utterances only differ by words or phrases from a list. Examples of this could be “I have a question about `product`,” where `product` is a list of possible products. Or, “Make that `object` `color`,” where `object` is a list of geometric shapes and `color` is a list of colors. To simplify the creation of training data and to enable better modeling inside the Custom Language Model, you can use a structured text in markdown format to define lists of items and then reference these inside your training utterances. Additionally, the markdown format also supports specifying the phonetic pronunciation of words. The markdown file should have a `.md` extension. The syntax of the markdown is the same as that from the Language Understanding models, in particular list entities and example utterances. For more information about the complete markdown syntax, see the <a href="/azure/bot-service/file-format/bot-builder-lu-file-format" target="_blank"> Language Understanding markdown</a>.
 
 Here is an example of the markdown format:
 
 ```markdown
 // This is a comment
 
-// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 20 of these
+// Here are three separate lists of items that can be referenced in an example sentence. You can have up to 10 of these
 @ list food =
 - pizza
 - burger

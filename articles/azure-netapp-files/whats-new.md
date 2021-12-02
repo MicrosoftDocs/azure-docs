@@ -3,7 +3,7 @@ title: What's new in Azure NetApp Files | Microsoft Docs
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/14/2021
-ms.author: b-juche
+ms.date: 11/19/2021
+ms.author: b-hchen
 ---
 
 # What's new in Azure NetApp Files
@@ -26,6 +26,12 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [Single-file snapshot restore](snapshots-restore-file-single.md) (Preview)
 
     Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations are not time and resource efficient, especially with large data sets. If you do not want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you now have the option to use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach will drastically reduce RTO and network resource usage when restoring large files.
+
+## November 2021
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) (Preview)
+
+    Application volume group (AVG) for SAP HANA enables you to deploy all volumes required to install and operate an SAP HANA database according to best practices, including the use of proximity placement group (PPG) with VMs to achieve automated, low-latency deployments. Application volume group for SAP HANA has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for SAP HANA. 
  
 ## October 2021
 

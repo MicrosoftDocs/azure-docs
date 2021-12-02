@@ -37,7 +37,17 @@ sections:
          Can I use Azure Virtual Desktop with other on-premises infrastructure besides Azure Stack HCI?
         answer: |
           No. Azure Virtual Desktop's on-premises capabilities only extend to session hosts running Azure Stack HCI infrastructure.
-          
+
+      - question: |
+         Is Azure Virtual Desktop an Azure Arc-enabled service?
+        answer: |
+          No, Azure Virtual Desktop is not an Azure Arc-enabled service. It is not supported outside of Azure, in a multi-cloud environment, or on Azure Arc-enabled servers besides Azure Stack HCI virtual machines as described in this technical documentation.
+
+      - question: |
+         Is Azure Virtual Desktop for Azure Stack HCI available in Azure Government?
+        answer: |
+          No, because Azure Stack HCI is not currently available in Azure Government.
+
       - question: |
          Does using Azure Virtual Desktop for Azure Stack HCI mean all my data is stored on-premises?
         answer: |

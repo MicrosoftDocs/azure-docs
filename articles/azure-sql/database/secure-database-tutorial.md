@@ -1,6 +1,6 @@
 ---
 title: Secure a database
-description: This tutorial teaches you the about techniques and features to secure an Azure SQL Database, whether it's a single database, or pooled. 
+description: This tutorial teaches you the about techniques and features to secure an Azure SQL Database, whether it's a single database, or pooled.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -21,7 +21,7 @@ In this tutorial you learn how to:
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (Azure AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as Azure Defender for SQL, auditing, data masking, and encryption
+> - Enable security features, such as Microsoft Defender for SQL, auditing, data masking, and encryption
 
 Azure SQL Database secures data by allowing you to:
 
@@ -227,30 +227,30 @@ To copy a secure connection string:
 
 ## Enable security features
 
-Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Azure Defender for SQL](azure-defender-for-sql.md), [Auditing](../../azure-sql/database/auditing-overview.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
+Azure SQL Database provides security features that are accessed using the Azure portal. These features are available for both the database and server, except for data masking, which is only available on the database. To learn more, see [Microsoft Defender for SQL](azure-defender-for-sql.md), [Auditing](../../azure-sql/database/auditing-overview.md), [Dynamic data masking](dynamic-data-masking-overview.md), and [Transparent data encryption](transparent-data-encryption-tde-overview.md).
 
-### Azure Defender for SQL
+### Microsoft Defender for SQL
 
-The Azure Defender for SQL feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
+The Microsoft Defender for SQL feature detects potential threats as they occur and provides security alerts on anomalous activities. Users can explore these suspicious events using the auditing feature, and determine if the event was to access, breach, or exploit data in the database. Users are also provided a security overview that includes a vulnerability assessment and the data discovery and classification tool.
 
 > [!NOTE]
 > An example threat is SQL injection, a process where attackers inject malicious SQL into application inputs. An application can then unknowingly execute the malicious SQL and allow attackers access to breach or modify data in the database.
 
-To enable Azure Defender for SQL:
+To enable Microsoft Defender for SQL:
 
 1. In the Azure portal, select **SQL databases** from the left-hand menu, and select your database on the **SQL databases** page.
 
 1. On the **Overview** page, select the **Server name** link. The server page will open.
 
-1. On the **SQL server** page, find the **Security** section and select **Security center**.
+1. On the **SQL server** page, find the **Security** section and select **Defender for Cloud**.
 
-   1. Select **ON** under **Azure Defender for SQL** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
+   1. Select **ON** under **Microsoft Defender for SQL** to enable the feature. Choose a storage account for saving vulnerability assessment results. Then select **Save**.
 
       ![Navigation pane](./media/secure-database-tutorial/threat-settings.png)
 
       You can also configure emails to receive security alerts, storage details, and threat detection types.
 
-1. Return to the **SQL databases** page of your database and select **Security center** under the **Security** section. Here you'll find various security indicators available for the database.
+1. Return to the **SQL databases** page of your database and select **Defender for Cloud** under the **Security** section. Here you'll find various security indicators available for the database.
 
     ![Threat status](./media/secure-database-tutorial/threat-status.png)
 
@@ -341,7 +341,7 @@ In this tutorial, you've learned to improve the security of your database with j
 > - Create server-level and database-level firewall rules
 > - Configure an Azure Active Directory (AD) administrator
 > - Manage user access with SQL authentication, Azure AD authentication, and secure connection strings
-> - Enable security features, such as Azure Defender for SQL, auditing, data masking, and encryption
+> - Enable security features, such as Microsoft Defender for SQL, auditing, data masking, and encryption
 
 Advance to the next tutorial to learn how to implement geo-distribution.
 

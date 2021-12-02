@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: template-quickstart, ignite-fall-2021
+ms.custom: template-quickstart, ignite-fall-2021, mode-portal
 ---
 
 # Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure portal
@@ -23,6 +23,16 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+## Register subscription for public preview
+
+1. Go to the [Preview features](https://portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade) page.
+
+1. Search for **AllowAzureNetworkManager**.
+
+1. Select the checkbox next to *AllowAzureNetworkManager* and then select **+ Register**.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/registration.png" alt-text="Screenshot of preview feature registration page.":::
 
 ## Create Virtual Network Manager
 

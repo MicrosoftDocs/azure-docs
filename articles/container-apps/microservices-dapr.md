@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI'
 description: Deploy a Dapr application to Azure Container Apps using the Azure CLI.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
 ---
@@ -19,7 +19,7 @@ You learn how to:
 > [!div class="checklist"]
 > * Create a Container Apps environment for your container apps
 > * Create an Azure Blob Storage state store for the container app
-> * Deploy two apps that a produce and consume messages and persist them using the state store
+> * Deploy two apps that produce and consume messages and persist them using the state store
 > * Verify the interaction between the two microservices.
 
 Azure Container Apps offers a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
@@ -126,6 +126,22 @@ az extension add \
 ```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```
+
+---
+
+Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az provider register --namespace Microsoft.Web
 ```
 
 ---
@@ -274,7 +290,9 @@ Get the storage account key with the following command.
 
 ```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
+```
 
+```bash
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -282,7 +300,9 @@ echo $STORAGE_ACCOUNT_KEY
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```
 
+```powershell
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -420,7 +440,7 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to build before you see logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 

@@ -18,7 +18,9 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | [Data Factory Lineage](how-to-link-azure-data-factory.md) |
+| [Yes](#register) | [Yes](#scan)| [Yes](#scan) | [Yes](#scan) | [Yes](#scan) | No | No** |
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
 ## Prerequisites
 
@@ -32,7 +34,7 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 
     > [!Note]
     > We now support scanning Azure SQL Database Managed Instances that are configured with private endpoints using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM.
-    > For more information related to prerequisites see, [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
+    > For more information related to prerequisites, see [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
 
 ## Register
 
@@ -42,21 +44,28 @@ This section describes how to register an Azure SQL Database Managed Instance in
 
 If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](../azure-sql/database/logins-create-manage.md). There are three authentication methods that Purview supports today:
 
-- [Managed Identity](#managed-identity-to-register)
+- [System or user assigned managed identity](#system-or-user-assigned-managed-identity-to-register)
 - [Service Principal](#service-principal-to-register)
 - [SQL authentication](#sql-authentication-to-register)
 
-#### Managed Identity to register
+#### System or user assigned managed identity to register
 
-Your Purview Managed Identity is the identity of the Purview account that we can use to authenticate like any other user, group, or service principal.
+You can use either your Purview system-assigned managed identity (SAMI), or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Purview, like you would for any other user, group, or service principal. The Purview system-assigned managed identity is created automatically when the account is created and has the same name as your Azure Purview account. A user-assigned managed identity is a resource that can be created independently. To create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 You can find your managed identity Object ID in the Azure portal by following these steps:
 
+For Purview account’s system-assigned managed identity: 
 1. Open the Azure portal, and navigate to your Purview account.
 1. Select the **Properties** tab on the left side menu.
 1. Select the **Managed identity object ID** value and copy it.
 
-The managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
+For user-assigned managed identity (preview): 
+1. Open the Azure portal, and navigate to your Purview account. 
+1. Select the Managed identities tab on the left side menu 
+1. Select the user assigned managed identities, select the intended identity to view the details. 
+1. The object (principal) ID is displayed in the overview essential section.
+
+Either managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
@@ -75,7 +84,7 @@ If you have to create a new Service Principal, follow these steps:
  1. Select **+ New application registration**.
  1. Enter a name for the **application** (the service principal name).
  1. Select **Accounts in this organizational directory only**.
- 1. For Redirect URI select **Web** and enter any URL you want; it doesn't have to be real or work.
+ 1. For Redirect URI, select **Web** and enter any URL you want; it doesn't have to be real or work.
  1. Then select **Register**.
 
 #### Configure Azure AD authentication in the database account
@@ -103,7 +112,7 @@ It is required to get the service principal's application ID and secret:
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance if you don't have this available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance if you don't have this login available. You will need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
@@ -138,7 +147,7 @@ Follow the steps below to scan an Azure SQL Database Managed Instance to automat
 
 ### Create and run scan
 
-To create and run a new scan, do the following:
+To create and run a new scan, complete the following steps:
 
 1. Select the **Data Map** tab on the left pane in the Purview Studio.
 

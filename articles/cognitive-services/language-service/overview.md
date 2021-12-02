@@ -13,13 +13,17 @@ ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-# What is Azure Cognitive Service for Language? 
+# What is Azure Cognitive Service for Language?
 
 Azure Cognitive Service for Language is a cloud-based service that provides Natural Language Processing (NLP) features for understanding and analyzing text. Use this service to help build intelligent applications using the web-based Language Studio, REST APIs, and client libraries.  
 
 This Language service unifies Text Analytics, QnA Maker, and LUIS and provides several new features as well. These features can either be:
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
-* Customizable, which means you'll train an AI model using our tools to fit your data specifically. 
+* Customizable, which means you'll train an AI model using our tools to fit your data specifically.
+
+## Migrate from Text Analytics, QnA Maker, or Language Understanding?
+
+Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
 
 ## Available features
 
@@ -32,7 +36,7 @@ Azure Cognitive Service for Language provides the following features:
 > | [Personally Identifiable Information (PII) detection](personally-identifiable-information/overview.md)     | This pre-configured feature identifies entities in text across several pre-defined categories of sensitive information, such as account information.        | • [Language Studio](language-studio.md) <br> • [REST API and client-library](named-entity-recognition/quickstart.md) |
 > | [Key phrase extraction](key-phrase-extraction/overview.md)     | This pre-configured feature evaluates unstructured text, and for each input document, returns a list of key phrases and main points in the text. | • [Language Studio](language-studio.md) <br> • [REST API and client-library](key-phrase-extraction/quickstart.md) <br> • [Docker container](key-phrase-extraction/how-to/use-containers.md)  |
 > |[Entity linking](entity-linking/overview.md)    | This pre-configured feature disambiguates the identity of an entity found in text and provides links to the entity on Wikipedia.        | • [Language Studio](language-studio.md) <br> • [REST API and client-library](entity-linking/quickstart.md) |
-> | [Text Analytics for health (preview)](text-analytics-for-health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | • [Language Studio](language-studio.md) <br> • [REST API and client-library](text-analytics-for-health/quickstart.md) <br> • [Docker container](text-analytics-for-health/how-to/use-containers.md) |
+> | [Text Analytics for health](text-analytics-for-health/overview.md)    | This pre-configured feature extracts information from unstructured medical texts, such as clinical notes and doctor's notes.  | • [Language Studio](language-studio.md) <br> • [REST API and client-library](text-analytics-for-health/quickstart.md) <br> • [Docker container](text-analytics-for-health/how-to/use-containers.md) |
 > | [Custom NER](custom-named-entity-recognition/overview.md)    | Build an AI model to extract custom entity categories, using unstructured text that you provide. |  • [Language Studio](custom-named-entity-recognition/quickstart.md?pivots=language-studio) <br> • [REST API](custom-named-entity-recognition/quickstart.md?pivots=rest-api) |
 > | [Analyze sentiment and opinions](sentiment-opinion-mining/overview.md)     | This pre-configured feature provides sentiment labels (such as "*negative*", "*neutral*" and "*positive*") for sentences and documents. This feature can additionally provide granular information about the opinions related to words that appear in the text, such as the attributes of products or services. |  • [Language Studio](language-studio.md) <br> • [REST API and client-library](sentiment-opinion-mining/quickstart.md) <br> • [Docker container](sentiment-opinion-mining/how-to/use-containers.md)
 > |[Language detection](language-detection/overview.md)    | This pre-configured feature evaluates text, and determines the language it was written in. It returns a language identifier and a score that indicates the strength of the analysis.        | • [Language Studio](language-studio.md) <br> • [REST API and client-library](language-detection/quickstart.md) <br> • [Docker container](language-detection/how-to/use-containers.md) |
@@ -47,7 +51,7 @@ After you've had a chance to get started with the Language service, try our tuto
 
 * [Extract key phrases from text stored in Power BI](key-phrase-extraction/tutorials/integrate-power-bi.md)
 * [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
-* [Use Flask to translate text, analyze sentiment, and synthesize speech](/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context)
+* [Use Flask to translate text, analyze sentiment, and synthesize speech](../translator/tutorial-build-flask-app-translation-synthesis.md?context=%2fazure%2fcognitive-services%2flanguage-service%2fcontext%2fcontext)
 * [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
 * [Create a FAQ Bot](question-answering/tutorials/bot-service.md)
 

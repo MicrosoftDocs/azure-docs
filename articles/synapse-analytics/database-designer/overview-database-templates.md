@@ -4,6 +4,7 @@ description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: template-overview, ignite-fall-2021
@@ -26,7 +27,7 @@ For example, if you're building a product recommendation solution for your retai
 
 You can set up this use case by selecting the six tables in the retail database template. 
 
-[[retail-database-template-example.png|alt=Retail database template example]]
+![image](https://user-images.githubusercontent.com/84302758/140736847-9d93436d-47b4-4175-8b09-a33de0bcde05.png)
 
 A typical database template addresses the core requirements of a specific industry and consists of: 
 

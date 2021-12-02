@@ -2,7 +2,8 @@
 title: "Quickstart: Investigate security alerts"
 description: Understand, drill down, and investigate Defender for IoT security alerts on your IoT devices.
 ms.topic: quickstart
-ms.date: 06/21/2021
+ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Investigate security alerts
@@ -43,7 +44,7 @@ Opening each aggregated alert displays the detailed alert description, remediati
 
 ## Next steps
 
-Advance to the next article to learn more about Defender alert types and possible customizations.
+Advance to the next article to learn more about security alerts types and possible customizations.
 
 > [!div class="nextstepaction"]
 > [Understanding IoT security alerts](concept-security-alerts.md)
