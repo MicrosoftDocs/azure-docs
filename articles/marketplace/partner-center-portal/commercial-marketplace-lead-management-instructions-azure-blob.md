@@ -12,4 +12,4 @@ ms.date: 12/02/2021
 # Use Azure Blob storage to manage commercial marketplace leads
 
 >[!Caution]
->Commercial marketplace support for Azure Blob storage has been deprecated and is no longer an option to process leads from your offer. If you currently have a commercial marketplace offer with lead management configured for Azure Blob, you will no longer receive customer leads. Please update your lead management configuration to any of the other lead management options. Learn about the other options on the [lead management landing page](./commercial-marketplace-get-customer-leads.md).
+>Commercial marketplace support for Azure Blob storage has been deprecated and is no longer an option to process leads from your offer. If you currently have a commercial marketplace offer with lead management configured for Azure Blob, you will no longer receive customer leads. Please update your lead management configuration to any of the other lead management options. Learn about the other options on the [lead management landing page](./partner-center-portal/commercial-marketplace-get-customer-leads.md).
