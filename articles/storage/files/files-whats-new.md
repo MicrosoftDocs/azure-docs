@@ -14,7 +14,7 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 ## 2021 quarter 4 (October, November, December)
 ### NFS 4.1 protocol support is generally available
-Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and devops pipelines.
+Premium Azure file shares now support either the SMB or the NFS 4.1 protocols. NFS 4.1 is available in all regions where Azure Files supports the premium tier, for both locally redundant storage and zone-redundant storage. Azure file shares created with the NFS 4.1 protocol enabled are fully POSIX-compliant, distributed file shares that support a wide variety of Linux and container-based workloads. Some example workloads include: highly available SAP application layer, enterprise messaging, user home directories, custom line-of-business applications, database backups, database replication, and Azure Pipelines.
 
 For more information, see:
 
