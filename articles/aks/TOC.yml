@@ -80,7 +80,8 @@
     - name: Sustainable software engineering
       href: concepts-sustainable-software-engineering.md      
     - name: GitOps
-      href: /azure-arc/kubernetes/conceptual-gitops-flux2.md      
+      href: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
+      maintainContext: True
     - name: Best practices
       items:
         - name: Overview
