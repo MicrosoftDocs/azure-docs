@@ -124,6 +124,7 @@ This section provides references to SAP on Azure solutions.
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 * [Architectural Decisions to maximize ANF investment in HANA N+M Scale-Out Architecture - Part 3](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2215948)
 * [SAP Landscape sizing and volume consolidation with Azure NetApp Files](https://techcommunity.microsoft.com/t5/sap-on-microsoft/sap-landscape-sizing-and-volume-consolidation-with-anf/m-p/2145572/highlight/true#M14)
+* [Gain first hands on experience with the new automated S/4HANA deployment in Microsoft Azure](https://blogs.sap.com/2021/09/13/gain-first-hands-on-experience-with-the-new-automated-s-4hana-deployment-in-microsoft-azure/)
 
 ## Azure VMware Solutions
 
@@ -164,6 +165,7 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)
 * [Azure CycleCloud: EDA HPC Lab with Azure NetApp Files](https://github.com/Azure/cyclecloud-hands-on-labs/blob/master/EDA/README.md)
 * [Azure for the semiconductor industry](https://azurecomcdn.azureedge.net/cvt-f40f39cd9de2d875ab0c198a8d7b186350cf0bca161e80d7896941389685d012/mediahandler/files/resourcefiles/azure-for-the-semiconductor-industry/Azure_for_the_Semiconductor_Industry.pdf)
