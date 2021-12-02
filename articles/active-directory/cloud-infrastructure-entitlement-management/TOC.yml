@@ -3,7 +3,7 @@
   #- name: Overview
     #expanded: true
     #items:
-  - name: Tutorials
+  - name: Integration
     expanded: true
     items:
     - name: CloudKnox integration with CloudKnox API
