@@ -148,6 +148,13 @@ sysctl -p
 
 ```
 
+> [!NOTE]
+> Be careful about setting this too high as it takes up memory on the VM. The amount of memory allowed to be used by the JVM on memory maps is determined by the setting **`MaxDirectMemory`**. The default value is 64MB. It is possible that this is reached. You can increase this value by adding **`-XX:MaxDirectMemorySize=amount of memory used`** into the JVM settings through Ambari. Be cognizant of the amount of memory being used on the node and if there is enough available RAM to support this.
+
+
+
+
+
 ## Next steps
 
 * [Processing trillions of events per day with Apache Kafka on Azure](https://azure.microsoft.com/blog/processing-trillions-of-events-per-day-with-apache-kafka-on-azure/)
