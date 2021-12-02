@@ -12,6 +12,10 @@ ms.service: iot-hub-device-update
 
 The Device Update Module agent can run alongside other system processes and [IoT Edge modules](../iot-edge/iot-edge-modules.md) that connect to your IoT Hub as part of the same logical device. This section describes how to provision the Device Update agent as a module identity. 
 
+## Changes to Device Update agent at Public Preview Refresh
+We have added many new capabilities in the latest Public Preview Refresh agent. See [here](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for more details.
+
+If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version. See [Public Preview Refresh agent changes and how to upgrade](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/upgrade-guide.md)
 
 ## Module identity vs device identity
 
@@ -238,9 +242,11 @@ If you run into issues, review the Device Update for IoT Hub [Troubleshooting Gu
 You can use the following pre-built images and binaries for a simple demonstration of Device Update for IoT Hub:
 
 - [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
-
+	
+- [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
+	
+- [Proxy Update: Getting Started using Device Update binary agent for Proxy Updates](device-update-howto-proxy-updates.md)
+	
 - [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
-
-- [Package Update:Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 
 - [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
