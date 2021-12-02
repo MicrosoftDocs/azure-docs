@@ -8,7 +8,7 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q1
 ---
@@ -198,6 +198,9 @@ If you created your compute instance or compute cluster with SSH access enabled,
       `ssh -i <keyname.pem> azureuser@... (rest of connection string)`
 
 1. For Linux users, follow the steps from [Create and use an SSH key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
+1. For SCP use: 
+
+   `scp -i key.pem -P {port} {fileToCopyFromLocal }  azureuser@yourComputeInstancePublicIP:~/{destination}`
 
 ## Next steps
 

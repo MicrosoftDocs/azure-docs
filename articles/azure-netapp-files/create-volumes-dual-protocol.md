@@ -246,5 +246,4 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
-* [Troubleshoot SMB or dual-protocol volumes](troubleshoot-dual-protocol-volumes.md)
-* [Troubleshoot LDAP volume issues](troubleshoot-ldap-volumes.md)
+* [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)

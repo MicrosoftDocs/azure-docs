@@ -7,8 +7,7 @@ ms.date: 09/30/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Quickstart: Create an interactive search map with Azure Maps
@@ -59,7 +58,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 :::image type="content" source="./media/quick-demo-map-app/get-key.png" alt-text="Get Primary Key Azure Maps key in Azure portal" lightbox="./media/quick-demo-map-app/get-key.png":::
 
 >[!NOTE]
-> This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but that the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
+> This quickstart uses the [Shared Key](azure-maps-authentication.md#shared-key-authentication) authentication approach for demonstration purposes, but the preferred approach for any production environment is to use [Azure Active Directory](azure-maps-authentication.md#azure-ad-authentication) authentication.
 
 ## Download and update the Azure Maps demo
 

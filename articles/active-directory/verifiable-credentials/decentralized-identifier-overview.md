@@ -3,7 +3,7 @@ title: Introduction to Azure Active Directory Verifiable Credentials (preview)
 description: An overview Azure Verifiable Credentials.
 services: active-directory
 author: barclayn
-manager: daveba
+manager: karenh444
 editor:
 ms.service: active-directory
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 ms.reviewer: 
 ---
 
-# Introduction to Azure Active Directory Verifiable Credentials (Preview)
+# Introduction to Azure Active Directory Verifiable Credentials (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -122,6 +122,6 @@ The roles in this scenario are:
 
 Now that you know about DIDs and verifiable credentials try them yourself by following our get started article or one of our articles providing more detail on verifiable credential concepts.
 
-- [Get started with verifiable credentials](get-started-verifiable-credentials.md)
+- [Get started with verifiable credentials](verifiable-credentials-configure-tenant.md)
 - [How to customize your credentials](credential-design.md)
 - [Verifiable credentials FAQ](verifiable-credentials-faq.md)

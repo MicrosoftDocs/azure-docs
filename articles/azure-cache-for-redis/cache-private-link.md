@@ -203,6 +203,116 @@ To create a private endpoint, follow these steps.
 > There is a `publicNetworkAccess` flag which is `Disabled` by default.
 > You can set the value to `Disabled` or `Enabled`. When set to enabled, this flag allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access).
 >
+## Create a private endpoint using Azure PowerShell
+
+To create a private endpoint named *MyPrivateEndpoint* for an existing Azure Cache for Redis instance, run the following PowerShell script. Replace the variable values with the details for your environment:
+
+```azurepowershell-interactive
+
+$SubscriptionId = "<your Azure subscription ID>"
+# Resource group where the Azure Cache for Redis instance and virtual network resources are located
+$ResourceGroupName = "myResourceGroup"
+# Name of the Azure Cache for Redis instance
+$redisCacheName = "mycacheInstance"
+
+# Name of the existing virtual network
+$VNetName = "myVnet"
+# Name of the target subnet in the virtual network
+$SubnetName = "mySubnet"
+# Name of the private endpoint to create
+$PrivateEndpointName = "MyPrivateEndpoint"
+# Location where the private endpoint can be created. The private endpoint should be created in the same location where your subnet or the virtual network exists
+$Location = "westcentralus"
+
+$redisCacheResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Cache/Redis/$($redisCacheName)"
+
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnectionPS" -PrivateLinkServiceId $redisCacheResourceId -GroupId "redisCache"
+ 
+$virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -Name $VNetName  
+ 
+$subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
+ 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+```
+
+## Retrieve a private endpoint using Azure PowerShell
+
+To get the details of a private endpoint, use this PowerShell command:
+
+```azurepowershell-interactive
+Get-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## Remove a private endpoint using Azure PowerShell
+
+To remove a private endpoint, use the following PowerShell command:
+
+```azurepowershell-interactive
+Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
+```
+
+## Create a private endpoint using Azure CLI
+
+To create a private endpoint named *myPrivateEndpoint* for an existing Azure Cache for Redis instance, run the following Azure CLI script. Replace the variable values with the details for your environment:
+
+```azurecli-interactive
+# Resource group where the Azure Cache for Redis and virtual network resources are located
+ResourceGroupName="myResourceGroup"
+
+# Subscription ID where the Azure Cache for Redis and virtual network resources are located
+SubscriptionId="<your Azure subscription ID>"
+
+# Name of the existing Azure Cache for Redis instance
+redisCacheName="mycacheInstance"
+
+# Name of the virtual network to create
+VNetName="myVnet"
+
+# Name of the subnet to create
+SubnetName="mySubnet"
+
+# Name of the private endpoint to create
+PrivateEndpointName="myPrivateEndpoint"
+
+# Name of the private endpoint connection to create
+PrivateConnectionName="myConnection"
+
+az network vnet create \
+    --name $VNetName \
+    --resource-group $ResourceGroupName \
+    --subnet-name $SubnetName
+
+az network vnet subnet update \
+    --name $SubnetName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName \
+    --disable-private-endpoint-network-policies true
+
+az network private-endpoint create \
+    --name $PrivateEndpointName \
+    --resource-group $ResourceGroupName \
+    --vnet-name $VNetName  \
+    --subnet $SubnetName \
+    --private-connection-resource-id "/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Cache/Redis/$redisCacheName" \
+    --group-ids "redisCache" \
+    --connection-name $PrivateConnectionName
+```
+
+## Retrieve a private endpoint using Azure CLI
+
+To get the details of a private endpoint, use the following CLI command:
+
+```azurecli-interactive
+az network private-endpoint show --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
+
+## Remove a private endpoint using Azure CLI
+
+To remove a private endpoint, use the following CLI command:
+
+```azurecli-interactive
+az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
+```
 
 ## FAQ
 
@@ -218,11 +328,14 @@ To create a private endpoint, follow these steps.
 
 ### Why can't I connect to a private endpoint?
 
-If your cache is already a VNet injected cache, private endpoints cannot be used with your cache instance. If your cache instance is using an unsupported feature listed below, you can't connect to your private endpoint instance.
+- Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
+- You have a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
+- You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
+- You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
 ### What features aren't supported with private endpoints?
 
-Currently, portal console support, and persistence to firewall storage accounts aren't supported.
+Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
 
 ### How do I verify if my private endpoint is configured correctly?
 
@@ -233,7 +346,7 @@ You can run a command like `nslookup` from within the VNet that is linked to the
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
 There's a `publicNetworkAccess` flag that is `Disabled` by default.
-When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a Restful API PATCH request.
+When set to `Enabled`, this flag is allows both public and private endpoint access to the cache. When set to `Disabled`, it allows only private endpoint access. You can set the value to `Disabled` or `Enabled` in the Azure portal or with a RESTful API PATCH request.
 
 To change the value in the Azure portal, follow these steps.
 
@@ -245,7 +358,7 @@ To change the value in the Azure portal, follow these steps.
 
 1. Select the **Enable public network access** button.
 
-To change the value through a Restful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
+To change the value through a RESTful API PATCH request, see below and edit the value to reflect which flag you want for your cache.
 
 ```http
 PATCH  https://management.azure.com/subscriptions/{subscription}/resourceGroups/{resourcegroup}/providers/Microsoft.Cache/Redis/{cache}?api-version=2020-06-01
@@ -265,7 +378,7 @@ To have multiple private endpoints in different virtual networks, the private DN
 
 ### What happens if I delete all the private endpoints on my cache?
 
-Once you delete the private endpoints on your cache, your cache instance can become unreachable until: you explicitly enable public network access, or you add another private endpoint. You can change the `publicNetworkAccess` flag on either the Azure portal or through a Restful API PATCH request. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
+Once you delete the private endpoints on your cache, your cache instance can become unreachable until: you explicitly enable public network access, or you add another private endpoint. You can change the `publicNetworkAccess` flag on either the Azure portal or through a RESTful API PATCH request. For more information on how to change the value, see the [FAQ](#how-can-i-change-my-private-endpoint-to-be-disabled-or-enabled-from-public-network-access)
 
 ### Are network security groups (NSG) enabled for private endpoints?
 

@@ -8,7 +8,7 @@ ms.date: 10/12/2021
 
 # Create WebAssembly System Interface (WASI) node pools in Azure Kubernetes Service (AKS) to run your WebAssembly (WASM) workload (preview)
 
-[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssebmlies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssebmlies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssebmlies to the environment and resources outside the host using a capabilities model. [Krustlet][krustlet] is an open-source project that allows WASM modules to be run on Kubernetes. Krustlet creates a kubelet that runs on nodes with a WASM/WASI runtime. AKS allows you to create node pools that run WASM assemblies using nodes with WASM/WASI runtimes and Krustlets.
+[WebAssembly (WASM)][wasm] is a binary format that is optimized for fast download and maximum execution speed in a WASM runtime. A WASM runtime is designed to run on a target architecture and execute WebAssemblies in a sandbox, isolated from the host computer, at near-native performance. By default, WebAssemblies can't access resources on the host outside of the sandbox unless it is explicitly allowed, and they can't communicate over sockets to access things environment variables or HTTP traffic. The [WebAssembly System Interface (WASI)][wasi] standard defines an API for WASM runtimes to provide access to WebAssemblies to the environment and resources outside the host using a capabilities model. [Krustlet][krustlet] is an open-source project that allows WASM modules to be run on Kubernetes. Krustlet creates a kubelet that runs on nodes with a WASM/WASI runtime. AKS allows you to create node pools that run WASM assemblies using nodes with WASM/WASI runtimes and Krustlets.
 
 ## Before you begin
 
@@ -59,12 +59,12 @@ az extension update --name aks-preview
 
 ### Limitations
 
-* You can't run WebAssebmlies and containers in the same node pool.
+* You can't run WebAssemblies and containers in the same node pool.
 * Only the WebAssembly(WASI) runtime is available, using the Wasmtime provider.
 * The WASM/WASI node pools can't be used for system node pool.
 * The *os-type* for WASM/WASI node pools must be Linux.
 * Krustlet doesn't work with Azure CNI at this time. For more information, see the [CNI Support for Kruslet GitHub issue][krustlet-cni-support].
-* Krustlet doesn't provide networking configuration for WebAssemblies. The WebAssebmly manifest must provide the networking configuration, such as IP address.
+* Krustlet doesn't provide networking configuration for WebAssemblies. The WebAssembly manifest must provide the networking configuration, such as IP address.
 
 ## Add a WASM/WASI node pool to an existing AKS Cluster
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -73,7 +73,7 @@ Hybrid Azure AD join requires devices to have access to the following Microsoft 
 - `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
 > [!WARNING]
-> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
 If your organization requires access to the internet via an outbound proxy, you can use [implementing Web Proxy Auto-Discovery (WPAD)](/previous-versions/tn-archive/cc995261(v=technet.10)) to enable Windows 10 computers for device registration with Azure AD. To address issues configuring and managing WPAD, see [Troubleshooting Automatic Detection](/previous-versions/tn-archive/cc302643(v=technet.10)). In Windows 10 devices prior to 1709 update, WPAD is the only available option to configure a proxy to work with Hybrid Azure AD join. 
 
@@ -127,6 +127,14 @@ If some of your domain-joined devices are Windows down-level devices, you must:
 - Configure the local intranet settings for device registration
 - Configure seamless SSO
 - Install Microsoft Workplace Join for Windows down-level computers
+
+Windows down-level devices are devices with older operating systems. The following are Windows down-level devices:
+
+- Windows 7
+- Windows 8.1
+- Windows Server 2008 R2
+- Windows Server 2012
+- Windows Server 2012 R2
 
 > [!NOTE]
 > Windows 7 support ended on January 14, 2020. For more information, see [Windows 7 support ended](https://support.microsoft.com/help/4057281/windows-7-support-ended-on-january-14-2020).

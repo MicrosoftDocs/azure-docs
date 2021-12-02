@@ -64,6 +64,8 @@ The following scenarios are supported for staged rollout. The feature works only
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
 
+- Autopilot enrollment is supported in Staged rollout with Windows 10 version 1909 or later. 
+
 ## Unsupported scenarios
 
 The following scenarios are not supported for staged rollout:

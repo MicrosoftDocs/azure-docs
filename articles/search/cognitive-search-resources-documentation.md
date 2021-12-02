@@ -38,7 +38,7 @@ The following is a consolidated list of the documentation for AI enrichment.
 
 + [Quickstart: Create a knowledge store in the Azure portal](knowledge-store-create-portal.md)
 + [Create a knowledge store using REST and Postman](knowledge-store-create-rest.md)
-+ [View a knowledge store with Storage Explorer](knowledge-store-view-storage-explorer.md)
++ [View a knowledge store with Storage Browser](knowledge-store-view-storage-explorer.md)
 + [Connect a knowledge store with Power BI](knowledge-store-connect-power-bi.md)
 + [Define projections in a knowledge store](knowledge-store-projections-examples.md)
 

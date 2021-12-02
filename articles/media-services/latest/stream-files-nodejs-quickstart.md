@@ -1,11 +1,11 @@
 ---
-title: How to encode and stream video files with Node.JS
-description: How to stream video files with Node.JS. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+title: How to encode and stream video files with Node.js
+description: How to stream video files with Node.js. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: azure media services, stream, Node.JS
+keywords: azure media services, stream, Node.js
 
 ms.service: media-services
 ms.workload: media
@@ -15,7 +15,7 @@ ms.author: inhenkel
 
 ---
 
-# How to encode and stream video files with Node.JS
+# How to encode and stream video files with Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -23,10 +23,10 @@ This quickstart shows you how easy it is to encode and start streaming videos on
 
 By the end of this quickstart you will know:
 
-- How to encode with Node.JS
-- How to stream with Node.JS
-- How to upload a file from an HTTPS URL with Node.JS
-- How to use an HLS or DASH client player with Node.JS
+- How to encode with Node.js
+- How to stream with Node.js
+- How to upload a file from an HTTPS URL with Node.js
+- How to use an HLS or DASH client player with Node.js
 
 The sample in this article encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
 

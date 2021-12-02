@@ -1,15 +1,13 @@
 ---
 title: Storage considerations for Azure Functions
 description: Learn about the storage requirements of Azure Functions and about encrypting stored data. 
-
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 11/09/2021
 ---
 
 # Storage considerations for Azure Functions
 
 Azure Functions requires an Azure Storage account when you create a function app instance. The following storage services may be used by your function app:
-
 
 |Storage service  | Functions usage  |
 |---------|---------|
@@ -49,6 +47,10 @@ The storage account connection string must be updated when you regenerate storag
 
 It's possible for multiple function apps to share the same storage account without any issues. For example, in Visual Studio you can develop multiple apps using the Azure Storage Emulator. In this case, the emulator acts like a single storage account. The same storage account used by your function app can also be used to store your application data. However, this approach isn't always a good idea in a production environment.
 
+### Lifecycle management policy considerations
+
+Functions uses Blob storage to persist important information, such as [function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). When you apply a [lifecycle management policy](../storage/blobs/lifecycle-management-overview.md) to your Blob Storage account, the policy may remove blobs needed by the Functions host. Because of this, you shouldn't apply such policies to the storage account used by Functions. If you do need to apply such a policy, remember to exclude containers used by Functions, which are usually prefixed with `azure-webjobs` or `scm`.
+
 ### Optimize storage performance
 
 [!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
@@ -67,14 +69,16 @@ Other platform-managed customer data is only stored within the region when hosti
 
 Azure Files is set up by default for Premium and non-Linux Consumption plans to serve as a shared file system in high-scale scenarios. The file system is used by the platform for some features such as log streaming, but it primarily ensures consistency of the deployed function payload. When an app is [deployed using an external package URL](./run-functions-from-deployment-package.md), the app content is served from a separate read-only file system, so Azure Files can be omitted if desired. In such cases, a writeable file system is provided, but it is not guaranteed to be shared with all function app instances.
 
-If Azure Files is not used, you must account for the following:
+When Azure Files isn't used, you must account for the following:
 
-* You must deploy from an external package URL
-* Your app cannot rely on a shared writeable file system
-* The app cannot use Functions runtime v1
+* You must deploy from an external package URL.
+* Your app can't rely on a shared writeable file system.
+* The app can't use Functions runtime v1.
 * Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 
 If the above are properly accounted for, you may create the app without Azure Files. Create the function app without specifying the `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` and `WEBSITE_CONTENTSHARE` application settings. You can do this by generating an ARM template for a standard deployment, removing these two settings, and then deploying the template. 
+
+Because Functions use Azure Files during parts of the the dynamic scale-out process, scaling could be limited when running without Azure Files on Consumption and Premium plans.
 
 ## Mount file shares
 

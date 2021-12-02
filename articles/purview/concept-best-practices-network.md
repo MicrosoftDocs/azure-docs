@@ -27,19 +27,13 @@ This guide covers the following network options:
 
 This guide describes a few of the most common network architecture scenarios for Azure Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Azure Purview accounts. 
 
-The intended audience for this guide includes:
-
-- Data architecture team 
-- Network team  
-- Data security team 
-
 ## Prerequisites
 
 To understand what network option is the most suitable for your environment, we suggest that you perform the following actions first: 
 
-- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information, see [Define an Azure network topology](/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology). 
+- Review your network topology and security requirements before registering and scanning any data sources in Azure Purview. For more information, see [Define an Azure network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology). 
 
-- Define your [network connectivity model for PaaS services](/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services). 
+- Define your [network connectivity model for PaaS services](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services). 
 
 ## Option 1: Use public endpoints 
 

@@ -42,7 +42,6 @@ The following table lists requirements for using Azure AD Connect Health.
 > [!IMPORTANT]
 > Windows Server Core doesn't support installing the Azure AD Connect Health agent.
 
-
 > [!NOTE]
 > If you have a highly locked-down and restricted environment, you need to add more URLs than the ones the table lists for Internet Explorer enhanced security. Also add URLs that are listed in the table in the next section.  
 
@@ -168,7 +167,7 @@ The "basic" audit level is enabled by default. For more information, see [AD FS 
 3. On the right, select **Filter Current Logs**.
 4. For **Event sources**, select **AD FS Auditing**.
 
-    For more information about audit logs, see [Operations questions](/azure/active-directory/hybrid/reference-connect-health-faq#operations-questions).
+    For more information about audit logs, see [Operations questions](./reference-connect-health-faq.yml).
 
     ![Screenshot showing the Filter Current Log window. In the "Event sources" field, "AD FS auditing" is selected.](./media/how-to-connect-health-agent-install/adfsaudit.png)
 
@@ -258,7 +257,6 @@ If you completed the configuration, these services should already be running. Ot
     import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\AdHealthAdds"
      
     Register-AzureADConnectHealthADDSAgent -Credential $myCreds
-    
     ```
 
 When you finish, you can remove access for the local account by doing one or more of the following tasks: 
@@ -272,10 +270,9 @@ When you finish, you can remove access for the local account by doing one or mor
 After you install the appropriate agent *setup.exe* file, you can register the agent by using the following PowerShell commands, depending on the role. Open a PowerShell window and run the appropriate command:
 
 ```powershell
-    Register-AzureADConnectHealthADFSAgent
-    Register-AzureADConnectHealthADDSAgent
-    Register-AzureADConnectHealthSyncAgent
-
+Register-AzureADConnectHealthADFSAgent
+Register-AzureADConnectHealthADDSAgent
+Register-AzureADConnectHealthSyncAgent
 ```
 
 > [!NOTE]
@@ -286,8 +283,6 @@ After you install the appropriate agent *setup.exe* file, you can register the a
 > Register-AzureADConnectHealthADDSAgent -UserPrincipalName upn-of-the-user
 > Register-AzureADConnectHealthSyncAgent -UserPrincipalName upn-of-the-user
 > ```
->
-
 
 These commands accept `Credential` as a parameter to complete the registration noninteractively or to complete the registration on a machine that runs Server Core. Keep in mind that:
 * You can capture `Credential` in a PowerShell variable that's passed as a parameter.

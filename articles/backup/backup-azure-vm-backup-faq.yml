@@ -4,7 +4,9 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 08/19/2021
+  ms.date: 11/09/2021
+  author: v-amallick
+  ms.author: v-amallick
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -18,9 +20,9 @@ sections:
         answer: |
           When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
 
-      - question: Why is Initial backup taking a lot of time to complete?
+      - question: Why is the Initial backup taking a lot of time to complete?
         answer: |
-          Initial backup is always a full backup and it will depend on the size of the data and when the backup is processed.
+          Initial backup is always a full backup and its duration will depend on the size of the data and when the backup is processed.
 
           To improve backup performance see, [backup best practices](./backup-azure-vms-introduction.md#best-practices); [Backup considerations](./backup-azure-vms-introduction.md#backup-and-restore-considerations) and [Backup Performance](./backup-azure-vms-introduction.md#backup-performance)
 
@@ -76,10 +78,10 @@ sections:
 
       - question: Does Azure Backup support standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssd).
+          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-        answer: Snapshots can be taken on only data disks which are WA enabled and not OS disks. So only data disks which are WA enabled can be protected.
+        answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.
 
       - question: I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
         answer: |
@@ -95,7 +97,7 @@ sections:
         answer: Azure Virtual Machine backup policy supports a minimum retention range from seven days up to 9999 days. Any modification to an existing VM backup policy with less than seven days will require an update to meet the minimum retention range of seven days.
 
       - question: What happens if I change the case of the name of my VM or my VM resource group?
-        answer: If you change the case (to upper or lower) of your VM or VM resource group, the case of the backup item name won't change. However, this is expected Azure Backup behavior. The case change won't appear in the backup item, but is updated at the backend.
+        answer: If you change the case (to upper or lower) of your VM or VM resource group, the case of the backup item name won't change; this is expected Azure Backup behavior. The case change won't appear in the backup item, but is updated at the backend.
 
       - question: Can I back up or restore selective disks attached to a VM?
         answer: |
@@ -112,7 +114,7 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure B0ackup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
       - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
         answer: |
@@ -126,9 +128,9 @@ sections:
         answer: |
           Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend to schedule backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
-      - question: Will the new disk added to VM be backed up automatically?
+      - question: Will a new disk added to VM be backed up automatically?
         answer: |
-          Yes, the new disk added to a VM is backed up automatically during the next backup.
+          Yes, a new disk added to a VM will be backed up automatically during the next backup.
 
 
   - name: Restore
@@ -164,7 +166,7 @@ sections:
       - question: How do I restore a VM to the same availability sets?
         answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
 
-      - question: How do we get faster restore performances?
+      - question: How do we get faster restore performance?
         answer: |
           [Instant Restore](backup-instant-restore-capability.md) capability helps with faster backups and instant restores from the snapshots.
 
@@ -179,10 +181,10 @@ sections:
           Yes, you can access the VM once restored due to a VM having a broken relationship with the domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps).
 
       - question: Can I cancel an in-progress restore job?
-        answer: No, you cannot cancel the restore job that is in-progress.
+        answer: No, you cannot cancel a restore job that is in-progress.
 
-      - question: Why restore operation is taking long time to complete?
-        answer: The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
+      - question: Why is my restore operation taking long time to complete?
+        answer: The total restore time depends on the input/output operations per second (IOPS) speed and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve the speed of restore operation, select a storage account that isn't loaded with other application data.
 
       - question: How do we handle "Create New Virtual Machine"-restore type conflicts with governance policies?
         answer: |
@@ -263,6 +265,12 @@ sections:
       - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
         answer: |
           **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+
+      - question: Why does the error VMMarketplaceInvalidInputmessage appear?
+        answer: |
+          This error appears when you try to start a VM after creating an Azure VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, and then the VM deployment fails. To resolve this issue, remove the plan information from the VM.
+
+
 
 
 

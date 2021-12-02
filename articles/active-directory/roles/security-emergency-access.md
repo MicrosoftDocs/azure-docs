@@ -101,7 +101,7 @@ Organizations should monitor sign-in and audit log activity from the emergency a
         | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
         ```
         
-         ```kusto
+        ```kusto
         // Search for multiple Object IDs (UserIds)
         SigninLogs
         | project UserId 

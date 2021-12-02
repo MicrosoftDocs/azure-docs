@@ -42,8 +42,8 @@ To get started, you'll need:
 * A [Form Recognizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 * A **standard performance** [Azure Blob Storage account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
 
-  * [Create a storage account](/azure/storage/common/storage-account-create). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
-  * [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
+  * [Create a storage account](../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
+  * [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
 
 ## Upload your documents
 
@@ -62,7 +62,7 @@ To get started, you'll need:
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
 > [!NOTE]
-> By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](/azure/applied-ai-services/form-recognizer/build-training-data-set#organize-your-data-in-subfolders-optional).
+> By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
 ## Create a shared access signature with the Azure portal
 
@@ -89,8 +89,8 @@ To get started, you'll need:
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="Screenshot that shows the lack of permissions warning.":::
     >
-     > * [Azure role-based access control](/azure/role-based-access-control/overview) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
-    > * [Assign an Azure role for access to blob data](/azure/role-based-access-control/role-assignments-portal?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor).
+     > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
+    > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
 1. Specify the signed key **Start** and **Expiry** times. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
 
@@ -117,7 +117,7 @@ To get started, you'll need:
 
 1. Supported permissions for a user delegation SAS on a container include Add (a), Create (c), Delete (d), List (l), Read (r), and Write (w). Make sure **r**, **w**, **d**, and **l** are included as part of the permissions parameters.
 
-1. When you create a user delegation SAS with the Azure CLI, the maximum interval during which the user delegation key is valid is seven days from the start date. Specify an expiry time for the shared access signature that's within seven days of the start time. For more information, see [Create a user delegation SAS for a container or blob with the Azure CLI](/azure/storage/blobs/storage-blob-user-delegation-sas-create-cli#use-azure-ad-credentials-to-secure-a-sas).
+1. When you create a user delegation SAS with the Azure CLI, the maximum interval during which the user delegation key is valid is seven days from the start date. Specify an expiry time for the shared access signature that's within seven days of the start time. For more information, see [Create a user delegation SAS for a container or blob with the Azure CLI](../../storage/blobs/storage-blob-user-delegation-sas-create-cli.md#use-azure-ad-credentials-to-secure-a-sas).
 
 ### Example
 

@@ -14,12 +14,18 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
 
+## November 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Azure Files Indexer (preview)](./search-file-storage-integration.md) | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview |
+
 ## July 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
 | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Adds REST API support for indexer connections made using [managed identities](search-howto-managed-identities-data-sources.md) and Azure Active Directory (Azure AD) authentication. | Public preview |
-| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview ([by request](https://aka.ms/azure-cognitive-search/rbac-preview)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
+| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview ([by request](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
 | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
