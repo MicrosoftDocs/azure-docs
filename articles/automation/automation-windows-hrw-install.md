@@ -248,7 +248,7 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
 > [!NOTE]
-> After you disable the private link in your Automation account, the minimum wait time to remove the Hybrid Runbook worker is up to 60 minutes.
+> After you disable the Private Link in your Automation account, it takes approximately 60 minutes to remove the Hybrid Runbook worker.
 
 ## Remove a Hybrid Worker group
 
