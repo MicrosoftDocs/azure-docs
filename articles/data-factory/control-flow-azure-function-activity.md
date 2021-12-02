@@ -54,6 +54,9 @@ See the schema of the request payload in [Request payload schema](control-flow-
 
 The Azure Function Activity supports **routing**. For example, if your Azure Function has the endpoint  `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, then the `functionName` to use in the Azure Function Activity is `<functionName>/<value>`. You can parameterize this function to provide the desired `functionName` at runtime.
 
+>[!NOTE]
+>The `functionName` for Durable Functions should be taken from the **route** property of the function's binding in its JSON definition, to include its routing information.  Simply using the functionName without the route detail included will result in a failure because the Function App cannot be found.
+
 The Azure Function Activity also supports **queries**. A query has to be included as part of the `functionName`. For example, when the function name is `HttpTriggerCSharp` and the query that you want to include is `name=hello`, then you can construct the `functionName` in the Azure Function Activity as `HttpTriggerCSharp?name=hello`. This function can be parameterized so the value can be determined at runtime.
 
 ## Timeout and long running functions
