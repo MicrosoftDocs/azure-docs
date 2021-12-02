@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/9/2021
+ms.date: 12/1/2021
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,8 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported - Flighting |
+| V14.1 Release - [KB5001873](https://support.microsoft.com/topic/d06b8723-c4cf-4c64-b7ec-3f6635e044c5)| 14.1.0.0 | December 1, 2021 | Supported - Flighting |
+| V14 Release - [KB5001872](https://support.microsoft.com/topic/92290aa1-75de-400f-9442-499c44c92a81)| 14.0.0.0 | October 29, 2021 | Supported |
 | V13 Release - [KB4588753](https://support.microsoft.com/topic/632fb833-42ed-4e4d-8abd-746bd01c1064)| 13.0.0.0 | July 12, 2021 | Supported |
 | V12.1 Release - [KB4588751](https://support.microsoft.com/topic/497dc33c-d38b-42ca-8015-01c906b96132)| 12.1.0.0 | May 20, 2021 | Supported |
 | V12 Release - [KB4568585](https://support.microsoft.com/topic/b9605f04-b4af-4ad8-86b0-2c490c535cfd)| 12.0.0.0 | March 26, 2021 | Supported |
@@ -45,6 +46,16 @@ The following Azure File Sync agent versions have expired and are no longer supp
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 14.1.0.0
+The following release notes are for version 14.1.0.0 of the Azure File Sync agent released December 1, 2021. These notes are in addition to the release notes listed for version 14.0.0.0.
+
+### Improvements and issues that are fixed 
+- Tiered files deleted on Windows Server 2022 are not detected by cloud tiering filter driver
+	- This issue occurs because the DeleteFile API on Windows Server 2022 uses the FILE_DISPOSITION_INFORMATION_EX class to delete files. The v14.1 release adds support for detecting tiered files deleted using the FILE_DISPOSITION_INFORMATION_EX class.
+    
+    > [!Note]  
+    > This issue can also impact Windows 2016 and Windows Server 2019 if a tiered file is deleted using the FILE_DISPOSITION_INFORMATION_EX class.
 
 ## Agent version 14.0.0.0
 The following release notes are for version 14.0.0.0 of the Azure File Sync agent (released October 29, 2021).

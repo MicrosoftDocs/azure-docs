@@ -302,7 +302,7 @@ Encryption and authentication do not improve security unless the keys themselves
 [Azure Backup](../../backup/backup-overview.md) is a solution that protects your application data with zero capital investment and minimal operating costs. Application errors can corrupt your data, and human errors can introduce bugs into your applications that can lead to security issues. With Azure Backup, your virtual machines running Windows and Linux are protected.
 
 ### Azure Site Recovery
-An important part of your organization's [business continuity/disaster recovery (BCDR)](../../best-practices-availability-paired-regions.md) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
+An important part of your organization's [business continuity/disaster recovery (BCDR)](../../availability-zones/cross-region-replication-azure.md) strategy is figuring out how to keep corporate workloads and apps up and running when planned and unplanned outages occur. [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) helps orchestrate replication, failover, and recovery of workloads and apps so that they are available from a secondary location if your primary location goes down.
 
 ### SQL VM TDE
 Transparent data encryption (TDE) and column level encryption (CLE) are SQL server encryption features. This form of encryption requires customers to manage and store the cryptographic keys you use for encryption.

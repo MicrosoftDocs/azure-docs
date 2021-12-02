@@ -29,7 +29,7 @@ LUIS has the following authoring regions available:
 * Switzerland north
 
 
-LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.luis.ai). You must still author and publish in the same region. Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
+LUIS has one portal you can use regardless of region, [www.luis.ai](https://www.luis.ai). You must still author and publish in the same region. Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
 
 <a name="regions-and-azure-resources"></a>
 
@@ -98,7 +98,7 @@ Learn more about the [authoring and prediction endpoints](developer-reference-re
 
 Each region has a secondary region to fail over to. Europe fails over inside Europe and Australia fails over inside Australia.
 
-Authoring regions have [paired fail-over regions](../../best-practices-availability-paired-regions.md).
+Authoring regions have [paired fail-over regions](../../availability-zones/cross-region-replication-azure.md).
 
 ## Next steps
 

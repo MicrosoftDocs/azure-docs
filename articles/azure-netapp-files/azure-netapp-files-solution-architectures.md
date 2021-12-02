@@ -3,7 +3,7 @@ title: Solution architectures using Azure NetApp Files | Microsoft Docs
 description: Provides references to best practices for solution architectures using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/4/2021
-ms.author: b-juche
+ms.date: 12/01/2021
+ms.author: b-hchen
 ---
 # Solution architectures using Azure NetApp Files
 This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
@@ -50,6 +50,8 @@ This section provides references for solutions for Linux OSS applications and da
 *	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
 
 ### Education
+
+* [Moodle deployment with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/moodle-azure-netapp-files)
 * [Moodle on Azure NetApp Files NFS storage](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
 
 ## Windows Apps and SQL Server solutions
@@ -173,10 +175,6 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 
-### Healthcare
-
-* [Epic EHR on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
-
 ## Azure platform services solutions
 
 This section provides solutions for Azure platform services. 
@@ -185,6 +183,7 @@ This section provides solutions for Azure platform services.
 
 * [Astra: protect, recover, and manage your AKS workloads on Azure NetApp Files](https://cloud.netapp.com/hubfs/Astra%20Azure%20Documentation.pdf) 
 * [Integrate Azure NetApp Files with Azure Kubernetes Service](../aks/azure-netapp-files.md)
+* [Disaster Recovery of AKS workloads with Astra Control Service and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/disaster-recovery-of-aks-workloads-with-astra-control-service/ba-p/2948089)
 * [Out-of-This-World Kubernetes performance on Azure with Azure NetApp Files](https://cloud.netapp.com/blog/ma-anf-blg-configure-kubernetes-openshift)
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident - Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
