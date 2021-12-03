@@ -1,17 +1,17 @@
 ---
-title: Functional validation of a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace)
-description: Functionally validate a Dynamics 365 Operations offer in Microsoft AppSource (Azure Marketplace).
+title: Functional validation of a Dynamics 365 Operations Apps offer in Microsoft AppSource (Azure Marketplace)
+description: Functionally validate a Dynamics 365 Operations Apps offer in Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
-# Dynamics 365 for Operations functional validation
+# Dynamics 365 Operations Apps functional validation
 
-Publishing a Dynamics 365 for Operations offer in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) requires two functional validations:
+Publishing a Dynamics 365 Operations Apps offer in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2166002) requires two functional validations:
 
 - Upload a demonstration video of the Dynamics 365 environment that shows basic functionality.
 - Present screenshots that demonstrate the solution's [Lifecycle Services](https://lcs.dynamics.com/) (LCS) environment.
