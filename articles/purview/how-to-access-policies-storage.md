@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 12/02/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -58,7 +58,7 @@ Check the section on managing Purview role assignments in this [guide](how-to-cr
 
 >[!WARNING]
 > **Known issues** related to permissions
-> - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
+> - In addition to Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory (AAD) to create data owner policy. For more on AAD Directory Reader [click here](../active-directory/roles/permissions-reference.md#directory-readers)
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
 ### Register and scan data sources in Purview
