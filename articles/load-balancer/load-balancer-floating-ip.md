@@ -67,7 +67,7 @@ netsh interface ipv4 set interface “interfacename” weakhostsend=enabled
 (replace interfacename with the name of this loopback interface)
 
 > [!IMPORTANT]
-> The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
+> The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function.
 
 ## Next steps
 
