@@ -1,7 +1,7 @@
 ---
-title: Migration guide for v2 of the Text Analytics API
+title: Migrate to the latest version of Azure Cognitive Service for Language
 titleSuffix: Azure Cognitive Services
-description: Learn how to move your applications to use version 3 of the Text Analytics API.
+description: Learn how to move your Text Analytics applications to use the latest version of the Language Service.
 services: cognitive-services
 author: aahill
 manager: nitinme

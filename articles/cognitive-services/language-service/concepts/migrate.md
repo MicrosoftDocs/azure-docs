@@ -18,7 +18,7 @@ On November 2nd 2021, Azure Cognitive Service for Language was released into pub
 
 ## Do I need to migrate to the language service if I am using Text Analytics?
 
-Text Analytics has been incorporated into the language service, and its features are still available. If you were using Text Analytics, your applications should continue to work without breaking changes. You can also see the [Text Analytics migration guide](migrate-text-analytics-latest.md), if you need to update an older application. 
+Text Analytics has been incorporated into the language service, and its features are still available. If you were using Text Analytics, your applications should continue to work without breaking changes. You can also see the [Text Analytics migration guide](migrate-language-service-latest.md), if you need to update an older application. 
 
 Consider using one of the available quickstart articles to see the latest information on service endpoints, and API calls. 
 

@@ -782,4 +782,4 @@ items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
     - name: Migrate to the latest version
-      href: concepts/migrate-from-text-analytics-v2.md
+      href: concepts/migrate-language-service-latest.md
