@@ -44,7 +44,13 @@ Using the ROPC authentication flow is risky in a production environment, so [cre
 Create some test users in your tenant for testing:
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 2. Go to **Users**.
-3. Select **New user** and create some new test users in your directory.
+3. Select **New user** and create one or more test user accounts in your directory. Since these users are not actual humans, we recommend you assign complex passwords and securely store these passwords in [Azure Key Vault](/azure/key-vault/general/overview).
+
+### Create a key vault
+
+### Add the username/password as a secret
+
+### Create and assign a managed identity
 
 ## Create and configure an app registration
 Register an application that acts as your client app when calling APIs.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -61,7 +67,9 @@ ROPC is a public client flow, so you need to enable your app for public client f
 
 Since ROPC is not an interactive flow, you won't be prompted with a consent screen to consent to these at runtime.  Pre-consent to the permissions to avoid errors when acquiring tokens.
 
-First, add the permissions to your app. From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  The way you consent to the permissions depends on if your test app is in the same tenant as the app registration and whether you're an admin in the tenant.
+Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.  
+
+From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  The way you consent to the permissions depends on if your test app is in the same tenant as the app registration and whether you're an admin in the tenant.
 
 #### App and app registration are in the same tenant and you're an admin
 If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Azure portal](https://portal.azure.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button.
@@ -88,7 +96,7 @@ client_id={your_client_ID}
 Replace *{tenant}* with your tenant ID, *{your_client_ID}* with the client ID of your application, and *{resource_you_want_to_call}* with the identifier URI (for example, "https://graph.microsoft.com") or app ID of the API you are trying to access.
 
 ## Exclude test apps and users from your MFA policy
-Your tenant likely has a conditional access policy that [require multifactor authentication (MFA) for all users](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
+Your tenant likely has a conditional access policy that [requires multifactor authentication (MFA) for all users](/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa), as recommended by Microsoft.  MFA won't work with ROPC, so you'll need to exempt your test applications and test users from this requirement.
 
 To exclude user accounts:
 1. Navigate to the [Azure portal](https://portal.azure.com) and sign in to your tenant.  Select **Azure Active Directory**.  Select **Security** in the left navigation pane and then select **Conditional access**.
