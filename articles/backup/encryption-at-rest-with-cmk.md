@@ -257,7 +257,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --key-permissio
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. 
 
-# [Key Vault UI](#tab/key-vault-ui)
+# [Azure portal](#tab/portal)
 
 You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
 
@@ -305,30 +305,29 @@ You can also enable soft delete and purge protection through CLI using the steps
 
 1. Sign in to your Azure Account.
 
-    ```Azure CLI
+    ```azurecli
     az login
     ```
 
 2. Select the subscription that contains your vault.
 
-    ```Azure CLI
+    ```azurecli
     az account set --subscription "Subscription1"
     ```
 
 3. Enable soft delete
 
-    ```Azure CLI
+    ```azurecli
     az keyvault update --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME} --enable-soft-delete true
     ```
 
 4. Enable purge protection
 
-    ```Azure CLI
+    ```azurecli
     az keyvault update --subscription {SUBSCRIPTION ID} -g {RESOURCE GROUP} -n {VAULT NAME} --enable-purge-protection true
 
----
-
     ```
+---
 
 ### Assign encryption key to the Recovery Services vault
 
@@ -588,7 +587,7 @@ No, this article discusses encryption of Backup data only. For Azure Site Recove
 
 ### I missed one of the steps in this article and went on to protect my data source. Can I still use CMK encryption?
 
-Not following the steps in the article and continuing to protect items may lead to the vault being unable to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
+Not following the steps in the article and continuing to protect items may lead to the vault being unable to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#back-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
 
 ### Does using CMK-encryption add to the cost of my backups?
 
