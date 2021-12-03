@@ -21,7 +21,7 @@ To use centrally manage licenses, you must have a specific role assigned to you,
 
 - Enterprise Agreement
     - Enterprise Administrator  
-        If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#add-a-department-administrator).
+        If you're not an Enterprise admin, you must be assigned that role by your organization (with full access). For more information about how to become a member of the role, see [Add another enterprise administrator](../manage/ea-portal-administration.md#create-another-enterprise-administrator).
 - Microsoft Customer Agreement
     - Billing account owner
     - Billing account contributor
