@@ -84,12 +84,15 @@ The Slurm cluster deployed in CycleCloud contains a script that facilitates this
 cd /opt/cycle/slurm
 ./cyclecloud_slurm.sh scale
 ```
+
 ::: moniker range="=cyclecloud-7"
-For CycleCloud versions < 7.9.10 the script is located under /opt/cycle/jetpack/system/bootstrap/slurm
+> [!NOTE]
+> For CycleCloud versions < 7.9.10 the script is located under _/opt/cycle/jetpack/system/bootstrap/slurm_
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
-For CycleCloud versions > 8.2 the script is located under /opt/cycle/slurm
+> [!NOTE]
+> For CycleCloud versions > 8.2 the script is located under _/opt/cycle/slurm_
 ::: moniker-end
 
 ### Removing all execute nodes
