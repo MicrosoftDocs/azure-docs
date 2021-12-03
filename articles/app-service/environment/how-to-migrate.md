@@ -3,7 +3,7 @@ title: How to migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to an App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 11/19/2021
+ms.date: 12/20/2021
 ms.author: jordanselig
 ---
 # How to migrate App Service Environment v2 to App Service Environment v3
@@ -34,7 +34,7 @@ ASE_ID=$(az appservice ase show --name $ASE_NAME --resource-group $ASE_RG --quer
 
 ## 2. Delegate your App Service Environment subnet
 
-ASEv3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the portal.
+ASEv3 requires the subnet it's in to have a single delegation of `Microsoft.Web/hostingEnvironments`. Previous versions didn't require this delegation. You'll need to confirm your subnet is delegated properly and update the delegation if needed before migrating. You can update the delegation either by running the following command or by navigating to the subnet in the [Azure portal](https://portal.azure.com).
 
 ```azurecli
 az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name> --delegations Microsoft.Web/hostingEnvironments
@@ -56,6 +56,7 @@ If there are no errors, your migration is supported and you can continue to the 
 
 Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing ASE during this time.
 
+<!-- might have to add --verbose to get location, pending testing -->
 ```azurecli
 az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration"
 ```
@@ -105,7 +106,7 @@ az appservice ase show --name $ASE_NAME --resource group $ASE_RG
 
 ## Troubleshooting
 
-If you experience any issues during the migration process...
+If you experience any issues during the migration process, support teams will be available...
 
 ## Next steps
 

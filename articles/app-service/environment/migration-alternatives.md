@@ -1,9 +1,9 @@
 ---
-title: Migrate to App Service Environment v3 Without Using the Migration Tool
+title: Alternative methods for migrating to App Service Environment v3
 description: Migrate to App Service Environment v3 Without Using the Migration Tool
 author: seligj95
 ms.topic: article
-ms.date: 1/3/2022
+ms.date: 12/20/2022
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3 without using the migration tool
@@ -12,7 +12,7 @@ ms.author: jordanselig
 > The App Service Environment v3 [migration tool](migrate.md) is now available in preview for a set of supported environment configurations. Consider that tool which provides an automated migration path to [App Service Environment v3](overview.md).
 >
 
-If you're currently using App Service Environment (ASE) v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migrate.md) if your environment falls into one of the [supported configurations](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you can choose to use one of the alternative migration options given below.
+If you're currently using App Service Environment (ASE) v1 or v2, you have the opportunity to migrate your workloads to [App Service Environment v3](overview.md). App Service Environment v3 has [advantages and feature differences](overview.md#feature-differences) that provide enhanced support for your workloads and can reduce overall costs. Consider using the [migration tool](migrate.md) if your environment falls into one of the [supported scenarios](migrate.md#supported-scenarios). If your environment isn't currently supported by the migration tool, you can wait for support if your scenario is listed in the [upcoming supported scenarios](migrate.md#preview-limitations). Otherwise, you can choose to use one of the alternative migration options given below.
 
 If your App Service Environment [won't be supported for migration](migrate.md#migration-tool-limitations) with the migration tool, you must use one of the alternative methods to migrate to App Service Environment v3.
 
@@ -49,7 +49,7 @@ The step-by-step instructions in the current documentation for [back up](../mana
 |Multiple apps can be restored at the same time (restoration needs to be configured for each app individually)       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts and containers) must all be in the same subscription        |
 |In-app MySQL databases are automatically backed up without any configuration        |Backups can be up to 10 GB of app and database content, up to 4 GB of which can be the database backup. If the backup size exceeds this limit, you get an error.        |
 |Can restore the app to a snapshot of a previous state         |Using a [firewall enabled storage account](../../storage/common/storage-network-security.md) as the destination for your backups isn't supported   |
-|Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new apps          |Using a [private endpoint enabled storage account](../../storage/common/storage-private-endpoints.md) for backup and restore isn't supported  |
+|Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new environments          |Using a [private endpoint enabled storage account](../../storage/common/storage-private-endpoints.md) for backup and restore isn't supported  |
 |Can create empty web apps to restore to in your new environment before you start restoring to speed up the process   |        |
 
 ## Clone your app to an App Service Environment v3
@@ -69,7 +69,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 - Use your ASEv3 name for **Region**
 - Choose whether or not to clone your deployment source
 - You can use an existing Windows **App Service plan** from your new environment if you created one already, or create a new one. The available Windows App Service plans in your new ASEv3, if any, will be listed in the dropdown.
-- Modify **SKU and size** as needed using one of the Isolated V2 options if creating a new App Service plan. Note ASEv3 uses Isolated V2 plans, which have more memory and cores per corresponding instance size for the Isolated plan. For more information, see [ASEv3 pricing](overview.md#pricing).
+- Modify **SKU and size** as needed using one of the Isolated v2 options if creating a new App Service plan. Note ASEv3 uses Isolated v2 plans, which have more memory and cores per corresponding instance size for the Isolated plan. For more information, see [ASEv3 pricing](overview.md#pricing).
 
 ![clone sample](./media/migration/portal_clone_sample.png)
 
@@ -77,7 +77,7 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 |---------|---------|
 |Can be automated using PowerShell        |Only supported on Windows apps        |
 |Multiple apps can be cloned at the same time (cloning needs to be configured for each app individually or using a script)       |Support is limited to [certain database types](../manage-backup.md#what-gets-backed-up)         |
-|Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new apps       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts and containers) must all be in the same subscription        |
+|Can integrate with [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) and [Azure Application Gateway](../../application-gateway/overview.md) to distribute traffic across old and new environments       |Old and new environments as well as supporting resources (for example apps, databases, storage accounts and containers) must all be in the same subscription        |
 
 ## Manually create your apps on an App Service Environment v3
 
