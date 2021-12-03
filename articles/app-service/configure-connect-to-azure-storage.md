@@ -4,7 +4,7 @@ description: Learn how to attach custom network share in a containerized app in 
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 09/02/2021
+ms.date: 12/03/2021
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
 ---
