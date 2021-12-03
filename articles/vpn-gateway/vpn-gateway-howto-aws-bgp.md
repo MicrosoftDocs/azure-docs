@@ -12,13 +12,26 @@ ms.date: 12/2/2021
 --
 # How to configure BGP on Azure VPN Gateways
 
-This article walks you through the steps connect Azure to Amazon Web Services (AWS) using a BGP-enabled active-active VPN Gateway and two site-to-site connections on AWS.
+This article walks you through the setup of a BGP-enabled connection between Azure and Amazon Web Services (AWS). You will use an Azure VPN Gateway with BGP and active-active enabled and an AWS Virtual Private Gateway with two site-to-site connections.
 
 ## <a name="architecture"></a>Architecture
+In this setup, you will create the following resources:
 
-Each Virtual Private Gateway connection on AWS has two tunnels, each with their own public IP address and BGP APIPA address space. You can enable active-active on your Azure VPN Gateway to connect an AWS connection with two tunnels, since an active-passive VPN Gateway only supports one BGP APIPA.
+Azure
+* 1 Virtual Network
+* 1 Virtual Network Gateway with active-active and BGP enabled 
+* 4 Local Network Gateways
+* 4 site-to-site connections 
 
-On the AWS side, you will create one Customer Gateway for each of the two Azure VPN Gateway instances. AWS will have a total of four outgoing connections since each of the two Customer Gateways has two tunnels. In Azure, you will need to create four Local Network Gateways to receive each of these four tunnels.
+AWS
+* 1 Virtual Private Cloud (VPC)
+* 1 Virtual Private Gateway
+* 2 Customer Gateways
+* 2 site-to-site connections, each with 2 tunnels (total of 4 tunnels)
+
+A site-to-site connection on AWS has two tunnels, each with their own Outside IP Address and Inside IPv4 CIDR (used for BGP APIPA). An active-passive VPN Gateway only supports **one** custom BGP APIPA. To connect to each of the four tunnels in AWS, you will need to enable **active-active** on your Azure VPN Gateway. 
+
+On the AWS side, you will create a Customer Gateway and site-to-site connection for **each of the two Azure VPN Gateway instances** (total of four outgoing tunnels). In Azure, you will need to create four Local Network Gateways and connections to receive these four AWS tunnels.
 
 :::image type="content" source="./media/aws-bgp/Architecture.png" alt-text="Diagram showing architecture for this setup" border="false":::
 
@@ -30,7 +43,7 @@ You must have both an Azure account and AWS account with an active subscription.
 ## <a name ="part-1"></a> Part 1: Create an active-active VPN Gateway in Azure
 
 ### <a name ="create-vnet"></a> Create a VNet
-Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](https://docs.microsoft.com/azure/vpn-gateway/tutorial-create-gateway-portal).
+Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](https://docs.microsoft.com/azure/vpn-gateway/tutorial-create-gateway-portal#CreatVNet).
 
 * **VNet Name**: VNet1
 * **Address space**: 10.1.0.0/16 - For this example, we use only one address space. You can have more than one address space for your VNet.
@@ -68,12 +81,12 @@ Create a VPN gateway using the following values:
 3.	Enable active-active mode
 
     :::image type="content" source="./media/aws-bgp/create-gw-active-active.png" alt-text="Active active for creating gateway" border="false":::
-    - Under Public IP Address, select **Enable active-active mode – Enabled**
+    - Under Public IP Address, select **Enabled** for **Enable active-active mode**.
     - Specify names for the first and second **Public IP address name**. These settings specify the public IP address object that gets associated to the VPN gateway. The public IP address is dynamically assigned to this object when the VPN gateway is created. 
 4. Configure BGP
 
     :::image type="content" source="./media/aws-bgp/create-gw-bgp.png" alt-text="BGP for creating gateway" border="false":::
-    - Select **Configure BGP - Enabled** to show the BGP configuration section.
+    - Select **Enabled** for **Configure BGP** to show the BGP configuration section.
     - Fill in a **ASN (Autonomous System Number)**. This ASN must be different than the ASN used by AWS.
     - Add two addresses to **Custom Azure APIPA BGP IP address**. These addresses will be used to connect to instance 0 of your VPN Gateway. The second input will only appear after you add your first APIPA BGP IP address.
     - Add two addresses to **Second Custom Azure APIPA BGP IP address**. These addresses will be used to connect to instance 1 of your VPN Gateway. The second input will only appear after you add your first APIPA BGP IP address.
