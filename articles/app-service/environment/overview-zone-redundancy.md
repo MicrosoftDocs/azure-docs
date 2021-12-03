@@ -22,7 +22,7 @@ There's no guarantee that requests for instances in a zone-down scenario will su
 
 Applications deployed in a zone redundant environment continue to run and serve traffic, even if other zones in the same region suffer an outage. It's possible, however, that non-runtime behaviors might still be affected by an outage in other availability zones. These behaviors might include the following: App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service Environment only ensures continued uptime for deployed applications.
 
-When the App Service platform allocates instances to a zone redundant App Service plan in your environment, it uses [best effort zone balancing offered by the underlying Azure Virtual Machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). An App Service plan is considered balanced if each zone has either the same number of instances, or +/- 1 instance in all of the other zones used by the App Service plan.
+When the App Service platform allocates instances to a zone redundant App Service plan in your environment, it uses [best effort zone balancing offered by the underlying Azure virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing). An App Service plan is considered balanced if each zone has either the same number of instances, or +/- 1 instance in all of the other zones used by the App Service plan.
 
 ## Pricing
 

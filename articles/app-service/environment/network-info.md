@@ -1,6 +1,6 @@
 ---
 title: Networking considerations
-description: Learn about App Service Environment network traffic, and how to set network security groups and user defined routes with your environment.
+description: Learn about App Service Environment network traffic, and how to set network security groups and user-defined routes with your environment.
 author: madsd
 ms.topic: article
 ms.date: 11/15/2021
