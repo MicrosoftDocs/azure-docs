@@ -15,10 +15,9 @@ ms.topic: conceptual
 
 LUIS supports Azure role-based access control (Azure RBAC), an authorization system for managing individual access to Azure resources. Using Azure RBAC, you assign different team members different levels of permissions for your LUIS authoring resources. See the [Azure RBAC documentation](../../role-based-access-control/index.yml) for more information.
 
-## Enable Azure Active Directory (AAD) Authentication 
+## Enable Azure Active Directory authentication 
 
-To use role-based access control, you need to enable Azure Active Directory (AAD) Authentication.
-You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain), or you can follow the instructions in [Cognitive Services custom subdomains](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources) to enable a custom subdomain for your existing resource.
+To use Azure RBAC, you must enable Azure Active Directory authentication. You can [create a new resource with a custom subdomain](../authentication.md#create-a-resource-with-a-custom-subdomain) or [create a custom subdomain for your existing resource](../cognitive-services-custom-subdomains.md#how-does-this-impact-existing-resources).
 
 ## Add role assignment to Language Understanding Authoring resource
 
