@@ -9,15 +9,15 @@ ms.topic: quickstart
 
 # Quickstart: Create multiple instances
 
-Learn how to use different methods to create multiple instances in Bicep. The methods include:
+Learn how to use different methods to create multiple resource instances in Bicep. Even though this articles shows how to create multiple resource instances, the same methods can be used to define copies of module, variable, property, or output.
 
-- [use integer index]
-- [use array elements]
-- [use array and index]
-- [use dictionary objects]
-- [loop with condition]
-- [Deploy in Batches]
-- [Iterate a child resource]
+These methods include:
+
+- [use integer index](#use-integer-index)
+- [use array elements](#use-array-elements)
+- [use array and index](#use-array-and-index)
+- [use object](#use-object)
+- [loop with condition](#loop-with-condition)
 
 To learn more, see [Loops](./loop.md).
 
@@ -29,22 +29,11 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 ## Create a single instance
 
-In this section, you learn the Bicep file for creating a storage, and how to deploy the Bicep file.  The subsequent sections provide the Bicep samples for different loop types.  You can use the same deployment method to deploy and experience those samples.
+In this section, you learn how to create a Bicep file for creating a storage account, and how to deploy the Bicep file.  The subsequent sections provide the Bicep samples for different methods. You can use the same deployment methods to deploy and experience those samples.
 
 To create a single instance of a storage account:
 
-```bicep
-param rgLocation string = resourceGroup().location
-
-resource createStorage 'Microsoft.Storage/storageAccounts@2021-06-01' = {
-  name: 'storage${uniqueString(resourceGroup().id)}'
-  location: rgLocation
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-}
-```
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/createStorage.bicep":::
 
 To deploy the Bicep file:
 
@@ -68,9 +57,29 @@ New-AzResourceGroupDeployment -ResourceGroupName arm-vscode -TemplateFile ./azur
 
 ## Use integer index
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/insidedeclaration.bicep" highlight="9,12":::
+A for loop is used in the next example to create two storage account:
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopNumbered.bicep" highlight="4-5":::
+
+After deploying the Bicep file, you get two storage accounts similar to:
+
+:::image type="content" source="./media/quickstart-loops/bicep-loop-number-0-2.png" alt-text="Use integer index":::
+
+Inside range(), the first number is the starting number, and the second number is the number of time it will run. So if you change it to **range(3,2)**, you will get:
+
+:::image type="content" source="./media/quickstart-loops/bicep-loop-number-3-2.png" alt-text="Use integer index":::
+
+## Use array elements
+
+You can loop through an array.  This section shows an array of strings and an array of objects.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayString.bicep" highlight="7-8":::
 
 
+- [use array elements](#use-array-elements)
+- [use array and index](#use-array-and-index)
+- [use object](#use-object)
+- [loop with condition](#loop-with-condition)
 
 ## Add resource snippet
 
