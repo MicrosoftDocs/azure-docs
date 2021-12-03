@@ -135,7 +135,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 > [!WARNING]
 > **Known issues** related to Policy creation
-> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](./concept-resource-sets).
+> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
 > - Do not create policy statements for Blob storage selecting data objects below container level. Blob storage only provides access control at container level, so those policies will not be enforced.
 > - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
