@@ -10,7 +10,7 @@ ms.date: 12/2/2021
 
 ---
 
-# How to configure BGP on Azure VPN Gateways
+# How to Connect AWS and Azure Connection using a BGP-enabled VPN Gateway
 
 This article walks you through the setup of a BGP-enabled connection between Azure and Amazon Web Services (AWS). You will use an Azure VPN Gateway with BGP and active-active enabled and an AWS Virtual Private Gateway with two site-to-site connections.
 
@@ -63,7 +63,7 @@ You must have both an Azure account and AWS account with an active subscription.
 ## <a name ="part-1"></a> Part 1: Create an active-active VPN Gateway in Azure
 
 ### <a name ="create-vnet"></a> Create a VNet
-Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](https://docs.microsoft.com/azure/vpn-gateway/tutorial-create-gateway-portal).
+Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](./tutorial-create-gateway-portal.md#CreatVNet).
 
 * **VNet Name**: VNet1
 * **Address space**: 10.1.0.0/16 - For this example, we use only one address space. You can have more than one address space for your VNet.
@@ -193,7 +193,7 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
 8. For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left this as the AWS default value.
 9. For **BGP peer IP address**, enter the AWS BGP Peer IP Address based on the [APIPA configuration you chose](#apipa-config).
 
-:::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Values for your Local Network Gateway" border="false":::
+:::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Values for your Local Network Gateway BGP settings" border="false":::
 
 
 ### <a name ="create-azure-connections"></a> Create Connections
