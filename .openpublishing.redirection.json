@@ -7314,6 +7314,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/concepts/migrate-from-text-analytics-v2.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate-text-analytics-latest",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/index.yml",
       "redirect_url": "/azure/cognitive-services/language-service/index",
       "redirect_document_id": true

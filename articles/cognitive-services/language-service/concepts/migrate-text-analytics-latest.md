@@ -8,12 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/30/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
 # Migrate to the latest version of Azure Cognitive Service for Language
+
+> [!TIP]
+> Just getting started with Azure Cognitive Service for Language? See the [overview article](../overview.md) for details on the service, available features, and links to quickstarts for sending your first API requests. 
 
 If your applications are using an older version of the Text Analytics API (before v3.1), or client library (before stable v5.1.0), this article will help you upgrade your applications to use the latest version of the [Azure Cognitive Service for language](../overview.md) features.
 
