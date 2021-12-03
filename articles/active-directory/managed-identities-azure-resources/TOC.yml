@@ -145,7 +145,7 @@
   - name: Known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: mi-status.md
+    href: managed-identities-status.md
   - name: Azure services that support Azure Active Directory authentication
     href: services-azure-active-directory-support.md
   - name: Stack Overflow
