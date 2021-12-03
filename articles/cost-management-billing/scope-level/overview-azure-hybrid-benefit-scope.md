@@ -4,7 +4,7 @@ description: Azure Hybrid Benefit is a licensing benefit that lets you bring you
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 11/11/2021
+ms.date: 12/03/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: ahb
