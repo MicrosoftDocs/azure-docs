@@ -41,8 +41,15 @@ To use a Filter activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-filter-activity/filter-activity.png" alt-text="Shows the UI for a Filter activity.":::
 
-1. Use the dynamic content editor to select your input array to be filtered in the Items field.  In this example, we select the variable created in the first step.
-1. Use the dynamic content editor to specify a filter condition, as shown above.
+1. Select the Items field and then select the **Add dynamic content** link to open the dynamic content editor pane.
+
+   :::image type="content" source="media/control-flow-filter-activity/add-dynamic-content-link.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; link for the Items property.":::
+
+1. Select your input array to be filtered in the dynamic content editor.  In this example, we select the variable created in the first step.
+
+   :::image type="content" source="media/control-flow-filter-activity/add-dynamic-content-pane.png" alt-text="Shows the dynamic content editor with the variable created in the first step selected":::
+
+1. Use the dynamic content editor again to specify a filter condition for the Condition property, as shown above.
 1. You can use the output from the Filter activity as an input to other activities like the [ForEach activity](control-flow-for-each-activity.md).
 
 ## Type properties
