@@ -30,6 +30,8 @@ The following is needed to ensure you're set up to begin the onboarding process 
 >[!NOTE]
 > Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
 
+At this point, you should already have deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
+
 For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](https://docs.microsoft.com/azure/azure-vmware/tutorial-network-checklist)
 
 ### Manual registration to Arc for Azure VMware Solution feature set
@@ -62,7 +64,9 @@ While invoking the script, you'll be required to define one of the following ope
 **Onboard**
 
 1. Download and install the required tools to execute preview software from jump box (Azure CLI tools, Python, etc.). 
-1. Create Azure VMware Solution segment as per details if not present already. Create Domain Name Server (DNS) and zones if not present already. Fetch vCenter credentials. 
+1. Create Azure VMware Solution segment as per details if not present already. 
+1. Create Domain Name Server (DNS) and zones if not present already. 
+1. Fetch vCenter credentials. 
 1. Create template for Arc Appliance and take snapshot from template created. 
 1. Deploy the Arc for Azure VMware Solution appliance VM. 
 1. Create an Azure Resource Manager template (ARM template) resource for the appliance. 
@@ -86,7 +90,7 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
 1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
-    Config JSON
+    **Config JSON**
     ```json
     { 
       "subscriptionId": "", 
@@ -109,15 +113,15 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     } 
     ```
     
-    - subscriptionId, resourceGroup, privateCloud – The subscription ID, Resource Group name, and the Private cloud name respectively.  
-    - isStatic and isAVS are always true. 
-    - networkForApplianceVM – Name for the segment for Arc appliance VM, one will be created if one does not already exist.  
-    - networkCIDRForApplianceVM – The IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
-    - GatewayIPAddress – The gateway for the segment for Arc appliance VM. 
-    - applianceControlPlaneIpAddress – The IP address for the Kubernetes API server which should be part of the segment IP CIDR provided but not a part of the k8s node pool IP range.  
-    - k8sNodeIPPoolStart, k8sNodeIPPoolEnd - The starting IP and the ending IP of the pool of IPs to assign to the appliance VM, have to be within the networkCIDRForApplianceVM. 
+    - Populate the `subscriptionId`, `resourceGroup`, and `privateCloud` names respectively.  
+    - `isStatic` and `isAVS` are always true. 
+    - `networkForApplianceVM` is the name for the segment for Arc appliance VM. One will be created if it doesn't already exist.  
+    - `networkCIDRForApplianceVM` is the IP CIDR of the segment for Arc appliance VM. It should be unique and not affect other networks of Azure VMware Solution management IP CIDR. 
+    - `GatewayIPAddress` is the gateway for the segment for Arc appliance VM. 
+    - `applianceControlPlaneIpAddress` is the IP address for the Kubernetes API server which should be part of the segment IP CIDR provided. It shouldn't be part of the k8s node pool IP range.  
+    - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
 
-    Sample JSON
+    **Json example**
     ```json
     { 
       "subscriptionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", 
@@ -136,7 +140,7 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     } 
     ```
 
-1. You're ready to run the installation scripts. We provide you the option to set up this preview from both a Windows or a Linux based jump box/VM. 
+1. You're ready to run the installation scripts. We've provided you with the option to set up this preview from a Windows or Linux-based jump box/VM. 
 
     Run the following commands to execute the installation script. 
 
@@ -160,15 +164,16 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     - Custom location
     - VMware vCenter
 
-    In this example, we used the same Resource Group. 
+>[!IMPORTANT]
+>You cannot create the resources in a separate resource group. You'll need to use the Resource Group from where the Azure VMware Solution private cloud was created to create the resources. 
  
 ## Discover and project your VMware infrastructure resources to Azure
 
 When Arc appliance is successfully deployed on a customer's private cloud, they can do the following:
 
 - View the status from within the private cloud blade under **Operations > Arc**. 
-- View their Mware infrastructure resources from the private cloud blade under **Private cloud** then select **Azure Arc vCenter resources**.
-- Project their VMware infrastructure resources to Azure using the same browse experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
+- View the Mware infrastructure resources from the private cloud blade under **Private cloud** then select **Azure Arc vCenter resources**.
+- Discover your VMware infrastructure resources and  Project them to Azure using the same browser experience, **Private cloud > Arc vCenter resources > Virtual Machines**.
 - Similar to VMs, customers can enable networks, templates, resource pools and data-stores in Azure.
 
 Once customers enable VMs to be managed from Azure, they can proceed to install guest management. By installing guest management, they can do the following:
@@ -176,8 +181,8 @@ Once customers enable VMs to be managed from Azure, they can proceed to install 
 - Enable customers to install and use extensions.
     - To enable guest management, customers will be required to use admin credentials. 
     - VMtools should already be running on the VM.
-    > [!NOTE] 
-    > Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+  > [!NOTE] 
+  > Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
 
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
@@ -186,6 +191,7 @@ Once customers enable VMs to be managed from Azure, they can proceed to install 
     - Azure policy guest configuration
 
  **Azure VMware Solution private cloud with Azure Arc**
+<!--content has been requested to replace an image for this section -->
 
 Click on **Operations > Azure Arc**. Azure Arc state should show as **Configured**.
 
@@ -194,7 +200,7 @@ Click on **Operations > Azure Arc**. Azure Arc state should show as **Configured
 
 ### Manage access to VMware resources through Azure Role-Based Access Control (RBAC)
 
-Once your Azure VMware Solution vCenter resources have been enabled for access through Azure, there is one final step in setting up a self-service experience for your teams. You will need to provide your teams with access to the compute, storage and networking, and other vCenter resources used to provision VMs.
+Once your Azure VMware Solution vCenter resources have been enabled for access through Azure, there's one final step in setting up a self-service experience for your teams. You will need to provide your teams with access to the compute, storage and networking, and other vCenter resources used to provision VMs.
 
 This section will demonstrate how to use custom roles to manage granular access to VMware resources through Azure.
 
