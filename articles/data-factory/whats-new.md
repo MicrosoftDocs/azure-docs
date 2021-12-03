@@ -32,7 +32,7 @@ This page is updated monthly, so revisit it regularly.
   <td>We have improved GitHub integration, removing the limitation of only 1000 data factory resources per resource type (datasets, pipelines, etc.) and preventing the GitHub API rate limit from being reached for larger data factories.<br><a href="source-control.md">Learn more</a></td>
  </tr>
   
-<tr><td rowspan=3><b>Data Flow</b></td><td>Set a custom error code and error message with the Fail activity</td><td>Now you can use fail activity to set the error message and custom error code for the pipeline.<br><a href="control-flow-fail-activity.md">Learn more</a></td></tr>
+<tr><td rowspan=3><b>Data Flow</b></td><td>Set a custom error code and error message with the Fail activity</td><td>Now you can use the Fail activity to set the error message and custom error code for a pipeline.<br><a href="control-flow-fail-activity.md">Learn more</a></td></tr>
 <tr><td>External call transformation</td><td>Use the new External Call transformation in Mapping Data Flows to extend your data flows to custom end REST endpoints or 3rd party API services.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
 <tr><td>Synapse quick re-use</td><td>When executing mapping data flows in Synapse Analytics, use the TTL feature. The TTL feature for Azure Integration Runtimes with Synapse mapping data flows will now use the quick re-use feature so that sequential data flows will execute within a few seconds.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
 
