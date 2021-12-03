@@ -40,7 +40,12 @@ Execute this step only if the Storage and Purview accounts are in different subs
 
 ### Configure permissions for policy management actions
 #### Storage account permissions
-- User needs to have role *Owner* in the Azure Storage account to be able to register this source for *Data use Governance* in Azure Purview. You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+User needs to have **either one of these** role combinations in the Azure Storage account to be able to register it for *Data use Governance* in Azure Purview:
+- IAM *Owner* 
+- Both IAM *Contributor* + IAM *User Access Administrator*
+ 
+You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+
 #### Purview account permissions
 >[!IMPORTANT]
 > - Policy operations are only supported at **root collection level** and not child collection level.
