@@ -117,7 +117,7 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 * Enabling Synapse Link on existing Cosmos DB containers is only supported for SQL API acconts. Synapse Link can be enabled on new containers for both SQL API and MongoDB API   accounts.
 
 * Backup and restore of your data in analytical store is not supported at this time. You can recreate your analytical store data in some scenarios as below:
-    * Azure Synapse Link and periodic backup mode can coexist in the same database account. In this mode, your transactional store data will be automatically backed up.              However, analytical store data is not included in backups and restores. If you use `transactional TTL` equal or bigger than your `analytical TTL on your container, you can
+    * Azure Synapse Link and periodic backup mode can coexist in the same database account. In this mode, your transactional store data will be automatically backed up.              However, analytical store data is not included in backups and restores. If you use `transactional TTL` equal or bigger than your `analytical TTL` on your container, you can
      fully recreate your analytical store data by enabling analytical store on the restored container. Please note, at present, you can only recreate analytical store on your
      restored containers for SQL API.
     * Synapse Link and continuous backup mode (point=in-time restore) coexistence in the same database account is not supported. If you enable continuous backup mode, you can't
