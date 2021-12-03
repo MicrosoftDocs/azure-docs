@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 12/02/2021
+ms.date: 12/03/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -49,3 +49,4 @@ The following services support Azure AD authentication. New services are added t
 
 - [Azure China developer guide](https://docs.microsoft.com/azure/china/resources-developer-guide)
 - [Compare Azure Government and global Azure](../../azure-government/compare-azure-government-global-azure.md)
+- [Azure services that can use Managed identities to access other services](managed-identities-status.md)
