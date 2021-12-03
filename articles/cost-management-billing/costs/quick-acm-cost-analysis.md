@@ -146,11 +146,6 @@ You can view the full dataset for any view. Whichever selections or filters that
 
 ![Data for current view in a table view](./media/quick-acm-cost-analysis/chart-type-table-view.png)
 
-## Clean up resources
-
-- If you pinned a customized view for cost analysis and you no longer need it, go to the dashboard where you pinned it and delete the pinned view.
-- If you downloaded usage data files and you no longer need them, be sure to delete them.
-
 ## Next steps
 
 Advance to the first tutorial to learn how to create and manage budgets.
