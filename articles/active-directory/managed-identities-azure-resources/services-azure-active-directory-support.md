@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: karenh444
-ms.custom: references_regions
 ---
 
 # Azure services that support Azure AD authentication
