@@ -89,9 +89,9 @@ Notice that document 2 is fetched twice. This is because the new document 5 has 
 
 ## Ordering results
 
-In Azure Cognitive Search, results can be ranked by a search score, a semantic score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
+In a full text search query, results can be ranked by a search score, a semantic re-ranker score (if using [semantic search](semantic-search-overview.md)), or by an **`$orderby`** expression in the query request.
 
-A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or a filter expression. If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
+A @search.score equal to 1.00 indicates an un-scored or un-ranked result set, where the 1.0 score is uniform across all results. Un-scored results occur when the query form is fuzzy search, wildcard or regex queries, or an empty search (`search=*`). If you need to impose a ranking structure over un-scored results, an **`$orderby`** expression will help you achieve that objective.
 
 For full text search queries, results are automatically ranked by a search score, calculated based on term frequency and proximity in a document (derived from [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)), with higher scores going to documents having more or stronger matches on a search term.
 
