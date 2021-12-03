@@ -38,6 +38,7 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 5. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Select Gen 1 or Gen 2.":::
+**The above sentence should be removed as there is no option to select Generation of the VM in "Advanced" tab, customers has to pick the Image from the gallery with the Gen information.**
 
 6. Select the size of the VM to deploy.
 
