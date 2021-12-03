@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/18/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ---
 
@@ -24,7 +24,6 @@ Currently, the following features are available to be used asynchronously:
 * Named Entity Recognition (NER) and Personally Identifiable Information (PII) detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
-
 
 ## Send asynchronous API requests using the REST API
 
@@ -63,6 +62,14 @@ Afterwards, use the client object to send asynchronous calls to the API. The met
 ## Result availability 
 
 When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+
+## Data limits
+
+> [!NOTE]
+> * If you need to analyze larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. 
+> * A document is a single string of text characters.  
+
+You can send up to 125,000 characters across all documents contained in the asynchronous request, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). This character limit is higher than the limit for synchronous requests, to enable higher throughput. 
 
 ## See also
 
