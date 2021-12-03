@@ -88,15 +88,15 @@ If your App Service Environment is made with an external VIP, your apps are auto
 
 If you want to use your own DNS server, add the following records:
 
-1. Create a zone for `<ASE-name>.appserviceenvironment.net`.
+1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
 1. Create an A record in that zone that points @ to the inbound IP address used by your environment.
-1. Create a zone in `<ASE-name>.appserviceenvironment.net` named `scm`.
+1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
 1. Create an A record in the `scm` zone that points * to the IP address used by the private endpoint of your App Service Environment.
 
 To configure DNS in Azure DNS private zones:
 
-1. Create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`.
+1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address.
 1. Create an A record in that zone that points @ to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.

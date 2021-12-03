@@ -50,21 +50,21 @@ Here's how:
 
 1. Search Azure Marketplace for *App Service Environment v3*.
 
-1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound environment address to be an address in your subnet. Select **External** if you want your inbound environment address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix of your environment. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be *contoso.appserviceenvironment.net*. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be *contoso.p.azurewebsites.net*. 
+1. From the **Basics** tab, for **Subscription**, select the subscription. For **Resource Group**, select or create the resource group, and enter the name of your App Service Environment. For **Virtual IP**, select **Internal** if you want your inbound environment address to be an address in your subnet. Select **External** if you want your inbound environment address to face the public internet. For **App Service Environment Name**, enter a name. The name you choose will also be used for the domain suffix of your environment. For example, if the name you choose is *contoso*, and you have an internal VIP, the domain suffix will be `contoso.appserviceenvironment.net`. If the name you choose is *contoso*, and you have an external VIP, the domain suffix will be `contoso.p.azurewebsites.net`. 
 
-    ![Screenshot that shows the App Service Environment create basics tab.](./media/creation/creation-basics.png)
+    ![Screenshot that shows the App Service Environment basics tab.](./media/creation/creation-basics.png)
 
 1. From the **Hosting** tab, for **Host group deployment**, select **Enabled** or **Disabled**. If you enable this option, you can deploy your environment onto dedicated hardware. If you do so, you're charged for the entire dedicated host during the creation of the environment, and then you're charged a reduced price for your App Service plan instances.
 
     ![Screenshot that shows the App Service Environment hosting selections.](./media/creation/creation-hosting.png)
 
-1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your environment. For more details, see the DNS section in [Using an App Service Environment][UsingASE].
+1. From the **Networking** tab, for **Virtual Network**, select or create your virtual network. For **Subnet**, select or create your subnet. If you're creating an environment with an internal VIP, you can configure Azure DNS private zones to point your domain suffix to your environment. For more details, see the DNS section in [Use an App Service Environment][UsingASE].
 
     ![Screenshot that shows App Service Environment networking selections.](./media/creation/creation-networking.png)
 
 1. From the **Review + create** tab, check that your configuration is correct, and select **Create**. Your App Service Environment can take up to two hours to create. 
 
-When your environment has been successfully created, you can select it as a location when you're creating your apps. For more information, see [Using an App Service Environment][UsingASE].
+When your environment has been successfully created, you can select it as a location when you're creating your apps.
 
 <!--Links-->
 [Intro]: ./overview.md

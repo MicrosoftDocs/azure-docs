@@ -78,15 +78,15 @@ To find the inbound address of your environment, in the App Service Environment 
 
 If you want to use your own DNS server, add the following records:
 
-1. Create a zone for `<ASE-name>.appserviceenvironment.net`.
+1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
 1. Create an A record in that zone that points @ to the inbound IP address used by your environment.
-1. Create a zone in `<ASE-name>.appserviceenvironment.net` named `scm`.
+1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
 1. Create an A record in the `scm` zone that points * to the inbound address used by your App Service Environment.
 
 To configure DNS in Azure DNS private zones:
 
-1. Create an Azure DNS private zone named `<ASE-name>.appserviceenvironment.net`.
+1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
 1. Create an A record in that zone that points * to the inbound IP address.
 1. Create an A record in that zone that points @ to the inbound IP address.
 1. Create an A record in that zone that points *.scm to the inbound IP address.
@@ -138,7 +138,7 @@ To enable logging on your environment, follow these steps:
 1. Select **AppServiceEnvironmentPlatformLogs**.
 ![Screenshot that shows how to enable logging on your environment.][4]
 
-If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your environment has an event that triggers the logs. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs, perform a scale operation with an App Service plan in your environment. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your environment has an event that triggers the logs. If your App Service Environment doesn't have such an event, there won't be any logs. To quickly see an example of logs, perform a scale operation with an App Service plan in your environment. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
 
 ### Create an alert
 

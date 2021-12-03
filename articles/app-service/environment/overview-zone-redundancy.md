@@ -18,7 +18,7 @@ You configure zone redundancy when you create your environment, and all App Serv
 
 When a zone goes down, the App Service platform detects lost instances and automatically attempts to find new, replacement instances. If you also have autoscale configured, and if it determines that more instances are needed, autoscale also issues a request to App Service to add more instances. Autoscale behavior is independent of App Service platform behavior.
 
-There's no guarantee that requests for instances in a zone-down scenario will succeed, because back-filling lost instances occurs on a best-effort basis. It's a good idea to scale your App Service plans to account for losing a zone.
+There's no guarantee that requests for instances in a zone-down scenario will succeed, because back-filling lost instances occurs on a best effort basis. It's a good idea to scale your App Service plans to account for losing a zone.
 
 Applications deployed in a zone redundant environment continue to run and serve traffic, even if other zones in the same region suffer an outage. It's possible, however, that non-runtime behaviors might still be affected by an outage in other availability zones. These behaviors might include the following: App Service plan scaling, application creation, application configuration, and application publishing. Zone redundancy for App Service Environment only ensures continued uptime for deployed applications.
 
