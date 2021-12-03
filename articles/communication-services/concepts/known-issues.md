@@ -33,6 +33,17 @@ We managed to bypass that bug and now users will be able to join calls with vide
 
 This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505).
 
+
+### Safari on macOS Monterey blocks the connections 
+
+macOS Monterey introduced on new beta privacy feature on Safari that sends the traffic through a relay. That feature blocks SDK connections and prevents the SDK initialization process. 
+
+Mitigation
+
+Application can proactivevly inform the user to disable that setting. 
+
+Safari -> Preferences -> Privacy -> Disable "Hide IP address"
+
 ### Android 12 causes video artifacts when user is sending video in a call
 
 Android 12 introduced a bug that affects outgoing video on all Chromium based browsers. Specifically, the problem occurs when a user joins a call using Communication Services on Android 12 with video turned on. The video will render on the receiver's end with artifacts. 
