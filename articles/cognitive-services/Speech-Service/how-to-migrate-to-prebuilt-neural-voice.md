@@ -37,7 +37,7 @@ The prebuilt neural voice provides more natural sounding speech output, and thus
 
 ## Standard voice details (retired)
 
-Read the following sections for detials on standard voice.
+Read the following sections for details on standard voice.
 
 ### Language support
 
