@@ -92,7 +92,7 @@ Here's the *function.json* file:
 }
 ```
 
-For more information, see [Examples](##tabpanel_2_csharp-script).
+For more information, see [Examples](#tabpanel_2_csharp-script).
 
 ```cs
 public static void Run(WarmupContext warmupContext, ILogger log)
