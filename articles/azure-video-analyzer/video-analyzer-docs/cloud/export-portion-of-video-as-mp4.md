@@ -45,7 +45,9 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 > [!NOTE]
 > For more information about sources, processors and sinks please see [sources, processors, and sinks](../pipeline.md#sources-processors-and-sinks). For more information on pipeline jobs please see [pipeline jobs](../pipeline.md#batch-pipeline)
 
-## Create a pipeline job (from Videos)
+## [Azure Portal](#tab/azure-portal)
+
+### Create a pipeline job (from Videos)
 
 1. In the Azure portal navigate to your Video Analyzer account.
 1. Select **Videos** under the `Video Analyzer` section and then select the video stream that should be used to export a portion of video from.
@@ -87,7 +89,7 @@ A pipeline topology of batch kind enables you to describe how recorded video sho
 
 The Video Widget player should start playing the MP4 file.  To download the MP4 file click on `Download video` at the top of the blade.  This will open the MP4 file in a new browser tab.  Right click on the video and click **save as**.
 
-## Cancel a pipeline job
+### Cancel a pipeline job
 
 Once a pipeline job has entered the processing state the pipeline job can be canceled.  To cancel a pipeline job:
 
@@ -98,7 +100,7 @@ Once a pipeline job has entered the processing state the pipeline job can be can
     > [!NOTE]
     > A failed pipeline job cannot be canceled.
 
-## Delete a pipeline job
+### Delete a pipeline job
 
 Once a pipeline job has entered the completed or failed state the pipeline job can be deleted.  To delete a pipeline job:
 
@@ -106,7 +108,7 @@ Once a pipeline job has entered the completed or failed state the pipeline job c
 1. In the Batch blade select the **Jobs** tab at the top.
 1. Under the jobs tab you will find a list of jobs that are in different states.  Find the job you wish to delete (in the canceled, completed or failed state) and select **Delete** on the right hand side pipeline Jobs and then click **Delete**.
 
-## Delete a pipeline topology of batch kind
+### Delete a pipeline topology of batch kind
 
 In order to delete a pipeline topology of batch kind all pipeline jobs that are associated with the pipeline topology must be deleted.  To delete a pipeline topology of batch kind:
 
@@ -118,11 +120,65 @@ In order to delete a pipeline topology of batch kind all pipeline jobs that are 
     > [!NOTE]
     > All pipeline jobs must be deleted from a pipeline topology of batch kind before a pipeline topology of batch kind can be deleted.
 
-## Clean up resources
+### Clean up resources
 
 If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart, and delete all the resources.
+
+## [C# SDK sample](#tab/csharp-sdk-sample)
+
+In this tab, learn how to export a portion of recorded video as an MP4 file using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
+
+### Additional pre-requisites
+
+1. Get your Azure Active Directory [Tenant Id](../active-directory/fundamentals/active-directory-how-to-find-tenant).
+1. Register an application with Microsoft identity platform to get app registration [Client Id](../active-directory/develop/quickstart-register-app#register-an-application) and [Client secret](../active-directory/develop/quickstart-register-app#add-a-client-secret).
+1. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions -
+    * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
+    * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
+1. [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
+1. A recorded video in the Video Analyzer account, or an [RTSP camera](quotas-limitations#supported-cameras-1) accessible over the internet. Alternatively, you can deploy an [RTSP camera simulator](get-started-livepipelines-portal#deploy-rtsp-camera-simulator).
+
+### Get the sample code 
+
+* Clone the Video Analyzer [C# samples repository](https://github.com/Azure-Samples/video-analyzer-csharp).  
+* Open your local clone of this git repository in Visual Studio Code.
+* The `src\video-export` folder contains a .NET Core console app to export a portion of a recorded video as an MP4 file. 
+* Navigate to `src\video-export\Program.cs`. Provide values for the following variables & save the changes.
+
+| Variable       | Description                                |
+|----------------------|--------------------------------------------|
+| SubscriptionId | Provide Azure subscription Id    |
+| ResourceGroup | Provide resource group name |
+| AccountName | Provide Video Analyzer account name |
+| TenantId | Provide tenant id |
+| ClientId | Provide app registration client id |
+| Secret | Provide app registration client secret |
+| AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
+| ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
+| TokenAudience | Provide token audience (example: https://management.core.windows.net) |
+| PublicCameraSourceRTSPURL *(optional)* | Provide RTSP source url  |
+| PublicCameraSourceRTSPUserName *(optional)* | Provide RTSP source username |
+| PublicCameraSourceRTSPPassword *(optional)* | Provide RTSP source password |
+| SourceVideoName | Provide source video name for export |
+
+> [!NOTE]
+> The sample code will first activate a live pipeline to create a video recording. If you already have a video recording in your Video Analyzer account (should be of type `archive`), refer to [Use existing video section](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/video-export#use-existing-video) for the necessary code changes.
+
+### Run the sample program to create a batch pipeline 
+
+* Start a debugging session in VS Code (If this is the default project, hit F5 key or see instructions to [run the sample](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/video-export#running-the-sample)). The TERMINAL window will start displaying messages as you run the program.  
+* If the program runs successfully, a batch pipeline is created and activated. You will start seeing some messages printed in the TERMINAL window regarding creation of the topology and pipeline.  
+* If the job is successful, login to [Azure portal](https://portal.azure.com). Go to the Video Analyzer account used for this article. 
+* Click on Videos blade and choose the video resource created by the pipeline job. The default video name in sample code is `batch-pipeline-exported-video`. Click on the video, and it will trigger a download and playback in the browser window. Alternatively, you can download the file.
+
+> [!NOTE]
+> For detailed instructions on customizing pipeline parameters such as exported video name, refer to **[readme.md file for video export](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/video-export)**.
+
+### Clean-up resources
+
+In the VS Code TERMINAL window, press enter to deactivate the pipeline and cleanup the pipeline and topology created in this article.
 
 ## Next steps
 
 * [Connect cameras directly to the cloud](./connect-cameras-to-cloud.md) in order capture and record video, using [cloud pipelines](../pipeline.md).
-* [Connect cameras to Video Analyzer's service via the Video Analyzer edge module acting as a transparent gateway for video packets via RTSP protocol](./use-remote-device-adapter.md).
+* Connect cameras to Video Analyzer's service via the [Video Analyzer edge module acting as a transparent gateway](./use-remote-device-adapter.md) for video packets via RTSP protocol.
