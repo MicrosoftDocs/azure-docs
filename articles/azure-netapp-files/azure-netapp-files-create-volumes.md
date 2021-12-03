@@ -41,7 +41,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 
 ## Best practice
 
-* Ensure that you’re using the proper mount instructions for the volume.  See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Ensure that you’re using the proper mount instructions for the volume.  See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
 * The NFS client should be in the same VNet or peered VNet as the Azure NetApp Files volume. Connecting from outside the VNet is supported; however, it will introduce additional latency and decrease overall performance.
 
@@ -134,7 +134,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
 * [Configure NFSv4.1 Kerberos encryption](configure-kerberos-encryption.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
-* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md)
 * [Configure Unix permissions and change ownership mode](configure-unix-permissions-change-ownership-mode.md). 
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)

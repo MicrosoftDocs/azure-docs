@@ -109,7 +109,7 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Configure multiple Site-to-Site connections
+    - name: Add additional S2S connections
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md

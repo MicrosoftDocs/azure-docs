@@ -5,8 +5,8 @@ services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.author: nandab
-author: KishorIoT
+ms.author: dobett
+author: dominicbetts
 ms.date: 07/31/2020
 ---
 # Tutorial: Monitor and manage a video analytics - object and motion detection application
