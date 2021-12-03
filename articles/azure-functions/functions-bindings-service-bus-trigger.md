@@ -2,12 +2,12 @@
 title: Azure Service Bus trigger for Azure Functions
 description: Learn to run an Azure Function when as Azure Service Bus messages are created.
 author: craigshoemaker
-
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 12/02/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Service Bus trigger for Azure Functions
@@ -19,7 +19,14 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
+<!--Optional intro text goes here, followed by the C# modes include.-->
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+
+# [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads [message metadata](#message-metadata) and
 logs a Service Bus queue message:
@@ -40,6 +47,10 @@ public static void Run(
     log.LogInformation($"MessageId={messageId}");
 }
 ```
+# [Isolated process](#tab/isolated-process)
+
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -80,8 +91,10 @@ public static void Run(string myQueueItem,
     log.Info($"MessageId={messageId}");
 }
 ```
+---
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
 
@@ -113,8 +126,8 @@ Java functions can also be triggered when a message is added to a Service Bus to
         context.getLogger().info(message);
     }
 ```
-
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
@@ -147,7 +160,8 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md) that uses the binding. 
 
@@ -176,7 +190,8 @@ param([string] $mySbMsg, $TriggerMetadata)
 Write-Host "PowerShell ServiceBus queue trigger function processed message: $mySbMsg"
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 The following example demonstrates how to read a Service Bus queue message via a trigger.
 
@@ -230,9 +245,14 @@ def main(msg: func.ServiceBusMessage):
 
 ---
 
-## Attributes and annotations
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+## Attributes
 
-# [C#](#tab/csharp)
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+
+
+# [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
 
@@ -290,12 +310,19 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the function.
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
+# [Isolated process](#tab/isolated-process)
 
-# [C# Script](#tab/csharp-script)
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="12-15":::
+
+# [C# script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
+---
 
-# [Java](#tab/java)
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
 
 The `ServiceBusQueueTrigger` annotation allows you to create a function that runs when a Service Bus queue message is created. Configuration options available include queue name and connection string name.
 
@@ -303,20 +330,8 @@ The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subs
 
 See the trigger [example](#example) for more detail.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
----
-
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBusTrigger` attribute.
@@ -337,10 +352,16 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 [!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
+::: zone-end  
+
+See the [Example section](#example) for complete examples.
 
 ## Usage
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"  
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [In-process](#tab/in-process)
 
 The following parameter types are available for the queue or topic message:
 
@@ -349,7 +370,7 @@ The following parameter types are available for the queue or topic message:
 * A custom type - If the message contains JSON, Azure Functions tries to deserialize the JSON data.
 * `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1)
   method.
-* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when [`autoComplete`](functions-bindings-service-bus.md#hostjson-settings) is set to `false`)
+* [`MessageReceiver`](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container (required when `autoComplete` is set to `false`)
 
 These parameter types are for Azure Functions version 1.x; for 2.x and higher, use [`Message`](/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
 
@@ -358,7 +379,11 @@ Apps using the 5.0.0 or higher version of the Service Bus extension use the `Ser
 
 - [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
-# [C# Script](#tab/csharp-script)
+# [Isolated process](#tab/isolated-process)
+
+<!--If available, call out any usage information from the linked example in the worker repo. -->
+
+# [C# script](#tab/csharp-script)
 
 The following parameter types are available for the queue or topic message:
 
@@ -375,25 +400,29 @@ Apps using the 5.0.0 or higher version of the Service Bus extension use the `Ser
 
 - [ServiceBusReceivedMessage](/dotnet/api/azure.messaging.servicebus.servicebusreceivedmessage)
 
-# [Java](#tab/java)
+---
+
+::: zone-end  
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot="programming-language-java"
 
 The incoming Service Bus message is available via a `ServiceBusQueueMessage` or `ServiceBusTopicMessage` parameter.
 
 [See the example for details](#example).
 
-# [JavaScript](#tab/javascript)
-
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 Access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
-
-# [PowerShell](#tab/powershell)
-
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 The Service Bus instance is available via the parameter configured in the *function.json* file's name property.
-
-# [Python](#tab/python)
-
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+<!--Any usage information from the TypeScript tab in ## Usage. -->
+::: zone-end  
+::: zone pivot="programming-language-python"  
 The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
-
----
+::: zone-end  
 
 ## Poison messages
 

@@ -2,14 +2,14 @@
 title: Azure Service Bus output bindings for Azure Functions
 description: Learn to send Azure Service Bus messages from Azure Functions.
 author: craigshoemaker
-
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
-ms.date: 02/19/2020
+ms.date: 12/02/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
-
+zone_pivot_groups: programming-languages-set-functions
 ---
+
 # Azure Service Bus output binding for Azure Functions
 
 Use Azure Service Bus output binding to send queue or topic messages.
@@ -18,7 +18,13 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
-# [C#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
+
+<!--Optional intro text goes here, followed by the C# modes include.-->
+
+[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
+
+# [In-process](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
 
@@ -31,6 +37,10 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
     return input.Text;
 }
 ```
+# [Isolated process](#tab/isolated-process)
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="10-25":::
+
 
 # [C# Script](#tab/csharp-script)
 
@@ -82,8 +92,10 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
     await outputSbQueue.AddAsync("2 " + message);
 }
 ```
+---
 
-# [Java](#tab/java)
+::: zone-end
+::: zone pivot="programming-language-java"
 
 The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by an HTTP request.
 
@@ -118,7 +130,8 @@ Java functions can also write to a Service Bus topic. The following example uses
     }
 ```
 
-# [JavaScript](#tab/javascript)
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
 
 The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -170,7 +183,8 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# [PowerShell](#tab/powershell)
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
 
 The following example shows a Service Bus output binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md) that uses the binding. 
 
@@ -203,7 +217,8 @@ Push-OutputBinding -Name outputSbMsg -Value @{
 } 
 ```
 
-# [Python](#tab/python)
+::: zone-end  
+::: zone pivot="programming-language-python"  
 
 The following example demonstrates how to write out to a Service Bus queue in Python.
 
@@ -255,9 +270,24 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
 
 ---
 
-## Attributes and annotations
+::: zone-end  
+::: zone pivot="programming-language-csharp"
+## Attributes
 
-# [C#](#tab/csharp)
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+
+<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
+
+The attribute's constructor takes the following parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**Parameter1** |Description 1|
+|**Parameter2** | Description 2|
+
+-->
+
+# [In-process](#tab/in-process)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [ServiceBusAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAttribute.cs).
 
@@ -285,30 +315,25 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 For a complete example, see [Output - example](#example).
 
-You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](functions-bindings-service-bus-trigger.md#attributes-and-annotations).
+You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](functions-bindings-service-bus-trigger.md#attributes).
+# [Isolated process](#tab/isolated-process)
 
-# [C# Script](#tab/csharp-script)
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="12-15":::
+
+# [C# script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
 
-# [Java](#tab/java)
+---
+
+::: zone-end  
+::: zone pivot="programming-language-java"  
+## Annotations
 
 The `ServiceBusQueueOutput` and `ServiceBusTopicOutput` annotations are available to write a message as a function output. The parameter decorated with these annotations must be declared as an `OutputBinding<T>` where `T` is the type corresponding to the message's type.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [PowerShell](#tab/powershell)
-
-Attributes are not supported by PowerShell.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
----
-
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBus` attribute.
@@ -327,11 +352,19 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-service-bus-connections](../../includes/functions-service-bus-connections.md)]
 
+::: zone-end  
+
+See the [Example section](#example) for complete examples.
+
 ## Usage
 
 In Azure Functions 1.x, the runtime creates the queue if it doesn't exist and you have set `accessRights` to `manage`. In Functions version 2.x and higher, the queue or topic must already exist; if you specify a queue or topic that doesn't exist, the function will fail. 
 
-# [C#](#tab/csharp)
+
+::: zone pivot="programming-language-csharp"  
+The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+
+# [In-process](#tab/in-process)
 
 Use the following parameter types for the output binding:
 
@@ -354,7 +387,11 @@ Apps using the 5.0.0 or higher version of the Service Bus extension use the `Ser
 
 - [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
 
-# [C# Script](#tab/csharp-script)
+# [Isolated process](#tab/isolated-process)
+
+<!--If available, call out any usage information from the linked example in the worker repo. -->
+
+# [C# script](#tab/csharp-script)
 
 Use the following parameter types for the output binding:
 
@@ -375,24 +412,25 @@ When working with C# functions:
 Apps using the 5.0.0 or higher version of the Service Bus extension use the `ServiceBusMessage` type in [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus.servicebusmessage) instead of the one in the[Microsoft.Azure.ServiceBus](/dotnet/api/microsoft.azure.servicebus.message) namespace. This version drops support for the legacy `Message` type in favor of the following types:
 
 - [ServiceBusMessage](/dotnet/api/azure.messaging.servicebus.servicebusmessage)
-
-# [Java](#tab/java)
-
-Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
-
-# [JavaScript](#tab/javascript)
-
-Access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
-
-# [PowerShell](#tab/powershell)
-
-Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
-
-# [Python](#tab/python)
-
-Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
-
 ---
+
+::: zone-end  
+<!--Any of the below pivots can be combined if the usage info is identical.-->
+::: zone pivot="programming-language-java"
+Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
+::: zone-end  
+::: zone pivot="programming-language-powershell"  
+Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
+::: zone-end  
+::: zone pivot="programming-language-typescript"  
+<!--Any usage information from the TypeScript tab in ## Usage. -->
+::: zone-end  
+::: zone pivot="programming-language-python"  
+Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
+::: zone-end  
 
 ## Exceptions and return codes
 
