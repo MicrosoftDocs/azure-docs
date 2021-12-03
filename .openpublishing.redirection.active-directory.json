@@ -10595,13 +10595,6 @@
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
             "redirect_document_id": false
         }
-        ,
-        {
-            "source_path": "articles/active-directory/managed-identities-azure-resources/services-support-managed-identities.md",
-            "redirect_url": "/azure/active-directory/managed-identities-azure-resources/managed-identities-status",
-            "redirect_document_id": false
-        }
-   
          
     ]
 }
