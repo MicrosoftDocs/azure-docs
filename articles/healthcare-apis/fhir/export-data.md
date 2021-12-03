@@ -1,11 +1,11 @@
 ---
 title: Executing the export by invoking $export command on FHIR service
 description: This article describes how to export FHIR data using $export
-author: caitlinv39
+author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 12/02/2021
 ms.author: cavoeg
 ---
 # How to export FHIR data

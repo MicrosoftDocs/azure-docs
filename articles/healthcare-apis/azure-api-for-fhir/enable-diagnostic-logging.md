@@ -5,10 +5,10 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.reviewer: dseven
+ms.reviewer: matjazl
 ms.author: cavoeg
 author: zxue
-ms.date: 10/27/2021
+ms.date: 12/02/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR

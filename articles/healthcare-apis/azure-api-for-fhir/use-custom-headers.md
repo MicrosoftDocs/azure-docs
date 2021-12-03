@@ -5,10 +5,10 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.reviewer: dseven
+ms.reviewer: matjazl
 ms.author: zxue
-author: matjazl
-ms.date: 10/27/2021
+author: zxue
+ms.date: 12/02/2021
 ---
 
 # Add data to audit logs by using custom HTTP headers in Azure API for FHIR
