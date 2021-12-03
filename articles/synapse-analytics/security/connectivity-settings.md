@@ -5,7 +5,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security 
 ms.date: 08/05/2021 
-author: ashinMSFT 
+author: alexshinmsft 
 ms.author: seshin 
 ms.reviewer: jrasnick, wiassaf
 ---
