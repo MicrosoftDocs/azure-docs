@@ -34,7 +34,7 @@ The next step is to associate your new Object Anchors account in your source cod
 
 ## Verify
 
-Run your app or web service and verify it is still functional after the move.
+Run your app or web service and verify it's still functional after the move.
 
 ## Clean up
 
