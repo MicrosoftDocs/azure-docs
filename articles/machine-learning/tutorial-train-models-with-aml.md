@@ -32,7 +32,7 @@ You learn how to select a model and deploy it in [part two of this tutorial](tut
 
 If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
->[!NOTE]
+> [!NOTE]
 > Code in this article was tested with [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro) version 1.13.0.
 
 ## Prerequisites
@@ -49,6 +49,9 @@ Azure Machine Learning includes a cloud notebook server in your workspace for an
  Follow along with this video or use the detailed steps to clone and run the tutorial notebook from your workspace.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
+
+> [!NOTE]
+> The video helps you understand the process, but shows opening a different file.  For this tutorial, once you've cloned the **tutorials** folder, open the **img-classification-part1-training.ipynb** file from your **tutorials/image-classification-mnist-data** folder.
 
 ### <a name="clone"></a> Clone a notebook folder
 

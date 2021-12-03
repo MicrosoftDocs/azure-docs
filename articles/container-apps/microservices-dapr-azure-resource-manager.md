@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template'
 description: Deploy a Dapr application to Azure Container Apps using an ARM template.
-services: app-service
+services: container-apps
 author: asw101
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
@@ -140,7 +140,7 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 

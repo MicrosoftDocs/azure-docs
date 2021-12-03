@@ -1,4 +1,4 @@
---- 
+---
 title: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
 description: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
@@ -12,7 +12,6 @@ ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
- 
 # Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
@@ -51,7 +50,7 @@ kubectl get pods -n <namespace>
 
 The command returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
 
-```console 
+```console
 NAME                 READY   STATUS    RESTARTS   AGE
 bootstrapper-4jrtl   1/1     Running   0          12d
 control-kz8gh        2/2     Running   0          12d
@@ -74,8 +73,8 @@ postgres01w0-3       3/3     Running   0          2d19h
 
 ### What pod is used for what role in the server group?
 
-Any pod name suffixed with `c` represents a coordinator node. Any node name suffixed by `w`  is worker node.
-For example, the five pods that host the server group:
+Any pod name suffixed with `c` represents a coordinator node. Any node name suffixed by `w`  is worker node, such as the five pods that host the server group:
+
 - `postgres01c0-0` the coordinator node
 - `postgres01w0-0` a worker node
 - `postgres01w0-1` a worker node
@@ -84,14 +83,13 @@ For example, the five pods that host the server group:
 
 You may ignore for now the character `0` displayed after `c` and `w` (ServerGroupName`c0`-x or ServerGroupName`w0`-x). It will be a notation used when the product will offer high availability experiences.
 
-
 ### What is the status of the pods?
 
 Run `kubectl get pods -n <namespace>` and look at the column `STATUS`
 
-### What persistent volume claims (PVCs) are being used? 
+### What persistent volume claims (PVCs) are being used?
 
-To understand what PVCs are used, and which are used for data, logs, and backups, run: 
+To understand what PVCs are used, and which are used for data, logs, and backups, run:
 
 ```console
 kubectl get pvc -n <namespace>
@@ -375,11 +373,11 @@ Status:
 Events:                      <none>
 ```
 
-####  Interpret the configuration information
+#### Interpret the configuration information
 
 Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
-- It is of version 12 of Postgres and runs the Citus extension: 
+- It is of version 12 of Postgres and runs the Citus extension:
 
    ```output
    Spec:
@@ -406,7 +404,7 @@ Let's call out some specific points of interest in the description of the `serve
           Workers:        4
    ```
 
-- Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. The coordinator and the worker nodes can not use more that 1Gi of memory. Both the coordinator and the workers are guaranteed one vCore and can't consume more than two vCores. 
+- Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. The coordinator and the worker nodes can not use more that 1Gi of memory. Both the coordinator and the workers are guaranteed one vCore and can't consume more than two vCores.
 
    ```console
         Scheduling:
@@ -433,8 +431,8 @@ Let's call out some specific points of interest in the description of the `serve
                Memory:  256Mi
    ```
 
- - What's the status of the server group? Is it available for my applications? 
- 
+- What's the status of the server group? Is it available for my applications?
+
    Yes, all pods (coordinator node and all four workers nodes are ready)
 
    ```console
@@ -446,7 +444,8 @@ Let's call out some specific points of interest in the description of the `serve
 Use  Az CLI commands.
 
 ### What are the Postgres server groups deployed and how many workers are they using?
-Run the following command. 
+
+Run the following command.
 
    ```azurecli
    az postgres arc-server list --k8s-namespace <namespace> --use-k8s
@@ -484,6 +483,7 @@ az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 Returns the information in a format and content similar to the one returned by kubectl. Use the tool of your choice to interact with the system.
 
 ## Next steps
+
 - [Read about the concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
 - [Read about how to scale out (add worker nodes) a server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about how to scale up/down (increase or reduce memory and/or vCores) a server group](scale-up-down-postgresql-hyperscale-server-group-using-cli.md)

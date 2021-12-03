@@ -1,8 +1,9 @@
 ---
 title: Read Azure Event Hubs captured data from a Python app (latest)
-description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account. 
+description: This article shows you how to write Python code to capture data that's sent to an event hub and read the captured event data from an Azure storage account.
 ms.topic: quickstart
 ms.date: 01/04/2021
+ms.custom: mode-other
 ---
 
 # Capture Event Hubs data in Azure Storage and read it by using Python (azure-eventhub)

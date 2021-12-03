@@ -22,7 +22,7 @@ In this article, you'll learn how to create an empty [lake database](./concepts-
 - Storage Blob Data Contributor permissions are required on data lake.
 
 ## Create lake database from database template
-1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open and yo will see the list of databases that already exist in your workspace.
+1. From your Azure Synapse Analytics workspace **Home** hub, select the **Data** tab on the left. The **Data** tab will open and you will see the list of databases that already exist in your workspace.
 2. Hover over the **+** button and select, then choose **Lake database (preview)**.
 ![Screenshot showing create empty lake database](./media/create-empty-lake-database/create-empty-lakedb.png)
 3. The database designer tab will open with an empty database.

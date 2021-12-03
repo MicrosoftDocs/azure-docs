@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Deploy a background processing application with Azure Container Apps Preview'
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
-services: app-service
+services: container-apps
 author: jorgearteiro
-ms.service: app-service
+ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
@@ -83,7 +83,7 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az login
 ```
 
@@ -99,7 +99,7 @@ az upgrade
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az upgrade
 ```
 
@@ -116,7 +116,7 @@ az extension add \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
 ```
@@ -133,7 +133,7 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 
@@ -151,7 +151,7 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group create `
   --name $RESOURCE_GROUP `
   --location $LOCATION
@@ -179,7 +179,7 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az monitor log-analytics workspace create `
   --resource-group $RESOURCE_GROUP `
   --workspace-name $LOG_ANALYTICS_WORKSPACE
@@ -226,7 +226,7 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
@@ -254,7 +254,7 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage account create `
   --name $STORAGE_ACCOUNT `
   --resource-group $RESOURCE_GROUP `
@@ -294,7 +294,7 @@ az storage queue create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage queue create `
   --name "myqueue" `
   --account-name $STORAGE_ACCOUNT `
@@ -316,7 +316,7 @@ az storage message put \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az storage message put `
   --content "Hello Queue Reader App" `
   --queue-name "myqueue" `
@@ -423,7 +423,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az deployment group create --resource-group "$RESOURCE_GROUP" `
   --template-file ./queue.json `
   --parameters `
@@ -480,7 +480,7 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group delete `
   --resource-group $RESOURCE_GROUP
 ```

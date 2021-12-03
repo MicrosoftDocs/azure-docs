@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this tutorial, you build a machine learning pipeline to perform batch scoring. Focus on machine learning instead of infrastructure and automation.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: tutorial
 author: lobrien
 ms.author: laobri

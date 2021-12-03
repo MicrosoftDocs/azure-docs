@@ -68,6 +68,7 @@ Changes to these properties require container group deletion prior to redeployme
 * CPU, memory, or GPU resources
 * Restart policy
 * Network profile
+* Availability zone
 
 When you delete a container group and recreate it, it's not "redeployed," but created new. All image layers are pulled fresh from the registry, not from those cached by a previous deployment. The IP address of the container might also change due to being deployed to a different underlying host.
 

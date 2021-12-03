@@ -27,12 +27,6 @@ This guide covers the following network options:
 
 This guide describes a few of the most common network architecture scenarios for Azure Purview. Though you're not limited to those scenarios, keep in mind the [limitations](#current-limitations) of the service when you're planning networking for your Azure Purview accounts. 
 
-The intended audience for this guide includes:
-
-- Data architecture team 
-- Network team  
-- Data security team 
-
 ## Prerequisites
 
 To understand what network option is the most suitable for your environment, we suggest that you perform the following actions first: 

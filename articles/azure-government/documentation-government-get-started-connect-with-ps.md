@@ -4,10 +4,10 @@ description: Information on connecting to your subscription in Azure Government 
 ms.service: azure-government
 ms.topic: quickstart
 ms.workload: azure-government
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-api
 ms.date: 10/01/2021
 ---
- 
+
 # Quickstart: Connect to Azure Government with PowerShell
 
 Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. To manage your Azure Government cloud workloads and applications you can connect to Azure Government using different tools, as described in the following video.

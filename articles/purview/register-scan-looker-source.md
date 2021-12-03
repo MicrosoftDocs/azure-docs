@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Looker in Azure Purview
+# Connect to and manage Looker in Azure Purview (Preview)
 
 This article outlines how to register Looker, and how to authenticate and interact with Looker in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
