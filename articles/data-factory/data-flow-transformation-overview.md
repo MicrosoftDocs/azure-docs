@@ -26,7 +26,7 @@ Below is a list of the transformations currently supported in mapping data flow.
 | [Assert](data-flow-alter-row.md) | Row modifier | Set assert rules for each row. |
 | [Conditional split](data-flow-conditional-split.md) | Multiple inputs/outputs | Route rows of data to different streams based on matching conditions. |
 | [Derived column](data-flow-derived-column.md) | Schema modifier | Generate new columns or modify existing fields using the data flow expression language. | 
-| [External call](data-flow-extenal-call.md) | Schema modifier | Call external endpoints inline row-by-row. | 
+| [External call](data-flow-external-call.md) | Schema modifier | Call external endpoints inline row-by-row. | 
 | [Exists](data-flow-exists.md) | Multiple inputs/outputs | Check whether your data exists in another source or stream. | 
 | [Filter](data-flow-filter.md) | Row modifier | Filter a row based upon a condition. |
 | [Flatten](data-flow-flatten.md) | Formatters |  Take array values inside hierarchical structures such as JSON and unroll them into individual rows. |
