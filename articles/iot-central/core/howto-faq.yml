@@ -155,7 +155,15 @@ sections:
           - A device was registered manually on the **Devices** page without specifying the device template. The device then connected with valid credentials.  
           
           The operator can associate a device to a device template from the **Devices** page using the **Migrate** button. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
-          
+
+  - name: Users
+    questions:
+      - question: |
+          My administrator says I've been added to an application, but I can't access it. How do I get access?
+        answer: |
+          The first time you access the application, you must navigate to the application URL link you received from the administrator
+
+
   - name: Organizations
     questions:
       - question: |
