@@ -27,17 +27,17 @@ This page is updated monthly, so revisit it regularly.
 <tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
 
 <tr>
-  <td rowspan=2><b>CI/CD</b></td>
+  <td><b>CI/CD</b></td>
   <td>GitHub integration improvements</td>
   <td>We have improved GitHub integration, removing the limitation of only 1000 data factory resources per resource type (datasets, pipelines, etc.) and preventing the GitHub API rate limit from being reached for larger data factories.<br><a href="source-control.md">Learn more</a></td>
  </tr>
   
 <tr><td rowspan=3><b>Data Flow</b></td><td>Set a custom error code and error message with the Fail activity</td><td>Now you can use fail activity to set the error message and custom error code for the pipeline.<br><a href="control-flow-fail-activity.md">Learn more</a></td></tr>
-<tr><td>External call transformation</td><td>Use the new External Call transformation in ADF & Synapse Analytics Mapping Data Flows to extend your data flows to custom end REST endpoints or 3rd party API services.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
+<tr><td>External call transformation</td><td>Use the new External Call transformation in Mapping Data Flows to extend your data flows to custom end REST endpoints or 3rd party API services.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
 <tr><td>Synapse quick re-use</td><td>When executing mapping data flows in Synapse Analytics, use the TTL feature. The TTL feature for Azure Integration Runtimes with Synapse mapping data flows will now use the quick re-use feature so that sequential data flows will execute within a few seconds.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
 
 <tr><td rowspan=3><b>Data Movement</b></td><td>Copy activity supports to read data from FTP/SFTP without chunking</td><td>When copying data from FTP or SFTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. This feature allows user to specify whether the FTP/SFTP server supports getting file length or seeking to read from a certain offset.<br><a href="connector-ftp.md">Learn more</a></td></tr>
-<tr><td>_UTF-8 without BOM_ support in Copy activity</td><td>The Copy activity now supports writing data with encoding type _UTF-8 without BOM_ for JSON and delimited text datasets.</td></tr>
+<tr><td><i>UTF-8 without BOM</i> support in Copy activity</td><td>The Copy activity now supports writing data with encoding type <i>UTF-8 without BOM</i> for JSON and delimited text datasets.</td></tr>
 <tr><td>Multi-character column delimiter support</td><td>The Copy activity now supports using multi-character column delimiters in a delimited text dataset.</td></tr>
   
 <tr>
