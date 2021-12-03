@@ -17,7 +17,7 @@ understand and accomplish remediation with Azure Policy.
 
 When Azure Policy runs the template in a **deployIfNotExists** policy definition or runs **modify operations**, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy allows the option to either create a managed identity(system assignmend) or select an exisiting managed identity (user assigned) for each assignment, but the identity must have details about what roles
+Azure Policy allows the option to either create (system assigned) or select (user assigned) a managed identity  for each assignment, but the identity must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
@@ -65,7 +65,7 @@ az role definition list --name 'Contributor'
 
 ## Manually configure the managed identity
 
-When creating an assignment using the portal, Azure Policy can both generates managed identity and
+When creating an assignment using the portal, Azure Policy can both generate a managed identity and
 grants it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
 the managed identity and assign it permissions must be done manually:
 
@@ -75,22 +75,21 @@ the managed identity and assign it permissions must be done manually:
 
 ## Configure a managed identity through Portal
 
-When creating an assignment using the portal, it is possible to select either a system assigned or user assigned managed identity. 
-To use a system assigned managed identity through portal follow these steps: 
+When creating an assignment using the portal, it is possible to select either a system or user assigned managed identity. 
+
+To set a system assigned managed identity through portal follow these steps: 
 
 1. In the **Remediation** tab of the create/edit assignment view, ensure that **System assigned managed identity** 
 is selected under "Types of Managed Identity". 
 
 1. Specify the location at which the managed identity is to be located. 
 
-
-To use a user assigned managed identity through portal follow these steps: 
+To set a user assigned managed identity through portal follow these steps: 
 
 1. In the **Remediation** tab of the create/edit assignment view, ensure that **User assigned managed identity** 
 is selected under "Types of Managed Identity". 
 
-1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but has to be 
-in the same tenant. 
+1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but has to be in the same tenant. 
 
 1. Select the managed identity under "Existing user assigned identities". 
 
@@ -101,10 +100,10 @@ in the same tenant.
 
 ### Create managed identity with PowerShell
 
-To create a system assigned managed identity during the assignment of the policy, **Location** must be defined and
+To create a identity during the assignment of the policy, **Location** must be defined and
 **Identity** used. The following example gets the definition of the built-in policy **Deploy
 SQL DB transparent data encryption**, sets the target resource group, and then creates the
-assignment.
+assignment using a **system assigned** managed identity.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -115,8 +114,29 @@ $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/poli
 # Get the reference to the resource group
 $resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
-# Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -Identity
+# Create the assignment using the -Location and -Identity properties
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -IdentityType "SystemAssigned"
+```
+
+The following example gets the definition of the built-in policy **Deploy
+SQL DB transparent data encryption**, sets the target resource group, and then creates the
+assignment using an **user assigned** managed identity.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Get the built-in "Deploy SQL DB transparent data encryption" policy definition
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+
+# Get the reference to the resource group
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
+
+# Get the existing user assigned managed identity ID
+$userassignedidentity = New-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $userassignedidentityname -Location $location
+$userassignedidentityid = $userassignedidentity.Id
+
+# Create the assignment using the -Location and -Identity properties
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -IdentityType "UserAssigned" -IdentityId $userassignedidentityid
 ```
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the
@@ -146,7 +166,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### Grant a managed identity defined roles through portal
 
-There are two ways to grant an assignment's  system assigned managed identity the defined roles using the portal, by
+There are two ways to grant an assignment's managed identity the defined roles using the portal, by
 using **Access control (IAM)** or by editing the policy or initiative assignment and selecting
 **Save**.
 
