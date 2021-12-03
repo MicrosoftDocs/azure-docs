@@ -167,7 +167,6 @@ The following constraints are applicable on the operational data in Azure Cosmos
 
 ```Python
 # Removing one column:
-
 df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
