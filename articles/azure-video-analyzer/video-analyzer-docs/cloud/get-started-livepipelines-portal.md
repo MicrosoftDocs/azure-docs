@@ -95,6 +95,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 ### Deploy a live pipeline
 
+### [Portal](#tab/portal)
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
 1. Go to Video Analyzer account and locate the **Live** menu item at the bottom left, select it. 
 1. In the Topologies plane, select the **Create topology** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
@@ -136,6 +137,18 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 ## Clean up resources
 
 If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
+
+### [C# Sample app](#tab/C#Sampleapp)
+### Prerequisites
+
+- An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+  - Get your Azure Active Directory Tenant Id
+  - Register an application with Microsoft identity platform to get app registration Client Id and Client secret
+- Visual Studio Code on your development machine with following extensions -
+  - Azure IoT Tools
+  - C#
+- .NET Core 3.1 SDK on your development machine.
+
 
 ## Next steps
 
