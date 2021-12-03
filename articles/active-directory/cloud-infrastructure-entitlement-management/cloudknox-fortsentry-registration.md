@@ -6,13 +6,13 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 12/01/2021
+ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
 # CloudKnox FortSentry registration
 
-This article guides you through the process of signing up with CloudKnox FortSentry and creating an organization.
+This article guides you through the process of signing up with CloudKnox FortSentry and deploying Fort Sentry in your organization.
 
 ## How to register in CloudKnox FortSentry
 
@@ -28,3 +28,8 @@ This article guides you through the process of signing up with CloudKnox FortSen
 5. To deploy FortSentry, click **Deploy** and follow the instructions on the screen.
 
 <!---Add screenshot.--->
+## Next Steps
+
+[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+
+

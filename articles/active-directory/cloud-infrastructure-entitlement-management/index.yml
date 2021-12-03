@@ -13,7 +13,7 @@ metadata:
   ms.subservice: ciem
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 12/02/2021
+  ms.date: 12/03/2021
   ms.author: v-ydequadros
   
   
@@ -29,7 +29,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: CloudKnox account settings
-            url: cloudknox-prod-account-settings.md
+            url: cloudknox-product--account-settings.md
   # Card
   - title:  About CloudKnox Integration
     linkLists:

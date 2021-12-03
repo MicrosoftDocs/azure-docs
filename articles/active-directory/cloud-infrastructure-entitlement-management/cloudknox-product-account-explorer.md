@@ -62,4 +62,4 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
         - Click the identity name to view a graph of how the identity can access the specified account and through which role(s).
 
 9. The **Info** tab displays the **Privilege Creep Index** and Service Control Policy (SCP) information about the account. <br>
-     For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/prod-dashboard.html).
+     For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/product-dashboard.html).

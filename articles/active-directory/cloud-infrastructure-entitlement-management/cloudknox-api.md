@@ -6,11 +6,13 @@ manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 12/01/2021
+ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
 # CloudKnox integration with CloudKnox API
+
+This topic describes the process of creating and deleting CloudKnox integration with the CloudKnox API.
 
 ## How to configure a CloudKnox API integration
 
