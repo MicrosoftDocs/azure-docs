@@ -84,7 +84,7 @@ You first create or use an existing primary namespace, and a new secondary names
 1. On the **Geo-DR Alias** page, select **Shared access policies** on the left menu to access the primary connection string for the alias. Use this connection string instead of using the connection string to the primary/secondary namespace directly. 
 1. On this **Overview** page, you can do the following actions: 
     1. Break the pairing between primary and secondary namespaces. Select **Break pairing** on the toolbar. 
-    1. Manually failover to the secondary namespace. Select **Failover** on the toolbar. 
+    1. Manually fail over to the secondary namespace. Select **Failover** on the toolbar. 
     
         > [!WARNING]
         > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair. 
@@ -111,12 +111,13 @@ If you initiate the failover, two steps are required:
 :::image type="content" source="./media/event-hubs-geo-dr/geo2.png" alt-text="Image showing the failover flow":::
 
 ## Manual failover
+This section shows how to manually fail over using Azure portal, CLI, PowerShell, C#, etc.
 
 # [Azure portal](#tab/portal)
 
 1. In the Azure portal, navigate to your primary namespace.
 1. Select **Geo-recovery** on the left menu.
-1. Manually failover to the secondary namespace. Select **Failover** on the toolbar. 
+1. Manually fail over to the secondary namespace. Select **Failover** on the toolbar. 
     
     > [!WARNING]
     > Failing over will activate the secondary namespace and remove the primary namespace from the Geo-Disaster Recovery pairing. Create another namespace to have a new geo-disaster recovery pair.
