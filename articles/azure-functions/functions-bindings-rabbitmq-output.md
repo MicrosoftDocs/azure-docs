@@ -291,18 +291,9 @@ The following table explains the binding configuration properties for C# script 
 |**port**|See the **Port** attribute above.|
 ---
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
-
-Annotations are not supported by JavaScript.
-
-::: zone-end 
-::: zone pivot="programming-language-python"  
-
-Annotations are not supported by Python.
-
-::: zone-end 
+::: zone-end   
 ::: zone pivot="programming-language-java"  
+## Annotations
 
 The `RabbitMQOutput` annotation allows you to create a function that runs when a RabbitMQ message is created.
 
@@ -326,17 +317,17 @@ See the output binding [example](#example) for more detail.
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `RabbitMQ` attribute.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `RabbitMQ`.|
-|**direction** | n/a | Must be set to `out`. |
-|**name** | n/a | The name of the variable that represents the queue in function code. |
-|**queueName**|**QueueName**| Name of the queue to send messages to. |
-|**hostName**|**HostName**| Hostname of the queue, such as 10.26.45.210. Ignored when using `connectStringSetting`. |
-|**userName**|**UserName**| Name of the app setting that contains the username to access the queue, such as UserNameSetting: "< UserNameFromSettings >". Ignored when using `connectStringSetting`.|
-|**password**|**Password**| Name of the app setting that contains the password to access the queue, such as UserNameSetting: "< UserNameFromSettings >". Ignored when using `connectStringSetting`.|
-|**connectionStringSetting**|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead of through an app setting in `local.settings.json`. For example, when you have set `connectionStringSetting: "rabbitMQConnection"` then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
-|**port**|**Port**| Gets or sets the Port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`.|
+|function.json property |Description|
+|---------|----------------------|
+|**type** | Must be set to `RabbitMQ`.|
+|**direction** | Must be set to `out`. |
+|**name** | The name of the variable that represents the queue in function code. |
+|**queueName**| Name of the queue to send messages to. |
+|**hostName**| Hostname of the queue, such as 10.26.45.210. Ignored when using `connectStringSetting`. |
+|**userName**| Name of the app setting that contains the username to access the queue, such as UserNameSetting: "< UserNameFromSettings >". Ignored when using `connectStringSetting`.|
+|**password**| Name of the app setting that contains the password to access the queue, such as UserNameSetting: "< UserNameFromSettings >". Ignored when using `connectStringSetting`.|
+|**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead of through an app setting in `local.settings.json`. For example, when you have set `connectionStringSetting: "rabbitMQConnection"` then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**port**| Gets or sets the Port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

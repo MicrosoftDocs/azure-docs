@@ -56,7 +56,7 @@ You can install this version of the extension in your function app by registerin
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell,programming-language-typescript"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
 
 ## Install bundle    
 
