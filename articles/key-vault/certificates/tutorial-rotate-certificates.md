@@ -42,7 +42,7 @@ Create an Azure Key Vault using [Azure portal](../general/quick-create-portal.md
 
 ## Create a certificate in Key Vault
 
-Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../secrets/quick-create-portal.md)). In this case, you'll work on a certificate called **ExampleCertificate**.
+Create a certificate or import a certificate into the key vault (see [Steps to create a certificate in Key Vault](../certificates/quick-create-portal.md). In this case, you'll work on a certificate called **ExampleCertificate**.
 
 ## Update certificate lifecycle attributes
 
@@ -79,7 +79,7 @@ Key Vault auto-rotates certificates through established partnerships with CAs. B
       |-----------|------|
       |Selecting this option will *turn on* autorotation. | Selecting this option will *not* auto-rotate but will only alert the contacts.|
       
-      You can learn about [setting up Email contact here](https://docs.microsoft.com/azure/key-vault/certificates/overview-renew-certificate#get-notified-about-certificate-expiration)
+      You can learn about [setting up Email contact here](./overview-renew-certificate.md#get-notified-about-certificate-expiration)
 
 1. Select **Create**.
 

@@ -1,13 +1,11 @@
 ---
 title: Azure Automanage Account
 description: Learn how an Automanage Account works and how to create one.
-author: asinn826
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/07/2021
-ms.author: alsin
 ---
 
 # Automanage Accounts
@@ -41,7 +39,7 @@ Creating an Automanage Account using an ARM template requires 2 steps:
 1. Create the Automanage Account
 1. Grant sufficient permissions to the account to allow it to perform operations for you
     1. You will need the Object ID of the account you created for this step.
-        1. Steps to find details of your account's service principal (including the Object ID) are available [here](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal#view-the-service-principal).
+        1. Steps to find details of your account's service principal (including the Object ID) are available [here](../active-directory/managed-identities-azure-resources/how-to-view-managed-identity-service-principal-portal.md#view-the-service-principal).
     1. Once you have found your service principal, copy the **Object ID**. Save this as you will need it to delegate permissions below.
 
 #### 1. Create Automanage Account (does not grant permissions to it)
@@ -82,8 +80,9 @@ To grant sufficient permissions to the Automanage Account, you will need to do t
 1. When prompted, enter the Object ID of the Automanage Account you created and saved down.
 
 ```azurecli-interactive
-az deployment group create --resource-group <resource group name> --template-file azuredeploy.json
+az deployment sub create --location <location> --template-file azuredeploy2.json
 ```
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
@@ -94,6 +93,10 @@ az deployment group create --resource-group <resource group name> --template-fil
             "metadata": {
                 "description": "The principal to assign the role to"
             }
+        },
+        "dateTime": {
+            "type": "string",
+            "defaultValue": "[utcNow()]"
         }
     },
     "variables": {
@@ -104,7 +107,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('contributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('contributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('contributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"
@@ -113,7 +116,7 @@ az deployment group create --resource-group <resource group name> --template-fil
         {
             "type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
-            "name": "[guid(variables('resourcePolicyContributorRoleDefinitionID'))]",
+            "name": "[guid(concat(parameters('dateTime'), variables('resourcePolicyContributorRoleDefinitionID')))]",
             "properties": {
                 "roleDefinitionId": "[variables('resourcePolicyContributorRoleDefinitionID')]",
                 "principalId": "[parameters('principalId')]"

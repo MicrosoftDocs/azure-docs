@@ -7,7 +7,7 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog 
-ms.custom: devx-track-azurecli
+
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -24,7 +24,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](./quickstart-send-telemetry-dotnet.md) for a walkthrough.
+* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) for a walkthrough.
 
 ## Create a stored procedure
 

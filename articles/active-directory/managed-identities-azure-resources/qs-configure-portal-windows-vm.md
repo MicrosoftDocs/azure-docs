@@ -6,7 +6,6 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -16,6 +15,7 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-portal
 ---
 
 # Configure managed identities for Azure resources on a VM using the Azure portal

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/11/2021
+ms.date: 06/02/2021
 ms.author: alkohli  
 ---
 # Migrate workloads from an Azure Stack Edge Pro FPGA to an Azure Stack Edge Pro GPU
@@ -152,10 +152,10 @@ You will now copy data from the source device to the Edge cloud shares and Edge 
 
 Follow these steps to sync the data on the Edge cloud shares on your target device:
 
-1. [Add shares](azure-stack-edge-j-series-manage-shares.md#add-a-share) corresponding to the share names created on the source device. When you create the shares, make sure that **Select blob container** is set to **Use existing**, and then select the container that was used with the previous device.
-1. [Add users](azure-stack-edge-j-series-manage-users.md#add-a-user) that had access to the previous device.
-1. [Refresh the share](azure-stack-edge-j-series-manage-shares.md#refresh-shares) data from Azure. Refreshing the share will pull down all the cloud data from the existing container to the shares.
-1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
+1. [Add shares](./azure-stack-edge-gpu-manage-shares.md#add-a-share) corresponding to the share names created on the source device. When you create the shares, make sure that **Select blob container** is set to **Use existing**, and then select the container that was used with the previous device.
+1. [Add users](./azure-stack-edge-gpu-manage-users.md#add-a-user) that had access to the previous device.
+1. [Refresh the share](./azure-stack-edge-gpu-manage-shares.md#refresh-shares) data from Azure. Refreshing the share will pull down all the cloud data from the existing container to the shares.
+1. Recreate the bandwidth schedules to be associated with your shares. See [Add a bandwidth schedule](./azure-stack-edge-gpu-manage-bandwidth-schedules.md#add-a-schedule) for detailed steps.
 
 
 ### 2. From Edge local shares
@@ -186,7 +186,7 @@ Follow these steps to recover the data from local shares:
 Once the IoT Edge modules are prepared, you will need to deploy IoT Edge workloads on your target device. If you face any errors in deploying IoT Edge modules, see:
 
 - [Common issues and resolutions for Azure IoT Edge](../iot-edge/troubleshoot-common-errors.md). 
-- [IoT Edge runtime errors](azure-stack-edge-gpu-troubleshoot.md#troubleshoot-iot-edge-errors).
+- [IoT Edge runtime errors](azure-stack-edge-gpu-troubleshoot-iot-edge.md).
 
 ## Verify data
 

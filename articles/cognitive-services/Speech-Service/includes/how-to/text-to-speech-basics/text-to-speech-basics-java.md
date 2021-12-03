@@ -1,10 +1,10 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 07/02/2021
 ms.custom: devx-track-java
-ms.author: trbye
+ms.author: eur
 ---
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
@@ -47,26 +47,43 @@ import java.util.Scanner;
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig). This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
 There are a few ways that you can initialize a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig):
 
-* With a subscription: pass in a key and the associated region.
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* With a subscription: pass in a speech key and the associated location/region.
+* With an endpoint: pass in a Speech service endpoint. A speech key or authorization token is optional.
+* With a host: pass in a host address. A speech key or authorization token is optional.
+* With an authorization token: pass in an authorization token and the associated location/region.
 
-In this example, you create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) using a speech key and location/region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```java
 public class Program
 {
     public static void main(String[] args) {
-        SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     }
+}
+```
+
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/java/api/com.microsoft.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice.
+
+```java
+public static void main(String[] args) {
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config.setSpeechSynthesisLanguage("<your-synthesis-language>"); // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config.setSpeechSynthesisVoiceName("<your-wanted-voice>");
 }
 ```
 
@@ -78,7 +95,7 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 }
 ```
@@ -87,7 +104,7 @@ Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and t
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromWavFileOutput("path/to/write/file.wav");
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -103,7 +120,7 @@ In some cases, you may want to directly output synthesized speech directly to a 
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     AudioConfig audioConfig = AudioConfig.fromDefaultSpeakerOutput();
 
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
@@ -128,7 +145,7 @@ This time, you save the result to a [`SpeechSynthesisResult`](/java/api/com.micr
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     SpeechSynthesisResult result = synthesizer.SpeakText("Getting the response as an in-memory stream.");
@@ -155,7 +172,7 @@ In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm`
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // set the output format
     speechConfig.setSpeechSynthesisOutputFormat(SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm);
@@ -178,7 +195,7 @@ First, create a new XML file for the SSML config in your root project directory,
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -206,7 +223,7 @@ From here, the result object is exactly the same as previous examples.
 
 ```java
 public static void main(String[] args) {
-    SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    SpeechConfig speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     SpeechSynthesizer synthesizer = new SpeechSynthesizer(speechConfig, null);
 
     String ssml = xmlToString("ssml.xml");
@@ -217,7 +234,7 @@ public static void main(String[] args) {
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-AriaNeural");`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.setSpeechSynthesisVoiceName("en-US-ChristopherNeural");`
 
 ## Get facial pose events
 

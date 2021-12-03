@@ -11,6 +11,9 @@ ms.reviewer: cynthn
 ---
 
 # Understand VM reboots - maintenance vs. downtime
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 There are three scenarios that can lead to virtual machines in Azure being impacted: unplanned hardware maintenance, unexpected downtime, and planned maintenance.
 
 ## Unplanned hardware maintenance event
@@ -30,7 +33,7 @@ To reduce the impact of downtime due to one or more of these events, we recommen
 
 * Use [Availability Zones](../availability-zones/az-overview.md) to protect from data center failures
 * Configure multiple virtual machines in an [availability set](availability-set-overview.md) for redundancy
-* Use [scheduled events for Linux](/azure/virtual-machines/linux/scheduled-events) or [scheduled events for Windows](/azure/virtual-machines/windows/scheduled-events) to proactively respond to VM impacting events
+* Use [scheduled events for Linux](./linux/scheduled-events.md) or [scheduled events for Windows](./windows/scheduled-events.md) to proactively respond to VM impacting events
 * Configure each application tier into separate availability sets
 * Combine a [load balancer](../load-balancer/load-balancer-overview.md) with availability zones or sets
 

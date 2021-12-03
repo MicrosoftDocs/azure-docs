@@ -5,7 +5,8 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 07/08/2020
+ms.subservice: iot-edge
+ms.date: 05/10/2021
 ms.topic: article
 ---
 
@@ -24,28 +25,28 @@ Event Grid on IoT Edge has the following APIs exposed over HTTP (port 5888) and 
 ### Request query string
 All API requests require the following query string parameter:
 
-```?api-version=2019-01-01-preview```
+`?api-version=2019-01-01-preview`
 
 ### Request content type
 All API requests must have a **Content-Type**.
 
 In case of **EventGridSchema** or **CustomSchema**, the value of Content-Type can be one of the following values:
 
-```Content-Type: application/json```
+`Content-Type: application/json`
 
-```Content-Type: application/json; charset=utf-8```
+`Content-Type: application/json; charset=utf-8`
 
 In case of **CloudEventSchemaV1_0** in structured mode, the value of Content-Type can be one of the following values:
 
-```Content-Type: application/cloudevents+json```
+`Content-Type: application/cloudevents+json`
     
-```Content-Type: application/cloudevents+json; charset=utf-8```
+`Content-Type: application/cloudevents+json; charset=utf-8`
     
-```Content-Type: application/cloudevents-batch+json```
+`Content-Type: application/cloudevents-batch+json`
     
-```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+`Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) for details.
+In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) for details.
 
 ### Error response
 All APIs return an error with the following payload:
@@ -755,19 +756,19 @@ To publish to a Storage Queue, set the  `endpointType` to `storageQueue` and pro
 * queueName: Name of the Storage Queue you're publishing to.
 * connectionString: Connection string for the Storage Account the Storage Queue is in.
 
-    >[!NOTE]
-    > Unline Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must but the connection string for the Storage Account.
+  >[!NOTE]
+  > Unlike Event Hubs, Service Bus Queues, and Service Bus Topics, the connection string used for Storage Queues is not entity specific. Instead, it must be the connection string for the Storage Account.
 
-    ```json
-        {
-          "properties": {
-            "destination": {
-              "endpointType": "storageQueue",
-              "properties": {
-                "queueName": "<your-storage-queue-name>",
-                "connectionString": "<your-storage-account-connection-string>"
-              }
-            }
-          }
+  ```json
+  {
+    "properties": {
+      "destination": {
+        "endpointType": "storageQueue",
+        "properties": {
+          "queueName": "<your-storage-queue-name>",
+          "connectionString": "<your-storage-account-connection-string>"
         }
-    ```
+      }
+    }
+  }
+  ```

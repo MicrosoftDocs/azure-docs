@@ -3,8 +3,9 @@ title: 'Tutorial: Create a pipeline with Copy Activity using .NET API '
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using .NET API.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
 ---
@@ -512,7 +513,7 @@ For complete documentation on .NET API for Data Factory, see [Data Factory .NET 
 
 In this tutorial, you used Azure blob storage as a source data store and Azure SQL Database as a destination data store in a copy operation. The following table provides a list of data stores supported as sources and destinations by the copy activity: 
 
-[!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
+[!INCLUDE [data-factory-supported-data-stores](includes/data-factory-supported-data-stores.md)]
 
 To learn about how to copy data to/from a data store, click the link for the data store in the table.
 

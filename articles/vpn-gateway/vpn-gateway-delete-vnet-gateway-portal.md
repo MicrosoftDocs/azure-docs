@@ -1,6 +1,7 @@
 ---
-title: 'Azure VPN Gateway: Delete a gateway: portal'
-description: Delete a virtual network gateway using the Azure portal
+title: 'Delete a virtual network gateway: portal'
+titleSuffix: Azure VPN Gateway
+description: Learn how to delete a virtual network gateway using the Azure portal.
 services: vpn-gateway
 author: cherylmc
 
@@ -23,7 +24,7 @@ This article helps you delete a virtual network gateway. There are a couple of d
 * If you want to keep some of the resources in your resource group, deleting a virtual network gateway becomes slightly more complicated. Before you can delete the virtual network gateway, you must first delete any resources that are dependent on the gateway. The steps you follow depend on the type of connections that you created and the dependent resources for each connection.
 
 > [!IMPORTANT]
-> The steps in this article apply to the Resource Manager deployment model. To delete a VPN gateway deployed using the classic deployment model, use the steps in the [Delete a gateway: classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md) article.
+> The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). To delete a VPN gateway deployed using the classic deployment model, use the steps in the [Delete a gateway: classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md) article.
 
 ## Delete a VPN gateway
 
@@ -55,7 +56,7 @@ The following steps help you delete any resources that are no longer being used.
 
 ## <a name="deleterg"></a>Delete a VPN gateway by deleting the resource group
 
-If you are not concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the Resource Manager deployment model.
+If you are not concerned about keeping any of your resources in the resource group and you just want to start over, you can delete an entire resource group. This is a quick way to remove everything. The following steps apply only to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md).
 
 1. In **All resources**, locate the resource group and click to open the blade.
 1. Click **Delete**. On the Delete blade, view the affected resources. Make sure that you want to delete all of these resources. If not, use the steps in Delete a VPN gateway at the top of this article.

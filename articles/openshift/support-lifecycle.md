@@ -5,7 +5,7 @@ author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 03/06/2021
+ms.date: 06/16/2021
 ---
 
 # Support lifecycle for Azure Red Hat OpenShift 4
@@ -92,10 +92,11 @@ See the following guide for the [past Red Hat OpenShift Container Platform (upst
 
 |OCP Version|Upstream Release|Azure Red Hat OpenShift General Availability|End of Life|
 |-|-|-|-|
-|4.3|January 2020|April 2020| August 2020|
 |4.4|May 2020|July 2020|4.6 GA|
-|4.5|July 2020| November 2020|4.7 GA
+|4.5|July 2020| November 2020|4.7 GA|
 |4.6|October 2020| February 2021|4.8 GA|
+|4.7|February 2021| July 15 2021|4.9 GA|
+|4.8|July 2021| Sept 15 2021|4.10 GA|
 
 ## FAQ
 
@@ -110,7 +111,7 @@ Reverting your cluster to a previous version, or a rollback, isn't supported. On
 
 **What does "Outside of Support" mean?**
 
-If your ARO cluster is running an OpenShift version that is not on the supported versions list or is using an [unsupported cluster configuration](https://docs.microsoft.com/azure/openshift/support-policies-v4), your cluster is "outside of support". As a result:
+If your ARO cluster is running an OpenShift version that is not on the supported versions list or is using an [unsupported cluster configuration](./support-policies-v4.md), your cluster is "outside of support". As a result:
 - When opening a support ticket for your cluster, you will be asked to upgrade the cluster to a supported version. before receiving support, unless you are within the 30-day grace period after version support ends. 
 - Any runtime or SLA guarantees for clusters outside of the support are voided.
 - Clusters outside of support will be patched only on a best effort basis.

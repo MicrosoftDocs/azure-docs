@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create a blueprint with REST API"
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the REST API.
-ms.date: 01/27/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ---
 # Quickstart: Define and Assign an Azure Blueprint with REST API
@@ -146,8 +146,8 @@ values:
 
 1. Add role assignment at subscription. The **Request Body** defines the _kind_ of artifact, the
    properties align to the role definition identifier, and the principal identities are passed as an
-   array of values. In the example below, the principal identities granted the specified role are
-   configured to a parameter that is set during blueprint assignment. This example uses the
+   array of values. In the following example, the principal identities granted the specified role
+   are configured to a parameter that is set during blueprint assignment. This example uses the
    _Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - REST API URI
@@ -504,4 +504,4 @@ In this quickstart, you've created, assigned, and removed a blueprint with REST 
 about Azure Blueprints, continue to the blueprint lifecycle article.
 
 > [!div class="nextstepaction"]
-> [Learn about the blueprint lifecycle](./concepts/lifecycle.md)
+> [Learn about the blueprint lifecycle](./concepts/lifecycle.md) 

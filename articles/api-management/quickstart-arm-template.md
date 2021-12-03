@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: dlepow
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.author: danlep
 ms.date: 10/09/2020
 ---
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-api-management-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-api-management-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.apimanagement/azure-api-management-create/azuredeploy.json":::
 

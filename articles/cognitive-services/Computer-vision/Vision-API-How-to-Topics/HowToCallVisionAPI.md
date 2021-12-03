@@ -3,14 +3,12 @@ title: Call the Image Analysis API
 titleSuffix: Azure Cognitive Services
 description: Learn how to call the Image Analysis API and configure its behavior.
 services: cognitive-services
-author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.author: kefre
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
@@ -28,7 +26,7 @@ You submit either a local image or a remote image to the Analyze API. For local,
 
 ###  Select visual features
 
-The [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) gives you access to all of the service's image analysis features. You need to specify which features you want to use by setting the URL query parameters. A parameter can have multiple values, separated by commas. Each feature you specify will require additional computation time, so only specify what you need.
+The [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) gives you access to all of the service's image analysis features. You need to specify which features you want to use by setting the URL query parameters. A parameter can have multiple values, separated by commas. Each feature you specify will require additional computation time, so only specify what you need.
 
 |URL parameter | Value | Description|
 |---|---|--|
@@ -67,7 +65,7 @@ A populated URL might look like the following:
 > [!NOTE]
 > **Scoped API calls**
 >
-> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2-preview.3/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
+> Some of the features in Image Analysis can be called directly as well as through the Analyze API call. For example, you can do a scoped analysis of only image tags by making a request to `https://{endpoint}/vision/v3.2/tag`. See the [reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b) for other features that can be called separately.
 
 ## Get results from the service
 
@@ -133,6 +131,10 @@ See the following list of possible errors and their causes:
     * Timeout - Image processing timed out.
     * InternalServerError
 
+> [!TIP]
+> While working with Computer Vision, you might encounter transient failures caused by [rate limits](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern](/azure/architecture/patterns/retry) in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern](/azure/architecture/patterns/circuit-breaker).
+
+
 ## Next steps
 
-To try out the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/56f91f2e778daf14a499f21b).
+To try out the REST API, go to the [Image Analysis API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b).

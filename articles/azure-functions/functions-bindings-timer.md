@@ -112,7 +112,7 @@ Here's the JavaScript code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if (myTimer.IsPastDue)
+    if (myTimer.isPastDue)
     {
         context.log('Node is running late!');
     }
@@ -272,14 +272,15 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 ```json
 {
-    "schedule":{
+    "Schedule":{
+        "AdjustForDST": true
     },
-    "scheduleStatus": {
-        "last":"2016-10-04T10:15:00+00:00",
-        "lastUpdated":"2016-10-04T10:16:00+00:00",
-        "next":"2016-10-04T10:20:00+00:00"
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
     },
-    "isPastDue":false
+    "IsPastDue":false
 }
 ```
 
@@ -318,7 +319,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 | `0 30 9 * Jan Mon` | at 9:30 AM every Monday in January |
 
 > [!NOTE]
-> NCRONTAB expression require a **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression. Five field cron expressions are not supported in Azure.
+> NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
 
 ### NCRONTAB time zones
 

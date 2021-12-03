@@ -14,6 +14,8 @@ ms.custom: seodec18
 ---
 # Azure Disk Encryption troubleshooting guide
 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 This guide is for IT professionals, information security analysts, and cloud administrators whose organizations use Azure Disk Encryption. This article is to help with troubleshooting disk-encryption-related problems.
 
 Before taking any of the steps below, first ensure that the VMs you are attempting to encrypt are among the [supported VM sizes and operating systems](disk-encryption-overview.md#supported-vms-and-operating-systems), and that you have met all the prerequisites:
@@ -34,7 +36,7 @@ Any network security group settings that are applied must still allow the endpoi
 When encryption is being enabled with [Azure AD credentials](disk-encryption-windows-aad.md#), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
-The VM must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint which uses a well-known non-routable IP address (`169.254.169.254`) that can be accessed only from within the VM.  Proxy configurations that alter local HTTP traffic to this address (for example, adding an X-Forwarded-For header) are not supported.
+The VM must be able to access the [Azure Instance Metadata service](../windows/instance-metadata-service.md) endpoint (`169.254.169.254`) and the [virtual public IP address](../../virtual-network/what-is-ip-address-168-63-129-16.md) (`168.63.129.16`) used for communication with Azure platform resources. Proxy configurations that alter local HTTP traffic to these addresses (for example, adding an X-Forwarded-For header) are not supported.
 
 ## Troubleshooting Windows Server 2016 Server Core
 
@@ -79,13 +81,9 @@ To disable Azure Disk Encryption with PowerShell, use [Disable-AzVMDiskEncryptio
 
 To disable Azure Disk Encryption with CLI, use [az vm encryption disable](/cli/azure/vm/encryption). 
 
-## 
-
-
-
 ## Next steps
 
 In this document, you learned more about some common problems in Azure Disk Encryption and how to troubleshoot those problems. For more information about this service and its capabilities, see the following articles:
 
-- [Apply disk encryption in Azure Security Center](../../security-center/asset-inventory.md)
+- [Apply disk encryption in Microsoft Defender for Cloud](../../security-center/asset-inventory.md)
 - [Azure data encryption at rest](../../security/fundamentals/encryption-atrest.md)

@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 02/11/2019
+ ms.date: 11/15/2021
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -14,7 +14,10 @@
 
 ### NVIDIA CUDA drivers
 
-NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the Linux distributions listed in the following table. CUDA driver information is current at time of publication. For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest CUDA drivers for your distribution. 
+NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV-series) are supported only on the Linux distributions listed in the following table. For the latest CUDA drivers and supported operating systems, visit the [NVIDIA](https://developer.nvidia.com/cuda-zone) website. Ensure that you install or upgrade to the latest supported CUDA drivers for your distribution. 
+
+> [!NOTE]
+> The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC.
 
 > [!TIP]
 > As an alternative to manual CUDA driver installation on a Linux VM, you can deploy an Azure [Data Science Virtual Machine](../articles/machine-learning/data-science-virtual-machine/overview.md) image. The DSVM editions for Ubuntu 16.04 LTS or CentOS 7.4 pre-install NVIDIA CUDA drivers, the CUDA Deep Neural Network Library, and other tools.
@@ -28,7 +31,7 @@ The GRID drivers redistributed by Azure do not work on non-NV series VMs like NC
 
 |Distribution|Driver|
 | --- | -- |
-|Ubuntu 18.04 LTS<br/><br/>Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7 to 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2 <br/><br/>SUSE Linux Enterprise Server 15 SP2 | NVIDIA GRID 12.0, driver branch [R460](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
+|Ubuntu 16.04 LTS, 18.04 LTS, 20.04 LTS<br/><br/>Red Hat Enterprise Linux 7.7, 7.8, 7.9, 8.0, 8.1<br/><br/>SUSE Linux Enterprise Server 12 SP2+, 15 SP2 | NVIDIA GRID 13, driver branch [R470](https://go.microsoft.com/fwlink/?linkid=874272)(.exe)|
 
 Visit [GitHub](https://github.com/Azure/azhpc-extensions/blob/master/NvidiaGPU/resources.json) for the complete list of all previous Nvidia GRID driver links.
 

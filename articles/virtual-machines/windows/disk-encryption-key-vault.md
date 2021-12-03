@@ -8,10 +8,12 @@ ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli
 ---
 
 # Create and configure a key vault for Azure Disk Encryption on a Windows VM
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/general/overview.md) and [Secure your key vault](../../key-vault/general/security-features.md). 
 

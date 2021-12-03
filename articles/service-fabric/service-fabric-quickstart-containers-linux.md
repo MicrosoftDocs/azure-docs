@@ -1,10 +1,9 @@
 ---
-title: Create a Linux container app on Service Fabric in Azure 
+title: Create a Linux container app on Service Fabric in Azure
 description: In this quickstart, you will build a Docker image with your application, push the image to a container registry, and then deploy your container to a Service Fabric cluster.
-
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 # Quickstart: Deploy Linux containers to Service Fabric
 
@@ -65,7 +64,7 @@ az account set --subscription <mySubscriptionID>
 az group create --name $ResourceGroupName --location $Location 
 
 # Create secure five node Linux cluster. Creates a key vault in a resource group
-# and creates a certficate in the key vault. The certificate's subject name must match 
+# and creates a certificate in the key vault. The certificate's subject name must match 
 # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
 az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $ResourceGroupName --vm-password $VmPassword --vm-user-name $VmUserName
 ```

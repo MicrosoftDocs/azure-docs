@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.author: sgilley
 author: sdgilley
-ms.subservice: core
+ms.subservice: mldata
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 06/26/2020
+ms.date: 10/21/2021
 ms.custom: data4ml
 # Customer intent: As a data scientist I want to optimize data processing speeds at scale
 ---
@@ -83,6 +83,9 @@ If you're familiar with `Pandas`| `Modin` or `Dask` dataframe
 If you prefer `Spark` | `PySpark`
 For data less than 1 GB | `Pandas` locally **or** a remote Azure Machine Learning compute instance
 For data larger than 10 GB| Move to a cluster using `Ray`, `Dask`, or `Spark`
+
+> [!TIP]
+> Load your dataset into a Dask dataframe with the [to_dask_dataframe()](/python/api/azureml-core/azureml.data.tabulardataset#to-dask-dataframe-sample-size-10000--dtypes-none--on-error--null---out-of-range-datetime--null--) method for large scale data processing. This method is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 ## Next steps
 

@@ -1,8 +1,6 @@
 ---
 title: Emergency Rotation of the AD FS certificates | Microsoft Docs
 description: This article explains how to revoke and update AD FS certificates immediately.
-services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
 ms.service: active-directory
@@ -21,16 +19,16 @@ In the event that you need to rotate the AD FS certificates immediately, you can
 
 > [!NOTE]
 > Microsoft highly recommends using a Hardware Security Module (HSM) to protect and secure certificates.
-> For more information see [Hardware Security Module](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
+> For more information, see [Hardware Security Module](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#hardware-security-module-hsm) under best practices for securing AD FS.
 
 ## Determine your Token Signing Certificate thumbprint
-In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-sigining certificate.  To do this, use the following steps below:
+In order to revoke the old Token Signing Certificate which AD FS is currently using, you need to determine the thumbprint of the token-signing certificate.  To do this, use the following steps below:
 
- 1.	Connect to the Microsoft Online Service
+ 1.    Connect to the Microsoft Online Service
 `PS C:\>Connect-MsolService`
- 2.	Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
+ 2.    Document both your on-premise and cloud Token Signing Certificate thumbprint and expiration dates.
 `PS C:\>Get-MsolFederationProperty -DomainName <domain>` 
- 3.  Copy down the the thumbprint.  It will be used later to remove the existing certificates.
+ 3.  Copy down the thumbprint.  It will be used later to remove the existing certificates.
 
 You can also get the thumbprint by using AD FS Management, navigating to Service/Certificates, right-clicking on the certificate, select View certificate and then selecting Details. 
 
@@ -39,7 +37,7 @@ By default, AD FS is configured to generate token signing and token decryption c
 
 You can run the following Windows PowerShell command: `PS C:\>Get-AdfsProperties | FL AutoCert*, Certificate*`.
 
-The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE].  If If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE]
+The AutoCertificateRollover property describes whether AD FS is configured to renew token signing and token decrypting certificates automatically.  If AutoCertificateRollover is set to TRUE, follow the instructions outlined below in [Generating new self-signed certificate if AutoCertificateRollover is set to TRUE](#generating-new-self-signed-certificate-if-autocertificaterollover-is-set-to-true).  If AutoCertificateRollover is set to FALSE, follow the instructions outlined below in [Generating new certificates manually if AutoCertificateRollover is set to FALSE](#generating-new-certificates-manually-if-autocertificaterollover-is-set-to-false).
 
 
 ## Generating new self-signed certificate if AutoCertificateRollover is set to TRUE
@@ -65,7 +63,7 @@ You can use the following steps to generate the new token-signing certificates.
 ## Generating new certificates manually if AutoCertificateRollover is set to FALSE
 If you are not using the default automatically generated, self-signed token signing and token decryption certificates, you must renew and configure these certificates manually.  This involves creating two new token-signing certificates and importing them.  Then you promote one to primary, revoke the old certificate and configure the second certificate as the secondary certificate.
 
-First, you must obtain a two new certificates from your certificate authority and import them into the local machine personal certificate store on each federation server. For instructions, see the [Import a Certificate](https://technet.microsoft.com/library/cc754489.aspx) article.
+First, you must obtain a two new certificates from your certificate authority and import them into the local machine personal certificate store on each federation server. For instructions, see the [Import a Certificate](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754489(v=ws.11)) article.
 
 >[!IMPORTANT]
 >The reason we are creating two certificates is because Azure holds on to information regarding the previous certificate.  By creating a second one, we are forcing Azure to release information about the old certificate and replace it with information about the second certificate.
@@ -99,10 +97,10 @@ Now that you have added the first certificate and made it primary and removed th
 ## Update Azure AD with the new token-signing certificate
 Open the Microsoft Azure Active Directory Module for Windows PowerShell. Alternatively, open Windows PowerShell and then run the command `Import-Module msonline`
 
-Connect to Azure AD by run the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
+Connect to Azure AD by running the following command: `Connect-MsolService`, and then, enter your global administrator credentials.
 
 >[!Note]
-> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace <servername> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
+> If you are running these commands on a computer that is not the primary federation server, enter the following command first: `Set-MsolADFSContext –Computer <servername>`. Replace \<servername\> with the name of the AD FS server. Then enter the administrator credentials for the AD FS server when prompted.
 
 Optionally, verify whether an update is required by checking the current certificate information in Azure AD. To do so, run the following command: `Get-MsolFederationProperty`. Enter the name of the Federated domain when prompted.
 
@@ -114,13 +112,12 @@ To update the certificate information in Azure AD, run the following command: `U
 ## Replace SSL certificates
 In the event that you need to replace your token-signing certificate because of a compromise, you should also revoke and replace the SSL certificates for AD FS and your WAP servers.  
 
-Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information see [How Certificate Revocation Works](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)?redirectedfrom=MSDN).
+Revoking your SSL certificates must be done at the certificate authority (CA) that issued the certificate.  These certificates are often issued by 3rd party providers such as GoDaddy.  For an example, see (Revoke a certificate | SSL Certificates - GoDaddy Help US).  For more information, see [How Certificate Revocation Works](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee619754(v=ws.10)).
 
-Once the old SSL certificate has been revoked and a new one issued, you can replacing the SSL certificates. For more information see [Replacing the SSL certificate for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
-
+Once the old SSL certificate has been revoked and a new one issued, you can replace the SSL certificates. For more information, see [Replacing the SSL certificate for AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs).
 
 ## Remove your old certificates
-Once you have replaced your old certificates, you should remove the old certificate because it can still be used. . To do this, follow the steps below:.  To do this, follow the steps below:
+Once you have replaced your old certificates, you should remove the old certificate because it can still be used. To do this, follow the steps below:
 
 1. Ensure that you are logged on to the primary AD FS server.
 2. Open Windows PowerShell as an administrator. 
@@ -135,29 +132,10 @@ If your federation partners cannot consume your federation metadata, you must ma
 
 
 ## Revoke refresh tokens via PowerShell
-Now we want to revoke refresh tokens for users who may have them and force them to re-logon and get new tokens.  This will log users out of their phone, current webmail sessions, along with other items that are using Tokens and Refresh Tokens.  Information can be found [here](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0&preserve-view=true) and you can also reference how to [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
+Now we want to revoke refresh tokens for users who may have them and force them to re-logon and get new tokens.  This will log users out of their phone, current webmail sessions, along with other items that are using Tokens and Refresh Tokens.  Information can be found [here](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?preserve-view=true&view=azureadps-2.0) and you can also reference how to [Revoke user access in Azure Active Directory](../../active-directory/enterprise-users/users-revoke-access.md).
 
 ## Next steps
 
-- [Managing SSL Certificates in AD FS and WAP in Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
-- [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
+- [Managing SSL Certificates in AD FS and WAP in Windows Server 2016](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap#replacing-the-ssl-certificate-for-ad-fs)
+- [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn781426(v=ws.11)#updating-federation-partners)
 - [Renew federation certificates for Microsoft 365 and Azure Active Directory](how-to-connect-fed-o365-certs.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

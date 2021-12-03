@@ -173,7 +173,7 @@ this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("CurrentConnecti
 A service can report on any of the metrics defined for it at creation time. If a service reports load for a metric that it is not configured to use, Service Fabric ignores that report. If there are other metrics reported at the same time that are valid, those reports are accepted. Service code can measure and report all the metrics it knows how to, and operators can specify the metric configuration to use without having to change the service code. 
 
 ## Reporting load for a partition
-The previous section describes how service replicas or instances report load themselves. There is an additional option to dynamically report load with FabricClient. When reporting load for a partition, you may report for multiple partitions at once.
+The previous section describes how service replicas or instances report load themselves. There is an additional option to dynamically report load for a partition's replicas or instances through Service Fabric API. When reporting load for a partition, you may report for multiple partitions at once.
 
 Those reports will be used in the exactly same way as load reports that are coming from the replicas or instances themselves. Reported values will be valid until new load values are reported, either by the replica or instance or by reporting a new load value for a partition.
 
@@ -183,7 +183,11 @@ With this API, there are multiple ways to update load in the cluster:
   - Both stateless and stateful services can update the load of all its secondary replicas or instances.
   - Both stateless and stateful services can update the load of a specific replica or instance on a node.
 
-It is also possible to combine any of those updates per partition at the same time.
+It is also possible to combine any of those updates per partition at the same time. Combination of load updates for a particular partition should be specified through the object PartitionMetricLoadDescription, which can contain corresponding list of load updates as it is shown in the example below. Load updates are represented through the object MetricLoadDescription, which can contain _current_ or _predicted_ load value for a metric, specified with a metric name.
+
+> [!NOTE]
+> _Predicted metric load values_ is currently a _preview feature_. It allows predicted load values to be reported and used at the Service Fabric side, but that feature is currently not enabled.
+>
 
 Updating loads for multiple partitions is possible with a single API call, in which case the output will contain a response per partition. In case partition update is not successfully applied for any reason, updates for that partition will be skipped, and corresponding error code for a targeted partition will be provided:
 
@@ -193,7 +197,7 @@ Updating loads for multiple partitions is possible with a single API call, in wh
   - ReplicaDoesNotExist - Secondary replica or instance does not exist on a specified node.
   - InvalidOperation - Could happen in two cases: updating load for a partition that belongs to the System application or updating predicted load is not enabled.
 
-If some of those errors are returned, you can update the input for a specific partition and retry the update for a specific partition.
+If some of those errors are returned, you can update the input for a specific partition and retry the update for it.
 
 Code:
 

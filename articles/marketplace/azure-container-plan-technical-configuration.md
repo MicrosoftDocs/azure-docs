@@ -37,7 +37,7 @@ Provide the **Repository name within the Azure Container Registry** that has you
 
 ## Image versions
 
-Customers must be able to automatically get updates from the Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
+Customers must be able to automatically get updates from Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
 
 Select **Add Image version** to include an **Image tag** that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`, and `1.0.1-windows-arm32`, these six tags need to be added to this field. For details about tags and versioning, see [Prepare your Azure Container technical assets](azure-container-technical-assets.md).
 
@@ -62,6 +62,6 @@ Select **Save draft**, then **← Plan overview**  in the left-nav menu to retur
 -->
 ## Next steps
 
-- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](marketplace-co-sell.md).
+- To **Co-sell with Microsoft** (optional), select it in the left-nav menu. For details, see [Co-sell partner engagement](./co-sell-overview.md).
 - To **Resell through CSPs** (Cloud Solution Partners, also optional), select it in the left-nav menu. For details, see [Resell through CSP Partners](cloud-solution-providers.md).
 - If you're not setting up either of these or you've finished, it's time to [Review and publish your offer](review-publish-offer.md).

@@ -8,14 +8,14 @@ manager: nolachar
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ms.custom: "seodec18, devx-track-csharp"
 ---
 
 # Sample: Explore an image processing app with C#
 
-Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of .NET Framework.
+Explore a basic Windows application that uses Computer Vision to perform optical character recognition (OCR), create smart-cropped thumbnails, and detect, categorize, tag and describe visual features, including faces, in an image. The below example lets you submit an image URL or a locally stored file. You can use this open source example as a template for building your own app for Windows using the Computer Vision API and Windows Presentation Foundation (WPF), a part of the .NET Framework.
 
 > [!div class="checklist"]
 > * Get the sample app from GitHub
@@ -35,7 +35,7 @@ Before exploring the sample app, ensure that you've met the following prerequisi
 
 ## Get the sample app
 
-The Computer Vision sample app is available on GitHub from the `Microsoft/Cognitive-Vision-Windows` repository. This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
+The Computer Vision sample app is available on GitHub from the [Microsoft/Cognitive-Vision-Windows repository](https://github.com/microsoft/Cognitive-Vision-Windows). This repository also includes the `Microsoft/Cognitive-Common-Windows` repository as a Git submodule. You can recursively clone this repository, including the submodule, either by using the `git clone --recurse-submodules` command from the command line, or by using GitHub Desktop.
 
 For example, to recursively clone the repository for the Computer Vision sample app from a command prompt, run the following command:
 
@@ -44,7 +44,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Vision-Win
 ```
 
 > [!IMPORTANT]
-> Do not download this repository as a ZIP. Git doesn't include submodules when downloading a repository as a ZIP.
+> Do not download this repository as a _.zip_ file. Git doesn't include submodules when downloading a repository as a _.zip_.
 
 ### Get optional sample images
 
@@ -309,4 +309,4 @@ When no longer needed, delete the folder into which you cloned the `Microsoft/Co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with Face service](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Get started with Face service](../../face/quickstarts/client-libraries.md?pivots=programming-language-csharp)

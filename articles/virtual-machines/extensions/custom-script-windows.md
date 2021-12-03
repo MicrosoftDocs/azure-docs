@@ -7,7 +7,8 @@ ms.subservice: extensions
 ms.author: amjads
 author: amjads1
 ms.collection: windows
-ms.date: 08/31/2020
+ms.date: 08/31/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Custom Script Extension for Windows
@@ -266,10 +267,16 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### How to run custom script more than once with CLI
 
+The custom script extension handler will prevent re-executing a script if the *exact* same settings have been passed. This is to prevent accidental re-execution which might cause unexpected behaviors in case the script is not idempotent. You can confirm if the handler has blocked the re-execution by looking at the C:\WindowsAzure\Logs\Plugins\Microsoft.Compute.CustomScriptExtension\<HandlerVersion>\CustomScriptHandler.log, and search for a warning like below:
+
+```warning
+Current sequence number, <SequenceNumber>, is not greater than the sequence number of the most recently executed configuration. Exiting...
+```
+
 If you want to run the custom script extension more than once, you can only do this action under these conditions:
 
 * The extension **Name** parameter is the same as the previous deployment of the extension.
-* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp.
+* Update the configuration otherwise the command won't be re-executed. You can add in a dynamic property into the command, such as a timestamp. If the handler detects a change in the configuration settings, then it will consider it as an explicit desire to re-execute the script.
 
 Alternatively, you can set the [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) property to **true**.
 

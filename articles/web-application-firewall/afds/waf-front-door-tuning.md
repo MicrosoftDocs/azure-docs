@@ -7,7 +7,8 @@ ms.service: web-application-firewall
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
-ms.reviewer: tyao
+ms.reviewer: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tuning Web Application Firewall (WAF) for Azure Front Door
@@ -37,7 +38,7 @@ In the following example, we explore a `FrontdoorWebApplicationFirewallLog` log 
 
 ```kusto
 AzureDiagnostics
-| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where Category == 'FrontDoorWebApplicationFirewallLog'
 | where TimeGenerated > ago(1d)
 | where action_s == 'Block'
 

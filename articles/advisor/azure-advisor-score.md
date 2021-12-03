@@ -68,7 +68,7 @@ The calculation of the Advisor score can be summarized in four steps:
    * Resources with long-standing recommendations will count more against your score.
    * Resources that you postpone or dismiss in Advisor are removed from your score calculation entirely.
 
-Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../security-center/secure-score-security-controls.md#introduction-to-secure-score) model. A simple average produces the final Advisor score.
+Advisor applies this model at an Advisor category level to give an Advisor score for each category. **Security** uses a [secure score](../defender-for-cloud/secure-score-security-controls.md#introduction-to-secure-score) model. A simple average produces the final Advisor score.
 
 ## Advisor score FAQs
 
@@ -94,7 +94,7 @@ If you dismiss a recommendation from Advisor, it will be omitted from the calcul
 
 ### Why did my score change?
 
-You score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
+Your score can change if you remediate impacted resources by adopting the best practices that Advisor recommends. If you or anyone with permissions on your subscription has modified or created new resources, you might also see fluctuations in your score. Your score is based on a ratio of the cost-impacted resources relative to the total cost of all resources.
 
 ### How does Advisor calculate the retail cost of resources on a subscription?
 

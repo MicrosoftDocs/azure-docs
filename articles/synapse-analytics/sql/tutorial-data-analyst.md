@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Azure Synapse Studio'
-description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Azure Synapse Studio.
+title: 'Tutorial: Use serverless SQL pool to analyze Azure Open Datasets in Synapse Studio'
+description: This tutorial shows you how to easily perform exploratory data analysis combining different Azure Open Datasets using serverless SQL pool and visualize the results in Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -20,6 +20,13 @@ The OPENROWSET(BULK...) function allows you to access files in Azure Storage. [O
 ## Automatic schema inference
 
 Since data is stored in the Parquet file format, automatic schema inference is available. You can easily query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the filepath function to filter out a certain subset of files.
+
+> [!NOTE]
+> If you are using database with non-default collation (this is default collation SQL_Latin1_General_CP1_CI_AS), you should take into account case sensitivity. 
+> 
+> If you create a database with case sensitive collation then when you specify columns make sure to use correct name of the column.
+> 
+> Example for a column name 'tpepPickupDateTime' would be correct while 'tpeppickupdatetime' wouldn't work in non-default collation.
 
 Let's first get familiar with the NYC Taxi data by running the following query:
 

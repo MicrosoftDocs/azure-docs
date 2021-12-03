@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Query across cloud databases with different schemas (preview)
@@ -17,7 +17,7 @@ ms.date: 01/25/2019
 
 ![Query across tables in different databases][1]
 
-Vertically-partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database.
+Vertically partitioned databases use different sets of tables on different databases. That means that the schema is different on different databases. For instance, all tables for inventory are on one database while all accounting-related tables are on a second database.
 
 ## Prerequisites
 
@@ -41,9 +41,8 @@ The credential is used by the elastic query to connect to your remote databases.
 
 ```sql
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
-CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
-SECRET = '<password>'
-[;]
+CREATE DATABASE SCOPED CREDENTIAL [<credential_name>]  WITH IDENTITY = '<username>',  
+SECRET = '<password>';
 ```
 
 > [!NOTE]
@@ -53,6 +52,7 @@ SECRET = '<password>'
 
 Syntax:
 
+```syntaxsql
 <External_Data_Source> ::=
 CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
     (TYPE = RDBMS,
@@ -60,7 +60,7 @@ CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
     DATABASE_NAME = ‘<remote_database_name>’,  
     CREDENTIAL = <credential_name>
     ) [;]
-
+```
 > [!IMPORTANT]
 > The TYPE parameter must be set to **RDBMS**.
 
@@ -89,6 +89,7 @@ select * from sys.external_data_sources;
 
 Syntax:
 
+```syntaxsql
 CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])
     { WITH ( <rdbms_external_table_options> ) }
@@ -98,6 +99,7 @@ CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] tabl
     DATA_SOURCE = <External_Data_Source>,
     [ SCHEMA_NAME = N'nonescaped_schema_name',]
     [ OBJECT_NAME = N'nonescaped_object_name',]
+```
 
 ### Example
 
@@ -129,9 +131,9 @@ Elastic query extends the existing external table syntax to define external tabl
 
 Using an external data source as outlined in the previous section, the syntax to create external tables is as follows:
 
-The DATA_SOURCE clause defines the external data source (i.e. the remote database in case of vertical partitioning) that is used for the external table.  
+The DATA_SOURCE clause defines the external data source (i.e. the remote database in vertical partitioning) that is used for the external table.  
 
-The SCHEMA_NAME and OBJECT_NAME clauses provide the ability to map the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
+The SCHEMA_NAME and OBJECT_NAME clauses allow mapping the external table definition to a table in a different schema on the remote database, or to a table with a different name, respectively. This mapping is useful if you want to define an external table to a catalog view or DMV on your remote database - or any other situation where the remote table name is already taken locally.  
 
 The following DDL statement drops an existing external table definition from the local catalog. It does not impact the remote database.
 
@@ -139,11 +141,11 @@ The following DDL statement drops an existing external table definition from the
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL which is also needed to refer to the underlying data source.  
+**Permissions for CREATE/DROP EXTERNAL TABLE**: ALTER ANY EXTERNAL DATA SOURCE permissions are needed for external table DDL, which is also needed to refer to the underlying data source.  
 
 ## Security considerations
 
-Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. You should carefully manage access to the external table in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
+Users with access to the external table automatically gain access to the underlying remote tables under the credential given in the external data source definition. Carefully manage access to the external table, in order to avoid undesired elevation of privileges through the credential of the external data source. Regular SQL permissions can be used to GRANT or REVOKE access to an external table just as though it were a regular table.  
 
 ## Example: querying vertically partitioned databases
 

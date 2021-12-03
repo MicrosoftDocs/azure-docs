@@ -1,17 +1,16 @@
 ---
 title: Quickstart - Access & create new tenant - Azure AD
-description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization. 
+description: Instructions about how to find Azure Active Directory and how to create a new tenant for your organization.
 services: active-directory
 author: ajburnle
 manager: daveba
-
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: "it-pro, seodec18, fasttrack-edit"
+ms.custom: it-pro, seodec18, fasttrack-edit, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Quickstart: Create a new tenant in Azure Active Directory
@@ -58,9 +57,9 @@ Your new tenant is created with the domain contoso.onmicrosoft.com.
 
 ## Your user account in the new tenant
 
-When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
+When you create a new Azure AD tenant, you become the first user of that tenant. As the first user, you're automatically assigned the [Global Admin](../roles/permissions-reference.md#global-administrator) role. Check out your user account by navigating to the [**Users**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/MsGraphUsers) page.
 
-By default, you're also listed as the [technical contact](https://docs.microsoft.com/microsoft-365/admin/manage/change-address-contact-and-more?view=o365-worldwide#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
+By default, you're also listed as the [technical contact](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-these-fields-mean) for the tenant. Technical contact information is something you can change in [**Properties**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
 > [!WARNING]
 > Ensure your directory has at least two accounts with global administrator privileges assigned to them. This will help in the case that one global administrator is locked out. For more detail see the article, [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md).

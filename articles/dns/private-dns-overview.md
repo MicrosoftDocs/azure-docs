@@ -43,7 +43,7 @@ Azure Private DNS provides the following benefits:
 
 ## Capabilities
 
-Azure DNS provides the following capabilities:
+Azure Private DNS provides the following capabilities:
 
 * **Automatic registration of virtual machines from a virtual network that's linked to a private zone with autoregistration enabled**. Virtual machines get registered to the private zone as A records pointing to their private IP addresses. When a virtual machine in a virtual network link with autoregistration enabled gets deleted, Azure DNS also automatically removes the corresponding DNS record from the linked private zone.
 
@@ -53,7 +53,7 @@ Azure DNS provides the following capabilities:
 
 ## Other considerations
 
-Azure DNS has the following limitations:
+Azure Private DNS has the following limitations:
 
 * A specific virtual network can be linked to only one private zone if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
@@ -70,8 +70,8 @@ For pricing information, see [Azure DNS Pricing](https://azure.microsoft.com/pri
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.md).
+* For common questions and answers about private zones in Azure DNS, see [Private DNS FAQ](./dns-faq-private.yml).
 
 * Learn about DNS zones and records by visiting [DNS zones and records overview](dns-zones-records.md).
 
-* Learn about some of the other key [networking capabilities](../networking/networking-overview.md) of Azure.
+* Learn about some of the other key [networking capabilities](../networking/fundamentals/networking-overview.md) of Azure.

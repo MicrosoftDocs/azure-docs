@@ -3,7 +3,7 @@ title: Azure support for generation 2 VMs
 description: Overview of Azure support for generation 2 VMs
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: generation-2-vm
+ms.subservice: sizes
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
@@ -11,6 +11,8 @@ ms.author: jushiman
 ---
 
 # Support for generation 2 VMs on Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Support for generation 2 virtual machines (VMs) is now available on Azure. You can't change a virtual machine's generation after you've created it, so review the considerations on this page before you choose a generation.
 
@@ -20,7 +22,7 @@ Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-b
 
 ## Generation 2 VM sizes
 
-Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series VMs). Azure now offers generation 2 support for the following selected VM series:
+Azure now offers generation 2 support for the following selected VM series:
 
 
 * [B-series](sizes-b-series-burstable.md)
@@ -30,10 +32,24 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [Dsv4-series](dv4-dsv4-series.md)
 * [Dasv4-series](dav4-dasv4-series.md)
 * [Ddsv4-series](ddv4-ddsv4-series.md)
+* [Dasv5-series](dasv5-dadsv5-series.md)
+* [Dadsv5-series](dasv5-dadsv5-series.md)
+* [DCasv5-series](dcasv5-dcadsv5-series.md)
+* [DCadsv5-series](dcasv5-dcadsv5-series.md)
+* [Dv5-series](dv5-dsv5-series.md)
+* [Dsv5-series](dv5-dsv5-series.md)
 * [Esv3-series](ev3-esv3-series.md)
 * [Esv4-series](ev4-esv4-series.md)
 * [Easv4-series](eav4-easv4-series.md)
 * [Edsv4-series](edv4-edsv4-series.md)
+* [Easv5-series](easv5-eadsv5-series.md)
+* [Eadsv5-series](easv5-eadsv5-series.md)
+* [ECasv5-series](ecasv5-ecadsv5-series.md)
+* [ECadsv5-series](ecasv5-ecadsv5-series.md)
+* [Edv5-series](edv5-edsv5-series.md)
+* [Edsv5-series](edv5-edsv5-series.md)
+* [Ev5-series](ev5-esv5-series.md)
+* [Esv5-series](ev5-esv5-series.md)
 * [Fsv2-series](fsv2-series.md)
 * [GS-series](sizes-previous-gen.md#gs-series)
 * [HB-series](hb-series.md)
@@ -42,14 +58,18 @@ Generation 1 VMs are supported by all VM sizes in Azure (except for Mv2-series V
 * [Lsv2-series](lsv2-series.md)
 * [M-series](m-series.md)
 * [Mv2-series](mv2-series.md)<sup>1</sup>
+* [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md)<sup>1</sup>
 * [NCv2-series](ncv2-series.md) 
 * [NCv3-series](ncv3-series.md)
 * [ND-series](nd-series.md)
+* [ND A100 v4-series](nda100-v4-series.md)
+* [NDv2-series](ndv2-series.md)
 * [NVv3-series](nvv3-series.md)
 * [NVv4-series](nvv4-series.md)
 * [NCasT4_v3-series](nct4-v3-series.md)
+* [NDm A100 v4-series](ndm-a100-v4-series.md)
 
-<sup>1</sup> Mv2-series does not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md) for details.
+<sup>1</sup> Mv2-series, DC-series, NDv2-series, Msv2 and Mdsv2-series Medium Memory do not support Generation 1 VM images and only support a subset of Generation 2 images. Please see [Mv2-series documentation](mv2-series.md), [DSv2-series](dv2-dsv2-series.md), [ND A100 v4-series](nda100-v4-series.md), [NDv2-series](ndv2-series.md), and [Msv2 and Mdsv2 Medium Memory Series](msv2-mdsv2-series.md) for details.
 
 
 ## Generation 2 VM images in Azure Marketplace
@@ -60,13 +80,13 @@ Generation 2 VMs support the following Marketplace images:
 * Windows 10 Pro, Windows 10 Enterprise
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
-* RHEL 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 7.0
-* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4
-* Oracle Linux 7.7, 7.7-CI
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10, 20.04 
+* RHEL 8.2, 8.1, 8.0, 7.9, 7.7, 7.6, 7.5, 7.4, 7.0, 8.3
+* Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 8.2, 8.3
+* Oracle Linux 7.7, 7.7-CI, 7.8
 
 > [!NOTE]
-> Specific Virtual machine sizes like Mv2-Series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
+> Specific Virtual machine sizes like Mv2-Series, DC-series, ND A100 v4-series, NDv2-series, Msv2 and Mdsv2-series may only support a subset of these images - please look at the relevant virtual machine size documentation for complete details.
 
 ## On-premises vs. Azure generation 2 VMs
 
@@ -74,13 +94,13 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure boot                         | :heavy_check_mark:  | With trusted launch (preview)   |
+| Secure boot                         | :heavy_check_mark:  | With [trusted launch](trusted-launch.md)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | With trusted launch (preview)  |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | With trusted launch (preview)   |
+| vTPM                                | :heavy_check_mark:  | With [trusted launch](trusted-launch.md)  |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
-For more information, see [Trusted launch (preview)](trusted-launch.md).
+For more information, see [Trusted launch](trusted-launch.md).
 
 ## Features and capabilities
 
@@ -101,9 +121,10 @@ For more information, see [Trusted launch (preview)](trusted-launch.md).
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
-| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## Creating a generation 2 VM
 
@@ -116,16 +137,19 @@ In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketp
 Below are the steps to create a generation 2 (Gen2) VM in Azure portal.
 
 1. Sign in to the Azure portal at https://portal.azure.com.
-1. Select **Create a resource**.
-1. Click **See all** from Azure Marketplace on the left.
-1. Select an image which supports Gen2.
-1. Click **Create**.
-1. In the **Advanced** tab, under the **VM generation** section, select the **Gen 2** option.
-1. In the **Basics** tab, Under **Instance details**, go to **Size** and open the **Select a VM size** blade.
-1. Select a [supported generation 2 VM](#generation-2-vm-sizes).
-1. Go through the rest of the pages to finish creating the VM.
-
-![Select Gen 1 or Gen 2 VM](./media/generation-2/gen1-gen2-select.png)
+2. Search for **Virtual Machines**
+3. Under **Services**, select **Virtual machines**.
+4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
+5. Under **Project details**, make sure the correct subscription is selected.
+6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
+7. Under **Instance details**, type a name for the virtual machine name and choose a region
+8. Under **Image**, select a Gen2 image from the **Marketplace images to get started**
+   > [!TIP]
+   > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **Image Type** filter to **Gen 2**.
+9. Select a VM size that supports Gen2. See a list of [supported sizes](#generation-2-vm-sizes).
+10. Fill in the **Administrator account** information and then **Inbound port rules**
+11.	At the bottom of the page, select **Review + Create**
+12.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
 
 #### PowerShell
 
@@ -137,11 +161,15 @@ For example, use the following PowerShell cmdlet to get a list of the SKUs in th
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which looks like this:
+If you're creating a VM with Windows Server 2019 as the OS, then you can select a generation 2 (UEFI) image which looks like this:
 
 ```powershell
-2012-Datacenter
-2012-datacenter-gensecond
+2019-datacenter-gensecond
+```
+If you're creating a VM with Windows 10 as the OS, then you can select a generation 2 (UEFI) image which looks like this:
+
+```powershell
+20H2-PRO-G2
 ```
 
 See the [Features and capabilities](#features-and-capabilities) section for a current list of supported Marketplace images.
@@ -218,11 +246,11 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 
     This may be solved by doing the following:
 
-    1. Verify that the **VM generation** property is set to **Gen 2** in the **Advanced** tab.
+    1. Verify that the **VM generation** property is set to **Gen 2**.
     1. Verify you are searching for a [VM size which supports Gen2 VMs](#generation-2-vm-sizes).
 
 ## Next steps
 
-Learn more about the [trusted launch (preview)](trusted-launch-portal.md) with gen 2 VMs.
+Learn more about the [trusted launch](trusted-launch-portal.md) with gen 2 VMs.
 
 Learn about [generation 2 virtual machines in Hyper-V](/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

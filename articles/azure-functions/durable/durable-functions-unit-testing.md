@@ -33,7 +33,7 @@ Mocking is supported via the following interface:
 * [IDurableOrchestrationContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext)
 
 * [IDurableActivityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableactivitycontext)
-  
+
 * [IDurableEntityContext](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableentitycontext)
 
 These interfaces can be used with the various trigger and bindings supported by Durable Functions. When executing your Azure Functions, the functions runtime will run your function code with a concrete implementation of these interfaces. For unit testing, you can pass in a mocked version of these interfaces to test your business logic.
@@ -90,7 +90,7 @@ durableClientMock
 ```csharp
 // Mock ILogger
 var loggerMock = new Mock<ILogger>();
-```  
+```
 
 Now the `Run` method is called from the unit test:
 
@@ -105,7 +105,7 @@ var result = await HttpStart.Run(
     durableClientMock.Object,
     functionName,
     loggerMock.Object);
- ```
+```
 
  The last step is to compare the output with the expected value:
 
@@ -178,5 +178,5 @@ And the unit tests will verify the format of the output. The unit tests can use 
 
 > [!div class="nextstepaction"]
 > [Learn more about xUnit](https://xunit.net/docs/getting-started/netcore/cmdline)
-> 
+>
 > [Learn more about moq](https://github.com/Moq/moq4/wiki/Quickstart)

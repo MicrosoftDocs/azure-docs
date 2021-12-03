@@ -5,7 +5,6 @@ services: virtual-machines
 author: KumariSupriya
 manager: paulmey
 ms.service: virtual-machines
-ms.subservice: monitoring
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/16/2021
@@ -14,5 +13,7 @@ ms.reviewer: azmetadatadev
 ---
 
 # Azure Instance Metadata Service (Linux)
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

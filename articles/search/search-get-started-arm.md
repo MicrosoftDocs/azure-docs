@@ -2,13 +2,12 @@
 title: Use an Azure Resource Manager template to deploy your service
 titleSuffix: Azure Cognitive Search
 description: You can quickly deploy an Azure Cognitive Search service instance using the Azure resource manager template.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 11/17/2020
 ---
 
@@ -28,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-search-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.search/azure-search-create/azuredeploy.json":::
 

@@ -3,14 +3,14 @@ title: Register a Microsoft Graph application
 titleSuffix: Azure AD B2C
 description: Prepare for managing Azure AD B2C resources with Microsoft Graph by registering an application that's granted the required Graph API permissions.
 services: B2C
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/05/2021
-ms.author: mimart
+ms.date: 09/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -43,7 +43,8 @@ Although the OAuth 2.0 client credentials grant flow is not currently directly s
 Before your scripts and applications can interact with the [Microsoft Graph API][ms-graph-api] to manage Azure AD B2C resources, you need to create an application registration in your Azure AD B2C tenant that grants the required API permissions.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *managementapp1*.
@@ -54,7 +55,7 @@ Before your scripts and applications can interact with the [Microsoft Graph API]
 
 ## Grant API access
 
-For your application to access data in Microsoft Graph, grant the registered application the relevant [application permissions](https://docs.microsoft.com/graph/permissions-reference). The effective permissions of your application are the full level of privileges implied by the permission. For example, to *create*, *read*, *update*, and *delete* every user in your Azure AD B2C tenant, add the **User.ReadWrite.All** permission. 
+For your application to access data in Microsoft Graph, grant the registered application the relevant [application permissions](/graph/permissions-reference). The effective permissions of your application are the full level of privileges implied by the permission. For example, to *create*, *read*, *update*, and *delete* every user in your Azure AD B2C tenant, add the **User.ReadWrite.All** permission. 
 
 > [!NOTE]
 > The **User.ReadWrite.All** permission does not include the ability update user account passwords. If your application needs to update user account passwords, [grant user administrator role](#optional-grant-user-administrator-role). When granting [user administrator](../active-directory/roles/permissions-reference.md#user-administrator) role, the **User.ReadWrite.All** is not required. The user administrator role includes everything needed to manage users.
@@ -70,7 +71,9 @@ If your application or script needs to update users' passwords, you need to assi
 
 To add the *User administrator* role, follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and use the **Directory + Subscription** filter to switch to your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role. 

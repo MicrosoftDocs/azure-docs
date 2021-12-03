@@ -1,6 +1,6 @@
 ---
-title: Create a managed disk from an image version
-description: Create a managed disk from an image version in a shared image gallery.
+title: Export an image version to a managed disk
+description: Export an image version from an Azure Compute Gallery to a managed disk.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
@@ -8,18 +8,21 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: cynthn
-ms.reviewer: olayemio
+ms.reviewer: olayemio 
+ms.custom: devx-track-azurepowershell
 
 ---
 
-# Create a managed disk from an image version
+# Export an image version to a managed disk
 
-If needed, you can export the OS or a single data disk from an image version as a managed disk from an image version stored in a Shared Image Gallery.
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+You can export the OS or a single data disk from an image version as a managed disk from an image version stored in an Azure Compute Gallery (formerly known as Shared Image Gallery).
 
 
 ## CLI
 
-List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* image gallery.
+List the image versions in a gallery using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list). In this example, we are looking for all of the image versions that are part of the *myImageDefinition* image definition in the *myGallery* gallery.
 
 ```azurecli-interactive
 az sig image-version list \
@@ -113,6 +116,6 @@ New-AzDisk -Disk $diskConfig `
 
 ## Next steps
 
-You can also create an image version from a managed disk using the [Azure CLI](image-version-managed-image-cli.md) or [PowerShell](image-version-managed-image-powershell.md).
+You can also create an [image version](image-version.md) from a managed disk.
 
 

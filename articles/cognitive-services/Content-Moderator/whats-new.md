@@ -8,11 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 04/19/2021
+ms.date: 09/28/2021
 ms.author: pafarley
 ---
 
 # What's new in Content Moderator
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 

@@ -1,20 +1,19 @@
 ---
-title: Understand how Azure AD provisioning works | Microsoft Docs
-description: Understand how Azure AD provisioning works 
+title: Understand how Application Provisioning in Azure Active Directory
+description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/04/2020
+ms.date: 06/11/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.custom: contperf-fy21q2
 ---
 
-# How provisioning works
+# How Application Provisioning works in Azure Active Directory
 
 Automatic provisioning refers to creating user identities and roles in the cloud applications that users need access to. In addition to creating user identities, automatic provisioning includes the maintenance and removal of user identities as status or roles change. Before you start a deployment, you can review this article to learn how Azure AD provision works and get configuration recommendations. 
 
@@ -78,7 +77,11 @@ You can use scoping filters to define attribute-based rules that determine which
 It's possible to use the Azure AD user provisioning service to provision B2B (or guest) users in Azure AD to SaaS applications. 
 However, for B2B users to sign in to the SaaS application using Azure AD, the SaaS application must have its SAML-based single sign-on capability configured in a specific way. For more information on how to configure SaaS applications to support sign-ins from B2B users, see [Configure SaaS apps for B2B collaboration](../external-identities/configure-saas-apps.md).
 
-Note that the userPrincipalName for a guest user is often stored as "alias#EXT#@domain.com". when the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
+> [!NOTE]
+The userPrincipalName for a guest user is often displayed as "alias#EXT#@domain.com". When the userPrincipalName is included in your attribute mappings as a source attribute, the #EXT# is stripped from the userPrincipalName. If you require the #EXT# to be present, replace userPrincipalName with originalUserPrincipalName as the source attribute. 
+
+userPrincipalName = alias@domain.com
+originalUserPrincipalName = alias#EXT#@domain.com
 
 ## Provisioning cycles: Initial and incremental
 
@@ -140,7 +143,7 @@ The provisioning service continues running back-to-back incremental cycles indef
 
 ### Errors and retries
 
-If an error in the target system prevents an individual user from being added, updated, or deleted in the target system, the operation is retried in the next sync cycle. If the user continues to fail, then the retries will begin to occur at a reduced frequency, gradually scaling back to just one attempt per day. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
+If an error in the target system prevents an individual user from being added, updated, or deleted in the target system, the operation is retried in the next sync cycle. The errors are continually retried, gradually scaling back the frequency of retries. To resolve the failure, administrators must check the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) to determine the root cause and take the appropriate action. Common failures can include:
 
 - Users not having an attribute populated in the source system that is required in the target system
 - Users having an attribute value in the source system for which there's a unique constraint in the target system, and the same value is present in another user record

@@ -1,7 +1,7 @@
 ---
 title: Configure usage settings in labs of Azure Lab Services
 description: Learn how to configure the number of students for a lab, get them registered with the lab, control the number of hours they can use the VM, and more. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/01/2020
 ---
 
@@ -151,6 +151,9 @@ In this section, you can get the registration link from the portal and send it b
     The **Users** pane displays a list of students who have registered with your lab.  
 
     ![List of registered users](./media/tutorial-track-usage/registered-users.png)
+
+    > [!NOTE] 
+    > If you [republish a lab](how-to-create-manage-template.md#publish-the-template-vm) or [reset student VMs](how-to-set-virtual-machine-passwords.md#reset-vms), the students will remain registered for the labs' VMs.  However, the contents of the VMs will be deleted and the VMs will be recreated with the template VM's image.
 
 ## Set quotas for users
 

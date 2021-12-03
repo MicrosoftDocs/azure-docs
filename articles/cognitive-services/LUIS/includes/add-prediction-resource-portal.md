@@ -5,7 +5,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 04/23/2021
+ms.date: 05/14/2021
 ms.author: aahi
 ---
 
@@ -15,7 +15,7 @@ ms.author: aahi
 
     :::image type="image" alt-text="Add Prediction resource from portal" source="../media/add-prediction-resource-portal.png" lightbox="../media/add-prediction-resource-portal.png":::
   
-    If you already have a prediction resource add directly if not, select **Create a new prediction resource**.
+    If you already have a prediction resource, add it. Otherwise, select **Create a new prediction resource**.
   
     :::image type="image" alt-text="Add Prediction resource from portal-2" source="../media/add-prediction-resource-portal-2.png" lightbox="../media/add-prediction-resource-portal-2.png":::
   

@@ -7,10 +7,11 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 07/07/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
@@ -19,7 +20,7 @@ Communication between a client application and an Azure Storage account is encry
 
 Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
 
-By default, Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
+Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage secure TLS for your storage accounts.
 
@@ -89,7 +90,9 @@ When you are confident that traffic from clients using older versions of TLS is 
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
-The **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.  If the property value is **null**, then the storage account will permit requests sent with TLS version 1.0 or greater.
+The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When you create a storage account with PowerShell, Azure CLI, or an Azure Resource Manager template, the **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.
+
+When the **MinimumTlsVersion** property is not set, its value may be displayed as either **null** or an empty string, depending on the context. The storage account will permit requests sent with TLS version 1.0 or greater if the property is not set.
 
 # [Portal](#tab/portal)
 
@@ -98,10 +101,10 @@ When you create a storage account with the Azure portal, the minimum TLS version
 To configure the minimum TLS version for an existing storage account with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Select the **Configuration** setting.
-1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account, as shown in the following image.
+1. Under **Settings**, select **Configuration**.
+1. Under **Minimum TLS version**, use the drop-down to select the minimum version of TLS required to access data in this storage account.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot showing how to configure minimum version of TLS in the Azure portal." lightbox="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png":::
 
 # [PowerShell](#tab/powershell)
 
@@ -116,7 +119,7 @@ $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
 New-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -Location $location `
     -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
@@ -126,7 +129,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
 Set-AzStorageAccount -ResourceGroupName $rgName `
-    -AccountName $accountName `
+    -Name $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.

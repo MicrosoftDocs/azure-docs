@@ -9,9 +9,9 @@ ms.subservice: security
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: conceptual
-author: VanMSFT
-ms.author: vanto
-ms.reviewer: sstein
+author: AndreasWolter
+ms.author: anwolter
+ms.reviewer: vanto, mathoma
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics
@@ -27,6 +27,9 @@ In this article, you learn about:
 
 > [!IMPORTANT]
 > Databases in Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse are referred to collectively in the remainder of this article as databases, and the server is referring to the [server](logical-servers.md) that manages databases for Azure SQL Database and Azure Synapse.
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Authentication and authorization
 

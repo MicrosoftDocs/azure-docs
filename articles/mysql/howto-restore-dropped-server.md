@@ -10,6 +10,8 @@ ms.date: 10/09/2020
 
 # Restore a deleted Azure Database for MySQL server
 
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 When a server is deleted, the database server backup can be retained up to five days in the service. The database backup can be accessed and restored only from the Azure subscription where the server originally resided. The following recommended steps can be followed to recover a deleted MySQL server resource within 5 days from the time of server deletion. The recommended steps will work only if the backup for the server is still available and not deleted from the system. 
 
 ## Pre-requisites
@@ -31,7 +33,7 @@ To restore a deleted Azure Database for MySQL server, you need following:
    
  3. Double Click on the Delete MySQL Server event and click on the JSON tab and note the "resourceId" and "submissionTimestamp" attributes in JSON output. The resourceId is in the following format: /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TargetResourceGroup/providers/Microsoft.DBforMySQL/servers/deletedserver.
  
- 4. Go to [Create Server REST API Page](/rest/api/mysql/servers/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
+ 4. Go to [Create Server REST API Page](/rest/api/mysql/singleserver/servers(2017-12-01)/create) and click on "Try It" tab highlighted in green and login in with your Azure account.
  
  5. Provide the resourceGroupName, serverName (deleted server name), subscriptionId, derived from resourceId attribute captured in Step 3, while api-version is pre-populated as shown in image.
  

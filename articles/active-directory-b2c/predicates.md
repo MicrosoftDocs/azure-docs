@@ -3,14 +3,14 @@ title: Predicates and PredicateValidations
 titleSuffix: Azure AD B2C
 description: Prevent malformed data from being added to your Azure AD B2C tenant by using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/30/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -73,7 +73,6 @@ The IsLengthRange method checks whether the length of a string claim value is wi
 | ------- | ----------- | ----------- |
 | Maximum | Yes | The maximum number of characters that can be entered. |
 | Minimum | Yes | The minimum number of characters that must be entered. |
-
 
 The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
@@ -220,7 +219,6 @@ The **PredicateReference** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier that's used for the predicate validation.  |
-
 
 ## Configure password complexity
 
@@ -420,7 +418,7 @@ In your claim type, add **PredicateValidationReference** element and specify the
   <UserInputType>DateTimeDropdown</UserInputType>
   <PredicateValidationReference Id="CustomDateRange" />
 </ClaimType>
- ```
+```
 
 ## Next steps
 

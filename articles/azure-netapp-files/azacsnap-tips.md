@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 04/21/2021
+ms.date: 08/04/2021
 ms.author: phjensen
 ---
 
@@ -27,7 +27,7 @@ It may be necessary to limit the scope of the AzAcSnap service principal.  Revie
 
 The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -46,7 +46,7 @@ az role definition create --role-definition '{ \
 
 For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case the role definition needs an additional action, therefore the complete service principal should look like the following example.
 
-```bash
+```azurecli
 az role definition create --role-definition '{ \
   "Name": "Azure Application Consistent Snapshot tool", \
   "IsCustom": "true", \
@@ -140,7 +140,7 @@ The following conditions should be monitored to ensure a healthy system:
 
 ## Delete a snapshot
 
-To delete a snapshot, execute the command `azacsnap -c delete`. It's not possible to delete
+To delete a snapshot, use the command `azacsnap -c delete`. It's not possible to delete
 snapshots from the OS level. You must use the correct command (`azacsnap -c delete`) to delete the storage snapshots.
 
 > [!IMPORTANT]
@@ -166,30 +166,56 @@ If you decide to perform the disaster recovery failover, the `azacsnap -c restor
 > [!IMPORTANT]
 > This operation applies only to Azure Large Instance.
 
-In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, the task is simplified and the following steps should be taken.
+In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case only the following steps need to completed.
 
 1. Complete steps 1-4 of the pre-requisites for installation.
 1. Enable communication with storage.
-1. Download the run the installer to install the snapshot tools.
+1. Download and run the installer to install the snapshot tools.
 1. Complete setup of snapshot tools.
-1. Create a new configuration file as follows. The boot volume details must be in the OtherVolume     stanza (user entries in <span style="color:red">red</span>):
+1. Get the list of volumes to be added to the azacsnap configuration file, in this example the Storage User Name is `cl25h50backup` and the Storage IP Address is `10.1.1.10` 
+    ```bash
+    ssh cl25h50backup@10.1.1.10 "volume show -volume *boot*"
+    ```
     ```output
-    > <span style="color:red">azacsnap -c configure --configuration new --configfile BootVolume.json</span>
+    Last login time: 7/20/2021 23:54:03
+    Vserver   Volume       Aggregate    State      Type       Size  Available Used%
+    --------- ------------ ------------ ---------- ---- ---------- ---------- -----
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v51_vol aggr_n01_ssd online RW 150GB 57.24GB  61%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v52_vol aggr_n01_ssd online RW 150GB 81.06GB  45%
+    ams07-a700s-saphan-1-01v250-client25-nprod t250_sles_boot_sollabams07v53_vol aggr_n01_ssd online RW 150GB 79.56GB  46%
+    3 entries were displayed.
+    ```
+    > [!NOTE] 
+    > In this example, this host is part of a 3 node Scale-Out system and all 3 boot volumes can be seen from this host.  This means all 3 boot volumes can be snapshot from this host, and all 3 should be added to the configuration file in the next step.
+
+1. Create a new configuration file as follows. The boot volume details must be in the OtherVolume stanza:
+    ```bash
+    azacsnap -c configure --configuration new --configfile BootVolume.json
+    ```
+    ```output
     Building new config file
-    Add comment to config file (blank entry to exit adding comments):<span style="color:red">Boot only config file.</span>
+    Add comment to config file (blank entry to exit adding comments): Boot only config file.
     Add comment to config file (blank entry to exit adding comments):
-    Add database to config? (y/n) [n]: <span style="color:red">y</span>
-    HANA SID (for example, H80): <span style="color:red">X</span>
-    HANA Instance Number (for example, 00): <span style="color:red">X</span>
-    HANA HDB User Store Key (for example, `hdbuserstore List`): <span style="color:red">X</span>
-    HANA Server's Address (hostname or IP address): <span style="color:red">X</span>
+    Add database to config? (y/n) [n]: y
+    HANA SID (for example, H80): X
+    HANA Instance Number (for example, 00): X
+    HANA HDB User Store Key (for example, `hdbuserstore List`): X
+    HANA Server's Address (hostname or IP address): X
     Add ANF Storage to database section? (y/n) [n]:
-    Add HLI Storage to database section? (y/n) [n]: <span style="color:red">y</span>
+    Add HLI Storage to database section? (y/n) [n]: y
     Add DATA Volume to HLI Storage section of Database section? (y/n) [n]:
-    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: <span style="color:red">y</span>
-    Storage User Name (for example, clbackup25): <span style="color:red">shoasnap</span>
-    Storage IP Address (for example, 192.168.1.30): <span style="color:red">10.1.1.10</span>
-    Storage Volume Name (for example, hana_data_soldub41_t250_vol): <span style="color:red">t210_sles_boot_azsollabbl20a31_vol</span>
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v51_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v52_vol
+    Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]: y
+    Storage User Name (for example, clbackup25): cl25h50backup
+    Storage IP Address (for example, 192.168.1.30): 10.1.1.10
+    Storage Volume Name (for example, hana_data_soldub41_t250_vol): t250_sles_boot_sollabams07v53_vol
     Add OTHER Volume to HLI Storage section of Database section? (y/n) [n]:
     Add HLI Storage to database section? (y/n) [n]:
     Add database to config? (y/n) [n]:
@@ -225,9 +251,19 @@ In some cases, customers already have tools to protect SAP HANA and only want to
                 "dataVolume": [],
                 "otherVolume": [
                   {
-                    "backupName": "shoasnap",
+                    "backupName": "cl25h50backup",
                     "ipAddress": "10.1.1.10",
-                    "volume": "t210_sles_boot_azsollabbl20a31_vol"
+                    "volume": "t250_sles_boot_sollabams07v51_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume": "t250_sles_boot_sollabams07v52_vol"
+                  },
+                  {
+                    "backupName": "cl25h50backup",
+                    "ipAddress": "10.1.1.10",
+                    "volume": "t250_sles_boot_sollabams07v53_vol"
                   }
                 ]
               }
@@ -255,11 +291,15 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     ```output
     List snapshot details called with snapshotFilter 'TestBootVolume'
     #, Volume, Snapshot, Create Time, HANA Backup ID, Snapshot Size
-    #1, t210_sles_boot_azsollabbl20a31_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
-    , t210_sles_boot_azsollabbl20a31_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v51_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v51_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v52_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v52_vol, , , Size used by Snapshots, 1.31GB
+    #1, t250_sles_boot_sollabams07v53_vol, TestBootVolume.2020-07-03T034651.7059085Z, "Fri Jul 03 03:48:24 2020", "otherVolume Backup|azacsnap version: 5.0 (Build: 20210421.6349)", 200KB
+    , t250_sles_boot_sollabams07v53_vol, , , Size used by Snapshots, 1.31GB
     ```
 
-1. Set up automatic snapshot backup.
+1. *Optional* Set up automatic snapshot backup with `crontab`, or a suitable scheduler capable of running the `azacsnap` backup commands.
 
 > [!NOTE]
 > Setting up communication with SAP HANA is not required.

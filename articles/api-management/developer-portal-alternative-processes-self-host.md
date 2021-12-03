@@ -3,7 +3,7 @@ title: Alternatives for self-hosting developer portal
 titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
@@ -47,7 +47,7 @@ Run the publishing step in the cloud as an alternative to executing it locally.
 
 To implement publishing with an Azure Function App, you need the following prerequisites:
 
-- [Create an Azure Function](../azure-functions/functions-create-first-azure-function.md). The Function needs to be a JavaScript language Function.
+- [Create an Azure Function](../azure-functions/functions-get-started.md). The Function needs to be a JavaScript language Function.
 - Install Azure Functions Core Tools:
     ```console
     npm install –g azure-function-core-tools
@@ -76,7 +76,7 @@ npm run build-function
 
 Then, sign in to the Azure CLI and deploy it:
 
-```sh
+```azurecli
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>

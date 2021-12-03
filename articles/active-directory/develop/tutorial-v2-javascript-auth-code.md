@@ -3,14 +3,14 @@ title: "Tutorial: Create a JavaScript single-page app that uses auth code flow |
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/17/2020
-ms.author: hahamil
+ms.date: 10/12/2021
+ms.author: marsma
 ms.custom: aaddev, devx-track-js
 ---
 
@@ -44,13 +44,13 @@ This tutorial uses the following library:
 
 ## Get the completed code sample
 
-Prefer to download this tutorial's completed sample project instead? To run the project by using a local web server, such as Node.js, clone the [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) repository:
+Prefer to download this tutorial's completed sample project instead? Clone the [ms-identity-javascript-v2](https://github.com/Azure-Samples/ms-identity-javascript-v2) repository. 
 
 `git clone https://github.com/Azure-Samples/ms-identity-javascript-v2`
 
-Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
+To run the downloaded project on your local development environment, start by creating a localhost server for your application as described in step 1 of [create your project](#create-your-project). Once done, you can configure the code sample by skipping to the [configuration step](#register-your-application).
 
-To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
+To continue with the tutorial and build the application yourself, move on to the next section, [Create your project](#create-your-project).
 
 ## Create your project
 
@@ -570,7 +570,7 @@ The `acquireTokenSilent` method handles token acquisition and renewal without an
 1. Visually indicate to the user that an interactive sign-in is required so the user can select the right time to sign in, or the application can retry `acquireTokenSilent` at a later time. This technique is commonly used when the user can use other functionality of the application without being disrupted. For example, there might be unauthenticated content available in the application. In this situation, the user can decide when they want to sign in to access the protected resource, or to refresh the outdated information.
 
 > [!NOTE]
-> This tutorial uses the `loginPopup` and `acquireTokenPopup` methods by default. If you're using Internet Explorer, we recommend that you use the `loginRedirect` and `acquireTokenRedirect` methods due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) with Internet Explorer and pop-up windows. For an example of achieving the same result by using redirect methods, see [*authRedirect.js*](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/blob/quickstart/JavaScriptSPA/authRedirect.js) on GitHub.
+> This tutorial uses the `loginPopup` and `acquireTokenPopup` methods by default. If you're using Internet Explorer, we recommend that you use the `loginRedirect` and `acquireTokenRedirect` methods due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) with Internet Explorer and pop-up windows. For an example of achieving the same result by using redirect methods, see [*authRedirect.js*](https://github.com/Azure-Samples/ms-identity-javascript-v2/blob/master/app/authRedirect.js) on GitHub.
 
 ## Call the Microsoft Graph API
 

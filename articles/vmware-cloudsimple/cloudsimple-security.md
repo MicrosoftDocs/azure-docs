@@ -1,8 +1,8 @@
---- 
+---
 title: Azure VMware Solution by CloudSimple - Security for CloudSimple Services
 description: Describes the shared responsibility models for security of CloudSimple services
-author: Ajayan1008 
-ms.author: v-hborys 
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

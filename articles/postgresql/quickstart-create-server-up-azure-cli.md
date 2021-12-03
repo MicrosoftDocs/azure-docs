@@ -6,8 +6,8 @@ ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019 
-ms.custom: devx-track-azurecli
+ms.date: 05/06/2019
+ms.custom: devx-track-azurecli, mode-other
 ---
 # Quickstart: Use an Azure CLI command, az postgres up (preview), to create an Azure Database for PostgreSQL - Single Server
 
@@ -36,7 +36,7 @@ az account set --subscription <subscription id>
 
 ## Create an Azure Database for PostgreSQL server
 
-To use the commands, install the [db-up](/cli/azure/) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
+To use the commands, install the [db-up](/cli/azure/ext/db-up/mysql) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up

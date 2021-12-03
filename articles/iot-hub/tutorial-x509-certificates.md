@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Understand X.509 public key certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Understand X.509 public key certificates for Azure IoT Hub
-author: v-gpettibone
-manager: philmea
+author: eross-msft
+
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to X.509 Public Key certificates.
 ---
@@ -104,7 +104,7 @@ A complex format that can store and protect a key and the entire certificate cha
 For more information, see the following topics:
 
 * [The layman’s guide to X.509 certificate jargon](https://techcommunity.microsoft.com/t5/internet-of-things/the-layman-s-guide-to-x-509-certificate-jargon/ba-p/2203540)
-* [Conceptual understanding of X.509 CA certificates in the IoT industry](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept)
+* [Conceptual understanding of X.509 CA certificates in the IoT industry](./iot-hub-x509ca-concept.md)
 
 ## Next steps
 

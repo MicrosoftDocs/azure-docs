@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/13/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 ---
 
@@ -26,13 +26,15 @@ In this tutorial, you'll learn how to integrate New Relic with Azure Active Dire
 To get started, you need:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* A New Relic subscription that's enabled for single sign-on (SSO).
+* A New Relic organization on the [New Relic One account/user model](https://docs.newrelic.com/docs/accounts/original-accounts-billing/original-product-based-pricing/overview-changes-pricing-user-model/#user-models) and on either Pro or Enterprise edition. For more information, see [New Relic requirements](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more).
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic supports SSO that's initiated by either the service provider or the identity provider.
+
+* New Relic supports [Automated user provisioning](new-relic-by-organization-provisioning-tutorial.md).
 
 ## Add New Relic from the gallery
 
@@ -71,11 +73,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **Basic SAML Configuration** section, fill in values for **Identifier** and **Reply URL**.
 
-   * Retrieve these values by using the New Relic **My Organization** application. To use this application:
-      1. [Sign in](https://login.newrelic.com/) to New Relic.
-      1. On the top menu, select **Apps**.
-      1. In the **Your apps** section, select **My Organization** > **Authentication domains**.
-      1. Choose the authentication domain to which you want Azure AD SSO to connect (if you have more than one authentication domain). Most companies only have one authentication domain called **Default**. If there's only one authentication domain, you don't need to select anything.
+   * Retrieve these values from the [New Relic authentication domain UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). From there: 
+      1. If you have more than one authentication domain, choose the one to which you want Azure AD SSO to connect. Most companies only have one authentication domain called **Default**. If there's only one authentication domain, you don't need to select anything.
       1. In the **Authentication** section, **Assertion consumer URL** contains the value to use for **Reply URL**.
       1. In the **Authentication** section, **Our entity ID** contains the value to use for **Identifier**.
 
@@ -114,13 +113,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure New Relic SSO
 
-Follow these steps to configure SSO at New Relic.
+Follow these steps to configure SSO at New Relic. 
 
 1. [Sign in](https://login.newrelic.com/) to New Relic.
 
-1. On the top menu, select **Apps**.
-
-1. In the **Your apps** section, select **My Organization** > **Authentication domains**.
+1. Go to the [authentication domain UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#ui). 
 
 1. Choose the authentication domain to which you want Azure AD SSO to connect (if you have more than one authentication domain). Most companies only have one authentication domain called **Default**. If there's only one authentication domain, you don't need to select anything.
 
@@ -138,9 +135,7 @@ In this section, you create a user called B.Simon in New Relic.
 
 1. [Sign in](https://login.newrelic.com/) to New Relic.
 
-1. On the top menu, select **Apps**.
-
-1. In the **Your apps** section, select **User Management**.
+1. Go to the [**User management** UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where).
 
 1. Select **Add user**.
 
@@ -148,9 +143,12 @@ In this section, you create a user called B.Simon in New Relic.
    
    1. For **Email**, enter the value that will be sent by Azure AD SSO.
    
-   1. Choose a user **Type** and a user **Group** for the user. For a test user, **Basic User** for Type and **User** for Group are reasonable choices.
+   1. Choose a user **Type** and a user **Group** for the user. For a test user, **Basic user** for Type and **User** for Group are reasonable choices.
    
    1. To save the user, select **Add User**.
+
+> [!NOTE]
+> New Relic also supports automatic user provisioning, you can find more details [here](./new-relic-by-organization-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 
@@ -166,8 +164,12 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the New Relic for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the New Relic tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the New Relic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+You can also use Microsoft My Apps to test the application in any mode. When you click the New Relic tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the New Relic for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure New Relic you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Once done, you can verify that your users have been added in New Relic by going to the [**User management** UI](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#where) and seeing if they're there. 
+
+Next, you will probably want to assign your users to specific New Relic accounts or roles. To learn more about this, see [User management concepts](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/add-manage-users-groups-roles/#understand-concepts). 
+
+In New Relic's authentication domain UI, you can configure [other settings](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-user-management/authentication-domains-saml-sso-scim-more/#session-mgmt), like session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

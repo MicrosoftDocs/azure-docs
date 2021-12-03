@@ -1,28 +1,23 @@
 ---
-title: Use Azure Service Bus queues with Java
-description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue.
-ms.date: 06/23/2020
-ms.topic: quickstart
+title: Use Azure Service Bus queues with Java (old version)
+description: In this article, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
-ms.custom:
-  - seo-java-july2019
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
-# Quickstart: Use Azure Service Bus queues with Java to send and receive messages
+# Use Azure Service Bus queues with Java to send and receive messages (old package)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+In this article, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!WARNING]
->  This quickstart uses the old `azure-servicebus` packages. For a quickstart that uses the latest `azure-messaging-servicebus` package, see [Send and receive messages using `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
+>  This article uses the old `azure-servicebus` packages. For an article that uses the latest `azure-messaging-servicebus` package, see [Send and receive messages using `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
 
 
 ## Prerequisites
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete steps in this article, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
     1. Read the quick **overview** of Service Bus **queues**. 
     2. Create a Service Bus **namespace**. 
@@ -110,7 +105,7 @@ public void run() throws Exception {
 Messages sent to, and received from Service Bus queues are instances of the [Message](/java/api/com.microsoft.azure.servicebus.message) class. Message objects have a set of standard properties (such as Label and TimeToLive), a dictionary that is used to hold custom application-specific properties, and a body of arbitrary application data. An application can set the body of the message by passing any serializable object into the constructor of the Message, and the appropriate serializer will then be used to serialize the object. Alternatively, you can provide a **java.IO.InputStream** object.
 
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
+Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 100 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have
 a maximum size of 64 KB. There is no limit on the number of messages
 held in a queue but there is a cap on the total size of the messages
 held by a queue. This queue size is defined at creation time, with an

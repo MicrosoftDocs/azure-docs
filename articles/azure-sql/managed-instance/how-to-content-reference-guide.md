@@ -4,13 +4,12 @@ titleSuffix: Azure SQL Managed Instance
 description: A reference guide of content that teaches you how to configure and manage Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: sqldbrb=1
+ms.subservice: deployment-configuration
+ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: 
 ms.topic: guide
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.date: 04/16/2019
 ---
 # Azure SQL Managed Instance content reference
@@ -20,7 +19,7 @@ In this article you can find a content reference to various guides, scripts, and
 
 ## Load data
 
-- [Migrate to Azure SQL Managed Instance](migrate-to-instance-from-sql-server.md): Learn about the recommended migration process and tools for migration to Azure SQL Managed Instance.
+- [SQL Server to Azure SQL Managed Instance Guide](../migration-guides/managed-instance/sql-server-to-managed-instance-guide.md): Learn about the recommended migration process and tools for migration to Azure SQL Managed Instance.
 - [Migrate TDE cert to Azure SQL Managed Instance](tde-certificate-migrate.md): If your SQL Server database is protected with transparent data encryption (TDE), you would need to migrate the certificate that SQL Managed Instance can use to decrypt the backup that you want to restore in Azure.
 - [Import a DB from a BACPAC](../database/database-import.md)
 - [Export a DB to BACPAC](../database/database-export.md)
@@ -34,11 +33,13 @@ In this article you can find a content reference to various guides, scripts, and
 - [Create a new VNet and subnet](virtual-network-subnet-create-arm-template.md):
   Configure the virtual network and subnet according to the [network requirements](connectivity-architecture-overview.md#network-requirements). 
 - [Configure an existing VNet and subnet](vnet-existing-add-subnet.md):
-  Verify network requirements and configure your existing virtual network and subnet to deploy SQL Managed Instance. 
+  Verify network requirements and configure your existing virtual network and subnet to deploy SQL Managed Instance.
+- [Configure service endpoint policies for Azure Storage (Preview)](service-endpoint-policies-configure.md):
+  Secure your subnet against erroneous or malicious data exfiltration into unauthorized Azure Storage accounts.
 - [Configure custom DNS](custom-dns-configure.md):
   Configure custom DNS to grant external resource access to  custom domains from SQL Managed Instance via a linked server of db mail profiles. 
 - [Sync network configuration](azure-app-sync-network-configuration.md):
-  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/web-sites-integrate-with-vnet.md).
+  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 - [Find the management endpoint IP address](management-endpoint-find-ip-address.md): 
   Determine the public endpoint that SQL Managed Instance is using for management purposes. 
 - [Verify built-in firewall protection](management-endpoint-verify-built-in-firewall.md):
@@ -88,7 +89,7 @@ In this article you can find a content reference to various guides, scripts, and
 ## Develop applications
 
 - [Connectivity](../database/connect-query-content-reference-guide.md#libraries)
-- [Use Spark Connector](../../cosmos-db/spark-connector.md)
+- [Use Spark Connector](../../cosmos-db/create-sql-api-spark.md)
 - [Authenticate an app](../database/application-authentication-get-client-id-keys.md)
 - [Use batching for better performance](../performance-improve-use-batching.md)
 - [Connectivity guidance](../database/troubleshoot-common-connectivity-issues.md)

@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot data loss in Azure Cache for Redis
 description: Learn how to resolve data-loss problems with Azure Cache for Redis, such as partial loss of keys, key expiration, or complete loss of keys.
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
@@ -116,4 +116,4 @@ Consider using [Redis data persistence](https://redis.io/topics/persistence) and
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
-- [How can I run Redis commands?](cache-development-faq.md#how-can-i-run-redis-commands)
+- [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)

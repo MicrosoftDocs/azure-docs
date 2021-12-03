@@ -23,6 +23,8 @@ ms.date: 08/25/2020
 
 [!INCLUDE [Change model frequency](change-model-frequency.md)]
 
+[!INCLUDE [Change reward wait time](change-reward-wait-time.md)]
+
 ### Create a new C# application
 
 Create a new .NET Core application in your preferred editor or IDE.
@@ -54,7 +56,7 @@ Build succeeded.
 Within the application directory, install the Personalizer client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 0.8.0-preview
+dotnet add package Microsoft.Azure.CognitiveServices.Personalizer --version 1.0.0
 ```
 
 > [!TIP]

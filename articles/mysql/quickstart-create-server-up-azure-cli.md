@@ -7,10 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Create an Azure Database for MySQL using a simple Azure CLI command - az mysql up (preview)
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 > [!IMPORTANT]
 > The [az mysql up](/cli/azure/mysql#az_mysql_up) Azure CLI command is in preview.
@@ -37,7 +39,8 @@ az account set --subscription <subscription id>
 
 ## Create an Azure Database for MySQL server
 
-To use the commands, install the [db-up](/cli/azure/) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
+To use the commands, install the [db-up](/cli/azure/ext/db-up/mysql
+) extension. If an error is returned, ensure you have installed the latest version of the Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli
 az extension add --name db-up

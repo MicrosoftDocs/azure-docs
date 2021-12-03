@@ -5,17 +5,18 @@ description: In this quickstart, you'll use the online Content Moderator Review 
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/29/2021
+ms.date: 09/28/2021
 ms.author: pafarley
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, mode-other
 keywords: content moderator, content moderation
 ---
 
 # Quickstart: Try Content Moderator on the web
+
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 In this quickstart, you'll use the online Content Moderator Review tool to test out the basic functionality of Content Moderator without having to write any code. If you wish to integrate this service into your content moderation app more quickly, see the other quickstarts in the [Next steps](#next-steps) section.
 

@@ -106,7 +106,7 @@ Proactively monitor your service accounts to ensure the service account’s usag
 
 * Are sign-in patterns of service accounts changing?
 
-We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Azure Sentinel. Use your SIEM to build alerting and dashboards.
+We recommend you export Azure AD sign-In logs and import them into your existing Security Information and Event Management (SIEM) tools such as Microsoft Sentinel. Use your SIEM to build alerting and dashboards.
 
 ### Review service account permissions
 
@@ -167,7 +167,7 @@ Establish a review process to ensure that service accounts are regularly reviewe
 
 **The processes for deprovisioning should include the following tasks.**
 
-1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md#sign-ins-report) and resource access by the service account.
+1. Once the associated application or script is deprovisioned, [monitor sign-ins](../reports-monitoring/concept-sign-ins.md) and resource access by the service account.
 
    * If the account still is active, determine how it's being used before taking subsequent steps.
  
@@ -190,4 +190,3 @@ For more information on securing Azure service accounts, see:
 
 
  
-

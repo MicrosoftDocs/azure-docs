@@ -3,14 +3,11 @@ title: Create configurations from existing servers for Azure Automation State Co
 description: This article tells how to create configurations from existing servers for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Create configurations from existing servers
 
 > Applies To: Windows PowerShell 5.1
@@ -35,7 +32,7 @@ The solution builds on the
 [SharePointDSC resource](https://github.com/powershell/sharepointdsc)
 and extends it to orchestrate
 [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use)
-from existing SharePoint servers.
+from existing servers running SharePoint.
 The latest version has multiple
 [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes)
 to determine what level of information to include.

@@ -1,47 +1,49 @@
 ---
-title: 'Tutorial: REST and AI over Azure blobs'
+title: 'REST Tutorial: AI on Azure blobs'
 titleSuffix: Azure Cognitive Search
-description: Step through an example of text extraction and natural language processing over content in Blob storage using Postman and the Azure Cognitive Search REST APIs. 
+description: Step through an example of text extraction and natural language processing over content in Blob Storage using Postman and the Azure Cognitive Search REST APIs. 
 
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 12/01/2021
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content from blobs that are useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
+In this REST tutorial, you will learn how to:
 
 > [!div class="checklist"]
-> * Set up services and a Postman collection.
-> * Create an enrichment pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
-> * Create an index to store the output (raw content, plus pipeline-generated name-value pairs).
-> * Execute the pipeline to perform transformations and analysis, and to load the index.
+> * Set up a development environment
+> * Define a pipeline that uses OCR, language detection, and entity and key phrase recognition.
+> * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
 If you don't have an Azure subscription, open a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Overview
 
-This tutorial uses C# and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob storage, and then run them through a skillset to extract entities, key phrases, and other text in the content files.
+This tutorial uses Postman and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset. 
 
-This skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
+The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index. 
+
+The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
 
 ## Prerequisites
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Postman desktop app](https://www.getpostman.com/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Postman desktop app](https://www.getpostman.com/)
+* [Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Azure Cognitive Search](https://azure.microsoft.com/services/search/)
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
 ## Download files
+
+The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
 1. Open this [OneDrive folder](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) and on the top-left corner, click **Download** to copy the files to your computer. 
 
@@ -51,7 +53,7 @@ Optionally, you can also download the source code, a Postman collection file, fo
 
 ## 1 - Create services
 
-This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
+This tutorial uses Azure Cognitive Search for indexing and queries, Cognitive Services on the backend for AI enrichment, and Azure Blob Storage to provide the data. This tutorial stays under the free allocation of 20 transactions per indexer per day on Cognitive Services, so the only services you need to create are search and storage.
 
 If possible, create both in the same region and resource group for proximity and manageability. In practice, your Azure Storage account can be in any region.
 
@@ -107,11 +109,13 @@ For this exercise, however, you can skip resource provisioning because Azure Cog
 
 ### Azure Cognitive Search
 
-The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md). You can use the Free tier to complete this walkthrough. 
+The third component is Azure Cognitive Search, which you can [create in the portal](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your subscription.
 
-As with Azure Blob storage, take a moment to collect the access key. Further on, when you begin structuring requests, you will need to provide the endpoint and admin api-key used to authenticate each request.
+You can use the Free tier to complete this walkthrough. 
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
+
+To interact with your Azure Cognitive Search service you will need the service URL and an access key.
 
 1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
@@ -139,7 +143,7 @@ In Azure Cognitive Search, enrichment occurs during indexing (or data ingestion)
 
 ### Step 1: Create a data source
 
-A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the files.
+A [data source object](/rest/api/searchservice/create-data-source) provides the connection string to the Blob container containing the sample data files.
 
 1. Use **POST** and the following URL, replacing YOUR-SERVICE-NAME with the actual name of your service.
 
@@ -181,7 +185,9 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
 
    | Skill                 | Description    |
    |-----------------------|----------------|
-   | [Entity Recognition](cognitive-search-skill-entity-recognition.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
+   | [Optical Character Recognition](cognitive-search-skill-ocr.md) | Recognizes text and numbers in image files. |
+   | [Text Merge](cognitive-search-skill-textmerger.md)  | Document cracking separates image and text content in a document. The merge skill reunites them so that image captions and tags appear with text and numeric data for the same document. |
+   | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
    | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the content's language. |
    | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
    | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
@@ -196,7 +202,7 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
       "skills":
       [
         {
-          "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
+          "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
           "categories": [ "Person", "Organization", "Location" ],
           "defaultLanguageCode": "en",
           "inputs": [
@@ -243,14 +249,15 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
       ]
     }
     ```
-    A graphical representation of the skillset is shown below. 
+
+    A graphical representation of a portion of the skillset is shown below. 
 
     ![Understand a skillset](media/cognitive-search-tutorial-blob/skillset.png "Understand a skillset")
 
 1. Send the request. Postman should return a status code of 201 confirming success. 
 
 > [!NOTE]
-> Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. As an input, language code is used by text analysis skills to inform the linguistic rules around word breaking. For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
+> Outputs can be mapped to an index, used as input to a downstream skill, or both as is the case with language code. In the index, a language code is useful for filtering. For more information about skillset fundamentals, see [How to define a skillset](cognitive-search-defining-skillset.md).
 
 ### Step 3: Create an index
 

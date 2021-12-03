@@ -3,7 +3,7 @@ title: 'Quickstart: Apache Kafka using Azure Resource Manager - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure Resource Manager template. You also learn about Kafka topics, subscribers, and consumers.
 ms.service: hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs
+ms.custom: subject-armqs, mode-arm
 ms.date: 03/13/2020
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
@@ -18,7 +18,7 @@ The Kafka API can only be accessed by resources inside the same virtual network.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+[:::image type="icon" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-kafka%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-kafka/).
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/hdinsight-kafka/).
 
-:::code language="json" source="~/quickstart-templates/101-hdinsight-kafka/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.hdinsight/hdinsight-kafka/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -39,7 +39,7 @@ Two Azure resources are defined in the template:
 
 1. Select the **Deploy to Azure** button below to sign in to Azure and open the ARM template.
 
-   [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-kafka%2Fazuredeploy.json)
+   [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure" border="false":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.hdinsight%2Fhdinsight-kafka%2Fazuredeploy.json)
 
 1. Enter or select the following values:
 
@@ -104,7 +104,7 @@ In this section, you get the host information from the Ambari REST API on the cl
 
     This command returns information similar to the following text:
 
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `<zookeepername1>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,<zookeepername2>.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
 1. To set an environment variable with Kafka broker host information, use the following command:
 
@@ -122,7 +122,7 @@ In this section, you get the host information from the Ambari REST API on the cl
 
     This command returns information similar to the following text:
 
-    `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+    `<brokername1>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,<brokername2>.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
 ## Manage Apache Kafka topics
 

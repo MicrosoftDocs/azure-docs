@@ -20,7 +20,10 @@ ms.author: inhenkel
 
 Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encode-concept.md).
 
-This tutorial shows you how to encode a file based on a URL and stream the video with Azure Media Services using REST. 
+This tutorial shows you how to encode a file based on a URL and stream the video with Azure Media Services using REST.
+
+[!INCLUDE [warning-rest-api-retry-policy.md](./includes/warning-rest-api-retry-policy.md)]
+
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 

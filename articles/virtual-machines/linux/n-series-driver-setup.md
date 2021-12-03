@@ -14,6 +14,8 @@ ms.author: vikancha
 
 # Install NVIDIA GPU drivers on N-series VMs running Linux
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 To take advantage of the GPU capabilities of Azure N-series VMs backed by NVIDIA GPUs, you must install NVIDIA GPU drivers. The [NVIDIA GPU Driver Extension](../extensions/hpccompute-gpu-linux.md) installs appropriate NVIDIA CUDA or GRID drivers on an N-series VM. Install or manage the extension using the Azure portal or tools such as the Azure CLI or Azure Resource Manager templates. See the [NVIDIA GPU Driver Extension documentation](../extensions/hpccompute-gpu-linux.md) for supported distributions and deployment steps.
 
 If you choose to install NVIDIA GPU drivers manually, this article provides supported distributions, drivers, and installation and verification steps. Manual driver setup information is also available for [Windows VMs](../windows/n-series-driver-setup.md).
@@ -135,7 +137,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo yum install dkms
    
    CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
    sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
    rm -f /tmp/${CUDA_REPO_PKG}

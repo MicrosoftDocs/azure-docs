@@ -2,7 +2,7 @@
 title: Troubleshoot network issues with registry
 description: Symptoms, causes, and resolution of common problems when accessing an Azure container registry in a virtual network or behind a firewall
 ms.topic: article
-ms.date: 03/30/2021
+ms.date: 05/10/2021
 ---
 
 # Troubleshoot network issues with registry
@@ -22,15 +22,15 @@ May include one or more of the following:
 * Unable to access or view registry settings in Azure portal or manage registry using the Azure CLI
 * Unable to add or modify virtual network settings or public access rules
 * ACR Tasks is unable to push or pull images
-* Azure Security Center can't scan images in registry, or scan results don't appear in Azure Security Center
+* Microsoft Defender for Cloud can't scan images in registry, or scan results don't appear in Microsoft Defender for Cloud
 * You receive error `host is not reachable` when attempting to access a registry configured with a private endpoint.
 
 ## Causes
 
 * A client firewall or proxy prevents access - [solution](#configure-client-firewall-access)
 * Public network access rules on the registry prevent access - [solution](#configure-public-access-to-registry)
-* Virtual network configuration prevents access - [solution](#configure-vnet-access)
-* You attempt to integrate Azure Security Center or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
+* Virtual network or private endpoint configuration prevents access - [solution](#configure-vnet-access)
+* You attempt to integrate Microsoft Defender for Cloud or certain other Azure services with a registry that has a private endpoint, service endpoint, or public IP access rules - [solution](#configure-service-access)
 
 ## Further diagnosis 
 
@@ -63,7 +63,7 @@ Related links:
 * [Configure rules to access an Azure container registry behind a firewall](container-registry-firewall-access-rules.md)
 * [HTTP/HTTPS proxy configuration](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy)
 * [Geo-replicationin Azure Container Registry](container-registry-geo-replication.md)
-* [Azure Container Registry logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
+* [Monitor Azure Container Registry](monitor-service.md)
 
 ### Configure public access to registry
 
@@ -82,7 +82,11 @@ Related links:
 
 Confirm that the virtual network is configured with either a private endpoint for Private Link or a service endpoint (preview). Currently an Azure Bastion endpoint isn't supported.
 
-If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address. Use a network utility such as `dig` or `nslookup` for DNS lookup. Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs.
+If a private endpoint is configured, confirm that DNS resolves the registry's public FQDN such as *myregistry.azurecr.io* to the registry's private IP address.
+
+  * Run the [az acr check-health](/cli/azure/acr#az_acr_check_health) command with the `--vnet` parameter to confirm the DNS routing to the private endpoint in the virtual network.
+  * Use a network utility such as `dig` or `nslookup` for DNS lookup. 
+  * Ensure that [DNS records are configured](container-registry-private-link.md#dns-configuration-options) for the registry FQDN and for each of the data endpoint FQDNs. 
 
 Review NSG rules and service tags used to limit traffic from other resources in the network to the registry. 
 
@@ -105,7 +109,7 @@ Related links:
 
 Currently, access to a container registry with network restrictions isn't allowed from several Azure services:
 
-* Azure Security Center can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
+* Microsoft Defender for Cloud can't perform [image vulnerability scanning](../security-center/defender-for-container-registries-introduction.md?bc=%2fazure%2fcontainer-registry%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcontainer-registry%2ftoc.json) in a registry that restricts access to private endpoints, selected subnets, or IP addresses. 
 * Resources of certain Azure services are unable to access a container registry with network restrictions, including Azure App Service and  Azure Container Instances.
 
 If access or integration of these Azure services with your container registry is required, remove the network restriction. For example, remove the registry's private endpoints, or remove or modify the registry's public access rules.
@@ -114,19 +118,19 @@ Starting January 2021, you can configure a network-restricted registry to [allow
 
 Related links:
 
-* [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md)
-* Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Azure Container Registry image scanning by Microsoft Defender for container registries](../security-center/defender-for-container-registries-introduction.md)
+* Provide [feedback](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8)
 * [Allow trusted services to securely access a network-restricted container registry](allow-access-trusted-services.md)
 
 
 ## Advanced troubleshooting
 
-If [collection of resource logs](container-registry-diagnostics-audit-logs.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](container-registry-diagnostics-audit-logs.md#registry-authentication-failures). 
+If [collection of resource logs](monitor-service.md) is enabled in the registry, review the ContainterRegistryLoginEvents log. This log stores authentication events and status, including the incoming identity and IP address. Query the log for [registry authentication failures](monitor-service.md#registry-authentication-failures). 
 
 Related links:
 
-* [Logs for diagnostic evaluation and auditing](container-registry-diagnostics-audit-logs.md)
-* [Container registry FAQ](container-registry-faq.md)
+* [Logs for diagnostic evaluation and auditing](./monitor-service.md)
+* [Container registry FAQ](container-registry-faq.yml)
 * [Azure Security Baseline for Azure Container Registry](security-baseline.md)
 * [Best practices for Azure Container Registry](container-registry-best-practices.md)
 
