@@ -5,7 +5,7 @@ ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security 
 ms.date: 08/05/2021 
-author: ashinMSFT 
+author: alexshinmsft 
 ms.author: seshin 
 ms.reviewer: jrasnick, wiassaf
 ---
@@ -61,6 +61,9 @@ The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Defa
 
 ## Minimal TLS version
 Synapse SQL in Azure Synapse Analytics allows connections using all TLS versions. You cannot set the minimal TLS version for Synapse SQL in Azure Synapse Analytics.
+
+We are in process of setting minimum requirement of TLS1.2 in some regions when you create new Synapse Workspace. In these regions, login attempts from customer who are using a TSL version lower than 1.2 to the newly created Synapse workspace will fail. 
+
 
 ## Next steps
 
