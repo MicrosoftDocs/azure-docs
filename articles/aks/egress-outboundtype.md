@@ -22,7 +22,7 @@ This article walks through how to customize a cluster's egress route to support 
 
 ## Limitations
 * OutboundType can only be defined at cluster create time and can't be updated afterwards.
-* Setting `outboundType` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
+* Setting `outboundType` to a value of `loadBalancer` requires AKS clusters with a `vm-set-type` of `VirtualMachineScaleSets` and `load-balancer-sku` of `Standard`.
 * Setting `outboundType` to a value of `UDR` requires a user-defined route with valid outbound connectivity for the cluster.
 * Setting `outboundType` to a value of `UDR` implies the ingress source IP routed to the load-balancer may **not match** the cluster's outgoing egress destination address.
 
