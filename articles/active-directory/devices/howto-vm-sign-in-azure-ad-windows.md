@@ -219,7 +219,7 @@ require multi-factor authentication as a grant access control.
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can't be used to log in by using Azure Active Directory authentication with the AADLoginForWindows extension; only direct RDP is supported.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can be used to log in with Azure AD authentication [using Azure CLI and the native RDP client **mstsc**](../../bastion/connect-native-client-windows.md). 
 
 To log in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 

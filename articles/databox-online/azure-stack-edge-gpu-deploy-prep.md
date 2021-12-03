@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/06/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -133,6 +133,9 @@ To create an Azure Stack Edge resource through the Azure Stack Edge service, tak
    ![Screenshot of Get Started screen in Azure Stack Edge. The "Order using classic ordering experience" link is highlighted.](media/azure-stack-edge-gpu-deploy-prep/classic-order-experience-2.png)
 
 5. Pick the subscription that you want to use for the Azure Stack Edge Pro GPU device. Select the country or region to ship the physical device to. Then select **Show devices**.
+
+    >[!NOTE] 
+    > Classic experience will soon be removed. Beginning December 2021, orders can be created only using the Azure Edge Hardware Center.
 
     ![Screenshot of "Select device type" screen to select a subscription and ship to region for an Azure Stack Edge resource. The Show Devices button is highlighted.](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 

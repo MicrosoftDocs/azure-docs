@@ -1,13 +1,8 @@
 ---
 title: Defender for Cloud's vulnerability scanner for container images in CI/CD workflows
 description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries 
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: how-to
-ms.service: security-center
-manager: rkarlin
-
 ---
 
 # Identify vulnerable container images in your CI/CD workflows
@@ -31,7 +26,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 |----|:----|
 |Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Pricing:|**Microsoft Defender for container registries** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
 
 ## Prerequisites
