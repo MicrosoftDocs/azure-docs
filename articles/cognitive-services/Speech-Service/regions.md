@@ -15,7 +15,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Speech service supported regions
 
-The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
+The Speech service allows your application to convert audio to text, perform speech translation, and convert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
 The Speech portal, where you can perform custom configurations to your speech experience for all regions, is available at [speech.microsoft.com](https://speech.microsoft.com).
 
