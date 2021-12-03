@@ -36,6 +36,26 @@ On the AWS side, you will create a Customer Gateway and site-to-site connection 
 :::image type="content" source="./media/aws-bgp/Architecture.png" alt-text="Diagram showing architecture for this setup" border="false":::
 
 
+## <a name="apipa-config"></a> Choosing BGP APIPA Addresses
+
+You can use the values below for your BGP APIPA configuration throughout the tutorial.
+
+| **Tunnel**                           | **Azure Custom Azure APIPA BGP IP Address** | **AWS Inside IPv4 CIDR** |
+|--------------------------------------|---------------------------------------------|--------------------------|
+| **AWS Tunnel 1 to Azure Instance 0** | 169.254.21.2                                | 169.24.21.0/30
+| **AWS Tunnel 2 to Azure Instance 0** | 169.254.22.2                                | 169.24.22.0/30           |
+| **AWS Tunnel 1 to Azure Instance 1** | 169.254.21.6                                | 169.24.21.4/30           |
+| **AWS Tunnel 2 to Azure Instance 1** | 169.254.22.6                                | 169.24.22.4/30           |
+
+You can also set up your own custom APIPA addresses. AWS requires a /30 **Inside IPv4 CIDR** in the APIPA range of **169.254.0.0/16** for each tunnel. This CIDR must also be in the Azure-reserved APIPA range for VPN, which is from **169.254.21.0** to **169.254.22.255**. AWS will use the first IP address in your /30 inside CIDR and Azure will use the second. This means you will need to reserve space for two IP addresses in your AWS /30 inside CIDR.
+
+For example, if you set your AWS **Inside IPv4 CIDR** to be **169.254.21.0/30**, AWS will use the IP address **169.254.21.1** and Azure will use the IP address **169.254.21.2**. 
+   >
+   > [!IMPORTANT]
+   >
+   > * Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   >
+
 ## Prerequisites
 
 You must have both an Azure account and AWS account with an active subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
@@ -88,26 +108,12 @@ Create a VPN gateway using the following values:
     :::image type="content" source="./media/aws-bgp/create-gw-bgp.png" alt-text="BGP for creating gateway" border="false":::
     - Select **Enabled** for **Configure BGP** to show the BGP configuration section.
     - Fill in a **ASN (Autonomous System Number)**. This ASN must be different than the ASN used by AWS.
-    - Add two addresses to **Custom Azure APIPA BGP IP address**. These addresses will be used to connect to instance 0 of your VPN Gateway. The second input will only appear after you add your first APIPA BGP IP address.
-    - Add two addresses to **Second Custom Azure APIPA BGP IP address**. These addresses will be used to connect to instance 1 of your VPN Gateway. The second input will only appear after you add your first APIPA BGP IP address.
-
-   > [!IMPORTANT]
-   > 
-   > Choosing APIPA BGP addresses
-   >
-   > * AWS requires a /30 address space in the APIPA address space of **169.254.0.0/16** for each tunnel. Your address must also be in the Azure-reserved APIPA address range for VPN, which is from **169.254.21.0 to 169.254.22.255**. AWS will use the first IP address in your /30 APIPA address space and Azure will use the second. This means you will need to reserve space for two IP addresses directly before each APIPA you give to Azure.
-   >
-   > * For example, if you use the IP address 169.254.21.2 for Azure, you will use 169.254.21.0/30 as your address space AWS and it will use the IP address 169.254.21.1. 
-   >
-   > * The APIPA BGP addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
-   >
-   > * When APIPA addresses are used on Azure VPN gateways, the gateways do not initiate BGP peering sessions with APIPA source IP addresses. The on-premises VPN device must initiate BGP peering connections.
-   >
-
-6. Select Review + create to run validation. Once validation passes, select Create to deploy the VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. You can see the deployment status on the Overview page for your gateway.
+    - Add two addresses to **Custom Azure APIPA BGP IP address**. Include the IP addresses for **AWS Tunnel 1 to Azure Instance 0** and **AWS Tunnel 2 to Azure Instance 0** from the [APIPA configuration you choose](#apipa-config). The second input will only appear after you add your first APIPA BGP IP address.
+    - Add two addresses to **Second Custom Azure APIPA BGP IP address**. Include the IP addresses for **AWS Tunnel 1 to Azure Instance 1** and **AWS Tunnel 2 to Azure Instance 1** from the [APIPA configuration you choose](#apipa-config). The second input will only appear after you add your first APIPA BGP IP address.
+6. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the VPN gateway. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. You can see the deployment status on the Overview page for your gateway.
 
 ## <a name ="part-2"></a> Part 2: Connect to your VPN Gateway from AWS
-In this step, you will connect to your Azure VPN Gateway from AWS. For updated instructions, follow the [official AWS documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/virtualgateways.html).
+In this step, you will connect to your Azure VPN Gateway from AWS. For updated instructions, refer to the [official AWS documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/virtualgateways.html).
 
 ### <a name ="create-vpc"></a> Create a VPC
 
