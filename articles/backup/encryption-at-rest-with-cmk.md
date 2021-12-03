@@ -50,7 +50,7 @@ If you haven't created and configured your Recovery Services vault, see [how to 
 
 ## Configure a vault to encrypt using customer-managed keys
 
-This section involves the following actions:
+To configure a vault, perform the following actions in the given sequence to achieve the intended results. Each action is discussed in detail in the sections below:
 
 1. Enable managed identity for your Recovery Services vault.
 
@@ -59,8 +59,6 @@ This section involves the following actions:
 3. Enable soft-delete and purge protection on Azure Key Vault.
 
 4. Assign the encryption key to the Recovery Services vault,
-
-Follow the above actions in given sequence to achieve the intended results. Each action is discussed in detail below.
 
 ### Enable managed identity for your Recovery Services vault
 
@@ -138,7 +136,7 @@ Type        : SystemAssigned
 >- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
 >- Azure Key Vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
 
-Choose a client to assign the user-assigned managed identity for your Recovery Services vault:
+To assign the user-assigned managed identity for your Recovery Services vault, choose a client:
 
 # [Azure portal](#tab/portal)
 
@@ -261,7 +259,7 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --key-permissio
 
 You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key.
 
-Choose a client to enable soft-delete and purge protection:
+To enable soft-delete and purge protection, choose a client:
 
 # [Azure portal](#tab/portal)
 
@@ -343,7 +341,7 @@ You can do this from the Azure Key Vault UI as shown below. Alternatively, you c
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
-Choose a client to assign the key and follow the steps:
+To assign the key and follow the steps, choose a client:
 
 # [Azure portal](#tab/portal)
 
