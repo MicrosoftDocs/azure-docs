@@ -26,7 +26,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 | Limitation                                              | Details                                                                               |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
-| Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Cluster networking requirement                          | Must support `LoadBalancer` service type |
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
