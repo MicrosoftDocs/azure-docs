@@ -71,6 +71,8 @@ Azure Backup uses system-assigned managed identities and user-assigned managed i
 
 ### Enable system-assigned managed identity for the vault
 
+Choose a client:
+
 # [Azure portal](#tab/portal)
 
 1. Go to your Recovery Services vault -> **Identity**
@@ -136,7 +138,7 @@ Type        : SystemAssigned
 >- Vaults using user-assigned managed identities for CMK encryption don't support the use of private endpoints for Backup.
 >- Azure Key Vaults limiting access to specific networks aren't yet supported for use along with user-assigned managed identities for CMK encryption.
 
-To assign the user-assigned managed identity for your Recovery Services vault, perform the following steps:
+Choose a client to assign the user-assigned managed identity for your Recovery Services vault:
 
 # [Azure portal](#tab/portal)
 
@@ -206,6 +208,8 @@ UserAssignedIdentities : {[/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 You now need to permit the Recovery Services vault to access the Azure Key Vault that contains the encryption key. This is done by allowing the Recovery Services vault’s managed identity to access the Key Vault.
 
+Choose a client:
+
 # [Azure portal](#tab/portal)
 
 1. Go to your Azure Key Vault -> **Access Policies**. Continue to **+Add Access Policies**.
@@ -255,17 +259,17 @@ az keyvault set-policy --name myKeyVault --object-id <object-id> --key-permissio
 
 ### Enable soft-delete and purge protection on Azure Key Vault
 
-You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key. 
+You need to **enable soft delete and purge protection** on your Azure Key Vault that stores your encryption key.
+
+Choose a client to enable soft-delete and purge protection:
 
 # [Azure portal](#tab/portal)
 
-You can do this from the Azure Key Vault UI as shown below. (Alternatively, these properties can be set while creating the Key Vault). Read more about these Key Vault properties [here](../key-vault/general/soft-delete-overview.md).
+You can do this from the Azure Key Vault UI as shown below. Alternatively, you can set these properties while creating the Key Vault. Learn more about these [Key Vault properties](../key-vault/general/soft-delete-overview.md).
 
 ![Enable soft delete and purge protection](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
 # [PowerShell](#tab/powershell)
-
-You can also enable soft delete and purge protection through PowerShell using the steps below:
 
 1. Sign in to your Azure Account.
 
@@ -300,8 +304,6 @@ You can also enable soft delete and purge protection through PowerShell using th
     ```
 
 # [CLI](#tab/cli)
-
-You can also enable soft delete and purge protection through CLI using the steps below:
 
 1. Sign in to your Azure Account.
 
@@ -341,7 +343,7 @@ You can also enable soft delete and purge protection through CLI using the steps
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
-To assign the key, choose one of the following clients:
+Choose a client to assign the key and follow the steps:
 
 # [Azure portal](#tab/portal)
 
@@ -470,9 +472,11 @@ You can encrypt the restored disk / VM after the restore is complete, regardless
 
 #### Select a Disk Encryption Set while restoring from Vault Recovery Point
 
+Choose a client:
+
 # [Azure portal](#tab/portal)
 
-The Disk Encryption Set is specified under Encryption Settings in the restore pane, as shown below:
+To specify the Disk Encryption Set under Encryption Settings in the restore pane, follow these steps:
 
 1. In the **Encrypt disk(s) using your key**, select **Yes**.
 
