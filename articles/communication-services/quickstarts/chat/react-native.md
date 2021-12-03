@@ -16,7 +16,8 @@ In this quickstart, we'll set up the Chat JavaScript SDK with React Native. See 
 
 ## Setting up with React Native
 
-The following steps will be required to run Azure Communication JavaScript Chat SDK with React Native after [initializing your React Native project](https://reactnative.dev/docs/environment-setup#installing-dependencies).
+The following steps will be required to run Azure Communication JavaScript Chat SDK with React Native after [initializing your React Native project](https://reactnative.dev/docs/environment-setup#installing-dependencies). 
+
 ACS chat packages currently available are Node packages. Since not all Node modules are compatible with React Native, they require a React Native port in order to work. To make @azure/communication-chat work with React Native, we will install the below mentioned packages that contain React Native ports of the Node core required in @azure/communication-chat.
 
 1. Install `node-libs-react-native` 
