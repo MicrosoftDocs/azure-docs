@@ -15,7 +15,7 @@ Sometimes DPS needs more data from devices to properly provision them to the rig
 
 ## When to use it
 
-This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For instance, you want to allocate your devices based on the device model without human intervention. In this case, you will use [custom allocation](./how-to-use-custom-allocation-policies.md). You can configure the device to report the model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload into to the custom allocation webhook. And your function can decide which IoT Hub this device will go to when it receives device model information. Similarly, if the webhook wishes to return some data to the device, it will pass the data back as a string representing a JSON object in the webhook response.  
+This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For instance, you want to allocate your devices based on the device model without human intervention. In this case, you will use [custom allocation](./how-to-use-custom-allocation-policies.md). You can configure the device to report the model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload into to the custom allocation webhook. And your function can decide which IoT Hub this device will go to when it receives device model information. Similarly, if the webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response.  
 
 ## Device sends data payload to DPS
 
@@ -34,7 +34,7 @@ When your device is sending a [register device call](/rest/api/iot-dps/device/ru
 
 ## DPS returns data to the device
 
-If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a string representing a JSON object in the webhook response. The change is in the payload section below.
+If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response. The change is in the payload section below.
 
    ```json
    { 
