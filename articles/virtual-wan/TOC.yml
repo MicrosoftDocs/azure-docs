@@ -41,8 +41,6 @@
     href: about-nva-hub.md
   - name: Branch Connectivity Automation
     items:
-    - name: NVA in the Virtual WAN Hub
-      href: about-nva-hub.md
     - name: Branch Connectivity Automation
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
