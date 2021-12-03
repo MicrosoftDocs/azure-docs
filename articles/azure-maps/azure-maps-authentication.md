@@ -295,7 +295,7 @@ Once the preflight request is accepted and the response is returned, the browser
 
 The actual request is treated as normal request against the map service. The presence of the Origin header indicates that the request is a CORS request and the service will check the matching CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match is not found, the response will return a `403 (Forbidden)` indicating a CORS origin error.
 
-### Enable a CORS policy
+### Enable CORS policy
 
 When creating or updating an existing Map account, the Map account properties can specify the allowed origins to be configured. See an example below:
 
@@ -321,7 +321,27 @@ When creating or updating an existing Map account, the Map account properties ca
 }
 ```
 
-You may specify only 1 CORS rule with a list of allowed origins. Each origin provided will allow for the HTTP requests to be made to Azure Maps REST APIs within the web browser of the specified origins. To remove CORS, you may use the Azure portal, SDKs, or management REST API to simply submit a `PUT` or a `PATCH` request with `cors: null`.
+You may specify only 1 CORS rule with a list of allowed origins. Each origin provided will allow for the HTTP requests to be made to Azure Maps REST APIs within the web browser of the specified origins. 
+
+### Remove CORS policy
+
+To remove CORS, you may use the Azure portal, SDKs, or use management REST API. If you use management REST API you may use `PUT` or `PATCH` with the corsRule list empty in the request body.
+
+```json
+{
+  "location": "eastus",
+  "sku": {
+    "name": "G2"
+  },
+  "kind": "Gen2",
+  "properties": {
+        "cors": {
+          "corsRules": []
+        }
+    }
+  }
+}
+```
 
 ## Understanding billing transactions
 
