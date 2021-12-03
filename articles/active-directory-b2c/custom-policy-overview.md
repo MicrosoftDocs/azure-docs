@@ -1,15 +1,15 @@
 ---
-title: Azure Active Directory B2C custom policy overview | Microsoft Docs
+title: Azure Active Directory B2C custom policy overview  
 description: A topic about Azure Active Directory B2C custom policies and the Identity Experience Framework.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/08/2021
-ms.author: mimart
+ms.date: 10/14/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -31,7 +31,7 @@ Azure AD B2C custom policy [starter pack](tutorial-create-user-flows.md?pivots=b
 - **SocialAndLocalAccounts** - Enables the use of both local and social accounts. Most of our samples refer to this policy.
 - **SocialAndLocalAccountsWithMFA** - Enables social, local, and multi-factor authentication options.
 
-In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys, such as local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
+In the [Azure AD B2C samples GitHub repository](https://github.com/azure-ad-b2c/samples), you'll find samples for several enhanced Azure AD B2C custom CIAM user journeys. For example, local account policy enhancements, social account policy enhancements, MFA enhancements, user interface enhancements, generic enhancements, app migration, user migration, conditional access, web test, and CI/CD.
  
 ## Understanding the basics 
 
@@ -52,7 +52,7 @@ The [claims transformations](claimstransformations.md) are predefined functions 
 
 ### Customize and localize your UI
 
-When you'd like to collect information from your users by presenting a page in their web browser, use the [self-asserted technical profile](self-asserted-technical-profile.md). You can edit your self-asserted technical profile to [add claims and customize user input](./configure-user-input.md).
+To collect information from your users by presenting a page in their web browser, use the [self-asserted technical profile](self-asserted-technical-profile.md). You can edit your self-asserted technical profile to [add claims and customize user input](./configure-user-input.md).
 
 To [customize the user interface](customize-ui-with-html.md) for your self-asserted technical profile, you specify a URL in the [content definition](contentdefinitions.md) element with customized HTML content. In the self-asserted technical profile, you point to this content definition ID.
 
@@ -108,8 +108,9 @@ The following diagram illustrates how Azure AD B2C uses a validation technical p
 Each starter pack includes the following files:
 
 - A **Base** file that contains most of the definitions. To help with troubleshooting and long-term maintenance of your policies, try to minimize the number of changes you make to this file.
-- An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Base file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
-- A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task, such as sign-up, sign-in, password reset, or profile edit, requires its own relying party policy file. This policy file is derived from the extensions file.
+- A **Localization** file that holds the localization strings. This policy file is derived from the Base file. Use this file to accommodate different languages to suit your customer needs.
+- An **Extensions** file that holds the unique configuration changes for your tenant. This policy file is derived from the Localization file. Use this file to add new functionality or override existing functionality. For example, use this file to federate with new identity providers.
+- A **Relying Party (RP)** file that is the single task-focused file that is invoked directly by the relying party application, such as your web, mobile, or desktop applications. Each unique task, such as sign-up, sign-in, or profile edit, requires its own relying party policy file. This policy file is derived from the extensions file.
 
 The inheritance model is as follows:
 
@@ -128,7 +129,7 @@ The following diagram shows the relationship between the policy files and the re
 
 Within an Azure AD B2C custom policy, you can integrate your own business logic to build the user experiences you require and extend functionality of the service. We have a set of best practices and recommendations to get started.
 
-- Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
+- Create your logic within the **extension policy**, or **relying party policy**. You can add new elements, which will override the base policy by referencing the same ID. This approach will allow you to scale out your project while making it easier to upgrade base policy later on if Microsoft releases new starter packs.
 - Within the **base policy**, we highly recommend avoiding making any changes. When necessary, make comments where the changes are made.
 - When you're overriding an element, such as technical profile metadata, avoid copying the entire technical profile from the base policy. Instead, copy only the required section of the element. See [Disable email verification](./disable-email-verification.md) for an example of how to make the change.
 - To reduce duplication of technical profiles, where core functionality is shared, use [technical profile inclusion](technicalprofiles.md#include-technical-profile).
@@ -155,7 +156,7 @@ You get started with Azure AD B2C custom policy:
 
 1. [Create an Azure AD B2C tenant](tutorial-create-tenant.md)
 1. [Register a web application](tutorial-register-applications.md) using the Azure portal so you'll be able to test your policy.
-1. Add the necessary [policy keys](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys) and [register the Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
+1. Add the necessary [policy keys](tutorial-create-user-flows.md?pivots=b2c-custom-policy#add-signing-and-encryption-keys-for-identity-experience-framework-applications) and [register the Identity Experience Framework applications](tutorial-create-user-flows.md?pivots=b2c-custom-policy#register-identity-experience-framework-applications).
 1. [Get the Azure AD B2C policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#get-the-starter-pack) and upload to your tenant. 
 1. After you upload the starter pack, [test your sign-up or sign-in policy](tutorial-create-user-flows.md?pivots=b2c-custom-policy#test-the-custom-policy).
 1. We recommend you to download and install [Visual Studio Code](https://code.visualstudio.com/) (VS Code). Visual Studio Code is a lightweight but powerful source code editor, which runs on your desktop and is available for Windows, macOS, and Linux. With VS Code, you can quickly navigate through and edit your Azure AD B2C custom policy XML files by installing the [Azure AD B2C extension for VS Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c)
@@ -169,4 +170,4 @@ After you set up and test your Azure AD B2C policy, you can start customizing yo
 - [Localize the user interface](./language-customization.md) of your application using a custom policy. Learn how to set up the list of supported languages, and provide language-specific labels, by adding the localized resources element.
 - During your policy development and testing, you can [disable email verification](./disable-email-verification.md). Learn how to overwrite a technical profile metadata.
 - [Set up sign-in with a Google account](./identity-provider-google.md) using custom policies. Learn how to create a new claims provider with OAuth2 technical profile. Then customize the user journey to include the Google sign-in option.
-- To diagnose problems with your custom policies you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relying party policy.
+- To diagnose problems with your custom policies, you can [Collect Azure Active Directory B2C logs with Application Insights](troubleshoot-with-application-insights.md). Learn how to add new technical profiles, and configure your relying party policy.

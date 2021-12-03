@@ -7,20 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Extend a prebuilt Docker image (preview)
+# Extend a prebuilt Docker image
 
 In some cases, the [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) and [extensibility](./how-to-prebuilt-docker-images-inference-python-extensibility.md) solutions for Azure Machine Learning may not meet your inference service needs.
 
 In this case, you can use a Dockerfile to create a new image, using one of the prebuilt images as the starting point. By extending from an existing prebuilt Docker image, you can use the Azure Machine Learning network stack and libraries without creating an image from scratch.
-
-> [!IMPORTANT]
-> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Benefits and tradeoffs**
 

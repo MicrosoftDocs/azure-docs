@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
@@ -26,7 +26,7 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
     Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. For example, when deployed into a secured Azure Virtual Network.
 
 > [!IMPORTANT]
-> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using Python package extensibility for prebuilt Docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 

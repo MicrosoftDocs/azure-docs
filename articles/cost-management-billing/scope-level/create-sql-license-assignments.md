@@ -3,7 +3,7 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/30/2021
+ms.date: 11/11/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: ahb
@@ -12,7 +12,7 @@ ms.reviewer: chrisri
 
 # Create SQL Server license assignments for Azure Hybrid Benefit
 
-The new Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
+The new centralized Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
@@ -37,7 +37,7 @@ The prerequisite roles differ depending on the agreement type.
 | CSP / Partner led customers | Not available | None |
 
 > [!NOTE]
-> The scope-level license experience isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
+> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
 
 ## Create a SQL license assignment
 
@@ -45,33 +45,34 @@ In the following procedure, you navigate from **Cost Management + Billing** to *
 
 1. Sign in to the Azure portal and navigate to **Cost Management + Billing**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-cost-management.png" alt-text="Screenshot showing Azure portal navigation to Cost Management + Billing." lightbox="./media/create-sql-license-assignments/select-cost-management.png" :::
- 2. If you have an Enterprise Agreement, select a billing scope.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
- 3. If you have a Microsoft Customer Agreement, select a billing profile.  
-    :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Screenshot showing billing profile selection." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
- 4. In the left menu, select **Reservations + Hybrid Benefit**.  
+1. Use one of the following two steps, depending on you agreement type:
+    - If you have an Enterprise Agreement, select a billing scope.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-scope.png" alt-text="Screenshot showing EA billing scope selection." lightbox="./media/create-sql-license-assignments/select-billing-scope.png" :::
+    - If you have a Microsoft Customer Agreement, select a billing profile.  
+        :::image type="content" source="./media/create-sql-license-assignments/select-billing-profile.png" alt-text="Screenshot showing billing profile selection." lightbox="./media/create-sql-license-assignments/select-billing-profile.png" :::
+1. In the left menu, select **Reservations + Hybrid Benefit**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-reservations.png" alt-text="Screenshot showing Reservations + Hybrid Benefit selection."  :::
- 5. Select **Add**  and then in the list, select **Azure Hybrid Benefit (Preview)**.  
+1. Select **Add**  and then in the list, select **Azure Hybrid Benefit (Preview)**.  
     :::image type="content" source="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" alt-text="Screenshot showing Azure Hybrid Benefit selection." lightbox="./media/create-sql-license-assignments/select-azure-hybrid-benefit.png" :::
- 6. On the next screen, select **Begin to assign licenses**.  
+1. On the next screen, select **Begin to assign licenses**.  
     :::image type="content" source="./media/create-sql-license-assignments/get-started-centralized.png" alt-text="Screenshot showing Add SQL hybrid benefit selection" lightbox="./media/create-sql-license-assignments/get-started-centralized.png" :::
- 7. Choose a scope and then enter the license count to use for each SQL Server edition. If you don't have any licenses to assign for a specific edition, enter zero.  
+1. Choose a scope and then enter the license count to use for each SQL Server edition. If you don't have any licenses to assign for a specific edition, enter zero.  
     > [!NOTE]
     > You are accountable to determine that the entries that you make in the scope-level managed license experience are accurate and will satisfy your licensing obligations. The license usage information is shown to assist you as you make your license assignments. However, the information shown could be incomplete or inaccurate due to various factors.
     >
     > If the number of licenses that you enter is less than what you are currently using, you'll see a warning message stating _You've entered fewer licenses than you're currently using for Azure Hybrid Benefit in this scope. Your bill for this scope will increase._  
     
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition.png" alt-text="Screenshot showing scope selection and number of licenses." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition.png" :::
- 8. Optionally, select the **Usage details** tab to view your current Azure Hybrid Benefit usage enabled at the resource scope.  
+1. Optionally, select the **Usage details** tab to view your current Azure Hybrid Benefit usage enabled at the resource scope.  
     :::image type="content" source="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" alt-text="Screenshot showing Usage tab details." lightbox="./media/create-sql-license-assignments/select-assignment-scope-edition-usage.png" :::
- 9. Select **Add**.
-10. Optionally, change the default license assignment name. The review date is automatically set to a year ahead and can't be changed. Its purpose is to remind you to periodically review your license assignments.  
+1. Select **Add**.
+1. Optionally, change the default license assignment name. The review date is automatically set to a year ahead and can't be changed. Its purpose is to remind you to periodically review your license assignments.  
     :::image type="content" source="./media/create-sql-license-assignments/license-assignment-commit.png" alt-text="Screenshot showing default license assignment name." lightbox="./media/create-sql-license-assignments/license-assignment-commit.png" :::
-11. After you review your choices, select **Next: Review + apply**.
-12. Select the **By selecting &quot;Apply&quot;** attestation option to confirm that you have authority to apply Azure Hybrid Benefit, enough SQL Server licenses, and that you'll maintain the licenses as long as they're assigned.  
+1. After you review your choices, select **Next: Review + apply**.
+1. Select the **By selecting &quot;Apply&quot;** attestation option to confirm that you have authority to apply Azure Hybrid Benefit, enough SQL Server licenses, and that you'll maintain the licenses as long as they're assigned.  
     :::image type="content" source="./media/create-sql-license-assignments/confirm-apply-attestation.png" alt-text="Screenshot showing the attestation option." lightbox="./media/create-sql-license-assignments/confirm-apply-attestation.png" :::
-13. Select **Apply** and then select **Yes.**
-14. The list of assigned licenses is shown.  
+1. Select **Apply** and then select **Yes.**
+1. The list of assigned licenses is shown.  
     :::image type="content" source="./media/create-sql-license-assignments/assigned-licenses.png" alt-text="Screenshot showing the list of assigned licenses." lightbox="./media/create-sql-license-assignments/assigned-licenses.png" ::: 
 
 ## Track assigned license use
@@ -96,7 +97,7 @@ After you create SQL license assignments, your experience with Azure Hybrid Bene
 - The hybrid benefit option isn't shown as in your SQL resource configuration.
 - Applications or scripts that configure the hybrid benefit programmatically continue to work, but the setting doesn't have any effect.
 - SQL software discounts are applied to the SQL resources in the scope. The scope is based on the number of licenses in the license assignments that are created for the subscription for the account where the resource was created.
-- A specific resource configured for hybrid benefit might not get the discount if other resources consume all of the licenses. However, the maximum discount is applied to the scope, based on number of license counts. For more information about how the discounts are applied, see [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
+- A specific resource configured for hybrid benefit might not get the discount if other resources consume all of the licenses. However, the maximum discount is applied to the scope, based on number of license counts. For more information about how the discounts are applied, see [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
 
 ## Cancel a license assignment
 
@@ -112,5 +113,5 @@ Review your license situation before you cancel your license assignments. When y
 
 ## Next steps
 
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
-- Learn about how discounts are applied at [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how discounts are applied at [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).

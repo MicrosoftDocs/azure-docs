@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/19/2020
+ms.date: 10/06/2021
 ms.author: cynthn
 #pmcontact: shants
 ---
@@ -30,7 +30,7 @@ With maintenance control, you can:
 - VMs must be on a [dedicated host](./dedicated-hosts.md), or be created using an [isolated VM size](isolation.md).
 - Maintenance window duration can vary month over month and sometimes it can take upto 2 hours to apply the pending updates once it is initiated by the user.  
 - After 35 days, an update will automatically be applied.
-- Rack level maintenance activities are not yet part of this maintenance control.
+- Rack level maintenance cannot be controlled through maintenance control.
 - User must have **Resource Contributor** access.
 
 ## Management options

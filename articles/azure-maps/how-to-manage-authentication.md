@@ -2,13 +2,13 @@
 title: Manage authentication in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/10/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager:  philmea
+manager:  jokebeck
 custom.ms: subject-rbac-steps
 ---
 
@@ -18,8 +18,8 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 
 ## View authentication details
 
- >[!IMPORTANT]
- >We recommend that you use the primary key as the subscription key when you [use Shared Key authentication to call Azure Maps](./azure-maps-authentication.md#shared-key-authentication). It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication in Azure Maps](./azure-maps-authentication.md).
+ > [!IMPORTANT]
+ > We recommend that you use the primary key as the subscription key when you use [Shared Key authentication](./azure-maps-authentication.md#shared-key-authentication) to call Azure Maps. It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication with Azure Maps](./azure-maps-authentication.md).
 
 To view your Azure Maps authentication details:
 

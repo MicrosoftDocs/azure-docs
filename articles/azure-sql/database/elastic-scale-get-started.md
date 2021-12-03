@@ -10,7 +10,7 @@ ms.topic: how-to
 author: scoriani
 ms.author: scoriani
 ms.reviewer: mathoma
-ms.date: 01/25/2019
+ms.date: 10/18/2021
 ---
 # Get started with Elastic Database Tools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -83,7 +83,7 @@ To download and run the sample, follow these steps:
 
 3. Set the *ElasticScaleStarterKit* project as the Startup Project.
 
-4. In the *ElasticScaleStarterKit* project, open the *App.config* file. Then follow the instructions in the file to add your server name and your sign-in information (username and password).
+4. In the *ElasticScaleStarterKit* project, open the *App.config* file. Then follow the instructions in the file to add your server name and your sign in information (username and password).
 
 5. Build and run the application. When you are prompted, enable Visual Studio to restore the NuGet packages of the solution. This action downloads the latest version of the elastic database client library from NuGet.
 
@@ -129,7 +129,6 @@ For more information about Elastic Database Tools, see the following articles:
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Microsoft Q&A question page for Azure SQL Database](/answers/topics/azure-sql-database.html)
 * To measure performance: [Performance counters for shard map manager](elastic-database-client-library.md)
 

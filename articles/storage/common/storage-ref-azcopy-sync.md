@@ -28,7 +28,7 @@ The sync command differs from the copy command in several ways:
 
 1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
-3. If the `deleteDestination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
+3. If the `--delete-destination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
 ## Related conceptual articles
 
@@ -164,7 +164,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--recursive**    `True` by default, look into subdirectories recursively when syncing between directories. (default `True`).
 
-**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Hot, cool, and archive access tiers for blob data](../blobs/access-tiers-overview.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).
+**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use `--s2s-preserve-access-tier=false` to bypass copying access tier. (default `true`).
 
 **--s2s-preserve-blob-tags**      Preserve index tags during service to service sync from one blob storage to another.
 

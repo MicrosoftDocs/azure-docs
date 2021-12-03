@@ -2,7 +2,10 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Manage and monitor backed up SQL Server databases
@@ -13,9 +16,9 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 ## Monitor backup jobs in the portal
 
-Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in the portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal include database discovery and registration, configure backup, and backup and restore operations.
+Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal include database discovery and registration, configure backup, and backup and restore operations.
 
-![The Backup jobs portal](./media/backup-azure-sql-database/sql-backup-jobs-list.png)
+:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Screenshot showing the Backup jobs under Backup jobs." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -50,19 +53,21 @@ If you choose to leave recovery points, keep these details in mind:
 
 To stop protection for a database:
 
-1. On the vault dashboard, select **Backup Items**.
+1. Go to **Backup center** and click **Backup Instances** from the menu.
 
-2. Under **Backup Management Type**, select **SQL in Azure VM**.
+2. Select **SQL in Azure VM** as the datasource type.
 
-    ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
 
 3. Select the database for which you want to stop protection.
 
-    ![Select the database to stop protection](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="Screenshot showing to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
 
 4. On the database menu, select **Stop backup**.
 
-    ![Select Stop backup](./media/backup-azure-sql-database/stop-db-button.png)
+   You can also right-click a particular row in the Backup Instances view and select **Stop Backup**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="Screenshot showing to select Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
 
 5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
 

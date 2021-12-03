@@ -418,7 +418,7 @@ azcopy copy 'https://mysourceaccount.file.core.windows.net?sv=2018-03-28&ss=bfqt
 You can synchronize the contents of a local file system with a file share or synchronize the contents of a file share with another file share. You can also synchronize the contents of a directory in a file share with the contents of a directory that is located in another file share. Synchronization is one way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs.
 
 > [!NOTE]
-> Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. The current release of AzCopy doesn't synchronize between Azure Files and Blob Storage.
+> Currently, this scenario is supported for accounts that have enabled hierarchical namespace via the blob endpoint.
 
 ### Guidelines
 

@@ -148,7 +148,7 @@ After you've ran that command, replace `<domain-object-identity>` in the followi
 $KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
 $KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
 $KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
-$NewPassword = Convert-ToSecureString -String $KerbKey -AsPlainText -Force
+$NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
 ```

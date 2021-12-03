@@ -1,16 +1,15 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes 
+title: Azure Media Services v3 release notes
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: na
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -311,7 +310,7 @@ We published a High Availability with Media Services and Video on Demand (VOD) [
 
 ### Live Video Analytics on IoT Edge preview release
 
-The preview of Live Video Analytics on IoT Edge went public. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
+The preview of Live Video Analytics on IoT Edge went public. 
 
 Live Video Analytics on IoT Edge is an expansion to the Media Service family. It enables you to analyze live video with AI models of your choice on your own edge devices, and optionally capture and record that video. You can now build apps with real-time video analytics at the edge without worrying about the complexity of building and operating a live video pipeline.
 

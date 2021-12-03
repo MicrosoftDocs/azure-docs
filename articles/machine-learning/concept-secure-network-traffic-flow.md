@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/22/2021
+ms.date: 11/09/2021
 ---
 
 # Network traffic flow when using a secured workspace
@@ -56,6 +56,16 @@ This article assumes the following configuration:
 | [Use Azure Kubernetes Service](#scenario-use-azure-kubernetes-service) | NA | For information on the outbound configuration for AKS, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | Configure the Internal Load Balancer. For more information, see [How to deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#understand-connectivity-requirements-for-aks-inferencing-cluster). | 
 | [Use Docker images managed by Azure Machine Learning](#scenario-use-docker-images-managed-by-azure-ml) | NA | <ul><li>Microsoft Container Registry</li><li>`viennaglobal.azurecr.io` global container registry</li></ul> | If the Azure Container Registry for your workspace is behind the VNet, configure the workspace to use a compute cluster to build images. For more information, see [How to secure a workspace in a virtual network](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr). | 
 
+> [!IMPORTANT]
+> Azure Machine Learning uses multiple storage accounts. Each stores different data, and has a different purpose:
+>
+> * __Your storage__: The Azure Storage Account(s) in your Azure subscription are used to store your data and artifacts such as models, training data, training logs, and Python scripts. For example, the _default_ storage account for your workspace is in your subscription. The Azure Machine Learning compute instance and compute clusters access __file__ and __blob__ data in this storage over ports 445 (SMB) and 443 (HTTPS).
+> 
+>    When using a compute instance or compute cluster, your storage account is mounted as a file share using the SMB protocol. This is how the compute instance/cluster accesses your data.
+>
+> * __Microsoft storage__: The Azure Machine Learning compute instance and compute clusters rely on Azure Batch, and access storage located in a Microsoft subscription. This storage is used only for the management of the compute instance/cluster. None of your data is stored here. The compute instance and compute cluster access the __blob__, __table__, and __queue__ data in this storage, using port 443 (HTTPS).
+>
+> Machine Learning also stores metadata in an Azure Cosmos DB instance. By default, this instance is hosted in a Microsoft subscription and managed by Microsoft. You can optionally use an Azure Cosmos DB instance in your Azure subscription. For more information, see [Data encryption with Azure Machine Learning](concept-data-encryption.md#azure-cosmos-db).
 
 ## Scenario: Access workspace from studio
 
@@ -87,7 +97,7 @@ Data profiling depends on the Azure Machine Learning managed service being able 
 > [!TIP]
 > You can provide a service principal when creating the workspace. If you do not, one is created for you and will have the same name as your workspace.
 
-To allow access to the storage account, configure the storage account to __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
+To allow access to the storage account, configure the storage account to allow a __resource instance__ for your workspace or select the __Allow Azure services on the trusted services list to access this storage account__. This setting allows the managed service to access storage through the Azure data center network. 
 
 Next, add the service principal for the workspace to the __Reader__ role to the private endpoint of the storage account. This role is used to verify the workspace and storage subnet information. If they are the same, access is allowed. Finally, the service principal also requires __Blob data contributor__ access to the storage account.
 

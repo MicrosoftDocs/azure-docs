@@ -5,8 +5,8 @@ services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
-ms.author: nandab
-author: KishorIoT
+ms.author: dobett
+author: dominicbetts
 ms.date: 09/02/2021
 ---
 # Tutorial: Create an IoT Edge instance for video analytics (Linux VM)

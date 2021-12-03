@@ -154,7 +154,7 @@ Display a Google Map centered and zoomed over a location.
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -241,7 +241,7 @@ If your audience is spread across multiple countries/regions or speak different 
 To localize Google Maps, add language and region parameters.
 
 ```html
-<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key=[api_key]& language=[language_code]&region=[region_code]" async defer></script>
+<script type="text/javascript" src=" https://maps.googleapis.com/maps/api/js?callback=initMap&key={api-Key}& language={language-code}&region={region-code}" async defer></script>
 ```
 
 Here is an example of Google Maps with the language set to "fr-FR".
@@ -858,7 +858,7 @@ Specify a single callback function in the `map.data.setStyle` method. Inside the
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1012,7 +1012,7 @@ Use the MarkerCluster library to cluster markers. Cluster icons are limited to i
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1218,7 +1218,7 @@ To create a heat map, load the "visualization" library by adding `&libraries=vis
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]&libraries=visualization" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}&libraries=visualization" async defer></script>
 </head>
 <body>
     <div id='myMap' style='position:relative;width:600px;height:400px;'></div>
@@ -1428,7 +1428,7 @@ Specify the URL to the image you want to overlay and a bounding box to bind the 
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
@@ -1538,7 +1538,7 @@ Both Azure and Google maps can import and render KML, KMZ and GeoRSS data on the
     </script>
 
     <!-- Google Maps Script Reference -->
-    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=[Your Google Maps Key]" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap&key={Your-Google-Maps-Key}" async defer></script>
 </head>
 <body>
     <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
