@@ -3,7 +3,7 @@ title: Monitor the capacity of an Azure NetApp Files volume | Microsoft Docs
 description: Describes ways to monitor the capacity utilization of an Azure NetApp Files volume.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 04/30/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Monitor the capacity of a volume  
 

@@ -31,8 +31,8 @@
         href: quickstart-devkit-renesas-rx65n-2mb.md
       - name: Renesas RX65N Cloud Kit
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
-      - name: STMicroelectronics B-L475E/L4S5I-IOT01A
-        href: quickstart-devkit-stm-b-l475e.md
+      - name: STMicroelectronics L4S5I-IOT01A
+        href: quickstart-devkit-stm-b-l4s5i.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub
@@ -95,6 +95,10 @@
     href: howto-manage-digital-twin.md
   - name: Convert a device to IoT Plug and Play
     href: howto-convert-to-pnp.md
+  - name: Azure RTOS Samples
+    items:
+    - name: STMicroelectronics B-L475-IOT01A
+      href: quickstart-devkit-stm-b-l475e.md
   - name: Troubleshoot
     items:
       - name: Troubleshoot embedded quickstarts

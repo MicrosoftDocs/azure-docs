@@ -72,10 +72,11 @@ https://your-resource-name.cognitiveservices.azure.com/text/analytics/v3.1/senti
 
 See the reference documentation for more information.
 * [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
-* [.NET](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics.analyzesentimentaction#properties)
-* [Python](https://docs.microsoft.com/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient#analyze-sentiment-documents----kwargs-)
-* [Java](https://docs.microsoft.com/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
-* [JavaScript](https://docs.microsoft.com/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions)
+
+* [.NET](/dotnet/api/azure.ai.textanalytics.analyzesentimentaction#properties)
+* [Python](/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient#analyze-sentiment-documents----kwargs-)
+* [Java](/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
+* [JavaScript](/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions)
 
 ### Input languages
 

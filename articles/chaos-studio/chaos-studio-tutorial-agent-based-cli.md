@@ -31,6 +31,9 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 If you prefer to install and use the CLI locally, this tutorial requires Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+> [!NOTE]
+> These instructions use a Bash terminal in Azure Cloud Shell. Some commands may not work as described if running the CLI locally or in a PowerShell terminal.
+
 ## Assign managed identity to the virtual machine
 
 Before setting up Chaos Studio on the virtual machine, you need to assign a user-assigned managed identity to each virtual machine and/or virtual machine scale set where you plan to install the agent by using the `az vm identity assign` or `az vmss identity assign` command. Replace `$VM_RESOURCE_ID`/`$VMSS_RESOURCE_ID` with the resource ID of the VM you are adding as a chaos target and `$MANAGED_IDENTITY_RESOURCE_ID` with the resource ID of the user-assigned managed identity.

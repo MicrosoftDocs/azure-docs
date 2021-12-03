@@ -4,17 +4,19 @@ description: Create a single database in Azure SQL Database using the Azure port
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell
-ms.devlang:
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ms.topic: quickstart
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: 
 ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 
 ## Prerequisites

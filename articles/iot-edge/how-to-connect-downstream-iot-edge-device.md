@@ -47,6 +47,8 @@ The step of setting up parent/child relationships authorizes child devices to co
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
+By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
 <!-- TODO: graphic of gateway hierarchy -->
 
 # [Portal](#tab/azure-portal)
