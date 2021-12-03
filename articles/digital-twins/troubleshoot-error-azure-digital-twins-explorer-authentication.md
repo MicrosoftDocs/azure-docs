@@ -1,14 +1,15 @@
 ---
-title: "Azure Digital Twins Explorer authentication error"
-description: "Causes and resolutions for 'Authentication failed.' in Azure Digital Twins Explorer."
+title: "Troubleshooting Azure Digital Twins Explorer: Authentication error"
+titleSuffix: Azure Digital Twins
+description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/8/2021
+ms.date: 10/7/2021
 ---
 
-# Authentication failed
+# Troubleshooting Azure Digital Twins Explorer: Authentication error
 
 This article describes causes and resolution steps for receiving an 'Authentication failed' error while running the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample on your local machine. 
 
@@ -24,7 +25,7 @@ When setting up and running the Azure Digital Twins Explorer application, attemp
 
 This error might occur if your Azure account does not have the required Azure role-based access control (Azure RBAC) permissions set on your Azure Digital Twins instance. In order to access data in your instance, you must have the **Azure Digital Twins Data Reader** or **Azure Digital Twins Data Owner** role on the instance you are trying to read or manage, respectively. 
 
-For more information about security and roles in Azure Digital Twins, see [Concepts: Security for Azure Digital Twins solutions](concepts-security.md).
+For more information about security and roles in Azure Digital Twins, see [Security for Azure Digital Twins solutions](concepts-security.md).
 
 ## Solutions
 
@@ -58,7 +59,7 @@ For more details about this role requirement and the assignment process, see the
 ## Next steps
 
 Read the setup steps for creating and authenticating a new Azure Digital Twins instance:
-* [How-to: Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
+* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
 
 Read more about security and permissions on Azure Digital Twins:
-* [Concepts: Security for Azure Digital Twins solutions](concepts-security.md)
+* [Security for Azure Digital Twins solutions](concepts-security.md)

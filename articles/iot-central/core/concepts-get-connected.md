@@ -3,11 +3,11 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
+
 ms.custom:  [amqp, mqtt, device-developer]
 
 # This article applies to operators and device developers.
@@ -59,8 +59,7 @@ To learn more, see [How to connect devices with X.509 certificates](how-to-conne
 
 For testing only, you can use the following utilities to generate root, intermediate, and device certificates:
 
-- [Tools for the Azure IoT Device Provisioning Device SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
-- If you're using a DevKit device, this [command-line tool](https://aka.ms/iotcentral-docs-dicetool) generates a CA certificate that you can add to your IoT Central application to verify the certificates.
+- [Tools for the Azure IoT Device Provisioning Device SDK](https://github.com/Azure/azure-iot-sdk-node/blob/main/provisioning/tools/readme.md): a collection of Node.js tools that you can use to generate and verify X.509 certificates and keys.
 - [Manage test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md): a collection of PowerShell and Bash scripts to:
   - Create a certificate chain.
   - Save the certificates as .cer files to upload to your IoT Central application.
@@ -71,7 +70,7 @@ For testing only, you can use the following utilities to generate root, intermed
 
 To connect a device with device SAS key to your application:
 
-1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type.
+1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type. 
 1. Copy the group primary or secondary key from the enrollment group.
 1. Use the Azure CLI to generate a device key from the group key:
 
@@ -80,6 +79,9 @@ To connect a device with device SAS key to your application:
     ```
 
 1. Use the generated device key when the device connects to your IoT Central application.
+
+> [!NOTE]
+> To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and type-in the SAS keys.
 
 ## Individual enrollment
 
@@ -100,7 +102,7 @@ IoT Central supports the following attestation mechanisms for individual enrollm
 - **X.509 certificates:** To create an individual enrollment with X.509 certificates, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **Certificates (X.509)** as the mechanism. Device certificates used with an individual enrollment entry have a requirement that the issuer and subject CN are set to the device ID.
 
     > [!TIP]
-    > For testing, you can use [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools) to generate a self-signed certificate: `node create_test_cert.js device "mytestdevice"`
+    > For testing, you can use [Tools for the Azure IoT Device Provisioning Device SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/tools) to generate a self-signed certificate: `node create_test_cert.js device "mytestdevice"`
 
 - **Trusted Platform Module (TPM) attestation:** A [TPM](../../iot-dps/concepts-tpm-attestation.md) is a type of hardware security module. Using a TPM is one of the most secure ways to connect a device. This article assumes you're using a discrete, firmware, or integrated TPM. Software emulated TPMs are well suited for prototyping or testing, but they don't provide the same level of security as discrete, firmware, or integrated TPMs. Don't use software TPMs in production. To create an individual enrollment that uses a TPM, open the **Device Connection** page, select **Individual enrollment** as the connection method, and **TPM** as the mechanism. Enter the TPM endorsement key and save the device connection information.
 
@@ -174,7 +176,7 @@ IoT Central automatically associates a device with a device template when the de
 
 1. If the device template is already published in the IoT Central application, the device is associated with the device template.
 1. If the device template isn't already published in the IoT Central application, IoT Central looks for the device model in the [public model repository](https://github.com/Azure/iot-plugandplay-models). If IoT Central finds the model, it uses it to generate a basic device template.
-1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can create a device template for the device and then migrate the unassociated device to the new device template.
+1. If IoT Central doesn't find the model in the public model repository, the device is marked as **Unassociated**. An operator can either create a device template for the device and then migrate the unassociated device to the new device template, or [autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template) based on the data the device sends.
 
 The following screenshot shows you how to view the model ID of a device template in IoT Central. In a device template, select a component, and then select **Edit identity**:
 
@@ -185,6 +187,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 ```json
 "@id": "dtmi:com:example:Thermostat;1"
 ```
+
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
 
 ## Device status values
 
@@ -215,8 +227,9 @@ The following diagram shows how, when a device connects, the connection is regis
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagram that shows event window for connected and disconnected events." border="false":::
 
-You can view the connected and disconnected events in the **Raw data** view for a device:
-:::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Screenshot showing raw data view filtered to show device connected events.":::
+Watch the following video to learn more about how to monitor device connection status:
+
+> [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
 You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

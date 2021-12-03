@@ -64,7 +64,7 @@ In these cases, you can set up what SAP calls an [SAP HANA multitier system repl
 ![Diagram of three VMs over two regions](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
 SAP introduced [multi-target system replication](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) with HANA 2.0 SPS3. Multi-target system replication brings some advantages in update scenarios. For example, the DR site (Region 2) is not impacted when the secondary HA site is down for maintenance or updates. 
-You can find out more about HANA multi-target system replication [here](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+You can find out more about HANA multi-target system replication at the [SAP Help Portal](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
 Possible architecture with multi-target replication would look like:
 
 ![Diagram of three VMs over two regions milti-target](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)

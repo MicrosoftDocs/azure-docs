@@ -20,9 +20,9 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/).
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/).
 - [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource). You'll need to record your resource **connection string** for this quickstart.
-- An Azure storage account and container, for details, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
-- An [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) Web hook.
+- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
+- An Azure storage account and container, for details, see [Create a storage account](../../../../../storage/common/storage-account-create.md?tabs=azure-portal). You'll need to record your storage **connection string** and **container name** for this quickstart.
+- An [Azure Event Grid](../../../../../event-grid/overview.md) Web hook.
 
 ## Object model
 
@@ -90,6 +90,19 @@ var startRecordingResponse = await callingServerClient.InitializeServerCall("<se
 ```
 The `StartRecordingAsync` API response contains the recording ID of the recording session.
 
+## Start recording session with options using 'StartRecordingAsync' server API
+
+Use the server call ID received during initiation of a call.
+
+- RecordingContent is used to pass the recording content type. Ex: audio/audiovideo.
+- RecordingChannel is used to pass the recording channel type. Ex: mixed/unmixed.
+- RecordingFormat is used to pass the format of the recording. Ex: mp4/mp3/wav.
+
+```csharp
+var startRecordingResponse = await callingServerClient.InitializeServerCall("<servercallid>").StartRecordingAsync("<callbackuri>","<RecordingContent>","<RecordingChannel>","<RecordingFormat>").ConfigureAwait(false);
+```
+The `StartRecordingAsync` API response contains the recording ID of the recording session.
+
 ## Stop recording session using 'StopRecordingAsync' server API
 
 Use the recording ID received in response of  `StartRecordingAsync`.
@@ -116,7 +129,7 @@ var resumeRecording = await callingServerClient.InitializeServerCall("<servercal
 
 ## Download recording File using 'DownloadStreamingAsync' server API
 
-Use an [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
+Use an [Azure Event Grid](../../../../../event-grid/overview.md) web hook or other triggered action should be used to notify your services when the recorded media is ready for download.
 
 Below is an example of the event schema.
 

@@ -8,9 +8,8 @@ editor: ''
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: alkemper
-
 #Customer intent: As a Java Spring developer, I want to manage all my app settings in one place.
 ---
 # Quickstart: Create a Java Spring app with Azure App Configuration
@@ -58,25 +57,18 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
 1. Open the *pom.xml* file in a text editor, and add the Spring Cloud Azure Config starter to the list of `<dependencies>`:
 
-    **Spring Cloud 1.1.x**
+    **Spring Boot 2.4**
 
     ```xml
     <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.1.5</version>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-cloud-appconfiguration-config</artifactId>
+        <version>2.0.0</version>
     </dependency>
     ```
 
-    **Spring Cloud 1.2.x**
-
-    ```xml
-    <dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
-        <version>1.2.7</version>
-    </dependency>
-    ```
+   > [!NOTE]
+   > If you need to support an older version of Spring Boot see our [old library](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.2.9/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/README.md).
 
 1. Create a new Java file named *MessageProperties.java* in the package directory of your app. Add the following lines:
 

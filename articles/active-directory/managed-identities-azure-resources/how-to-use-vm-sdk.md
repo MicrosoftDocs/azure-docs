@@ -37,7 +37,7 @@ This article provides a list of SDK samples, which demonstrate use of their resp
 | .NET            | [Deploy an Azure Resource Manager template from a Windows VM using managed identities for Azure resources](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
 | .NET Core       | [Call Azure services from a Linux VM using managed identities for Azure resources](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Go              | [Azure identity client module for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#ManagedIdentityCredential)
-| Node.js         | [Manage resources using managed identities for Azure resources](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
+| Node.js         | [Manage resources using managed identities for Azure resources](https://github.com/Azure-Samples/resources-node-manage-resources-with-msi) |
 | Python          | [Use managed identities for Azure resources to authenticate simply from inside a VM](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby            | [Manage resources from a VM with managed identities for Azure resources enabled](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 

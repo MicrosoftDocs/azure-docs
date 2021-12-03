@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -17,6 +17,7 @@ ms.subservice: report-monitor
 ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,7 +28,7 @@ Follow the steps in this article to integrate Azure Active Directory (Azure AD) 
 
 Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+ * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
 
@@ -49,8 +50,6 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 * **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
 * **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-> [!NOTE]
-> Azure AD B2C audit and sign-in activity logs are currently unsupported.
 
 ## Prerequisites 
 

@@ -1,8 +1,9 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ---
 ## Specifying structure definition for rectangular datasets

@@ -3,15 +3,15 @@ title: Configure password complexity requirements
 titleSuffix: Azure AD B2C
 description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/12/2021
+ms.date: 09/20/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -44,11 +44,12 @@ If you are using custom policies, you can ([configure password complexity in a c
 ## Configure password complexity
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-3. In the Azure portal, search for and select **Azure AD B2C**.
-4. Select **User flows**.
-2. Select a user flow, and click **Properties**.
-3. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**..
+1. In the Azure portal, search for and select **Azure AD B2C**.
+1. Select **User flows**.
+1. Select a user flow, and click **Properties**.
+1. Under **Password complexity**, change the password complexity for this user flow to **Simple**, **Strong**, or **Custom**.
 
 ### Comparison Chart
 
@@ -218,12 +219,13 @@ Save the policy file.
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Identity Experience Framework**.
-5. On the Custom Policies page, click **Upload Policy**.
-6. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
-7. Click **Upload**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. On the Custom Policies page, click **Upload Policy**.
+1. Select **Overwrite the policy if it exists**, and then search for and select the *TrustFrameworkExtensions.xml* file.
+1. Click **Upload**.
 
 ### Run the policy
 

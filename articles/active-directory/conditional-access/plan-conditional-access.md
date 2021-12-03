@@ -10,7 +10,7 @@ ms.date: 10/16/2020
 
 ms.author: baselden
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.reviewer: joflore
 
 ms.collection: M365-identity-device-management
@@ -214,7 +214,7 @@ Access tokens are by default issued if a Conditional Access policy condition doe
 
 ### Minimize the number of Conditional Access policies
 
-Creating a policy for each app isn't efficient and leads to difficult administration. Conditional Access will only apply the first 195 policies per user. We recommend that you analyze your apps and group them into applications that have the same resource requirements for the same users. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of the apps to which it applies. 
+Creating a policy for each app isn't efficient and leads to complex administration. There can be a maximum of 195 Conditional Access in each Azure AD tenant. We recommend that you analyze your apps and group them into policies that have the same access requirements. For example, if all Microsoft 365 apps or all HR apps have the same requirements for the same users, create a single policy and include all of these apps instead of adding a policy for each app.
 
 ### Set up emergency access accounts
 
@@ -313,7 +313,7 @@ With Conditional Access policies, you can implement automated responses to sign-
 
 * [Require all users to register for MFA](howto-conditional-access-policy-risk.md)
 
-* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk.md)
+* [Require a password change for users that are high-risk](howto-conditional-access-policy-risk-user.md)
 
 * [Require MFA for users with medium or high sign-in risk](howto-conditional-access-policy-risk.md)
 

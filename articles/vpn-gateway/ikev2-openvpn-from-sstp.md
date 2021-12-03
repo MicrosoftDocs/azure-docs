@@ -13,7 +13,7 @@ ms.author: alzam
 ---
 # Transition to OpenVPN protocol or IKEv2 from SSTP
 
-A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article applies to the Resource Manager deployment model and talks about ways to overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.
+A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection to your virtual network from an individual client computer. A P2S connection is established by starting it from the client computer. This article applies to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and talks about ways to overcome the 128 concurrent connection limit of SSTP by transitioning to OpenVPN protocol or IKEv2.
 
 ## <a name="protocol"></a>What protocol does P2S use?
 
@@ -27,7 +27,7 @@ Point-to-site VPN can use one of the following protocols:
 
 
 >[!NOTE]
->IKEv2 and OpenVPN for P2S are available for the Resource Manager deployment model only. They are not available for the classic deployment model. Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the basic SKU, you will have to delete and recreate a production SKU Virtual Network Gateway.
+>IKEv2 and OpenVPN for P2S are available for the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) only. They are not available for the classic deployment model. Basic gateway SKU does not support IKEv2 or OpenVPN protocols. If you are using the basic SKU, you will have to delete and recreate a production SKU Virtual Network Gateway.
 >
 
 ## Migrating from SSTP to IKEv2 or OpenVPN

@@ -1,5 +1,5 @@
 ---
-title: Integrate with Azure Private Link Service
+title: Integrate Key Vault with Azure Private Link
 description: Learn how to integrate Azure Key Vault with Azure Private Link Service
 author: msmbaldwin
 ms.author: mbaldwin
@@ -77,9 +77,6 @@ If you already have a key vault, you can create a private link connection by fol
     ![Screenshot that shows the 'Basics' tab on the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
 
 You can choose to create a private endpoint for any Azure resource in using this blade. You can either use the dropdown menus to select a resource type and select a resource in your directory, or you can connect to any Azure resource using a resource ID. Leave the "integrate with the private zone DNS" option unchanged.  
-
-![Screenshot that shows adding a private endpoint using the current blade.](../media/private-link-service-3.png)
-![Screenshot that shows an example of the 'Create a private endpoint (Preview) page.](../media/private-link-service-4.png)
 
 When you create a private endpoint, the connection must be approved. If the resource for which you are creating a private endpoint is in your directory, you will be able to approve the connection request provided you have sufficient permissions; if you are connecting to an Azure resource in another directory, you must wait for the owner of that resource to approve your connection request.
 
@@ -164,7 +161,7 @@ az keyvault private-endpoint-connection delete --resource-group {RG} --vault-nam
 az network private-endpoint show -g {RG} -n {PE NAME}      # look for the property networkInterfaces then id; the value must be placed on {PE NIC} below.
 az network nic show --ids {PE NIC}                         # look for the property ipConfigurations then privateIpAddress; the value must be placed on {NIC IP} below.
 
-# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+# https://docs.microsoft.com/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
 az network private-dns zone list -g {RG}
 az network private-dns record-set a add-record -g {RG} -z "privatelink.vaultcore.azure.net" -n {KEY VAULT NAME} -a {NIC IP}
 az network private-dns record-set list -g {RG} -z "privatelink.vaultcore.azure.net"

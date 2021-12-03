@@ -130,18 +130,18 @@ Learn more:
 
 ## Security policy management and reporting
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center helps you optimize and monitor the security of your virtual machines by:
+Defender for Cloud helps you optimize and monitor the security of your virtual machines by:
 
 * Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Azure Security Center frequently asked questions](../../security-center/faq-general.yml)
-* [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
+* [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance
 

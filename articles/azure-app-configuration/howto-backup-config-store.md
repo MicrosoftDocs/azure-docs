@@ -197,7 +197,7 @@ az role assignment create \
     --scope $secondaryAppConfigId
 ```
 
-Use the following command or the [Azure portal](../storage/common/storage-auth-aad-rbac-portal.md#assign-azure-roles-using-the-azure-portal) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
+Use the following command or the [Azure portal](../storage/blobs/assign-azure-role-data-access.md#assign-an-azure-role) to grant the managed identity of your function app access to your queue. Assign the `Storage Queue Data Contributor` role in the queue.
 
 ```azurecli-interactive
 az role assignment create \

@@ -76,15 +76,21 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 
 - Key vault and SQL Database/managed instance must belong to the same Azure Active Directory tenant. Cross-tenant key vault and server interactions are not supported. To move resources afterwards, TDE with AKV will have to be reconfigured. Learn more about [moving resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- [Soft-delete](../../key-vault/general/soft-delete-overview.md) feature must be enabled on the key vault, to protect from data loss accidental key (or key vault) deletion happens. Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer in the meantime. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. Soft-delete feature is off by default and can be enabled via [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [the CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli). It cannot be enabled via the Azure portal.  
+- [Soft-delete](../../key-vault/general/soft-delete-overview.md) and [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) features must be enabled on the key vault to protect from data loss due to accidental key (or key vault) deletion. 
+    - Soft-deleted resources are retained for 90 days, unless recovered or purged by the customer. The *recover* and *purge* actions have their own permissions associated in a key vault access policy. The Soft-delete feature can be enabled using the Azure portal, [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell) or [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+    - Purge protection can be turned on using [Azure CLI](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli) or [PowerShell](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell). When purge protection is enabled, a vault or an object in the deleted state cannot be purged until the retention period has passed. The default retention period is 90 days, but is configurable from 7 to 90 days through the Azure portal.   
 
-- Grant the server or managed instance access to the key vault (get, wrapKey, unwrapKey) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created. When using PowerShell or the CLI, the Azure AD identity must be explicitly created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
+> [!IMPORTANT]
+> Both Soft-delete and Purge protection must be enabled on the key vault(s) for servers being configured with customer-managed TDE, as well as existing servers using customer-managed TDE.
+
+- Grant the server or managed instance access to the key vault (*get*, *wrapKey*, *unwrapKey*) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created when the server is created. When using PowerShell or Azure CLI, the Azure AD identity must be explicitly created and should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
+    - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
 
 ### Requirements for configuring TDE protector
 
-- TDE protector can be only asymmetric, RSA or RSA HSM key. The supported key lengths are 2048 bytes and 3072 bytes.
+- TDE protector can be only asymmetric, RSA or RSA HSM key. The supported key lengths are 2048-bit and 3072-bit.
 
 - The key activation date (if set) must be a date and time in the past. Expiration date (if set) must be a future date and time.
 
@@ -109,6 +115,9 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
+> [!NOTE]
+> To allow greater flexibility in configuring customer-managed TDE, Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. 
+
 ### Recommendations when configuring TDE protector
 
 - Keep a copy of the TDE protector on a secure place or escrow it to the escrow service.
@@ -132,9 +141,9 @@ When transparent data encryption is configured to use a customer-managed key, co
 
 After access to the key is restored, taking database back online requires extra time and steps, which may vary based on the time elapsed without access to the key and the size of the data in the database:
 
-- If key access is restored within 8 hours, the database will autoheal within next hour.
+- If key access is restored within 30 minutes, the database will autoheal within next hour.
 
-- If key access is restored after more than 8 hours, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
+- If key access is restored after more than 30 minutes, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 30 minutes.
 
 Below is a view of the extra steps required on the portal to bring an inaccessible database back online.
 
@@ -206,6 +215,8 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
 To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). Testing failover should be done regularly to validate that SQL Database has maintained access permission to both key vaults.
+
+**Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region.** The server and key vault do not have to be co-located in the same region. With this, for simplicity, the primary and secondary servers can be connected to the same key vault (in any region). This will help avoid scenarios where key material may be out of sync if separate key vaults are used for both the servers. Azure Key Vault has multiple layers of redundancy in place to make sure that your keys and key vaults remain available in case of service or region failures. [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md)
 
 ## Next steps
 

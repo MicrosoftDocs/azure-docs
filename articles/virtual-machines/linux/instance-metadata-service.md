@@ -14,4 +14,6 @@ ms.reviewer: azmetadatadev
 
 # Azure Instance Metadata Service (Linux)
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [virtual-machines-imds](../../../includes/virtual-machines-imds.md)]

@@ -5,9 +5,10 @@ metadata:
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: conceptual
-  ms.date: 11/10/2020
-  author: sayantanroy83
-  ms.author: sroy
+  author: smannepalle
+  ms.author: smannepalle
+  ms.reviewer: sroy
+  ms.date: 09/27/2021
     
 title: Commercial marketplace analytics common questions
 summary: This article addresses commonly asked questions about analytics messages in Partner Center.
@@ -25,8 +26,8 @@ sections:
           
           Why you may be seeing this message:
           
-          - No acquisitions currently exist for your published offers in the commercial marketplace. This can mean that your offers are live in the commercial marketplace and customers are viewing your product listing pages, but customers haven't yet taken action to purchase and deploy them.
-          - Your offer might be in the process of being published but isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see the **Summary** page in the [Analyze dashboard](https://go.microsoft.com/fwlink/?linkid=2165765). For more information, see [Summary dashboard in commercial marketplace analytics](summary-dashboard.md).
+          - No acquisitions currently exist for your published offers in the commercial marketplace. This can mean that your offers are live in the commercial marketplace and customers are seeing your product listing pages, but customers haven't yet taken action to purchase and deploy them.
+          - Your offer might be in the process of being published but isn't live yet. Only live offers can be acquired by customers. To check the status of your offers, see the [Summary](https://go.microsoft.com/fwlink/?linkid=2165765) page in Partner Center. For more information, see [Summary dashboard in commercial marketplace analytics](summary-dashboard.md).
           - Your offers may be listed as **Contact Me**, which are list-only offers and cannot be purchased by customers in the commercial marketplace. Although these offers generate leads and are shared with you, orders aren't created for these offers as they cannot be purchased. To check your offer listing type, go to the setup page for your offer.
           
       - question: |
@@ -49,3 +50,4 @@ additionalContent: |
   - For detailed information about your customers, including growth trends, see [Customers dashboard in commercial marketplace analytics](customer-dashboard.md).
   - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
   - To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & reviews analytics dashboard in Partner Center](ratings-reviews.md).
+  

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Linux VM in the Azure portal 
+title: Quickstart - Create a Linux VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Linux virtual machine.
 author: cynthn
 ms.service: virtual-machines
@@ -8,10 +8,12 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ---
 
 # Quickstart: Create a Linux virtual machine in the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs
 
 Azure virtual machines (VMs) can be created through the Azure portal. The Azure portal is a browser-based user interface to create Azure resources. This quickstart shows you how to use the Azure portal to deploy a Linux virtual machine (VM) running Ubuntu 18.04 LTS. To see your VM in action, you also SSH to the VM and install the NGINX web server.
 

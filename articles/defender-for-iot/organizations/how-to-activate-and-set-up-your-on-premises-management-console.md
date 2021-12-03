@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 05/05/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -73,7 +73,7 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 **To activate your license:**
 
-1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)..
+1. Open a case with [support](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Supply support with your Activation ID number.
 
@@ -130,7 +130,7 @@ For information about uploading a new certificate, supported certificate files, 
 
 Ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
 
-Two options are available for connecting Azure Defender for IoT sensors to the on-premises management console:
+Two options are available for connecting Microsoft Defender for IoT sensors to the on-premises management console:
 
 - Connect from the sensor console
 
@@ -180,10 +180,10 @@ Using tunneling allows you to connect to the on-premises management console from
 2. Sign in to each sensor and run the following commands:
 
    ```bash
-   sudo cyberx-xsense-management-connect -ip <centralmanagerIPAddress>
+   sudo cyberx-xsense-management-connect -ip <on-premises management console IP Address> -token < Copy the string that appears after the IP colon (:) from the Connection String field, Management Console Connection dialog box>
    sudo cyberx-xsense-management-tunnel
    sudo vi /var/cyberx/properties/network.properties
-   opened_tcp_incoming_ports=22,80,443,102,9000
+   opened_tcp_incoming_ports=22,80,443,9000
    sudo cyberx-xsense-network-validation
    sudo /etc/network/if-up.d/iptables-recover
    sudo iptables -nvL

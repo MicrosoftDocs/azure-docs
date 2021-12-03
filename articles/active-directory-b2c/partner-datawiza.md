@@ -24,7 +24,7 @@ To get started, you'll need:
 
 - An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that's linked to your Azure subscription.
+- An [Azure AD B2C tenant](./tutorial-create-tenant.md) that's linked to your Azure subscription.
 
 - [Docker](https://docs.docker.com/get-docker/) is required to run DAB. Your applications can run on any platform, such as virtual machine and bare metal.
 
@@ -38,7 +38,7 @@ Datawiza integration includes the following components:
 
 - **Datawiza Access Broker (DAB)**: The service user sign-on and transparently passes identity to applications through HTTP headers.
 
-- **Datawiza Cloud Management Console (DCMC)** - A centralized management console that manages DAB. DCMC provides UI and Restful APIs for administrators to manage the configurations of DAB and its access control policies.
+- **Datawiza Cloud Management Console (DCMC)** - A centralized management console that manages DAB. DCMC provides UI and RESTful APIs for administrators to manage the configurations of DAB and its access control policies.
 
 The following architecture diagram shows the implementation.
 
@@ -62,7 +62,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 2. [Configure a Sign-up and sign-in user flow](https://docs.datawiza.com/idp/azureb2c.html#configure-a-user-flow) in Azure management portal.
 
-  >[!Note]
+  >[!NOTE]
   >You'll need the tenant name, user flow name, client ID, and client secret later when you set up DAB in the DCMC.
 
 ## Create an application on DCMC
@@ -77,7 +77,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. See instructions on how to [configure DAB and SSO integration](https://docs.datawiza.com/step-by-step/step3.html) for more details and how to [deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html) for Kubernetes-specific instructions. A sample docker image `docker-compose.yml file` is provided for you to download and use. Log in to the container registry to download the images of DAB and the header-based application. Follow [these instructions](https://docs.datawiza.com/step-by-step/step3.html#important-step).
  
-   ```YML
+   ```yaml
    version: '3'
 
     services:
@@ -115,7 +115,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Test the flow
 
-1. Navigate to the on-premises application url.
+1. Navigate to the on-premises application URL.
 
 2. The DAB should redirect to the page you configured in your user flow.
 
@@ -133,6 +133,6 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 For additional information, review the following articles:
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](./custom-policy-overview.md)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](./tutorial-create-user-flows.md?pivots=b2c-custom-policy&tabs=applications)

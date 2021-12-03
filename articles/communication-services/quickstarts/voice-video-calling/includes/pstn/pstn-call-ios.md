@@ -11,7 +11,7 @@ ms.author: nikuklic
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../../../telephony-sms/get-phone-number.md).
+- A phone number acquired in Communication Services resource. [how to get a phone number](../../../telephony/get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
 - Complete the quickstart for [getting started with adding calling to your application](../../getting-started-with-calling.md)
 
@@ -32,17 +32,21 @@ Modify `startCall` event handler that will be performed when the *Start Call* bu
 
 ```swift
 func startCall() {
-    // Ask permissions
-    AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
-        if granted {
-            let startCallOptions = ACSStartCallOptions()
-            startCallOptions!.alternateCallerID = PhoneNumber(phoneNumber: "+12223334444")
-            self.call = self.callAgent!.startCall([PhoneNumber(phoneNumber: self.callee)], options: startCallOptions)
-            self.callDelegate = CallDelegate(self)
-            self.call!.delegate = self.callDelegate
+        // Ask permissions
+        AVAudioSession.sharedInstance().requestRecordPermission { (granted) in
+            if granted {
+                let startCallOptions = StartCallOptions()
+                startCallOptions.alternateCallerId = PhoneNumberIdentifier(phoneNumber: "<YOUR AZURE REGISTERED PHONE NUMBER>")
+                self.callAgent!.startCall(participants: [PhoneNumberIdentifier(phoneNumber: self.callee)], options: startCallOptions) { (call, error) in
+                    if (error == nil) {
+                        self.call = call
+                    } else {
+                        print("Failed to get call object")
+                    }
+                }
+            }
         }
     }
-}
 ```
 
 ## Run the code

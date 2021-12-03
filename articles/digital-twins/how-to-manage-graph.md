@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Manage the twin graph with relationships
+title: Manage the twin graph and relationships
 titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/03/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -21,7 +21,7 @@ The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) re
 
 Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance.
 
-This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [How-to: Manage digital twins](how-to-manage-twin.md).
+This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [Manage digital twins](how-to-manage-twin.md).
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ This article focuses on managing relationships and the graph as a whole; to work
 
 Relationships describe how different digital twins are connected to each other, which forms the basis of the twin graph.
 
-Relationships are created using the `CreateOrReplaceRelationshipAsync()` call. 
+The types of relationships that can be created from one (source) twin to another (target) twin are defined as part of the source twin's [DTDL model](concepts-models.md#relationships). You can create an instance of a relationship by using the `CreateOrReplaceRelationshipAsync()` SDK call with twins and relationship details that comply with the DTDL definition. 
 
 To create a relationship, you need to specify:
 * The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
@@ -59,7 +59,7 @@ This custom function can now be called to create a _contains_ relationship in th
 
 If you wish to create multiple relationships, you can repeat calls to the same method, passing different relationship types into the argument. 
 
-For more information on the helper class `BasicRelationship`, see [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+For more information on the helper class `BasicRelationship`, see [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
 
 ### Create multiple relationships between twins
 
@@ -73,6 +73,9 @@ There's no restriction on the number of relationships that you can have between 
 This means that you can express several different types of relationships between two twins at once. For example, Twin A can have both a *stored* relationship and *manufactured* relationship with Twin B.
 
 You can even create multiple instances of the same type of relationship between the same two twins, if you want. In this example, Twin A could have two different *stored* relationships with Twin B, as long as the relationships have different relationship IDs.
+
+> [!NOTE]
+> The DTDL attributes of `minMultiplicity` and `maxMultiplicity` for relationships aren't currently supported in Azure Digital Twins—even if they're defined as part of a model, they won't be enforced by the service. For more information, see [Azure Digital Twins DTDL implementation specifics](concepts-models.md#azure-digital-twins-dtdl-implementation-specifics).
 
 ## List relationships
 
@@ -219,5 +222,5 @@ Here's the console output of the program:
 ## Next steps
 
 Learn about querying an Azure Digital Twins twin graph:
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)

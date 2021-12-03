@@ -7,7 +7,7 @@ metadata:
   ms.topic: conceptual
   author: keferna
   ms.author: keferna
-  ms.date: 10/01/2020
+  ms.date: 12/03/2021
     
 title: Common questions and troubleshooting for lead configuration
 summary: |
@@ -25,7 +25,23 @@ sections:
       - question: |
           Am I required to configure a lead destination in order to publish an offer in the commercial marketplace?
         answer: |
-          The answer depends on the type of offer you're publishing. Software as a service (SaaS) and Dynamics 365 Customer Engagement use **Contact Me** to list all Dynamics 365 for Finance and Operations offers, all Dynamics 365 Business Central offers, and all Consulting Service offers. As a result, they require a connection to a lead destination. If your offer type wasn't listed, a connection to a lead destination isn't required. We recommend that you configure a lead destination so you don't miss business opportunities.
+          This table shows which offer types require a lead destination. We recommend that you configure a lead destination so that you don’t miss business opportunities.
+
+          | **Offer type** | **Required** |
+          | ------------ | ------------- |
+          | SaaS | Yes, if using the **Contact me** option or enabling a test drive. |
+          | Azure Application | Yes, if enabling a test drive. |
+          | Azure Virtual Machine | Yes, if enabling a test drive. |
+          | Azure Container | No |
+          | Consulting Service | Yes |
+          | Dynamics 365 apps on Dataverse and Power Apps | Yes, if enabling a test drive |
+          | Dynamics 365 Operations Apps | Yes |
+          | Dynamics 365 Business Central | Yes |
+          | IoT Edge module | No |
+          | Managed Service | Yes |
+          | Power BI App | No |
+          | Power BI Visual | No |
+          |||
 
       - question: |
           How can I find the test lead?
@@ -75,7 +91,7 @@ sections:
       - question: |
           I configured an Azure table as my lead destination. Can I get notified whenever a new commercial marketplace lead is sent?
         answer: |
-          Yes. Follow the instructions in [Configure lead management by using an Azure table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to set up a Microsoft flow that sends an email if a lead is added to the Azure table.
+          Yes. Follow the instructions in [Configure lead management by using an Azure table](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) to set up a new flow by using Power Automate that sends an email if a lead is added to the Azure table.
           
       - question: |
           I configured Salesforce as my lead destination, but why can't I find the leads?

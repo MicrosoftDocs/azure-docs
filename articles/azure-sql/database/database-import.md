@@ -4,12 +4,12 @@ description: Create a new database in Azure SQL Database or Azure SQL Managed In
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: backup-restore
-ms.custom: sqldbrb=1, devx-track-azurepowershell
+ms.custom: sqldbrb=1, devx-track-azurepowershell, mode-other
 ms.devlang: 
 ms.topic: quickstart
-author: shkale-msft
-ms.author: shkale
-ms.reviewer: cawrites
+author: SQLSourabh
+ms.author: sourabha
+ms.reviewer: cawrites, mathoma
 ms.date: 10/29/2020
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database or Azure SQL Managed Instance

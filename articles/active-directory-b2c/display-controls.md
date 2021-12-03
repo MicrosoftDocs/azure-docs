@@ -3,14 +3,14 @@ title: Display control reference
 titleSuffix: Azure AD B2C
 description: Reference for Azure AD B2C display controls. Use display controls for customizing user journeys defined in your custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
-ms.author: mimart
+ms.date: 07/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -120,17 +120,15 @@ The **ValidationClaimsExchange** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
+| ValidationClaimsExchangeTechnicalProfile | 1:n | A technical profile to be used for validating some or all of the display claims of the referencing technical profile. |
 
-The **ValidationTechnicalProfile** element contains the following attributes:
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
-|ContinueOnError|No| Indicates whether validation of any subsequent validation technical profiles should continue if this validation technical profile raises an error. Possible values: `true` or `false` (default, processing of further validation profiles will stop and an error will be returned). |
-|ContinueOnSuccess | No | Indicates whether validation of any subsequent validation profiles should continue if this validation technical profile succeeds. Possible values: `true` or `false`. The default is `true`, meaning that the processing of further validation profiles will continue. |
+| TechnicalProfileReferenceId | Yes | An identifier of a technical profile already defined in the policy or parent policy. |
 
-The **ValidationTechnicalProfile** element contains the following element:
+The **ValidationClaimsExchangeTechnicalProfile** element contains the following element:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
