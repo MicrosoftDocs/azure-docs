@@ -144,6 +144,7 @@ GZRS and RA-GZRS are supported in the following regions:
 - (US) US South Central
 - (US) US West 2
 - (US) US West 3
+- (US) East US 2 EUAP
 
 For information on pricing, see pricing details for [Blobs](https://azure.microsoft.com/pricing/details/storage/blobs), [Files](https://azure.microsoft.com/pricing/details/storage/files/), [Queues](https://azure.microsoft.com/pricing/details/storage/queues/), and [Tables](https://azure.microsoft.com/pricing/details/storage/tables/).
 
