@@ -134,9 +134,12 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 1. To deactivate the pipeline recording go to your Video Analyzer account, on the left panel select **Live**-> **Pipelines**-> select the pipeline to be deactivated then select **Deactivate** in pipeline grid, it will stop the recording. 
 1. You can also continue to delete the pipeline & topology if they are not needed.
 
+### Clean up resources
 
-# [C#Sampleapp](#tab/C#Sampleapp)
-### Prerequisites
+If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
+
+# [SampleCode](#tab/SampleCode)
+Prerequisites
 
 - An active Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
   - Get your Azure Active Directory Tenant Id
@@ -145,10 +148,6 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
   - Azure IoT Tools
   - C#
 - .NET Core 3.1 SDK on your development machine.
-
-### Clean up resources
-
-If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
 
 ## Next steps
 
