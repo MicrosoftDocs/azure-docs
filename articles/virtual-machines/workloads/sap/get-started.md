@@ -77,9 +77,11 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
+
+- December 02, 2021: Introduction of new STONITH fencing method in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) using Azure shared disk SBD device.
 - December 01, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md), [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) and [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md) to update the SAP kernel version, required to support clustering SAP on Windows with file share.  
 - November 30, 2021: Added [Using Windows DFS-N to support flexible SAPMNT share creation for SMB-based file share](./high-availability-guide-windows-dfs.md)
-- November 22, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) to clarify the guidelines for J2EE SAP systems and share consolidations per storage account.    
+- November 22, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md) to clarify the guidelines for J2EE SAP systems and share consolidations per storage account.
 - November 16, 2021: Release of high availability guides for SAP ASCS/ERS with NFS on Azure files [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md) and [HA for SAP NW on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md). 
 - November 15, 2021: Introduction of new proximity placement architecture for zonal deployments in [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md)
 - November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.

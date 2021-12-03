@@ -15,6 +15,15 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
 
+## November 2021
+
+### Updated articles
+
+- [Define an OAuth2 technical profile in an Azure Active Directory B2C custom policy](oauth2-technical-profile.md)
+- [Error codes: Azure Active Directory B2C](error-codes.md)
+- [Configure authentication options in an Android app by using Azure AD B2C](enable-authentication-android-app-options.md)
+- [Set up a force password reset flow in Azure Active Directory B2C](force-password-reset.md)
+
 
 ## October 2021
 

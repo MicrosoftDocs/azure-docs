@@ -63,9 +63,6 @@ articles/service-health @rboucher
 /articles/container-instances/ @macolso @mimckitt
 /articles/container-registry/ @dlepow @mimckitt
 
-# Requires Internal Review
-/articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
-
 # Governance
 /articles/governance/ @DCtheGeek
 

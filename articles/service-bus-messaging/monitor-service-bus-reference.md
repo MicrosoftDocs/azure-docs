@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 05/18/2021
+ms.date: 10/29/2021
 ---
 
 
@@ -22,7 +22,10 @@ Counts the number of data and management operations requests.
 |Successful Requests| No | Count | Total | The number of successful requests made to the Service Bus service over a specified period. | Entity name<br/>OperationResult|
 |Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
-|Throttled Requests| No | Count | Total | The number of requests that were throttled because the usage was exceeded. |  Entity name|
+|Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
+| Pending Checkpoint Operations Count | No | count | Average | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. | MessagingErrorSubCode | 
+| Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
+
 
 The following two types of errors are classified as **user errors**:
 
@@ -40,6 +43,8 @@ The following two types of errors are classified as **user errors**:
 | Active Messages| No | Count | Average | Count of active messages in a queue/topic. | Entity name |
 | Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
 | Scheduled messages| No | Count | Average | Count of scheduled messages in a queue/topic. | Entity name |
+|Completed Messages| Yes | Count | Total | The number of messages completed over a specified period. | Entity name|
+| Abandoned Messages| Yes | Count | Total | The number of messages abandoned over a specified period. | Entity name|
 | Size | No | Bytes | Average | Size of an entity (queue or topic) in bytes. | Entity name | 
 
 > [!NOTE]
