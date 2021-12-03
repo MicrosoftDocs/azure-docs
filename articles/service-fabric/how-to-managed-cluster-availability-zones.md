@@ -72,15 +72,15 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 >Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
 
 ## Steps to Migrate 
-* Use apiVersion 2021-11-01-preview or higher 
-* Add a new primary node type to the cluster with **zones** parameter in the nodetype set to ["1", "2", "3"].
+* Use apiVersion 2021-11-01-preview or higher
+* Add a new primary node type to the cluster with zones parameter in the nodetype set to ["1", "2", "3"].
   * A brief period of unreachability to the cluster can occur during this step.
-* Add more secondary node types with same **zones** parameter as required to migrate existing services. 
-* Move existing services from the old node types to the new ones.
-* Remove the old node types from the cluster from the portal or through ARM template deployment. 
-* Set **zonalResiliency: true**  in the cluster ARM template to mark cluster as zone resilient and ensure all other deployments span across availability zones.
+* Add new secondary node types with same zones parameter as required to migrate existing services.
+* Move existing services from the old node types to the new ones. [Recommend using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md)
+* Remove the old node types from the cluster using [Portal or cmdlet](./how-to-managed-cluster-modify-node-type.md). Make sure to remove old node types from your template.
+* Set zonalResiliency: true in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones.
 
-### Node type ARM deployment for Migration to availability zones
+### Add new zone resilient node types to your cluster
 ```json
 {
   "apiVersion": "2021-11-01-preview",
