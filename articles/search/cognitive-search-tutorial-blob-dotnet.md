@@ -1,10 +1,12 @@
 ---
-title: C# tutorial using AI on Azure blobs
+title: 'C# tutorial: AI on Azure blobs'
 titleSuffix: Azure Cognitive Search
 description: Step through an example of text extraction and natural language processing over content in Blob storage using C# and the Azure Cognitive Search .NET SDK. 
-author: nitinme
-ms.author: nitinme
+
+author: gmndrg
+ms.author: gimondra
 manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 01/23/2021
@@ -15,7 +17,7 @@ ms.custom: devx-track-csharp
 
 If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
 
-In this tutorial, you will learn how to:
+In this C# tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment
@@ -29,7 +31,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 This tutorial uses C# and the [**Azure.Search.Documents** client library](/dotnet/api/overview/azure/search.documents-readme) to create a data source, index, indexer, and skillset.
 
-The indexer connects to a blob container that's specified in the data source object, and sends all indexed content to an existing search index.
+The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
 
 The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
 
@@ -43,7 +45,7 @@ The skillset is attached to the indexer. It uses built-in skills from Microsoft 
 > [!Note]
 > You can use the free search service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.
 
-## Download sample data
+## Download files
 
 The sample data consists of 14 files of mixed content type that you will upload to Azure Blob Storage in a later step.
 
@@ -117,9 +119,9 @@ You can use the Free tier to complete this walkthrough.
 
 ### Copy an admin api-key and URL for Azure Cognitive Search
 
-To interact with your Azure Cognitive Search service you will need the service URL and an access key. A search service is created with both, so if you added Azure Cognitive Search to your subscription, follow these steps to get the necessary information:
+To interact with your Azure Cognitive Search service you will need the service URL and an access key.
 
-1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the name of your search service. You can confirm your service name by reviewing the endpoint URL. If your endpoint URL were `https://mydemo.search.windows.net`, your service name would be `mydemo`.
 
 1. In **Settings** > **Keys**, copy an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 

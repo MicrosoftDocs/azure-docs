@@ -1,5 +1,5 @@
---- 
-title: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+---
+title: Get connection endpoints and create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
 description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
@@ -90,10 +90,11 @@ kubectl get postgresqls/postgres01 -n arc
 ```
 
 Those commands will produce output like the one below. You can use that information to form your connection strings:
+
 ```console
 NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   3/3          12.345.567.89:5432   9d
-``` 
+```
 
 ## Form connection strings
 

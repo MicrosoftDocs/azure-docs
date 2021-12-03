@@ -15,6 +15,8 @@ ms.custom: ignite-fall-2021
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on Windows Desktop.
 
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
+
 ## Prerequisites
 
 This quickstart requires:

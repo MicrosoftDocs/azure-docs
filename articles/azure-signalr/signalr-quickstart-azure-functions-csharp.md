@@ -1,11 +1,11 @@
 ---
-title: Azure SignalR Service serverless quickstart - C#
-description: A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using C#.
+title: "Azure SignalR Service serverless quickstart - C#"
+description: "A quickstart for using Azure SignalR Service and Azure Functions to create an App showing GitHub star count using C#."
 author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ms.date: 06/09/2021
 ms.author: zhshang
 ---
@@ -200,4 +200,3 @@ Next, learn more about how to bi-directional communicating between clients and A
 
 > [!div class="nextstepaction"]
 > [Deploy to Azure Function App using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure)
-

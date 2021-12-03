@@ -2,15 +2,12 @@
 title: Create an ASP.NET web app with Azure Cache for Redis
 description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
 author: curib
-
 ms.service: cache
 ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: cauribeg
-ms.custom: "devx-track-csharp, mvc"
-
+ms.custom: devx-track-csharp, mvc, mode-other
 #Customer intent: As an ASP.NET developer, new to Azure Cache for Redis, I want to create a new ASP.NET web app that uses Azure Cache for Redis.
-
 ---
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
 

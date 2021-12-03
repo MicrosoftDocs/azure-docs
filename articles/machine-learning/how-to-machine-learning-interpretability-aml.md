@@ -1,5 +1,5 @@
 ---
-title: Interpret & explain ML models in Python (preview)
+title: Use Python to interpret & explain models (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
@@ -10,10 +10,10 @@ author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python, responsible-ml
+ms.custom: devx-track-python, responsible-ml, mktng-kw-nov2021
 ---
 
-# Use the interpretability package to explain ML models & predictions in Python (preview)
+# Use the Python interpretability package to explain ML models & predictions (preview)
 
 In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
@@ -566,7 +566,7 @@ Supported explanation tab | Raw features (dense) | Raw features (sparse) | Engin
 :----- | :--- | :--- | :---- | :---- |
 Model performance   | Supported (not forecasting) | Supported (not forecasting)  | Supported | Supported |
 Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
- Aggregatge feature importance | Supported | Supported | Supported | Supported |
+ Aggregate feature importance | Supported | Supported | Supported | Supported |
  Individual feature importance| Supported (not forecasting)   | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | Supported | Not supported. Since sparse data is not uploaded and UI has issues rendering sparse data. | 
 
 
@@ -579,6 +579,6 @@ Dataset explorer  | Supported (not forecasting)   | Not supported. Since sparse 
 
 ## Next steps
 
-[Learn more about model interpretability](how-to-machine-learning-interpretability.md)
+[Techniques for model interpretability in Azure ML](how-to-machine-learning-interpretability.md)
 
-[Check out Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+[Check out Azure Machine Learning interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)

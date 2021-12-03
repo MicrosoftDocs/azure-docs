@@ -2,14 +2,12 @@
 title: "Quickstart: Azure Blob storage library v12 - JavaScript in a browser"
 description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for JavaScript in a browser. You create a container and an object in Blob storage. Next, you learn how to list all of the blobs in a container. Finally, you learn how to delete blobs and delete a container.
 author: normesta
-
 ms.author: normesta
 ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-js
-
+ms.custom: devx-track-js, mode-other
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -70,10 +68,10 @@ The following table describes each CORS setting and explains the values used to 
 
 |Setting  |Value  | Description |
 |---------|---------|---------|
-| **ALLOWED ORIGINS** | **\*** | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
+| **ALLOWED ORIGINS** | * | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
 | **ALLOWED METHODS** | **DELETE**, **GET**, **HEAD**, **MERGE**, **POST**, **OPTIONS**, and **PUT** | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
-| **ALLOWED HEADERS** | **\*** | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
-| **EXPOSED HEADERS** | **\*** | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header. |
+| **ALLOWED HEADERS** | * | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
+| **EXPOSED HEADERS** | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header. |
 | **MAX AGE** | **86400** | The maximum amount of time the browser caches the preflight OPTIONS request in seconds. A value of *86400* allows the cache to remain for a full day. |
 
 After you fill in the fields with the values from this table, click the **Save** button.

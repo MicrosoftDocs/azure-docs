@@ -6,16 +6,11 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 11/04/2021
 ms.custom: template-how-to
 ---
 
 # Create and manage collections in Azure Purview
-
-> [!NOTE]
-> At this time, this guide only applies to Azure Purview instances created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on creating a collection for a Purview instances created before August 18, see our [**legacy collection guide**](#legacy-collection-guide) at the bottom of the page.
->
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
 
 Collections in Azure Purview can be used to organize assets and sources by your business's flow, but they are also the tool used to manage access across Purview. This guide will take you through the creation and management of these collections, as well as cover steps about how to register sources and add assets into your collections.
 
@@ -272,27 +267,6 @@ Assets and sources are also associated with collections. During a scan, if the s
 1. To view the details of an asset, select the asset name in the search result. Or you can check the assets and bulk edit them.
 
     :::image type="content" source="./media/how-to-create-and-manage-collections/view-asset-details.png" alt-text="Screenshot of the catalog Purview studio window with the by collection tab selected and asset check boxes highlighted."border="true":::
-
-## Legacy collection guide
-
-> [!NOTE]
-> This legacy collection guide is only for Purview instances created before August 18, 2021. Instances created after that time should follow the guide above.
-
-Legacy collections only organize sources in the data map, and do not manage permissions for these sources.
-
-### Create a legacy collection
-
-1. Select Data Map from the left pane to open the data map. Using the map view you can see your collections and the sources listed under them.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-view.png" alt-text="Screenshot of Purview studio window, opened to the Data Map." border="true":::
-
-1. Select **+ New collection**.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-create.png" alt-text="Screenshot of Purview studio window, opened to the Data Map with + New collection highlighted." border="true":::
-
-1. Name your collection and select a parent or 'None'. Select **Create**. The collection information will reflect on the data map.
-
-    :::image type="content" source="./media/how-to-create-and-manage-collections/legacy-collection-name.png" alt-text="Screenshot of Purview studio window, showing the new collection window." border="true":::
 
 ## Next steps
 
