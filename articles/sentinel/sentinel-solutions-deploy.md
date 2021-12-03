@@ -1,16 +1,7 @@
 ---
 title: Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions
 description: This article shows how customers can easily find and deploy data analysis tools, packaged together with data connectors and other content.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin

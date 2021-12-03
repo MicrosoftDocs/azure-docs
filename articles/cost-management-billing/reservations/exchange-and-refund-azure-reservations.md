@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 11/18/2021
 ms.author: banders
 ---
 
@@ -76,7 +76,8 @@ If the original purchase was made as an overage, the original invoice on which t
 ### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
-You cannot do a self-service refund in CSP, for any refund request contact support through your CSP.
+
+Although a CSP customer can’t exchange, cancel, renew, or refund a reservation themself, they can ask their partner to do it on their behalf.
 
 ### Pay-as-you-go credit card customers
 

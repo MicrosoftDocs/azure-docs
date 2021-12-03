@@ -23,7 +23,7 @@ sections:
       - question: |
           What is a Service Bus namespace?
         answer: |
-          A [namespace](service-bus-create-namespace-portal.md) provides a scoping container for addressing Service Bus resources within your application. Creating a namespace is necessary to use Service Bus and is one of the first steps in getting started.
+          A [namespace](service-bus-messaging-overview.md#concepts) provides a scoping container for addressing Service Bus resources within your application. Creating a namespace is necessary to use Service Bus and is one of the first steps in getting started.
           
       - question: |
           What is an Azure Service Bus queue?
