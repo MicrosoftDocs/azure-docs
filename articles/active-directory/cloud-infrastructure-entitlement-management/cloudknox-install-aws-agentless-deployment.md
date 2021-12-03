@@ -1,6 +1,6 @@
 ---
-title: Install CloudKnox Permissions Management (CloudKnox) with an Amazon Web Services (AWS) role (agentless deployment)
-description: How to install CloudKnox with Amazon Web Services (AWS) role (agentless deployment).
+title: Install Microsoft CloudKnox Permissions Management with an Amazon Web Services (AWS) role (agentless deployment)
+description: How to install Microsoft CloudKnox Permissions Management with an Amazon Web Services (AWS) role (agentless deployment).
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -10,9 +10,9 @@ ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
-# Install CloudKnox Permissions Management (CloudKnox) with an Amazon Web Services (AWS) role (agentless deployment)
+# Install Microsoft CloudKnox Permissions Management with an Amazon Web Services (AWS) role (agentless deployment)
 
-This topic describes the process of installing and configuring CloudKnox with an AWS role. The process described in this topic applies only to an agentless deployment.
+This topic describes the process of installing and configuring Microsoft CloudKnox Permissions Management with an AWS role. The process described in this topic applies only to an agentless deployment.
 
 ## Configure an AWS cross-account role (FortSentry UI)
 

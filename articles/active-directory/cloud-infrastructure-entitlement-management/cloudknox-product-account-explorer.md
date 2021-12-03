@@ -1,18 +1,18 @@
 ---
-title: How to use the CloudKnox Account Explorer
-description: How to use Account Explorer to view all the identities.
+title: The Microsoft CloudKnox Permissions Management Account Explorer
+description: How to use the Microsoft CloudKnox Permissions Management Account Explorer to view identities.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 12/01/2021
+ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
-# The CloudKnox Account Explorer
+# The Microsoft CloudKnox Permissions Management Account Explorer
 
-The **Account Explorer** displays all the identities - users, roles, EC2 instances and Lambda Functions - that can access the selected account from an external account.
+The CloudKnox Permissions Management's **Account Explorer** displays a list of the identities - users, roles, EC2 instances and Lambda Functions - that can access the selected account from an external account.
 
 ## How to use the Account Explorer
 
@@ -21,7 +21,8 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
     2. Click the lock icon to choose an authorization system from the left-hand side panel.
 
-    3. Select an Amazon Web Services (AWS) account. <br>
+    3. Select an Amazon Web Services (AWS) account. 
+
         For more information, see [How to apply filters to users](https://www.notion.so/cloudknox/Usage-Analytics-2147da11c8ff47e1bb7989b4005c4105#3c4562396db24421a9670e40e1dda6eb).
 
 2. The **Cross Account - Users** page displays the identities you can use to access the specified account. **Roles that Provide Access** lists the roles that provide access to other accounts through the Trusted Entities policy statement.
@@ -39,7 +40,8 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
 4. Click the caret icon to the left of the role name to view all the identities from various accounts that can assume this role.
 
-5. Click the role name to view a graph of all the identities that can access the specified account and through which role(s). <br>
+5. Click the role name to view a graph of all the identities that can access the specified account and through which role(s). 
+
      If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted Entity** section.
 
      - **Connecting Roles** - Lists the following roles for each account:
@@ -49,10 +51,12 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
 6. Click the caret icon to the left of the account name to view all the roles from that account that are used to access the specified account.
 
-7. Click the caret icon to the left of the role name to view the trusted identities declared by the role. <br>
+7. Click the caret icon to the left of the role name to view the trusted identities declared by the role. 
+
      The trusted identities for the role are listed only if the account is being monitored by CloudKnox.
 
-8. Click the "eye" icon to the right of the role name to view the role definition. <br>
+8. Click the "eye" icon to the right of the role name to view the role definition. 
+
      When you click the caret icon and expand details, a search box is displayed. Enter your criteria in this box to search for specific roles.
 
      - **Identities with Access** - Lists the identities that come from external accounts:
@@ -61,5 +65,12 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
         - For EC2 instances and Lambda Functions, click the "eye" icon to the right of the identity name to view the **Role Summary**, which displays the details described above.
         - Click the identity name to view a graph of how the identity can access the specified account and through which role(s).
 
-9. The **Info** tab displays the **Privilege Creep Index** and Service Control Policy (SCP) information about the account. <br>
+9. The **Info** tab displays the **Privilege Creep Index** and Service Control Policy (SCP) information about the account. 
+
      For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/product-dashboard.html).
+
+## Next Steps
+
+[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+
+[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)

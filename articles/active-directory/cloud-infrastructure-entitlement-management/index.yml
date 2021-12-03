@@ -4,8 +4,8 @@ title: CloudKnox Permissions Management
 summary: Learn about Cloud Infrastructure Entitlement Management (CIEM) and how to use CloudKnox Permissions Management.
 
 metadata:
-  title: CloudKnox Permissions Management
-  description: Learn how to use CloudKnox Permissions Management for Cloud Infrastructure Entitlement Management (CIEM)
+  title: Microsoft CloudKnox Permissions Management
+  description: Learn how to use Microsoft CloudKnox Permissions Management for Cloud Infrastructure Entitlement Management (CIEM)
   services: active-directory
   author: Yvonne-deq
   manager: karenh444
@@ -29,7 +29,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: CloudKnox account settings
-            url: cloudknox-product--account-settings.md
+            url: cloudknox-product-account-settings.md
   # Card
   - title:  About CloudKnox Integration
     linkLists:

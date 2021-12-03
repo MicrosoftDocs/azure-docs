@@ -1,4 +1,4 @@
-  - name: CloudKnox Permissions Management
+  - name: Microsoft CloudKnox Permissions Management
     href: index.yml
   #- name: Overview
     #expanded: true
@@ -13,9 +13,9 @@
     - name: Install CloudKnox with AWS role
       href: cloudknox-install-aws-agentless-deployment.md
     - name: The CloudKnox Account Explorer
-      href: cloudknox-product--account-explorer.md
+      href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
-      href: cloudknox-product--account-settings.md
+      href: cloudknox-product-account-settings.md
   #- name: Concepts
     #expanded: true
     #items: 

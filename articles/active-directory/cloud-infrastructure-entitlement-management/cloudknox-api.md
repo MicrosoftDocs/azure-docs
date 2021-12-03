@@ -1,6 +1,6 @@
 ---
-title: CloudKnox integration with CloudKnox API
-description: How to configure CloudKnox API integration.
+title: Microsoft CloudKnox Permissions Management integration with CloudKnox API
+description: How to configure the Microsoft CloudKnox Permissions Management API integration.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -10,9 +10,9 @@ ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
-# CloudKnox integration with CloudKnox API
+# Microsoft CloudKnox Permissions Management integration with CloudKnox API
 
-This topic describes the process of creating and deleting CloudKnox integration with the CloudKnox API.
+This topic describes the process of configuring and deleting Microsoft CloudKnox Permissions Management integration with the CloudKnox API.
 
 ## How to configure a CloudKnox API integration
 
@@ -68,7 +68,8 @@ This topic describes the process of creating and deleting CloudKnox integration 
 
 ## How to delete a CloudKnox API integration
 
-1. Click **Delete Integration**. <br>
+1. Click **Delete Integration**.
+ 
      On the **Validate OTP To Delete [Service Name] Integration** page, a message displays asking you to check your email for a code sent to the email address on file.
 
      If you do not receive the code, click **Resend OTP**.
@@ -76,3 +77,10 @@ This topic describes the process of creating and deleting CloudKnox integration 
 2. In the **Enter OTP** box, enter the code from the email.
 
 3. Click **Verify**.
+
+## Next Steps
+
+[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+
+[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
+

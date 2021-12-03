@@ -1,18 +1,18 @@
 ---
-title: CloudKnox product account settings
-description: How to use CloudKnox product account settings to set personal information, passwords, and account preferences.
+title: Microsoft CloudKnox Permissions Management product account settings
+description: How to use CloudKnox Permissions Management product account settings to set personal information, passwords, and account preferences.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
 ms.topic: overview
 author: Yvonne-deQ
-ms.date: 12/01/2021
+ms.date: 12/03/2021
 ms.author: v-ydequadros
 ---
 
-# CloudKnox product account settings
+# Microsoft CloudKnox Permissions Management product account settings
 
-The CloudKnox **Account Settings** page allows you to set personal information, passwords, and account preferences.
+The Microsoft CloudKnox Permissions Management **Account Settings** page allows you to set personal information, passwords, and account preferences.
 
 - Click the caret icon on the far right-hand side of the top menu bar, and then select **Account Settings** from the dropdown menu.
 
@@ -20,14 +20,16 @@ The CloudKnox **Account Settings** page allows you to set personal information, 
 
 1. Under **Personal Information**, click **Edit**.
 
-2. Enter the user's name in the **First Name** and **Last Name** boxes. <br>
+2. Enter the user's name in the **First Name** and **Last Name** boxes. 
+
      The **Email** field cannot be modified because the CloudKnox account is linked to the email address used to register on the application.
 
 ## How to edit company information
 
 1. Under **Company Information**, click **Edit**.
 
-2. Enter the name of the company in the **Company** box. <br>
+2. Enter the name of the company in the **Company** box. 
+
      The company name appears in the top-left part of the application.
 
 3. Enter the user's title in the **Title** box.
@@ -62,3 +64,10 @@ If you are part of multiple organizations:
       - **Confirm Password**
 
 2. Click **Change Password**.
+
+## Next Steps
+
+[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+
+[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
+
