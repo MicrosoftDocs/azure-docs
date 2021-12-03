@@ -103,7 +103,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service environments](../app-service/environment/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure API Management](../api-management/zone-redundancy.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
