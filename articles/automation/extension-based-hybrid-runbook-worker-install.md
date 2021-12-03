@@ -154,6 +154,9 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 You can use an Azure Resource Manager (ARM) template to create a new Azure Windows VM and connect it to an existing Automation account and Hybrid Worker Group. To learn more about ARM templates, see [What are ARM templates?](../azure-resource-manager/templates/overview.md)
 
+   > [!NOTE]
+   > You need to have the Automation Account **AND** Hybrid Worker Group created **BEFORE** deploying this ARM Template!
+
 ### Review the template
 
 ```json
