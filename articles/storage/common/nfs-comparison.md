@@ -4,7 +4,7 @@ description: Compare NFS access for Azure Files, Azure Blob Storage, and Azure N
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/21/2021
+ms.date: 12/03/2021
 ms.author: rogarana
 ---
 
@@ -27,6 +27,6 @@ For more general comparisons, see the [this article](storage-introduction.md) to
 
 ## Next steps
 
-- To access Blob storage with NFS, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage (preview)](../blobs/network-file-system-protocol-support.md).
+- To access Blob storage with NFS, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md).
 - To access Azure Files with NFS, see [NFS file shares in Azure Files](../files/files-nfs-protocol.md).
 - To access Azure NetApp Files with NFS, see [Quickstart: Set up Azure NetApp Files and create an NFS volume](../../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
