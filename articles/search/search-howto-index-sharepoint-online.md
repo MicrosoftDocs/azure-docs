@@ -20,7 +20,7 @@ ms.date: 03/01/2021
 This article describes how to use Azure Cognitive Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in SharePoint Online document libraries into an Azure Cognitive Search index. First, it explains the basics of setting up and configuring the indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 > [!NOTE]
-> SharePoint Online supports a granular authorization model that determines per-user access at the document level. The SharePoint Online indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint Online into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate security filters to trim results of unauthorized content. For more information, see [Security trimming using Active Directory identities](search-security-trimming-for-azure-search-with-aad.md).
+> SharePoint Online supports a granular authorization model that determines per-user access at the document level. The SharePoint Online indexer does not pull these permissions into the search index, and Cognitive Search does not support document-level authorization. When a document is indexed from SharePoint Online into a search service, the content is available to anyone who has read access to the index. If you require document-level permissions, you should investigate security filters to trim results of unauthorized content. For more information, see [Security trimming using Active Directory identities](search-security-trimming-for-azure-search-with-Azure AD.md).
 
 ## Functionality
 
@@ -63,11 +63,11 @@ After selecting **Save** you will see an Object ID that has been assigned to you
 
 The SharePoint Online Indexer supports both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Choose which permissions you want to use based on your scenario:
 
-+ Delegated permissions. I want the SharePoint Online Indexer to run on behalf of a user. The indexer will only be able to access sites and files the user has access to. The indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to log in on behalf of the user.
-+ Application permissions. I want the SharePoint Online indexer to run as a service. The indexer will be able to access all sites and files in the SharePoint Online tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint Online tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before being able to index any content.
++ Delegated permissions, where the indexer runs under the identity of the user or app that sent the request. Data access is limited to the sites and files to which the user has access. To support deleted permissions, the indexer requires a [device code prompt](../active-directory/develop/v2-oauth2-device-code.md) to log in on behalf of the user.
++ Application permissions, where the indexer runs under the identity of the SharePoint Online tenant with access to all sites and files within the SharePoint Online tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint Online tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
-### Step 3: Create an AAD application
-The SharePoint Online indexer will use this AAD application for authentication.
+### Step 3: Create an Azure AD application
+The SharePoint Online indexer will use this Azure AD application for authentication.
 
 1.	Navigate to the [Azure portal](https://portal.azure.com/).
 
@@ -78,38 +78,40 @@ The SharePoint Online indexer will use this AAD application for authentication.
     4.	Select **Register**
 
 1.	Select **API permissions** from the menu on the left, then **Add a permission**, then **Microsoft Graph**.
-    1. If the indexer is using delegated API permissions, then select **Delegated permissions** and add the following:
-        1. **Delegated - Files.Read.All**
-        2. **Delegated - Sites.Read.All**
-        3. **Delegated - User.Read**
+
+    + If the indexer is using delegated API permissions, then select **Delegated permissions** and add the following:
+
+        + **Delegated - Files.Read.All**
+        + **Delegated - Sites.Read.All**
+        + **Delegated - User.Read**
         ![Delegated API permissions](media/search-howto-index-sharepoint-online/delegated-api-permissions.png "Delegated API permissions")
         Using delegated permissions means that the indexer will access the SharePoint site in the user context. So when you run the indexer it will only have access to the content that the logged in user has access to. User login happens when creating the indexer or updating the date source. The login step is described later in this article.
-    2. If the indexer is using application API permissions, then select **Application permissions** and add the following:
-        1. **Application - Files.Read.All**
-        2. **Application - Sites.Read.All**
+    + If the indexer is using application API permissions, then select **Application permissions** and add the following:
+
+        + **Application - Files.Read.All**
+        + **Application - Sites.Read.All**
         ![Application API permissions](media/search-howto-index-sharepoint-online/application-api-permissions.png "Application API permissions")
         Using application permissions means that the indexer will access the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint Online tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
 
 1. Give admin consent.
 
-    Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these are the case, you’ll need to have a tenant admin grant consent for this AAD application before creating the indexer.
+    Tenant admin consent is required when using application API permissions. Some tenants are locked down in such a way that tenant admin consent is required for delegated API permissions as well. If either of these are the case, you’ll need to have a tenant admin grant consent for this Azure AD application before creating the indexer.
 
-    If you are using delegated permissions, because not all tenants have this requirement we recommend first skipping this step and continuing on with the instructions. You’ll know if you need admin consent if when creating the indexer, the authentication fails telling you that you need an admin to approve the authentication. In that case, have a tenant admin grant consent using the button below.
+    ![Azure AD app grant admin consent](media/search-howto-index-sharepoint-online/Azure AD-app-grant-admin-consent.png "Azure AD app grant admin consent")
 
-    ![AAD app grant admin consent](media/search-howto-index-sharepoint-online/aad-app-grant-admin-consent.png "AAD app grant admin consent")
+1. Select the **Authentication** tab. Set **Allow public client flows** to **Yes** then select **Save**.
 
-1.	Select the **Authentication** tab. Set **Allow public client flows** to **Yes** then select **Save**.
+1. Select **+ Add a platform**, then **Mobile and desktop applications**, then check `https://login.microsoftonline.com/common/oauth2/nativeclient`, then **Configure**.
 
-1.	Select **+ Add a platform**, then **Mobile and desktop applications**, then check `https://login.microsoftonline.com/common/oauth2/nativeclient`, then **Configure**.
+    ![Azure AD app authentication configuration](media/search-howto-index-sharepoint-online/Azure AD-app-authentication-configuration.png "Azure AD app authentication configuration")
 
-    ![AAD app authentication configuration](media/search-howto-index-sharepoint-online/aad-app-authentication-configuration.png "AAD app authentication configuration")
+1. (Application API Permissions only) To authenticate to the Azure AD application using application permissions, the indexer requires a client secret.
 
-1. (Application API Permissions only) To authenticate to the AAD application using application permissions, the indexer requires a client secret.
-    1. Select **Certificates & Secrets** from the menu on the left, then **Client secrets**, then **New client secret**
+    + Select **Certificates & Secrets** from the menu on the left, then **Client secrets**, then **New client secret**
     ![New client secret](media/search-howto-index-sharepoint-online/application-client-secret.png "New client secret")
-    1. In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires it will need to be recreated and the indexer needs to be updated with the new secret.
+    + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires it will need to be recreated and the indexer needs to be updated with the new secret.
     ![Setup client secret](media/search-howto-index-sharepoint-online/application-client-secret-setup.png "Setup client secret")
-    1. The new client secret will appear in the secret list. Once you navigate away from the page the secret will no longer be visible, so copy it using the copy button and save it in a secure location.
+    + The new client secret will appear in the secret list. Once you navigate away from the page the secret will no longer be visible, so copy it using the copy button and save it in a secure location.
     ![Copy client secret](media/search-howto-index-sharepoint-online/application-client-secret-copy.png "Copy client secret")
 
 <a name="create-data-source"></a>
@@ -123,7 +125,7 @@ A data source specifies which data to index, credentials needed to access the da
 For SharePoint indexing, the data source must have the following required properties:
 + **name** is the unique name of the data source within your search service.
 + **type** must be "sharepoint". This is case sensitive.
-+ **credentials** provide the SharePoint Online endpoint and the AAD application (client) ID. An example SharePoint Online endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the SharePoint Online endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
++ **credentials** provide the SharePoint Online endpoint and the Azure AD application (client) ID. An example SharePoint Online endpoint is `https://microsoft.sharepoint.com/teams/MySharePointSite`. You can get the SharePoint Online endpoint by navigating to the home page of your SharePoint site and copying the URL from the browser.
 + **container** specifies which document library to index. More information on creating the container can be found in the [Controlling which documents are indexed](#controlling-which-documents-are-indexed) section of this document.
 
 To create a data source:
@@ -145,9 +147,12 @@ api-key: [admin key]
 The format of the connection string changes based on whether the indexer is using delegated API permissions or application API permissions
 
 + Delegated API permissions connection string format
-    `SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID];TenantId=[SharePoint Online site tenant id]`
+
+    `SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[Azure AD App ID];TenantId=[SharePoint Online site tenant id]`
+
 + Application API permissions connection string format
-    `SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[AAD App ID];ApplicationSecret=[AAD App client secret];TenantId=[SharePoint Online site tenant id]`
+
+    `SharePointOnlineEndpoint=[SharePoint Online site url];ApplicationId=[Azure AD App ID];ApplicationSecret=[Azure AD App client secret];TenantId=[SharePoint Online site tenant id]`
 
 > [!NOTE]
 > If the SharePoint Online site is in the same tenant as the search service and system-assigned managed identity is enabled, `TenantId` doesn't have to be included in the connection string. If the SharePoint Online site is in a different tenant from the search service, `TenantId` must be included.
@@ -231,7 +236,7 @@ There are a few steps to creating the indexer:
 
 1.	Approve the permissions that are being requested.
 
-    ![Approve API permissions](media/search-howto-index-sharepoint-online/aad-app-approve-api-permissions.png "Approve API permissions")
+    ![Approve API permissions](media/search-howto-index-sharepoint-online/Azure AD-app-approve-api-permissions.png "Approve API permissions")
 
 1.	Resend the indexer create request. This time the request should succeed. 
 
