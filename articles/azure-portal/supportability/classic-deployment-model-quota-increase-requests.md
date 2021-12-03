@@ -47,7 +47,7 @@ Follow the instructions below to create a vCPU quota increase request for the Cl
 
 1. Select the subscription that needs an increased quota.
 
-1. Select **Usage + quotas**
+1. Select **Usage + quotas**.
 
 1. In the upper right corner, select **Request increase**.
 

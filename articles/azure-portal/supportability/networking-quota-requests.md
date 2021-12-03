@@ -44,13 +44,13 @@ Follow the instructions below to create a networking quota increase request by u
 
 ## Request networking quota increase from Usage + quotas
 
-Follow these instructions to create a networking quota increase request from **Usage + quota** in the Azure portal.
+Follow these instructions to create a networking quota increase request from **Usage + quotas** in the Azure portal.
 
 1. From https://portal.azure.com, search for and select **Subscriptions**.
 
 1. Select the subscription that needs an increased quota.
 
-1. Select **Usage + quotas**
+1. Select **Usage + quotas**.
 
 1. In the upper right corner, select **Request increase**.
 
