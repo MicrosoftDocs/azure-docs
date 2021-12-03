@@ -3,7 +3,7 @@ title: Alternative methods for migrating to App Service Environment v3
 description: Migrate to App Service Environment v3 Without Using the Migration Tool
 author: seligj95
 ms.topic: article
-ms.date: 12/20/2022
+ms.date: 12/20/2021
 ms.author: jordanselig
 ---
 # Migrate to App Service Environment v3 without using the migration tool
