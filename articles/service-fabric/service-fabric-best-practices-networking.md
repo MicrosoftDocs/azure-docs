@@ -62,8 +62,8 @@ These rules are mandatory for a proper operational cluster. Described is the min
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action        | Mandatory
 |---        |---                |---         |---       |---                |---               |---           |---
 |3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow         | No
-|3910       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | No
-|3920       |Client API         |19000       |TCP       |Internet           |Any               |Allow         | No
+|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow         | No
+|3920       |SFX + Client API   |19080       |TCP       |Internet           |Any               |Allow         | Yes
 |3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow         | Yes
 |3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
 |3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow         | Yes
@@ -75,9 +75,9 @@ More information about the inbound security rules:
 
 * **Azure portal**. This port is used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
 
-* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell(HTTP)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability for those operations. 
-
 * **Client API**. The client connection endpoint for APIs used by PowerShell(Classic). 
+
+* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell(HTTP)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. 
 
 * **Cluster**. Used for inter-node communication; should never be blocked.
 
