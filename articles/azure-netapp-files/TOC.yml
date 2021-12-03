@@ -189,9 +189,9 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
-    - name: Mount or unmount a volume
+    - name: Mount volumes
       items:
-      - name: Mount or unmount a volume
+      - name: Mount a volume for Windows or Linux VMs
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Manage volume capacity and performance 
       items:
