@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
-This article helps you configure an Always On VPN user tunnel. For information about configuring a device tunnel, see [Configure and Always On VPN device tunnel](vpn-gateway-howto-always-on-device-tunnel.md).
+This article helps you configure an Always On VPN user tunnel. For information about configuring a device tunnel, see [Configure an Always On VPN device tunnel](vpn-gateway-howto-always-on-device-tunnel.md).
 
 ## Configure the gateway
 
