@@ -84,7 +84,7 @@ When you provision a premium file share, you specify how many GiBs your workload
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
 | Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (ingress + egress) (MiB/sec) |
-|-|-|-|-|-|-|
+|-|-|-|-|-|
 | 100 | 500 | Up to 4,000 | 12,600,000 | 110 |
 | 500 | 900 | Up to 4,000 | 11,160,000 | 150 |
 | 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 203 |
