@@ -149,6 +149,7 @@ If you want to try other quickstarts or tutorials, keep the resources that you c
   - C#
 - .NET Core 3.1 SDK on your development machine.
 
+---
 ## Next steps
 
 - Learn more about managing video's [retention policy](../manage-retention-policy.md)
