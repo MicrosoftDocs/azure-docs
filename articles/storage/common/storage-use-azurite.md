@@ -182,11 +182,6 @@ The extension supports the following Visual Studio Code commands. To open the co
 
 ### [npm](#tab/npm)
 
-This installation method requires that you have [Node.js version 8.0 or later](https://nodejs.org) installed. Node Package Manager (npm) is the package management tool included with every Node.js installation. After installing Node.js, execute the following `npm` command to install Azurite.
-
-```console
-npm install -g azurite
-```
 Launch Azurite by issuing the following command:
 
 ```console
