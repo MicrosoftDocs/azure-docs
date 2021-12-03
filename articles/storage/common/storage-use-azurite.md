@@ -63,8 +63,6 @@ This installation method requires that you have [Node.js version 8.0 or later](h
 npm install -g azurite
 ```
 
-After installing Azurite, see [Run Azurite from a command line](#run-azurite-from-a-command-line).
-
 ### [Docker Hub](#tab/docker-hub)
 
 Use [DockerHub](https://hub.docker.com/) to pull the [latest Azurite image](https://hub.docker.com/_/microsoft-azure-storage-azurite) by using the following command:
@@ -220,7 +218,7 @@ This command tells Azurite to store all data in a particular directory, *c:\azur
 
 ---
 
-## Azurite command-line options
+## Command-line options
 
 This section details the command line switches available when launching Azurite.
 
