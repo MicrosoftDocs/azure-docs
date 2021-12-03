@@ -1492,3 +1492,12 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mcuxpresso
     title: MCUXpresso
+# Owner: cshoe
+- id: container-apps
+  title: Template language
+  prompt: Select a template language
+  pivots:
+  - id: container-apps-arm
+    title: Azure Resource Manager (ARM) template
+  - id: container-apps-bicep
+    title: Bicep
