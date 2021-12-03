@@ -2,7 +2,10 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 12/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # What's new in Azure Backup
@@ -14,6 +17,8 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2021
+  - [Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal](#archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
+  - [Multi-user authorization using Resource Guard (in preview)](#multi-user-authorization-using-resource-guard-in-preview)
   - [Multiple backups per day for Azure Files (in preview)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
 - July 2021
@@ -45,6 +50,20 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal
+
+Azure Backup now supports the movement of recovery points to the Vault-archive tier for SQL Server and SAP HANA in Azure Virtual Machines from the Azure portal. This allows you to move the archivable recovery points corresponding to a particular database to the Vault-archive tier at one go.
+
+Also, the support is extended via Azure CLI for the above workloads, along with Azure Virtual Machines (in preview).
+
+For more information, see [Archive Tier support in Azure Backup](archive-tier-support.md).
+
+## Multi-user authorization using Resource Guard (in preview)
+
+Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
+
+For more information, see [how to protect Recovery Services vault and manage critical operations with MUA](/azure/backup/multi-user-authorization).
+
 ## Multiple backups per day for Azure Files (in preview)
 
 Low RPO (Recovery Point Objective) is a key requirement for Azure Files that contains the frequently updated, business-critical data. To ensure minimal data loss in the event of a disaster or unwanted changes to file share content, you may prefer to take backups more frequently than once a day.
@@ -70,7 +89,7 @@ Currently, Azure Backup supports built-in metrics for the following workload typ
 - SAP HANA databases in Azure VM
 - Azure Files.
 
-For more details, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
+For more information, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
 
 ## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
 

@@ -8,8 +8,7 @@ ms.topic: quickstart
 ms.date: 03/29/2021
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-python
-
+ms.custom: devx-track-python, mode-portal
 ---
 # Quickstart: Create a graph database in Azure Cosmos DB using Python and the Azure portal
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
@@ -29,10 +28,17 @@ In this quickstart, you create and manage an Azure Cosmos DB Gremlin (graph) API
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Or [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription.
 - [Python 3.6+](https://www.python.org/downloads/) including [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 - [Python Driver for Gremlin](https://github.com/apache/tinkerpop/tree/master/gremlin-python).
+
+  You can also install the Python driver for Gremlin by using the `pip` command line:
+
+   ```bash
+   pip install gremlinpython
+   ```
+
 - [Git](https://git-scm.com/downloads).
 
 > [!NOTE]
-> This quickstart requires a graph database account created after December 20th, 2017. Existing accounts will support Python once they’re migrated to general availability.
+> This quickstart requires a graph database account created after December 20, 2017. Existing accounts will support Python once they’re migrated to general availability.
 
 ## Create a database account
 
@@ -241,4 +247,3 @@ In this quickstart, you learned how to create an Azure Cosmos DB account, create
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
-

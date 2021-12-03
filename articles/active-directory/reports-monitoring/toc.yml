@@ -57,6 +57,8 @@
   items:
   - name: Reports
     items:
+    - name: Access activity logs
+      href: howto-access-activity-logs.md
     - name: Download logs
       href: howto-download-logs.md
     - name: Manage inactive user accounts in Azure AD

@@ -5,7 +5,7 @@ ms.service: stream-analytics
 author: sidramadoss
 ms.author: sidram
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.date: 04/09/2021
 ---
 

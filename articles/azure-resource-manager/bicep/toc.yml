@@ -82,6 +82,8 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
+    - name: Deployment script
+      href: deployment-script-bicep.md
     - name: Linter
       items:
       - name: Linter
@@ -108,8 +110,20 @@
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
+      - name: Logical parameter
+        href: patterns-logical-parameter.md
+      - name: Name generation
+        href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+  - name: Scenarios
+    items:
+    - name: Access control
+      href: scenarios-rbac.md
+    - name: Secrets
+      href: scenarios-secrets.md
+    - name: Virtual networks
+      href: scenarios-virtual-networks.md
   - name: Deploy
     items:
     - name: Predeployment checks
@@ -196,6 +210,6 @@
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource

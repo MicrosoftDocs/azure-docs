@@ -69,6 +69,7 @@ Region |  Same region as virtual machine  | Cache storage account should be in t
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
 Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. ASR performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 
 The table below lists the limits in terms of number of disks that can replicate to a single storage account.
 
@@ -221,7 +222,7 @@ RAM | Azure Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
-Virtual machine scale sets | Not supported |
+VMSS Flex | Availability scenario - supported. Scalability scenario - not supported. |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.
 Azure Gallery images - Third party published | Supported | Supported if the VM runs on a supported operating system.
 Custom images - Third party published | Supported | Supported if the VM runs on a supported operating system.
@@ -256,6 +257,7 @@ Temporary disk | Not supported | The temporary disk is always excluded from repl
 Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
 Data disk minimum size | No restriction for unmanaged disks. 2 GB for managed disks |
 Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/sizes.md) about VM sizes.
+Data disk maximum size per storage account (for unmanaged disks) | 35 TB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
 Data disk change rate | Maximum of 20 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
 Data disk - premium storage account | Supported | If a VM has disks spread across premium and standard storage accounts, you can select a different target storage account for each disk, to ensure you have the same storage configuration in the target region.
