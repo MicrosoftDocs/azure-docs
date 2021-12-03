@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 11/22/2021
+ms.date: 12/03/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations Apps functional validation](dynamics-365-operations-validation.md).
 
 ## Automated validation phase
 
