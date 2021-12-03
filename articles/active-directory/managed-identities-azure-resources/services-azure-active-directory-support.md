@@ -13,7 +13,7 @@ manager: karenh444
 
 # Azure services that support Azure AD authentication
 
-The following services support Azure AD authentication. New services are added to Azure every day. Please refer to each service's documentation for specific details on their level of Azure Active Directory support.
+The following services support Azure AD authentication. New services are added to Azure every day. Refer to each service's documentation for specific details on their level of Azure Active Directory support.
 
 | Service Name                    |  Documentation                                                                                                                                                                                |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -23,7 +23,7 @@ The following services support Azure AD authentication. New services are added t
 | Azure Batch                     | [Authenticate Batch service solutions with Active Directory](../../batch/batch-aad-auth.md)         |
 | Azure Container Registry        | [Authenticate with an Azure container registry](../../container-registry/container-registry-authentication.md)                                                                       |
 | Azure Cognitive Services        | [Authenticate requests to Azure Cognitive Services](../../cognitive-services/authentication.md?tabs=powershell#authenticate-with-azure-active-directory)                                                                          |
-| Azure DataBricks                | [Authenticate using Azure Active Directory tokens](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/aad/)
+| Azure Databricks                | [Authenticate using Azure Active Directory tokens](https://docs.microsoft.com/azure/databricks/dev-tools/api/latest/aad/)
 | Azure Data Explorer             | [How-To Authenticate with AAD for Azure Data Explorer Access](https://docs.microsoft.com/azure/data-explorer/how-to-authenticate-with-aad)                                                                                                     |
 | Azure Data Lake Storage Gen1    | [Authentication with Azure Data Lake Storage Gen1 using Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)                                                                                                  |
 | Azure Digital Twins             | [Set up an Azure Digital Twins instance and authentication (portal)](../../digital-twins/how-to-set-up-instance-portal.md#set-up-user-access-permissions)                                                                                            |
