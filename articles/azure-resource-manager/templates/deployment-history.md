@@ -27,7 +27,9 @@ You can view details about a resource group deployment through the Azure portal,
 
 # [Portal](#tab/azure-portal)
 
-1. Select the resource group you want to examine.
+1. Select the **resource group** you want to examine.
+
+   :::image type="content" source="media/deployment-history/select-resource-group.png" alt-text="Screenshot of selecting resource group.":::
 
 1. Select the link under **Deployments**.
 
@@ -39,7 +41,7 @@ You can view details about a resource group deployment through the Azure portal,
 
 1. A summary of the deployment is displayed, including the correlation ID.
 
-   :::image type="content" source="media/deployment-history/show-correlation-id.png" alt-text="Screenshot of deployment history that highlights correlation ID.":::
+   :::image type="content" source="media/deployment-history/show-correlation-id.png" alt-text="Screenshot of resource group deployment history that highlights correlation ID.":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -119,7 +121,9 @@ You can view the history of deployments to a subscription.
 
 # [Portal](#tab/azure-portal)
 
-1. Select the subscription you want to examine.
+1. Select the **subscription** you want to examine.
+
+   :::image type="content" source="media/deployment-history/select-subscription.png" alt-text="Screenshot of selecting subscription.":::
 
 1. In the left pane, select **Deployments**.
 
@@ -131,7 +135,7 @@ You can view the history of deployments to a subscription.
 
 1. A summary of the deployment is displayed, including the correlation ID.
 
-   :::image type="content" source="media/deployment-history/subscription-deployment-details.png" alt-text="Screenshot of deployment history that highlights correlation ID.":::
+   :::image type="content" source="media/deployment-history/subscription-deployment-details.png" alt-text="Screenshot of subscription deployment history that highlights correlation ID.":::
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -211,9 +215,11 @@ You can view the history of deployments to a management group.
 
 # [Portal](#tab/azure-portal)
 
-1. Select the management group you want to examine.
+1. Select the **management group** you want to examine. If you don't have sufficient permissions to view details about the management group, you won't be able to select it.
 
-1. Select the link under **Deployments**. You won't see this option, if you don't have sufficient permissions to view deployment history for a management group.
+   :::image type="content" source="media/deployment-history/select-management-group.png" alt-text="Screenshot of selecting management group.":::
+
+1. Select the link under **Deployments**.
 
    :::image type="content" source="media/deployment-history/select-management-group-deployments.png" alt-text="Screenshot of management group overview that shows deployment option.":::
 
@@ -223,11 +229,11 @@ You can view the history of deployments to a management group.
 
 1. A summary of the deployment is displayed, including the correlation ID.
 
-   :::image type="content" source="media/deployment-history/management-group-history.png" alt-text="Screenshot of deployment history that highlights correlation ID.":::
+   :::image type="content" source="media/deployment-history/management-group-history.png" alt-text="Screenshot of management group deployment history that highlights correlation ID.":::
 
 # [PowerShell](#tab/azure-powershell)
 
-To list all deployments for a management group, use the [Get-AzManagementGroupDeployment](/powershell/module/az.resources/get-azmanagementgroupdeployment) command.
+To list all deployments for a management group, use the [Get-AzManagementGroupDeployment](/powershell/module/az.resources/get-azmanagementgroupdeployment) command. If you don't have sufficient permissions to view deployments for the management group, you'll get an error.
 
 ```azurepowershell-interactive
 Get-AzManagementGroupDeployment -ManagementGroupId examplemg
@@ -247,7 +253,7 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for a management group, use [az deployment mg list](/cli/azure/deployment/mg#az_deployment_mg_list).
+To list all the deployments for a management group, use [az deployment mg list](/cli/azure/deployment/mg#az_deployment_mg_list). If you don't have sufficient permissions to view deployments for the management group, you'll get an error.
 
 ```azurecli-interactive
 az deployment mg list --management-group-id examplemg
@@ -267,7 +273,7 @@ az deployment mg show --management-group-id examplemg --name ExampleDeployment -
 
 # [HTTP](#tab/http)
 
-To list the deployments for a management group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Management Group Scope](/rest/api/resources/deployments/list-at-management-group-scope).
+To list the deployments for a management group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Management Group Scope](/rest/api/resources/deployments/list-at-management-group-scope). If you don't have sufficient permissions to view deployments for the management group, you'll get an error.
 
 ```rest
 GET https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -307,7 +313,7 @@ The portal doesn't currently show tenant deployments.
 
 # [PowerShell](#tab/azure-powershell)
 
-To list all deployments for the current tenant, use the [Get-AzTenantDeployment](/powershell/module/az.resources/get-aztenantdeployment) command.
+To list all deployments for the current tenant, use the [Get-AzTenantDeployment](/powershell/module/az.resources/get-aztenantdeployment) command. If you don't have sufficient permissions to view deployments for the tenant, you'll get an error.
 
 ```azurepowershell-interactive
 Get-AzTenantDeployment
@@ -327,13 +333,13 @@ To get the correlation ID, use:
 
 # [Azure CLI](#tab/azure-cli)
 
-To list all the deployments for the current tenant, use [az deployment tenant list](/cli/azure/deployment/tenant#az_deployment_tenant_list).
+To list all the deployments for the current tenant, use [az deployment tenant list](/cli/azure/deployment/tenant#az_deployment_tenant_list). If you don't have sufficient permissions to view deployments for the tenant, you'll get an error.
 
 ```azurecli-interactive
 az deployment tenant list
 ```
 
-To get a specific deployment, use the [az deployment tenant show](/cli/azure/deployment/tenant?view=azure-cli-latest#az_deployment_tenant_show).
+To get a specific deployment, use the [az deployment tenant show](/cli/azure/deployment/tenant#az_deployment_tenant_show).
 
 ```azurecli-interactive
 az deployment tenant show --name ExampleDeployment
@@ -347,7 +353,7 @@ az deployment tenant show --name ExampleDeployment --query properties.correlatio
 
 # [HTTP](#tab/http)
 
-To list the deployments for the current tenant, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Tenant Scope](/rest/api/resources/deployments/list-at-tenant-scope).
+To list the deployments for the current tenant, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Tenant Scope](/rest/api/resources/deployments/list-at-tenant-scope). If you don't have sufficient permissions to view deployments for the tenant, you'll get an error.
 
 ```rest
 GET https://management.azure.com/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -411,6 +417,12 @@ To get the status message of failed operations, use the following command:
 (Get-AzResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -Name ExampleDeployment | Where-Object { $_.ProvisioningState -eq "Failed" }).StatusMessage
 ```
 
+To view deployment operations for other scopes, use:
+
+* [Get-AzDeploymentOperation](/powershell/module/az.resources/get-azdeploymentoperation)
+* [Get-AzManagementGroupDeploymentOperation](/powershell/module/az.resources/get-azmanagementgroupdeploymentoperation)
+* [Get-AzTenantDeploymentOperation](/powershell/module/az.resources/get-aztenantdeploymentoperation)
+
 # [Azure CLI](#tab/azure-cli)
 
 To view the deployment operations for deployment to a resource group, use the [az deployment operation group list](/cli/azure/deployment/operation/group#az_deployment_operation_group_list) command. You must have Azure CLI 2.6.0 or later.
@@ -430,6 +442,12 @@ To get the status message of failed operations, use the following command:
 ```azurecli-interactive
 az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
+
+To view deployment operations for other scopes, use:
+
+* [az deployment operation sub list](/cli/azure/deployment/operation/sub#az_deployment_operation_sub_list)
+* [az deployment operation mg list](/cli/azure/deployment/operation/sub#az_deployment_operation_mg_list)
+* [az deployment operation tenant list](/cli/azure/deployment/operation/sub#az_deployment_operation_tenant_list).
 
 # [HTTP](#tab/http)
 
@@ -474,6 +492,12 @@ The response includes an error message.
 ```
 
 ---
+
+To view deployment operations for other scopes, use:
+
+* [Deployment Operations - List At Subscription Scope](/rest/api/resources/deployment-operations/list-at-subscription-scope)
+* [Deployment Operations - List At Management Group Scope](/rest/api/resources/deployment-operations/list-at-management-group-scope)
+* [Deployment Operations - List At Tenant Scope](/rest/api/resources/deployment-operations/list-at-tenant-scope)
 
 ## Next steps
 
