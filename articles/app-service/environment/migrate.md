@@ -1,9 +1,9 @@
 ---
-title: Migrate to App Service Environment v3
+title: Migration to App Service Environment v3
 description: Overview of the migration process to an App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 11/19/2021
+ms.date: 12/20/2021
 ms.author: jordanselig
 ---
 # Migration to App Service Environment v3
@@ -85,7 +85,7 @@ During full migration, the following events will occur:
   - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration)
 - The public addresses that are used by the ASE will change to the IPs identified previously
 
-As in the IP generation step, you won't be able to scale or modify you ASE or deploy apps to it during this process. When migration is complete, the apps that were on the old ASE will be running on the new ASEv3.
+As in the IP generation step, you won't be able to scale or modify your ASE or deploy apps to it during this process. When migration is complete, the apps that were on the old ASE will be running on the new ASEv3.
 
 > [!NOTE]
 > Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and cores per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
@@ -107,7 +107,7 @@ The following scenarios aren't planned for support using the migration tool. If 
 - **What if migrating my App Service Environment is not currently supported?**  
   Support for other scenarios will roll out over the next few months in future versions of the preview. Check back for updates on this page and look for announcements on the [App Service Blog](https://azure.github.io/AppService/). If you have an unsupported environment and want to migrate sooner, see [migration alternatives](migration-alternatives.md).
 - **Will I experience downtime during the migration?**  
-  Yes, you should expect about one hour of downtime during the full migration step so plan accordingly. If downtime isn't an option for you, see [migration alternatives](migration-alternatives.md)
+  Yes, you should expect about one hour of downtime during the full migration step so plan accordingly. If downtime isn't an option for you, see [migration alternatives](migration-alternatives.md).
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  
@@ -115,7 +115,7 @@ The following scenarios aren't planned for support using the migration tool. If 
 - **What if my App Service Environment is zone pinned?**  
   Zone pinned ASE is currently not a supported scenario for migration. When supported, zone pinned ASE will be migrated to zone redundant ASEv3.
 - **What properties of my App Service Environment will change?**  
-  You'll now be on ASEv3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB ASE, they'll keep the same ILB IP address. For internet facing ASE, the public IP address and the outbound IP address will change. Note for internet facing ASE, previously there was a single IP for both inbound and outbound. For ASEv3, they're separate. For more information, see [ASEv3 networking](networking.md#addresses).
+  You'll now be on ASEv3 so be sure to review the [features and feature differences](overview.md#feature-differences) compared to previous versions. For ILB ASE, you'll keep the same ILB IP address. For internet facing ASE, the public IP address and the outbound IP address will change. Note for internet facing ASE, previously there was a single IP for both inbound and outbound. For ASEv3, they're separate. For more information, see [ASEv3 networking](networking.md#addresses).
 - **What happens if migration fails or there is an unexpected issue during the migration?**  
   If there's an unexpected issue, support teams will be on hand. It's recommended to migrate dev environments before touching any production environments.
 - **What happens to my old App Service Environment?**  
