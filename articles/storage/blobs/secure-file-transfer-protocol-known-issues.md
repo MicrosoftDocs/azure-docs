@@ -24,7 +24,7 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Data redundancy options
 
-- Geo-redundant storage (GRS), and Geo-zone-redundant storage (GZRS) are not supported in accounts that have SFTP enabled.
+- Geo-redundant storage (GRS), Geo-zone-redundant storage (GZRS), Read-access geo-redundant storage (RA-GRS), and Read-access geo-zone-redundant storage (RA-GZRS) are not supported in accounts that have SFTP enabled.
 
 ## Authorization
 
