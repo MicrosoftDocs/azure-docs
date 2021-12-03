@@ -18,7 +18,7 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 |**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register-a-database)| [Yes](#scan-a-database)| No | No | No | No| Yes** |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
 
 \** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
 
