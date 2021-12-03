@@ -63,7 +63,7 @@ az kusto database create --cluster-name $clustername \
     --resource-group $resourcegroup
 
 # Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --appId $clustername)
+SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name $clustername)
 
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \
