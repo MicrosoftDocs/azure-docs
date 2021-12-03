@@ -138,10 +138,6 @@ The following features are supported for Linux containers:
     | **Mount path** | Directory inside the Linux container to mount to Azure Storage. Do not use `/` or `/home`.|
     ::: zone-end
 
-    > [!CAUTION]
-    > The directory specified in **Mount path** in the container should be empty. Any content stored in this directory is deleted when the Azure Storage is mounted (if you specify a directory under `/home`, for example). If you are migrating files for an existing app, make a backup of the app and its content before you begin.
-    >
-    
 # [Azure CLI](#tab/cli)
 
 Use the [`az webapp config storage-account add`](/cli/azure/webapp/config/storage-account#az_webapp_config_storage_account_add) command. For example:
