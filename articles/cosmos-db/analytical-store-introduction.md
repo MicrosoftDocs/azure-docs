@@ -155,6 +155,9 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * \t
   * = (Equal sign)
   * " (Quotation mark)
+
+> [!NOTE]
+> White spaces are also listed in the Spark error message returned when you reach this limitation. But we have added a special treatment for white spaces, please check out more details in the items below.
  
 * If you have properties names using the characters listed above, the alternatives are:
    * Change your data model in advance to avoid these characters.
@@ -163,26 +166,23 @@ The following constraints are applicable on the operational data in Azure Cosmos
    * Use the `dropColumn` Spark option to ignore the affected columns and load all other columns into a DataFrame. The syntax is:
 
 ```Python
+# Removing one column:
 df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
      .option("spark.synapse.dropColumn","FirstName,LastName")\
+     .load()
+     
+# Removing multiple columns:
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
+     .option("spark.cosmos.dropMultiColumnSeparator", ";")\
      .load()  
 ```
-> [!NOTE]
-> To drop multiple columns, just add more `dropColumn` options, in any order. Example:
-> 
-> ```Python
-> df = spark.read\
->     .format("cosmos.olap")\
->     .option("spark.synapse.linkedService","<your-linked-service-name>")\
->     .option("spark.synapse.container","<your-container-name>")\
->     .option("spark.synapse.dropColumn","FirstName,LastName")\
->     .option("spark.synapse.dropColumn","StreetName,StreetNumber")\
->     .load()  
-> ```
- 
 
 * Azure Synapse Spark now supports properties with whitespaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
 
