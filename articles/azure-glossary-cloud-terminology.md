@@ -59,7 +59,7 @@ See [Manage the availability of Windows virtual machines](./virtual-machines/ava
 
 ## geo
 A defined boundary for data residency that typically contains two or more regions. The boundaries may be within or beyond national borders and are influenced by tax regulation. Every geo has at least one region. Examples of geos are Asia Pacific and Japan. Also called *geography*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
@@ -89,7 +89,7 @@ The secure web portal used to deploy and manage Azure services.
 
 ## region
 An area within a geo that does not cross national borders and contains one or more datacenters. Pricing, regional services, and offer types are exposed at the region level. A region is typically paired with another region, which can be up to several hundred miles away. Regional pairs can be used as a mechanism for disaster recovery and high availability scenarios. Also referred to as *location*.  
-See [Azure Regions](best-practices-availability-paired-regions.md)
+See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## resource
 An item that is part of your Azure solution. Each Azure service enables you to deploy different types of resources, such as databases or virtual machines.   

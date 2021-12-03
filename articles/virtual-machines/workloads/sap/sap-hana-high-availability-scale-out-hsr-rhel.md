@@ -481,13 +481,13 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     chmod 775 /hana/shared
     ```
 
-1. **[1]** Verify that you can sign in **hana-s1-db2** and **hana-s1-db3** via secure shell (SSH), without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[1]** Verify that you can sign in **hana-s1-db2** and **hana-s1-db3** via secure shell (SSH), without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-1. **[2]** Verify that you can sign in **hana-s2-db2** and **hana-s2-db3** via SSH, without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[2]** Verify that you can sign in **hana-s2-db2** and **hana-s2-db3** via SSH, without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3

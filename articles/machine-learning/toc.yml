@@ -104,6 +104,8 @@
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: "Create a secure workspace"
       href: "tutorial-create-secure-workspace.md"
+    - name: "Create a secure workspace with templates"
+      href: "tutorial-create-secure-workspace-template.md"
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -299,6 +301,8 @@
                 href: how-to-manage-rest.md
               - name: Link to Azure Synapse Analytics workspace
                 href: how-to-link-synapse-ml-workspaces.md
+              - name: Workspace Diagnostics
+                href: how-to-workspace-diagnostic-api.md
           - name: Create & manage compute resources
             items:
               - name: Compute instance
