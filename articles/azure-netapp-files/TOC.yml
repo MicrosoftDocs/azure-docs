@@ -69,13 +69,14 @@
         href: azure-netapp-files-smb-performance.md
       - name: Azure virtual machine SKUs best practices
         href: performance-virtual-machine-sku.md 
-  - name: Application volume groups
-      name: Application volume groups for SAP HANA
-      items: 
-      - name: Understand application volume group for SAP HANA
-        href: application-volume-group-introduction.md
-      - name: Requirements and considerations for application volume group for SAP HANA
-        href: application-volume-group-considerations.md
+  - name: Application volume groups 
+    items:
+      - name: Application volume groups for SAP HANA
+        items: 
+        - name: Understand application volume group for SAP HANA
+          href: application-volume-group-introduction.md
+        - name: Requirements and considerations for application volume group for SAP HANA
+          href: application-volume-group-considerations.md
   - name: Data protection 
     items:
     - name: How Azure NetApp Files snapshots work
