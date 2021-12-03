@@ -30,7 +30,7 @@ Azure SQL Database lets you easily purchase a fully managed platform as a servic
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service-tiers-sql-database-vcore.md#service-tiers] to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -76,7 +76,7 @@ Compute costs are calculated differently based on each purchasing model.
 
 ### DTU compute costs
 
-In the DTU purchasing model, DTUs are offered in preconfigured bundles of compute resources and included storage to drive different levels of application performance. You are billed by the number of DTU units you allocate to your application. 
+In the DTU purchasing model, DTUs are offered in preconfigured bundles of compute resources and included storage to drive different levels of application performance. You are billed by the number of DTUs you allocate to your database for your application. 
 
 ### vCore compute costs 
 

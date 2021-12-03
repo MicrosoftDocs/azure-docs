@@ -32,7 +32,7 @@ The virtual core (vCore) purchase model used by Azure SQL Database provides seve
 
 A virtual core (vCore) represents a logical CPU and offers you the option to choose between generations of hardware and the physical characteristics of the hardware (for example, the number of cores, the memory, and the storage size). The vCore-based purchasing model gives you flexibility, control, transparency of individual resource consumption, and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage resources based on your workload needs.
 
-In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service-tiers-sql-database-vcore.md#service-tiers] to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
+In the vCore-based purchasing model for SQL Database, you can choose between the general purpose and business critical service tiers. Review [service tiers](service-tiers-sql-database-vcore.md#service-tiers) to learn more.  For single databases, you can also choose the [Hyperscale service tier](service-tier-hyperscale.md).
 
 The vCore-based purchasing model lets you independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, you pay for:
 
@@ -56,9 +56,6 @@ Service tier options in the vCore purchase model include general purpose, busine
 |**Discount models**| [Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|[Reserved instances](reserved-capacity-overview.md)<br/>[Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions  | [Azure Hybrid Benefit](../azure-hybrid-benefit.md) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
 | | |
 
-\* In preview
-
-\*\* In preview, for new Hyperscale databases only
 
 > [!NOTE]
 > For more information on the Service Level Agreement (SLA), see [SLA for Azure SQL Database](https://azure.microsoft.com/support/legal/sla/azure-sql-database/) 

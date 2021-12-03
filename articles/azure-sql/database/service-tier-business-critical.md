@@ -22,11 +22,11 @@ This article describes and compares the business critical service tier used by A
 
 ## Overview
 
-Premium/business critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities. The hyperscale service tier is currently only available for Azure SQL Database (not SQL Managed Instance), and is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for a database in Azure SQL Database substantially beyond the limits available for the general purpose and business critical service tiers.
+The business critical service tier model is based on a cluster of database engine processes. This architectural model relies on a fact that there is always a quorum of available database engine nodes and has minimal performance impact on your workload even during maintenance activities. The hyperscale service tier is currently only available for Azure SQL Database (not SQL Managed Instance), and is a highly scalable storage and compute performance tier that leverages the Azure architecture to scale out the storage and compute resources for a database in Azure SQL Database substantially beyond the limits available for the general purpose and business critical service tiers.
 
 Azure upgrades and patches underlying operating system, drivers, and SQL Server database engine transparently with the minimal down-time for end users. 
 
-Premium availability is enabled in Premium and business critical service tiers and it is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
+Premium availability is enabled in the business critical service tier and is designed for intensive workloads that cannot tolerate any performance impact due to the ongoing maintenance operations.
 
 Compute and storage is integrated on the single node in the premium model. High availability in this architectural model is achieved by replication of compute (SQL Server database engine process) and storage (locally attached SSD) deployed to a  four node cluster, using technology similar to SQL Server [Always On availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server).
 
@@ -34,14 +34,15 @@ Compute and storage is integrated on the single node in the premium model. High 
 
 Both the SQL Server database engine process and underlying .mdf/.ldf files are placed on the same node with locally attached SSD storage providing low latency to your workload. High availability is implemented using technology similar to SQL Server [Always On availability groups](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Every database is a cluster of database nodes with one primary database that is accessible for customer workloads, and a three secondary processes containing copies of data. The primary node constantly pushes changes to the secondary nodes in order to ensure that the data is available on secondary replicas if the primary node fails for any reason. Failover is handled by the SQL Server database engine – one secondary replica becomes the primary node and a new secondary replica is created to ensure there are enough nodes in the cluster. The workload is automatically redirected to the new primary node.
 
-In addition, business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
+In addition, the business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
 > [!NOTE]
-> The business critical tier is called Premium in the DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
+> Azure SQL Database also offers the DTU-based purchasing model, which is not available for Azure SQL Managed Instance. The business critical tier is called Premium in the DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model for Azure SQL Database, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
+
 
 ## When to choose this service tier
 
-business critical service tier is designed for applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.
+The business critical service tier is designed for applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.
 
 The key reasons why you should choose business critical service tier instead of general purpose tier are:
 -    **Low I/O latency requirements** – workloads that need a fast response from the storage layer (1-2 milliseconds in average) should use business critical tier. 
