@@ -43,7 +43,7 @@ Before you can migrate to custom neural voice, your [application](https://aka.ms
 
 ## Custom voice details (retired)
 
-Read the following sections for detials on custom voice.
+Read the following sections for details on custom voice.
 
 ### Language support
 
