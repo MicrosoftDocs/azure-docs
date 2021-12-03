@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 7/13/2021
+ms.date: 12/3/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
@@ -60,7 +60,7 @@ The set of optional claims available by default for applications to use are list
 | `xms_pl`                   | User preferred language  | JWT ||The user's preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC ("en-us"). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant's preferred language, if set. Formatted LL ("en"). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | The reported email address for this user | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant.  For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  This value is not guaranteed to be correct, as it is based on user attestation - a user could claim to have someone else's email, or provide an email address that is actually their UPN.  If you require an addressable email address in your app, request this data from the user directly, using this as a sugestion or pre-fill in your UX. |
+| `email`                    | The reported email address for this user | JWT, SAML | MSA, Azure AD | This value is included by default if the user is a guest in the tenant. For managed users (the users inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope. This value is not guaranteed to be correct, and is mutable over time - never use it for authorization or to save data for a user, only use the object ID or subject claims. If you require an addressable email address in your app, request this data from the user directly, using this claim as a suggestion or pre-fill in your UX. |
 | `acct`                | Users account status in tenant | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
 | `groups`| Optional formatting for group claims |JWT, SAML| |Used with the GroupMembershipClaims setting in the [application manifest](reference-app-manifest.md), which must be set as well. For details see [Group claims](#configuring-groups-optional-claims) below. For more information about group claims, see [How to configure group claims](../hybrid/how-to-connect-fed-group-claims.md)
 | `upn`                      | UserPrincipalName | JWT, SAML  |           | An identifer for the user that can be used with the username_hint parameter.  Not a durable identifier for the user and should not be used to uniquely identity user information (for example, as a database key). Instead, use the user object ID (`oid`) as a database key. Users signing in with an [alternate login ID](../authentication/howto-authentication-use-email-signin.md) should not be shown their User Principal Name (UPN). Instead, use the following ID token claims for displaying sign-in state to the user: `preferred_username` or `unique_name` for v1 tokens and `preferred_username` for v2 tokens. Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case.  |
