@@ -3,7 +3,7 @@ title: Deployment history
 description: Describes how to view Azure Resource Manager deployment operations with the portal, PowerShell, Azure CLI, and REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 12/03/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -13,11 +13,17 @@ Azure Resource Manager enables you to view your deployment history. You can exam
 
 The deployment history for a resource group is limited to 800 deployments. As you near the limit, deployments are automatically deleted from the history. For more information, see [Automatic deletions from deployment history](deployment-history-deletions.md).
 
-For help with resolving particular deployment errors, see [Troubleshoot common Azure deployment errors](common-deployment-errors.md).
+For help with resolving particular deployment errors, see [Troubleshoot common Azure deployment errors](../troubleshooting/common-deployment-errors.md).
 
-## Get deployments and correlation ID
+## Correlation ID and support
 
-You can view details about a deployment through the Azure portal, PowerShell, Azure CLI, or REST API. Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
+Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
+
+The examples in this article show how to retrieve the correlation ID.
+
+## Get resource group deployments
+
+You can view details about a resource group deployment through the Azure portal, PowerShell, Azure CLI, or REST API.
 
 # [Portal](#tab/azure-portal)
 
@@ -79,14 +85,278 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 To list the deployments for a resource group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
-```
+```rest
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
 ```
 
 To get a specific deployment, use the following operation. For the latest API version number to use in the request, see [Deployments - Get](/rest/api/resources/deployments/get).
 
-```
+```rest
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
+```
+
+The response includes the correlation ID.
+
+```json
+{
+ ...
+ "properties": {
+   "mode": "Incremental",
+   "provisioningState": "Failed",
+   "timestamp": "2019-11-26T14:18:36.4518358Z",
+   "duration": "PT26.2091817S",
+   "correlationId": "11111111-1111-1111-1111-111111111111",
+   ...
+ }
+}
+```
+
+---
+
+## Get subscription deployments
+
+You can view the history of deployments to a subscription.
+
+# [Portal](#tab/azure-portal)
+
+1. Select the subscription you want to examine.
+
+1. In the left pane, select **Deployments**.
+
+   :::image type="content" source="media/deployment-history/select-subscription-deployments.png" alt-text="Screenshot of subscription with deployments option.":::
+
+1. Select one of the deployments from the deployment history.
+
+   :::image type="content" source="media/deployment-history/select-deployment-from-subscription.png" alt-text="Screenshot of deployment history for a subscription.":::
+
+1. A summary of the deployment is displayed, including the correlation ID.
+
+   :::image type="content" source="media/deployment-history/subscription-deployment-details.png" alt-text="Screenshot of deployment history that highlights correlation ID.":::
+
+# [PowerShell](#tab/azure-powershell)
+
+To list all deployments for the current subscription, use the `Get-AzSubscriptionDeployment` command. This command  is equivalent to [Get-AzDeployment](/powershell/module/az.resources/get-azdeployment).
+
+```azurepowershell-interactive
+Get-AzSubscriptionDeployment
+```
+
+To get a specific deployment from a subscription, add the `Name` parameter.
+
+```azurepowershell-interactive
+Get-AzSubscriptionDeployment -Name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurepowershell-interactive
+(Get-AzSubscriptionDeployment -Name ExampleDeployment).CorrelationId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list all the deployments for the current subscription, use [az deployment sub list](/cli/azure/deployment/sub?#az_deployment_sub_list).
+
+```azurecli-interactive
+az deployment sub list
+```
+
+To get a specific deployment, use the [az deployment sub show](/cli/azure/deployment/sub#az_deployment_sub_show).
+
+```azurecli-interactive
+az deployment sub show --name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurecli-interactive
+az deployment sub show --name ExampleDeployment --query properties.correlationId
+```
+
+# [HTTP](#tab/http)
+
+To list the deployments for a subscription, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Subscription Scope](/rest/api/resources/deployments/list-at-subscription-scope).
+
+```rest
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/?api-version={api-version}
+```
+
+To get a specific deployment, use the following operation. For the latest API version number to use in the request, see [Deployments - Get At Subscription Scope](/rest/api/resources/deployments/get-at-subscription-scope).
+
+```rest
+GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version={api-version}
+```
+
+The response includes the correlation ID.
+
+```json
+{
+ ...
+ "properties": {
+   "mode": "Incremental",
+   "provisioningState": "Failed",
+   "timestamp": "2019-11-26T14:18:36.4518358Z",
+   "duration": "PT26.2091817S",
+   "correlationId": "11111111-1111-1111-1111-111111111111",
+   ...
+ }
+}
+```
+
+---
+
+## Get management group deployments
+
+You can view the history of deployments to a management group.
+
+# [Portal](#tab/azure-portal)
+
+1. Select the management group you want to examine.
+
+1. Select the link under **Deployments**. You won't see this option, if you don't have sufficient permissions to view deployment history for a management group.
+
+   :::image type="content" source="media/deployment-history/select-management-group-deployments.png" alt-text="Screenshot of management group overview that shows deployment option.":::
+
+1. Select one of the deployments from the deployment history.
+
+   :::image type="content" source="media/deployment-history/select-deployment-from-management-group.png" alt-text="Screenshot of deployment history for management group.":::
+
+1. A summary of the deployment is displayed, including the correlation ID.
+
+   :::image type="content" source="media/deployment-history/management-group-history.png" alt-text="Screenshot of deployment history that highlights correlation ID.":::
+
+# [PowerShell](#tab/azure-powershell)
+
+To list all deployments for a management group, use the [Get-AzManagementGroupDeployment](/powershell/module/az.resources/get-azmanagementgroupdeployment) command.
+
+```azurepowershell-interactive
+Get-AzManagementGroupDeployment -ManagementGroupId examplemg
+```
+
+To get a specific deployment from a management group, add the `Name` parameter.
+
+```azurepowershell-interactive
+Get-AzManagementGroupDeployment -ManagementGroupId examplemg -Name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurepowershell-interactive
+(Get-AzManagementGroupDeployment -ManagementGroupId examplemg -Name ExampleDeployment).CorrelationId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list all the deployments for a management group, use [az deployment mg list](/cli/azure/deployment/mg#az_deployment_mg_list).
+
+```azurecli-interactive
+az deployment mg list --management-group-id examplemg
+```
+
+To get a specific deployment, use the [az deployment mg show](/cli/azure/deployment/mg#az_deployment_mg_show).
+
+```azurecli-interactive
+az deployment mg show --management-group-id examplemg --name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurecli-interactive
+az deployment mg show --management-group-id examplemg --name ExampleDeployment --query properties.correlationId
+```
+
+# [HTTP](#tab/http)
+
+To list the deployments for a management group, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Management Group Scope](/rest/api/resources/deployments/list-at-management-group-scope).
+
+```rest
+GET https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/?api-version={api-version}
+```
+
+To get a specific deployment, use the following operation. For the latest API version number to use in the request, see [Deployments - Get At Management Group Scope](/rest/api/resources/deployments/get-at-management-group-scope).
+
+```rest
+GET https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version={api-version}
+```
+
+The response includes the correlation ID.
+
+```json
+{
+ ...
+ "properties": {
+   "mode": "Incremental",
+   "provisioningState": "Failed",
+   "timestamp": "2019-11-26T14:18:36.4518358Z",
+   "duration": "PT26.2091817S",
+   "correlationId": "11111111-1111-1111-1111-111111111111",
+   ...
+ }
+}
+```
+
+---
+
+## Get tenant deployments
+
+You can view the history of deployments to a tenant.
+
+# [Portal](#tab/azure-portal)
+
+The portal doesn't currently show tenant deployments.
+
+# [PowerShell](#tab/azure-powershell)
+
+To list all deployments for the current tenant, use the [Get-AzTenantDeployment](/powershell/module/az.resources/get-aztenantdeployment) command.
+
+```azurepowershell-interactive
+Get-AzTenantDeployment
+```
+
+To get a specific deployment from the current tenant, add the `Name` parameter.
+
+```azurepowershell-interactive
+Get-AzTenantDeployment -Name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurepowershell-interactive
+(Get-AzTenantDeployment -Name ExampleDeployment).CorrelationId
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To list all the deployments for the current tenant, use [az deployment tenant list](/cli/azure/deployment/tenant#az_deployment_tenant_list).
+
+```azurecli-interactive
+az deployment tenant list
+```
+
+To get a specific deployment, use the [az deployment tenant show](/cli/azure/deployment/tenant?view=azure-cli-latest#az_deployment_tenant_show).
+
+```azurecli-interactive
+az deployment tenant show --name ExampleDeployment
+```
+
+To get the correlation ID, use:
+
+```azurecli-interactive
+az deployment tenant show --name ExampleDeployment --query properties.correlationId
+```
+
+# [HTTP](#tab/http)
+
+To list the deployments for the current tenant, use the following operation. For the latest API version number to use in the request, see  [Deployments - List At Tenant Scope](/rest/api/resources/deployments/list-at-tenant-scope).
+
+```rest
+GET https://management.azure.com/providers/Microsoft.Resources/deployments/?api-version={api-version}
+```
+
+To get a specific deployment, use the following operation. For the latest API version number to use in the request, see [Deployments - Get At Tenant Scope](/rest/api/resources/deployments/get-at-tenant-scope).
+
+```rest
+GET https://management.azure.com/providers/Microsoft.Resources/deployments/{deploymentName}?api-version={api-version}
 ```
 
 The response includes the correlation ID.
@@ -165,7 +435,7 @@ az deployment operation group list --resource-group ExampleGroup --name ExampleD
 
 To get deployment operations, use the following operation. For the latest API version number to use in the request, see [Deployment Operations - List](/rest/api/resources/deploymentoperations/list).
 
-```
+```rest
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}
 ```
 
