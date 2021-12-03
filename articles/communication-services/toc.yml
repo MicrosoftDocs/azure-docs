@@ -166,6 +166,8 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: Teams identity overview
+        href: concepts/interop/acs-calling-as-teams-user-overview.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
       - name: Call automation
