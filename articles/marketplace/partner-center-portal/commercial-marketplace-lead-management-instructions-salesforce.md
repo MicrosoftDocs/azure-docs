@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 06/17/2021
+ms.date: 12/03/2021
 ---
 
 # Configure lead management for Salesforce
@@ -78,6 +78,7 @@ When you're ready to configure the lead management information for your offer in
 1. Select **OK**.
 
 To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
+
     ![Connection details pop-up window Validate Contact email box](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-validate.png)
 
 >[!NOTE]
