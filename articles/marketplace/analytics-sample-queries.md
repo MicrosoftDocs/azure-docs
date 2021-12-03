@@ -1,5 +1,5 @@
 ---
-title: Sample queries for programmatic analytics
+title: Sample queries for programmatic analytics | Azure Marketplace
 description: Use these sample queries to programmatically access Microsoft commercial marketplace analytics data. 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/30/2021
+ms.date: 12/06/2021
 ---
 
 # Sample queries for programmatic analytics
@@ -66,7 +66,7 @@ These sample queries apply to the Orders report.
 
 These sample queries apply to the Revenue report.
 
-| **Query Description | **Sample Query** |
+| **Query Description** | **Sample Query** |
 | --- | --- |
 | Show billed revenue of the partner for last 1 month | `SELECT BillingAccountId, OfferName, OfferType, Revenue, EarningAmountCC, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId,TransactionAmountCC,TransactionAmountUSD, Quantity,Units FROM ISVRevenue TIMESPAN LAST_MONTH` |
 | List estimated revenue in USD of all transactions with sent status in last 3 months | `SELECT BillingAccountId, OfferName, OfferType, EstimatedRevenueUSD, EarningAmountUSD, PayoutStatus, PurchaseRecordId, LineItemId, TransactionAmountUSD FROM ISVRevenue where PayoutStatus='Sent' TIMESPAN LAST_3_MONTHS` |
