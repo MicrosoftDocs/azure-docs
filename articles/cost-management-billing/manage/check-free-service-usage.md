@@ -14,7 +14,7 @@ ms.author: banders
 
 You're not charged for services included for free with your Azure free account, unless you exceed the limits of the services. To remain in the limits, you can use the Azure portal to track the free service usage.
 
-Usage only appears in the Azure portal after you start using free resources so if you haven't used any resources usage isn't shown.
+Usage only appears in the Azure portal after you start using free resources so if you haven't used any resources, usage isn't shown. Note that usage and status doesn't immediately appear. It's delayed for one to two days after you use a resource.
 
 ## Check usage in the Azure portal
 
@@ -29,7 +29,7 @@ The page has the following usage areas:
 
 - **Spending rate and forecast** - Shows the cost of resources that you've used over time. Select **View details** to get a more detailed view of your spending in Cost analysis.
 - **Cost by resource** - Shows the costs for individual resources that you've used. Select **View details** to get a more detailed view of your spending in Cost analysis.
-- **Top free services by usage** - The area only appears for Free accounts, so if you don't have a Free account, the area isn't shown. The area shows the free services that you've used. Note that usage and status is delayed one to two days. Select the **View all free services** to view the **Free services for 12 months** table that shows the following columns:
+- **Top free services by usage** - The area only appears for Free accounts, so if you don't have a Free account, the area isn't shown. The area shows the free services that you've used. Select the **View all free services** to view the **Free services for 12 months** table that shows the following columns:
     - **Meter** - Identifies the unit of measure for the service being consumed.
     - **Usage/Limit** - Current month's usage and limit for the meter.
     - **Status** - Usage status of the service. Based on your usage, you can have one of the following statutes:
