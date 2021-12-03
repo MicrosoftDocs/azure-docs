@@ -35,9 +35,15 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: Locations and partners
+  - name: Virtual WAN Regions
+    href: virtual-wan-regions.md
+  - name: NVA in the Virtual WAN Hub
+    href: about-nva-hub.md
+  - name: Branch Connectivity Automation
     items:
-    - name: Hub locations and partners
+    - name: NVA in the Virtual WAN Hub
+      href: about-nva-hub.md
+    - name: Branch Connectivity Automation
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md
@@ -95,8 +101,6 @@
       href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing explained
     href: pricing-concepts.md
-  - name: About NVA in a virtual hub
-    href: about-nva-hub.md
   - name: About secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
 - name: How-to guides

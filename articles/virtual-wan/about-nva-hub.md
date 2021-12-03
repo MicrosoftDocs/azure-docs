@@ -6,29 +6,80 @@ author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/02/2021
-ms.author: scottnap
+ms.author: wellee
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in the Virtual WAN hub.
 ---
-# About Network Virtual Appliance in an Azure Virtual WAN hub
+# Network Virtual Appliances in the Virtual WAN hub
 
-Azure Virtual WAN has worked with networking partners to build automation that makes it easy to connect their Customer Premises Equipment (CPE) to an Azure VPN gateway in the virtual hub. Azure is working with select networking partners to enable customers to deploy a third-party Network Virtual Appliance (NVA) directly into the virtual hub. This allows customers who want to connect their branch CPE to the same brand NVA in the virtual hub so that they can take advantage of proprietary end-to-end SD-WAN capabilities.
+Customers can deploy select Network Virtual Appliances directly into the Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. Not all Network Virtual Appliances in Azure Marketplace can be deployed into the Virtual WAN hub. For a full list of available partners, please reference the [Partners](#partner) section.
 
-Barracuda Networks and Cisco Systems are the first partners to provide the NVAs that can be deployed directly to the Virtual WAN hub.  See [Barracuda CloudGen WAN](https://www.barracuda.com/products/cloudgenwan), [Cisco Cloud OnRamp for Multi-Cloud](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) and [VMware SD-WAN](https://kb.vmware.com/s/article/82746) for their respective product documentation. Azure is working with more partners so expect to see other offerings follow.
+## Key benefits
 
-> [!NOTE]
-> Only NVA offers that are available to be deployed into the Virtual WAN hub can deployed into the Virtual WAN hub. They cannot be deployed into an arbitrary virtual network in Azure.
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway to which on-premises devices can connect via proprietary SD-WAN protocols. Network Virtual Appliances in the Virtual WAN hub can also serve as a security appliance, allowing customers to send traffic to the appliance for inspection.
+
+Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers to enjoy the following benefits:
+
+1. Choose from a pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units)) to meet  throughput needs.
+1. Availability-zone aware and highly-available (HA) deployments.
+1. No-hazard provisioning and boot-strapping through a Managed Application.
+1. One-touch routing with Virtual WAN's fully meshed hubs, advanced routing capabilities and the Microsoft global backbone.
+1. Most partners have a tightly integrated support handshake between Microsoft Azure and the Network Virtual Appliance Vendor.
+
+
+## <a name ="partner"></a> Partners
+
+The following SD-WAN connectivity Network Virtual Appliances can be deployed in the Virtual WAN hub.
+
+|Partners|Configuration/How-to/Deployment Guide| Dedicated Support Model |
+|---|---| --- |
+|[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)| Yes|
+|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| The integration of the Cisco SD-WAN solution with Azure virtual WAN enhances Cloud OnRamp for Multi-Cloud deployments and enables configuring Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) as a network virtual appliance (NVA) in Azure Virtual WAN Hubs. [View  Cisco SD-WAN Cloud OnRamp, Cisco IOS XE Release 17.x Configuration Guide](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) | Yes|
+|[VMware SD-WAN ](https://sdwan.vmware.com/partners/microsoft) | [VMware SD-WAN in Virtual WAN Hub Deployment Guide](https://kb.vmware.com/s/article/82746). The managed application for deployment can be found [here](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan).| Yes|
+| Versa Networks | Versa Deployment Guide | Yes |
+
+
+The following dual-role SD-WAN connectivity and network security (Next-Generation Firewall) Network Virtual Appliances can be deployed in the Virtual WAN hub.
+
+|Partners|Configuration/How-to/Deployment Guide| Dedicated Support Model |
+|---|---| --- | 
+| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, please reach out to vwan@fortinet.com. For more information about the offering, please see the following [document](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No|
+
+
+The following Partners are coming soon: Aviatrix, Citrix, Cisco Meraki and Silver Peak.
+## Basic use cases
+
+### Any-to-any connectivity
+
+Customers can deploy a Network Virtual Appliance in every Azure region where they have a footprint. Branch sites are connected to Azure via SD-WAN tunnels terminating on the nearest Network Virtual Appliance.
+
+Branch sites can then access workloads in Azure deployed in Virtual Networks in the same region or other regions through the Microsoft global-backbone. SD-WAN connected sites can also talk to other branches that are connected to Azure via ExpressRoute, Site-to-site VPN or Remote User Connectivity.
+
+
+:::image type="content" source="./media/about-nva-hub/global-transit-nva.png" alt-text="Global transit architecture.":::
+
+
+### Security provided by Azure Firewall
+
+Customers can deploy a Azure Firewall along side their connectivity-based Network Virtual Appliances. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection. 
+
+:::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall.":::
+
+
+
+### Security provided by third-party NGFW
+
+Customers can deploy Network Virtual Appliances into the Virtual WAN Hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the Network Virtual Appliance in the hub and also use the same appliance to inspect all North-South, East-West and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md). 
+
+  
+:::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA.":::
 
 ## <a name="how"></a>How does it work?
 
-The NVAs that are available to be deployed directly into the Azure Virtual WAN hub are engineered specifically to be used in the virtual hub. The NVA offer is published to Azure Marketplace as a Managed Application, and customers can deploy the offer directly from Azure Marketplace, or they can deploy the offer from the virtual hub via the Azure portal.
+The NVAs that are available to be deployed directly into the Azure Virtual WAN hub are engineered specifically to be used in the Virtual WAN Hub. The NVA offer is published to Azure Marketplace as a Managed Application, and customers can deploy the offer directly from Azure Marketplace.
 
 :::image type="content" source="./media/about-nva-hub/high-level-process.png" alt-text="Process overview":::
 
-Each partner's NVA offering will have a slightly different experience and functionality based on their deployment requirements. However there are some things that are common across all partner offerings for NVA in the Virtual WAN hub.
-
-* A Managed Application experience offered through Azure Marketplace.
-* NVA Infrastructure Unit-based capacity and billing.
-* Health Metrics surfaced through Azure Monitor.
+Each partner's NVA offering will have a slightly different experience and functionality based on their deployment requirements.
 
 ### <a name="managed"></a>Managed Application
 
@@ -62,9 +113,9 @@ Partners have worked to provide an experience that configures the NVA automatica
 
 ## <a name="resources"></a>Site and Connection resources with NVAs
 
-Unlike Azure VPN Gateway configurations, you do not need to create **Site** resources, **Site-to-Site connection** resources, or **point-to-site connection** resources to connect your branch sites to your NVA in the Virtual WAN hub. This is all managed via the NVA partner.
+Unlike Virtual WAN Site-to-site VPN Gateway configurations, you do not need to create **Site** resources, **Site-to-Site connection** resources, or **point-to-site connection** resources to connect your branch sites to your NVA in the Virtual WAN hub.
 
-You still need to create Hub-to-VNet connections to connect your Virtual WAN hub to your Azure virtual networks.
+You still need to create Hub-to-VNet connections to connect your Virtual WAN hub to your Azure virtual networks as well as connect ExpressRoute, Site-to-site VPN or Remote User VPN connections.
 
 ## <a name="regions"></a>Supported regions
 
@@ -79,7 +130,7 @@ NVA in the virtual hub is available in the following regions:
 | Asia |  East Asia, Japan East, Japan West, Korea Central, Korea South, Southeast Asia | 
 | Australia | Australia South East, Australia East, Australia Central, Australia Central 2|
 | Africa | South Africa North |
-| India | South India, West India, Central India | 
+| India | South India, West India, Central India |
 
 ## NVA FAQ
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Virtual WAN partners and locations | Microsoft Docs'
-description: This article contains a list of Azure Virtual WAN partners and hub locations.
+description: This article contains a list of Azure Virtual WAN partners.
 services: virtual-wan
 author: cherylmc
 
@@ -37,33 +37,6 @@ Some connectivity partners may extend the automation to include creating the Azu
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
 The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN Gateways: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari), and SharpLink.
-
-## Partners with integrated Virtual Hub offerings
-
-In addition to having automated branch office IPsec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  
-
-Partners that offer NVA in the Virtual WAN Hub must:
-
-* Have implemented IPsec Connectivity Automation from their branch device and have on-boarded their NVA offering to Azure Virtual WAN hub.
-* Have an existing Network Virtual Appliance offer available in Azure Marketplace.
-
-If you are a partner and have questions about the Managed NVA in the Virtual Hub offering, contact us by sending email to vwannvaonboarding@microsoft.com
-
-## Integrated Virtual Hub NVA partners
-
-These partners have **Managed Application** offers that are available now to deploy into the Virtual WAN hub.
-
-|Partners|Configuration/How-to/Deployment Guide|
-|---|---|
-|[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)|
-|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| The integration of the Cisco SD-WAN solution with Azure virtual WAN enhances Cloud OnRamp for Multi-Cloud deployments and enables configuring Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) as a network virtual appliance (NVA) in Azure Virtual WAN Hubs. [View  Cisco SD-WAN Cloud OnRamp, Cisco IOS XE Release 17.x Configuration Guide](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) 
-|[VMware SD-WAN in Virtual WAN Hub](https://sdwan.vmware.com/partners/microsoft) | For instructions on deplaying the VMware SD-WAN Appliance in the Virtual WAN hub, please look at the [VMware SD-WAN in Virtual WAN Hub Deployment Guide](https://kb.vmware.com/s/article/82746). To deploy, please access the managed application [here](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan)|
-
-The following partners are slated to bring Network Virtual Appliance in the Virtual Hub offers in the near future: Aviatrix, Citrix, Versa Networks and Silver Peak.
-
-## <a name="locations"></a>Locations
-
-[!INCLUDE [Virtual WAN regions file](../../includes/virtual-wan-regions-include.md)]
 
 ## Next steps
 
