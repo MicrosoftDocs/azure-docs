@@ -367,7 +367,7 @@ az provider list
 #### Check whether the extension is installed properly
 You can check the extension status in thee Azure portal.
 
-    ![Arc Extensions](./media/how-to-attach-arc-kubernetes/arc-extensions.png)
+![Arc Extensions](./media/how-to-attach-arc-kubernetes/arc-extensions.png)
 
 
 #### The extension installation is pending
@@ -376,7 +376,7 @@ kubectl get extensionconfigs -A
 ```
 You should see something like this:
 
-    ![Extension Configs](./media/how-to-attach-arc-kubernetes/extensionconfigs.png)
+![Extension Configs](./media/how-to-attach-arc-kubernetes/extensionconfigs.png)
 
 Otherwise, something must be wrong with the Azure Arc components, please check the [Azure Arc agents](../azure-arc/kubernetes/troubleshooting.md#azure-arc-agents).
 
