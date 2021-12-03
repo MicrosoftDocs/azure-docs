@@ -13,7 +13,7 @@ ms.author: cherylmc
 ---
 # About Point-to-Site VPN routing
 
-This article helps you understand how Azure Point-to-Site VPN routing behaves. P2S VPN routing behavior is dependent on the client OS, the protocol used for the VPN connection, and how the virtual networks (VNets) are connected to each other. For more information about supported protocols, see [About Point-to-Site VPN](point-to-site-about.md).
+This article helps you understand how Azure Point-to-Site VPN routing behaves. P2S VPN routing behavior is dependent on the client OS, the protocol used for the VPN connection, and how the virtual networks (VNets) are connected to each other. For more information about Point-to-Site VPN, including supported protocols, see [About Point-to-Site VPN](point-to-site-about.md).
 
 If you make a change to the topology of your network and have Windows VPN clients, the VPN client package for Windows clients must be downloaded and installed again in order for the changes to be applied to the client.
 
