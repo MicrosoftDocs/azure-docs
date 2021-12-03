@@ -17,8 +17,8 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 
 ## View authentication details
 
- > [!IMPORTANT]
- > We recommend that you use the primary key as the subscription key when you use [Shared Key authentication](./azure-maps-authentication.md#shared-key-authentication) to call Azure Maps. It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication with Azure Maps](./azure-maps-authentication.md).
+> [!IMPORTANT]
+> We recommend that you use the primary key as the subscription key when you use [Shared Key authentication](./azure-maps-authentication.md#shared-key-authentication) to call Azure Maps. It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication with Azure Maps](./azure-maps-authentication.md).
 
 To view your Azure Maps authentication details:
 
@@ -38,6 +38,37 @@ Depending on your application needs, there are specific pathways to application 
 
 > [!NOTE]
 > Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
+
+## How to add and remove Managed identities
+
+You may want to add a uUser Assigned Identity to enable Sas token authentication with Azure Maps REST APIs.
+
+### Create a managed identity
+
+You can create a managed identity before or after creating a map account using User Assigned Managed Identities. You can add the managed identity through the portal, Azure management SDKs, or the Azure Resource Manager template. To add a User Assigned Managed Identity through Azure Resource Manager template specify the resource identifier of the User Assigned Identity. See example below:
+
+```json
+"identity": {
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleidentity": {}
+    }
+}
+```
+
+### Remove a managed identity
+
+You can remove a system-assigned identity by disabling the feature through the portal or the Azure Resource Manager template in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to `"None"`.
+
+Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the Azure Maps account is deleted.
+
+To remove all identities by using the Azure Resource Manager template, update this section:
+
+```json
+"identity": {
+    "type": "None"
+}
+```
 
 ## Choose an authentication and authorization scenario
 
@@ -124,10 +155,10 @@ To rotate your Azure Maps subscription keys in the Azure portal:
 
 Find the API usage metrics for your Azure Maps account:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
 Explore samples that show how to integrate Azure AD with Azure Maps:
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

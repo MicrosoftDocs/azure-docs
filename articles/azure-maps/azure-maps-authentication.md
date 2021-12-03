@@ -49,9 +49,9 @@ For more information about how to configure Azure AD and request tokens for Azur
 
 For general information about authenticating with Azure AD, see [What is authentication?](../active-directory/develop/authentication-vs-authorization.md).
 
-### Managed identities for Azure resources and Azure Maps
+## Managed identities for Azure resources and Azure Maps
 
-[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+[Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). To add and remove managed identities read more on [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 ### Configuring application Azure AD authentication
 
@@ -325,7 +325,7 @@ You may specify only 1 CORS rule with a list of allowed origins. Each origin pro
 
 ### Remove CORS policy
 
-To remove CORS, you may use the Azure portal, SDKs, or use management REST API. If you use management REST API you may use `PUT` or `PATCH` with the corsRule list empty in the request body.
+To remove CORS, you may use the Azure portal, SDKs, Azure management REST API or templates. If you use management REST API you may use `PUT` or `PATCH` with the corsRule list empty in the request body.
 
 ```json
 {
@@ -354,20 +354,6 @@ Azure Maps does not count billing transactions for:
 - CORS preflight requests
 
 For understanding pricing tiers read more on [choosing a pricing tier](./choose-pricing-tier.md).
-
-## Remove a managed identity
-
-You can remove a system-assigned identity by disabling the feature through the portal or the Azure Resource Manager template in the same way that it was created. User-assigned identities can be removed individually. To remove all identities, set the identity type to `"None"`.
-
-Removing a system-assigned identity in this way will also delete it from Azure AD. System-assigned identities are also automatically removed from Azure AD when the Azure Maps account is deleted.
-
-To remove all identities by using the Azure Resource Manager template, update this section:
-
-```json
-"identity": {
-    "type": "None"
-}
-```
 
 > [!WARNING]
 > SAS tokens authentication failures may occur when removing or deleting a managed identity which was used for SAS token creation, this usually caused by deleting the Azure Active Directory service principal object. To prevent this application interruption, we recommend using a second identity and distribute SAS tokens based on the new identity before removing the old.
