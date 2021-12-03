@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: sample
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
@@ -94,7 +94,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using the sentiment analysis and opinion mining features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-When using the features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 ## Getting sentiment analysis and opinion mining results
 

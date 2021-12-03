@@ -47,11 +47,11 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using entity linking synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
+
 ### Getting entity linking results  
 
 You can stream the results to an application, or save the output to a file on the local system.
-
-When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 ## Data limits
 

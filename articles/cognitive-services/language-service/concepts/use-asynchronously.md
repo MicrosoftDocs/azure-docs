@@ -21,7 +21,8 @@ Currently, the following features are available to be used asynchronously:
 * Extractive summarization
 * Key phrase extraction
 * Language detection
-* Named Entity Recognition (NER) and Personally Identifiable Information (PII) detection
+* Named Entity Recognition (NER)
+* Personally Identifiable Information (PII) detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
 
@@ -70,6 +71,8 @@ When using this feature asynchronously, the API results are available for 24 hou
 > * A document is a single string of text characters.  
 
 You can send up to 125,000 characters across all documents contained in the asynchronous request, as measured by [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). This character limit is higher than the limit for synchronous requests, to enable higher throughput. 
+
+If a document exceeds the character limit, the API will reject the entire request and return a `400 bad request` error if any document within it exceeds the maximum size.
 
 ## See also
 
