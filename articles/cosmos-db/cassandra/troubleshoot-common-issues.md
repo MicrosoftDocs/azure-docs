@@ -94,6 +94,7 @@ Implement the [CosmosLoadBalancingPolicy](https://github.com/Azure/azure-cosmos-
 ```java
 LoadBalancingPolicy loadBalancingPolicy = new CosmosLoadBalancingPolicy.Builder().withWriteDC("West US").withReadDC("West US").build();
 ```
+See [troubleshoot NoHostAvailableException](troubleshoot-nohostavailable-exception.md) for more ways of handling the exception.
 
 ## The count fails on a large table
 
