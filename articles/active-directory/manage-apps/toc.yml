@@ -41,7 +41,7 @@
   - name: Concepts
     expanded: true
     items: 
-    - name: App owner assignment
+    - name: App ownership
       href: overview-assign-app-owners.md
     - name: Home realm discovery policy
       href: home-realm-discovery-policy.md
