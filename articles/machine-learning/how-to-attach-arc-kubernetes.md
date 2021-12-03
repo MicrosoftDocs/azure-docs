@@ -371,6 +371,10 @@ TODO
 ```azurecli
 kubectl get extensionconfigs -A
 ```
+You should see something like this:
+![Provision resources](./media/how-to-attach-arc-kubernetes/extensionconfigs.png)
+Otherwise, something must be wrong with the Azure Arc components, please check the [Azure Arc agents](../azure-arc/kubernetes/troubleshooting.md#azure-arc-agents).
+
 #### The extension installation fails
     Get error from Portal
     Get error from extension configurations
