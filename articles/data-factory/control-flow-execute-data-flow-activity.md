@@ -1,5 +1,5 @@
 ---
-title: Data Flow activity
+title: Data flow activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to execute data flows from inside an Azure Data Factory or Azure Synapse Analytics pipeline. 
 author: kromerm
@@ -11,11 +11,22 @@ ms.author: makromer
 ms.date: 09/09/2021
 ---
 
-# Data Flow activity in Azure Data Factory and Azure Synapse Analytics
+# Data flow activity in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
+Use the data flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
+
+## Create a Data Flow activity with UI
+
+To use a data flow activity in a pipeline, complete the following steps:
+
+1. Search for _data flow_ in the pipeline Activities pane, and drag a data flow activity to the pipeline canvas.
+1. Select the new data flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a data flow activity.":::
+
+1. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration.
 
 ## Syntax
 
