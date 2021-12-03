@@ -126,9 +126,9 @@ Multiple task slots can be specified for a pool, so that the corresponding numbe
 
 Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` will help ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
-### Use Spot virtual machines
+### Use Azure Spot virtual machines
 
-[Spot VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify Spot VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use Spot VMs instead of dedicated VMs. Keep in mind that Spot VMs are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
+[Azure Spot VMs](batch-low-pri-vms.md) reduce the cost of Batch workloads by taking advantage of surplus computing capacity in Azure. When you specify Spot VMs in your pools, Batch uses this surplus to run your workload. There can be substantial cost savings when you use Spot VMs instead of dedicated VMs. Keep in mind that Spot VMs are not suitable for all workloads, since there may not be available capacity to allocate, or they may get preempted.
 
 ### Use ephemeral OS disks
 
@@ -147,4 +147,4 @@ It is important to note that reservation discount is "use-it-or-lose-it."  If th
 ## Next steps
 
 - Learn more about [Azure Cost Management + Billing](../cost-management-billing/cost-management-billing-overview.md).
-- Learn about [using Spot VMs with Batch](batch-low-pri-vms.md).
+- Learn about using [Azure Spot VMs with Batch](batch-low-pri-vms.md).

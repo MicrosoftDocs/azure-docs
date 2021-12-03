@@ -10,7 +10,7 @@ ms.custom: "H1Hack27Feb2017, fasttrack-edit, devx-track-csharp"
 
 Azure Batch can automatically scale pools based on parameters that you define, saving you time and money. With automatic scaling, Batch dynamically adds nodes to a pool as task demands increase, and removes compute nodes as task demands decrease.
 
-To enable automatic scaling on a pool of compute nodes, you associate the pool with an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine how many nodes are needed to execute your workload. These nodes may be dedicated nodes or [Spot nodes](batch-low-pri-vms.md). Batch will then periodically review service metrics data and use it to adjust the number of nodes in the pool based on your formula and at an interval that you define.
+To enable automatic scaling on a pool of compute nodes, you associate the pool with an *autoscale formula* that you define. The Batch service uses the autoscale formula to determine how many nodes are needed to execute your workload. These nodes may be dedicated nodes or [Azure Spot nodes](batch-low-pri-vms.md). Batch will then periodically review service metrics data and use it to adjust the number of nodes in the pool based on your formula and at an interval that you define.
 
 You can enable automatic scaling when you create a pool, or apply it to an existing pool. Batch enables you to evaluate your formulas before assigning them to pools and to monitor the status of automatic scaling runs. Once you configure a pool with automatic scaling, you can make changes to the formula later.
 

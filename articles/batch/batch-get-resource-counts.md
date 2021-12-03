@@ -11,7 +11,7 @@ To monitor and manage large-scale Azure Batch solutions, you may need to determi
 
 - [Get Task Counts](/rest/api/batchservice/job/gettaskcounts) gets an aggregate count of active, running, and completed tasks in a job, and of tasks that succeeded or failed. By counting tasks in each state, you can more easily display job progress to a user, or detect unexpected delays or failures that may affect the job.
 
-- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and Spot compute nodes in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools.
+- [List Pool Node Counts](/rest/api/batchservice/account/listpoolnodecounts) gets the number of dedicated and [Spot compute nodes](batch-low-pri-vms.md) in each pool that are in various states: creating, idle, offline, preempted, rebooting, reimaging, starting, and others. By counting nodes in each state, you can determine when you have adequate compute resources to run your jobs, and identify potential issues with your pools.
 
 Note that at times, the numbers returned by these operations may not be up to date. If you need to be sure that a count is accurate, use a list query to count these resources. List queries also let you get information about other Batch resources such as applications. For more information about applying filters to list queries, see [Create queries to list Batch resources efficiently](batch-efficient-list-queries.md).
 

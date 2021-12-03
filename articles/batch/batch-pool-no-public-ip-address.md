@@ -54,7 +54,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. In the **Pools** window, select **Add**.
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
 1. Select the correct **Publisher/Offer/Sku** of your image.
-1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot nodes**, as well as any desired optional settings.
+1. Specify the remaining required settings, including the **Node size**, **Target dedicated nodes**, and **Target Spot/low-priority nodes**, as well as any desired optional settings.
 1. Optionally select a virtual network and subnet you wish to use. This virtual network must be in the same resource group as the pool you are creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
