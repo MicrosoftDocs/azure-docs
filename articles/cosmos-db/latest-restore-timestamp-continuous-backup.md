@@ -4,7 +4,7 @@ description: The latest restorable timestamp API provides the latest restorable 
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 11/22/2021
+ms.date: 12/03/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -87,6 +87,9 @@ Yes. This API can be used for account provisioned with continuous backup mode or
 
 ##### What is the typical delay between the latest write timestamp and the latest restorable timestamp?
 The log backup data is backed up every 100 seconds. However, in some exceptional cases, backups could be delayed for more than 100 seconds.
+
+#### Will restorable timestamp work for deleted accounts?
+No. It only applies only to live accounts. You can get the restorable timestamp to trigger the live account restore or monitor that your data is being backed up on time.
 
 ## Next steps
 

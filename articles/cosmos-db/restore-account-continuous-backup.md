@@ -48,6 +48,10 @@ You can use Azure portal to restore an entire live account or selected databases
 
 Deleting source account while a restore is in-progress could result in failure of the restore.
 
+### Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account.
+
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
 When filling out the restore point time in the Azure portal, if you need help with identifying restore point, select the **Click here** link, it takes you to the event feed blade. The event feed provides a full fidelity list of create, replace, delete events on databases and containers of the source account. 
