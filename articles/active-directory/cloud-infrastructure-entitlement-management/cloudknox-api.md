@@ -48,7 +48,7 @@ This topic describes the process of configuring and deleting Microsoft CloudKnox
 
 ### How to use the Settings tab
 
-1. Click the **Settings** tab, and view the following columns.
+1. Click the **Settings** tab, and then view the following columns.
 
 2. Under **Roles can create service account**, select **Super Admin**, **Viewer**, or **Controller**.
 
@@ -78,9 +78,9 @@ This topic describes the process of configuring and deleting Microsoft CloudKnox
 
 3. Click **Verify**.
 
-## Next Steps
+## Next steps
 
-[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 
-[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
+[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
 

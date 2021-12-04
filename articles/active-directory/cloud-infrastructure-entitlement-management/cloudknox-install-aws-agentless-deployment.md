@@ -36,11 +36,11 @@ This topic describes the process of installing and configuring Microsoft CloudKn
 
 10. Install the CloudFormation templates (CFT) to create all cross-account roles.
 
-## Next Steps
+## Next steps
 
-[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 
-[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
+[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
 
 
 

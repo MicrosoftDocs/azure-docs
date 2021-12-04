@@ -26,10 +26,11 @@ This article guides you through the process of signing up with Microsoft CloudKn
 
 4. After the account is created, login to the CloudKnox portal at: [https://app.cloudknox.io/](https://app.cloudknox.io/).
 
-5. To deploy FortSentry, click **Deploy** and follow the instructions on the screen.
+5. To deploy FortSentry, click **Deploy** and then follow the instructions on the screen.
 
 <!---Add screenshot.--->
-## Next Steps
 
-[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+## Next steps
+
+[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 

@@ -6,7 +6,7 @@
   - name: Integration
     expanded: true
     items:
-    - name: CloudKnox integration with CloudKnox API
+    - name: CloudKnox integration with the CloudKnox API
       href: cloudknox-api.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
