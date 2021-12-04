@@ -1,6 +1,6 @@
 ---
-title: Update or merge records in Azure SQL Database from Azure Stream Analytics
-description: This article describes how to configure an Azure Stream Analytics job to update or merge records in a SQL Database
+title: Update or merge records in Azure SQL Database with Azure Functions
+description: This article describes how to configure an Azure Functions app to update or merge records from Azure Stream Analytics to Azure SQL Database
 author: fleid
 
 ms.author: fleide
@@ -9,22 +9,22 @@ ms.topic: how-to
 ms.date: 12/03/2021
 ---
 
-# Update or merge records in Azure SQL Database from Azure Stream Analytics
+# Update or merge records in Azure SQL Database with Azure Functions
 
 Currently, [Azure Stream Analytics](/azure/stream-analytics/) (ASA) only supports inserting rows to SQL outputs ([Azure SQL Databases](/azure/stream-analytics/sql-database-output), and [Azure Synapse Analytics](/azure/stream-analytics/azure-synapse-analytics-output)).
 
-This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases with Azure Stream Analytics. It also provides code samples to use Azure Functions as an intermediary layer.
+This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
 
-## Design
+Alternative options are presented at the end.
 
-### Requirements
+## Requirement
 
-Writing data in a table can generally adapt the following modes:
+Writing data in a table can generally be done in the following manners:
 
 |Mode|Requirements|Equivalent T-SQL statement|
 |-|-|-|
 |Append|None|[INSERT](/sql/t-sql/statements/insert-transact-sql)|
-|Replace|Unique key|[MERGE](/sql/t-sql/statements/merge-transact-sql), UPDATE|
+|Replace|Unique key|[MERGE](/sql/t-sql/statements/merge-transact-sql) (UPDATE when all keys are already present in the target table)|
 |Accumulate|Unique key and accumulator|MERGE (UPDATE) with compound assignment [operator](/sql/t-sql/queries/update-transact-sql#arguments) (`+=`, `-=`...)|
 
 To illustrate the differences, we can look at what happens when ingesting the following data:
@@ -53,67 +53,35 @@ Finally, we can sum values thanks to the **accumulate** mode (with `+=` on Value
 |-|-|-|
 |10:05|A|**21**|
 
+For performance considerations, the ASA SQL database output connectors currently only support append mode natively. They use bulk insert to maximize throughput and limit back pressure.
 
-For performance considerations, the SQL database output connectors of ASA currently only support append mode natively.
+This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues because of the switch from bulk to record-per-record statements.
 
-This article we discuss workarounds to implement Replace and Accumulate modes for ASA.
+## Azure Functions Output
 
+In our job, we will replace the ASA SQL output by the [ASA Function output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
 
-### Solutions
+There are currently two options to reference a SQL Database in a function, either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
-There are multiple ways to achieve the expected result. The list below isn't exhaustive, it only presents the most likely solutions.
-
-From the database perspective:
-
-- **Post-processing**: a background task will operate once the data is inserted in the database via the standard ASA SQL outputs
-  - For Azure SQL, INSTEAD OF [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs
-  - For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table. We won't go into details here as the linked documentation covers that pattern exhaustively.
-- **Pre-processing**: an intermediary service will consume the stream from the ASA job and deliver the missing capabilities
-  - Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Doing so requires a change in the overall application design
-  - Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it's possible to use [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB
-  - Via Azure Functions, to pilot the SQL command issued to the target database
-
-Each approach offers different value proposition and capabilities:
-
-|||Modes|Azure SQL Database|Azure Synapse Analytics|
-|---|---|---|---|---|
-|Post-Processing|||||
-||Triggers|Replace, Accumulate|+|N/A, triggers aren't available in Synapse SQL|
-||Staging|Replace, Accumulate|+|+|
-|Pre-Processing|||||
-||Azure Functions|Replace, Accumulate|+|-|
-||Cosmos DB replacement|Replace|N/A|N/A|
-||Cosmos DB Synapse Link|Replace|N/A|+|
-
-
-Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. If the destination is Synapse SQL, [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
-
-Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues because of the transactional traffic it emits (one T-SQL query per event). This behavior differs from the ASA SQL output adapters that rely on bulk insert mode.
-
-## Pre-processing with Azure Functions
-
-Here the UPDATE, UPSERT, or MERGE capabilities will be implemented in the function script. There are currently two options to reference a SQL Database in a function, either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
-
-For both examples below, we'll assume the following table schema - **a primary key must be set**, it will be used to update by key:
+For both examples below, we'll assume the following table schema. **A primary key must be set** for the binding option to work. It's not necessary but recommended when using a SQL driver.
 
 ```SQL
 CREATE TABLE [dbo].[device_updated](
 	[DeviceId] [bigint] NOT NULL,
 	[Value] [decimal](18, 10) NULL,
 	[Timestamp] [datetime2](7) NULL,
- CONSTRAINT [PK_device_updated] PRIMARY KEY CLUSTERED
+CONSTRAINT [PK_device_updated] PRIMARY KEY CLUSTERED
 (
 	[DeviceId] ASC
 )
 );
 ```
 
-Finally, it's important to remember the following expectations on Azure Functions when using it as an [output from ASA](/azure/stream-analytics/azure-functions-output):
+Before we look at the function samples, it's important to remember the following expectations on Azure Functions when using it as an [output from ASA](/azure/stream-analytics/azure-functions-output):
 
 - Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully
 - When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Function
 - During test connection, Stream Analytics sends an empty batch to Azure Functions and expects HTTP status 20x to validate the test
-
 
 ## Option 1: Update by key with the Azure Function SQL Binding
 
@@ -355,6 +323,45 @@ You can now test the wiring between the local function and the database by debug
 ```
 
 The function can now be deployed, defined as an output in the ASA job, and used to accumulate values instead of inserting them. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+
+## Alternatives
+
+In addition to Azure Functions, there are multiple ways to achieve the expected result. The list below isn't exhaustive, it only presents the most likely solutions.
+
+### Post-insert
+
+A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
+
+For Azure SQL, INSTEAD OF [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
+
+For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table. We won't go into details here as the linked documentation covers that pattern exhaustively.
+
+### Alternate output
+
+An intermediary service will consume the stream from the ASA job and deliver the missing capabilities.
+
+Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Doing so requires a change in the overall application design.
+
+Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it's possible to use [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB.
+
+Via Azure Functions, to pilot the SQL command issued to the target database
+
+### Comparison of the alternatives
+
+Each approach offers different value proposition and capabilities:
+
+|||Modes|Azure SQL Database|Azure Synapse Analytics|
+|---|---|---|---|---|
+|Post-Processing|||||
+||Triggers|Replace, Accumulate|+|N/A, triggers aren't available in Synapse SQL|
+||Staging|Replace, Accumulate|+|+|
+|Pre-Processing|||||
+||Azure Functions|Replace, Accumulate|+|-|
+||Cosmos DB replacement|Replace|N/A|N/A|
+||Cosmos DB Synapse Link|Replace|N/A|+|
+
+
+Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. If the destination is Synapse SQL, [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ## Get support
 
