@@ -61,7 +61,7 @@ This article shows how to use Azure Functions to implement Replace and Accumulat
 
 In our job, we will replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
 
-There are currently two options to reference a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
+There are currently two options to reference a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
 For both samples below, we'll assume the following table schema. The binding option requires **a primary key** to be set on the target table. It's not necessary, but recommended, when using a SQL driver.
 
@@ -90,7 +90,7 @@ This option uses the [Azure Function SQL Binding](/azure/azure-functions/functio
 This sample was built on:
 
 - Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
-- [.NET 6.0](dotnet/core/whats-new/dotnet-6)
+- [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Azure.WebJobs.Extensions.Sql [0.1.131-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.131-preview)
 
 To better understand the binding approach, it's recommended the follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start) first.
@@ -214,7 +214,7 @@ This option uses [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient)
 This sample was built on:
 
 - Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
-- [.NET 6.0](dotnet/core/whats-new/dotnet-6)
+- [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Data.SqlClient [4.0.0](https://www.nuget.org/packages/Microsoft.Data.SqlClient/)
 
 First, create a default HttpTrigger function app by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
@@ -336,7 +336,7 @@ In addition to Azure Functions, there are multiple ways to achieve the expected 
 
 A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
 
-For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
+For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
 
 For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
 
@@ -352,7 +352,7 @@ If the target database is Synapse SQL, it's possible to first upsert data from A
 
 Each approach offers different value proposition and capabilities:
 
-|||Modes|Azure SQL Database|Azure Synapse Analytics|
+|Type|Option|Modes|Azure SQL Database|Azure Synapse Analytics|
 |---|---|---|---|---|
 |Post-Processing|||||
 ||Triggers|Replace, Accumulate|+|N/A, triggers aren't available in Synapse SQL|
