@@ -16,9 +16,7 @@ In this tutorial, you'll learn how to export a portion of video that has been re
 Read these articles before you begin:
 
 * [Azure Video Analyzer overview](../overview.md)
-* [Azure Video Analyzer terminology](../terminology.md)
 * [Video Analyzer Pipeline concepts](../pipeline.md)
-* [Event-based video recording](../event-based-video-recording-concept.md)
 
 ## Prerequisites
 
@@ -130,13 +128,13 @@ In this tab, learn how to export a portion of recorded video as an MP4 file usin
 
 ### Additional pre-requisites
 
-1. Get your Azure Active Directory [Tenant Id](../active-directory/fundamentals/active-directory-how-to-find-tenant).
-1. Register an application with Microsoft identity platform to get app registration [Client Id](../active-directory/develop/quickstart-register-app#register-an-application) and [Client secret](../active-directory/develop/quickstart-register-app#add-a-client-secret).
+1. Get your Azure Active Directory [Tenant Id](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Register an application with Microsoft identity platform to get app registration [Client Id](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 1. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions -
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 1. [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
-1. A recorded video in the Video Analyzer account, or an [RTSP camera](quotas-limitations#supported-cameras-1) accessible over the internet. Alternatively, you can deploy an [RTSP camera simulator](get-started-livepipelines-portal#deploy-rtsp-camera-simulator).
+1. A recorded video in the Video Analyzer account, or an [RTSP camera](../quotas-limitations.md#supported-cameras-1) accessible over the internet. Alternatively, you can deploy an [RTSP camera simulator](get-started-livepipelines-portal.md#deploy-rtsp-camera-simulator).
 
 ### Get the sample code 
 
