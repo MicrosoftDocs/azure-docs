@@ -9,7 +9,7 @@ ms.service: iot-hub-device-update
 ---
 
 # How to register components with Device Update: Contoso Virtual Vacuum Component Enumerator example
-In the below section we cover a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. A component is a sub-device-level identity that has a composition relationship with the host device.
+In the below section, we cover a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. A component is a sub-device-level identity that has a composition relationship with the host device.
 
 ## What is Contoso Virtual Vacuum
 
@@ -19,7 +19,7 @@ A Contoso Virtual-Vacuum is a virtual IoT device that we use to demonstrate the 
 
 - Targeting specific update files to different partitions on the device.
 - Targeting specific update files to different apps/components on the device
-- Targeting specific update files to sensors connected to IoT devices over a network protocol (for example, USB, CANbus etc.)  
+- Targeting specific update files to sensors connected to IoT devices over a network protocol (for example, USB, CANbus and so on)  
 
 The Device Update Agent (running on the host device) can send each update to a specific **component** or to a **group of components** of the same hardware class (that is, requiring the same software or firmware update).  
 
@@ -50,7 +50,7 @@ We use the following directory structure to simulate the components mentioned ab
 /usr/local/contoso-devices/vacuum-1/cameras/1  /* rear camera */
 ```
 
-Each component's directory contains a JSON file that stores a mock software version number of each component. These file are `firmware.json` and `diskimage.json`.  
+Each component's directory contains a JSON file that stores a mock software version number of each component. For example, `firmware.json` or `diskimage.json`.  
 
 > **Note:** For this demo, to update the components' firmware, we will copy a `firmware.json` or `diskimage.json` (update payload) to `targetted components' directory`.
 
@@ -69,7 +69,7 @@ Example `firmware.json` file:
 
 A **Component Enumerator** is a **Device Update Agent Extension** that provides information about every **component** that you need to over-the-air update via a host device's IoT Hub connection.  
 
-The Device Update Agent is device and component agnostic. By itself, Device Update Agent doesn't know anything about components that resides on or are connected to a host device at the time of the update.  
+The Device Update Agent is device and component agnostic. By itself, Device Update Agent doesn't know anything about components on (or connected to) a host device at the time of the update.  
 
 To enable Proxy Updates, device builders must identify all updateable components on the device and assign a unique name to each component. Also, group name can be assigned to components of the same hardware class, so that, the same update can be installed onto all components in the same group.  
 
@@ -97,7 +97,7 @@ After doing the above, the Update Content Handler can install and apply the upda
   - Collects all update results from Parent and Child Update(s) and reports it to the Azure IoT Hub.
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
-  - See [Steps Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler) for more information.
+  - For more information, see [Steps Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler).
 - In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom handler that invokes any installer needed for an over-the-air update. See [How To Implement Custom Update Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ## How To Implement Component Enumerator for Device Update Agent (C language)
@@ -460,7 +460,7 @@ For example, for `hostfw`, the value of property `properties.version` will be po
 
 ### Example Source Codes
 
-This example is written in `C++`. You can choose to use `C` if desired.
+This example is written in `C++`. You can choose to use `C` if wanted.
 
 - [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/CMakeLists.txt)
 - [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/contoso-component-enumerator.cpp)
