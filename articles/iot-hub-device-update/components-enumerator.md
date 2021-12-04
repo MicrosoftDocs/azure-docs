@@ -1,3 +1,13 @@
+---
+title: How to use Components Enumerator for Proxy updates | Microsoft Docs
+description: How to use Components Enumerator for Proxy updates
+author: valls
+ms.author: valls
+ms.date: 12/3/2021
+ms.topic: how-to
+ms.service: iot-hub-device-update
+---
+
 # How to register components with Device Update: Contoso Virtual Vacuum Component Enumerator example
 This sections shows a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. A component is a sub-device-level identity that has a composition relationship with the host device.
 
