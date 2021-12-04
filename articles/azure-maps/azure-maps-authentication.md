@@ -53,7 +53,7 @@ For general information about authenticating with Azure AD, see [What is authent
 
 [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) provide Azure services with an automatically managed application based security principal that can authenticate with Azure AD. With Azure role-based access control (Azure RBAC), the managed identity security principal can be authorized to access Azure Maps services. Some examples of managed identities include: Azure App Service, Azure Functions, and Azure Virtual Machines. For a list of managed identities, see [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). To add and remove managed identities read more on [Manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
-### Configuring application Azure AD authentication
+### Configure application Azure AD authentication
 
 Applications will authenticate with the Azure AD tenant using one or more supported scenarios provided by Azure AD. Each Azure AD application scenario represents different requirements based on business needs. Some applications may require user sign-in experiences and other applications may require an application sign-in experience. For more information, see [Authentication flows and application scenarios](../active-directory/develop/authentication-flows-app-scenarios.md).
 
@@ -164,11 +164,11 @@ Functional key differences of SAS token from Azure AD Access tokens:
 
 SAS tokens are immutable. This means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user-assigned managed identity cannot be changed. Read more below on [understanding access control](./azure-maps-authentication.md#understanding-sas-token-access-control) for SAS token revocation and changes to access control.
 
-### Understanding SAS token Rate Limits
+### Understand SAS token Rate Limits
 
 #### SAS token maximum rate limit can control billing for an Azure Maps resource
 
-By specifying a maximum rate limit on the token (`maxRatePerSecond'), the excess rate will not be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It is the responsibility of the application to manage retry and distribution of SAS tokens. There is no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created but remember that the old SAS token is still valid.
+By specifying a maximum rate limit on the token (`maxRatePerSecond`), the excess rate will not be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It is the responsibility of the application to manage retry and distribution of SAS tokens. There is no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created but remember that the old SAS token is still valid.
 
 Estimated Example:
 
@@ -204,7 +204,7 @@ For example, if two SAS tokens are created in, and use the same location as an A
 | token 1 | 250                                 | 250                    | 60                                    | ~7500                                     |
 | token 2 | 250                                 | 250                    | 60                                    | ~7500                                     |
 
-### Understanding SAS token Access Control
+### Understand SAS token Access Control
 
 SAS tokens use RBAC to control access to the REST API. When you create a SAS token, the prerequisite managed identity on the Map Account is assigned an Azure RBAC role which grants access to specific REST API actions. See [Picking a role definition](./azure-maps-authentication.md#picking-a-role-definition) to determine which API should be allowed by the application.
 
@@ -269,7 +269,7 @@ You can set a CORS rule on the Azure Maps account properties through Azure Maps 
 >
 > CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
 
-### Understanding CORS requests
+### Understand CORS requests
 
 A CORS request from an origin domain may consist of two separate requests:
 
@@ -343,7 +343,7 @@ To remove CORS, you may use the Azure portal, SDKs, Azure management REST API or
 }
 ```
 
-## Understanding billing transactions
+## Understand billing transactions
 
 Azure Maps does not count billing transactions for:
 
@@ -353,7 +353,7 @@ Azure Maps does not count billing transactions for:
 - 429 (TooManyRequests)
 - CORS preflight requests
 
-For understanding pricing tiers read more on [choosing a pricing tier](./choose-pricing-tier.md).
+To understand pricing tiers read more on [choosing a pricing tier](./choose-pricing-tier.md).
 
 > [!WARNING]
 > SAS tokens authentication failures may occur when removing or deleting a managed identity which was used for SAS token creation, this usually caused by deleting the Azure Active Directory service principal object. To prevent this application interruption, we recommend using a second identity and distribute SAS tokens based on the new identity before removing the old.
