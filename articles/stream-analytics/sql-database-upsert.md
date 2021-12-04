@@ -13,7 +13,7 @@ ms.date: 12/03/2021
 
 Currently, [Azure Stream Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/) (ASA) only supports inserting rows to SQL outputs ([Azure SQL Databases](https://docs.microsoft.com/en-us/azure/stream-analytics/sql-database-output), and [Azure Synapse Analytics](https://docs.microsoft.com/en-us/azure/stream-analytics/azure-synapse-analytics-output)).
 
-This article discusses workarounds to enable UPDATE, UPSERT or MERGE capabilities on tables hosted in Azure SQL or Synapse SQL Pool. It also provides code samples to leverage Azure Functions as an intermediary step to a SQL database.
+This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases with Azure Stream Analytics. It also provides code samples to use Azure Functions as an intermediary layer.
 
 ## Design
 
@@ -41,13 +41,13 @@ We get the resulting state in **append** mode:
 |10:00|A|1|
 |10:05|A|20|
 
-Alternatively, we get this state in **replace** mode (only the last value remains):
+We get only the last value in **replace** mode:
 
 |Time|Key|Value|
 |-|-|-|
 |10:05|A|20|
 
-Finally, we get the following state in **accumulate** mode (with `+=` on Value):
+Finally, we can sum values thanks to the **accumulate** mode (with `+=` on Value):
 
 |Time|Key|Value|
 |-|-|-|
@@ -61,40 +61,40 @@ This article we discuss workarounds to implement Replace and Accumulate modes fo
 
 ### Solutions
 
-There are multiple ways to achieve the expected result. The list below is not exhaustive, it only presents the most likely solutions.
+There are multiple ways to achieve the expected result. The list below isn't exhaustive, it only presents the most likely solutions.
 
 From the database perspective:
 
 - **Post-processing** : a background task will operate once the data is inserted in the database via the standard ASA SQL outputs
-  - For Azure SQL, [DML triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with an UPDATE. This is done via INSTEAD OF triggers.
+  - For Azure SQL, INSTEAD OF [DML triggers](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs
   - For Synapse SQL, the table where ASA writes can be considered as a [staging table](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#partition-switching) to the production table. We won't go into details here as the linked documentation covers that pattern exhaustively.
 - **Pre-processing** : an intermediary service will consume the stream from the ASA job and deliver the missing capabilities
-  - Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). This requires a change in the overall application design
-  - Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it is possible to leverage [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB
+  - Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Doing so requires a change in the overall application design
+  - Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it's possible to use [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB
   - Via Azure Functions, to pilot the SQL command issued to the target database
 
 Each approach offers different value proposition and capabilities:
 
-|   |   |Modes|Azure SQL Database|Azure Synapse Analytics|
+|||Modes|Azure SQL Database|Azure Synapse Analytics|
 |---|---|---|---|---|
 |Post-Processing|||||
-|   |Triggers|Replace, Accumulate|+|N/A, triggers are not available in Synapse SQL|
-|   |Staging|Replace, Accumulate|+|+|
+||Triggers|Replace, Accumulate|+|N/A, triggers aren't available in Synapse SQL|
+||Staging|Replace, Accumulate|+|+|
 |Pre-Processing|||||
-|   |Azure Functions|Replace, Accumulate|+|-|
-|   |Cosmos DB replacement|Replace|N/A|N/A|
-|   |Cosmos DB Synapse Link|Replace|N/A|+|
+||Azure Functions|Replace, Accumulate|+|-|
+||Cosmos DB replacement|Replace|N/A|N/A|
+||Cosmos DB Synapse Link|Replace|N/A|+|
 
 
-Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. But if the final destination is Synapse SQL Pool (not Azure SQL), it becomes possible to leverage [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link) to expose data in Synapse SQL via the Cosmos DB [analytical store](https://docs.microsoft.com/en-us/azure/cosmos-db/analytical-store-introduction).
+Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. If the destination is Synapse SQL, [Azure Synapse Link for Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/synapse-link) can be used to create an [analytical store](https://docs.microsoft.com/en-us/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
+
+Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues due to the transactional traffic it emits (one T-SQL query per event). This differs from the ASA SQL output adapters behavior as they rely on bulk insert mode.
 
 ## Pre-processing with Azure Functions
 
-This approach works best for Azure SQL, as it generates a lot of traffic (1 T-SQL query per event). To leverage against Synapse SQL, a possible strategy is to merge the stream into a single partition of data, to be [switched](https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#partition-switching) in the larger fact table.
+Here the UPDATE, UPSERT, or MERGE capabilities will be implemented in the function script. There are currently two options to reference a SQL Database in a function, either via [binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](https://docs.microsoft.com/en-us/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
-Here the UPDATE, UPSERT or MERGE capabilities will be implemented in the function script. There are currently two options to reference a SQL Database in a function, either via [binding](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](https://docs.microsoft.com/en-us/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
-
-For both examples below, we will assume the following table schema - **a primary key must be set**, it will be used to update by key:
+For both examples below, we'll assume the following table schema - **a primary key must be set**, it will be used to update by key:
 
 ```SQL
 CREATE TABLE [dbo].[device_updated](
@@ -115,7 +115,7 @@ Finally, it's important to remember the following expectations on Azure Function
 - During test connection, Stream Analytics sends an empty batch to Azure Functions and expects HTTP status 20x to validate the test
 
 
-## Option 1 : Update by key with the Azure Function SQL Binding
+## Option 1: Update by key with the Azure Function SQL Binding
 
 This sample was built on:
 
@@ -150,7 +150,7 @@ Add the `SqlConnectionString` item in the Values section of your local.settings.
 }
 ```
 
-Replace the entire function (.cs file in the project) by the following code snippet, replacing the namespace, class name and function name by your own:
+Replace the entire function (.cs file in the project) by the following code snippet. Update the namespace, class name, and function name by your own:
 
 ```DOTNET
 using System;
@@ -177,7 +177,7 @@ namespace Company.Function
 
             // Extract the body from the request
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            if (string.IsNullOrEmpty(requestBody)) {return new StatusCodeResult(204);}  // 204, ASA connectivity check
+            if (string.IsNullOrEmpty(requestBody)) {return new StatusCodeResult(204);} // 204, ASA connectivity check
 
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
@@ -228,13 +228,13 @@ Update the `Device` class and mapping section to match your own schema:
         public DateTime Timestamp { get; set; }
 ```
 
-You can now test the wiring between the local function and the database by debugging (F5). The SQL database needs to be reachable from your machine (try to connect with [SSMS](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) to check connectivity). A tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint exposed during debugging. An empty body should return http 204, an actual payload should be persisted in the destination table (in replace / update mode). Here is a sample payload corresponding to the schema used in this sample:
+You can now test the wiring between the local function and the database by debugging (F5 in VS Code). The SQL database needs to be reachable from your machine. [SSMS](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) can be used to check connectivity. Then a tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in replace / update mode). Here's a sample payload corresponding to the schema used in this sample:
 
 ```JSON
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed, defined as an output in the ASA job, and used to replace records instead of inserting them. Note that the Azure SQL **Server** firewall should [allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview) and resources in.
+The function can now be deployed, defined as an output in the ASA job, and used to replace records instead of inserting them. The Azure SQL **Server** firewall should [allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 
 ## Option 2: Merge with compound assignment (accumulate) via a custom SQL query
@@ -270,7 +270,7 @@ Add the `SqlConnectionString` item in the Values section of your local.settings.
 }
 ```
 
-Replace the entire function (.cs file in the project) by the following code snippet, replacing the namespace, class name and function name by your own:
+Replace the entire function (.cs file in the project) by the following code snippet. Update the namespace, class name, and function name by your own:
 
 ```DOTNET
 using System;
@@ -294,7 +294,7 @@ namespace Company.Function
         {
             // Extract the body from the request
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-            if (string.IsNullOrEmpty(requestBody)) {return new StatusCodeResult(204);}  // 204, ASA connectivity check
+            if (string.IsNullOrEmpty(requestBody)) {return new StatusCodeResult(204);} // 204, ASA connectivity check
 
             dynamic data = JsonConvert.DeserializeObject(requestBody);
 
@@ -348,13 +348,13 @@ Update the `sqltext` command building section to match your own schema (notice h
                     $"WHEN NOT MATCHED BY TARGET THEN INSERT (DeviceId, Value, TimeStamp) VALUES (DeviceId, Value, Timestamp);";
 ```
 
-You can now test the wiring between the local function and the database by debugging (F5). The SQL database needs to be reachable from your machine (try to connect with [SSMS](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) to check connectivity). A tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint exposed during debugging. An empty body should return http 204, an actual payload should be persisted in the destination table (in accumulate / merge mode). Here is a sample payload corresponding to the schema used in this sample:
+You can now test the wiring between the local function and the database by debugging (F5 in VS Code). The SQL database needs to be reachable from your machine. [SSMS](https://docs.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver15) can be used to check connectivity. Then a tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in accumulate / merge mode). Here's a sample payload corresponding to the schema used in this sample:
 
 ```JSON
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed, defined as an output in the ASA job, and used to accumulate values instead of inserting them. Note that the Azure SQL **Server** firewall should [allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview) and resources in.
+The function can now be deployed, defined as an output in the ASA job, and used to accumulate values instead of inserting them. The Azure SQL **Server** firewall should [allow Azure services](https://docs.microsoft.com/en-us/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
 
 ## Get support
 
