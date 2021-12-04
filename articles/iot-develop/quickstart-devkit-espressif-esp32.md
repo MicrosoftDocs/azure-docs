@@ -27,10 +27,7 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-An operating system that the ESP-IDF build environment supports:
-- Windows 10+ (recommended)
-- Linux
-- macOS
+Operating system: Windows 10 or Windows 11
 
 Hardware:
 - ESPRESSIF [ESP32-Azure IoT Kit](https://www.espressif.com/products/devkits/esp32-azure-kit/overview)
@@ -41,22 +38,10 @@ Hardware:
 
 To set up your development environment, first you install the ESPRESSIF ESP-IDF build environment. The installer includes all the tools required to clone, build, flash and monitor your device.
 
-For Windows:
+To install the ESP-IDF tools:
 1. Download and launch the [ESP-IDF Online installer](https://dl.espressif.com/dl/esp-idf).
 1. When the installer prompts for a version, select the latest release version.
 1. When the installer prompts for the components to install, select all components. 
-
-For Linux or macOS:
-    
-1. To install prerequisites, follow the instructions at [ESP-IDF Get Started](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started). 
-1. We recommend that you check out a release version of the ESP-IDF, because the *master* branch may contain blocking bugs. This quickstart was tested against [ESP-IDF v4.3.1](https://github.com/espressif/esp-idf/tree/v4.3.1).
-    
-    ```shell
-    git checkout tags/v4.3.1
-    ```
-
-> [!NOTE]
-> For advanced installations, or for more information relating to the ESP-IDF, please refer to the [ESP-IDF Programming Guide](https://docs.espressif.com/projects/esp-idf/en/latest/esp32).
 
 [!INCLUDE [iot-develop-embedded-create-central-app-with-device](../../includes/iot-develop-embedded-create-central-app-with-device.md)]
 
@@ -250,4 +235,4 @@ As a next step, explore the following articles to learn more about working with 
 > [!div class="nextstepaction"]
 > [Azure RTOS embedded development quickstarts](quickstart-devkit-mxchip-az3166.md)
 > [!div class="nextstepaction"]
-> [Azure IoT device development documentation](https://docs.microsoft.com/azure/iot-develop/)
+> [Azure IoT device development documentation](/azure/iot-develop/)
