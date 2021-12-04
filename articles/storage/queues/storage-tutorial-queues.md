@@ -306,7 +306,7 @@ Here is the complete code listing for this project.
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
-   The queue was created.
+   The queue got created.
    Sent: First queue message
    Press Enter..._
    ```
@@ -321,7 +321,7 @@ Here is the complete code listing for this project.
 
    ```output
    C:\Tutorials\QueueApp>dotnet run First queue message
-   The queue was created.
+   The queue got created.
    Sent: First queue message
    Press Enter...
 
