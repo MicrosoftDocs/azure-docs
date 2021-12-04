@@ -10,7 +10,7 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the Device Update binary agent for Proxy Updates
 
-## Setup Test Device
+## Setup Test Device or Virtual Machine (VM)
 
 ### Assumption
 
@@ -33,12 +33,12 @@ sudo apt-get update
 ```
 
 2. Install the **deviceupdate-agent** on the IoT device.  
- - Download the latest Device Update debian file from packages.microsoft.com 
+  - Download the latest Device Update debian file from packages.microsoft.com 
   ```sh
   sudo apt-get install deviceupdate-agent
   ```
 
- - If you downloaded the file on your pc/laptop follow these steps to add it to the test VM
+  - If you downloaded the file on your pc/laptop follow these steps to add it to the test VM
  
   Copy the latest Device Update debian file to the test VM. e.g. if using powershell window (on your pc/laptop) run the following shell command
   ```sh 
@@ -46,16 +46,18 @@ sudo apt-get update
    ```
    
   Then remote into your VM then run following shell command in the home folder
-    ```sh
+   
+   ```sh
        #go to home folder 
        cd ~
        #install latest Device Update agent
        sudo apt-get install ./<debian file name from the previous step>
-    ```
+   ```
+   
   
 3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. This should replace any default value for the "connectionData" field in the du-config.json file. To access the du-config.json file on the VM open the file using the following command             
     ```sh
-       sudo nano /etc/adu/du-config.json in /etc/adu/du-config.json.
+       sudo nano /etc/adu/du-config.json  
     ```
        
 4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well.  
@@ -77,7 +79,7 @@ sudo apt-get update
 }
 ```
 
-5. Restart `adu-agent` service
+5. Restart the Device Update agent
 
 ```sh
 sudo systemctl restart adu-agent
@@ -105,23 +107,22 @@ This components configuration depends on the implementation of an example Compon
  ```sh
  ~/demo/show-demo-components.sh
 ```
-
-*Additional details*: The reset-demo-components.sh will perform the following steps on your behalf:
-
-#### Add /usr/local/contoso-devices/components-inventory.json
-
-- Copy [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
-  
-#### Register Contoso Components Enumerator extension
-
-- Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
-- Register the extension
-
-```sh
-sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
-```
-
 **Congratulations!** Your VM should now support Proxy Updates!
+
+**Additional details**: The reset-demo-components.sh command above will perform the following steps on your behalf. 
+
+1. Add /usr/local/contoso-devices/components-inventory.json
+
+ - Copy [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
+
+ 2. Register Contoso Components Enumerator extension
+
+ - Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
+ - Register the extension
+
+ ```sh
+ sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
+ ```
 
 ## How To Import Example Updates
 
@@ -151,8 +152,6 @@ sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-compone
 4. Select the Add button to create a new group.
 
 5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
-
-   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
