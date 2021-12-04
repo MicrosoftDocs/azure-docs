@@ -61,7 +61,7 @@ This article shows how to use Azure Functions to implement Replace and Accumulat
 
 In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function.
 
-There are currently two options to access a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
+There are currently two options to access a SQL Database in a function. First is the [Azure SQL output binding](/azure/azure-functions/functions-bindings-azure-sql). It's currently limited to C#, and only offers replace mode. Second is to compose a SQL query to be submitted via the appropriate [SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
 For both samples below, we'll assume the following table schema. The binding option requires **a primary key** to be set on the target table. It's not necessary, but recommended, when using a SQL driver.
 
@@ -346,7 +346,7 @@ Azure Cosmos DB [supports UPSERT natively](/azure/stream-analytics/stream-analyt
 
 If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
-If the target database is Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
+For Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 
