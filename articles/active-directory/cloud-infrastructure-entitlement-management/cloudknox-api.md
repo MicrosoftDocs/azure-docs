@@ -20,7 +20,7 @@ This topic describes the process of configuring and deleting Microsoft CloudKnox
 
 ### How to use the CloudKnox API tab
 
-- Click the link provided on the CloudKnox API tab to read additional documentation.
+- To read additional documentation, click the link provided on the CloudKnox API tab.
 
 ### How to use the Integration tab
 
@@ -39,7 +39,7 @@ This topic describes the process of configuring and deleting Microsoft CloudKnox
     - **Access Key**
     - **Secret Key**
 
-3. Click the **Duplicate** icon next to the respective information to copy the codes. 
+3. To copy the codes, click the **Duplicate** icon next to the respective information. 
 
    > [!NOTE]
    >  The codes are time sensitive and will regenerate after the box is closed.

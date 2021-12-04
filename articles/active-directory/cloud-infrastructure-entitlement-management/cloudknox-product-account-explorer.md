@@ -44,7 +44,7 @@ The CloudKnox Permissions Management's **Account Explorer** displays a list of t
 
 4. To view all the identities from various accounts that can assume this role, click the caret icon to the left of the role name.
 
-5. Click the role name to view a graph of all the identities that can access the specified account and through which role(s). 
+5. To view a graph of all the identities that can access the specified account and through which role(s), click the role name . 
 
      If CloudKnox is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted Entity** section.
 
@@ -65,16 +65,16 @@ The CloudKnox Permissions Management's **Account Explorer** displays a list of t
 
      - **Identities with Access** - Lists the identities that come from external accounts:
 
-        - Click the caret icon to the left of the account name to view all the identities from that account can access the specified account.
-        - For EC2 instances and Lambda Functions, click the "eye" icon to the right of the identity name to view the **Role Summary**. It displays the details described above.
-        - Click the identity name to view a graph of how the identity can access the specified account and through which role(s).
+        - To view all the identities from that account can access the specified account, click the caret icon to the left of the account name.
+        - To view the **Role Summary** for EC2 instances and Lambda Functions, click the "eye" icon to the right of the identity name. 
+        -  To view a graph of how the identity can access the specified account and through which role(s), click the identity name.
 
-9. The **Info** tab displays the **Privilege Creep Index** and Service Control Policy (SCP) information about the account. 
+9. The **Info** tab displays the **Privilege Creep Index** and **Service Control Policy (SCP)** information about the account. 
 
      For more information about the **Privilege Creep Index** and SCP information, see [Dashboard](https://docs.aws.amazon.com/IAM/latest/UserGuide/product-dashboard.html).
 
 ## Next steps
 
-[Sentry Installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+[Sentry installation - AWS](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 
-[CloudKnox FortSentry Registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)
+[CloudKnox FortSentry registration](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/CloudKnox%20FortSentry%20Registration%20f9f85592b2cf48aca0c0effd604a0827.html)

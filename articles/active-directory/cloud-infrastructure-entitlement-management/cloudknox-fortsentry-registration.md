@@ -16,17 +16,19 @@ This article guides you through the process of signing up with Microsoft CloudKn
 
 ## How to register in CloudKnox FortSentry
 
-1. Click [https://app.cloudknox.io/](https://app.cloudknox.io/sign-up) to sign up with CloudKnox and create an organization for *Customer Company*, where *Customer Company* is the name of your company. 
+1. To sign up with CloudKnox, click [https://app.cloudknox.io/](https://app.cloudknox.io/sign-up).
+
+2. To create an organization, in the **Customer Company** box, enter the name of your company. 
 
    The sign-up system sends an email to CloudKnox to create the account.
 
-2. Click **Confirm** to confirm you want to create the account.
+3. To confirm you want to create the account, click **Confirm**.
 
-3. Follow the on-screen information to register your account.
+4. To complete registering your account, follow the information displayed on the screen.
 
-4. After the account is created, login to the CloudKnox portal at: [https://app.cloudknox.io/](https://app.cloudknox.io/).
+5. After the account is created, login to the CloudKnox portal at: [https://app.cloudknox.io/](https://app.cloudknox.io/).
 
-5. To deploy FortSentry, click **Deploy** and then follow the instructions on the screen.
+6. To deploy FortSentry, click **Deploy** and then follow the instructions on the screen.
 
 <!---Add screenshot.--->
 
