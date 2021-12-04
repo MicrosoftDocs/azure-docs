@@ -27,6 +27,8 @@ In this article, you learn how to secure inferencing environments with a virtual
 > * [Enable studio functionality](how-to-enable-studio-virtual-network.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
+>
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to secure the following inferencing resources in a virtual network:
 > [!div class="checklist"]
@@ -59,7 +61,7 @@ In this article you learn how to secure the following inferencing resources in a
 ### Azure Kubernetes Service
 
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
 
 <a id="aksvnet"></a>
 

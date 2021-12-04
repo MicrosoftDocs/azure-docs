@@ -69,6 +69,7 @@ Region |  Same region as virtual machine  | Cache storage account should be in t
 Subscription  | Can be different from source virtual machines | Cache storage account need not be in the same subscription as the source virtual machine(s).
 Azure Storage firewalls for virtual networks  | Supported | If you are using firewall enabled cache storage account or target storage account, ensure you ['Allow trusted Microsoft services'](../storage/common/storage-network-security.md#exceptions).<br></br>Also, ensure that you allow access to at least one subnet of source Vnet.<br></br>Note: Do not restrict virtual network access to your storage accounts used for Site Recovery. You should allow access from 'All networks'.
 Soft delete | Not supported | Soft delete is not supported because once it is enabled on cache storage account, it increases cost. ASR performs very frequent creates/deletes of log files while replicating causing costs to increase.
+Encryption at rest (CMK) | Supported | Storage account encryption can be configured with customer managed keys (CMK)
 
 The table below lists the limits in terms of number of disks that can replicate to a single storage account.
 

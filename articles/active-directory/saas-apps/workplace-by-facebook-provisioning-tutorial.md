@@ -189,22 +189,30 @@ Be sure to note any changes that have been made to the settings listed above bef
 	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
 	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
-	
-6. Run the command below to delete the provisioning job:
 
+6. Using the ObjectID selected from the app previously, run the following command:
+
+```
+GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/
+```
+
+7. Taking the "id" value from the response body of the GET request from above, run the command below, replacing "[job-id]" with the id value from the GET request. The value should have the format of "FacebookAtWorkOutDelta.xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxx":
+```
 DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
+```
+8. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
+```
+POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }
+```
 
-7. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
-_POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }_           
+![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
 
-	![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
+9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
 
-8. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
-
-9. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
+10. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
 ![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/credentials.png)
 
-10. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
+11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 
 ## Change log
 

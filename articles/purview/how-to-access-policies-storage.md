@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 12/02/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 ## Supported capabilities
 This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
--   Data access policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2
+-   Data policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2.
 
 > [!NOTE]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
@@ -40,7 +40,12 @@ Execute this step only if the Storage and Purview accounts are in different subs
 
 ### Configure permissions for policy management actions
 #### Storage account permissions
-- User needs to have role *Owner* in the Azure Storage account to be able to register this source for *Data use Governance* in Azure Purview. You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+User needs to have **either one of these** role combinations in the Azure Storage account to be able to register it for *Data use Governance* in Azure Purview:
+- IAM *Owner* 
+- Both IAM *Contributor* + IAM *User Access Administrator*
+ 
+You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
+
 #### Purview account permissions
 >[!IMPORTANT]
 > - Policy operations are only supported at **root collection level** and not child collection level.
@@ -53,7 +58,7 @@ Check the section on managing Purview role assignments in this [guide](how-to-cr
 
 >[!WARNING]
 > **Known issues** related to permissions
-> - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
+> - In addition to Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory (AAD) to create data owner policy. For more on AAD Directory Reader [click here](../active-directory/roles/permissions-reference.md#directory-readers)
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
 ### Register and scan data sources in Purview
@@ -64,7 +69,7 @@ Register and scan each data source with Purview to later define access policies.
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
 >[!NOTE]
-> Make a note of the name you give the source during registration. You will need it when you create or publish a policy statement. A best practice is to give it the same name you used for the Storage account.
+> Make a note of the **Name** you give the source during registration. You will need it when you create or publish a policy statement. A best practice is to give it the same name you used for the Storage account.
 
 During registration, enable the data source for access policy through the **Data use governance** toggle, as shown in the picture
 
@@ -130,7 +135,9 @@ This section describes the steps to create a new policy in Azure Purview.
 
 > [!WARNING]
 > **Known issues** related to Policy creation
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still allowed after that.
+> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
+> - Do not create policy statements for Blob storage selecting data objects below container level. Blob storage only provides access control at container level, so those policies will not be enforced.
+> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Update or delete a policy
 

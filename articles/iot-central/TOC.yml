@@ -69,26 +69,6 @@
           href: retail/tutorial-iot-central-digital-distribution-center.md 
         - name: Create a micro-fulfillment center application
           href: retail/tutorial-micro-fulfillment-center.md 
-        - name: Video analytics - object and motion detection
-          items:
-          - name: 0 - Deploy object and motion detection application
-            href: retail/tutorial-video-analytics-deploy.md
-          - name: 1 - Create a video analytics application
-            items:
-            - name: Object and motion detection (YOLO v3)
-              href: retail/tutorial-video-analytics-create-app-yolo-v3.md
-            - name: Object and motion detection (OpenVINO)
-              href: retail/tutorial-video-analytics-create-app-openvino.md
-          - name: 2 - Configure an IoT Edge device
-            items:
-            - name: Create video analytics device on the edge (Linux VM)
-              href: retail/tutorial-video-analytics-iot-edge-vm.md
-            - name: Create video analytics device on the edge (Intel NUC)
-              href: retail/tutorial-video-analytics-iot-edge-nuc.md
-          - name: 3 -Monitor and manage a video analytics application
-            href: retail/tutorial-video-analytics-manage.md
-          - name: 4 - Modify and build the live video analytics gateway modules
-            href: retail/tutorial-video-analytics-build-module.md
       - name: Energy
         items:
         - name: Create a smart meter monitoring app
@@ -116,6 +96,8 @@
       href: core/concepts-architecture.md
     - name: Scalability and high availability
       href: core/concepts-scalability-availability.md
+    - name: Quotas and limits
+      href: core/concepts-quotas-limits.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
@@ -125,8 +107,7 @@
     - name: Operator guide
       href: core/overview-iot-central-operator.md
     - name: What are application templates?
-      href: core/concepts-app-templates.md
-        
+      href: core/concepts-app-templates.md        
     - name: What are device templates?
       href: core/concepts-device-templates.md
     - name: Device connectivity
