@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-health, ignite-fall-2021
 ---
@@ -69,6 +69,8 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 If you send a request using the REST API or client library, the results will be returned asynchronously. If you're using the Docker container, they will be returned synchronously.  
 
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
+
 
 ## Getting results from the feature
 
@@ -76,8 +78,6 @@ Depending on your API request, and the data you submit to the Text Analytics for
 
 [!INCLUDE [Text Analytics for health features](../includes/features.md)]
 
-
-When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
 ## Data limits
 
