@@ -13,30 +13,34 @@ ms.custom: devx-track-java
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs with Elastic (ELK).
+This article explains how to use the diagnostics functionality of Azure Spring Cloud to analyze logs with Elastic (ELK).
 
 ## Configure diagnostics settings
 
+To configure diagnostic settings, use the following steps:
+
 1. In the Azure portal, go to your Azure Spring Cloud instance.
-1. Select **diagnostics settings** option, and then select **Add diagnostics setting**.
-1. Enter a name for the setting, and then choose **Send to partner solution** , select **Elastic** and an Elastic deployment where you want to send the logs.
+1. Select **diagnostics settings** option, then select **Add diagnostics setting**.
+1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-   ![Diagnostics Setting](media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png)
+![Diagnostics Setting](media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png)
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
-> If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+> If the Azure Spring Cloud instance is deleted or moved, the operation will not cascade to the diagnostics settings resources. You have to manually delete the diagnostics settings resources before you perform the operation against its parent, the Azure Spring Cloud instance. Otherwise, if you provision a new Azure Spring Cloud instance with the same resource ID as the deleted one, or if you move the Azure Spring Cloud instance back, the previous diagnostics settings resources will continue to extend it.
 
 ## Analyze the logs with Elastic
 
 To learn more about deploying Elastic on Azure, see [How to deploy and manage Elastic on Microsoft Azure](https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement).
 
+Use the following steps to analyze the logs:
+
 1. From the Elastic deployment overview page in the Azure portal, open **Kibana**.
 
    ![Deployment Overview](media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png)
 
-1. In Kibana in the Search bar at top type **Spring Cloud type:dashboard**
+1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 
    ![Kibana Search](media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png)
 
@@ -44,7 +48,7 @@ To learn more about deploying Elastic on Azure, see [How to deploy and manage El
 
    ![ASC Dashboard](media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png)
 
-1. You can search on out of the box Azure Spring Cloud dashboards by using the queries such as the following:
+1. Search on out-of-the-box Azure Spring Cloud dashboards by using the queries such as the following:
 
    ```query
    azure.springcloudlogs.properties.app_name : "visits-service"
@@ -52,15 +56,17 @@ To learn more about deploying Elastic on Azure, see [How to deploy and manage El
 
 ## Analyze the logs with Kibana Query Language in Discover
 
-Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
+Application logs provide critical information and verbose logs about your application's health, performance, and more. Use the following steps to analyze the logs:
 
-1. In Kibana in the Search bar at top type *Discover*, then select the result.
+1. In Kibana, in the **Search** bar at top, type *Discover*, then select the result.
 
    ![Elastic Kibana Discover](media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png)
 
-2. In **Discover** app, select **logs-** index pattern if it's not already selected.
+1. In the **Discover** app, select the **logs-** index pattern if it's not already selected.
 
    ![Discover Index Pattern](media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png)
+
+1. Use queries such as the ones in the following sections to help you understand your application's current and past states.
 
 For more information about different queries, see [Guide to Kibana Query Language](https://www.elastic.co/guide/en/kibana/current/kuery-query.html).
 
@@ -94,8 +100,7 @@ azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring" and (log.leve
 
 ![Log entries with errors and exceptions](media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-error-exception.png)
 
-You would notice as you start typing in that Kibana Query Language helps users form queries with autocomplete and suggestions to make it easy for users to gain insights from the logs.
-Use this query to find errors, or modify the query terms to find specific error codes or exceptions.
+The Kibana Query Language helps you form queries by providing autocomplete and suggestions to help you gain insights from the logs. Use your query to find errors, or modify the query terms to find specific error codes or exceptions.
 
 ### Show log entries from a specific service
 
@@ -129,17 +134,17 @@ azure.springcloudlogs.properties.type : "ServiceRegistry"
 
 ## Visualizing logs from Azure Spring Cloud with Elastic
 
-### Show the various log levels in your logs to assess overall health of the services
-
 Kibana allows you to visualize data with Dashboards and a rich ecosystem of visualizations. For more information, see [Dashboard and Visualization](https://www.elastic.co/guide/en/kibana/current/dashboard.html).
 
-1. From the available fields list on left in **Discover**, search for log.level in the search box under **logs-** index pattern
+Use the following steps to show the various log levels in your logs so you can assess the overall health of the services.
+
+1. From the available fields list on left in **Discover**, search for *log.level* in the search box under the **logs-** index pattern.
 
 1. Select the **log.level** field. From the floating informational panel about **log.level**, select **Visualize**.
 
    ![Discover to Visualize](media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png)
 
-1. From here you can choose to add more data from the left pane, or choose from multiple suggestions how you would like to visualize your data.
+1. From here, you can choose to add more data from the left pane, or choose from multiple suggestions how you would like to visualize your data.
 
    ![Discover to Visualize](media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png)
 
