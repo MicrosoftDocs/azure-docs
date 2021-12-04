@@ -108,8 +108,8 @@ After doing this the Update Content Handler can install and apply the update to 
 
 | Function | Arguments | Returns |
 |---|---|---|
-|`char* GetAllComponents()`|None|A JSON string contains an array of **all** [ComponentInfo](./README.md#componentinfo)<br/><br/>See [Example Return Values](./README.md#example-return-values) for more info.|
-|`char* SelectComponents(char* selector)`|A JSON string containing one or more name-value pair(s) use for selecting update target component(s)| A JSON string contains an array of [ComponentInfo](./README.md#componentinfo)<br/><br/>See [Example Return Values](./README.md#example-return-values) for more info.|
+|`char* GetAllComponents()`|None|A JSON string contains an array of **all** ComponentInfo. See Example Return Values below for more details.|
+|`char* SelectComponents(char* selector)`|A JSON string containing one or more name-value pair(s) use for selecting update target component(s)| A JSON string contains an array of ComponentInfo. See Example Return Values below for more details.|
 |`void FreeComponentsDataString(char* string)`|A pointer to string buffer previously returned by `GetAllComponents` or `SelectComponents` functions.|None|
 
 ### ComponentInfo
