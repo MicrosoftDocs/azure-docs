@@ -50,7 +50,7 @@ Deleting source account while a restore is in-progress could result in failure o
 
 ### Restorable timestamp for live accounts
 
-To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account.
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
 
 ### <a id="event-feed"></a>Use event feed to identify the restore time
 
