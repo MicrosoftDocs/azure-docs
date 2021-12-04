@@ -9,16 +9,16 @@ ms.service: iot-hub-device-update
 ---
 
 # Multi-Step Ordered Execution
-Based on customer requests for the ability to run pre-install and post-install tasks when deploying an over-the-air update, a new feature called Multi-Step Ordered Execution (MSOE) has been added to the Device Update platform. The MSOE data is part of the Public Preview Referesh Update Manifest v4 schema.  
+Based on customer requests we have added the ability to run pre-install and post-install tasks when deploying an over-the-air update. This capability is called Multi-Step Ordered Execution (MSOE) and is part of the Public Preview Refresh Update Manifest v4 schema.  
 
-Please see the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the Public Preview Refresh release.
+See the [Update Manifest](update-manifest.md) documentation before reviewing the following changes as part of the Public Preview Refresh release.
 
-With MSOE we have introduced are 2 types of Steps:
+With MSOE we have introduced are two types of Steps:
 
 - Inline Step (Default)
 - Reference Step
 
-Example Update Manifest with 1 Inline Step:
+Example Update Manifest with one Inline Step:
 
 ```json
 {
@@ -50,7 +50,7 @@ Example Update Manifest with 1 Inline Step:
 }
 ```
 
-Example Update Manifest with 2 Inline Steps:
+Example Update Manifest with two Inline Steps:
 
 ```json
 {
@@ -92,7 +92,7 @@ Example Update Manifest with 2 Inline Steps:
 }
 ```
 
-Example Update Manifest with 1 Reference Step:
+Example Update Manifest with ome Reference Step:
 
 - Parent Update
 
@@ -199,11 +199,11 @@ Example Update Manifest with 1 Reference Step:
 
 For Public Preview Refresh, we will refer to the top-level Update Manifest as `Parent Update` and refer to an Update Manifest specified in a Reference Step as `Child Update`.  
 
-Currently, a `Child Update` must not contain any reference steps. This restriction is validate at import time. If violated, the import will fail.
+Currently, a `Child Update` must not contain any reference steps. This restriction is validated at import time and if not followed the import will fail.
 
 ### Inline Step In Parent Update
 
-Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (aka. Update Content Handler) will not contains a `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
+Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (aka. Update Content Handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
 
 > **Note** | See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
@@ -217,12 +217,12 @@ Next, the Steps Handler will parse the Child Update Manifest and create ADUC_Wor
 
 ## Detached Update Manifest
 
-To avoid deployment failure due to IoT Hub Twin Data Size Limit, any large Update Manifest will be delivered in the form of a JSON data file, also called as a 'Detached Update Manifest'.
+To avoid deployment failure because of IoT Hub Twin Data Size Limits, any large Update Manifest will be delivered in the form of a JSON data file, also called as a 'Detached Update Manifest'.
 
-If an update with large content is imported into Device Update for IoT Hub, the generated Update Manifest will contain an additional payload file called `Detached Update Manifest` which contains the full data of the Update Manifest.
+If an update with large content is imported into Device Update for IoT Hub, the generated Update Manifest will contain another payload file called `Detached Update Manifest`, which contains the full data of the Update Manifest.
 
-The `UpdateManifest` property in the Device or Module Twin will contains the Detached Update Manifest file information.
+The `UpdateManifest` property in the Device or Module Twin will contain the Detached Update Manifest file information.
 
-When processing PnP Property Changed Event, the Device Update Agent will automatically download the Detached Update Manifest file, and create ADUC_WorkflowData object that contain the full Update Manifest data.
+When processing PnP Property Changed Event, the Device Update Agent will automatically download the Detached Update Manifest file, and create ADUC_WorkflowData object that contains the full Update Manifest data.
 
  
