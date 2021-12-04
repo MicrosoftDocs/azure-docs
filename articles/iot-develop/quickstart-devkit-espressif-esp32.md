@@ -112,9 +112,9 @@ To build the image:
     idf.py --no-ccache -B "C:\espbuild" build 
     ```
 
-1. After the build completes, confirm that the binary image file was created in the following path:
+1. After the build completes, confirm that the binary image file was created in the build path you specified previously.
 
-    *iot-middleware-freertos-samples\demos\projects\ESPRESSIF\aziotkit\build\azure_iot_freertos_esp32.bin*
+    *C:\espbuild\azure_iot_freertos_esp32.bin*
 
 To flash the image:
 1. On the ESP32 DevKit, locate the Micro USB port, which is highlighted in the following image:
