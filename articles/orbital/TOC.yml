@@ -21,7 +21,7 @@ items:
       href: onboard-edgesite.md
     - name: Create a Layer 2 Connection
       href: create-l2connection.md
-- name: concepts
+- name: Concepts
   items:
   - name: Understanding Azure Orbital for Earth Observation Services
     href: concept-eos.md
