@@ -23,7 +23,7 @@ These profiles are template JSON files that have various settings for the Azure 
 
 However, in some cases, you may want to customize those configuration templates to meet your requirements and pass the customized configuration template using the `--path` parameter to the `az arcdata dc create` command rather than pass a preconfigured configuration template using the `--profile-name` parameter.
 
-## Create custom.json file
+## Create control.json file
 
 Run `az arcdata dc config init` to initiate a control.json file with pre-defined settings based on your distribution of Kubernetes cluster.
 For instance, a template control.json file for a Kubernetes cluster based on the `azure-arc-kubeadm` template in a subdirectory called `custom` in the current working directory can be created as follows:
@@ -38,10 +38,10 @@ The created control.json file can be edited in any editor such as Visual Studio 
 Once the template file is created, the file can be applied during Azure Arc-enabled data controller create command as follows:
 
 ```azurecli
-az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
+az arcdata dc  create --path ./custom --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect  --k8s-namespace <namespace> --use-k8s
 
 #Example:
-#az arcdata dc  create --path ./custom --namespace arc --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
+#az arcdata dc  create --path ./custom --name arc --subscription <subscription ID> --resource-group my-resource-group --location eastus --connectivity-mode indirect --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Use custom control.json file for deploying Azure Arc data controller using Azure portal
