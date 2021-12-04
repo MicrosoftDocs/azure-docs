@@ -38,14 +38,14 @@ sudo apt-get update
   sudo apt-get install deviceupdate-agent
   ```
 
-  - If you downloaded the file on your pc/laptop follow these steps to add it to the test VM
+  - If you downloaded the file on your pc/laptop, follow these steps to add it to the test VM
  
-  Copy the latest Device Update debian file to the test VM. e.g. if using powershell window (on your pc/laptop) run the following shell command
+  Copy the latest Device Update debian file to the test VM. If using PowerShell on your pc/laptop, run the following shell command
   ```sh 
     scp <path to the .deb file> tester@<your vm's ip address>:~
    ```
    
-  Then remote into your VM then run following shell command in the home folder
+  Then remote into your VM and run following shell command in the home folder
    
    ```sh
        #go to home folder 
@@ -55,13 +55,12 @@ sudo apt-get update
    ```
    
   
-3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. This should replace any default value for the "connectionData" field in the du-config.json file. To access the du-config.json file on the VM open the file using the following command             
+3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. Replace any default value for the "connectionData" field with the primary connection string in the du-config.json file. To make changes to the du-config.json file on your VM open the file using the following command             
     ```sh
        sudo nano /etc/adu/du-config.json  
     ```
        
-4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well.  
-  e.g.  
+4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well. For example. 
 
 ```sh
 {
@@ -89,13 +88,13 @@ sudo systemctl restart adu-agent
 
 For testing and demonstration purposes, we'll be creating following mock components on the device:
 
-- 3 motors
-- 2 cameras
-- hostfs
-- rootfs
+- Three motors
+- Two cameras
+- "hostfs"
+- "rootfs"
 
 **IMPORTANT**  
-This components configuration depends on the implementation of an example Component Enuerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
+This components configuration depends on the implementation of an example Component Enumerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
 
 1. Copy the folder [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM and then run the following command to copy required files to the right locations.
 
@@ -136,7 +135,7 @@ This components configuration depends on the implementation of an example Compon
 5. Select" + Select from storage container" and then select your Storage account and Container. 
 6. Select 'Upload' to add the files you downloaded in (1) and then 'Select' to go to the next step.
 7. The UI now shows the list of files that will be imported to Device Update. Select 'Import update'
-8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import may complete in a few minutes but could take longer.
 9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
@@ -178,7 +177,7 @@ You have now completed a successful end-to-end image update using Device Update 
 
 ## Clean up resources
 
-When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+When no longer needed, clean up your device update account, instance, IoT Hub, and IoT device. 
 
 
 
