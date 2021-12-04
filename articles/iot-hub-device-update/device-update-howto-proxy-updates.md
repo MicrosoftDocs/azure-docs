@@ -10,92 +10,11 @@ ms.service: iot-hub-device-update
 
 # Device Update for Azure IoT Hub tutorial using the Device Update binary agent for Proxy Updates
 
-## How To Import Example Updates
-
-> Tip: perform these steps on machine that supports Power Shell
-
-### Import Example Updates using PowerShell scritps
-
-#### Install and Import ADU PowerShell Modules
-
-- Install PowerShellGet [see details here](https://docs.microsoft.com/en-us/powershell/scripting/gallery/installing-psget?view=powershell-7.1)
-
-```ps
-Install-PackageProvider -Name NuGet -Force
-
-[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-
-Install-Module -Name PowerShellGet -Force -AllowClobber
-
-Update-Module -Name PowerShellGet
-
-```
-
-- Install Azure Az PowerShell Modules
-
-```ps
-
-Install-Module -Name Az -Scope CurrentUser -Repository PSGallery -Force
-
-```
-
-- Create storage account
-- Get container for updates storage
-
-**For example**
-
-```ps
-
-Import-Module .\AduAzStorageBlobHelper.psm1
-Import-Module .\AduImportUpdate.psm1
-
-$AzureSubscriptionId = '<YOUR SUBSCRIPTION ID>'
-$AzureResourceGroupName = '<YOUR RESOURCE GROUP NAME>'
-$AzureStorageAccountName = '<YOUR STORAGE ACCOUNT>'
-$AzureBlobContainerName =  '<YOUR BLOB CONTAINER NAME>'
-
-$container = Get-AduAzBlobContainer  -SubscriptionId $AzureSubscriptionId -ResourceGroupName $AzureResourceGroupName -StorageAccountName $AzureStorageAccountName -ContainerName $AzureBlobContainerName
-
-```
-
-- Get REST API token
-
-```ps
-Install-Module MSAL.PS
-
-$AzureAdClientId = '<AZURE AD CLIENT ID>'
-
-$AzureAdTenantId = '<AZURE AD TENANT ID>'
-
-$token = Get-MsalToken -ClientId $AzureAdClientId -TenantId $AzureAdTenantId -Scopes 'https://api.adu.microsoft.com/user_impersonation' -Authority https://login.microsoftonline.com/$AzureAdTenantId/v2.0 
-```
-
-#### Import Example Updates
-
-Go to `sample-updates` directory, then run following commands to import **all** updates.  
-Note that you can choose to import only updates you want to try.
-
-```ps
-
-./ImportSampleMSOEUpdate-1.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-./ImportSampleMSOEUpdate-2.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-./ImportSampleMSOEUpdate-3.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-./ImportSampleMSOEUpdate-4.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-./ImportSampleMSOEUpdate-5.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-./ImportSampleMSOEUpdate-10.x.ps1 -AccountEndpoint intmoduleidtest.api.int.adu.microsoft.com -InstanceId intModuleIdTestInstance -BlobContainer $container -AuthorizationToken $token.AccessToken -Verbose
-
-```
-
 ## Setup Test Device
 
 ### Prerequisites
 
-- Ubuntu 18.04 LTS Server VM
+- An Ubuntu 18.04 LTS Server VM was used to exercise this tutorial
 
 ### Install the Device Update Agent and Dependencies
 
@@ -177,5 +96,65 @@ sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-compone
 #### 
 
 **Congratulations!** Your VM should now support Proxy Updates!
+
+## How To Import Example Updates
+
+### Prerequisites
+* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
+
+1. Download the Proxy Updates import manifests and images from the [latest Device Update release](https://github.com/Azure/iot-hub-device-update/releases) under Assets. 
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Device Management from the left-hand navigation bar.
+3. Select the Updates tab.
+4. Select "+ Import New Update".
+5. Select" + Select from storage container" and then select your Storage account and Container. 
+6. Select 'Upload' to add the files you downloaded in (1) and then 'Select' to go to the next step.
+7. The UI now shows the list of files that will be imported to Device Update. Select 'Import update'
+8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+
+[Learn more](import-update.md) about importing updates.
+
+## Create update group
+
+1. Go to the IoT Hub you previously connected to your Device Update instance.
+
+2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+
+3. Select the Groups tab at the top of the page. 
+
+4. Select the Add button to create a new group.
+
+5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+
+   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
+
+[Learn more](create-update-group.md) about adding tags and creating update groups
+
+
+## Deploy update
+
+1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+
+2. Click on the available update.
+
+3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+
+4. View the compliance chart. You should see the update is now in progress. 
+
+5. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
+
+## Monitor an update deployment
+
+1. Select the 'Groups and Deployments' tab at the top of the page.
+
+2. Select the Group you created to view the deployment details.
+
+You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+
+## Clean up resources
+
+When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
+
+
 
  
