@@ -21,7 +21,7 @@ Each deployment has a correlation ID, which is used to track related events. If 
 
 The examples in this article show how to retrieve the correlation ID.
 
-## Get resource group deployments
+## Resource group deployments
 
 You can view details about a resource group deployment through the Azure portal, PowerShell, Azure CLI, or REST API.
 
@@ -115,7 +115,7 @@ The response includes the correlation ID.
 
 ---
 
-## Get subscription deployments
+## Subscription deployments
 
 You can view the history of deployments to a subscription.
 
@@ -209,7 +209,7 @@ The response includes the correlation ID.
 
 ---
 
-## Get management group deployments
+## Management group deployments
 
 You can view the history of deployments to a management group.
 
@@ -219,7 +219,7 @@ You can view the history of deployments to a management group.
 
    :::image type="content" source="media/deployment-history/select-management-group.png" alt-text="Screenshot of selecting management group.":::
 
-1. Select the link under **Deployments**.
+1. In the left pane, select **Deployments**.
 
    :::image type="content" source="media/deployment-history/select-management-group-deployments.png" alt-text="Screenshot of management group overview that shows deployment option.":::
 
@@ -303,7 +303,7 @@ The response includes the correlation ID.
 
 ---
 
-## Get tenant deployments
+## Tenant deployments
 
 You can view the history of deployments to a tenant.
 
@@ -383,7 +383,7 @@ The response includes the correlation ID.
 
 ---
 
-## Get deployment operations and error message
+## Deployment operations and error message
 
 Each deployment can include multiple operations. To see more details about a deployment, view the deployment operations. When a deployment fails, the deployment operations include an error message.
 
@@ -491,13 +491,13 @@ The response includes an error message.
 }
 ```
 
----
-
 To view deployment operations for other scopes, use:
 
 * [Deployment Operations - List At Subscription Scope](/rest/api/resources/deployment-operations/list-at-subscription-scope)
 * [Deployment Operations - List At Management Group Scope](/rest/api/resources/deployment-operations/list-at-management-group-scope)
 * [Deployment Operations - List At Tenant Scope](/rest/api/resources/deployment-operations/list-at-tenant-scope)
+
+---
 
 ## Next steps
 
