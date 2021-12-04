@@ -34,14 +34,14 @@ To illustrate the differences, we can look at what happens when ingesting the fo
 |10:00|A|1|
 |10:05|A|20|
 
-In **append** mode we insert the two records:
+In **append** mode, we insert the two records:
 
 |Time|Key|Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-In **replace** mode we get only the last value by key:
+In **replace** mode, we get only the last value by key:
 
 |Time|Key|Value|
 |-|-|-|
@@ -59,7 +59,7 @@ This article shows how to use Azure Functions to implement Replace and Accumulat
 
 ## Azure Functions Output
 
-In our job, we will replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
+In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
 
 There are currently two options to reference a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
@@ -85,7 +85,7 @@ A function has to meet the following expectations to be used as an [output from 
 
 ## Option 1: Update by key with the Azure Function SQL Binding
 
-This option uses the [Azure Function SQL Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension is able to replace (update by key) an object in a table, without having to write the necessary SQL statement. At this time it doesn't support compound assignment operators (accumulations).
+This option uses the [Azure Function SQL Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension can replace (update by key) an object in a table, without having to write the necessary SQL statement. At this time, it doesn't support compound assignment operators (accumulations).
 
 This sample was built on:
 
@@ -330,7 +330,7 @@ The function can now be deployed, defined as an output in the ASA job, and used 
 
 ## Alternatives
 
-In addition to Azure Functions, there are multiple ways to achieve the expected result. The list below isn't exhaustive, it only presents the most likely solutions.
+Outside of Azure Functions, there are multiple ways to achieve the expected result. We'll mention the most likely solutions below.
 
 ### Post-processing in the target SQL Database
 
@@ -338,13 +338,13 @@ A background task will operate once the data is inserted in the database via the
 
 For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
 
-For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
+For Synapse SQL, ASA can insert in a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
 
 ### Pre-processing in Azure Cosmos DB
 
 Azure Cosmos DB [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Cosmos DB.
 
-If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires a substantial change in the overall solution architecture.
+If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
 If the target database is Synapse SQL, it's possible to first upsert data from ASA into Cosmos DB, before using [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
