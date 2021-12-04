@@ -24,11 +24,11 @@ ms.date: 11/30/2021
 
     :::image type="content" source="media/azure-load-testing-create-in-portal/create-azure-load-testing.png" alt-text="Screenshot that shows the Azure Load Testing pane.":::
 
-1. Provide the following information to configure your new Azure Load Testing resource.
+1. Provide the following information to configure your new Azure Load Testing resource:
 
     |Field  |Description  |
     |---------|---------|
-    |**Subscription**     | Select the Azure subscription you want to use for this Azure Load Testing resource.         |
+    |**Subscription**     | Select the Azure subscription that you want to use for this Azure Load Testing resource.         |
     |**Resource group**     | Select an existing resource group. Or select **Create new**, and then enter a unique name for the new resource group.        |
     |**Name**     | Enter a unique name to identify your Azure Load Testing resource.<br>The name can't contain special characters, such as \\/""[]:\|<>+=;,?*@&, or whitespace. The name can't begin with an underscore (_), and it can't end with a period (.) or a dash (-). The length must be 1 to 64 characters.     |
     |**Location**     | Select a geographic location to host your Azure Load Testing resource.        |

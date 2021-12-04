@@ -26,7 +26,7 @@ After you complete this quickstart, you'll have a resource and load test that yo
 
 ## <a name="create_resource"></a> Create an Azure Load Testing resource
 
-First, you'll create an Azure Load Testing resource. This is the top-level resource. It provides a centralized place to view and manage test plans, test results, and other related artifacts.
+First, you'll create the top-level resource for Azure Load Testing. It provides a centralized place to view and manage test plans, test results, and related artifacts.
 
 If you already have a Load Testing resource, skip this section and continue to [Create a load test](#create_test).
 
@@ -38,7 +38,7 @@ To create a Load Testing resource:
 
 In this section, you'll create a sample Apache JMeter script that you'll use in the next section to load test a web endpoint. If you already have a script, you can skip to [Create a load test](#create_test).
 
-1. Create a new file *SampleTest.jmx* on your local machine:
+1. Create a *SampleTest.jmx* file on your local machine:
 
     ```powershell
     touch SampleTest.jmx
@@ -106,7 +106,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
     This sample Apache JMeter script simulates a load test of five virtual users simultaneously accessing a web endpoint. It takes less than two minutes to complete.
 
-1. In the file, replace the placeholder text (including the curly braces) *`{your-endpoint-url}`* with your own endpoint URL.
+1. In the file, replace the placeholder text `{your-endpoint-url}` (including the curly braces) with your own endpoint URL.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the endpoint URL.
@@ -136,7 +136,7 @@ To create a load test by using an existing Apache JMeter script:
 
 1. (Optional) On the **Parameters** tab, configure input parameters for your Apache JMeter script.
 
-1. For this quickstart, you can leave the default values on the **Load** tab.
+1. For this quickstart, you can leave the default value on the **Load** tab:
 
     |Field  |Default value  |Description  |
     |---------|---------|---------|
@@ -169,7 +169,7 @@ In this section, you'll run the load test that you just created. If you selected
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/run-test-confirm.png" alt-text="Screenshot that shows the run confirmation page." :::
 
     > [!TIP]
-    > You can stop a load test at any time from the Azure portal UI.
+    > You can stop a load test at any time from the Azure portal.
 
 ## <a name="view"></a> View the test results
 
@@ -195,7 +195,7 @@ While the load test is running, Azure Load Testing captures both client-side met
 
 You now have an Azure Load Testing resource, which you used to load test an external website.
 
-You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using the server-side metrics.
+You can reuse this resource to learn how to identify performance bottlenecks in an Azure-hosted application by using server-side metrics.
 
 > [!div class="nextstepaction"]
 > [Identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)

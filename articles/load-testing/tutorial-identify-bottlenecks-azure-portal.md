@@ -93,7 +93,7 @@ In this section, you'll create a load test by using an existing Apache JMeter te
 The sample application's source repo includes an Apache JMeter script named *SampleApp.jmx*. This script makes three API calls on each test iteration:  
 
 * `add`: Carries out a data insert operation on Azure Cosmos DB for the number of visitors on the web app.
-* `get`: Carries out a GET operation from Cosmos DB to retrieve the count.
+* `get`: Carries out a GET operation from Azure Cosmos DB to retrieve the count.
 * `lasttimestamp`: Updates the time stamp since the last user went to the website.
 
 In this section, you'll update the Apache JMeter script with the URL of the sample web app that you just deployed.
@@ -243,7 +243,7 @@ For Azure Cosmos DB, increase the database RU scale setting:
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows Data Explorer tab.":::
 
-1. Select the **Scale & Settings** option, and update the throughput value to **1200**.
+1. Select **Scale & Settings**, and update the throughput value to **1200**.
  
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/1200-ru-scaling-for-cosmos-db.png" alt-text="Screenshot that shows the updated Azure Cosmos D B scale settings.":::
 
