@@ -27,49 +27,49 @@ Writing data in a table can generally be done in the following manners:
 |Replace|Unique key|[MERGE](/sql/t-sql/statements/merge-transact-sql) (UPDATE when all keys are already present in the target table)|
 |Accumulate|Unique key and accumulator|MERGE (UPDATE) with compound assignment [operator](/sql/t-sql/queries/update-transact-sql#arguments) (`+=`, `-=`...)|
 
-To illustrate the differences, we can look at what happens when ingesting the following data:
+To illustrate the differences, we can look at what happens when ingesting the following two records:
 
 |Arrival Time|Key|Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-We get the resulting state in **append** mode:
+In **append** mode we insert the two records:
 
 |Time|Key|Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-We get only the last value in **replace** mode:
+In **replace** mode we get only the last value by key:
 
 |Time|Key|Value|
 |-|-|-|
 |10:05|A|20|
 
-Finally, we can sum values thanks to the **accumulate** mode (with `+=` on Value):
+Finally, in **accumulate** mode we sum Value with a `+=` operator:
 
 |Time|Key|Value|
 |-|-|-|
 |10:05|A|**21**|
 
-For performance considerations, the ASA SQL database output connectors currently only support append mode natively. They use bulk insert to maximize throughput and limit back pressure.
+For performance considerations, the ASA SQL database output adapters currently only support append mode natively. These adapters use bulk insert to maximize throughput and limit back pressure.
 
-This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues because of the switch from bulk to record-per-record statements.
+This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't impact the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to record-per-record statements may create greater performance issues.
 
 ## Azure Functions Output
 
-In our job, we will replace the ASA SQL output by the [ASA Function output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
+In our job, we will replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
 
-There are currently two options to reference a SQL Database in a function, either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
+There are currently two options to reference a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries?view=azuresqldb-current) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
-For both examples below, we'll assume the following table schema. **A primary key must be set** for the binding option to work. It's not necessary but recommended when using a SQL driver.
+For both samples below, we'll assume the following table schema. The binding option requires **a primary key** to be set on the target table. It's not necessary, but recommended, when using a SQL driver.
 
 ```SQL
 CREATE TABLE [dbo].[device_updated](
-	[DeviceId] [bigint] NOT NULL,
-	[Value] [decimal](18, 10) NULL,
-	[Timestamp] [datetime2](7) NULL,
+	[DeviceId] [bigint] NOT NULL, -- bigint in ASA
+	[Value] [decimal](18, 10) NULL, -- float in ASA
+	[Timestamp] [datetime2](7) NULL, -- datetime in ASA
 CONSTRAINT [PK_device_updated] PRIMARY KEY CLUSTERED
 (
 	[DeviceId] ASC
@@ -77,13 +77,15 @@ CONSTRAINT [PK_device_updated] PRIMARY KEY CLUSTERED
 );
 ```
 
-Before we look at the function samples, it's important to remember the following expectations on Azure Functions when using it as an [output from ASA](/azure/stream-analytics/azure-functions-output):
+A function has to meet the following expectations to be used as an [output from ASA](/azure/stream-analytics/azure-functions-output):
 
 - Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully
 - When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Function
 - During test connection, Stream Analytics sends an empty batch to Azure Functions and expects HTTP status 20x to validate the test
 
 ## Option 1: Update by key with the Azure Function SQL Binding
+
+This option uses the [Azure Function SQL Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension is able to replace (update by key) an object in a table, without having to write the necessary SQL statement. At this time it doesn't support compound assignment operators (accumulations).
 
 This sample was built on:
 
@@ -105,7 +107,7 @@ Install the binding extension by running the following command in a terminal loc
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ```
 
-Add the `SqlConnectionString` item in the Values section of your local.settings.json, filling in the connection string of the destination server:
+Add the `SqlConnectionString` item in the `Values` section of your `local.settings.json`, filling in the connection string of the destination server:
 
 ```JSON
 {
@@ -120,7 +122,7 @@ Add the `SqlConnectionString` item in the Values section of your local.settings.
 
 Replace the entire function (.cs file in the project) by the following code snippet. Update the namespace, class name, and function name by your own:
 
-```DOTNET
+```C#
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -178,13 +180,13 @@ namespace Company.Function
 
 Update the destination table name in the binding section:
 
-```DOTNET
+```C#
             [Sql("dbo.device_updated", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<Device> devices
 ```
 
 Update the `Device` class and mapping section to match your own schema:
 
-```DOTNET
+```C#
 ...
                 device.DeviceId = data[i].DeviceId;
                 device.Value = data[i].Value;
@@ -207,6 +209,8 @@ The function can now be deployed, defined as an output in the ASA job, and used 
 
 ## Option 2: Merge with compound assignment (accumulate) via a custom SQL query
 
+This option uses [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient). This library lets us issue any SQL queries to a SQL Database.
+
 This sample was built on:
 
 - Azure Functions runtime [version 4](/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp)
@@ -225,7 +229,7 @@ Install the SqlClient library by running the following command in a terminal loc
 dotnet add package Microsoft.Data.SqlClient --version 4.0.0
 ```
 
-Add the `SqlConnectionString` item in the Values section of your local.settings.json, filling in the connection string of the destination server:
+Add the `SqlConnectionString` item in the `Values` section of your `local.settings.json`, filling in the connection string of the destination server:
 
 ```JSON
 {
@@ -240,7 +244,7 @@ Add the `SqlConnectionString` item in the Values section of your local.settings.
 
 Replace the entire function (.cs file in the project) by the following code snippet. Update the namespace, class name, and function name by your own:
 
-```DOTNET
+```C#
 using System;
 using System.IO;
 using System.Threading.Tasks;
@@ -307,7 +311,7 @@ namespace Company.Function
 
 Update the `sqltext` command building section to match your own schema (notice how accumulation is achieved via the `+=` operator on update):
 
-```DOTNET
+```C#
                     var sqltext =
                     $"MERGE INTO [device03] AS old " +
                     $"USING (VALUES ({DeviceId},{Value},'{Timestamp}')) AS new (DeviceId, Value, Timestamp) " +
@@ -328,23 +332,21 @@ The function can now be deployed, defined as an output in the ASA job, and used 
 
 In addition to Azure Functions, there are multiple ways to achieve the expected result. The list below isn't exhaustive, it only presents the most likely solutions.
 
-### Post-insert
+### Post-processing in the target SQL Database
 
 A background task will operate once the data is inserted in the database via the standard ASA SQL outputs.
 
-For Azure SQL, INSTEAD OF [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
+For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
 
-For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table. We won't go into details here as the linked documentation covers that pattern exhaustively.
+For Synapse SQL, the table where ASA writes can be considered as a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
 
-### Alternate output
+### Pre-processing in Azure Cosmos DB
 
-An intermediary service will consume the stream from the ASA job and deliver the missing capabilities.
+Azure Cosmos DB [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible. Accumulations must be managed client-side in Cosmos DB.
 
-Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Doing so requires a change in the overall application design.
+If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires a substantial change in the overall solution architecture.
 
-Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it's possible to use [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB.
-
-Via Azure Functions, to pilot the SQL command issued to the target database
+If the target database is Synapse SQL, it's possible to first upsert data from ASA into Cosmos DB, before using [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 
@@ -359,9 +361,6 @@ Each approach offers different value proposition and capabilities:
 ||Azure Functions|Replace, Accumulate|+|-|
 ||Cosmos DB replacement|Replace|N/A|N/A|
 ||Cosmos DB Synapse Link|Replace|N/A|+|
-
-
-Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](/azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. If the destination is Synapse SQL, [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link) can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ## Get support
 
