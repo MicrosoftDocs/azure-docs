@@ -42,10 +42,10 @@ You can use the values below for your BGP APIPA configuration throughout the tut
 
 | **Tunnel**                           | **Azure Custom Azure APIPA BGP IP Address** | **AWS BGP Peer IP Address** |  **AWS Inside IPv4 CIDR** |
 |--------------------------------------|---------------------------------------------|--------------------------   | --------------------------|
-| **AWS Tunnel 1 to Azure Instance 0** | 169.254.21.2                                | 169.24.21.1                 | 169.24.21.0/30            |
-| **AWS Tunnel 2 to Azure Instance 0** | 169.254.22.2                                | 169.24.22.1                 | 169.24.22.0/30            |
-| **AWS Tunnel 1 to Azure Instance 1** | 169.254.21.6                                | 169.24.21.5                 | 169.24.21.4/30            |
-| **AWS Tunnel 2 to Azure Instance 1** | 169.254.22.6                                | 169.24.22.5                 | 169.24.22.4/30            |
+| **AWS Tunnel 1 to Azure Instance 0** | 169.254.21.2                                | 169.254.21.1                 | 169.254.21.0/30            |
+| **AWS Tunnel 2 to Azure Instance 0** | 169.254.22.2                                | 169.254.22.1                 | 169.254.22.0/30            |
+| **AWS Tunnel 1 to Azure Instance 1** | 169.254.21.6                                | 169.254.21.5                 | 169.254.21.4/30            |
+| **AWS Tunnel 2 to Azure Instance 1** | 169.254.22.6                                | 169.254.22.5                 | 169.254.22.4/30            |
 
 You can also set up your own custom APIPA addresses. AWS requires a /30 **Inside IPv4 CIDR** in the APIPA range of **169.254.0.0/16** for each tunnel. This CIDR must also be in the Azure-reserved APIPA range for VPN, which is from **169.254.21.0** to **169.254.22.255**. AWS will use the first IP address of your /30 inside CIDR and Azure will use the second. This means you will need to reserve space for two IP addresses in your AWS /30 inside CIDR.
 
