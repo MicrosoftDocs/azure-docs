@@ -65,10 +65,10 @@ There are multiple ways to achieve the expected result. The list below isn't exh
 
 From the database perspective:
 
-- **Post-processing** : a background task will operate once the data is inserted in the database via the standard ASA SQL outputs
+- **Post-processing**: a background task will operate once the data is inserted in the database via the standard ASA SQL outputs
   - For Azure SQL, INSTEAD OF [DML triggers](sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs
   - For Synapse SQL, the table where ASA writes can be considered as a [staging table](azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table, before [moving the data](azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table. We won't go into details here as the linked documentation covers that pattern exhaustively.
-- **Pre-processing** : an intermediary service will consume the stream from the ASA job and deliver the missing capabilities
+- **Pre-processing**: an intermediary service will consume the stream from the ASA job and deliver the missing capabilities
   - Replacing the target SQL database by Azure Cosmos DB, that [supports UPSERT natively](azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Doing so requires a change in the overall application design
   - Via Cosmos DB Synapse Link. If the target database is Synapse SQL, it's possible to use [Azure Synapse Link for Azure Cosmos DB](azure/cosmos-db/synapse-link) to easily move data to Synapse once it's been ingested in Cosmos DB
   - Via Azure Functions, to pilot the SQL command issued to the target database
@@ -88,7 +88,7 @@ Each approach offers different value proposition and capabilities:
 
 Contrary to the SQL outputs, the Cosmos DB output adapter [natively supports UPSERT](azure/stream-analytics/stream-analytics-documentdb-output#upserts-from-stream-analytics). Here only append/replace is possible since accumulations must be managed client-side in Cosmos DB. For certain scenarios, it may make sense to change the overall architecture and switch from SQL database to Cosmos DB as the final data store. If the destination is Synapse SQL, [Azure Synapse Link for Azure Cosmos DB](azure/cosmos-db/synapse-link) can be used to create an [analytical store](azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
-Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues due to the transactional traffic it emits (one T-SQL query per event). This differs from the ASA SQL output adapters behavior as they rely on bulk insert mode.
+Using Azure Functions works best for Azure SQL. With Synapse SQL, it may create performance issues because of the transactional traffic it emits (one T-SQL query per event). This behavior differs from the ASA SQL output adapters that rely on bulk insert mode.
 
 ## Pre-processing with Azure Functions
 
@@ -127,9 +127,9 @@ To better understand the binding approach, it's recommended the follow [this tut
 
 First, create a default HttpTrigger function app by following this [tutorial](azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
 
-- Language : `C#`
-- Runtime `.NET 6` (under function/runtime v4)
-- Template : `HTTP trigger`
+- Language: `C#`
+- Runtime: `.NET 6` (under function/runtime v4)
+- Template: `HTTP trigger`
 
 Install the binding extension by running the following command in a terminal located in the project folder:
 
@@ -247,9 +247,9 @@ This sample was built on:
 
 First, create a default HttpTrigger function app by following this [tutorial](azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
 
-- Language : `C#`
-- Runtime `.NET 6` (under function/runtime v4)
-- Template : `HTTP trigger`
+- Language: `C#`
+- Runtime: `.NET 6` (under function/runtime v4)
+- Template:  `HTTP trigger`
 
 Install the SqlClient library by running the following command in a terminal located in the project folder:
 
