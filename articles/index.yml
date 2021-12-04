@@ -1464,6 +1464,18 @@ productDirectory:
       azureCategories:
         - web
       url: azure-signalr/index.yml
+    # Card
+    - title: Azure Orbital
+      summary: A Ground Station as a Service that simplifies ingesting space data into Azure
+      imageSrc: https://static.docs.com/ui/media/product/azure/orbital.svg
+      azureCategories:
+        - featured
+        - hybrid
+        - integration
+        - management-and-governance
+        - mobile
+        - networking
+      url: orbital/index.yml
 
 tools:
   title: Languages and tools

@@ -47,4 +47,3 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 - [Quickstart: Onboard an edge site](onboard-edgesite.md)
 - [Quickstart: Create an L2 connection](create-l2connection.md)
-- 

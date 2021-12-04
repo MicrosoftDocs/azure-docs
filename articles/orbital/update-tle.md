@@ -44,4 +44,3 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 - [Tutorial: Register a Spacecraft](register-spacecraft.md)
 - [Tutorial: Onboard a Ground Station](onboard-groundstation.md)
-- 
