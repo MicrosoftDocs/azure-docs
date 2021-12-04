@@ -9,19 +9,19 @@ ms.service: iot-hub-device-update
 ---
 
 # How to register components with Device Update: Contoso Virtual Vacuum Component Enumerator example
-This sections shows a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. A component is a sub-device-level identity that has a composition relationship with the host device.
+In the below section we cover a sample implementation of the Contoso Virtual Vacuum Components Enumerator that you can reference to implement a custom Components Enumerator for your IoT devices. A component is a sub-device-level identity that has a composition relationship with the host device.
 
 ## What is Contoso Virtual Vacuum
 
 A Contoso Virtual-Vacuum is a virtual IoT device that we use to demonstrate the **Proxy Update** feature.  
 
-**Proxy Update** enables updating multiple components on the same IoT device or multiple sensors connected to the IoT device with a single over-the-air deployment. Proxy updates also supports an install order when updating components and a multi-step update process with pre-install, install, post-install capabilities. Use cases where proxy updates is applicable include:
+**Proxy Update** enables updating multiple components on the same IoT device or multiple sensors connected to the IoT device with a single over-the-air deployment. Proxy updates supports (1) an install order when updating components and (2) multi-step updating with pre-install, install, post-install capabilities. Use cases where Proxy Updates are applicable include:
 
 - Targeting specific update files to different partitions on the device.
 - Targeting specific update files to different apps/components on the device
-- Targeting specific update files to sensors connected to IoT devices over a network protocol (e.g., USB, CANbus etc.)  
+- Targeting specific update files to sensors connected to IoT devices over a network protocol (for example, USB, CANbus etc.)  
 
-The Device Update Agent (running on the host device) can send each update to a specific **component** or to a **group of components** of the same hardware class (i.e. requiring the same software or firmware update).  
+The Device Update Agent (running on the host device) can send each update to a specific **component** or to a **group of components** of the same hardware class (that is, requiring the same software or firmware update).  
 
 ## Virtual-Vacuum Components
 
@@ -37,7 +37,7 @@ For this demonstration, the Contoso Virtual Vacuum consists of five 'logical' co
 
 :::image type="content" source="media/understand-device-update/Component Enumerator Figure 1.png" alt-text="Component Enumerator" lightbox="media/understand-device-update/Component Enumerator Figure 1.png":::
 
-We use the following directory structure to simulates those components mentioned above.
+We use the following directory structure to simulate the components mentioned above.
 
 ```sh
 /usr/local/contoso-devices/vacuum-1/hostfw
@@ -50,7 +50,7 @@ We use the following directory structure to simulates those components mentioned
 /usr/local/contoso-devices/vacuum-1/cameras/1  /* rear camera */
 ```
 
-Each component's directory contains a JSON file that stores a mock software version number of each component. These file are `firmware.json` or `diskimage.json`.  
+Each component's directory contains a JSON file that stores a mock software version number of each component. These file are `firmware.json` and `diskimage.json`.  
 
 > **Note:** For this demo, to update the components' firmware, we will copy a `firmware.json` or `diskimage.json` (update payload) to `targetted components' directory`.
 
@@ -73,17 +73,17 @@ The Device Update Agent is device and component agnostic. By itself, Device Upda
 
 To enable Proxy Updates, device builders must identify all updateable components on the device and assign a unique name to each component. Also, group name can be assigned to components of the same hardware class, so that, the same update can be installed onto all components in the same group.  
 
-After doing this the Update Content Handler can install and apply the update to the correct component(s).  
+After doing the above, the Update Content Handler can install and apply the update to the correct component(s).  
 
 **Figure 2** - Proxy Update Flow Diagram
 
 :::image type="content" source="media/understand-device-update/contoso-virtual-vacuum-update-flow.svg" alt-text="Proxy Update Flow Diagram" lightbox="media/understand-device-update/contoso-virtual-vacuum-update-flow.svg":::
 
-- **Device builder reponsibilities**
+- **Device builder responsibilities**
   - Design and build the device.
   - Integrate Device Update Agent and its dependencies.
   - Implement device-specific **Component Enumerator Extension** and register with DU Agent.
-  - The **Component Enumerator** leverage components information from a component inventory or configuration file. Then augment static (DU required) component data with the dynamic data (e.g., firmware version, connection status, hardware id, etc.)
+  - The **Component Enumerator** uses the components information from a component inventory or configuration file. Then augment static (DU required) component data with the dynamic data (for example, firmware version, connection status, hardware id, etc.)
   - Create a Proxy Update containing one or more Child Updates that target one or more components on (or connected to) the device.
   - Sent the update to their Solution Operator
 - **Solution Operator**
@@ -92,8 +92,8 @@ After doing this the Update Content Handler can install and apply the update to 
 - **Device Update Agent**
   - Receives update information from Azure IoT Hub (via Device Twin or Module Twin)
   - Invokes **Steps Handler** to process the Proxy Update intended for one or more components on the device
-    - For each Child Update (in this example, there're 2 updates, `host-fw-1.1` and `motors-fw-1.1`), Parent **Steps Handler** invokes Child **Steps Handler** to enumerate all components that match the **Compatibilites** properties specified in Child Update Manifest file. Next the handler downloads, installs and applies the Child Update to all targetted components.
-    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/>**Note:** If there is no matching components, the Child Update will be skipped.
+    - For each Child Update (in this example, there are two updates, `host-fw-1.1` and `motors-fw-1.1`), Parent **Steps Handler** invokes Child **Steps Handler** to enumerate all components that match the **Compatibilities** properties specified in Child Update Manifest file. Next the handler downloads, installs and applies the Child Update to all targeted components.
+    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/>**Note:** If there are no matching components, the Child Update will be skipped.
   - Collects all update results from Parent and Child Update(s) and reports it to the Azure IoT Hub.
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
@@ -114,15 +114,15 @@ After doing this the Update Content Handler can install and apply the update to 
 
 ### ComponentInfo
 
-The ComponentInfo JSON string must include following requried properties
+The ComponentInfo JSON string must include following required properties
 
 | Name | Type | Description |
 |---|---|---|
-|id| string | A component's unique id (device scope)<br/><br/>e.g., hardware's serial number, disk partition id, unique file path of the component, etc.|
-|name| string| A component's `logical` name. This is the name that a device builder assigns to a component that is available in every device of the same `device class`.<br/><br/>For example, every Contoso Virtual-Vacuum device contains a motor that drives left wheel. Contoso assigned 'Left Motor' as a common (logical) name for this motore, to easily refer to this component, instead of hardware ID, which can be globally unique.|
+|id| string | A component's unique ID (device scope)<br/><br/>for example, hardware's serial number, disk partition id, unique file path of the component, etc.|
+|name| string| A component's `logical` name. This is the name that a device builder assigns to a component that is available in every device of the same `device class`.<br/><br/>For example, every Contoso Virtual-Vacuum device contains a motor that drives left wheel. Contoso assigned 'Left Motor' as a common (logical) name for this motor, to easily refer to this component, instead of hardware ID, which can be globally unique.|
 |group|string|A group that this component belongs to.<br/><br/>For example, all motors could belong to a 'motors' group.|
-|manufacturer|string|For physical hardware component, this is a manufacturer or vendor name.<br/><br/>For logical component, such as, disk partition or directory, this can be any device Builder's Defined value.|
-|model|string|For physical hardware component, this is a model name.<br/><br/>For logical component, such as, disk partition or directory, this can be any device builder's Defined value.|
+|manufacturer|string|For physical hardware component, it is a manufacturer or vendor name.<br/><br/>For logical component, such as, disk partition or directory, it can be any device Builder's Defined value.|
+|model|string|For physical hardware component, it is a model name.<br/><br/>For logical component, such as, disk partition or directory, this can be any device builder's Defined value.|
 |properties|object| A JSON object contain any optional device-specific properties.|
 
 #### Example ComponentInfo
@@ -145,7 +145,7 @@ The ComponentInfo JSON string must include following requried properties
 
 ### Example Return Values
 
-Following is a JSON document returned from `GetAllComponents` function *(Based on example Contoso Component Enuemrator implementation)*
+Following is a JSON document returned from `GetAllComponents` function *(Based on example Contoso Component Enumerator implementation)*
 
 ```json
 {
@@ -258,7 +258,7 @@ Following is a JSON document returned from `GetAllComponents` function *(Based o
 }
 ```
 
-Following is a JSON document returned from `SelectComponents` function *(Based on example Contoso Component Enuemrator implementation)*
+Following is a JSON document returned from `SelectComponents` function *(Based on example Contoso Component Enumerator implementation)*
 
 Input parameter (select **motors** component group):
 
@@ -351,15 +351,15 @@ For example, deploy `motor-fw-2.0` update to `vacuum-motor` while continue using
 
 ## component-inventory.json
 
-The example implementation shown above for Contoso Component Enumerator will read the device-specific components' information from the `component-inventory.json` file. Please note that this is only for demonstration purposes.  
+The example implementation shown above for Contoso Component Enumerator will read the device-specific components' information from the `component-inventory.json` file. Note that example implementation is only for demonstration purposes.  
 
-**In the production scenario**, some properties, such as `id`, `manufacturer`, `model`, should be retrived directly from the actual components.  
+**In the production scenario**, some properties, such as `id`, `manufacturer`, `model`, should be retrieved directly from the actual components.  
 
-`name` and `group` properties are usually defined by the device builder. These values should never change, once defined. The `name` property must be unique within the device.  
+`name` and `group` properties are defined by the device builder. These values should never change, once defined. The `name` property must be unique within the device.  
 
 #### Example component-inventory.json file
 
-Note that the content in this file looks almost the same as the returned value from `GetAllComponents` function. However, `ComponentInfo` in this file doesn't contain `version` and `status` properties. These properties will be populated at runtime, by the Component Enumerator.
+Note: The content in this file looks almost the same as the returned value from `GetAllComponents` function. However, `ComponentInfo` in this file doesn't contain `version` and `status` properties. These properties will be populated at runtime, by the Component Enumerator.
 
 For example, for `hostfw`, the value of property `properties.version` will be populate with value from the specified (mock) `firmwareDataFile` (`/usr/local/contoso-devices/vacuum-1/hostfw/firmware.json`)
 
