@@ -104,7 +104,7 @@ After doing the above, the Update Content Handler can install and apply the upda
 
 ### Requirements
 
-- Implements all APIs declared in [component_enumerator_extension.hpp](../../extension_manager/inc/aduc/../../../../inc/aduc/component_enumerator_extension.hpp)
+- Implements all APIs declared in [component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
 
 | Function | Arguments | Returns |
 |---|---|---|
