@@ -55,7 +55,7 @@ Finally, in **accumulate** mode we sum Value with a `+=` operator:
 
 For performance considerations, the ASA SQL database output adapters currently only support append mode natively. These adapters use bulk insert to maximize throughput and limit back pressure.
 
-This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't affect the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to record-per-record statements may create greater performance issues.
+This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't affect the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to row-by-row statements may create greater performance issues.
 
 ## Azure Functions Output
 
@@ -181,7 +181,7 @@ namespace Company.Function
 Update the destination table name in the binding section:
 
 ```C#
-            [Sql("dbo.device_updated", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<Device> devices
+[Sql("dbo.device_updated", ConnectionStringSetting = "SqlConnectionString")] IAsyncCollector<Device> devices
 ```
 
 Update the `Device` class and mapping section to match your own schema:
@@ -312,12 +312,12 @@ namespace Company.Function
 Update the `sqltext` command building section to match your own schema (notice how accumulation is achieved via the `+=` operator on update):
 
 ```C#
-                    var sqltext =
-                    $"MERGE INTO [device03] AS old " +
-                    $"USING (VALUES ({DeviceId},{Value},'{Timestamp}')) AS new (DeviceId, Value, Timestamp) " +
-                    $"ON new.DeviceId = old.DeviceId " +
-                    $"WHEN MATCHED THEN UPDATE SET old.Value += new.Value, old.Timestamp = new.Timestamp " +
-                    $"WHEN NOT MATCHED BY TARGET THEN INSERT (DeviceId, Value, TimeStamp) VALUES (DeviceId, Value, Timestamp);";
+    var sqltext =
+    $"MERGE INTO [device03] AS old " +
+    $"USING (VALUES ({DeviceId},{Value},'{Timestamp}')) AS new (DeviceId, Value, Timestamp) " +
+    $"ON new.DeviceId = old.DeviceId " +
+    $"WHEN MATCHED THEN UPDATE SET old.Value += new.Value, old.Timestamp = new.Timestamp " +
+    $"WHEN NOT MATCHED BY TARGET THEN INSERT (DeviceId, Value, TimeStamp) VALUES (DeviceId, Value, Timestamp);";
 ```
 
 You can now test the wiring between the local function and the database by debugging (F5 in VS Code). The SQL database needs to be reachable from your machine. [SSMS](/sql/ssms/sql-server-management-studio-ssms) can be used to check connectivity. Then a tool like [Postman](https://www.postman.com/) can be used to issue POST requests to the local endpoint. A request with an empty body should return http 204. A request with an actual payload should be persisted in the destination table (in accumulate / merge mode). Here's a sample payload corresponding to the schema used in this sample:
@@ -338,7 +338,7 @@ A background task will operate once the data is inserted in the database via the
 
 For Azure SQL, `INSTEAD OF` [DML triggers](/sql/relational-databases/triggers/dml-triggers?view=azuresqldb-current&preserve-view=true) can be used to intercept the INSERT commands issued by ASA and replace them with UPDATEs.
 
-For Synapse SQL, ASA can insert in a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
+For Synapse SQL, ASA can insert into a [staging table](/azure/synapse-analytics/sql/data-loading-best-practices#load-to-a-staging-table). A recurring task can then transform the data as needed into an intermediary table. Finally the [data is moved](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-partition#partition-switching) to the production table.
 
 ### Pre-processing in Azure Cosmos DB
 
@@ -346,7 +346,7 @@ Azure Cosmos DB [supports UPSERT natively](/azure/stream-analytics/stream-analyt
 
 If the requirements match, an option is to replace the target SQL database by an Azure Cosmos DB instance. Doing so requires an important change in the overall solution architecture.
 
-If the target database is Synapse SQL, it's possible to first upsert data from ASA into Cosmos DB, before using [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
+If the target database is Synapse SQL, Cosmos DB can be used as an intermediary layer via [Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/synapse-link). Synapse Link can be used to create an [analytical store](/azure/cosmos-db/analytical-store-introduction). This data store can then be queried directly in Synapse SQL.
 
 ### Comparison of the alternatives
 
@@ -358,7 +358,7 @@ Each approach offers different value proposition and capabilities:
 ||Triggers|Replace, Accumulate|+|N/A, triggers aren't available in Synapse SQL|
 ||Staging|Replace, Accumulate|+|+|
 |Pre-Processing|||||
-||Azure Functions|Replace, Accumulate|+|-|
+||Azure Functions|Replace, Accumulate|+|- (row-by-row performance)|
 ||Cosmos DB replacement|Replace|N/A|N/A|
 ||Cosmos DB Synapse Link|Replace|N/A|+|
 
