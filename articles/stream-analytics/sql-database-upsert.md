@@ -55,13 +55,13 @@ Finally, in **accumulate** mode we sum Value with a `+=` operator:
 
 For performance considerations, the ASA SQL database output adapters currently only support append mode natively. These adapters use bulk insert to maximize throughput and limit back pressure.
 
-This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't impact the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to record-per-record statements may create greater performance issues.
+This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't affect the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to record-per-record statements may create greater performance issues.
 
 ## Azure Functions Output
 
-In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function, and sent to the target SQL database.
+In our job, we'll replace the ASA SQL output by the [ASA Azure Functions output](/azure/stream-analytics/azure-functions-output). The UPDATE, UPSERT, or MERGE capabilities will be implemented in the function.
 
-There are currently two options to reference a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
+There are currently two options to access a SQL Database in a function: either via [binding](/azure/azure-functions/functions-bindings-azure-sql) (C# only, replace mode only) or via the appropriate [Azure SQL driver](/sql/connect/sql-connection-libraries) ([Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient) for .NET).
 
 For both samples below, we'll assume the following table schema. The binding option requires **a primary key** to be set on the target table. It's not necessary, but recommended, when using a SQL driver.
 
