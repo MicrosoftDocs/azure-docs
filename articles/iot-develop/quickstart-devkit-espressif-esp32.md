@@ -70,7 +70,7 @@ To launch the ESP-IDF configuration settings:
 ### Add configuration
 
 To add configuration to connect to Azure IoT Central:
-1. Select **Azure IoT middleware for FreeRTOS Main Task Configuration --->**, and press Enter.
+1. In **ESP-IDF PowerShell**, select **Azure IoT middleware for FreeRTOS Main Task Configuration --->**, and press Enter.
 1. Select **Enable Device Provisioning Sample**, and press Enter to enable it.
 1. Set the following Azure IoT configuration settings to the values that you saved after you created Azure resources.
 
@@ -124,7 +124,7 @@ To flash the image:
 1. Connect the Micro USB cable to the Micro USB port on the ESP32 DevKit, and then connect it to your computer.
 1. Open Windows **Device Manager**, and view **Ports** to find out which COM port the ESP32 DevKit is connected to.
 
-:::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-device-manager.png" alt-text="Screenshot of Windows Device Manager displaying COM port for a connected device.":::
+    :::image type="content" source="media/quickstart-devkit-espressif-esp32/esp-device-manager.png" alt-text="Screenshot of Windows Device Manager displaying COM port for a connected device.":::
 
 1. In **ESP-IDF PowerShell**, run the following command, replacing the *\<Your-COM-port\>* placeholder and brackets with the correct COM port from the previous step. For example, replace the placeholder with `COM3`. 
 
@@ -187,7 +187,7 @@ To view telemetry in IoT Central:
 You can also use IoT Central to send a command to your device. In this section, you run commands to send a message to the screen and toggle LED lights. 
 
 To write to the screen:
-1. In IoT Central, select the **Command** tab on the device page.
+1. In IoT Central, select the **Commands** tab on the device page.
 1. Locate the **Espressif ESP32 Azure IoT Kit / Display Text** command.
 1. In the **Content** textbox, enter the text you want to send to the device screen.
 1. Select **Run**. 
