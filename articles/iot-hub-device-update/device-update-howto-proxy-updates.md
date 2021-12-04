@@ -12,13 +12,13 @@ ms.service: iot-hub-device-update
 
 ## Setup Test Device
 
-### Prerequisites
+### Assumption
 
-- An Ubuntu 18.04 LTS Server VM was used to exercise this tutorial
+- An Ubuntu 18.04 LTS Server VM is used to exercise this tutorial
 
 ### Install the Device Update Agent and Dependencies
 
-- Register packages.microsoft.com in APT package repository
+1. Register packages.microsoft.com in APT package repository
 
 ```sh
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ~/microsoft-prod.list
@@ -32,14 +32,33 @@ sudo cp ~/microsoft.gpg /etc/apt/trusted.gpg.d/
 sudo apt-get update
 ```
 
-- Install the **deviceupdat-agent** on the IoT device.  
-e.g.
-
+2. Install the **deviceupdate-agent** on the IoT device.  
+ - Download the latest Device Update debian file from packages.microsoft.com 
   ```sh
-  sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
+  sudo apt-get install deviceupdate-agent
   ```
-- Enter your IoT module or device's primary connection string in /etc/adu/du-config.json.
-- Ensure that /ect/adu/du-diagnostics-config.json contain correct settings.  
+
+ - If you downloaded the file on your pc/laptop follow these steps to add it to the test VM
+ 
+  Copy the latest Device Update debian file to the test VM. e.g. if using powershell window (on your pc/laptop) run the following shell command
+  ```sh 
+    scp <path to the .deb file> tester@<your vm's ip address>:~
+   ```
+   
+  Then remote into your VM then run following shell command in the home folder
+    ```sh
+       #go to home folder 
+       cd ~
+       #install latest Device Update agent
+       sudo apt-get install ./<debian file name from the previous step>
+    ```
+  
+3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. This should replace any default value for the "connectionData" field in the du-config.json file. To access the du-config.json file on the VM open the file using the following command             
+    ```sh
+       sudo nano /etc/adu/du-config.json in /etc/adu/du-config.json.
+    ```
+       
+4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well.  
   e.g.  
 
 ```sh
@@ -58,7 +77,7 @@ e.g.
 }
 ```
 
-- Restart `adu-agent` service
+5. Restart `adu-agent` service
 
 ```sh
 sudo systemctl restart adu-agent
@@ -74,11 +93,20 @@ For testing and demonstration purposes, we'll be creating following mock compone
 - rootfs
 
 **IMPORTANT**  
-This components configuration depends on the implementation of an example Component Enuerator extension called libcontoso-component-enumerator.so, which required a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
+This components configuration depends on the implementation of an example Component Enuerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
 
-> Tip: you can copy [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM an run `~/demo/tools/reset-demo-components.sh` to copy required files to the right locations.
+1. Copy the folder [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM and then run the following command to copy required files to the right locations.
 
-The reset-demo-components.sh will perform the following steps on your behalf:
+```sh
+`~/demo/tools/reset-demo-components.sh` 
+```
+2. View and record the current components' software version by using the following command
+ 
+ ```sh
+ ~/demo/show-demo-components.sh
+```
+
+*Additional details*: The reset-demo-components.sh will perform the following steps on your behalf:
 
 #### Add /usr/local/contoso-devices/components-inventory.json
 
@@ -92,8 +120,6 @@ The reset-demo-components.sh will perform the following steps on your behalf:
 ```sh
 sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
 ```
-
-#### 
 
 **Congratulations!** Your VM should now support Proxy Updates!
 
