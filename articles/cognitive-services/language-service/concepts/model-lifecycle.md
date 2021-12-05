@@ -26,6 +26,27 @@ Model-version retirement period is defined from a release of a newer model-versi
 
 After model-version deprecation, API calls to deprecated model-versions will return an error. 
 
+
+## Available versions
+
+Use the table below to find which model versions are supported by each feature.
+
+
+| Endpoint                                            | Supported Versions                                                  | latest Generally Available version | latest preview version |
+|-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
+| Custom text classification                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
+| Conversational language understanding               | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
+| Sentiment Analysis and opinion mining               | `2019-10-01`, `2020-04-01`, `2021-10-01-preview`                    | `2020-04-01`                       | `2021-10-01-preview`   |
+| Language Detection                                  | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05`              | `2021-01-05`                       |                        |
+| Entity Linking                                      | `2019-10-01`, `2020-02-01`                                          | `2020-02-01`                       |                        |
+| Named Entity Recognition (NER)                      | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`                       |                        |
+| Custom NER                                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
+| Personally Identifiable Information (PII) detection | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15` | `2021-01-15`                       |                        |
+| Question answering                                  | `2021-10-01`                                                        |                                    |
+| Text Analytics for health                           | `2021-05-15`                                                        | `2021-05-15`                       |                        |
+| Key phrase extraction                               | `2019-10-01`, `2020-07-01`, `2021-06-01`                            | `2021-06-01`                       |                        |
+| Text summarization                                  | `2021-08-01`                                                        | `2021-08-01`                       |                        |
+
 ## Next steps
 
 [Azure Cognitive Service for Language overview](../overview.md)
