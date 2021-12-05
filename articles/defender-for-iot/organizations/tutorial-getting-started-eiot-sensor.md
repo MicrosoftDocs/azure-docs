@@ -44,7 +44,7 @@ The following table describes user access permissions to Azure Defender for IoT 
 
 ## Set up a server or Virtual Machine (VM)
 
-Before you are able to deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
+Before you deploy your Enterprise IoT sensor, you will need to configure your server, or VM, and connect a Network Interface Card (NIC) to a switch monitoring (SPAN) port.
 
 **To set up a server, or VM**:
 
