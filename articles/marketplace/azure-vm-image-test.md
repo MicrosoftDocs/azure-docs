@@ -4,8 +4,8 @@ description: Test and submit an Azure virtual machine offer in Azure Marketplace
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: kriti-ms
-ms.author: krsh
+author: ebolton-cyber
+ms.author: edewebolton
 ms.date: 03/10/2021
 ---
 
@@ -15,12 +15,12 @@ This topic will cover the steps to test a virtual machine (VM) image for deploym
 
 ## Deploy an Azure VM
 
-To deploy a VM from the Shared Image Gallery image:
+To deploy a VM from the Azure Compute Gallery (formerly know as Shared Image Gallery) image:
 
-1. Navigate to the Shared Image Gallery image version
-1. Click Create VM
-1. Provide a Virtual Machine Name and select a VM Size
-1. Click Review + create. Once validation is passed, click Create
+1. Navigate to the Azure Compute Gallery image version.
+1. Select **Create VM**.
+1. Provide a Virtual Machine Name and select a VM Size.
+1. Select **Review + create**. Once validation is passed, select **Create**.
 
 > [!NOTE]
 > If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](#connect-the-certification-tool-to-a-vm-image) or [Deploy an Azure VM using PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).

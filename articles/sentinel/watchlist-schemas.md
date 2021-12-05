@@ -1,22 +1,23 @@
 ---
-title: Schemas for Azure Sentinel watchlist templates | Microsoft Docs
-description: Learn about the schemas used in each built-in watchlist template in Azure Sentinel.
+title: Schemas for Microsoft Sentinel watchlist templates | Microsoft Docs
+description: Learn about the schemas used in each built-in watchlist template in Microsoft Sentinel.
 author: batamig
 ms.author: bagold
-ms.service: azure-sentinel
+ms.service: microsoft-sentinel
 ms.topic: reference
-ms.custom: mvc
-ms.date: 08/04/2021
-ms.subservice: azure-sentinel
-
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/09/2021
+ms.subservice: microsoft-sentinel
 ---
 
-# Azure Sentinel built-in watchlist template schemas (Public preview)
+# Microsoft Sentinel built-in watchlist template schemas (Public preview)
 
-This article details the schemas used in each built-in watchlist template provided by Azure Sentinel. For more information, see [Create a new watchlist using a template (Public preview)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This article details the schemas used in each built-in watchlist template provided by Microsoft Sentinel. For more information, see [Create a new watchlist using a template (Public preview)](watchlists.md#create-a-new-watchlist-using-a-template-public-preview).
 
 > [!IMPORTANT]
-> The Azure Sentinel watchlist templates are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel watchlist templates are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 
@@ -111,4 +112,4 @@ The Service Accounts watchlist lists service accounts and their owners, and incl
 
 ## Next steps
 
-For more information, see [Use Azure Sentinel watchlists](watchlists.md).
+For more information, see [Use Microsoft Sentinel watchlists](watchlists.md).

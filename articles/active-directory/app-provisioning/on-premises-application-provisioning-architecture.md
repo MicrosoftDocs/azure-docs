@@ -3,7 +3,7 @@ title: 'Azure AD on-premises application provisioning architecture | Microsoft D
 description: Presents an overview of on-premises application provisioning architecture.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
@@ -57,11 +57,11 @@ The following information is provided to better explain the anchor attributes an
 
 The anchor attribute is a unique attribute of an object type that does not change and represents that object in the ECMA Connector Host in-memory cache.
 
-The distinguished name (DN) is a name that uniquely identifies an object by indicating its current location in the directory hierarchy.  Or in the case of SQL, in the partition. The name is formed by concatenating the anchor attribute a the root of the directory partition. 
+The distinguished name (DN) is a name that uniquely identifies an object by indicating its current location in the directory hierarchy.  Or in the case of SQL, in the partition. The name is formed by concatenating the anchor attribute at the root of the directory partition. 
 
 When we think of traditional DNs in a traditional format, for say, Active Directory or LDAP, we think of something similar to:
 
-  CN=Lola Jacobson,CN=Users,DC=contoso,DC=com
+  `CN=Lola Jacobson,CN=Users,DC=contoso,DC=com`
 
 However, for a data source such as SQL, which is flat, not hierarchical, the DN needs to be either already present in one of the table or created from the information we provide to the ECMA Connector Host.  
 
@@ -154,6 +154,3 @@ You can also check whether all the required ports are open.
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host prerequisites](on-premises-ecma-prerequisites.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)

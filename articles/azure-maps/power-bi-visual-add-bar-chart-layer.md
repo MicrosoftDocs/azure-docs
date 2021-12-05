@@ -52,6 +52,14 @@ The following are all settings in the **Format** pane that are available in the 
 
 ## Next steps
 
+Change how your data is displayed on the map:
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
+
 Add more context to the map:
 
 > [!div class="nextstepaction"]

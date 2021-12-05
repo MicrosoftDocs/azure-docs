@@ -3,15 +3,15 @@ title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth
 titleSuffix: Microsoft identity platform
 description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
-author: hahamil
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/17/2020
-ms.author: hahamil
+ms.date: 09/09/2021
+ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
@@ -45,7 +45,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > #### Step 1: Register your application
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -86,7 +86,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > const msalConfig = {
 >   auth: {
 >     clientId: "Enter_the_Application_Id_Here",
->     authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+>     authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
 >     redirectUri: "Enter_the_Redirect_Uri_Here",
 >   },
 >   cache: {
@@ -107,7 +107,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > - `Enter_the_Application_Id_Here` is the **Application (client) ID** for the application you registered.
 >
 >    To find the value of **Application (client) ID**, go to the app registration's **Overview** page in the Azure portal.
-> - `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com/`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
+> - `Enter_the_Cloud_Instance_Id_Here` is the Azure cloud instance. For the main or global Azure cloud, enter `https://login.microsoftonline.com`. For **national** clouds (for example, China), see [National clouds](authentication-national-cloud.md).
 > - `Enter_the_Tenant_info_here` is one of the following:
 >   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
 >

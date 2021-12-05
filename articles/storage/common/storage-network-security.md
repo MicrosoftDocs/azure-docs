@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 11/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure Azure Storage firewalls and virtual networks
 
-Azure Storage provides a layered security model. This model enables you to secure and control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks or resources​ used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges, subnets in an Azure Virtual Network (VNet), or resource instances of some Azure services.
+Azure Storage provides a layered security model. This model enables you to secure and control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks or resources used. When network rules are configured, only applications requesting data over the specified set of networks or through the specified set of Azure resources can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges, subnets in an Azure Virtual Network (VNet), or resource instances of some Azure services.
 
 Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
 
@@ -111,6 +111,7 @@ You can manage default network access rules for storage accounts through the Azu
     ```azurecli
     az storage account update --resource-group "myresourcegroup" --name "mystorageaccount" --default-action Allow
     ```
+
 ---
 
 ## Grant access from a virtual network
@@ -121,7 +122,7 @@ Enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoi
 
 Each storage account supports up to 200 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > If you delete a subnet that has been included in a network rule, it will be removed from the network rules for the storage account. If you create a new subnet by the same name, it will not have access to the storage account. To allow access, you must explicitly authorize the new subnet in the network rules for the storage account.
 
 ### Available virtual network regions
@@ -247,21 +248,21 @@ You can use IP network rules to allow access from specific public internet IP ad
 
 The following restrictions apply to IP address ranges.
 
-- IP network rules are allowed only for **public internet** IP addresses. 
+- IP network rules are allowed only for **public internet** IP addresses.
 
-  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with _10.*_, _172.16.*_ - _172.31.*_, and _192.168.*_.
+  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) aren't allowed in IP rules. Private networks include addresses that start with *10.**, *172.16.** - *172.31.**, and *192.168.**.
 
-- You must provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*. 
+- You must provide allowed internet address ranges using [CIDR notation](https://tools.ietf.org/html/rfc4632) in the form *16.17.18.0/24* or as individual IP addresses like *16.17.18.19*.
 
-- Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules. 
+- Small address ranges using "/31" or "/32" prefix sizes are not supported. These ranges should be configured using individual IP address rules.
 
 - Only IPV4 addresses are supported for configuration of storage firewall rules.
 
 IP network rules can't be used in the following cases:
 
 - To restrict access to clients in same Azure region as the storage account.
-  
-  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests. 
+
+  IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
 - To restrict access to clients in a [paired region](../../best-practices-availability-paired-regions.md) which are in a VNet that has a service endpoint.
 
@@ -380,10 +381,6 @@ The types of operations that a resource instance can perform on storage account 
 > [!NOTE]
 > This feature is in public preview and is available in all public cloud regions.
 
-> [!NOTE]
-> Resource instance rules are currently only supported for Azure Synapse. Support for other Azure services listed in the [Trusted access based on system-assigned managed identity](#trusted-access-system-assigned-managed-identity) section of this article will be available in the coming weeks.
-
-
 ### [Portal](#tab/azure-portal)
 
 You can add or remove resource network rules in the Azure portal.
@@ -394,11 +391,11 @@ You can add or remove resource network rules in the Azure portal.
 
 3. Select **Networking** to display the configuration page for networking.
 
-4. In the **Resource type** drop-down list, choose the resource type of your resource instance. 
+4. In the **Resource type** drop-down list, choose the resource type of your resource instance.
 
 5. In the **Instance name** drop-down list, choose the resource instance. You can also choose to include all resource instances in the active tenant, subscription, or resource group.
 
-6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page. 
+6. Select **Save** to apply your changes. The resource instance appears in the **Resource instances** section of the network settings page.
 
 To remove the resource instance, select the delete icon (:::image type="icon" source="media/storage-network-security/delete-icon.png":::) next to the resource instance.
 
@@ -546,7 +543,7 @@ az storage account network-rule list \
 <a id="exceptions"></a>
 <a id="trusted-microsoft-services"></a>
 
-## Grant access to trusted Azure services 
+## Grant access to trusted Azure services
 
 Some Azure services operate from networks that can't be included in your network rules. You can grant a subset of such trusted Azure services access to the storage account, while maintaining network rules for other apps. These trusted services will then use strong authentication to securely connect to your storage account.
 
@@ -561,7 +558,7 @@ When you grant access to trusted Azure services, you grant the following types o
 
 ### Trusted access for resources registered in your subscription
 
-Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.  The following table describes each service and the operations allowed. 
+Resources of some services, **when registered in your subscription**, can access your storage account **in the same subscription** for select operations, such as writing logs or backup.  The following table describes each service and the operations allowed.
 
 | Service                  | Resource Provider Name     | Operations allowed                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -590,16 +587,19 @@ You can use the same technique for an account that has the hierarchical namespac
 > [!TIP]
 > The recommended way to grant access to specific resources is to use resource instance rules. To grant access to specific resource instances, see the [Grant access from Azure resource instances (preview)](#grant-access-specific-instances) section of this article.
 
-
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. | 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Allows access to storage accounts through DevTest Labs. |
+| Azure Event Grid  | Microsoft.EventGrid/topics | Allows access to storage accounts through the Azure Event Grid. |
+| Azure Healthcare APIs | Microsoft.HealthcareApis/services | Allows access to storage accounts through Azure Healthcare APIs. |
+| Azure IoT Central Applications | Microsoft.IoTCentral/IoTApps | Allows access to storage accounts through Azure IoT Central Applications. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
@@ -615,7 +615,7 @@ You can use the same technique for an account that has the hierarchical namespac
 
 ## Grant access to storage analytics
 
-In some cases, access to read resource logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both by creating a network rule exception. For step-by-step guidance, see the **Manage exceptions** section below. To learn more about working with storage analytics, see [Use Azure Storage analytics to collect logs and metrics data](./storage-analytics.md). 
+In some cases, access to read resource logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both by creating a network rule exception. For step-by-step guidance, see the **Manage exceptions** section below. To learn more about working with storage analytics, see [Use Azure Storage analytics to collect logs and metrics data](./storage-analytics.md).
 
 <a id="manage-exceptions"></a>
 

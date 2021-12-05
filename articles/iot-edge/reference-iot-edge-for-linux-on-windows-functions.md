@@ -4,7 +4,7 @@ description: Reference information for Azure IoT Edge for Linux on Windows Power
 author: v-tcassi
 
 ms.author: fcabrera
-ms.date: 06/18/2021
+ms.date: 10/15/2021
 ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
@@ -45,13 +45,13 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
-## Connect-EflowVM
+## Connect-EflowVm
 
-The **Connect-EflowVM** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
+The **Connect-EflowVm** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
 
 This command only works on a PowerShell session running on the host device. It won't work when using Windows Admin Center or PowerShell ISE.
 
-For more information, use the command `Get-Help Connect-EflowVM -full`.
+For more information, use the command `Get-Help Connect-EflowVm -full`.
 
 ## Copy-EflowVmFile
 
@@ -69,7 +69,7 @@ For more information, use the command `Get-Help Copy-EflowVMFile -full`.
 
 ## Deploy-Eflow
 
-The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to provision your IoT Edge device during the deployment and modify settings for the virtual machine during creation.
+The **Deploy-Eflow** command is the main deployment method. The deployment command creates the virtual machine, provisions files, and deploys the IoT Edge agent module. While none of the parameters are required, they can be used to modify settings for the virtual machine during creation.
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -80,9 +80,9 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | vmDiskSize | Between 8 GB and 256 GB | Maximum disk size of the dynamically expanding virtual hard disk.<br><br>**Default value**: 10 GB. |
 | vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
 | vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
-| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. _NOTE: Only supported with ICS Default Switch_. |
-| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
-| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified.  _NOTE: Only supported with ICS Default Switch_. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
 | gpuName | GPU Device name |  Name of GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (CPU only) |  GPU Passthrough type |
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
@@ -99,7 +99,6 @@ The **Get-EflowHostConfiguration** command returns the host configuration. This 
 * GpuInfo
 
 For more information, use the command `Get-Help Get-EflowHostConfiguration -full`.
-
 
 ## Get-EflowLogs
 
@@ -136,7 +135,7 @@ The **Get-EflowVmFeature** command returns the status of the enablement of IoT E
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| feature | **DpsTpm** | Feature name to toggle. |
+| feature | **DpsTpm** | Feature name to query. |
 
 For more information, use the command `Get-Help Get-EflowVmFeature -full`.
 
@@ -152,17 +151,14 @@ The **Get-EflowVmTelemetryOption** command displays the status of the telemetry 
 
 For more information, use the command `Get-Help Get-EflowVmTelemetryOption -full`.
 
-
 ## Get-EflowVmTpmProvisioningInfo
 
 The **Get-EflowVmTpmProvisioningInfo** command returns the TPM provisioning information. This command takes no parameters. It returns an object that contains two properties:
 
 * Endorsement Key
-* Registration Id 
+* Registration Id
 
 For more information, use the command `Get-Help Get-EflowVmTpmProvisioningInfo -full`.
-
-
 
 ## Invoke-EflowVmCommand
 
@@ -201,7 +197,7 @@ The **Set-EflowVM** command updates the virtual machine configuration with the r
 
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
-| cpuCount | Integer value between 1 and the device's GPU cores | Number of CPU cores for the VM. |
+| cpuCount | Integer value between 1 and the device's CPU cores | Number of CPU cores for the VM. |
 | memoryInMB | Integer value between 1024 and the maximum amount of free memory of the device | Memory allocated for the VM. |
 | gpuName | GPU device name |  Name of the GPU device to be used for passthrough. |
 | gpuPassthroughType | **DirectDeviceAssignment**, **ParaVirtualization**, or none (no passthrough) |  GPU Passthrough type |
@@ -253,4 +249,4 @@ For more information, use the command `Get-Help Verify-EflowVm -full`.
 
 Learn how to use these commands to install and provision IoT Edge for Linux on Windows in the following article:
 
-* [Install Azure IoT Edge for Linux on Windows](./how-to-install-iot-edge-windows-on-windows.md)
+* [Install Azure IoT Edge for Linux on Windows](./how-to-provision-single-device-linux-on-windows-symmetric.md)

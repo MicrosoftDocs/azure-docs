@@ -10,6 +10,7 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: sms
 ---
 
 # SMS concepts
@@ -21,7 +22,7 @@ Azure Communication Services enables you to send and receive SMS text messages u
 Key features of Azure Communication Services SMS SDKs include:
 
 -  **Simple** setup experience for adding SMS capability to your applications.
-- **High Velocity** message support over toll free numbers for A2P (Application to Person) use cases in the United States.
+- **High Velocity** message support over toll free numbers and short codes (*coming soon*) for A2P (Application to Person) use cases in the United States.
 - **Bulk Messaging** supported to enable sending messages to multiple recipients at a time.
 - **Two-way** conversations to support scenarios like customer support, alerts, and appointment reminders.
 - **Reliable Delivery** with real-time delivery reports for messages sent from your application.

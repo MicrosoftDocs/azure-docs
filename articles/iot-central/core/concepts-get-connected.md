@@ -3,7 +3,7 @@ title: Device connectivity in Azure IoT Central | Microsoft Docs
 description: This article introduces key concepts relating to device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/15/2020
+ms.date: 09/07/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -70,7 +70,7 @@ For testing only, you can use the following utilities to generate root, intermed
 
 To connect a device with device SAS key to your application:
 
-1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type.
+1. Create an *enrollment group* that uses the **Shared Access Signature (SAS)** attestation type. 
 1. Copy the group primary or secondary key from the enrollment group.
 1. Use the Azure CLI to generate a device key from the group key:
 
@@ -79,6 +79,9 @@ To connect a device with device SAS key to your application:
     ```
 
 1. Use the generated device key when the device connects to your IoT Central application.
+
+> [!NOTE]
+> To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and type-in the SAS keys.
 
 ## Individual enrollment
 
@@ -185,6 +188,16 @@ You can view the [thermostat model](https://github.com/Azure/iot-plugandplay-mod
 "@id": "dtmi:com:example:Thermostat;1"
 ```
 
+Use the following DPS payload to associate the device to a device template:
+
+```json
+{
+  "modelId":"dtmi:com:example:TemperatureController;2"
+}
+```
+
+To lean more about the DPS payload, see the sample code used in the [Tutorial: Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md).
+
 ## Device status values
 
 When a real device connects to your IoT Central application, its device status changes as follows:
@@ -214,8 +227,9 @@ The following diagram shows how, when a device connects, the connection is regis
 
 :::image type="content" source="media/concepts-get-connected/device-connectivity-diagram.png" alt-text="Diagram that shows event window for connected and disconnected events." border="false":::
 
-You can view the connected and disconnected events in the **Raw data** view for a device:
-:::image type="content" source="media/concepts-get-connected/device-connectivity-events.png" alt-text="Screenshot showing raw data view filtered to show device connected events.":::
+Watch the following video to learn more about how to monitor device connection status:
+
+> [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
 You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 

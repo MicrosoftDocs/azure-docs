@@ -293,6 +293,6 @@ You are now ready to run the applications.
 
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
+To continue getting started with IoT Hub and device management patterns such as end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).
 
 To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/quickstart-linux.md).

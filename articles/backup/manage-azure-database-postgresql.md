@@ -2,12 +2,25 @@
 title: Manage Azure Database for PostgreSQL server 
 description: Learn about managing Azure Database for PostgreSQL server.
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 09/21/2021
 ---
 
 # Manage Azure Database for PostgreSQL server
 
 This article describes how to manage Azure Database for PostgreSQL servers that are backed up with the Azure Backup service.
+
+## Change policy
+
+You can change the associated policy with a backup instance.
+
+1. Select the **Backup Instance** -> **Change Policy**.
+
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/change-policy.png" alt-text="Screenshot showing the option to change policy.":::
+   
+1. Select the new policy that you wish to apply to the database.
+
+   :::image type="content" source="./media/manage-azure-database-postgresql/reassign-policy.png" alt-text="Screenshot showing the option to reassign policy.":::
 
 ## Stop Protection (Preview)
 
@@ -67,6 +80,9 @@ There are three ways by which you can stop protecting an Azure Database for Post
 ## Resume Protection
 
 If you have selected the **Stop Protection and Retain data** option while stopping the data backup, you can resume protection for your Azure Database for PostgreSQL server.
+
+>[!Note]
+>When you start protecting a database, the backup policy is applied to the retained data as well. The recovery points that have expired as per the policy will be cleaned up.
 
 Use the following steps:
 

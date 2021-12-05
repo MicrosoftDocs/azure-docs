@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: quickstart
-ms.date: 09/01/2021
+ms.date: 09/08/2021
 ms.author: duau
 ---
 
@@ -14,6 +14,9 @@ ms.author: duau
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
+
+> [!IMPORTANT]
+> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
 
 ## Prerequisites
 
@@ -28,7 +31,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 ### Create a Route Server
 
-1. Go to https://aka.ms/routeserver.
+1. Sign in to [Azure portal](https://portal.azure.com), search and select **Route Server**.
 
 1. Select **+ Create new route server**.
 
@@ -57,7 +60,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
 The section will help you configure BGP peering with your NVA.
 
-1. Go to [Route Server](https://aka.ms/routeserver) in the Azure portal and select the Route Server you want to configure.
+1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/select-route-server.png" alt-text="Screenshot of Route Server list."::: 
 
@@ -87,7 +90,7 @@ You'll need the Azure Route Server's peer IPs and ASN to complete the configurat
 
 If you have an ExpressRoute gateway and/or VPN gateway and you want them to exchange routes with the Route Server, you can enable route exchange.
 
-1. Go to [Route Server](https://aka.ms/routeserver) in the Azure portal and select the Route Server you want to configure.
+1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
 
 1. Select **Configuration** under *Settings* in the left navigation panel.
 

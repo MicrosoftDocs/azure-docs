@@ -1,12 +1,12 @@
 ---
-title: Azure Government isolation guidelines for Impact Level 5 
+title: Azure Government isolation guidelines for Impact Level 5
 description: Guidance for configuring Azure Government services for DoD Impact Level 5 workloads
 ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
-ms.date: 08/27/2021
+ms.date: 09/11/2021
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -273,22 +273,11 @@ For Management and governance services availability in Azure Government, see [Pr
 
 - By default, all data and saved queries are encrypted at rest using Microsoft-managed keys. Configure encryption at rest of your data in Azure Monitor [using customer-managed keys in Azure Key Vault](../azure-monitor/logs/customer-managed-keys.md).
 
-> [!IMPORTANT]
-> See additional guidance for **[Log Analytics](#log-analytics)**, which is a feature of Azure Monitor.
-
-### [Azure Policy](https://azure.microsoft.com/services/azure-policy/)
-
-Azure Policy supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
-### [Azure Policy's guest configuration](../governance/policy/concepts/guest-configuration.md)
-
-Azure Policy's guest configuration supports Impact Level 5 workloads in Azure Government with no extra configuration required.
-
 #### [Log Analytics](../azure-monitor/logs/data-platform-logs.md)
 
-Log Analytics is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
+Log Analytics, which is a feature of Azure Monitor, is intended to be used for monitoring the health and status of services and infrastructure. The monitoring data and logs primarily store [logs and metrics](../azure-monitor/logs/data-security.md#data-retention) that are service generated. When used in this primary capacity, Log Analytics supports Impact Level 5 workloads in Azure Government with no extra configuration required.
 
-Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Azure Security Center or Azure Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
+Log Analytics may also be used to ingest additional customer-provided logs. These logs may include data ingested as part of operating Microsoft Defender for Cloud or Microsoft Sentinel. If the ingested logs or the queries written against these logs are categorized as IL5 data, then you should configure customer-managed keys (CMK) for your Log Analytics workspaces and Application Insights components. Once configured, any data sent to your workspaces or components is encrypted with your Azure Key Vault key. For more information, see [Azure Monitor customer-managed keys](../azure-monitor/logs/customer-managed-keys.md).
 
 ### [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/)
 
@@ -320,13 +309,13 @@ For Security services availability in Azure Government, see [Products available 
 
 - Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](/azure/information-protection/byok-price-restrictions).
 
-### [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
+### [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
 
-- Configure encryption at rest of content in Azure Sentinel by [using customer-managed keys in Azure Key Vault](../sentinel/customer-managed-keys.md).
+- Configure encryption at rest of content in Microsoft Sentinel by [using customer-managed keys in Azure Key Vault](../sentinel/customer-managed-keys.md).
 
-### [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+### [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)
 
-- Configure encryption at rest of content in Microsoft Cloud App Security [using customer-managed keys in Azure Key Vault](/cloud-app-security/cas-compliance-trust#security).
+- Configure encryption at rest of content in Microsoft Defender for Cloud Apps [using customer-managed keys in Azure Key Vault](/cloud-app-security/cas-compliance-trust#security).
 
 
 ## Storage
@@ -353,7 +342,7 @@ For Storage services availability in Azure Government, see [Products available b
 
 ### [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-- Configure encryption at rest of content in Azure NetApp Files [using customer-managed keys in Azure Key Vault](../azure-netapp-files/azure-netapp-files-faqs.md#security-faqs)
+- Configure encryption at rest of content in Azure NetApp Files [using customer-managed keys in Azure Key Vault](../azure-netapp-files/faq-security.md)
 
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 

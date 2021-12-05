@@ -4,7 +4,7 @@ description: This article provides a tutorial for getting started writing log qu
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 10/24/2019
+ms.date: 10/20/2021
 
 ---
 

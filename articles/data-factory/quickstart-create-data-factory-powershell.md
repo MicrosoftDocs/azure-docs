@@ -60,7 +60,7 @@ Install the latest Azure PowerShell modules by following instructions in [How to
 
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotes, and then run the command. For example: `"ADFQuickStartRG"`.
 
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFQuickStartRG";
     ```
 

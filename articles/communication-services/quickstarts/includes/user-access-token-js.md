@@ -150,7 +150,7 @@ console.log(token);
 Refreshing access tokens is as easy as calling `getToken` with the same identity that was used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
 
 ```javascript
-// // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
+// Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
 let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["voip"]);
 ```
 

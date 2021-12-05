@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/01/2021
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperf-fy21q1
+ms.custom: aaddev, identityplatformtop40, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configurable token lifetimes in the Microsoft identity platform (preview)

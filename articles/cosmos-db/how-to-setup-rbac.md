@@ -35,14 +35,24 @@ The Azure Cosmos DB data plane RBAC is built on concepts that are commonly found
 ## <a id="permission-model"></a> Permission model
 
 > [!IMPORTANT]
-> This permission model only covers database operations that let you read and write data. It does **not** cover any kind of management operations, like creating containers or changing their throughput. This means that you **cannot use any Azure Cosmos DB data plane SDK** to authenticate management operations with an AAD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through:
-> - [Azure Resource Manager (ARM) templates](manage-with-templates.md)
-> - [Azure PowerShell scripts](manage-with-powershell.md),
-> - [Azure CLI scripts](sql/manage-with-cli.md),
-> - Azure management libraries available in
+> This permission model covers only database operations that involve reading and writing data. It does *not* cover any kind of management operations on management resources, for example:
+> - Create/Replace/Delete Database
+> - Create/Replace/Delete Container
+> - Replace Container Throughput
+> - Create/Replace/Delete/Read Stored Procedures
+> - Create/Replace/Delete/Read Triggers
+> - Create/Replace/Delete/Read User Defined Functions
+>
+> You *cannot use any Azure Cosmos DB data plane SDK* to authenticate management operations with an Azure AD identity. Instead, you must use [Azure RBAC](role-based-access-control.md) through one of the following options:
+> - [Azure Resource Manager templates (ARM templates)](./sql/manage-with-templates.md)
+> - [Azure PowerShell scripts](./sql/manage-with-powershell.md)
+> - [Azure CLI scripts](./sql/manage-with-cli.md)
+> - Azure management libraries available in:
 >   - [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.CosmosDB/)
 >   - [Java](https://search.maven.org/artifact/com.azure.resourcemanager/azure-resourcemanager-cosmos)
 >   - [Python](https://pypi.org/project/azure-mgmt-cosmosdb/)
+>   
+> Read Database and Read Container are considered [metadata requests](#metadata-requests). Access to these operations can be granted as stated in the following section.
 
 The table below lists all the actions exposed by the permission model.
 
@@ -273,7 +283,7 @@ az cosmosdb sql role definition list --account-name $accountName --resource-grou
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-definition) for a reference and examples of using Azure Resource Manager templates to create role definitions.
 
 ## <a id="role-assignments"></a> Create role assignments
 
@@ -328,7 +338,7 @@ az cosmosdb sql role assignment create --account-name $accountName --resource-gr
 
 ### Using Azure Resource Manager templates
 
-See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sqlresources2/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
+See [this page](/rest/api/cosmos-db-resource-provider/2021-04-15/sql-resources/create-update-sql-role-assignment) for a reference and examples of using Azure Resource Manager templates to create role assignments.
 
 ## Initialize the SDK with Azure AD
 

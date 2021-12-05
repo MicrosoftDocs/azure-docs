@@ -1,16 +1,16 @@
 ---
-title: Integrate ServiceNow with Azure Defender for IoT
-description: In this tutorial, learn how to integrate ServiceNow with Azure Defender for IoT.
+title: Integrate ServiceNow with Microsoft Defender for IoT
+description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 07/27/2021
+ms.date: 11/09/2021
 ms.custom: template-tutorial
 ---
 
-# Tutorial: Integrate ServiceNow with Azure Defender for IoT
+# Tutorial: Integrate ServiceNow with Microsoft Defender for IoT
 
-This tutorial will help you learn how to integrate, and use ServiceNow with Azure Defender for IoT.
+This tutorial will help you learn how to integrate, and use ServiceNow with Microsoft Defender for IoT.
 
 The Defender for IoT integration with ServiceNow provides a new level of centralized visibility, monitoring, and control for the IoT and OT landscape. These bridged platforms enable automated device visibility and threat management to previously unreachable ICS & IoT devices.
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Set up Defender for IoT to communicate with ServiceNow
 > * Create access tokens in ServiceNow
 > * Send Defender for IoT device attributes to ServiceNow
-> * Set up the integration using a HTTPS proxy
+> * Set up the integration using an HTTPS proxy
 > * View Defender for IoT detections in ServiceNow
 > * View connected devices
 
@@ -157,7 +157,7 @@ Verify that the on-premises management console is connected to the ServiceNow in
 
 :::image type="content" source="media/tutorial-servicenow/sync-confirmation.png" alt-text="Screenshot of the communication occurring by looking at the last sync.":::
 
-## Set up the integrations using a HTTPS proxy
+## Set up the integrations using an HTTPS proxy
 
 When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port cannot be used.
 
@@ -219,7 +219,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](integration-cisco-ise-pxgrid.md).
+In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
 
 > [!div class="nextstepaction"]
-> [Next steps button](integration-cisco-ise-pxgrid.md)
+> [Next steps button](./tutorial-forescout.md)

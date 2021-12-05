@@ -184,7 +184,7 @@
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-gpu-certificate-troubleshooting.md 
 
-    - name: Virtual machines
+    - name: Virtual machines (Preview)
       items:
       - name: What are VMs?
         href: azure-stack-edge-gpu-virtual-machine-overview.md
@@ -214,6 +214,8 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md
         - name: VMs - GPU
           href: azure-stack-edge-gpu-deploy-gpu-virtual-machine.md  
+        - name: VMs - HPN
+          href: azure-stack-edge-gpu-deploy-virtual-machine-high-performance-network.md  
         - name: VMs - Azure PowerShell cmdlets
           href: azure-stack-edge-gpu-deploy-virtual-machine-powershell.md 
         - name: VMs - Azure PowerShell script
@@ -297,14 +299,18 @@
             href: azure-stack-edge-gpu-deploy-iot-edge-gpu-sharing.md  
           - name: Develop C# module
             href: azure-stack-edge-gpu-create-iot-edge-module.md 
-        - name: Via Azure Arc (Preview)
+        - name: Via Azure Arc
           items:
           - name: Enable Arc on Kubernetes cluster
             href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
           - name: Deploy stateless app via GitOps
             href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md   
           - name: Deploy Azure Arc Data Controller
-            href: azure-stack-edge-gpu-deploy-arc-data-controller.md        
+            href: azure-stack-edge-gpu-deploy-arc-data-controller.md 
+      - name: How to
+        items:
+        - name: Configure MetalLB
+          href: azure-stack-edge-gpu-configure-metallb-bgp-mode.md              
 
     - name: IoT Edge
       items:
@@ -352,8 +358,6 @@
       href: azure-stack-edge-gpu-data-residency.md 
     - name: View key vault integration 
       href: azure-stack-edge-gpu-activation-key-vault.md
-    - name: Enable proactive logging
-      href: azure-stack-edge-gpu-proactive-log-collection.md
   - name: Shared security
     items:
     - name: Security overview
@@ -385,14 +389,16 @@
       - name: Recover from device failure
         href: azure-stack-edge-gpu-recover-device-failure.md   
     - name: Monitor
-      items:
-      - name: Using metric charts
-        href: azure-stack-edge-monitor.md 
-      - name: Manage device event alerts
+      items: 
+      - name: Review alerts
+        href: azure-stack-edge-alerts.md
+      - name: Use rules for alert notifications
         href: azure-stack-edge-gpu-manage-device-event-alert-notifications.md 
-      - name: Using Kubernetes dashboard
+      - name: Use metrics charts
+        href: azure-stack-edge-monitor.md
+      - name: Use Kubernetes dashboard
         href: azure-stack-edge-gpu-monitor-kubernetes-dashboard.md 
-      - name: Using Azure Monitor
+      - name: Use Azure Monitor
         href: azure-stack-edge-gpu-enable-azure-monitor.md
     - name: Troubleshoot
       items:
@@ -402,11 +408,17 @@
         href: azure-stack-edge-gpu-troubleshoot-activation.md    
       - name: Device logs and diagnostics 
         href: azure-stack-edge-gpu-troubleshoot.md
+      - name: Enable proactive logging 
+        href: azure-stack-edge-gpu-proactive-log-collection.md
+      - name: Enable remote support 
+        href: azure-stack-edge-gpu-remote-support-diagnostics-repair.md        
       - name: Contact Microsoft Support
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2106 - Current
+    - name: 2110 - Current
+      href: azure-stack-edge-gpu-2110-release-notes.md
+    - name: 2106
       href: azure-stack-edge-gpu-2106-release-notes.md
     - name: 2105 
       href: azure-stack-edge-gpu-2105-release-notes.md

@@ -29,7 +29,7 @@ You perform the following steps in this tutorial:
 ## Overview
 Here is the high-level solution diagram:
 
-![Incrementally load data](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
+:::image type="content" source="media/tutorial-Incrementally-copy-powershell/incrementally-load.png" alt-text="Incrementally load data":::
 
 Here are the important steps to create this solution:
 
@@ -140,9 +140,10 @@ END
 ```
 
 ## Create a data factory
+
 1. Define a variable for the resource group name that you use in PowerShell commands later. Copy the following command text to PowerShell, specify a name for the [Azure resource group](../azure-resource-manager/management/overview.md) in double quotation marks, and then run the command. An example is `"adfrg"`. 
    
-     ```powershell
+    ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup";
     ```
 

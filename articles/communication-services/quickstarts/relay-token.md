@@ -6,17 +6,14 @@ manager: anvalent
 services: azure-communication-services
 
 ms.author: shahen
-ms.date: 06/30/2021
+ms.date: 09/28/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.custom: tracking-python, devx-track-javascript
-zone_pivot_groups: acs-js-csharp
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Access TURN relays
 
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
-
-This quickstart shows you how to retrieve a network relay token to access Azure Communication Services TURN servers.
+This quickstart shows how to retrieve a network relay token to access Azure Communication Services TURN servers.
 
 ## Prerequisites
 
@@ -31,6 +28,15 @@ This quickstart shows you how to retrieve a network relay token to access Azure 
 [!INCLUDE [Get a network relay token with JavaScript](./includes/relay-token-js.md)]
 ::: zone-end
 
+::: zone pivot="programming-language-python"
+[!INCLUDE [Get a network relay token with Python](./includes/relay-token-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [Get a network relay token with Java](./includes/relay-token-java.md)]
+::: zone-end
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services resource, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).
+

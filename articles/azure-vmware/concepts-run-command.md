@@ -2,7 +2,7 @@
 title: Concepts - Run command in Azure VMware Solution (Preview) 
 description: Learn about using run commands in Azure VMware Solution. 
 ms.topic: conceptual 
-ms.date: 08/31/2021
+ms.date: 09/17/2021
 ---
 
 
@@ -15,6 +15,8 @@ Azure VMware Solution supports the following operations:
 - [Configure an external identity source](configure-identity-source-vcenter.md)
 
 - [View and set storage policies](configure-storage-policy.md) 
+
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md)
 
 
 >[!NOTE]
@@ -97,4 +99,4 @@ Now that you've learned about the Run command concepts, you can use the Run comm
 
 - [Configure external identity source for vCenter (Run command)](configure-identity-source-vcenter.md) - Configure Active Directory over LDAP or LDAPS for vCenter, which enables the use of an external identity source as an Active Directory. Then, you can add groups from the external identity source to the CloudAdmin role.
 
-
+- [Deploy disaster recovery using JetStream](deploy-disaster-recovery-using-jetstream.md) - Store data directly to a recovery cluster in vSAN. The data gets captured through I/O filters that run within vSphere. The underlying data store can be VMFS, VSAN, vVol, or any HCI platform. 

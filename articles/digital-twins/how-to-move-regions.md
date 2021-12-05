@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/2/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins

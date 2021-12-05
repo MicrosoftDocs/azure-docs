@@ -35,19 +35,19 @@ The log files you use for investigation and monitoring are:
 
 * [Azure AD Audit logs](../reports-monitoring/concept-audit-logs.md)
 
-* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview?view=o365-worldwide) 
+* [Microsoft 365 Audit logs](/microsoft-365/compliance/auditing-solutions-overview) 
 
 * [Azure Key Vault insights](../../azure-monitor/insights/key-vault-insights-overview.md)
 
 From the Azure portal, you can view the Azure AD Audit logs and download as comma-separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Azure Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [Microsoft Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * [Azure Monitor](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be pushed to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 * Microsoft Graph - you can export the data and user MS Graph to do more analysis. For more information on MS Graph, visit [Microsoft Graph PowerShell SDK and Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md). 
 
@@ -57,7 +57,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
    * Risky sign-ins – contains information surrounding the circumstance of a sign in that might indicate suspicious circumstances. For additional information on investigating information from this report, visit [How To: Investigate risk](../identity-protection/howto-identity-protection-investigate-risk.md). 
 
-   * Risk detections – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Cloud App Security (MCAS).
+   * Risk detections – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
  
 
@@ -133,13 +133,14 @@ You can monitor privileged account sign-in events in the Azure AD Sign-in logs. 
 | Sign-in failure, bad password threshold | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50126 | Define a baseline threshold, and then monitor and adjust to suite your organizational behaviors and limit false alerts from being generated. |
 | Failure due to CA requirement |High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 53003<br>-and-<br>Failure reason = blocked by CA | This can be an indication an attacker is trying to get into the account |
 | Privileged accounts that don't follow naming policy.| | Azure Subscription | [List Azure role assignments using the Azure portal - Azure RBAC](../../role-based-access-control/role-assignments-list-portal.md)| List role assignments for subscriptions and alert where sign in name doesn't match your organizations format. For example, ADM_ as a prefix. |
-| Interrupt |  High/Medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong Auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure Reason = Authentication failed during strong authentication request | This can be an indication an attacker has the password for the account but can't pass the MFA challenge. |   |   |
+| Interrupt |  High/Medium | Azure AD Sign-ins | Status = Interrupted<br>-and-<br>error code = 50074<br>-and-<br>Failure reason = Strong Auth required<br>Status = Interrupted<br>-and-<br>Error code = 500121<br>Failure Reason = Authentication failed during strong authentication request | This can be an indication an attacker has the password for the account but can't pass the MFA challenge. | 
 | Privileged accounts that don't follow naming policy.| High | Azure AD directory | [List Azure AD role assignments](../roles/view-assignments.md)| List roles assignments for Azure AD roles alert where UPN doesn't match your organizations format. For example, ADM_ as a prefix. |
-| Discover privileged accounts not registered for MFA. | High | Azure AD Graph API| Query for IsMFARegistered eq false for administrator accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&tabs=http) | Audit and investigate to determine if intentional or an oversight. |
+| Discover privileged accounts not registered for MFA. | High | Microsoft Graph API| Query for IsMFARegistered eq false for administrator accounts. [List credentialUserRegistrationDetails - Microsoft Graph beta](/graph/api/reportroot-list-credentialuserregistrationdetails?view=graph-rest-beta&preserve-view=true&tabs=http) | Audit and investigate to determine if intentional or an oversight. |
 | Account lockout | High | Azure AD Sign-ins log | Status = Failure<br>-and-<br>error code = 50053 | Define a baseline threshold, and then monitor and adjust to suite your organizational behaviors and limit false alerts from being generated. |
 | Account disabled/blocked for sign-ins | Low | Azure AD Sign-ins log | Status = Failure<br>-and-<br>Target = user UPN<br>-and-<br>error code = 50057 | This could indicate someone is trying to gain access to an account once they have left an organization. Although the account is blocked, it's still important to log and alert on this activity. |
-| MFA fraud alert/block | High | Azure AD Sign-ins log/Azure Log Anaylitics | Succeeded = false<br>-and-<br>Result detail = MFA denied<br>-and-<br>Target = user | Privileged user has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account. |
-| Privileged account sign-ins outside of expected controls. |  | Azure AD Sign-ins log | Status = failure<br>UserPricipalName = <Admin account><br>Location = <unapproved location><br>IP Address = <unapproved IP><br>Device Info= <unapproved Browser, Operating System> | Monitor and alert on any entries that you have defined as unapproved. |
+| MFA fraud alert/block | High | Azure AD Sign-ins log/Azure Log Anaylitics | Sign-ins>Authentication details Result details = MFA denied, Fraud Code Entered | Privileged user has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account. |
+| MFA fraud alert/block | High | Azure AD Audit Log log/Azure Log Anaylitics | Activity Type = Fraud Reported - user is blocked for MFA or Fraud reported - no action taken (based on tenant level settings for fraud report) | Privileged user has indicated they haven't instigated the MFA prompt and could indicate an attacker has the password for the account. |
+| Privileged account sign-ins outside of expected controls. |  | Azure AD Sign-ins log | Status = failure<br>UserPricipalName = \<Admin account\><br>Location = \<unapproved location\><br>IP Address = \<unapproved IP\><br>Device Info= \<unapproved Browser, Operating System\> | Monitor and alert on any entries that you have defined as unapproved. |
 | Outside of normal sign in times | High | Azure AD Sign-ins log | Status =success<br>-and-<br>Location =<br>-and-<br>Time = outside of working hours | Monitor and alert if sign-ins occur outside of expected times. It is important to find the normal working pattern for each privileged account and to alert if there are unplanned changes outside of normal working times. Sign-ins outside of normal working hours could indicate compromise or possible insider threats. | 
 | Identity protection risk | High | Identity Protection logs | Risk state = at risk<br>-and-<br>Risk level = low/medium/high<br>-and-<br>Activity = Unfamiliar sign-in/TOR, etc. | This indicates there is some abnormality detected with the sign in for the account and should be alerted on. | 
 | Password change | High | Azure AD Audit logs | Activity Actor = admin/self service<br>-and-<br>Target = user<br>-and-<br>Status = success/failure | Alert on any administrator account password changes, especially for Global admins, user admins, subscription admins, and emergency access accounts. Write a query targeted at all privileged accounts. | 
@@ -182,7 +183,7 @@ Investigate changes to privileged accounts' authentication rules and privileges,
 
 For more information on how to monitor for exceptions to Conditional Access policies, see [Conditional Access insights and reporting](../conditional-access/howto-conditional-access-insights-reporting.md).
 
-For more information on discovering unused privileged accounts, see [Create an access review of Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md)
+For more information on discovering unused privileged accounts, see [Create an access review of Azure AD roles in Privileged Identity Management](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md)
 
  
 ## Assignment and elevation

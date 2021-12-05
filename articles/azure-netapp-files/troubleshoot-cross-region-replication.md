@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot cross-region-replication for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot cross-region replication errors for Azure NetApp Files | Microsoft Docs
 description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: troubleshooting
 ms.date: 03/10/2021
 ms.author: b-juche
 ---
-# Troubleshoot cross-region replication
+# Troubleshoot cross-region replication errors
 
 This article describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files. 
 

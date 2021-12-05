@@ -9,7 +9,7 @@ ms.date: 08/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.reviewer: yzheng 
+ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell"
 ---
 
@@ -216,4 +216,4 @@ A lifecycle management policy must be read or written in full. Partial updates a
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
-- [Access tiers for Azure Blob Storage - hot, cool, and archive](storage-blob-storage-tiers.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)

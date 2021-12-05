@@ -44,8 +44,8 @@ You can create a [service principal](../../active-directory/develop/app-objects-
 Replace the placeholders `server-name` with the name of your SQL server hosted on Azure. Replace the `subscription-id` and `resource-group` with the subscription ID and resource group connected to your SQL server.  
 
 ```azurecli-interactive
-   az ad sp create-for-rbac --name {server-name} --role contributor \
-                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
+   az ad sp create-for-rbac --name {server-name} --role contributor 
+                            --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} 
                             --sdk-auth
 ```
 
@@ -147,7 +147,7 @@ You'll use the connection string as a GitHub secret.
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
     ```yaml
-   name: SQL for GitHub Actions
+    name: SQL for GitHub Actions
 
     on:
     push:

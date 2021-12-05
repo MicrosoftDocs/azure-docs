@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 11/08/2021
 ---
 
 #  Azure Web PubSub service internals
@@ -246,7 +246,7 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 - Simple Auth that `code` is provided through the configured Webhook URL.
 - AAD Auth. 
    - Add a client secret in AAD's [App Registrations] and provide the [client secret] to Azure Web PubSub through portal/cli.
-   - Provide the [Identity](/azure/app-service/overview-managed-identity?tabs=dotnet) to Azure Web PubSub through portal/cli
+   - Provide the [Identity](../app-service/overview-managed-identity.md?tabs=dotnet) to Azure Web PubSub through portal/cli
 
 <a name="connection_manager"></a>
 

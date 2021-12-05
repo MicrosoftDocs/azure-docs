@@ -50,10 +50,10 @@ Update the self-hosted IR node with a specific version or to the latest version 
     > Specify the location of the "InstallGatewayOnLocalMachine.ps1" file when running the script. In this example we stored it on Desktop.
 
 1. If there is one pre-installed self-hosted IR on your machine, the script automatically uninstalls it and then configures a new one. You'll see following window popped out:
-        ![configure integration runtime](media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png)
+        :::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/integration-runtime-configure.png" alt-text="configure integration runtime":::
 
 1. When the installation and key registration completes, you'll see *Succeed to install gateway* and *Succeed to register gateway* results in your local PowerShell.
-        [![script 1 run result](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox)
+        [:::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png#lightbox" alt-text="script 1 run result](media/self-hosted-integration-runtime-automation-scripts/script-1-run-result.png)":::
 
 ### For automating manual updates
 This script is used to update/install + register latest self-hosted integration runtime. The script run performs the following steps:
@@ -74,4 +74,4 @@ You can follow below command-line example to use this script:
    PS C:\windows\system32> C:\Users\username\Desktop\script-update-gateway.ps1 -version 3.13.6942.1
    ``` 
    If your current version is already the latest one, you'll see following result, suggesting no update is required.   
-    [![script 2 run result](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png)](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png#lightbox)
+    [:::image type="content" source="media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png#lightbox" alt-text="script 2 run result](media/self-hosted-integration-runtime-automation-scripts/script-2-run-result.png)":::

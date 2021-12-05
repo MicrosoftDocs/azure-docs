@@ -3,7 +3,7 @@ title: Configure your API Management service using Git - Azure | Microsoft Docs
 description: Learn how to save and configure your API Management service configuration using Git.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: mattfarm
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
-ms.author: apimpm
+ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
 
@@ -37,6 +37,9 @@ The following steps provide an overview of managing your API Management service 
 5. Deploy the changes from your repo into your service configuration database
 
 This article describes how to enable and use Git to manage your service configuration and provides a reference for the files and folders in the Git repository.
+
+> [!IMPORTANT]
+> This feature is designed to work with API Management services that have a small/medium configuration. Services with large number of configuration elements (APIs, Operations, Schemas etc.) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact support if you need assistance. 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 

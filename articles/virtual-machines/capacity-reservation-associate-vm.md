@@ -19,11 +19,6 @@ This article walks you through the steps of associating a new or existing virtua
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
 ## Associate a new VM
 
 To associate a new VM to the Capacity Reservation Group, the group must be explicitly referenced as a property of the virtual machine. This reference protects the matching reservation in the group from accidental consumption by less critical applications and workloads that aren't intended to use it.  
@@ -83,6 +78,19 @@ In the request body, include the `capacityReservationGroup` property as shown be
 1. After validation runs, select the **Create** button 
 1. After the deployment is complete, select **Go to resource**
 
+### [CLI](#tab/cli1)
+
+Use `az vm create` to create a new VM and add the `capacity-reservation-group` property to associate it to an existing capacity reservation group. The example below creates a Standard_D2s_v3 VM in the East US location and associate the VM to a capacity reservation group.
+
+```azurecli-interactive
+az vm create 
+--resource-group myResourceGroup 
+--name myVM 
+--location eastus 
+--size Standard_D2s_v3 
+--image UbuntuLTS 
+--capacity-reservation-group /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}
+```
 
 ### [PowerShell](#tab/powershell1)
 
@@ -106,7 +114,7 @@ To learn more, go to Azure PowerShell command [New-AzVM](/powershell/module/az.c
 
 ### [ARM template](#tab/arm1)
 
-An [ARM template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
+An [ARM template](../azure-resource-manager/templates/overview.md) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment. 
 
 ARM templates let you deploy groups of related resources. In a single template, you can create capacity reservation group and capacity reservations. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines. 
 
@@ -160,6 +168,24 @@ While Capacity Reservation is in preview, to associate an existing VM to a Capac
 1. Go to **Configurations** on the left
 1. In the **Capacity Reservation Group** dropdown, select the group that you want the VM to be associated with 
 
+### [CLI](#tab/cli2)
+
+1. Deallocate the VM
+
+    ```azurecli-interactive
+    az vm deallocate 
+    -g myResourceGroup 
+    -n myVM
+    ```
+
+1. Associate the VM to a capacity reservation group
+
+    ```azurecli-interactive
+    az vm update 
+    -g myresourcegroup 
+    -n myVM 
+    --capacity-reservation-group subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{CapacityReservationGroupName}
+    ```
 
 ### [PowerShell](#tab/powershell2)
 
@@ -243,6 +269,16 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
    }
 } 
 ``` 
+
+### [CLI](#tab/cli3)
+
+```azurecli-interactive
+az capacity reservation show 
+-g myResourceGroup
+-c myCapacityReservationGroup 
+-n myCapacityReservation 
+```
+
 ### [PowerShell](#tab/powershell3)
 
 ```powershell-interactive

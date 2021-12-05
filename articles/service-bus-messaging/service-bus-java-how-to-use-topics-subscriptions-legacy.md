@@ -4,12 +4,7 @@ description: In this article, you write Java code to send messages to an Azure S
 ms.date: 07/27/2021
 ms.topic: how-to
 ms.devlang: Java
-ms.custom:
-  - seo-java-july2019
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Use Service Bus topics and subscriptions with Java (old package)
@@ -114,7 +109,7 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a limit on the total size of the messages
+Service Bus topics support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 100 MB in the [Premium tier](service-bus-premium-messaging.md). The header, which includes the standard and custom application properties, can have a maximum size of 64 KB. There is no limit on the number of messages held in a topic but there is a limit on the total size of the messages
 held by a topic. This topic size is defined at creation time, with an upper limit of 5 GB.
 
 ## Receive messages from a subscription

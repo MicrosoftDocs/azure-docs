@@ -10,7 +10,7 @@ ms.date: 06/11/2021
 
 ms.author: markvi
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 ms.reviewer: besiler
 
 # Customer intent: As an IT admin, you need to know how to filter your audit log so that you can analyze management activities.

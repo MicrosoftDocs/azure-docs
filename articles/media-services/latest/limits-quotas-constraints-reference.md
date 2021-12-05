@@ -70,7 +70,7 @@ Any Job record in your account older than 90 days will be automatically deleted,
 | Live Outputs per Live Event |3 <sup>(5)</sup> |
 | Max Live Output duration | [Size of the DVR window](live-event-cloud-dvr-time-how-to.md) |
 
-<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison-reference.md).
+<sup>4</sup> For detailed information about Live Event limits, see [Live Event types comparison and limits](live-event-types-comparison-reference.md). Depending on your streaming use case and regional datacenter of choice, AMS is able to accommodate more than 5 Live Events per Media Services account. Please file a support request to increase your account quota.
 
 <sup>5</sup> Live Outputs start on creation and stop when deleted.
 

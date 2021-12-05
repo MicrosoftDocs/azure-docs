@@ -3,14 +3,14 @@ title: Upgrade Bing Autosuggest API v5 to v7
 titleSuffix: Azure Cognitive Services
 description: Identifies the parts of your Bing Autosuggest application that you need to update to use version 7.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: scottwhi
+
 ---
 # Autosuggest API upgrade guide
 

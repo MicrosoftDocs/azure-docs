@@ -5,8 +5,6 @@ ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
 ms.date: 05/25/2021
 ms.topic: overview
-author: mlearned
-ms.author: mlearned
 description: "This article provides an overview of Azure Arc-enabled Kubernetes."
 keywords: "Kubernetes, Arc, Azure, containers"
 ---
@@ -40,7 +38,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios:
 
 * View and monitor your clusters using Azure Monitor for containers.
 
-* Enforce threat protection using Azure Defender for Kubernetes.
+* Enforce threat protection using Microsoft Defender for Kubernetes.
 
 * Apply policy definitions using Azure Policy for Kubernetes.
 

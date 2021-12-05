@@ -31,6 +31,8 @@ Primary/secondary keys provide access to all the administrative resources for th
 
 > [!NOTE]
 > The following section describes the steps to rotate and regenerate keys for the SQL API. If you're using a different API, see the [Azure Cosmos DB API for Mongo DB](database-security.md?tabs=mongo-api#key-rotation), [Cassandra API](database-security.md?tabs=cassandra-api#key-rotation), [Gremlin API](database-security.md?tabs=gremlin-api#key-rotation), or [Table API](database-security.md?tabs=table-api#key-rotation) sections.
+>
+> To monitor your account for key updates and key regeneration, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
 The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below.
 

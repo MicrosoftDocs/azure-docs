@@ -3,17 +3,19 @@ title: Embed player widget in Power BI - Azure Video Analyzer
 description: You can use Azure Video Analyzer for continuous video recording or event-based recording. This article talks about how to embed videos in Microsoft Power BI to provide a customizable UI for your users.
 ms.service: azure-video-analyzer
 ms.topic: how-to
-ms.date: 08/06/2021
+ms.date: 11/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Embed player widget in Power BI
+
 
 Azure Video Analyzer enables you to [record](detect-motion-record-video-clips-cloud.md) video and associated inference metadata to your Video Analyzer cloud resource. Video Analyzer has a [Player Widget](player-widget.md) - an easy-to-embed widget allowing client apps to playback video and inference metadata.
 
 Dashboards are an insightful way to monitor your business and view all your most important metrics at a glance. A Power BI dashboard is a powerful tool to combine video with multiple sources of data including telemetry from IoT Hub. In this tutorial, you will learn how to add one or more player widgets to a dashboard using [Microsoft Power BI](https://powerbi.microsoft.com/) web service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
 
 ## Suggested pre-reading
 
@@ -32,13 +34,13 @@ Dashboards are an insightful way to monitor your business and view all your most
 
 ## Create a token
 
-1. Follow steps to [create a token](player-widget.md#create-a-token).
+1. Follow steps to [create a token](access-policies.md#creating-a-token).
 2. Make sure to save values generated for _Issuer, Audience, Key Type, Algorithm, Key Id, RSA Key Modulus, RSA Key Exponent, Token_. You will need these values when creating an access policy below.
 
 ## Get embed code for player widget
 
 1. Login to [Azure portal](https://portal.azure.com/) with your credentials. Locate your Video Analyzer account used to complete the prerequisites and open the Video Analyzer account pane.
-2. Follow steps to [Create an access policy](player-widget.md#create-an-access-policy).
+2. Follow steps to [Create an access policy](access-policies.md#creating-an-access-policy).
 3. Select **Videos** in the **Video Analyzer** section.
 4. Select any video from the list.
 5. Click on **Widget** setup. A pane **Use widget in your application** opens on the right-hand side. Scroll down to **Option 2 – using HTML** and copy the code and paste it in a text editor. Click the **Close** button.

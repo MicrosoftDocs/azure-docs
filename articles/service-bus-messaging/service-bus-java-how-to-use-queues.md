@@ -4,12 +4,7 @@ description: In this tutorial, you learn how to use Java to send messages to and
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
-ms.custom:
-  - seo-java-july2019
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Java)

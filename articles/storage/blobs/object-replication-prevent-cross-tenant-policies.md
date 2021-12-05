@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 09/02/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -75,7 +75,7 @@ az storage account create \
     --name <storage-account> \
     --resource-group <resource-group> \
     --location <location> \
-    --sku Standard_LRS 
+    --sku Standard_LRS
     --allow-cross-tenant-replication false
 
 # Read the property for the new storage account
@@ -83,7 +83,7 @@ az storage account show \
     --name <storage-account> \
     --resource-group <resource-group> \
     --query allowCrossTenantReplication \
-    --output tsv 
+    --output tsv
 ```
 
 ---

@@ -120,7 +120,7 @@ Storage Explorer lets you connect to individual resources, such as an Azure Data
 | File shares      | No       | No                   | Yes (URL)                      | No                 |
 | Queues           | Yes      | No                   | Yes (URL)                      | No                 |
 | Tables           | No       | No                   | Yes (URL)                      | No                 |
- 
+
 Storage Explorer can also connect to a [local storage emulator](#local-storage-emulator) using the emulator's configured ports.
 
 To connect to an individual resource, select the **Connect** button in the left-hand toolbar. Then follow the instructions for the resource type you want to connect to.
@@ -142,7 +142,7 @@ Storage Explorer can use your Azure account to connect to the following resource
 * Azure Data Lake Storage Gen2 containers
 * Azure Data Lake Storage Gen2 directories
 * Queues
- 
+
 Azure AD is the preferred option if you have data layer access to your resource but no management layer access.
 
 1. Sign in to at least one Azure account using the [steps described above](#sign-in-to-azure).

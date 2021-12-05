@@ -2,7 +2,7 @@
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 09/09/2021
 ---
 
 # Object functions for ARM templates
@@ -79,20 +79,7 @@ An object with each key and value pair.
 
 The following example creates an object from different types of values.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-  ],
-  "outputs": {
-    "newObject": {
-      "type": "object",
-      "value": "[createObject('intProp', 1, 'stringProp', 'abc', 'boolProp', true(), 'arrayProp', createArray('a', 'b', 'c'), 'objectProp', createObject('key1', 'value1'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/createobject.json":::
 
 The output from the preceding example with the default values is an object named `newObject` with the following value:
 
@@ -193,76 +180,9 @@ You can also use [null()](#null) to get a null value.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function. Notice that you can pass in **null** for an empty object.
+The following example shows how to use the `json` function. Notice that you can pass in `null` for an empty object.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "jsonEmptyObject": {
-      "type": "string",
-      "defaultValue": "null"
-    },
-    "jsonObject": {
-      "type": "string",
-      "defaultValue": "{\"a\": \"b\"}"
-    },
-    "jsonString": {
-      "type": "string",
-      "defaultValue": "\"test\""
-    },
-    "jsonBoolean": {
-      "type": "string",
-      "defaultValue": "true"
-    },
-    "jsonInt": {
-      "type": "string",
-      "defaultValue": "3"
-    },
-    "jsonArray": {
-      "type": "string",
-      "defaultValue": "[[1,2,3 ]"
-    },
-    "concatValue": {
-      "type": "string",
-      "defaultValue": "demo value"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "emptyObjectOutput": {
-      "type": "bool",
-      "value": "[empty(json(parameters('jsonEmptyObject')))]"
-    },
-    "objectOutput": {
-      "type": "object",
-      "value": "[json(parameters('jsonObject'))]"
-    },
-    "stringOutput": {
-      "type": "string",
-      "value": "[json(parameters('jsonString'))]"
-    },
-    "booleanOutput": {
-      "type": "bool",
-      "value": "[json(parameters('jsonBoolean'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[json(parameters('jsonInt'))]"
-    },
-    "arrayOutput": {
-      "type": "array",
-      "value": "[json(parameters('jsonArray'))]"
-    },
-    "concatObjectOutput": {
-      "type": "object",
-      "value": "[json(concat('{\"a\": \"', parameters('concatValue'), '\"}'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/json.json":::
 
 The output from the preceding example with the default values is:
 
@@ -326,19 +246,7 @@ A value that is always null.
 
 The following example uses the null function.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "emptyOutput": {
-      "type": "bool",
-      "value": "[empty(null())]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/object/null.json":::
 
 The output from the preceding example is:
 

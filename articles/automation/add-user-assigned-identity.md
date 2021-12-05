@@ -1,15 +1,15 @@
 ---
-title: Using a user-assigned managed identity for an Azure Automation account (preview)
+title: Using a user-assigned managed identity for an Azure Automation account
 description: This article describes how to set up a user-assigned managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/26/2021
+ms.date: 10/26/2021
 ms.topic: conceptual 
 ---
 
-# Using a user-assigned managed identity for an Azure Automation account (preview)
+# Using a user-assigned managed identity for an Azure Automation account
 
-This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 > [!NOTE]
 > User-assigned managed identities are supported for cloud jobs only.  
@@ -18,9 +18,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- An Azure Automation account. For instructions, see [Create an Azure Automation account](automation-quickstart-create-account.md).
+- An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
 
-- A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account (preview)](enable-managed-identity-for-automation.md).
+- A system-assigned managed identity. For instructions, see [Using a system-assigned managed identity for an Azure Automation account](enable-managed-identity-for-automation.md).
 
 - A user-assigned managed identity. For instructions, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
@@ -44,7 +44,7 @@ You can add a user-assigned managed identity for an Azure Automation account usi
 $sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzAccount -Subscription
+    Connect-AzAccount
 }
 
 # If you have multiple subscriptions, set the one to use
@@ -314,8 +314,14 @@ New-AzRoleAssignment `
 After you enable the user-assigned managed identity for your Automation account and give an identity access to the target resource, you can specify that identity in runbooks against resources that support managed identity. For identity support, use the Az cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount).
 
 ```powershell
-Connect-AzAccount -Identity `
-    -AccountId <user-assigned-identity-ClientId> 
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with user-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity -AccountId <user-assigned-identity-ClientId>).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -DefaultProfile $AzureContext
 ```
 
 ## Generate an access token without using Azure cmdlets
@@ -325,7 +331,7 @@ For HTTP Endpoints make sure of the following.
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
 - Content Type for the Post request must be `application/x-www-form-urlencoded`.
 
-### Get Access token for user-assigned managed identity using Http Get  
+### Get Access token for user-assigned managed identity using HTTP Get  
 
 ```powershell
 $resource= "?resource=https://management.azure.com/"
@@ -337,7 +343,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers�
 Write-Output $accessToken.access_token 
 ```
 
-### Get Access token for user-assigned managed identity using Http Post
+### Get Access token for user-assigned managed identity using HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT
@@ -386,8 +392,8 @@ print(response.text)
 
 ## Next steps
 
-- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues (preview)](troubleshoot/managed-identity.md).
+- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
-- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (preview)](disable-managed-identity-for-automation.md).
+- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).
