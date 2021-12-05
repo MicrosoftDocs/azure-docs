@@ -222,7 +222,7 @@ If you have extended your Microsoft 365 sensitivity labels for assets and databa
 
 - For alerts, we've assigned **severity labels** to each alert to help you prioritize the order in which you attend to each alert. Learn more in [How are alerts classified?](../defender-for-cloud/alerts-overview.md#how-are-alerts-classified).
 
-For more information, see [Integrate Azure Purview with Azure security products](/how-to-integrate-with-azure-security-products.md) 
+For more information, see [Integrate Azure Purview with Azure security products](/how-to-integrate-with-azure-security-products.md). 
 
 ## Information Protection 
 
