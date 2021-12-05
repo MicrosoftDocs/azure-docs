@@ -1676,6 +1676,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/conditional-access/require-managed-devices.md",
+            "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-grant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/conditional-access/untrusted-networks.md",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-based-conditional-access.md",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/active-directory/conditional-access/app-protection-based-conditional-access.md",
+            "redirect_url": "/azure/active-directory/conditional-access/howto-policy-approved-app-or-app-protection",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/active-directory/authentication/quickstart-sspr.md",
             "redirect_url": "/azure/active-directory/authentication/tutorial-enable-sspr",
             "redirect_document_id": false
@@ -9893,7 +9913,7 @@
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-workplacebyfacebook-provisioning-tutorial.md",
             "redirect_url": "/azure/active-directory/saas-apps/workplace-by-facebook-provisioning-tutorial",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/active-directory-saas-workplacebyfacebook-tutorial.md",

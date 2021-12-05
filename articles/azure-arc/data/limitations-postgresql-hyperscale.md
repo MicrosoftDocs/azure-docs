@@ -51,7 +51,7 @@ __Why doesn't Microsoft provide SLAs on Azure Arc hybrid services?__ Because Mic
 
 - **Create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
-   2. [Create the Azure Arc data controller](create-data-controller.md)
+   2. [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)
    3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
 
 - **Learn**

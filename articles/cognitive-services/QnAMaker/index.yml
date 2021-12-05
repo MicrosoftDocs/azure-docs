@@ -48,7 +48,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Use follow-up prompts to create multiple turns of a conversation
-            url: /azure/cognitive-services/language-service/question-answering/tutorials/guided-conversations
+            url: ../language-service/question-answering/tutorials/guided-conversations.md
           - text: Add chit-chat
             url: how-to/chit-chat-knowledge-base.md
           - text: Add a secured SharePoint data source

@@ -8,39 +8,38 @@
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: What is Agentless solution architecture
+  - name: Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
   expanded: false
-  items:
-  - name: System prerequisites
-    displayName: firewall, proxy, open ports
-    href: quickstart-system-prerequisites.md
-  - name: Get started with Microsoft Defender for IoT
+  items: 
+  - name: Get started with Defender for IoT
     displayName: getting started, registration, onboarding, activation, threat intelligence, trial, free, subscription 
     href: getting-started.md
 - name: Tutorials
   expanded: false
   items:
-  - name: Microsoft Defender for IoT trial setup
-    href: tutorial-onboarding.md
-  - name: Integrate ClearPass
-    href: tutorial-clearpass.md
-  - name: Integrate CyberArk
-    href: tutorial-cyberark.md
-  - name: Integrate Forescout
-    href: tutorial-forescout.md
-  - name: Integrate Fortinet
-    href: tutorial-fortinet.md
-  - name: Integrate Palo Alto
-    href: tutorial-palo-alto.md
-  - name: Integrate Qradar
-    href: tutorial-qradar.md
-  - name: Integrate Splunk
-    href: tutorial-splunk.md
-  - name: Integrate ServiceNow
-    href: tutorial-servicenow.md
+  - name: OT Networks
+    items: 
+    - name: Defender for IoT trial setup
+      href: tutorial-onboarding.md
+    - name: Integrate ClearPass
+      href: tutorial-clearpass.md
+    - name: Integrate CyberArk
+      href: tutorial-cyberark.md
+    - name: Integrate Forescout
+      href: tutorial-forescout.md
+    - name: Integrate Fortinet
+      href: tutorial-fortinet.md
+    - name: Integrate Palo Alto
+      href: tutorial-palo-alto.md
+    - name: Integrate Qradar
+      href: tutorial-qradar.md
+    - name: Integrate Splunk
+      href: tutorial-splunk.md
+    - name: Integrate ServiceNow
+      href: tutorial-servicenow.md
 - name: Concepts
   items:  
     - name: Key concepts
@@ -113,14 +112,24 @@
   - name: Work with threat intelligence packages
     href: how-to-work-with-threat-intelligence-packages.md
     displayName: packages, automatic, intelligence, push, threat
-  - name: Work with device inventory information
+  - name: Manage device inventories
     items: 
-    - name: Investigate all enterprise sensor detections in a device inventory
-      href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
-      displayName: classification
-    - name: Investigate sensor detections in a device inventory
-      href: how-to-investigate-sensor-detections-in-a-device-inventory.md
-      displayName: classification, Windows registry, device, firmware, import, bulk, delete
+    - name: OT Networks
+      items:
+      - name: Manage cloud device inventory
+        href: how-to-manage-device-inventory-for-organizations.md
+        displayNAme: device inventory, device, inventory, EIoT, eiot
+      - name: Manage sensor device inventory
+        href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+        displayName: classification, Windows registry, device, firmware, import, bulk, delete, device inventory
+      - name: Manage the management console device inventory
+        href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+        displayName: classification, device inventory
+    - name: Enterprise IoT
+      items: 
+      - name: Manage cloud device inventory
+        href: how-to-manage-device-inventory-for-organizations.md
+        displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Work with the sensor device map
     href: how-to-work-with-the-sensor-device-map.md
     displayName: connections, Purdue, zoom, delete device, authorized, unauthorized, programming, filter, groups, custom, zoom, connection, important device, IT network

@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
 ---
 
@@ -103,7 +103,7 @@ When specifying the language to use for the expression, the below values are val
 
 ### Custom Functions
 
-A set of IoT connector Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [IoT connector customer functions](./iot-connector-custom-functions.md).
+A set of IoT connector Custom Functions is also available. These Custom Functions are outside of the functions provided as part of the JmesPath specification. For more information on Custom Functions, see [IoT connector Custom Functions](./how-to-use-custom-functions.md).
 
 ### Matched Token
 
@@ -542,6 +542,9 @@ In the below example, height data arrives in either inches or meters. We want al
       }
     }
 ```
+
+> [!TIP]
+> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Azure subscription limits and quotas
 description: Provides a list of common Azure subscription and service limits, quotas, and constraints. This article includes information on how to increase limits along with maximum values.
 ms.topic: conceptual
-ms.date: 09/21/2021
+ms.date: 12/01/2021
 ---
 
 # Azure subscription and service limits, quotas, and constraints
@@ -75,10 +75,6 @@ The following limits apply when you use Azure Resource Manager and Azure resourc
 
 [!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
-## Azure API for FHIR service limits
-
-[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
-
 ## Azure Cache for Redis limits
 
 [!INCLUDE [redis-cache-service-limits](../../azure-cache-for-redis/includes/redis-cache-service-limits.md)]
@@ -130,6 +126,16 @@ For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for
 [!INCLUDE [functions-limits](../../../includes/functions-limits.md)]
 
 For more information, see [Functions Hosting plans comparison](../../azure-functions/functions-scale.md).
+
+## Azure Healthcare APIs
+
+### Healthcare APIs service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-healthcare-api-limits.md)]
+
+### Azure API for FHIR service limits
+
+[!INCLUDE [functions-limits](../../../includes/azure-api-for-fhir-limits.md)]
 
 ## Azure Kubernetes Service limits
 
