@@ -294,7 +294,7 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 ## <a name="alerts-k8scluster"></a>Alerts for containers - Kubernetes clusters
 
-Microsoft Defender for Kubernetes provides security alerts on the cluster level and on the underlying cluster nodes by monitoring both control plane (API server) and the containerized workload itself. Control plane security alerts can be recognized by a prefix of `K8S_` of the alert type. Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.
+Microsoft Defender for Containers provides security alerts on the cluster level and on the underlying cluster nodes by monitoring both control plane (API server) and the containerized workload itself. Control plane security alerts can be recognized by a prefix of `K8S_` of the alert type. Security alerts for runtime workload in the clusters can be recognized by the `K8S.NODE_` prefix of the alert type.
 
 [Further details and notes](defender-for-kubernetes-introduction.md)
 
