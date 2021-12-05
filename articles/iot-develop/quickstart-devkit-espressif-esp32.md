@@ -95,7 +95,7 @@ To add wireless network configuration:
 
 To save the configuration:
 1. Press **S** to open the save options, then press Enter to save the configuration.
-1. Press Enter to dismiss the acknowledgement message.
+1. Press Enter to dismiss the acknowledgment message.
 1. Press **Q** to quit the configuration menu.
 
 
