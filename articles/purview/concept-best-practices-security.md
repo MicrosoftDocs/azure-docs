@@ -205,7 +205,7 @@ Plan for a break glass strategy for your Azure Active Directory tenant, Azure su
 
 For more information about Azure AD and Azure emergency access planning, see [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
 
-For more information about Azure Purview break glass strategy, see [Purview collections best practices and design recommendations](/concept-best-practices-collections#design-recommendations)
+For more information about Azure Purview break glass strategy, see [Purview collections best practices and design recommendations](/concept-best-practices-collections#design-recommendations).
 
 
 ## Threat protection and preventing data exfiltration 
