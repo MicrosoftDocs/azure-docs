@@ -105,7 +105,7 @@ The following NSG rules are required on for **Purview account, portal and ingest
 |Inbound     | Self-hosted integration runtime VMs' private IP addresses or subnets       | *        | Purview account and ingestion private endpoint IP addresses or subnets        |  443       | Any        | Allow        |
 |Inbound     | Management machines' private IP addresses or subnets        | *        | Purview account and ingestion private endpoint IP addresses or subnets         |  443       | Any        | Allow        |
 
-For more information, see [Self-hosted integration runtime networking requirements](manage-integration-runtimes.md#networking-requirements) 
+For more information, see [Self-hosted integration runtime networking requirements](manage-integration-runtimes.md#networking-requirements). 
 
 ## Access management 
 
