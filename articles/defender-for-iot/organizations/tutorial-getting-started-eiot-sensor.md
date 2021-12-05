@@ -10,7 +10,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Get started with Enterprise IoT
 
-This tutorial will help you learn how to get started with your Enterprise IoT (EIoT) deployment.
+This tutorial will help you learn how to get started with your Enterprise IoT deployment.
 
 Defender for IoT has extended the agentless capabilities to go beyond operational environments, and advance into the realm of enterprise environments. Coverage is now available to the entire breadth of IoT devices in your environment, including everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
