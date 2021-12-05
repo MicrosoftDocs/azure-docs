@@ -141,7 +141,7 @@ Examples of control plane operations and data plane operations:
 |Scan a SQL Server      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 |Search inside Purview Data Catalog      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 
-Azure Purview plane roles are defined and managed inside Azure Purview instance in Purview collections. For more information, see [Access control in Azure Purview](catalog-permissions.md#roles) 
+Azure Purview plane roles are defined and managed inside Azure Purview instance in Purview collections. For more information, see [Access control in Azure Purview](catalog-permissions.md#roles). 
 
 Follow [Azure role-based access recommendations](../role-based-access-control/best-practices.md) for Azure control plane tasks.
 
