@@ -196,7 +196,7 @@ Enable Azure resource lock for your Azure Purview accounts to prevent accidental
 
 Adding a `CanNotDelete` or `ReadOnly` lock to Azure Purview account does not prevent deletion or modification operations inside Azure Purview data plane, however, it prevents any operations in control plane, such as deleting the Purview account, deploying a private endpoint or configuration of diagnostic settings. 
 
-For more information, see [Understand scope of locks](../azure-resource-manager/management/lock-resources.md#understand-scope-of-locks)
+For more information, see [Understand scope of locks](../azure-resource-manager/management/lock-resources.md#understand-scope-of-locks).
 
 Resource locks can be assigned to Purview resource groups or resources, however, you cannot assign an Azure resource lock to Purview Managed resources or managed Resource Group.
 
