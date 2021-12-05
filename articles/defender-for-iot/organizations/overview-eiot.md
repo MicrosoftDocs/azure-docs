@@ -23,7 +23,7 @@ Microsoft Defender for IoT's sensors can now be used an additional data source p
 
 Once this integration has been enabled, any devices discovered on the network by either Defender for Iot, or Microsoft Defender for Endpoint will be synced automatically across both portals.
 
-To learn how to integrate Microsoft Defender for Endpoint with your Microsoft Defender for IoT solution, see the [Microsoft Defender for IoT documentation](/microsoft-365/security/defender-endpoint/?view=o365-worldwide).
+To learn how to integrate Microsoft Defender for Endpoint with your Microsoft Defender for IoT solution, see Microsoft Defender for Endpoint documentation.
 
 ## Automatic 3T discovery for IT, IoT, and OT
 
