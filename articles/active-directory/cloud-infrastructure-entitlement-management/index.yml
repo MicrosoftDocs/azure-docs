@@ -1,0 +1,40 @@
+### YamlMime:Landing
+
+title: Microsoft CloudKnox Permissions Management
+summary: Learn about Cloud Infrastructure Entitlement Management (CIEM) and how to use Microsoft CloudKnox Permissions Management.
+
+metadata:
+  title: Microsoft CloudKnox Permissions Management
+  description: Learn how to use Microsoft CloudKnox Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
+  services: active-directory
+  author: Yvonne-deq
+  manager: karenh444
+  ms.service: active-directory
+  ms.subservice: ciem
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 12/03/2021
+  ms.author: v-ydequadros
+  
+  
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Microsoft CloudKnox Permissions Management account settings
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft CloudKnox Permissions Management account settings
+            url: cloudknox-product-account-settings.md
+  # Card
+  - title:  About Microsoft CloudKnox Permissions Management integration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Microsoft CloudKnox Permissions Management integration with the API.
+            url: cloudknox-api.md
+

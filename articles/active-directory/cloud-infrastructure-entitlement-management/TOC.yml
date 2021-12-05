@@ -1,0 +1,32 @@
+  - name: Microsoft CloudKnox Permissions Management
+    href: index.yml
+  #- name: Overview
+    #expanded: true
+    #items:
+  - name: Integration
+    expanded: true
+    items:
+    - name: CloudKnox integration with the CloudKnox API
+      href: cloudknox-api.md
+    - name: CloudKnox FortSentry registration
+      href: cloudknox-fortsentry-registration.md
+    - name: Install CloudKnox with AWS role
+      href: cloudknox-install-aws-agentless-deployment.md
+    - name: The CloudKnox Account Explorer
+      href: cloudknox-product-account-explorer.md
+    - name: CloudKnox product account settings
+      href: cloudknox-product-account-settings.md
+  #- name: Concepts
+    #expanded: true
+    #items: 
+  #- name: How-to guides
+    #expanded: true
+    #items:
+    #- name: Configure provisioning for a gallery app
+      #href: configure-automatic-user-provisioning-portal.md
+    #- name: Troubleshoot application provisioning
+      #items:
+  #- name: Reference
+    #items:
+  #- name: Resources
+    #items:
