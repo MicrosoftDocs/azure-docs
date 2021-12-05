@@ -303,7 +303,7 @@ Data at rest includes information that resides in persistent storage on physical
 To add another layer of security in addition to access controls, Azure Purview encrypts data at rest to protect against 'out of band' attacks (such as accessing underlying storage). 
 It uses encryption with Microsoft-managed keys. This practice helps make sure attackers can't easily read or modify the data. 
 
-For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-5-encrypt-sensitive-data-at-rest) 
+For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-5-encrypt-sensitive-data-at-rest). 
 
 ## Credential management
 
