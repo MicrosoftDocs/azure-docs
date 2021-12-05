@@ -69,6 +69,12 @@
         href: azure-netapp-files-smb-performance.md
       - name: Azure virtual machine SKUs best practices
         href: performance-virtual-machine-sku.md 
+  - name: Application volume groups
+    items: 
+    - name: Understand application volume group for SAP HANA
+      href: application-volume-group-introduction.md
+    - name: Requirements and considerations for application volume group for SAP HANA
+      href: application-volume-group-considerations.md
   - name: Data protection 
     items:
     - name: How Azure NetApp Files snapshots work
@@ -117,6 +123,8 @@
             href: faq-application-resilience.md
           - name: Data migration and protection FAQs
             href: faq-data-migration-protection.md
+          - name: Application volume group FAQs
+            href: faq-application-volume-group.md
           - name: Azure NetApp Files backup FAQs
             href: faq-backup.md
           - name: Security FAQs
@@ -181,9 +189,9 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
-    - name: Mount or unmount a volume
+    - name: Mount volumes
       items:
-      - name: Mount or unmount a volume
+      - name: Mount a volume for Windows or Linux VMs
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Manage volume capacity and performance 
       items:
@@ -193,6 +201,20 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+  - name: Manage application volume groups
+    items: 
+    - name: Deploy the first SAP HANA host
+      href: application-volume-group-deploy-first-host.md
+    - name: Add hosts to a multiple-host SAP HANA system
+      href: application-volume-group-add-hosts.md
+    - name: Add volumes for an SAP HANA system as a secondary database in HSR
+      href: application-volume-group-add-volume-secondary.md
+    - name: Add volumes for an SAP HANA system as a DR system
+      href: application-volume-group-disaster-recovery.md
+    - name: Manage volumes in an application volume group
+      href: application-volume-group-manage-volumes.md
+    - name: Delete an application volume group
+      href: application-volume-group-delete.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -253,6 +275,8 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot volume errors
       href: troubleshoot-volumes.md
+    - name: Troubleshoot application volume group errors
+      href: troubleshoot-application-volume-groups.md
     - name: Troubleshoot snapshot policy errors
       href: troubleshoot-snapshot-policies.md
     - name: Troubleshoot cross-region replication errors

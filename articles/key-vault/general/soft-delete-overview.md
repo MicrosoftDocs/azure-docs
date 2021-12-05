@@ -15,7 +15,7 @@ ms.date: 03/31/2021
 > You must enable soft-delete on your key vaults immediately. The ability to opt out of soft-delete will be deprecated soon. See full details [here](soft-delete-change.md)
 
 > [!IMPORTANT]
-> Soft-deleted vault triggers delete settings for integrated with Key Vault services i.e. Azure RBAC roles assignments, Event Grid subscriptions. After recovery of soft-deleted Key Vault settings for integrated services will need to be manually recreated. 
+> When a Key Vault is soft-deleted, services that are integrated with the Key Vault will be deleted. For example: Azure RBAC roles assignments and Event Grid subscriptions. Recovering a soft-deleted Key Vault will not restore these services. They will need to be recreated.
 
 Key Vault's soft-delete feature allows recovery of the deleted vaults and deleted key vault objects (for example, keys, secrets, certificates), known as soft-delete. Specifically, we address the following scenarios:  This safeguard offer the following protections:
 

@@ -61,7 +61,7 @@ The following diagram shows an online endpoint that has two deployments, 'blue' 
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-### Online endpoints requirements
+### Online deployments requirements
 
 To create an online endpoint, you need to specify the following elements:
 - Model files (or specify a registered model in your workspace) 

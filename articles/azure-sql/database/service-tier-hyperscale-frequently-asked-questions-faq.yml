@@ -326,7 +326,7 @@ sections:
       - question: |
           Can I perform geo-restore with a Hyperscale database?
         answer: |
-          Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](../../best-practices-availability-paired-regions.md) with the region of the source database.
+          Yes. Geo-restore is fully supported. Unlike point-in-time restore, geo-restore requires a size-of-data operation. Data files are copied in parallel, so the duration of this operation depends primarily on the size of the largest file in the database, rather than on total database size. Geo-restore time will be significantly shorter if the database is restored in the Azure region that is [paired](../../availability-zones/cross-region-replication-azure.md) with the region of the source database.
           
       - question: |
           Can I set up geo-replication with a Hyperscale database?
