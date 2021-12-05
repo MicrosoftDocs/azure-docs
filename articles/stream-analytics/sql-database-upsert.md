@@ -1,6 +1,6 @@
 ---
 title: Update or merge records in Azure SQL Database with Azure Functions
-description: This article describes how to configure an Azure Functions app to update or merge records from Azure Stream Analytics to Azure SQL Database
+description: This article describes how to use Azure Functions to update or merge records from Azure Stream Analytics to Azure SQL Database
 author: fleid
 
 ms.author: fleide
@@ -15,45 +15,87 @@ Currently, [Azure Stream Analytics](/azure/stream-analytics/) (ASA) only support
 
 This article discusses workarounds to enable UPDATE, UPSERT, or MERGE on SQL databases, with Azure Functions as the intermediary layer.
 
-Alternative options are presented at the end.
+Alternative options to Azure Functions are presented at the end.
 
 ## Requirement
 
 Writing data in a table can generally be done in the following manners:
 
-|Mode|Requirements|Equivalent T-SQL statement|
+|Mode|Equivalent T-SQL statement|Requirements|
 |-|-|-|
-|Append|None|[INSERT](/sql/t-sql/statements/insert-transact-sql)|
-|Replace|Unique key|[MERGE](/sql/t-sql/statements/merge-transact-sql) (UPDATE when all keys are already present in the target table)|
-|Accumulate|Unique key and accumulator|MERGE (UPDATE) with compound assignment [operator](/sql/t-sql/queries/update-transact-sql#arguments) (`+=`, `-=`...)|
+|Append|[INSERT](/sql/t-sql/statements/insert-transact-sql)|None|
+|Replace|[MERGE](/sql/t-sql/statements/merge-transact-sql) (UPSERT)|Unique key|
+|Accumulate|MERGE (UPSERT) with compound assignment [operator](/sql/t-sql/queries/update-transact-sql#arguments) (`+=`, `-=`...)|Unique key and accumulator|
 
 To illustrate the differences, we can look at what happens when ingesting the following two records:
 
-|Arrival Time|Key|Value|
+|Arrival_Time|Device_Key|Measure_Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-In **append** mode, we insert the two records:
+In **append** mode, we insert the two records. The equivalent T-SQL statement is:
 
-|Time|Key|Value|
+```SQL
+INSERT INTO [target] VALUES (...);
+```
+
+Resulting in:
+
+|Modified_Time|Device_Key|Measure_Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-In **replace** mode, we get only the last value by key:
+In **replace** mode, we get only the last value by key. The equivalent T-SQL statement is:
 
-|Time|Key|Value|
+```SQL
+MERGE INTO [target] t
+USING (VALUES ...) AS v (Modified_Time,Device_Key,Measure_Value)
+ON t.Device_Key = v.Device_Key
+-- Replace when the key exists
+WHEN MATCHED THEN
+    UPDATE SET
+        t.[Modified_Time] = v.[Modified_Time],
+        t.[Measure_Value] = v.[Measure_Value]
+-- Insert new keys
+WHEN NOT MATCHED BY t THEN
+    INSERT ([Modified_Time],[Device_Key],[Measure_Value])
+    VALUES (v.[Modified_Time],v.[Device_Key],v.[Measure_Value])
+```
+
+Resulting in :
+
+|Modified_Time|Device_Key|Measure_Value|
 |-|-|-|
 |10:05|A|20|
 
-Finally, in **accumulate** mode we sum Value with a `+=` operator:
 
-|Time|Key|Value|
+Finally, in **accumulate** mode we sum Value with a compound assignment operator:
+
+
+```SQL
+MERGE INTO [target] t
+USING (VALUES ...) AS v (Modified_Time,Device_Key,Measure_Value)
+ON t.Device_Key = v.Device_Key
+-- Replace and/or accumulate when the key exists
+WHEN MATCHED THEN
+    UPDATE SET
+        t.[Modified_Time] = v.[Modified_Time],
+        t.[Measure_Value] += v.[Measure_Value] -- += accumulator on value
+-- Insert new keys
+WHEN NOT MATCHED BY t THEN
+    INSERT ([Modified_Time],[Device_Key],[Measure_Value])
+    VALUES (v.[Modified_Time],v.[Device_Key],v.[Measure_Value])
+```
+
+Resulting in:
+
+|Modified_Time|Device_Key|Measure_Value|
 |-|-|-|
 |10:05|A|**21**|
 
-For performance considerations, the ASA SQL database output adapters currently only support append mode natively. These adapters use bulk insert to maximize throughput and limit back pressure.
+For **performance** considerations, the ASA SQL database output adapters currently only support append mode natively. These adapters use bulk insert to maximize throughput and limit back pressure.
 
 This article shows how to use Azure Functions to implement Replace and Accumulate modes for ASA. By using a function as an intermediary layer, the potential write performance won't affect the streaming job. In this regard, using Azure Functions will work best with Azure SQL. With Synapse SQL, switching from bulk to row-by-row statements may create greater performance issues.
 
@@ -81,11 +123,11 @@ A function has to meet the following expectations to be used as an [output from 
 
 - Azure Stream Analytics expects HTTP status 200 from the Functions app for batches that were processed successfully
 - When Azure Stream Analytics receives a 413 ("http Request Entity Too Large") exception from an Azure function, it reduces the size of the batches that it sends to Azure Function
-- During test connection, Stream Analytics sends an empty batch to Azure Functions and expects HTTP status 20x to validate the test
+- During test connection, Stream Analytics sends a POST request with an empty batch to Azure Functions and expects HTTP status 20x back to validate the test
 
 ## Option 1: Update by key with the Azure Function SQL Binding
 
-This option uses the [Azure Function SQL Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension can replace (update by key) an object in a table, without having to write the necessary SQL statement. At this time, it doesn't support compound assignment operators (accumulations).
+This option uses the [Azure Function SQL Output Binding](/azure/azure-functions/functions-bindings-azure-sql). This extension can replace an object in a table, without having to write a SQL statement. At this time, it doesn't support compound assignment operators (accumulations).
 
 This sample was built on:
 
@@ -93,7 +135,7 @@ This sample was built on:
 - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Azure.WebJobs.Extensions.Sql [0.1.131-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.131-preview)
 
-To better understand the binding approach, it's recommended the follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start) first.
+To better understand the binding approach, it's recommended the follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start).
 
 First, create a default HttpTrigger function app by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
 
@@ -204,8 +246,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed, defined as an output in the ASA job, and used to replace records instead of inserting them. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
-
+The function can now be deployed. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString` (and not a "connection string", they are used exclusively with Entity Framework). The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it. The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
 ## Option 2: Merge with compound assignment (accumulate) via a custom SQL query
 
@@ -326,7 +367,7 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed, defined as an output in the ASA job, and used to accumulate values instead of inserting them. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+The function can now be deployed. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString` (and not a "connection string", they are used exclusively with Entity Framework). The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it. The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
 ## Alternatives
 
