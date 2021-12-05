@@ -21,7 +21,7 @@ ms.custom: "devx-track-csharp, aaddev"
 
 When you acquire an access token using the Microsoft Authentication Library for .NET (MSAL.NET), the token is cached. When the application needs a token, it should first call the `AcquireTokenSilent` method to verify if an acceptable token is in the cache. In many cases, it's possible to acquire another token with more scopes based on a token in the cache. It's also possible to refresh a token when it's getting close to expiration (as the token cache also contains a refresh token).
 
-For the user flows (eg. [acquiring tokens interactively](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently)), MSAL caches access, refresh, and ID tokens; and IAccount data are cached. For application flows (eg. [client credentials](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#client-credentials)), only access tokens are cached (because account and other tokens are user specific).
+For the user flows (eg. [acquiring tokens interactively](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-acquire-token-silently)), MSAL caches access, refresh, and ID tokens; and `IAccount` are cached. For application flows (eg. [client credentials](https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-authentication-flows#client-credentials)), only access tokens are cached (because account and other tokens are user specific).
 
 The recommended pattern is to call the `AcquireTokenSilent` method first.  If `AcquireTokenSilent` fails, then acquire a token using other methods.
 
