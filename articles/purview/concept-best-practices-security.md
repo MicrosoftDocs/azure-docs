@@ -178,7 +178,7 @@ Securing privileged access is a critical first step to protecting business asset
 
 Reduce the number of users with write access inside your Purview instance. Keep the number of collection admins and data curator roles minimum at root collection.  
 
-### Use Multi-Factor Authentication and Conditional Access 
+### Use multifactor authentication and Conditional Access 
 
 [Azure Active Directory multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides another layer of security and authentication. For more security, we recommend enforcing [conditional access policies](../active-directory/conditional-access/overview.md) for all privileged accounts.  
 
