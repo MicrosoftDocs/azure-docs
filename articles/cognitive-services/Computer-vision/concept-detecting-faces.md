@@ -21,6 +21,11 @@ Computer Vision can detect human faces within an image and generate the age, gen
 > [!NOTE]
 > This feature is also offered by the Azure [Face](../face/index.yml) service. See this alternative for more detailed face analysis, including face identification and pose detection. 
 
+Try out the face detection features quickly and easily in your browser using Vision Studio.
+
+> [!div class="nextstepaction"]
+> [Try Vision Studio](https://vision.cognitive.azure.com/)
+
 ## Face detection examples
 
 The following example demonstrates the JSON response returned by Computer Vision for an image containing a single human face.
