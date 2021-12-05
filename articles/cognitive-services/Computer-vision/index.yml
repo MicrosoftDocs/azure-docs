@@ -25,7 +25,7 @@ highlightedContent:
         url: whats-new.md
       - title: Vision studio
         itemType: get-started
-        url: TBDvisionstudio
+        url: https://vision.cognitive.azure.com/
 
 conceptualContent:
   items:
