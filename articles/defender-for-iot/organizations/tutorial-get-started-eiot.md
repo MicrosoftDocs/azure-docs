@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Microsoft Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 11/21/2021
+ms.date: 12/05/2021
 ms.custom: template-tutorial
 ---
 
@@ -107,11 +107,12 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
-## Set up an Enterprise IoT security
+## Set up an Enterprise IoT sensor
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
-**To set up an Enterprise IoT security**:
+**To set up an Enterprise sensor**:
+
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
@@ -131,7 +132,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 1. Enter a zone name. If no name is entered, the name `default` will be applied.
 
-1. Select **Setup**.
+1. Select **Set up**.
 
 1. Save the command provided to you.
 
@@ -143,15 +144,13 @@ Run the command that you received, and saved when you registered the Enterprise 
 
 **To install the sensor**:
 
-1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
-
-    :::image type="content" source="media/tutorial-get-started-eiot/terminal.png" alt-text="Screenshot of the MobaXterm terminal screen.":::
-
+1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm. 
+    
 1. Run the command that you saved from the Register an EIoT sensor.
 
 1. When the command is complete, the installation wizard will appear.
 
-1. `What is the name of the monitored interface?` Use the Spacebar to select **ens161**, **ens192**, **ens224**, and **ens225**
+1. `What is the name of the monitored interface?` Use the space bar to select an interface.
 
     :::image type="content" source="media/tutorial-get-started-eiot/monitored-interface.png" alt-text="Screenshot of the select monitor interface selection scree.":::
 
@@ -225,7 +224,7 @@ Once you have validated your setup, the device inventory will start to populate 
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see **INSERT LINK HERE!!!**
+The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations). 
 
 ## Remove the sensor (optional)
 
@@ -237,4 +236,4 @@ sudo apt purge -y microsoft-eiot-sensor
 
 ## Next steps
 
-Learn more about the device inventory. **Insert Link Here.**
+[Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations)
