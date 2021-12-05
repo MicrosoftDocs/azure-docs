@@ -5,7 +5,7 @@ ms.date: 11/23/2021
 ms.topic: overview
 ---
 
-# Introduction to Microsoft Defender for Kubernetes
+# Introduction to Microsoft Defender for Kubernetes (deprecated)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -23,6 +23,9 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 
 
 ## Availability
+
+> [!IMPORTANT]
+> [NOTE ABOUT DEPRECATION AND UPGRADE PATH]
 
 |Aspect|Details|
 |----|:----|

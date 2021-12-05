@@ -5,7 +5,7 @@ ms.date: 11/09/2021
 ms.topic: overview
 ---
 
-# Introduction to Microsoft Defender for container registries
+# Introduction to Microsoft Defender for container registries (deprecated)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 

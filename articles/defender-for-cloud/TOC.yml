@@ -209,15 +209,14 @@
       displayName: sql, database, data discovery
       href: sql-information-protection-policy.md
   - name: Protect your containerized environments
-    displayName: Azure Defender
     items:
-    - name: Container security features of Defender for Cloud
+    - name: Overview of Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s
       href: container-security.md
-    - name: Overview of Defender for Kubernetes
+    - name: Overview of Defender for Kubernetes (deprecated)
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
-    - name: Overview of Defender for container registries
+    - name: Overview of Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Scan your registry images for vulnerabilities

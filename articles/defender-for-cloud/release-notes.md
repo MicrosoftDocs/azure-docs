@@ -21,26 +21,27 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in December include:
 
-- [Microsoft Defender for Containers plan released (in preview)](#microsoft-defender-for-containers-plan-released-in-preview)
+- [Microsoft Defender for Containers plan released for general availability (GA)](#microsoft-defender-for-containers-plan-released-for-general-availability-ga)
 
-### Microsoft Defender for Containers plan released (in preview)
+### Microsoft Defender for Containers plan released for general availability (GA)
 
 Over two years ago, we introduced "Defender for Kubernetes" and "Defender for container registries" as part of the Azure Defender offering within Microsoft Defender for Cloud.
 
-With the release of **Microsoft Defender for Containers**, we're merging these two existing Defender plans. The new plan:
+With the release of **Microsoft Defender for Containers**, we're merging these two existing Defender plans. 
+
+The new plan:
 
 - **Combines the features of the two existing plans** - threat detection for Kubernetes clusters and vulnerability assessment for images stored in container registries
 - **Brings new and improved features** - including multi-cloud support, host level threat detection with over **sixty** new Kubernetes-aware analytics, and vulnerability assessment for running images
-
-Microsoft Defender for Containers includes at-scale onboarding, automatic discovery with Kubernetes-native deployment providing hardening controls, vulnerability assessment, and runtime protection for your Azure, hybrid, and multi-cloud Kubernetes workloads.
+- **Introduces Kubernetes-native at-scale onboarding** - by default, when you enable the plan all relevant components are configured to be deployed automatically
 
 With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries will change as follows:
 
 - New subscriptions - The two previous container plans will no longer be offered
-- Existing subscriptions - The plans will be shown as **Deprecated** with instructions for how to upgrade to the newer plan
+- Existing subscriptions - Wherever they appear in the Azure portal, the plans will be shown as **Deprecated** with instructions for how to upgrade to the newer plan
     :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
-
+The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more details on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
 
 Learn more in 
 
