@@ -76,7 +76,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     a. In the **Identifier (Entity ID)** text box, type the value:
     `hackerone.com`
 
-    b. In the **Sign on URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL (Assertion Consumption Service URL )** text box, type the value:
+    `https://hackerone.com/users/saml/auth`
+
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://hackerone.com/users/saml/sign_in?email=<CONFIGURED_DOMAIN>`
 
     > [!Note]
