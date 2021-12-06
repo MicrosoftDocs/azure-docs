@@ -10,7 +10,7 @@ ms.date: 12/2/2021
 
 ---
 
-# How to Connect AWS and Azure Connection using a BGP-enabled VPN Gateway
+# How to Connect AWS and Azure using a BGP-enabled VPN Gateway
 
 This article walks you through the setup of a BGP-enabled connection between Azure and Amazon Web Services (AWS). You will use an Azure VPN Gateway with BGP and active-active enabled and an AWS Virtual Private Gateway with two site-to-site connections.
 
@@ -232,19 +232,19 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
 Verify that you have a **Local Network Gateway** and **Connection** for **each of your four AWS tunnels**. 
 
 ## <a name ="part-4"></a> Part 4: Test your connections
-### <a name ="create-customer-gateways"></a> Check your connections status on Azure
+### <a name ="verify-azure"></a> Check your connections status on Azure
 1. Open the page for your **Virtual Network Gateway**, navigate to the **Connections** page.
 2. Verify that all 4 connections show as **Connected**.
 
-    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-connections.png" alt-text="Verify AWS connections" border="false":::
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-connections.png" alt-text="Verify Azure connections" border="false":::
 
-### <a name ="create-customer-gateways"></a> Check your BGP Peers status on Azure
+### <a name ="verify-bgp-peers"></a> Check your BGP Peers status on Azure
 1. Open the page for your **Virtual Network Gateway**, navigate to the **BGP Peers** page.
 2. In the **BGP Peers** table, verify that all of the connections with the **Peer address** you specified show as **Connected** and are exchanging routes.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-peers.png" alt-text="Verify BGP Peers" border="false":::
 
-### <a name ="create-customer-gateways"></a> Check your connections status on AWS
+### <a name ="verify-aws-status"></a> Check your connections status on AWS
 1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/)
 2.	In the navigation pane, click **Site-to-Site VPN Connections**.
 3. Select the first connection you made and then select the **Tunnel Details** tab.
