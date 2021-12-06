@@ -3,13 +3,14 @@ title: Conversation Transcription (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Conversation Transcription is a solution for meetings, that combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
-ms.author: pafarley
+ms.author: eur
+ms.custom: ignite-fall-2021
 ---
 
 # What is Conversation Transcription (Preview)?
@@ -49,7 +50,7 @@ This is a high-level overview of how Conversation Transcription works.
 
 ## Expected inputs
 
-- **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](./speech-devices-sdk-microphone.md). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
+- **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](./speech-sdk-microphone.md). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]

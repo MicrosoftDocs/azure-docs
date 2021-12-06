@@ -7,7 +7,7 @@ ms.topic: how-to
 author: sharath-satish-msft
 ms.author: shsatish
 ms.reviewer: stmummer
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
 # Configure co-sell for a commercial marketplace offer
@@ -20,9 +20,9 @@ The Co-sell option is available for the following offer types.
 - Azure Container
 - Azure Virtual Machine
 - Consulting service
-- Dynamics 365 for Customer Engagement & Power Apps
-- Dynamics 365 for operations
-- Dynamics 365 business central
+- Dynamics 365 apps on Dataverse and Power Apps
+- Dynamics 365 Operations Apps
+- Dynamics 365 Business Central
 - IoT Edge Module
 - Managed Service
 - Power BI App

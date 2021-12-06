@@ -11,7 +11,7 @@ ms.author: glenga
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[2.*, 3.0.0)"
+        "version": "[3.3.0, 4.0.0)"
     }
 }
 ```

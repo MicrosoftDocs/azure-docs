@@ -1,33 +1,24 @@
 ---
-title: Azure Sentinel Authentication normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel Authentication normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
+title: Microsoft Sentinel Authentication normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel Authentication normalization schema.
 author: batamig
-manager: rkarlin
-
-ms.assetid:
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 11/09/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel Authentication normalization schema reference (Public preview)
+# Microsoft Sentinel Authentication normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Authentication information model is used to describe events related to user authentication, sign-in, and sign-out. Authentication events are sent by many reporting devices, usually as part of the event stream alongside other events.
 
-For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Azure Sentinel tables and are normalized using a KQL function, which also filters only the relevant authentication events.
+For example, Windows sends several authentication events alongside other OS activity events. As a result, in most cases the authentication events are stored in different Microsoft Sentinel tables and are normalized using a KQL function, which also filters only the relevant authentication events.
 
 Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.
 
-For more information about normalization in Azure Sentinel, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Authentication normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -37,7 +28,7 @@ For more information about normalization in Azure Sentinel, see [Normalization a
 
 ## Parsers
 
-Azure Sentinel provides the following built-in, product-specific authentication event parsers: 
+Microsoft Sentinel provides the following built-in, product-specific authentication event parsers: 
 
 - **Windows sign-ins** reported as Security Events (4624, 4625, 4634, and 4647), collected using the Log Analytics Agent or Azure Monitor Agent.
 - **Windows sign-ins** reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
@@ -47,13 +38,13 @@ Azure Sentinel provides the following built-in, product-specific authentication 
 
 To use the source-agnostic parser, which unifies all of listed parsers, ensuring that you analyze data across all the configured sources, use **imAuthentication** as the table name in your query.
 
-Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Azure Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
+Deploy the [source-agnostic and source-specific parsers](normalization-about-parsers.md) from the [Microsoft Sentinel GitHub repository](https://aka.ms/AzSentinelAuth).
 
 
 
 ## Normalized content
 
-Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+Support for the Authentication ASIM schema also includes support for the following built-in analytics rules with normalized authentication parsers. While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 - [Potential Password Spray Attack (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthPasswordSpray.yaml)
  - [Brute force attack against user credentials (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imAuthBruteForce.yaml)
@@ -61,7 +52,7 @@ Support for the Authentication ASIM schema also includes support for the followi
  - [Sign-ins from IPs that attempt sign-ins to disabled accounts (Uses Authentication Normalization)](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/ASimAuthentication/imSigninAttemptsByIPviaDisabledAccounts.yaml)
 
 
-Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Azure Sentinel will now detect this threat.
+Normalized authentication analytic rules are unique as they detect attacks across sources. So, for example, if a user logged in to different, unrelated systems, from different countries, Microsoft Sentinel will now detect this threat.
 
 ## Schema details
 
@@ -187,8 +178,8 @@ An **Actor**, running an *Acting Application* (**ActingApp**) on a *Source Devic
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel DNS normalization schema reference](dns-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel network normalization schema reference](./network-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
