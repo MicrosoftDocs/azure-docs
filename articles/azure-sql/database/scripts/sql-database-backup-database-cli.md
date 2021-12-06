@@ -10,7 +10,7 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 03/27/2019
+ms.date: 12/06/2021
 ---
 # Use CLI to backup an Azure SQL single database to an Azure storage container
 
@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Sign in to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -32,7 +32,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/backup-database/backup-database.sh "Restore SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/backup-database/backup-database.sh "Restore SQL Database")]
 
 ### Clean up deployment
 
@@ -55,4 +55,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../az-cli-script-samples-content-guide.md).
