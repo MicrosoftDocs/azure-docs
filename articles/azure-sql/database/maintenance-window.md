@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 11/12/2021
+ms.date: 12/06/2021
 ---
 
 # Maintenance window (Preview)
@@ -79,6 +79,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Australia East | Yes | Yes | Yes |
 | Australia Southeast | Yes | Yes | |
 | Brazil South | Yes | Yes |  |
+| Brazil Southeast | Yes |  |  |
 | Canada Central | Yes | Yes | Yes |
 | Canada East | Yes | Yes | |
 | Central India | Yes | Yes | |
@@ -98,6 +99,8 @@ Choosing a maintenance window other than the default is currently available in t
 | Korea South | Yes | | |
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
+| Norway East | Yes | | |
+| Norway West | Yes | | |
 | South Africa North | Yes | | | 
 | South Africa West | Yes | | | 
 | South Central US | Yes | Yes | Yes |
@@ -109,11 +112,16 @@ Choosing a maintenance window other than the default is currently available in t
 | UAE North | Yes | | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
+| US Gov Central | Yes | | | 
+| US Gov East | Yes | | | 
+| US Gov South Central| Yes | | | 
+| US Gov South West | Yes | | |
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
 | West India | Yes | | |
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
+| West US 3 | Yes | | |
 | | | | | 
 
 ## Gateway maintenance for Azure SQL Database
