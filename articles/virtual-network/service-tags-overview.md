@@ -23,7 +23,7 @@ A service tag represents a group of IP address prefixes from a given Az
 You can use service tags to define network access controls on [network security groups](./network-security-groups-overview.md#security-rules) or [Azure Firewall](../firewall/service-tags.md). Use service tags in place of specific IP addresses when you create security rules. By specifying the service tag name, such as **ApiManagement**, in the appropriate *source* or *destination* field of a rule, you can allow or deny the traffic for the corresponding service. 
 
 > [!NOTE] 
-> As of March 2021, you can also use Service Tags in place of explicit IP ranges in [user defined routes](./virtual-networks-udr-overview.md). This feature is currently in Public Preview. 
+> As of March 2021, you can also use Service Tags in place of explicit IP ranges in [user defined routes](./virtual-networks-udr-overview.md). This feature is currently in Public Preview and will move to GA in March 2022.
 
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
@@ -100,7 +100,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **LogicApps** | Logic Apps. | Both | No | No |
 | **LogicAppsManagement** | Management traffic for Logic Apps. | Inbound | No | No |
 | **MicrosoftAzureFluidRelay** | This tag represents the IP addresses used for Azure Microsoft Fluid Relay Server. | Outbound | No | No |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Outbound | No | No |
+| **MicrosoftCloudAppSecurity** | Microsoft Defender for Cloud Apps. | Outbound | No | No |
 | **MicrosoftContainerRegistry** | Container registry for Microsoft container images. <br/><br/>**Note**: This tag has a dependency on the **AzureFrontDoor.FirstParty** tag. | Outbound | Yes | Yes |
 | **PowerBI** | Power BI. **Note**: This tag is not currently configurable via Azure portal. | Both | No | No|
 | **PowerPlatformInfra** | This tag represents the IP addresses used by the infrastructure to host Power Platform services. **Note**: This tag is not currently configurable via Azure portal. | Outbound | No | No |

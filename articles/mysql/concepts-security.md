@@ -44,7 +44,7 @@ While creating the Azure Database for MySQL server, you provide credentials for 
 
 ## Threat protection
 
-You can opt in to [Azure Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
+You can opt in to [Microsoft Defender for open-source relational databases](../security-center/defender-for-databases-introduction.md) which detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit servers.
 
 [Audit logging](concepts-audit-logs.md) is available to track activity in your databases. 
 

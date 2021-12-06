@@ -14,8 +14,8 @@ This article includes sample [Azure Resource Manager templates](../../azure-reso
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
-## Azure Monitor agent (preview)
-The samples in this section in the Azure Monitor agent (preview) on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc-enabled servers. 
+## Azure Monitor agent
+The samples in this section in the Azure Monitor agent on Windows and Linux agents. This includes installing the agent on virtual machines in Azure and also Azure Arc-enabled servers. 
 
 ### Windows Azure virtual machine
 The following sample installs the Azure Monitor agent on a Windows Azure virtual machine.

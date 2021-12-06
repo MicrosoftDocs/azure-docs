@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 author: manishmsfte
 ms.author: mansha
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 # Quickstart: Build a Node.js application by using Azure Cosmos DB Gremlin API account
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

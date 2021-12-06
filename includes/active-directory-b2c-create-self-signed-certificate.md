@@ -3,7 +3,7 @@ author: kengaderdus
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 01/27/2021
+ms.date: 11/12/2021
 ms.author: kengaderdus
 # Used by the identity provider (IdP) setup articles under "Custom policy".
 ---
