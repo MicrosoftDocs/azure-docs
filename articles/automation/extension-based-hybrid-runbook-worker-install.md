@@ -138,7 +138,8 @@ You can delete the Hybrid Runbook Worker from the portal.
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/delete-machine-from-group.png" alt-text="Delete virtual machine from existing group.":::
 
    > [!NOTE]
-   > A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**.
+   > - A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. </br> </br>
+   > - After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
 
 ## Delete a Hybrid Runbook Worker group
 
@@ -146,7 +147,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 1. Under **Process Automation**, select **Hybrid worker groups** and then your hybrid worker group to go to the **Hybrid Worker Group** page.
 
-1. Select **Delete**. You'll be presented with a warning in a dialog box to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
 
 1. Select **Yes**. The hybrid worker group will be deleted.
 
@@ -436,8 +437,8 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
 
 The Azure resources defined in the template:
 
-- hybridRunbookWorkerGroups/hybridRunbookWorkers
-- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions): 
+- [hybridRunbookWorkerGroups/hybridRunbookWorkers](/azure/templates/microsoft.automation/automationaccounts/hybridrunbookworkergroups/hybridrunbookworkers)
+- [Microsoft.Compute/virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions)
 
 ### Review parameters
 

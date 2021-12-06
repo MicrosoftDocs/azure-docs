@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 10/28/2021
 ms.author: marhamil
+ms.custom: mode-other
 ---
 
 # Getting started

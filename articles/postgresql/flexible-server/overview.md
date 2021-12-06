@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 10/07/2021
+ms.date: 11/30/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -14,17 +14,16 @@ ms.custom: "mvc, references_regions"
 [Azure Database for PostgreSQL](../overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
 - [Single Server](../overview-single-server.md)
-- Flexible Server (Preview)
+- Flexible Server 
 - Hyperscale (Citus)
 
 In this article, we will provide an overview and introduction to core concepts of flexible server deployment model.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 ## Overview
 
-Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13. The service is currently in preview, available today in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for PostgreSQL - Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to collocate database engine with the client-tier for lower latency,  choose high availability within a single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable compute tier that is ideal for workloads that do not need full compute capacity continuously. The service currently supports community version of PostgreSQL 11, 12, and 13. The service is currently available in wide variety of  [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
 
 ![Flexible Server - Overview](./media/overview/overview-flexible-server.png)
 
@@ -61,7 +60,7 @@ The service performs automated patching of the underlying hardware, OS, and data
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally on zone redundant (ZRS). Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
+The flexible server service automatically creates server backups and stores them on zone redundant storage (ZRS) within the region. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption. See [Backups](./concepts-backup-restore.md) for more details.
 
 ## Adjust performance and scale within seconds
 
@@ -83,41 +82,44 @@ The flexible server service is equipped with built-in performance monitoring and
 
 ## Built-in PgBouncer
 
-The flexible server comes with a built-in PgBouncer, a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
+The flexible server comes with a [built-in PgBouncer](concepts-pgbouncer.md), a connection pooler. You can optionally enable it and connect your applications to your database server via PgBouncer using the same host name and the port 6432.
 
 ## Azure regions
 
 One advantage of running your workload in Azure is global reach. The flexible server is currently available in the following Azure regions:
 
-| Region | V3/V4 compute availability | Zone-redundant HA | 
-| --- | --- | --- |
-| Australia East | :heavy_check_mark: | :heavy_check_mark: | 
-| Australia Southeast | :heavy_check_mark: | :x: | 
-| Brazil South | :heavy_check_mark: (v3 only) | :x: |
-| Canada Central | :heavy_check_mark: | :heavy_check_mark: | 
-| Central India | :heavy_check_mark: | :x: |
-| Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| East Asia | :heavy_check_mark: | :x: |
-| East US | :heavy_check_mark: | :heavy_check_mark: | 
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: |
-| France Central | :heavy_check_mark: | :heavy_check_mark: | 
-| Germany West Central | :heavy_check_mark: | :heavy_check_mark: |
-| Japan East | :heavy_check_mark: | :heavy_check_mark: | 
-| Japan West | :heavy_check_mark: | :x: |
-| Korea Central | :heavy_check_mark: | :x: | 
-| Korea South | :heavy_check_mark: | :x: | 
-| North Europe | :heavy_check_mark: | :heavy_check_mark: |
-| Norway East | :heavy_check_mark: | :x: |
-| South Africa North | :heavy_check_mark: | :x: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | 
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: |
-| Switzerland North | :heavy_check_mark: | :x: |
-| UAE North | :heavy_check_mark: | :x: |
-| UK South | :heavy_check_mark: | :heavy_check_mark: | 
-| UK West | :heavy_check_mark: | :x: | 
-| West Europe | :heavy_check_mark: | :heavy_check_mark: |
-| West US | :heavy_check_mark: | :x: |
-| West US 2 | :heavy_check_mark: | :heavy_check_mark: |
+| Region | V3/V4 compute availability | Zone-redundant HA | Geo-Redundant backup (Preview) |
+| --- | --- | --- | --- |
+| Australia East | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Australia Southeast | :heavy_check_mark: | :x: | :x: |
+| Brazil South | :heavy_check_mark: (v3 only) | :x: | :x: |
+| Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: | 
+| Central India | :heavy_check_mark: | :x: | :x: |
+| Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East Asia | :heavy_check_mark: | :x: | :x: |
+| East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Japan West | :heavy_check_mark: | :x: | :heavy_check_mark: |
+| Korea Central | :heavy_check_mark: | :x: | :x: |
+| Korea South | :heavy_check_mark: | :x: | :x: |
+| North Central US | :heavy_check_mark: | :x: | :x: |
+| North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| Norway East | :heavy_check_mark: | :x: | :x: |
+| South Africa North | :heavy_check_mark: | :x: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Sweden Central | :heavy_check_mark: | :x: | :x: |
+| Switzerland North | :heavy_check_mark: | :x: | :x: |
+| UAE North | :heavy_check_mark: | :x: | :x: |
+| UK South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UK West | :heavy_check_mark: | :x: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| West US | :heavy_check_mark: | :x: | :x: |
+| West US 2 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 3 | :heavy_check_mark: | :x: | :x: |
 
 <!-- We continue to add more regions for flexible server. -->
 
@@ -135,7 +137,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/c5e32b97-ee24-ec11-b6e6-000d3a4f0da0).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
   
 
 ## Next steps

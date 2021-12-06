@@ -3,7 +3,7 @@ title: Requirements and considerations for Azure NetApp Files cross-region repli
 description: Describes the requirements and considerations for using the volume cross-region replication functionality of Azure NetApp Files.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 
 # Requirements and considerations for using cross-region replication 

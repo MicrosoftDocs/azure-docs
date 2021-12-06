@@ -1,17 +1,8 @@
 ---
 title: Use Azure Functions to connect Microsoft Sentinel to your data source | Microsoft Docs
 description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

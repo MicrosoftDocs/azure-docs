@@ -65,8 +65,10 @@ az containerapp github-action add \
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" \
   --docker-file-path "./dockerfile" \
   --branch <BRANCH_NAME> \
+  --name <CONTAINER_APP_NAME> \
+  --resource-group <RESOURCE_GROUP> \
   --registry-url <URL_TO_CONTAINER_REGISTRY> \
-  --registry-user-name <REGISTRY_USER_NAME> \
+  --registry-username <REGISTRY_USER_NAME> \
   --registry-password <REGISTRY_PASSWORD> \
   --service-principal-client-id <CLIENT_ID> \
   --service-principal-client-secret <CLIENT_SECRET> \
@@ -81,8 +83,10 @@ az containerapp github-action add `
   --repo-url "https://github.com/<OWNER>/<REPOSITORY_NAME>" `
   --docker-file-path "./dockerfile" `
   --branch <BRANCH_NAME> `
+  --name <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP> `
   --registry-url <URL_TO_CONTAINER_REGISTRY> `
-  --registry-user-name <REGISTRY_USER_NAME> `
+  --registry-username <REGISTRY_USER_NAME> `
   --registry-password <REGISTRY_PASSWORD> `
   --service-principal-client-id <CLIENT_ID> `
   --service-principal-client-secret <CLIENT_SECRET> `
@@ -124,12 +128,12 @@ This command returns a JSON payload with the GitHub Actions integration configur
 
 ## Delete
 
-The `containerapp github-action remove` command removes the GitHub Actions from the container app.
+The `containerapp github-action delete` command removes the GitHub Actions from the container app.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az containerapp github-action remove \
+az containerapp github-action delete \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <CONTAINER_APP_NAME> \
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
@@ -138,7 +142,7 @@ az containerapp github-action remove \
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az containerapp github-action remove `
+az containerapp github-action delete `
   --resource-group <RESOURCE_GROUP_NAME> `
   --name <CONTAINER_APP_NAME> `
   --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>

@@ -132,29 +132,11 @@ In the following example, a Conditional Access administrator has configured a lo
 
 ## Enable or disable CAE (Preview)
 
-1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator
-1. Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation**.
-1. Choose **Enable preview**.
-1. Select **Save**.
-
-From this page, you can optionally limit the users and groups that will be subject to the preview.
-
-> [!NOTE]
-> You can query the Microsoft Graph via [**continuousAccessEvaluationPolicy**](/graph/api/continuousaccessevaluationpolicy-get?view=graph-rest-beta&preserve-view=true&tabs=http#request-body) to verify the configuration of CAE in your tenant. An HTTP 200 response and associated response body indicate whether CAE is enabled or disabled in your tenant. CAE is not configured if Microsoft Graph returns an HTTP 404 response.
-
-![Enabling the CAE preview in the Azure portal](./media/concept-continuous-access-evaluation/enable-cae-preview.png)
-
-### Available options
-
-Organizations have options when it comes to enabling CAE.
-
-1. Leaving the default selected **Auto Enable after general availability** enables the functionality when CAE is generally available.
-1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
-1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
+CAE setting has been moved to under the Conditional Access blade. New CAE customers will be able to access and toggle CAE directly when creating Conditional Access policies. However, some existing customers will need to go through migration before they can begin to access CAE through Conditional Access.
 
 #### Migration
 
-CAE setting has been moved to under Conditional Access. Customers who have configured CAE settings under Security before have to migrate these setting to a Conditional Access policy. Use the steps that follow to migrate your settings to a Conditional Access policy.
+Customers who have configured CAE settings under Security before have to migrate these setting to a new Conditional Access policy. Use the steps that follow to migrate your CAE settings to a Conditional Access policy.
 
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
@@ -203,7 +185,7 @@ To avoid infinite loops because of these scenarios, Azure AD issues a one hour C
 CAE only has insight into [IP-based named locations](../conditional-access/location-condition.md#ip-address-ranges). CAE doesn't have insight into other location conditions like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When a user comes from an MFA trusted IP, trusted location that includes MFA Trusted IPs, or country location, CAE won't be enforced after that user moves to a different location. In those cases, Azure AD will issue a one-hour access token without instant IP enforcement check. 
 
 > [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
+> If you want your location policies to be enforced in real time by continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure AD Multi-Factor Authentication's service settings page.
 
 ### Office and Web Account Manager settings
 

@@ -5,18 +5,18 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 11/30/2021
 ms.custom: fasttrack-edit
 ---
 # Azure Database for PostgreSQL versioning policy
 
-This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview) deployment modes.
+This page describes the Azure Database for PostgreSQL versioning policy, and is applicable to Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server deployment modes.
 
 ## Supported  PostgreSQL versions
 
 Azure Database for PostgreSQL supports the following database versions.
 
-| Version | Single Server | Flexible Server (Preview) | Hyperscale (Citus) |
+| Version | Single Server | Flexible Server | Hyperscale (Citus) |
 | ----- | :------: | :----: | :----: |
 | PostgreSQL 13 |  | X  | X |
 | PostgreSQL 12 |  | X  | X |
@@ -58,6 +58,6 @@ Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.pos
 
 ## Next steps
 - See Azure Database for PostgreSQL - Single Server [supported versions](./concepts-supported-versions.md)
-- See Azure Database for PostgreSQL - Flexible Server (Preview) [supported versions](flexible-server/concepts-supported-versions.md)
+- See Azure Database for PostgreSQL - Flexible Server [supported versions](flexible-server/concepts-supported-versions.md)
 - For information on how to perform major version upgrades, see [Major version upgrades](how-to-upgrade-using-dump-and-restore.md) documentation.
 - For information on supported PostgreSQL extensions, see [the extensions document](concepts-extensions.md).
