@@ -29,7 +29,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Bugs Fixed
 
-`BuildModelOperation` and `CopyModelOperation`  now populate the `PercentCompleted` property, instead returning a constant value of 0.
+The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `PercentCompleted` property, and no longer return a constant value of 0.
 
 ### [**Java**](#tab/java)
 
@@ -37,17 +37,17 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Feature updates
 
-* `HttpResponseException`  updated to use azure-core `ResponseError`.
+* The `HttpResponseException` has been updated to use azure-core `ResponseError`.
 
-* Added client validation to check for empty `modelId` passed by the user for `beginAnalyzeDocument` methods.
+* Client validation has been added to check for empty `modelId` passed by the user for `beginAnalyzeDocument` methods.
 
 #### Breaking changes
 
-* `DocumentAnalysisException`  renamed to `DocumentModelOperationException`.
+* `DocumentAnalysisException` has been renamed to `DocumentModelOperationException`.
 
-* `FormRecognizerError`  renamed to `DocumentModelOperationError`.
+* `FormRecognizerError` has been renamed to `DocumentModelOperationError`.
 
-* `InnerError` renamed to `DocumentModelOperationInnerError`.
+* `InnerError` has been renamed to `DocumentModelOperationInnerError`.
 
 ### [**JavaScript**](#tab/javascript)
 
@@ -55,13 +55,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Feature updates
 
-* Added `words` method to `DocumentLine` interface.
+* The `words` property has been added to `DocumentLine` interface.
 
-* Added `createdOn`  (date created) and `lastUpdatedOn`  (time last modified) properties to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState`.
+* The `createdOn` (date created) and `lastUpdatedOn` (time last modified) properties have been added to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState` interfaces.
 
 #### Bugs fixed
 
-* Improved the handling of long-running operations (analysis and model creation operations). Clients will no longer attempt to parse model IDs and accept operation-location fields verbatim.
+* The handling of long-running operations (analysis and model creation operations) has been improved. Clients will no longer attempt to parse model IDs and accept operation-location fields verbatim. Thus, the *unable to parse operationLocation* error is no longer possible.
 
 #### Breaking changes
 
@@ -73,8 +73,11 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Feature updates
 
-* Added `get_words()` method to `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on GitHub.
+* The `get_words()` method has been added to the `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on GitHub.
 
+#### Breaking changes
+
+* The `DocumentElement` class has been renamed to `DocumentContentElement`.
 
 ---
 
