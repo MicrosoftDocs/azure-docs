@@ -11,7 +11,7 @@ ms.author: zxue
 
 # Register a client application using CLI and REST API
 
-In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure CLI and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, using Azure CLI and REST API support the infrastructure as code approach. This approach enables you to test and deploy resources with scripts. For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, using Azure CLI and REST API support the infrastructure as code approach. This approach enables you to test and deploy resources with scripts. For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 > [!Note] 
 > The scripts are tested in Visual Studio Code, and they're used "as is" in most cases. However, you'll need to validate them in your environment and make necessary adjustments. For example, you can run the scripts in the PowerShell environment, but you'll need to add the `$` symbol variable that's required in PowerShell.
@@ -60,7 +60,7 @@ You can use `echo $<variable name>` to display the value of a specified variable
 
 ## Remove the user_impersonation scope
 
-The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting under "Expose an API" in application registrations from the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
+The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations of the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
 
 [![User_Impersonation](media/app-registration-scope.png)](media/app-registration-scope.png#lightbox)
 
@@ -105,9 +105,9 @@ For public client applications, change the "Allow public client flows" flag to "
 az ad app update  --id $clientid  --set publicClient=true 
 ```
 
-## Add redirect urls
+## Add redirect URLs
 
-This is an optional step. You can use the "--reply-urls" to add one or more reply (or redirect) URLs for web apps. However, you can't specify application or platform type with the parameter. 
+Adding redirect URLs is an optional step. You can use the "--reply-urls" to add one or more reply (or redirect) URLs for web apps. However, you can't specify application or platform type with the parameter. 
 
 For single page app, mobile, and desktop applications, use the REST API instead and specify the application or platform type. 
 
