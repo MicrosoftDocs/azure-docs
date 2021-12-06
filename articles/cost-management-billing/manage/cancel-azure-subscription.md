@@ -23,7 +23,8 @@ Although not required, Microsoft *recommends* that you take the following action
 * Delete all resources and all resource groups.
 * If you have any custom roles that reference this subscription in `AssignableScopes`, you should update those custom roles to remove the subscription. If you try to update a custom role after you cancel a subscription, you might get an error. For more information, see [Troubleshoot problems with custom roles](../../role-based-access-control/troubleshooting.md#problems-with-custom-roles) and [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
-After you cancel your subscription, you'll receive a final invoice for the pay-as-you-go usage that you incurred in final billing cycle.
+> [!NOTE]
+> After you cancel your subscription, you'll receive a final invoice for the pay-as-you-go usage that you incurred in the last billing cycle.
 
 If you cancel a paid Azure Support plan, you're billed for the rest of the subscription term. For more information, see [Azure support plans](https://azure.microsoft.com/support/plans/).
 
