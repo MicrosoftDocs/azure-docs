@@ -69,7 +69,7 @@ A collection of featured applications is listed by default when you open the Azu
 
 :::image type="content" source="media/overview-application-gallery/featured-applications.png" alt-text="Screenshot showing the featured applications on the Azure Active Directory application gallery blade in the Azure portal.":::
 
-- **Federated SSO** - When you set up [SSO](what-is-single-sign-on.md) to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, user experiences, and implementation. Some applications implement federated SSO as SAML-based or as OIDC-based. For SAML applications, when you select create, the application is added to your tenant. For OIDC applications, the admininistrator must first sign up or sign-in on the application's website to add the application to Azure AD.
+- **Federated SSO** - When you set up [SSO](what-is-single-sign-on.md) to work between multiple identity providers, it's called federation. An SSO implementation based on federation protocols improves security, reliability, user experiences, and implementation. Some applications implement federated SSO as SAML-based or as OIDC-based. For SAML applications, when you select create, the application is added to your tenant. For OIDC applications, the administrator must first sign up or sign-in on the application's website to add the application to Azure AD.
 - **Provisioning** - Azure AD to SaaS [application provisioning](../app-provisioning/user-provisioning.md) refers to automatically creating user identities and roles in the SaaS applications that users need access to.
 
 ## Create your own application
