@@ -1,6 +1,6 @@
 ---
-title: Enable enterprise-grade edge with Azure Front Door
-description: Learn about managed Azure Front Door integration with Azure Static Web Apps
+title: Enterprise-grade edge (Preview)
+description: Learn about Azure Static Web Apps enterprise-grade edge (Preview)
 services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
@@ -9,35 +9,40 @@ ms.date: 11/15/2021
 ms.author: cshoe
 ---
 
-# Enable an enterprise-grade CDN using Azure Front Door in Azure Static Web Apps
+Accelerate your websites with Azure Static Web Apps enterprise-grade edge (Preview)
 
-Use Azure Front Door to provide faster load times, better security, and enable better performance in your static web app. Azure Front Door increases the points of presence and extends your static web app with an enterprise-grade edge to provide:
-
+Use Azure Static Web Apps enterprise-grade edge (Preview) to increase your website page load speed, enhance security, and optimize reliability for your global applications. It combines the capabilities of Azure Static Web Apps, Azure Front Door and Azure Content Delivery Network (CDN) standard into a single secure cloud CDN platform. Key features included with Azure Static Web Apps enterprise-grade edge:
+* Global presence in 118+ [edge locations](/azure/frontdoor/edge-locations-by-region) across 100 metro cities
+* Caching assets at the [edge](/azure/frontdoor/front-door-caching)
+* Proactive protection against [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
+* Native support of end-to-end IPv6 connectivity and [HTTP/2 protocol](/azure/frontdoor/front-door-http2.md)
+* Optimized file compression 
 * Protection from [Distributed Denial of Service (DDoS) attacks](/azure/frontdoor/front-door-ddos)
 * Significant reductions in latency
 * Increased throughput by bringing static assets geographically closer to your users through [edge load balancing](/azure/frontdoor/edge-locations-by-region)
 * SSL offloading
 * [Enhanced caching](/azure/frontdoor/front-door-caching)
 * Application acceleration
-
-To enable Azure Front Door in Static Web Apps, you must have the following items in place:
+> [!NOTE]
+> Static Web Apps enterprise-grade edge is currently in preview.
+To enable enterprise-grade edge in Static Web Apps, you must have the following items in place:
 
 * A custom domain configured for your static web app.
 * DNS TTL set for less than 48 hours.
 
 ## Caching
 
-When Azure Front Door is enabled in for your static web app, your app is cached at various levels.
+When enterprise-grade edge is enabled for your static web app, you benefit from caching at various levels.
 
-* **CDN**: Caching files on edge locations as physically close to users a possible.
-* **DNS**: Returning cached results of identical requests on from the DNS server.
+* **CDN**: Caching content on edge locations as physically close to users a possible to reduce latency
+* **DNS**: Caching DNS records for faster lookups
 * **Browser**: Files are stored in the browser and returned for identical requests.
 
 For further control, you also have the option to create [custom cache control headers](configuration.md) for your static web app.
 
 ## Configuration types
 
-You can configure Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md).
+You can enable enterprise-grade edge powered by Azure Front Door via a managed experience through the Azure portal, or you [can set it up manually](front-door-manual.md).
 
 A managed experience provides:
 
@@ -51,20 +56,20 @@ A manual setup gives you full control over the CDN configuration including the c
 * Add a web application firewall
 * Use more advanced features of Azure Front Door
 
-## Enable Azure Front Door
+## Enable enterprise-grade edge
 
 ### Prerequisites
 
-* Custom domain configured for your static web app
+* [Custom domain](./custom-domain.md) configured for your static web app
 * Apex domain with TTL set to less than 48 hrs
-
+* An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 # [Azure portal](#tab/azure-portal)
 
 1. Navigate to your static web app in the Azure portal.
 
 1. Select **Enterprise-grade edge** in the left menu.
 
-1. Check the box labeled **Enable enterprise-grade CDN**.
+1. Check the box labeled **Enable enterprise-grade edge**.
 
 1. Select **Save**.
 
@@ -76,6 +81,8 @@ A manual setup gives you full control over the CDN configuration including the c
 
 ```azurecli
 az extension add --yes --source "https://sstrawnwheels.blob.core.windows.net/wheels/enterprise_edge-0.1.0-py3-none-any.whl"
+
+az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 ```
 
 ---
