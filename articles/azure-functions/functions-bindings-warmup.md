@@ -35,14 +35,14 @@ This article explains how to work with the warmup trigger in Azure Functions. A 
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that runs on each new instance when it's added to your app. A return value attribute isn't required.
 
-- Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
-- To use warmup as a .NET class library function, make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**
+- Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
+- To use warmup as a .NET class library function, make sure you have a package reference to **Microsoft.Azure.WebJobs.Extensions >= 3.0.5**.
 
   ```text
   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions" Version="3.0.5" />
   ```
 
-Placeholder comments show where in the application to declare and initialize shared dependencies. 
+Placeholder comments show where in the application to declare and initialize shared dependencies.
 [Learn more about shared dependencies here](./manage-connections.md#client-code-examples).
 
 ```cs
@@ -76,7 +76,7 @@ namespace WarmupSample
 
 The following example shows a warmup trigger in a *function.json* file and a [C# script function](functions-reference-csharp.md) that runs on each new instance when it's added to your app.
 
-Your function must be named ```warmup``` (case-insensitive), and there may only be one warmup function per app.
+Your function must be named `warmup` (case-insensitive), and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -92,7 +92,7 @@ Here's the *function.json* file:
 }
 ```
 
-For more information, see [Examples](#tabpanel_2_csharp-script).
+For more information, see [Attributes](#tabpanel_2_csharp-script).
 
 ```cs
 public static void Run(WarmupContext warmupContext, ILogger log)
@@ -122,7 +122,7 @@ public void run( ExecutionContext context) {
 
 The following example shows a warmup trigger in a *function.json* file and a [JavaScript function](functions-reference-node.md) that runs on each new instance when it's added to your app.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -158,7 +158,7 @@ module.exports = async function (context, warmupContext) {
 
 The following example shows a warmup trigger in a *function.json* file and a [Python function](functions-reference-python.md) that runs on each new instance when it'is added to your app.
 
-Your function must be named ```warmup``` (case-insensitive) and there may only be one warmup function per app.
+Your function must be named `warmup` (case-insensitive) and there may only be one warmup function per app.
 
 Here's the *function.json* file:
 
@@ -197,14 +197,14 @@ The attribute's constructor takes the following parameters:
 
 |Parameter | Description|
 |---------|----------------------|
-|**warmupContext** |Description 1|
-|**context** | Description 2|
+|**warmupContext** |Warmup context.|
+|**context** | Function context.|
 
 # [In-process](#tab/in-process)
 
 This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
 
-Note that your function must be called ```Warmup``` and there can only be one warmup function per app.
+Your function must be called `Warmup` and there can only be one warmup function per app.
 
 ```csharp
  [FunctionName("Warmup")]
@@ -221,7 +221,7 @@ For a complete example, see the [example](#tabpanel_1_in-process).
 
 This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
 
-Note that your function must be called ```Warmup``` and there can only be one warmup function per app.
+Your function must be called `Warmup` and there can only be one warmup function per app.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="11-12":::
 
@@ -240,8 +240,8 @@ The following table explains the binding configuration properties that you set i
 | **type** | Required - must be set to `warmupTrigger`. |
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code.|
-|**warmupContext** |Description 1|
-|**context** | Description 2|
+|**warmupContext** |Warmup context.|
+|**context** | Function context.|
 
 ---
 
@@ -315,7 +315,7 @@ The warmup trigger is intended to create shared dependencies that will be used b
 ## Trigger - limits
 
 * The warmup trigger isn't available to apps running on the [Consumption plan](./consumption-plan.md).
-* The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this goal.
+* The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. Ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this goal.
 * The warmup trigger cannot be invoked once an instance is already running.
 * There can only be one warmup trigger function per function app.
 
