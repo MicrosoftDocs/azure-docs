@@ -34,11 +34,9 @@ A valid Azure AD access token for the the user or service principal performing t
 
 ```bash
 
-TOKEN=$(az account get-access-token -o tsv --query accessToken)
-
 curl -X POST \
     --data-binary @"<zip_file_path>" \
-    -H "Authorization: Bearer $TOKEN" \
+    -H "Authorization: Bearer <access_token>" \
     "https://<app_name>.scm.azurewebsites.net/api/zipdeploy"
 ```
 
