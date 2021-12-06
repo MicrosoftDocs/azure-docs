@@ -92,4 +92,4 @@ landingContent:
           - text: Asynchronous operations
             url: async-operations.md
           - text: Control plane metrics in Azure Monitor
-            url: arm-metrics.md
+            url: control-plane-metrics.md
