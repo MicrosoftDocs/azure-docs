@@ -172,7 +172,7 @@
   - name: Track asynchronous operations
     href: async-operations.md
   - name: Control plane metrics in Azure Monitor 
-    href: arm-metrics.md
+    href: control-plane-metrics.md
 - name: Reference
   items:
   - name: REST
