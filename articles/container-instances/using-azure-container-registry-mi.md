@@ -63,7 +63,9 @@ The ID is of the form:
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
 ```
 
-## Deploy using an Azure Resource Manager (ARM) template
+## Deploy the container group
+
+### Deploy using an Azure Resource Manager (ARM) template
 
 Start by copying the following JSON into a new file named `azuredeploy.json`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
@@ -126,7 +128,7 @@ You can specify the properties of your Azure container registry in an ARM templa
   }
 ```
 
-### Deploy the template
+#### Deploy the template
 
 Deploy your resource manager template with the following command:
 
@@ -134,7 +136,11 @@ Deploy your resource manager template with the following command:
 az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-### Clean up resources
+### Deploy using the Azure CLI
+
+
+
+## Clean up resources
 
 To remove all resources from your Azure subscription, delete the resource group:
 
