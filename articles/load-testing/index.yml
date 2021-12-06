@@ -52,6 +52,12 @@ conceptualContent:
         - url: how-to-update-rerun-test.md
           itemType: how-to-guide
           text: Configure server-side monitoring
+        - url: how-to-define-test-criteria.md
+          itemType: how-to-guide
+          text: 'Define pass/fail criteria'
+        - url: how-to-use-a-managed-identity.md
+          itemType: how-to-guide
+          text: Use a managed identity
     
     # Card
     - title: Analyze test results
@@ -61,10 +67,10 @@ conceptualContent:
           text: Analyze performance by comparing runs
         - url: how-to-find-download-logs.md
           itemType: how-to-guide
-          text: Find & download load testing logs
+          text: Troubleshoot test execution errors
         - url: how-to-appservice-insights.md
           itemType: how-to-guide
-          text: Get insights from AppService workloads
+          text: Get insights from App Service Diagnostics
         - url: how-to-export-test-results.md
           itemType: how-to-guide
           text: Export results 
