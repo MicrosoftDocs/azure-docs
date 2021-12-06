@@ -13,32 +13,32 @@ ms.workload: identity
 ms.date: 11/16/2021
 ms.author: dmwendia
 ms.custom: aaddev, scenarios:getting-started, devx-track-js
-zone_pivot_groups: microsoft-identity-platform-dev-languages
+zone_pivot_groups: web-app-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my web app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
 # Quickstart: Add sign-in with Microsoft to a web app
 
-::: zone pivot="programming-language-aspnet"
+::: zone pivot="devlang-aspnet"
 [!INCLUDE [asp.net](./includes/web-app/quickstart-aspnet.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-aspnet-core"
+::: zone pivot="devlang-aspnet-core"
 [!INCLUDE [asp.net-core](./includes/web-app/quickstart-aspnet-core.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs-msal"
+::: zone pivot="devlang-nodejs-msal"
 [!INCLUDE [node.js-msal](./includes/web-app/quickstart-nodejs-msal.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs-passport"
+::: zone pivot="devlang-nodejs-passport"
 [!INCLUDE [node.js-passport](./includes/web-app/quickstart-nodejs.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-java"
+::: zone pivot="devlang-java"
 [!INCLUDE [java](./includes/web-app/quickstart-java.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-python"
+::: zone pivot="devlang-python"
 [!INCLUDE [python](./includes/web-app/quickstart-python.md)]
 ::: zone-end
