@@ -133,6 +133,12 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
+> [!NOTE]
+> Policy statements on ADLS Gen2 folders and files below container level are supported. They follow the POSIX model, which means that the App that will execute the access to the data objects in the Storage account will need either of:
+> - Support providing the Storage account a fully qualified name (i.e., a direct absolute path) to the data object as shown in this [example](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
+> - If the App requires traversing down to the data object, then the identity used by the App (e.g., user or service principal) will also need privileges to list the parent container and parent folders.
+
+
 > [!WARNING]
 > **Known issues** related to Policy creation
 > - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
