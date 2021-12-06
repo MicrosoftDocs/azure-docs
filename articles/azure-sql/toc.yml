@@ -808,7 +808,7 @@
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
-          href: ../sql-database/scripts/auditing-and-threat-detection-cli.md
+          href: database/scripts/auditing-and-threat-detection-cli.md
       - name: Back up, restore, copy, and import a database
         items:
         - name: Back up a database
