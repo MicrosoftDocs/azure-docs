@@ -433,16 +433,6 @@
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
     { 
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
