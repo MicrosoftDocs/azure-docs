@@ -118,7 +118,7 @@ Related to roles and access management in Azure Purview, you can apply the follo
   - Define roles and task needed to perform data management and governance using Azure Purview.  
 - Assign roles to Azure Active Directory groups instead of assigning roles to individual users. 
 - Use Azure [Active Directory Entitlement Management](../active-directory/governance/entitlement-management-overview.md) to map user access to Azure AD groups using Access Packages. 
-- Enforce Multi-Factor Authentication for Purview users, especially, for users with privileged roles such as collection admins, data source admins or data curators.
+- Enforce multifactor authentication for Purview users, especially, for users with privileged roles such as collection admins, data source admins or data curators.
 
 ### Manage an Azure Purview account in control plane and data plane 
 
@@ -180,11 +180,11 @@ Reduce the number of users with write access inside your Purview instance. Keep 
 
 ### Use multifactor authentication and Conditional Access 
 
-[Azure Active Directory multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides another layer of security and authentication. For more security, we recommend enforcing [conditional access policies](../active-directory/conditional-access/overview.md) for all privileged accounts.  
+[Azure Active Directory multifactor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides another layer of security and authentication. For more security, we recommend enforcing [conditional access policies](../active-directory/conditional-access/overview.md) for all privileged accounts.  
 
-By using Azure Active Directory Conditional Access policies, apply Azure AD Multi-Factor Authentication at sign-in for all individual users who are assigned to Purview roles with modify access inside your Purview instances: Collection Admin, Data Source Admin, Data Curator. 
+By using Azure Active Directory Conditional Access policies, apply Azure AD multifactor authentication at sign-in for all individual users who are assigned to Purview roles with modify access inside your Purview instances: Collection Admin, Data Source Admin, Data Curator. 
 
-Enable Multi-Factor Authentication for your admin accounts and ensure that admin account users have registered for MFA. 
+Enable multifactor authentication for your admin accounts and ensure that admin account users have registered for MFA. 
 
 You can define your Conditional Access policies by selecting Azure Purview as a Cloud App. 
 
