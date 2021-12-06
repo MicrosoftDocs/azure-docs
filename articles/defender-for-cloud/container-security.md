@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers (preview)
 ms.topic: overview
-ms.date: 12/06/2021
+ms.date: 12/13/2021
 ---
 # Overview of Microsoft Defender for Containers
 
@@ -75,7 +75,7 @@ Workload configuration information is collected by an Azure Policy add-on. As ex
 
 
 
-### [**ASW EKS**](#tab/defender-for-container-arch-eks)
+### [**AWS EKS**](#tab/defender-for-container-arch-eks)
 
 ### Architecture diagram of Defender for Cloud and EKS clusters
 
