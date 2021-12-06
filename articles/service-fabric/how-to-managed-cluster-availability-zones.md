@@ -81,6 +81,8 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 * Set zonalResiliency: true in the cluster ARM template and do a deployment to mark cluster as zone resilient and ensure all new node type deployments span across availability zones.
 
 ### Add new zone resilient node types to your cluster
+Update the nodetype ARM template with **zones** parameter as shown below to add a new zone resilient nodetype:
+
 ```json
 {
   "apiVersion": "2021-11-01-preview",
