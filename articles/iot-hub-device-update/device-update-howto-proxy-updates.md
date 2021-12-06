@@ -127,7 +127,7 @@ For testing and demonstration purposes, we'll be creating following mock compone
 ## How to import example updates
 
 ### Prerequisites
-* If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
+If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
 1. Download the Proxy Updates import manifests and images from the [latest Device Update release](https://github.com/Azure/iot-hub-device-update/releases) under Assets. 
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Device Management from the left-hand navigation bar.
