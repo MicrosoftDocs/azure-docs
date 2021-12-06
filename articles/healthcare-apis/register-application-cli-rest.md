@@ -60,7 +60,7 @@ You can use `echo $<variable name>` to display the value of a specified variable
 
 ## Remove the user_impersonation scope
 
-The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations of the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
+The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting by selecting the **Expose an API** blade in application registrations from the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
 
 [![User_Impersonation](media/app-registration-scope.png)](media/app-registration-scope.png#lightbox)
 
@@ -71,7 +71,7 @@ az ad app update --id $clientid --set oauth2Permissions="$default_scope"
 az ad app update --id $clientid --set oauth2Permissions="[]"
 ```
 
-You can use "az rest" to call Microsoft Graph directly, instead of Azure Graph, without creating the user_impersonation scope. Use the query parameter to obtain the application ID.
+You can use `az rest` to call Microsoft Graph directly, instead of Azure Graph, without creating the user_impersonation scope. Use the query parameter to obtain the application ID.
 
 ```
 az rest -m post -u https://graph.microsoft.com/v1.0/applications  --headers 'Content-Type=application/json' --body '{"displayName": "xxx"}'
@@ -84,7 +84,7 @@ clientid=$(az rest -m post -u https://graph.microsoft.com/v1.0/applications  --h
 
 For confidential client applications, you'll need to add a client secret. For public client applications, you can skip this step.
 
-Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the "--end-date" option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
+Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the `--end-date` option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
 
 ```
 ###Add client secret with expiration. The default is one year.
@@ -107,7 +107,7 @@ az ad app update  --id $clientid  --set publicClient=true
 
 ## Add redirect URLs
 
-Adding redirect URLs is an optional step. You can use the "--reply-urls" to add one or more reply (or redirect) URLs for web apps. However, you can't specify application or platform type with the parameter. 
+Adding redirect URLs is an optional step. You can use the `--reply-urls` to add one or more reply (or redirect) URLs for web apps. However, you can't specify application or platform type with the parameter. 
 
 For single page app, mobile, and desktop applications, use the REST API instead and specify the application or platform type. 
 
