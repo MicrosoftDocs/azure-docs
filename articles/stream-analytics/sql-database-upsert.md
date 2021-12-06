@@ -64,7 +64,7 @@ WHEN NOT MATCHED BY t THEN
     VALUES (v.[Modified_Time],v.[Device_Key],v.[Measure_Value])
 ```
 
-Resulting in :
+Resulting in:
 
 |Modified_Time|Device_Key|Measure_Value|
 |-|-|-|
@@ -246,7 +246,9 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString` (and not a "connection string", they are used exclusively with Entity Framework). The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it. The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
+The function can now be [published](/azure/azure-functions/create-first-function-vs-code-csharp#publish-the-project-to-azure) to Azure. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+
+The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
 ## Option 2: Merge with compound assignment (accumulate) via a custom SQL query
 
@@ -367,7 +369,9 @@ You can now test the wiring between the local function and the database by debug
 [{"DeviceId":3,"Value":13.4,"Timestamp":"2021-11-30T03:22:12.991Z"},{"DeviceId":4,"Value":41.4,"Timestamp":"2021-11-30T03:22:12.991Z"}]
 ```
 
-The function can now be deployed. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString` (and not a "connection string", they are used exclusively with Entity Framework). The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it. The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
+The function can now be [published](/azure/azure-functions/create-first-function-vs-code-csharp#publish-the-project-to-azure) to Azure. An [application setting](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) should be set for `SqlConnectionString`. The Azure SQL **Server** firewall should [allow Azure services](/azure/azure-sql/database/network-access-controls-overview) in for the live function to reach it.
+
+The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
 ## Alternatives
 
