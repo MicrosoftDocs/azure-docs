@@ -24,7 +24,7 @@ ms.custom: mvc, devx-track-azurecli
 
 * Virtual Network injected container groups do not support managed identity authentication image pulls with ACR.
 
-* Windows Sever 2016 container groups do not support managed identity authentication image pulls with ACR.
+* Windows Server 2016 container groups do not support managed identity authentication image pulls with ACR.
 
 * Container groups cannot use managed identity to authenticate image pulls from Azure container registries that use [private DNS zones][private-dns-zones].
 
