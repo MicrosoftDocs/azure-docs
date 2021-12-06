@@ -34,7 +34,7 @@ items:
 - name: How-to
   items:
   - name: Move an Object Anchors account between regions
-    href: how-tos/move-aoa-account.md
+    href: how-tos/move-azure-object-anchors-account.md
 - name: Samples
   items:
   - name: Azure Object Anchors samples (GitHub)

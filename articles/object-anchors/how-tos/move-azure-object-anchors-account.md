@@ -39,3 +39,10 @@ Run your app or web service and verify it's still functional after the move.
 ## Clean up
 
 To complete the move of the Object Anchors account, delete the source Object Anchors account or resource group. To do so, select the Object Anchors account or resource group from your dashboard in the portal and select Delete at the top of each page.
+
+## Next steps
+
+In this tutorial, you moved an Object Anchors account from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
+
+> [!div class="nextstepaction"]
+> [Move resources to a new resource group or subscription](/articles/azure-resource-manager/management/move-resource-group-and-subscription)
