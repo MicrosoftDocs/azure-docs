@@ -61,7 +61,7 @@ This section will walk through a brief setup of each.
 
 For more detailed information on installing each of these pieces, see the following resources:
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
+* [Install IoT Edge on Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [OPC Publisher on GitHub](https://github.com/Azure/iot-edge-opc-publisher)
 * [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 
@@ -163,7 +163,7 @@ Using the [Azure portal](https://portal.azure.com), create an Ubuntu Server virt
 
 #### Install IoT Edge container
 
-Follow the instructions to [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md).
+Follow the instructions to [Install IoT Edge on Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 Once the installation completes, run the following command to verify the status of your installation:
 
@@ -436,7 +436,7 @@ In this article, you set up a full data flow for getting simulated OPC UA Server
 Next, use the following resources to read more about the supporting tools and processes that were used in this article:
 
 * [Step-by-step guide to installing OPC Publisher on Azure IoT Edge](https://www.linkedin.com/pulse/step-by-step-guide-installing-opc-publisher-azure-iot-kevin-hilscher) 
-* [Install IoT Edge on Linux](../iot-edge/how-to-install-iot-edge.md) 
+* [Install IoT Edge on Linux](../iot-edge/how-to-provision-single-device-linux-symmetric.md) 
 * [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher)
 * [Configure OPC Publisher](/previous-versions/azure/iot-accelerators/howto-opc-publisher-configure)
 * [UANodeSetWebViewer](https://github.com/barnstee/UANodesetWebViewer) 

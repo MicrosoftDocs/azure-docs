@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli, references_regions
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
-ms.date: 09/22/2021
+ms.date: 10/21/2021
 ---
 
 # Create and manage an Azure Machine Learning compute instance
@@ -416,7 +416,7 @@ Start, stop, restart, and delete a compute instance. A compute instance does not
 You can [create a schedule](#schedule) for the compute instance to automatically start and stop based on a time and day of week.
 
 > [!TIP]
-> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal.
+> The compute instance has 120GB OS disk. If you run out of disk space, [use the terminal](how-to-access-terminal.md) to clear at least 1-2 GB before you stop or restart the compute instance. Please do not stop the compute instance by issuing sudo shutdown from the terminal. The temp disk size on compute instance depends on the VM size chosen and is mounted on /mnt.
 
 # [Python](#tab/python)
 

@@ -3,13 +3,12 @@ title: 'Quickstart: Create a Java app on Azure App Service'
 description: Deploy your first Java Hello World to Azure App Service in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, linux, java, maven, quickstart
 author: jasonfreeberg
-
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 08/01/2020
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
@@ -21,10 +20,11 @@ adobe-target-content: ./quickstart-java-uiex
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
-
-> [!NOTE]
-> The same can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
-
+If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
++ [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
++ [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
++ [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
 
 ![Sample app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
 
@@ -94,7 +94,7 @@ The deployment process to Azure App Service will use your Azure credentials from
 Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
-mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.0:config
+mvn com.microsoft.azure:azure-webapp-maven-plugin:2.2.3:config
 ```
 
 ::: zone pivot="platform-windows"

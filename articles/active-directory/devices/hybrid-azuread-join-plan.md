@@ -27,6 +27,10 @@ By bringing your devices to Azure AD, you maximize your users' productivity thro
 
 If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this by doing hybrid Azure AD join. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
 
+> [!TIP]
+> SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+>
+
 ## Prerequisites
 
 This article assumes that you are familiar with the [Introduction to device identity management in Azure Active Directory](./overview.md).
@@ -60,6 +64,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 ### Windows current devices
 
 - Windows 10
+- Windows 11
 - Windows Server 2016
   - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019

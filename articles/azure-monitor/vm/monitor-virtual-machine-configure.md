@@ -37,14 +37,14 @@ Azure Monitor provides a basic level of monitoring for Azure virtual machines at
 ## Create and prepare a Log Analytics workspace
 You require at least one Log Analytics workspace to support VM insights and to collect telemetry from the Log Analytics agent. There's no cost for the workspace, but you do incur ingestion and retention costs when you collect data. For more information, see [Manage usage and costs with Azure Monitor Logs](../logs/manage-cost-storage.md).
 
-Many environments use a single workspace for all their virtual machines and other Azure resources they monitor. You can even share a workspace used by [Azure Security Center and Azure Sentinel](monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. If you're getting started with Azure Monitor, start with a single workspace and consider creating more workspaces as your requirements evolve.
+Many environments use a single workspace for all their virtual machines and other Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. If you're getting started with Azure Monitor, start with a single workspace and consider creating more workspaces as your requirements evolve.
 
 For complete details on logic that you should consider for designing a workspace configuration, see [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
 
 ### Multihoming agents
 Multihoming refers to a virtual machine that connects to multiple workspaces. Typically, there's little reason to multihome agents for Azure Monitor alone. Having an agent send data to multiple workspaces most likely creates duplicate data in each workspace, which increases your overall cost. You can combine data from multiple workspaces by using [cross-workspace queries](../logs/cross-workspace-query.md) and [workbooks](../visualizations/../visualize/workbooks-overview.md).
 
-One reason you might consider multihoming, though, is if you have an environment with Azure Security Center or Azure Sentinel stored in a workspace that's separate from Azure Monitor. A machine being monitored by each service needs to send data to each workspace. The Windows agent supports this scenario because it can send to up to four workspaces. The Linux agent can currently send to only a single workspace. If you want to have Azure Monitor and Azure Security Center or Azure Sentinel monitor a common set of Linux machines, the services need to share the same workspace.
+One reason you might consider multihoming, though, is if you have an environment with Microsoft Defender for Cloud or Microsoft Sentinel stored in a workspace that's separate from Azure Monitor. A machine being monitored by each service needs to send data to each workspace. The Windows agent supports this scenario because it can send to up to four workspaces. The Linux agent can currently send to only a single workspace. If you want to have Azure Monitor and Microsoft Defender for Cloud or Microsoft Sentinel monitor a common set of Linux machines, the services need to share the same workspace.
 
 Another reason you might multihome your agents is if you're using a [hybrid monitoring model](/azure/cloud-adoption-framework/manage/monitor/cloud-models-monitor-overview#hybrid-cloud-monitoring). In this model, you use Azure Monitor and Operations Manager together to monitor the same machines. The Log Analytics agent and the Microsoft Management Agent for Operations Manager are the same agent. Sometimes they're referred to with different names.
 
@@ -95,7 +95,7 @@ For different options to enable VM insights for your machines, see [Enable VM in
 
 
 ## Send guest performance data to Metrics
-The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) replaces the Log Analytics agent when it fully supports Azure Monitor, Azure Security Center, and Azure Sentinel. Until that time, it can be installed with the Log Analytics agent to send performance data from the guest operating system of machines to Azure Monitor Metrics. This configuration allows you to evaluate this data with metrics explorer and use metric alerts.
+The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) replaces the Log Analytics agent when it fully supports Azure Monitor, Microsoft Defender for Cloud, and Microsoft Sentinel. Until that time, it can be installed with the Log Analytics agent to send performance data from the guest operating system of machines to Azure Monitor Metrics. This configuration allows you to evaluate this data with metrics explorer and use metric alerts.
 
 The Azure Monitor agent requires at least one data collection rule (DCR) that defines which data it should collect and where it should send that data. A single DCR can be used by any machines in the same resource group.
 
@@ -108,7 +108,7 @@ Be careful to not send data to Logs because it would be redundant with the data 
 
 You can install an Azure Monitor agent on individual machines by using the same methods for Azure virtual machines and Azure Arc-enabled servers. These methods include onboarding individual machines with the Azure portal or Resource Manager templates or enabling machines at scale by using Azure Policy. For hybrid machines that can't use Azure Arc-enabled servers, install the agent manually.
 
-To create a DCR and deploy the Azure Monitor agent to one or more agents by using the Azure portal, see [Create rule and association in the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md). Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). To create a policy that automatically deploys the agent and DCR to any new machines as they're created, see [Deploy Azure Monitor at scale using Azure Policy](../deploy-scale.md#azure-monitor-agent).
+To create a DCR and deploy the Azure Monitor agent to one or more agents by using the Azure portal, see [Create rule and association in the Azure portal](../agents/data-collection-rule-azure-monitor-agent.md). Other installation methods are described at [Install the Azure Monitor agent](../agents/azure-monitor-agent-install.md). To create a policy that automatically deploys the agent and DCR to any new machines as they're created, see [Deploy Azure Monitor at scale using Azure Policy](../best-practices.md).
 
 ## Next steps
 

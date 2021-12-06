@@ -37,7 +37,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create a Google application
 
-To enable sign-in for users with a Google account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Google Developers Console](https://console.developers.google.com/). For more information, see [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849). If you don't already have a Google account you can sign up at [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+To enable sign-in for users with a Google account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [Google Developers Console](https://console.developers.google.com/). For more information, see [Setting up OAuth 2.0](https://support.google.com/googleapi/answer/6158849). If you don't already have a Google account you can sign up at [`https://accounts.google.com/signup`](https://accounts.google.com/signup).
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your Google account credentials.
 1. In the upper-left corner of the page, select the project list, and then select **New Project**.
@@ -193,4 +193,4 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-Learn how to [pass Google token to your application](idp-pass-through-user-flow.md).
+Learn how to [pass a Google token to your application](idp-pass-through-user-flow.md).

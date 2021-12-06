@@ -3,7 +3,7 @@ title: Change the license model for a SQL VM in Azure
 description: Learn how to switch licensing for a SQL Server VM in Azure from pay-as-you-go to bring-your-own-license by using the Azure Hybrid Benefit. 
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.subservice: management
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
-ms.author: mathoma
-ms.reviewer: jroth 
+ms.author: pamela
+ms.reviewer: mathoma 
 ms.custom: devx-track-azurepowershell
 
 ---

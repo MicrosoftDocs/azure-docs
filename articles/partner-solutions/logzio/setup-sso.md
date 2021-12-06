@@ -4,7 +4,7 @@ description: Learn about how to set up single sign-on for Azure integration with
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 08/17/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
 ---
 

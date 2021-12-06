@@ -4,9 +4,9 @@ description: Learn about plans for Microsoft commercial marketplace offers in Pa
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/05/2021
+ms.date: 12/03/2021
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -37,8 +37,8 @@ Plans are not supported for the following offer types:
 
 - Consulting service
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & Power Apps
-- Dynamics 365 for Operations
+- Dynamics 365 apps on Dataverse and Power Apps
+- Dynamics 365 Operations Apps
 - Power BI app
 
 ## Plan information
@@ -121,7 +121,7 @@ Prices set in United States Dollars (USD) are converted into the local currency 
 
 ## Plan visibility
 
-You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
+You can make plans for some offer types publicly available or available to only a specific (private) audience. Offers with private plans will be published to the Azure portal. Learn more about private plans in [Private plans in the Microsoft commercial marketplace](private-plans.md).
 
 You define your private audience by using Azure tenant IDs or Azure subscription IDs, depending on the offer type. You can enter up to 10 IDs manually or import up to 10,00 subscription IDs or 20,000 tenant IDs (as applicable) with a .csv file. You can also define private audiences for consulting services and Dynamics 365 offers that do not have plans.
 
@@ -139,10 +139,10 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > [!NOTE]
 > This section explains free trials on paid plans for offers that are sold through Microsoft. This is different than free trial listings from partners who choose to process their transactions independently. You can create a free trial listing (that is not associated with a plan) for the following offer types:
 > - Azure virtual machine 
-> - SaaS 
+> - SaaS
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement & Power Apps
-> - Dynamics 365 for Operations
+> - Dynamics 365 apps on Dataverse and Power Apps
+> - Dynamics 365 Operations Apps
 >
 > For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).
 
@@ -157,7 +157,7 @@ After a customer selects a free trial for a plan, they can't convert to a paid s
 > [!NOTE]
 > After a customer starts paying for a plan, they can’t get a free trial on the same offer again, even if they switch to another plan that supports free trials.
 
-To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-api-v2.md#get-subscription).
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. For more information, see the [SaaS Get Subscription API](./partner-center-portal/pc-saas-fulfillment-subscription-api.md#get-subscription).
 
 ## Next steps
 

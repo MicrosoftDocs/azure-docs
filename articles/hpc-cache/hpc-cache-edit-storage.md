@@ -1,11 +1,11 @@
 ---
 title: Update Azure HPC Cache storage targets
 description: How to edit Azure HPC Cache storage targets
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Edit storage targets
