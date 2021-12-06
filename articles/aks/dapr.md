@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### Setup the Azure CLI extension for cluster extensions
+### Set up the Azure CLI extension for cluster extensions
 
 You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
   
