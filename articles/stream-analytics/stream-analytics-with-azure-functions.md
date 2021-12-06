@@ -227,4 +227,5 @@ When no longer needed, delete the resource group, the streaming job, and all rel
 In this tutorial, you have created a simple Stream Analytics job, that runs an Azure Function. To learn more about Stream Analytics jobs, continue to the next tutorial:
 
 > [!div class="nextstepaction"]
+> [Update or merge records in Azure SQL Database with Azure Functions](sql-database-upsert.md)
 > [Run JavaScript user-defined functions within Stream Analytics jobs](stream-analytics-javascript-user-defined-functions.md)
