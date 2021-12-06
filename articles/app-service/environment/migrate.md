@@ -14,30 +14,27 @@ ms.author: jordanselig
 
 App Service can now migrate your App Service Environment (ASE) v2 to an [App Service Environment v3](overview.md). App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
 
-For this version of the preview, your new App Service Environment will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment cannot be migrated to an Internal Load Balancer (ILB) App Service Environment v3 and vice versa.
+## Supported scenarios
 
-Note that App Service Environment v3 doesn't currently support the following features that you may be using with your current App Service Environment. If you require any of these features, don't migrate until they're supported. Expectations for support dates are given.
+At this time, ASE migrations to v3 are supported for both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) ASEv2 in the following regions:
+
+- region1
+- region2
+- region3
+
+You can find the version of your ASE by navigating to your ASE in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your ASE.
+
+### Preview limitations
+
+For this version of the preview, your new ASE will be placed in the existing subnet that was used for your old environment. Internet facing App Service Environment cannot be migrated to ILB ASEv3 and vice versa.
+
+Note that ASEv3 doesn't currently support the following features that you may be using with your current ASE. If you require any of these features, don't migrate until they're supported. Expectations for support dates are given.
 
 - Sending SMTP traffic. You can still have email triggered alerts but your app can't send outbound traffic on port 25. (MONTH, YEAR)
 - Deploying your apps with FTP (MONTH, YEAR)
 - Using remote debug with your apps (MONTH, YEAR)
 - Monitoring your traffic with Network Watcher or NSG Flow (MONTH, YEAR)
 - Configuring an IP-based TLS/SSL binding with your apps (MONTH, YEAR)
-
-## Supported scenarios
-
-At this time, ASE migrations to v3 support the following scenarios:
-
-- ASEv2 (not [zone redundant](zone-redundancy.md))
-  - You can find the version of your ASE by navigating to your ASE in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your ASE.
-  - Both [ILB](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) configurations are supported
-- Existing ASEv2 must be in one of the following regions:
-  - region1
-  - region2
-  - region3
-<!-- - ASEv3 must be available in the region you're using. Review this [list](overview.md#regions) to confirm availability. -->
-
-### Preview limitations
 
 The following scenarios aren't supported in this version of the preview. Future updates to the migration functionality will add support for these areas. Expectations for support dates are given.
 
@@ -88,7 +85,7 @@ During full migration, the following events will occur:
 As in the IP generation step, you won't be able to scale or modify your ASE or deploy apps to it during this process. When migration is complete, the apps that were on the old ASE will be running on the new ASEv3.
 
 > [!NOTE]
-> Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and cores per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
+> Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
 >
 
 ## Pricing
@@ -100,7 +97,6 @@ There's no cost to migrate your ASE. You'll stop being charged for your previous
 The following scenarios aren't planned for support using the migration tool. If your environment falls into one of these categories, see [migration alternatives](migration-alternatives.md).
 
 - ASEv1 with classic VNet
-- ASE with customized large workers
 
 ## Frequently asked questions
 
