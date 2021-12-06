@@ -1467,7 +1467,7 @@ productDirectory:
     # Card
     - title: Azure Orbital
       summary: A Ground Station as a Service that simplifies ingesting space data into Azure
-      imageSrc: https://static.docs.com/ui/media/product/azure/orbital.svg
+      imageSrc: https://docs.microsoft.com/en-us/media/logos/logo-azureorbital.svg
       azureCategories:
         - featured
         - hybrid
