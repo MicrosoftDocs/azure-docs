@@ -213,6 +213,15 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
     * For making a connection from AWS to the **first public IP address** of your VPN Gateway (instance 0), **only the Primary Custom BGP Address** will be used.
     * For making a connection from AWS to the **second public IP address** of your VPN Gateway (instance 1), **only the Secondary Custom BGP Address** will be used.
     * Leave the other **Custom BGP Address** as default.
+
+    If you used the [default APIPA configuration](#apipa-config), you can use the addresses below.
+
+    | Tunnel                           | Primary Custom BGP Address     | Secondary Custom BGP Address  |
+    |----------------------------------|--------------------------------|-------------------------------|
+    | AWS Tunnel 1 to Azure Instance 0 | 169.254.21.2                   | Not used (select 169.254.21.6)|
+    | AWS Tunnel 2 to Azure Instance 0 | 169.254.22.2                   | Not used (select 169.254.21.6)|
+    | AWS Tunnel 1 to Azure Instance 1 | Not used (select 169.254.21.2) | 169.254.21.6                  |
+    | AWS Tunnel 2 to Azure Instance 1 | Not used (select 169.254.21.2) | 169.254.22.6                  |
 8. Leave the rest of the fields as their default values and select **Ok**.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-connection.png" alt-text="Modifying connection" border="false":::
@@ -225,5 +234,7 @@ Verify that you have a **Local Network Gateway** and **Connection** for **each o
 
 ## <a name ="part-4"></a> Part 4: Test your connections
 ### <a name ="create-customer-gateways"></a> Check your connections status on Azure
+1. Open the page for your **Virtual Network Gateway**, navigate to the **Connections** page.
+2. Verify that all 4 connections show as **Connected**.
 ### <a name ="create-customer-gateways"></a> Check your BGP Peers status on Azure
 ### <a name ="create-customer-gateways"></a> Check your connections status on AWS
