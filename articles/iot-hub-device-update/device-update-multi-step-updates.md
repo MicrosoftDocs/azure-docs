@@ -92,7 +92,7 @@ Example Update Manifest with two Inline Steps:
 }
 ```
 
-Example Update Manifest with ome Reference Step:
+Example Update Manifest with one Reference Step:
 
 - Parent Update
 
@@ -203,7 +203,7 @@ Currently, a `Child Update` must not contain any reference steps. This restricti
 
 ### Inline Step In Parent Update
 
-Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (aka. Update Content Handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
+Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (also known as Update Content Handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
 
 > [!NOTE]
 > See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
@@ -212,7 +212,7 @@ Inline step(s) specified in `Parent Update` will be applied to the Host Device. 
 
 Reference step(s) specified in `Parent Update` will be applied to the component on or components connected to the Host Device. A **Reference Step** is a step that contains update identifier of another Update, called as a `Child Update`.  When processing a Reference Step, the Steps Handler will download a Detached Update Manifest file specified in the Reference Step data, then validate the file integrity.
 
-Next, the Steps Handler will parse the Child Update Manifest and create ADUC_Workflow object (aka. Child Workflow Data) by combining the data from Child Update Manifest and File URLs information from the Parent Update Manifest.  This Child Workflow Data also has a 'level' property set to '1'.
+Next, the Steps Handler will parse the Child Update Manifest and create ADUC_Workflow object (also known as Child Workflow Data) by combining the data from Child Update Manifest and File URLs information from the Parent Update Manifest.  This Child Workflow Data also has a 'level' property set to '1'.
 
 > [!NOTE]
 > For Update Manfiest version v4, the Child Udpate cannot contain any Reference Steps.
