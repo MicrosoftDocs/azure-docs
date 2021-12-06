@@ -27,7 +27,7 @@ az extension add --name healthcareapis
 az provider register --namespace 'Microsoft.HealthcareApis'
 az provider show --namespace Microsoft.HealthcareApis --query "resourceTypes[?resourceType=='services'].locations"
 ```
-You can log in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. See more details on how to [change the default subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set) and how to log in to a specific tenant with [Azure login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+You can log in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. See more details on how to [change the default subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set&preserve-view=true) and how to log in to a specific tenant with [Azure login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 ```
 az login
@@ -53,7 +53,7 @@ clientid=$(az ad app create --display-name $appregname --query appId --output ts
 objectid=$(az ad app show --id $clientid --query objectId --output tsv)
 ```
 
-You can use "echo $<variable name>" to display the value of a specified variable.
+You can use `echo $<variable name>` to display the value of a specified variable.
 
 `echo $clientid`
 
