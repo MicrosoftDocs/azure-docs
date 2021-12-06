@@ -1,12 +1,8 @@
 ---
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 11/21/2021
-ms.author: memildin
 ---
 # What's new in Microsoft Defender for Cloud?
 

@@ -5,16 +5,13 @@ description: In this quickstart, you'll learn how to add sign-in with Microsoft 
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: portal
 ms.workload: identity
 ms.date: 11/22/2021
-ms.author: marsma 
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
----
-
+ms.author: marsma
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
 # Quickstart: Add sign-in with Microsoft to a Java web app
 
 In this quickstart, you download and run a code sample that demonstrates how a Java web application can sign in users and call the Microsoft Graph API. Users from any Azure Active Directory (Azure AD) organization can sign in to the application.
