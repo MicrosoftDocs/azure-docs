@@ -7,18 +7,31 @@ author: stevenmatthew
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 12/02/2021
 ms.author: shaas
 ms.subservice: blobs
+ms.custom: template-how-to
 ---
 
 # Work with blob containers using PowerShell
 
 <!--Intro TBD (keep it short, do this last)-->
 
-The Azure Storage platform offers a variety of cloud solutions, each designed to address a specific use-case. Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics. Objects stored in blob storage are saved as block blobs, which are optimized for fast and efficient transfer.
+The Azure Storage platform offers a variety of cloud solutions, each designed to address a specific use-case. Azure blob storage allows you to store large amounts of unstructured object data. Using this solution, you can gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics. Objects stored in blob storage are saved as block blobs, which are optimized for fast and efficient transfer. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
-This article explains how to work with blob containers using Azure PowerShell. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+You can leverage PowerShell conditional and iterative operations to automate workflows involving Azure storage objects. PowerShell operations occur through the use of context objects. Context objects are PowerShell objects which represent your active subscription and the authentication information with which you'll connect to it. Because context objects are utilized, Azure PowerShell doesn't need to reauthenticate your account each time you switch subscriptions. 
+
+This how-to article explains how to work with individual storage containers as well as collections of multiple objects.
+
+## Prerequisites
+
+- An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
+
+- A storage account that has hierarchical namespace (HNS) enabled. Follow the steps outlined in the [Create a storage account](../common/storage-account-create.md) article to create one.
+
+- Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <!--Goal: To provide simple but useful examples for users in one place. It's okay if the examples here are somewhat redundant with those in the PS reference and elsewhere in our docs (but shouldn't be exactly the same).
 
@@ -27,168 +40,219 @@ Point users to these resources for further info somewhere:
 - PS reference available at [Az.Storage Module](https://docs.microsoft.com/powershell/module/az.storage) / Relative link for doc: [Az.Storage Module](/powershell/module/az.storage)
 - PS Gallery: https://www.powershellgallery.com/packages/Az.Storage
 
-For now, let's avoid using the commands that start with -AzRm. These commands are using the Azure resource manager implementation for storage and are an alternate way to work with containers. We may go back and add them in.-->
-
-Login? Use `Create-AzConnection`.
+Avoid using the Azure resource manager implementation for storage; they're an alternate way to work with containers. We may go back and add them in.-->
 
 ## Create a container
 
-A storage account is the parent container for blob containers. Although billing, configuration, and replication properties are set at the storage account level, all blob data resides within a storage container. Before you can upload a blob, you must first create a container. 
+Before you can upload a blob, you must first create a container. Azure blob containers are themselves contained within an Azure storage account. Although billing, configuration, and replication properties are set at the storage account level, all blob data resides within containers. There is no limit to the number of blobs or containers that can be created within a storage account, but containers cannot be nested.
 
-There is no limit to the number of blobs or containers that can be created within a storage account, though containers cannot be nested.
+To create containers with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet. 
 
-To create a container with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet. 
+The following simplified example illustrates three options for the creation of blob containers with the `New-AzStorageContainer` cmdlet. The first approach creates a single container, while the remaining two approaches automate container creation by leveraging PowerShell operations.
 
-The following is a simplified example used to create a blob container. To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. 
+To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. 
 
  ```azurepowershell
 # Create variables
-$accountName    = "<storage-account>"
-$containerName  = "<new-container-name>"
+ $accountName    = "<storage-account>"
+ $containerName  = "<new-container-name>"
+ $prefixName     = "<new-prefix-name>"
 
 # Create a context object using Azure AD credentials
-$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+ $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
-# Create a new container
-New-AzStorageContainer -Name $containerName -Context $ctx
+# Approach 1: Create a container
+ New-AzStorageContainer -Name $containerName -Context $ctx
+
+# Approach 2: Create containers with a PowerShell loop
+ for ($i = 1; $i -le 3; $i++) { 
+     New-AzStorageContainer -Name (-join($containerName, $i)) -Context $ctx
+    } 
+
+# Approach 3: Create containers using the PowerShell Split method
+ "$($containername)4 $($containername)5 $($containername)6".split() | New-AzStorageContainer -Context $ctx
 ```
 
-The response provides the URI of the blob endpoint and confirms the creation of the new container.
+The result provides the URI of the blob endpoint and confirms the creation of the new container.
 
-```Response
+```Result
 Blob End Point: https://demostorageaccount.blob.core.windows.net/
 
 Name                   PublicAccess   LastModified
 ----                   ------------   ------------
-powershellcontainer    Off            11/2/2021 3:58:23 AM +00:00
-```
-
-You can also automate container creation by leveraging conditional operations with PowerShell as shown in the examples below. To use these examples, supply values for the variables and ensure that you've created a connection to your Azure subscription.
-
-```azurepowershell
-# Create variables
-$accountName = "<storage-account>"
-$containerName = "<new-container-prefix>"
-
-# Create a context object using Azure AD credentials
-$ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
-
-# Iterate through a loop and create containers
-for ($i = 1; $i -le 3; $i++) { 
-    New-AzStorageContainer -Name (-join($containerName, $i)) -Context $ctx
-    } 
-
-# Split a string into substrings and create containers
-"$($containername)4 $($containername)5 $($containername)6".split() | New-AzStorageContainer -Context $ctx
-```
-
-The response provides the URI of the blob endpoint and confirms the creation of the new containers.
-
-```Response
-Blob End Point: https://demostorageaccount.blob.core.windows.net/
-
-Name             PublicAccess   LastModified
-----             ------------   ------------
-democontainer1   Off            11/2/2021 4:09:05 AM +00:00
-democontainer2   Off            11/2/2021 4:09:05 AM +00:00           
-democontainer3   Off            11/2/2021 4:09:05 AM +00:00           
-democontainer4   Off            11/2/2021 4:09:05 AM +00:00           
-democontainer5   Off            11/2/2021 4:09:05 AM +00:00          
-democontainer6   Off            11/2/2021 4:09:05 AM +00:00
+democontainer          Off            11/2/2021 4:09:05 AM +00:00
+powershellcontainer1   Off            11/2/2021 4:09:05 AM +00:00
+powershellcontainer2   Off            11/2/2021 4:09:05 AM +00:00
+powershellcontainer3   Off            11/2/2021 4:09:05 AM +00:00           
+powershellcontainer4   Off            11/2/2021 4:09:05 AM +00:00           
+powershellcontainer5   Off            11/2/2021 4:09:05 AM +00:00           
+powershellcontainer6   Off            11/2/2021 4:09:05 AM +00:00          
 ```
 
 ## List containers
 
-Use Get-AzStorageContainer
+You can use the `Get-AzStorageContainer` cmdlet to retrieve a single container or a collection of containers. Use the `-Name` switch to retrieve a single container, or use the `-Prefix` switch or return a collection of containers. 
 
-The response provides the URI of the blob endpoint and confirms the creation of the new containers.
+In some cases it is possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` switch will return containers deleted within the associated retention period. The `-IncludeDeleted` switch can only be used in conjunction with the`-Prefix` switch when returning a container collection. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
-```Response
-Blob End Point: https://shaasstorageaccount.blob.core.windows.net/
-
-Name                       PublicAccess   LastModified
-----                       ------------   ------------
-powershellcontainernum1    Container      11/2/2021 4:15:36 AM +00:00
-powershellcontainernum2    Container      11/2/2021 4:15:36 AM +00:00
-powershellcontainernum3    Container      11/2/2021 4:15:36 AM +00:00
-```
-
-
-The following example lists all blob storage containers and their associated blobs. Blobs stored in containers configured for anonymous access can be read, but access requests for secured containers must be authorized. You can read more about this topic in the [Authorize access to blobs](authorize-access-azure-active-directory.md) article.
-
-In this example, you will assign yourself the Azure role-based access control (Azure RBAC) built-in `Storage Blob Data Reader` role to obtain access to the blob containers.
-
-To assign yourself this role, you need to define three elements: your security principal, the role definition, and the access scope.
-
-### Step 1: obtain your user object ID
-
-To assign yourself a role, you'll need to get your user principal name (UPN), such as *user\@contoso.com* or the user object ID. The ID has the format: `nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn`. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+The following example retrieves both an individual container and a collection of container resources. 
 
 ```azurepowershell
-(Get-AzADUser -DisplayName '<Display Name>').Id
+# Create variables
+ $accountName    = "<storage-account>"
+ $containerName  = "<container-name>"
+ $prefixName     = "<prefix-name>"
+
+# Create a context object using Azure AD credentials
+ $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+
+# Approach 1: Retrieve an individual container
+ Get-AzStorageContainer -Name $containerName -Context $ctx
+ Write-Host
+
+# Approach 2: Retrieve a collection of containers
+ Get-AzStorageContainer -Prefix $prefixName -Context $ctx
+ Write-Host
+
+# Approach 3: Retrieve a collection of containers including those recently deleted
+ Get-AzStorageContainer -Prefix $prefixName -Context $ctx -IncludeDeleted
 ```
 
+The result provides the URI of the blob endpoint and lists the containers retrieved by name and prefix.
 
+```Result
+   Storage Account Name: shaasstorageaccount
 
-### Step 2: Select the appropriate role
+Name                 PublicAccess         LastModified                   IsDeleted  VersionId        
+----                 ------------         ------------                   ---------  ---------        
+democontainer                             12/2/2021 5:52:08 PM +00:00                                
 
-Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](../../role-based-access-control/built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
+samplecontainer1                          12/2/2021 12:22:00 AM +00:00                               
+samplecontainer2                          12/2/2021 12:22:00 AM +00:00                               
 
-To list roles and get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
-
-```azurepowershell
-Get-AzRoleDefinition | FT Name, IsCustom, Id
+samplecontainer1                          12/2/2021 12:22:00 AM +00:00                               
+samplecontainer2                          12/2/2021 12:22:00 AM +00:00
+samplecontainer3                          12/2/2021 12:22:00 AM +00:00   True       01D7E7129FDBD7D4
+samplecontainer4                          12/2/2021 12:22:00 AM +00:00   True       01D7E8A5EF01C787 
 ```
 
-Here's how to list the details of a particular role.
-
-```azurepowershell
-Get-AzRoleDefinition <roleName>
-```
-
-For more information, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.md#azure-powershell).
-
-### Step 3: Identify the needed scope
-
-Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope. For more information about scope, see [Understand scope](scope-overview.md).
-
-For resource scope, you need the resource ID for the resource. You can find the resource ID by looking at the properties of the resource in the Azure portal. A resource ID has the following format.
-
-```
-/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
-```
-
-### Step 4: Assign role
-
-To assign a role, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. Depending on the scope, the command typically has one of the following formats.
-
-```azurepowershell
-New-AzRoleAssignment -ObjectId <objectId> `
--RoleDefinitionName <roleName> `
--Scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
-```
-
-
-
-
-**include soft-deleted containers (with -IncludeDeleted)**
+<!--**include soft-deleted containers (with -IncludeDeleted)**
 
 This example lists all containers of a storage account, include deleted containers. Then show the deleted container properties, include : DeletedOn, RemainingRetentionDays. Deleted containers will only exist after enabled Container softdelete with Enable-AzStorageBlobDeleteRetentionPolicy.
 
+*****NOTE: If we're looking at including the developer guide, does it not make sense to include more in-depth info in the Storage Account article?-->
 
+## Read container properties and metadata
 
-we can skip the continuation token example for now
+In addition to the blob data stored within a container, the container itself exposes both system properties and user-defined metadata. 
 
-## Read container properties
+System properties exist on each Blob storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers. The Azure Storage client library for .NET maintains these properties for you.
 
-Use Get-AzStorageContainer to get a container object, then read a few of its properties
+User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-## Read and write container metadata
+### Container properties
 
-Set-AzStorageContainer, write to metadata array
-Get-AzStorageContainer, read from metadata array
+The following example retrieves all containers with the **demo** prefix and iterates through them, listing their properties. 
 
-i haven't done this, may require getting .NET BlobClient object in PS?
+```azurepowershell
+# Create variables
+ $accountName    = "<storage-account>"
+ $prefix         = "<prefix-name>"
+
+# Create a context object using Azure AD credentials
+ $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+
+# Get containers
+ $containers = Get-AzStorageContainer -Prefix $prefix -Context $ctx
+
+# Iterate containers, display properties
+ Foreach ($container in $containers) 
+ {
+     Write-Host $container.Name "properties:"
+    $container.CloudBlobContainer.Properties
+ }
+```
+
+The results display all containers with the prefix **demo** and lists their properties.
+
+```Results
+democontainer1 properties:
+ETag                   : "0x8D9B529C241D131"
+HasImmutabilityPolicy  : False
+HasLegalHold           : False
+LastModified           : 12/2/2021 12:22:00 AM +00:00
+LeaseStatus            : Unlocked
+LeaseState             : Available
+LeaseDuration          : Unspecified
+PublicAccess           : Off
+EncryptionScopeOptions : Microsoft.Azure.Storage.Blob.BlobContainerEncryptionScopeOptions
+
+democontainer2 properties:
+ETag                   : "0x8D9B529C24C2FEA"
+HasImmutabilityPolicy  : False
+HasLegalHold           : False
+LastModified           : 12/2/2021 12:22:00 AM +00:00
+LeaseStatus            : Unlocked
+LeaseState             : Available
+LeaseDuration          : Unspecified
+PublicAccess           : Off
+EncryptionScopeOptions : Microsoft.Azure.Storage.Blob.BlobContainerEncryptionScopeOptions
+
+democontainer3 properties:
+ETag                   : "0x8D9B529C251FB7C"
+HasImmutabilityPolicy  : False
+HasLegalHold           : False
+LastModified           : 12/2/2021 12:22:00 AM +00:00
+LeaseStatus            : Unlocked
+LeaseState             : Available
+LeaseDuration          : Unspecified
+PublicAccess           : Off
+EncryptionScopeOptions : Microsoft.Azure.Storage.Blob.BlobContainerEncryptionScopeOptions
+```
+
+### Read and write container metadata
+
+Containers support the use of metadata, which allows a greater degree of flexibility when performing operations on containers and their contents. Metadata consists of a series of key-value pairs that can be used to describe or categorize your data. Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata. 
+
+The examples below update and subsequently retrieve a container's metadata. Note that the example flushes the example container from memory and retrieves it again to ensure that the new metadata is not being read from memory.
+
+```azurepowershell
+# Create variables
+ $accountName   = "<storage-account>"
+ $containerName = "<container-name>"
+
+# Create a context object using Azure AD credentials, retrieve container
+ $ctx       = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+ $container = Get-AzStorageContainer -Name $containerName -Context $ctx
+
+# Add metadata key-value pairs
+ $container.CloudBlobContainer.Metadata.Add("CustomerName","Anthony Bennedetto")
+ $container.CloudBlobContainer.Metadata.Add("CustomerDOB","08/03/1926")
+ $container.CloudBlobContainer.Metadata.Add("CustomerBirthplace","Long Island City")
+
+# Update metadata
+  $container.CloudBlobContainer.SetMetadata()
+
+# Flush container from memory
+ $container = ""
+
+# Fetch the newly-updated container, read metadata
+ $container = Get-AzStorageContainer -Name $containerName -Context $ctx
+
+ Foreach($pair in $container.Cloud) {
+     $pair
+ }
+
+# Or
+
+$container.BlobContainerProperties.Metadata
+
+#Or 
+
+$container.CloudBlobContainer.Metadata
+```
+
+The results display the complete metadata for a container.
 
 ## Get a shared access signature for a container
 
@@ -198,7 +262,40 @@ Create a service SAS for a container with start time, expiry time, permissions, 
 
 ## Delete a container
 
-Remove-AzStorageContainer
+As previously shown in the [List containers](#list-containers) section, you can choose to perform operations on either a single or multiple storage containers, depending on your use case. The examples below explain how to delete both a single container as well as a collection of multiple containers.
+
+The following is a simplified example used to delete a single container. To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. 
+
+```azurepowershell
+# Create variables
+ $accountName    = "<storage-account>"
+ $containerName  = "democontainer"
+
+# Create a context object using Azure AD credentials
+ $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+
+# Delete the named container
+ Remove-AzStorageContainer -Name $containerName -Context $ctx
+```
+
+You can also automate container deletion by leveraging conditional operations with PowerShell as shown in the examples below. To use these examples, supply values for the variables and ensure that you've created a connection to your Azure subscription.
+
+```azurepowershell
+# Create variables
+ $accountName     = "<storage-account>"
+ $containerPrefix = "democontainer"
+
+# Create a context object using Azure AD credentials
+ $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+
+# Iterate through a loop and delete containers
+ for ($i = 1; $i -le 3; $i++) { 
+     Remove-AzStorageContainer -Name (-join($containerPrefix, $i)) -Context $ctx
+    } 
+
+# Split a string into substrings and delete containers
+ "$($containerPrefix)4 $($containerPrefix)5 $($containerPrefix)6".split() | Remove-AzStorageContainer -Context $ctx
+```
 
 ## Restore a soft-deleted container
 
