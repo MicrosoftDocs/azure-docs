@@ -66,7 +66,7 @@ You must have both an Azure account and AWS account with an active subscription.
 Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](./tutorial-create-gateway-portal.md#CreatVNet).
 
 * **VNet Name**: VNet1
-* **Address space**: 10.1.0.0/16 - For this example, we use only one address space. You can have more than one address space for your VNet.
+* **Address space**: 10.1.0.0/16]
 * **Subnet name**: FrontEnd
 * **Subnet address range**: 10.1.0.0/24
 * **Subscription**: If you have more than one subscription, verify that you are using the correct one.
@@ -94,7 +94,7 @@ Create a VPN gateway using the following values:
 * **Second Custom Azure APIPA BGP IP address**: 169.254.21.6, 169.254.22.6
 
 1. In the Azure portal, navigate to the **Virtual Network Gateway** resource from the Marketplace, and select **Create**.
-2. Fill in the parameters as shown below:
+2. Fill in the parameters as shown below.
     
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-gw-config.png" alt-text="Parameters for creating gateway" border="false":::
 3.	Enable active-active mode
@@ -116,7 +116,7 @@ In this step, you will connect to your Azure VPN Gateway from AWS. For updated i
 
 ### <a name ="create-vpc"></a> Create a VPC
 
-1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/)
+1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/).
 2.	In the navigation pane, click **VPC Dashboard**, then **Launch VPC Wizard**.
 3.	Select the second option, **VPC with a Single Public Subnet**, and then click **Select**.
 4.	Enter values for **CIDR block** and select **Create VPC**. Make sure that your CIDR block does not overlap with the Virtual Network you created in Azure.
@@ -124,7 +124,7 @@ In this step, you will connect to your Azure VPN Gateway from AWS. For updated i
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-vpc.png" alt-text="Create a VPC" border="false":::
 
 ### <a name ="create-vpg"></a> Create a Virtual Private Gateway
-1.	In the navigation pane, click **Virtual Private Gateways**, **Create Virtual Private Gateway**
+1.	In the navigation pane, click **Virtual Private Gateways**, **Create Virtual Private Gateway**.
 2.	Enter a name for your virtual private gateway.
 3.	For **ASN**, leave the default selection to use the **Amazon default ASN**. If you choose to have a Custom ASN, it must be different than the ASN you used on Azure.
 4.	Select **Create Virtual Private Gateway**.
@@ -137,6 +137,8 @@ In this step, you will connect to your Azure VPN Gateway from AWS. For updated i
 1. In the navigation pane, choose **Route Tables**, and then select the route table for the VPC you created.
 2. Choose **Actions** then **Edit route propagation**.
 3. Select the **Enable** check box next to the virtual private gateway, and then choose **Save**.
+
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/route-prop.png" alt-text="Enable route propagation" border="false":::
 
 ### <a name ="create-customer-gateways"></a> Create Customer Gateways
 You will be creating **two Customer Gateways**, one for each of the IP addresses of your Azure VPN Gateway. 
