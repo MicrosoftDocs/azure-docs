@@ -101,7 +101,7 @@ $exportStatus
 ## Cancel the export request
 
 Use the [Database Operations - Cancel API](/rest/api/sql/databaseoperations/cancel)
-or the PowerShell [Stop-AzSqlDatabaseActivity command](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity), here an example of PowerShell command.
+or the PowerShell [Stop-AzSqlDatabaseActivity command](/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) to cancel an export request. Here is an example PowerShell command:
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId
