@@ -16,7 +16,7 @@ These article contains the following topics:
 - [use integer index](#use-integer-index)
 - [use array elements](#use-array-elements)
 - [use array and index](#use-array-and-index)
-- [use object](#use-object)
+- [use object](#use-dictionary-object)
 - [loop with condition](#loop-with-condition)
 
 ## Prerequisites
@@ -27,7 +27,10 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 ## Create a single instance
 
-In this section, you learn how to define a Bicep file for creating a storage account, and how to deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntax. You can use the same deployment method to deploy and experiment those samples.
+In this section, you learn how to define a Bicep file for creating a storage account, and how to deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntax. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it is likely one of the two causes:
+
+- The storage account name is too long. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+- The storage account name is not unique. Your storage account name must be unique within Azure
 
 The following Bicep file defines one storage account:
 
@@ -48,7 +51,7 @@ az deployment group create --resource-group $resourceGroupName --template-file $
 
 # [PowerShell](#tab/PowerShell)
 
-resourceGroupName = "{provide-a-resource-group-name}"
+$resourceGroupName = "{provide-a-resource-group-name}"
 $templateFile = "{provide-the-path-to-the-bicep-file}"
 
 ```azurepowershell
@@ -61,7 +64,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFil
 
 ## Use integer index
 
-A for loop with an index is used in the next sample to create two storage account:
+A for loop with an index is used in the following sample to create two storage accounts:
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopNumbered.bicep" highlight="2,4-5":::
 
@@ -97,7 +100,7 @@ You can loop through an array. The following sample shows an array of strings.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayString.bicep" highlight="2-5,7-8":::
 
-The loop uses all the strings in the array as a part of the storage account names. In this case, it create two storage accounts:
+The loop uses all the strings in the array as a part of the storage account names. In this case, it creates two storage accounts:
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use an array of strings":::
 
@@ -105,25 +108,57 @@ You can also loop through an array of objects. The loop not only customizes the 
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayObject.bicep" highlight="2-11,13-14,17":::
 
-:::image type="content" source="./media/quickstart-loops/bicep-loop-array-object.png" alt-text="Use an array of objects":::
+The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
+
+:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use an array of strings":::
 
 ## Use array and index
 
 In same cases, you might want to combine an array loop with an index loop. The following sample shows how to use the array and the index number for the naming convention.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="4-5":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="2-5,7-8":::
+
+:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string-number.png" alt-text="Use an array of strings and index number":::
 
 ## Use dictionary object
 
-To iterate over elements in a dictionary object, use the items function, which converts the object to an array. Use the value property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the value property to get properties on the objects.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="13-14,17":::
+
+The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
+
+:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use a dictionary object":::
 
 ## Loop with condition
 
 For resources and modules, you can add an if expression with the loop syntax to conditionally deploy the collection.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopWithCondition.bicep" highlight="3,5":::
+
+For more information, see [conditional deployment in Bicep](./conditional-resource-deployment.md).
+
+## Clean up resources
+
+When the Azure resources are no longer needed, use the Azure CLI or Azure PowerShell module to delete the quickstart resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+resourceGroupName = "{provide-a-resource-group-name}"
+
+az group delete --name $resourceGroupName
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+$resourceGroupName = "{provide-a-resource-group-name}"
+
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+---
 
 ## Next steps
 
