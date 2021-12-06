@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Prerequisites
 
-**Azure container registry**: You need a premium SKU Azure container registry. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started].
+**Azure container registry**: You need a premium SKU Azure container registry with at least one image. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started]. Be sure to take note of the registry's `Id` and `loginServer`
 
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
@@ -22,11 +22,11 @@ ms.custom: mvc, devx-track-azurecli
 > [!IMPORTANT]
 > Managed identity-authenticated container image pulls from ACR are not supported in Canada Central, South India, and West Central US at this time.  
 
-* Virtual Network injected container groups do not support a managed identity authentication image pulls with ACR.
+* Virtual Network injected container groups do not support managed identity authentication image pulls with ACR.
 
 * Windows Sever 2016 container groups do not support managed identity authentication image pulls with ACR.
 
-* Container groups cannot use managed identity to authenticate image pulls from Azure container registry's that use [private DNS zones][private-dns-zones].
+* Container groups cannot use managed identity to authenticate image pulls from Azure container registries that use [private DNS zones][private-dns-zones].
 
 ## Configure registry authentication
 
@@ -57,10 +57,30 @@ You will need the identity's resource ID to sign in to the CLI from your virtual
 echo $userID
 ```
 
-The ID is of the form:
+The resource ID is of the form:
 
 ```bash
 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
+```
+
+You will also need the service principal ID to grant the managed identity access to your container registry. To show the value:
+
+```bash
+echo $spID
+```
+
+The service principal ID is of the form:
+
+```bash
+xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx
+```
+
+## Grant the identity a role assignment
+
+In order for your identity to access your container registry, you must grant it a role assignment. Use to following command to grant the `acrpull` roll to the identity you've just created:
+
+```azurecli-interactive
+az role assignment create --assignee $spID --scope $registryID --role acrpull
 ```
 
 ## Deploy the container group
@@ -75,11 +95,14 @@ code azuredeploy.json
 
 You can specify the properties of your Azure container registry in an ARM template by including the `imageRegistryCredentials` property in the container group definition. For example, you can specify the registry credentials directly:
 
+> [!NOTE]
+> This is not a comprehensive ARM template, but rather an example of what the `resources` section of a complete template would look like.
+
 ```JSON
 {
     "type": "Microsoft.ContainerInstance/containerGroups",
     "apiVersion": "2021-09-01",
-    "name": "myacr",
+    "name": "myContainerGroup",
     "location": "norwayeast",
     "identity": {
       "type": "UserAssigned",
@@ -138,7 +161,11 @@ az deployment group create --resource-group myResourceGroup --template-file azur
 
 ### Deploy using the Azure CLI
 
+To deploy a container group using managed identity to authenticate image pulls via the Azure CLI, use the following command, making sure that your `<dns-label>` is globally unique:
 
+```azurecli-interactive
+az container create --name my-containergroup --resource-group myResourceGroup --image <loginServer>/hello-world:v1 --acr-identity $userID --assign-identity $userID --ports 80 --dns-name-label <dns-label>
+```
 
 ## Clean up resources
 
@@ -152,8 +179,7 @@ az group delete --name myResourceGroup
 
 * [Learn how to deploy to Azure Container Instances from Azure Container Registry using a service principal][use-service-principal]
 
-<!-- LINKS -->
-<!-- Internal -->
+<!-- Links Internal -->
 
 [use-service-principal]: ./container-instances-using-azure-container-registry.md
 [az-identity-show]: /cli/azure/identity#az_identity_show
@@ -163,5 +189,5 @@ az group delete --name myResourceGroup
 [private-dns-zones]: ../dns/private-dns-privatednszone.md
 [allow-access-trusted-services]: ../container-registry/allow-access-trusted-services.md
 
-<!-- External -->
+<!-- Links External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
