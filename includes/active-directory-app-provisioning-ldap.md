@@ -368,8 +368,8 @@ This file is used to automate and create an instance of AD LDS.
  [ADAMInstall]
  InstallType=Unique
  InstanceName=AD-APP-LDAP
- LocalLDAPPortToListenOn=51300
- LocalSSLPortToListenOn=51301
+ LocalLDAPPortToListenOn=389
+ LocalSSLPortToListenOn=636
  NewApplicationPartitionToCreate=CN=App,DC=contoso,DC=lab
  DataFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
  LogFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
