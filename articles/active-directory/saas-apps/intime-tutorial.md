@@ -33,6 +33,9 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * InTime supports **SP** initiated SSO.
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 ## Adding InTime from the gallery
 
 To configure the integration of InTime into Azure AD, you need to add InTime from the gallery to your list of managed SaaS apps.
@@ -69,11 +72,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. In the **Sign on URL** text box, type a URL:
+	In the **Sign on URL** text box, type a URL:
     `https://intime6.intimesoft.com/mytime/login/login.xhtml`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL:
-    `https://auth.intimesoft.com/auth/realms/master`
 
 5. Your InTime application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. InTime application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping. Ensure **Name identifier format** is set to **Default** in the Choose name identifier format.
 
