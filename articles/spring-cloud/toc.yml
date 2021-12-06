@@ -150,7 +150,7 @@
           href: how-to-write-log-to-custom-persistent-storage.md
         - name: Elastic APM Java Agent
           href: how-to-elastic-apm-java-agent-monitor.md
-        - name: Analyze logs with ELK using diagnostic settings
+        - name: Analyze logs with ELK
           href: how-to-elastic-diagnostic-settings.md
     - name: Network
       items:
