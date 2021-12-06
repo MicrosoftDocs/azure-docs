@@ -153,3 +153,8 @@ The following are known issues in the Communication Services Call Automation API
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
 
+## Group call limiations for JS web Calling SDK users		
+
+Up to 100 users can join a group call using the JS web calling SDK. 
+
+
