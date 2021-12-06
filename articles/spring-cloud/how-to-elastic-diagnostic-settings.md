@@ -42,7 +42,7 @@ Use the following steps to analyze the logs:
 
 1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png" alt-text="Elastic / Kibana screenshot showing search results" lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png" alt-text="Elastic / Kibana screenshot showing 'Spring Cloud type:dashboard' search results" lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png":::
 
 1. Select **[Logs Azure] Azure Spring Cloud logs Overview** from the results.
 
@@ -60,7 +60,7 @@ Application logs provide critical information and verbose logs about your applic
 
 1. In Kibana, in the **Search** bar at top, type *Discover*, then select the result.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png" alt-text="Elastic / Kibana screenshot showing search results" lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png" alt-text="Elastic / Kibana screenshot showing 'Discover' search results" lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png":::
 
 1. In the **Discover** app, select the **logs-** index pattern if it's not already selected.
 
