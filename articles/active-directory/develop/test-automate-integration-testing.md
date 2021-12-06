@@ -1,7 +1,7 @@
 ---
 title: Run automated integration tests 
 titleSuffix: Microsoft identity platform
-description: Learn how to run automated integration tests as a user against APIs protected by the Microsoft identity platform.
+description: Learn how to run automated integration tests as a user against APIs protected by the Microsoft identity platform. Use the Resource Owner Password Credential Grant (ROPC) auth flow to sign in as a user instead of automating the interactive sign-in prompt UI.
 services: active-directory
 author: arcrowe
 manager: dastrock
@@ -69,7 +69,7 @@ From your app registration in the [Azure portal](https://portal.azure.com), go t
 If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Azure portal](https://portal.azure.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button.
 
 #### App and app registration are in different tenants, or you're not an admin
-If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you can still pre-consent to some permissions.  
+If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you cannot consent to the permissions from the [Azure portal](https://portal.azure.com).  You can still consent to some permissions, however, by triggering a sign-in prompt in a web browser.
 
 In your app registration in the [Azure portal](https://portal.azure.com), go to **Authentication** > **Platform configurations** > **Add a platform** > **Web**.  Add the redirect URI "https://localhost" and select **Configure**.
 
@@ -207,7 +207,7 @@ public Task DisposeAsync() => Task.CompletedTask;
 
 ### Use in your test classes
 
-The following is an example test that calls Microsoft Graph.  Replace this test with whatever you'd like to test on your own application or API.
+The following example is a test that calls Microsoft Graph.  Replace this test with whatever you'd like to test on your own application or API.
 
 ```csharp
 public class ApiTests : IClassFixture<ClientFixture>
