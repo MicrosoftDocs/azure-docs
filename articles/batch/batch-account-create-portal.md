@@ -68,7 +68,7 @@ If you choose to create a Batch account in user subscription mode, perform the f
 > The user creating the Batch account in user subscription mode needs to have Contributor or Owner role assignment for the subscription in which the Batch account will be created.
 
 >[!IMPORTANT]
-> In user subscription mode, some legal terms of the image need to be accepted before using the subscription. If you haven’t done this before, you may encounter the error of **Allocation failed due to marketplace purchase eligibilty** when trying to allocate Batch nodes. For more details, please navigate to the [Accept legal terms](#accept-legal-terms) section.
+> In user subscription mode, you have to accept the legal terms for the image before using the subscription. If you haven’t done this action before, you might get the error **Allocation failed due to marketplace purchase eligibility** when trying to allocate Batch nodes. For more information, see [Accept legal terms](#accept-legal-terms).
 
 ### Allow Azure Batch to access the subscription (one-time operation)
 
