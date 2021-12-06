@@ -1,5 +1,5 @@
 ---
-title: Using Microsoft Defender for Endpoint license via Microsoft Defender for Cloud for native, on-premises, and AWS defenses.
+title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
 description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multi-cloud machines.
 ms.topic: how-to
 ms.date: 12/06/2021
