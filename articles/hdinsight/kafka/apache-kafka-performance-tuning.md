@@ -99,35 +99,6 @@ Like producers, we can add batching for consumers. The amount of data consumers 
 
 ## Linux OS tuning with heavy workload
 
-### File Descriptors
-
-Each partition maps to a log directory in the file system. Each partition in log directory contains segment files and their corresponding index files. Each of these files is opened by brokers. So, more the number of partitions, higher will be the number of file descriptors. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling period** and generally tends to be more than one. `Number of open files = 2*((partition size)/*(segment size))*partitions`
-
-If number of file descriptors exceeds the limit of open file limit on vm, Broker would raise an error **"Too many open files"**. 
-
-To avoid this error, follow below steps
-
-1. use the below commands to check and increase the open files limit on each worker node.
-
-```
-# check the file descriptor limit setting for Apache Kafka process
-cat  /proc/[kafka_pid]/limits
-
-# check open file discriptors for a kafka process
-losf -p [kafka_pid]
-
-# increase the ulimit on each worker node
-echo "kafka hard nofile <new number>" | sudo tee --append /etc/security/limits.conf
-echo "kafka soft nofile <new number>" | sudo tee --append /etc/security/limits.conf
-```
-2. Increase `kafka_user_nofile_limit` to new number through **Ambari** > **Kafka** > **Configs** > **Advanced kafka-env** > **kafka_user_nofile_limit**
-3. Do rolling restart of brokers
-
-> [!NOTE]
-> Make sure to set the limit a bit higher than the above value since you will need open files for other operations of Apache Kafka and VM apart from partitions.
-
-
-
 ### Memory Maps
 
 `vm.max_map_count` defines maximum number of mmap a process can have. By default, on HDInsight Apache Kafka cluster linux VM, the value is 65535. 
