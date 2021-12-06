@@ -808,15 +808,15 @@
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
-          href: ../sql-database/scripts/sql-database-auditing-and-threat-detection-cli.md
+          href: ../sql-database/scripts/auditing-and-threat-detection-cli.md
       - name: Back up, restore, copy, and import a database
         items:
         - name: Back up a database
-          href: database/scripts/sql-database-backup-database-cli.md
+          href: database/scripts/backup-database-cli.md
         - name: Restore a database
           href: ../sql-database/scripts/sql-database-restore-database-cli.md
         - name: Copy a database to a new server
-          href: ../sql-database/scripts/sql-database-copy-database-to-new-server-cli.md
+          href: database/scripts/copy-database-to-new-server-cli.md
         - name: Import a database from a BACPAC file
           href: ../sql-database/scripts/sql-database-import-from-bacpac-cli.md
     - name: Azure PowerShell

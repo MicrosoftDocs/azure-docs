@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 03/12/2019
+ms.date: 12/06/2021
 ---
 # Use CLI to copy a database in Azure SQL Database to a new server
 
@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Sign in to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 $subscription = "<subscriptionId>" # add subscription here
@@ -32,7 +32,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.sh "Copy database to new server")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.sh "Copy database to new server")]
 
 ### Clean up deployment
 
