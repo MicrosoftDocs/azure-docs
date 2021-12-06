@@ -6,8 +6,8 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/02/2021
-ms.custom: ignite-fall-2021
+ms.date: 12/06/2021
+ms.custom:
 ---
 
 # Dataset provisioning by data owner for Azure Storage (preview)
@@ -182,6 +182,9 @@ The steps to publish a policy are as follows
 
 >[!NOTE]
 > Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
+## Limits
+- The limit for Purview policies that can be enforced by Storage accounts is 100MB for a subscription
 
 ## Policy action mapping
 
