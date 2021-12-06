@@ -96,7 +96,7 @@ echo $clientsecret
 
 ## Change the flag for public client applications
 
-For public client applications, change the "Allow public client flows" flag to "Yes". For confidential client applications, skip this step.
+For public client applications, change the **Allow public client flows** flag to **Yes**. For confidential client applications, skip this step.
 
 [![Allow public client flows](media/app-registration-public-client.png)](media/app-registration-public-client.png#lightbox)
 
@@ -137,7 +137,7 @@ spid=$(az ad sp show --id $clientid --query objectId --output tsv)
 
 ## Review the manifest
 
-This step is optional. You can view and download the client application detail (or manifest).
+Reviewing the manifest step is optional. You can view and download the client application detail, or the manifest.
 
 `
 az ad app list --app-id $clientid
