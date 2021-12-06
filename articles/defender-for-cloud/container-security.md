@@ -18,16 +18,12 @@ You'll learn how Defender for Cloud helps with the core aspects of container sec
 
 ## Availability
 
-[MERGE REGISTRIES rows together and also the K8s distros rows]
-
 |Aspect|Details|
 |----|:----|
 |Release state:|General availability (GA)|
 |Pricing:|**Microsoft Defender for Containers** is free for the month of December 2021. After that, it will be billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/) (which will be updated on 20th December 2021) |
-|Supported registries and images:| • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)|
-|Unsupported registries and images:| • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
-|Supported Kubernetes distributions | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters |
-|Tested Kubernetes distributions for Azure Arc protections | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
+|Registries and images:|**Supported**<br> • Linux images in Azure Container Registry (ACR) registries accessible from the public internet with shell access<br> • Private registries with access granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services)<br> • [ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)<br><br>**Unsupported**<br> • Windows images<br> • Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images<br> • "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br> • Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
+|Kubernetes distributions |**Supported**<br> • Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters<br><br>**Tested (for Azure Arc protections)**<br> • [Azure Kubernetes Service](../aks/intro-kubernetes.md)<br> • [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br> • [Kubernetes](https://kubernetes.io/docs/home/)<br> • [AKS Engine](https://github.com/Azure/aks-engine)<br> • [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> • [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> • [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> • [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/)  |
 |Required roles and permissions:| • To auto provision the required components, [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Log Analytics Contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), or [Azure Kubernetes Service Contributor Role](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)<br> • **Security admin** can dismiss alerts<br> • **Security reader** can view vulnerability assessment findings<br> See also [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts (Preview)|
 |||
@@ -45,27 +41,51 @@ Defender for Cloud helps with the core aspects of container security:
 
 ## Architecture overview
 
-This is a high-level diagram of the interaction between Microsoft Defender for Cloud, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy:
+The architecture of the various elements involved in the full range of protections provided by Defender for Containers varies depending on whether the Kubernetes cluster being defended is managed by Microsoft (on AKS), Amazon (on EKS), or self-managed (in IaaS or on-premises).
 
-SLIDE #4 (AKS) - update the value - Agentless collection of audit log info. Frictionless.  
+For high-level diagrams of each scenario, see the relevant tabs below. 
 
-SLIDE #7 - arc - Arc is needed to collect all three things outlined in the bullets below (explain)
-    For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Microsoft Defender for Kubernetes can be deployed on [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
-    The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Microsoft Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
-    This diagram shows the interaction between Microsoft Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
-
-    As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
-
-
-SLIDE 10 (EKS) - update the value - Arc is needed to collect policy and config data from nodes. We use AWS's CloudWatch to collect log data. (Mention that the AWS account needs to be connected with the new mechanism. Configuration needs Multi-cloud cspm.)
-
-:::image type="content" source="./media/defender-for-containers/defender-for-containers-high-level.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/defender-for-containers-high-level.png":::
-
-You can see that the items received and analyzed by Defender for Cloud include:
+In the diagrams you'll see that the items received and analyzed by Defender for Cloud include:
 
 - audit logs and security events from the API server
-- cluster configuration information from the AKS cluster
+- cluster configuration information from the control plane
 - workload configuration from Azure Policy 
+
+
+### [**AKS cluster**](#tab/defender-for-container-arch-aks)
+
+### Architecture diagram of Defender for Cloud and AKS clusters<a name="jit-asc"></a>
+
+When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, the deployment is agentless and frictionless. 
+
+:::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
+
+
+### [**Azure Arc-enabled Kubernetes**](#tab/defender-for-container-arch-arc)
+
+### Architecture diagram of Defender for Cloud and Arc-enabled Kubernetes clusters
+
+For all clusters hosted outside of Azure, [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) is required to connect the clusters to Azure and provide Azure services such as Defender for Containers. 
+
+With the cluster connected to Azure, an [Arc extension](../azure-arc/kubernetes/extensions.md) collects Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Microsoft Defender for Cloud backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
+
+Workload configuration information is collected by an Azure Policy add-on. As explained in [this Azure Policy for Kubernetes page](../governance/policy/concepts/policy-for-kubernetes.md), the add-on extends the open-source [Gatekeeper v3](https://github.com/open-policy-agent/gatekeeper) admission controller webhook for [Open Policy Agent](https://www.openpolicyagent.org/). Kubernetes admission controllers are plugins that enforce how your clusters are used. The add-on registers as a web hook to Kubernetes admission control and makes it possible to apply at-scale enforcements and safeguards on your clusters in a centralized, consistent manner.
+
+:::image type="content" source="./media/defender-for-containers/architecture-arc-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
+
+
+
+### [**ASW EKS**](#tab/defender-for-container-arch-eks)
+
+### Architecture diagram of Defender for Cloud and EKS clusters
+
+For all clusters hosted outside of Azure, [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) is required to connect the clusters to Azure and provide Azure services such as Defender for Containers. 
+
+With an EKS-based cluster, Arc and its Defender extension are needed to collect policy and configuration data from nodes. We use AWS's CloudWatch to collect log data. Of course, to monitor your EKS clusters with Defender for Cloud, your AWS account needs to be connected to Microsoft Defender for Cloud [via the environment settings page](quickstart-onboard-aws.md). You'll need both the **Defender for Containers** plan and the **CSPM** plan (for configuration monitoring and recommendations).
+
+:::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
+
+---
 
 
 ## Environment hardening through security recommendations
@@ -78,7 +98,9 @@ For Kubernetes clusters on EKS, you'll need to connect your AWS account to Micro
 
 For details of the relevant Defender for Cloud recommendations that might appear for this feature, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
 
-When reviewing the outstanding recommendations for your container-related resources, whether in asset inventory or the recommendations page, you can use the resource filter: [gif]
+When reviewing the outstanding recommendations for your container-related resources, whether in asset inventory or the recommendations page, you can use the resource filter:
+
+
 
 ### Workload protection best-practices using Kubernetes admission control
 
