@@ -1,6 +1,6 @@
 ---
-title: Using Multiple Steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
-description: Using Multiple Steps for Updates with Device Update for Azure IoT Hub
+title: Using multiple steps for Updates with Device Update for Azure IoT Hub| Microsoft Docs
+description: Using multiple steps for Updates with Device Update for Azure IoT Hub
 author: ValOlson
 ms.author: valls
 ms.date: 11/12/2021
@@ -205,7 +205,8 @@ Currently, a `Child Update` must not contain any reference steps. This restricti
 
 Inline step(s) specified in `Parent Update` will be applied to the Host Device. Here the ADUC_WorkflowData object that is passed to a Step Handler (aka. Update Content Handler) and it will not contain the `Selected Components` data. The handler for this type of step should *not* be a `Component-Aware` handler.  
 
-> **Note** | See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
+> [!NOTE]
+> See [Steps Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler/README.md) and [Implementing a custom component-Aware Content Handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md) for more details.
 
 ### Reference Step In Parent Update
 
@@ -213,7 +214,8 @@ Reference step(s) specified in `Parent Update` will be applied to the component 
 
 Next, the Steps Handler will parse the Child Update Manifest and create ADUC_Workflow object (aka. Child Workflow Data) by combining the data from Child Update Manifest and File URLs information from the Parent Update Manifest.  This Child Workflow Data also has a 'level' property set to '1'.
 
-> Note: for Update Manfiest version v4, the Child Udpate cannot contain any Reference Steps.
+> [!NOTE]
+> For Update Manfiest version v4, the Child Udpate cannot contain any Reference Steps.
 
 ## Detached Update Manifest
 
