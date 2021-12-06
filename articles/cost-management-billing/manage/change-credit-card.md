@@ -2,20 +2,23 @@
 title:  Change your credit card for Azure
 description: Describes how to change the credit card used to pay for an Azure subscription.
 author: bandersmsft
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 12/06/2021
 ms.author: banders
 ---
 
-# Add or update a credit card for Azure
+# Add or update a credit card
 
 This document applies to customers who signed up for Azure online with a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa) or you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. 
+
+- For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
+- For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
 
 If you want to a delete credit card, see [Delete an Azure billing payment method](delete-azure-payment-method.md).
 
@@ -31,7 +34,7 @@ With a Microsoft Customer Agreement, your payment methods are associated with bi
 
 <a id="addcard"></a>
 
-## Manage credit cards for an Azure subscription
+## Manage pay-as-you-go credit cards
 
 The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
 
@@ -85,7 +88,7 @@ If your credit card gets renewed and the number stays the same, update the exist
 1. Update the credit card details.
 1. Select **Next**.
 
-## Manage credit cards for a Microsoft Customer Agreement
+## Manage Microsoft Customer Agreement credit cards
 
 The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card and to those that have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
 

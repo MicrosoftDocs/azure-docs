@@ -368,20 +368,16 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Manage payment methods
     items:
-    - name: Pay your bill (MCA-specific)
+    - name: Pay Microsoft Customer Agreement bill
       href: understand/pay-bill.md
-    - name: Set up pay by check or wire transfer (MCA and MOSP)
+    - name: Set up pay by check or wire transfer
       href: manage/pay-by-invoice.md
-    - name: Resolve past due balance (MOSP-specific-not in your list)
+    - name: Resolve pay-as-you-go past due balance
       href: manage/resolve-past-due-balance.md
-    - name: Update credit card (MCA and MOSP)
+    - name: Add or update credit card
       href: manage/change-credit-card.md
-    - name: Add payment method (this is part of Update credit card-need new article???)
-      href: manage/change-credit-card.md
-    - name: Delete Azure billing payment method (replace is not in this article - that's in Update credit card)
+    - name: Delete billing payment method
       href: manage/delete-azure-payment-method.md
-    - name: Make an immediate payment (NEED ARTICLE - same as Pay your bill article???)
-      href: understand/pay-bill.md
   - name: Troubleshoot
     items:
     - name: Can't view or find invoices
