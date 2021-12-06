@@ -22,9 +22,9 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
-### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back back camera.
+### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
 
-ACS Calling SDK version 1.2.3-beta.1 introduced a bug that affects all the calls made with from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+ACS Calling SDK version 1.2.3-beta.1 introduced a bug that effects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
 
 This issue is fixed in ACS Calling SDK version 1.3.1-beta.1.
 
