@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 12/06/2021
 ms.author: dmwendia
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-zone_pivot_groups: microsoft-identity-platform-dev-languages
+zone_pivot_groups: single-page-app-quickstart
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my single-page app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 
