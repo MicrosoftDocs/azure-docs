@@ -35,7 +35,7 @@ For this demonstration, the Contoso Virtual Vacuum consists of five 'logical' co
 
 **Figure 1** - Contoso Virtual Vacuum Components Diagram
 
-:::image type="content" source="media/understand-device-update/Component Enumerator Figure 1.png" alt-text="Component Enumerator" lightbox="media/understand-device-update/Component Enumerator Figure 1.png":::
+:::image type="content" source="media/understand-device-update/contoso-virtual-vacuum-components-diagram.svg" alt-text="Component Enumerator" lightbox="media/understand-device-update/contoso-virtual-vacuum-components-diagram.svg":::
 
 We use the following directory structure to simulate the components mentioned above.
 
