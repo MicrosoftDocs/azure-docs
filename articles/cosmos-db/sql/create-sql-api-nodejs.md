@@ -8,7 +8,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: anfeldma
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Use Node.js to connect and query data from Azure Cosmos DB SQL API account
@@ -22,7 +22,6 @@ ms.custom: devx-track-js
 > * [Spark v3 connector](create-sql-api-spark.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
-> - [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 In this quickstart, you create and manage an Azure Cosmos DB SQL API account from the Azure portal, and by using a Node.js app cloned from GitHub. Azure Cosmos DB is a multi-model database service that lets you quickly create and query document, table, key-value, and graph databases with global distribution and horizontal scale capabilities.
 

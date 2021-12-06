@@ -3,8 +3,8 @@ title: What's new?
 titleSuffix: Azure SQL Database
 description: Learn about the new features and documentation improvements for Azure SQL Database.
 services: sql-database
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions, ignite-fall-2021

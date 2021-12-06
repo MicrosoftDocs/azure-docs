@@ -433,16 +433,6 @@
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
     { 
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
@@ -5599,6 +5589,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/availability-zones/index.md",
       "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
@@ -5731,6 +5726,11 @@
     {
       "source_path_from_root": "/articles/azure-arc/data/deploy-data-controller-direct-mode.md",
       "redirect_url": "/azure/azure-arc/data/create-data-controller-direct-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/create-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/plan-azure-arc-data-services",
       "redirect_document_id": false
     },
     {
@@ -6839,6 +6839,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+      "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/index.md",
       "redirect_url": "/azure/azure-monitor",
       "redirect_document_id": false
@@ -7309,6 +7314,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/concepts/migrate-from-text-analytics-v2.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate-language-service-latest",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/index.yml",
       "redirect_url": "/azure/cognitive-services/language-service/index",
       "redirect_document_id": true
@@ -7449,6 +7459,16 @@
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
       "redirect_document_id": false
     },
     {
@@ -9843,7 +9863,7 @@
     },
     {
       "source_path_from_root": "/articles/azure-supportability/low-priority-quota.md",
-      "redirect_url": "/azure/azure-portal/supportability/low-priority-quota",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
       "redirect_document_id": true
     },
     {
@@ -9875,6 +9895,11 @@
       "source_path_from_root": "/articles/azure-supportability/sku-series-unavailable.md",
       "redirect_url": "/azure/azure-portal/supportability/sku-series-unavailable",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
+      "redirect_url": "/azure/azure-portal/supportability/spot-quota",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/managed-applications/concepts-custom-providers-built-in-policy.md",
@@ -24337,6 +24362,16 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/search-monitor-usage.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/search/search-monitor-logs.md",
+      "redirect_url": "/azure/search/monitor-azure-cognitive-search-data-reference",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/search/search-filters-facets.md",
       "redirect_url": "/azure/search/search-faceted-navigation",
       "redirect_document_id": false
@@ -25919,6 +25954,11 @@
     {
       "source_path_from_root": "/articles/app-service-web/sendgrid-dotnet-how-to-send-email.md",
       "redirect_url": "/azure/sendgrid-dotnet-how-to-send-email",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/automate-playbook-watchlist.md",
+      "redirect_url": "https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/playbooks-amp-watchlists-part-1-inform-the-subscription-owner/ba-p/1768917",
       "redirect_document_id": false
     },
     {
@@ -44767,6 +44807,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/vm/monitor-vm-azure.md",
+      "redirect_url": "/azure/virtual-machines/monitor-vm",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46327,6 +46372,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-azure-security-center.md",
+      "redirect_url": "/azure/sentinel/connect-defender-for-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/entities-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/entities",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/azure-sentinel-billing.md",
+      "redirect_url": "/azure/sentinel/billing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/automation-in-azure-sentinel.md",
+      "redirect_url": "/azure/sentinel/automation",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-desktop/connect-android.md",
       "redirect_url": "/azure/virtual-desktop/user-documentation/connect-android",
       "redirect_document_id": true
@@ -46873,7 +46938,77 @@
     },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sip-interface-infrastructure.md",
-      "redirect_url": "/azure/communication-services/concepts/telephony-sms/direct-routing-infrastructure",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-infrastructure.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/certified-session-border-controllers.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/certified-session-border-controllers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/direct-routing-provisioning.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/direct-routing-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/plan-solution.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/plan-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/telephony-concept.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/telephony-concept",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/get-phone-number.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/get-phone-number",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/port-phone-number.md",
+      "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/messaging-policy.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/messaging-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sdk-features.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sdk-features",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/sms-faq.md",
+      "redirect_url": "/azure/communication-services/concepts/sms/sms-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/handle-sms-events.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/handle-sms-events",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/logic-app.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/logic-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/communication-services/quickstarts/telephony-sms/send.md",
+      "redirect_url": "/azure/communication-services/quickstarts/sms/send",
       "redirect_document_id": false
     },
     {
@@ -47288,7 +47423,12 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
+      "redirect_url": "/azure/aks/oopen-service-mesh-uninstall-add-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-open-source-observability.md",
+      "redirect_url": "/azure/aks/open-service-mesh-azure-monitor",
       "redirect_document_id": false
     },
     {

@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: eur
 zone_pivot_groups: platforms-set-of-three
+ms.custom: mode-other
 ---
 
 # Quickstart: Run the Speech Devices SDK sample app on Windows, Linux or Android

@@ -26,7 +26,7 @@ Integrating BIG-IP published applications with Azure AD provides many benefits, 
 
 - Manage identities and access from a single control plane - The [Azure portal](https://azure.microsoft.com/features/azure-portal)
 
-To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration) and [what is application access and single sign-on with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD integration](./f5-aad-integration.md) and [what is application access and single sign-on with Azure AD](/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Scenario description
 
@@ -67,7 +67,7 @@ Prior BIG-IP experience isn't necessary, but you'll need:
 - An Azure AD free subscription or above
 
 - An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in
-    Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+    Azure](./f5-bigip-deployment-guide.md)
 
 - Any of the following F5 BIG-IP license SKUs
 
@@ -81,15 +81,15 @@ Prior BIG-IP experience isn't necessary, but you'll need:
   - 90-day BIG-IP full feature [trial
     license](https://www.f5.com/trial/big-ip-trial.php).
 
-- User identities [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis)
+- User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md)
 from an on-premises directory to Azure AD
 
-- An account with Azure AD application admin [permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+- An account with Azure AD application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-- [SSL certificate](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide#ssl-profile)
+- [SSL certificate](./f5-bigip-deployment-guide.md#ssl-profile)
 for publishing services over HTTPS or use default certificates while testing
 
-- An existing header-based application or [setup a simple IIS header app](https://docs.microsoft.com/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
+- An existing header-based application or [setup a simple IIS header app](/previous-versions/iis/6.0-sdk/ms525396(v=vs.90)) for testing
 
 ## Deployment modes
 
@@ -105,7 +105,7 @@ should be replaced with those for your actual environment.
 ## Adding F5 BIG-IP from the Azure AD gallery
 
 Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the first step in implementing secure hybrid access. It establishes the integration required for BIG-IP to hand off pre-authentication and [conditional
-access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) to Azure AD, before granting access to the published service.
+access](../conditional-access/overview.md) to Azure AD, before granting access to the published service.
 
 1. Sign-in to the Azure AD portal using an account with application administrative rights.
 
@@ -164,7 +164,7 @@ access](https://docs.microsoft.com/azure/active-directory/conditional-access/ove
 
    ![Screenshot shows user attributes and claims configuration](./media/f5-big-ip-header-advanced/user-attributes-claims.png)
 
-   Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-group-claims)
+   Feel free to add any other specific claims your BIG-IP published application might expect as headers. Any claims defined in addition to the default set will only be issued if they exist in Azure AD. In the same way, Directory [roles or group](../hybrid/how-to-connect-fed-group-claims.md)
    memberships also need defining against a user object in Azure AD before they can be issued as a claim.
 
 9. In the **SAML Signing Certificate** section, select the
@@ -173,7 +173,7 @@ access](https://docs.microsoft.com/azure/active-directory/conditional-access/ove
    ![Screenshot shows saml signing certificate](./media/f5-big-ip-header-advanced/saml-signing-certificate.png)
 
 SAML signing certificates created by Azure AD have a lifespan of three years and should be managed using the published
-[guidance](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-certificates-for-federated-single-sign-on).
+[guidance](./manage-certificates-for-federated-single-sign-on.md).
 
 ### Azure AD authorization
 
@@ -431,7 +431,7 @@ For more information refer to these articles:
 
 - [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
-- [What is Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access?](../conditional-access/overview.md)
 
 - [Microsoft Zero Trust framework to enable remote
   work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
