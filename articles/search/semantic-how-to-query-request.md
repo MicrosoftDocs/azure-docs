@@ -32,11 +32,17 @@ Captions and answers are extracted verbatim from text in the search document. Th
 
   The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md), or code that makes REST calls to the preview APIs. You can also use [Search explorer](search-explorer.md) in Azure portal to submit a semantic query. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
 
++ A search client for updating indexes.
+
+  The search client must support preview REST APIs on the query request. You can use [Postman](search-get-started-rest.md) or code that makes REST calls to the preview APIs. You can also use [Azure.Search.Documents 11.4.0-beta.5](https://www.nuget.org/packages/Azure.Search.Documents/11.4.0-beta.5).
+
 + A [query request](/rest/api/searchservice/preview-api/search-documents) must include `queryType=semantic` and other parameters described in this article.
 
 ## What's a semantic query type?
 
 In Cognitive Search, a query is a parameterized request that determines query processing and the shape of the response. A *semantic query* has [parameters](#query-using-rest) that invoke the semantic reranking model that can assess the context and meaning of matching results, promote more relevant matches to the top, and return semantic answers and captions.
+
+The approach for listing fields in priority order has changed recently, with semanticConfiguration replacing searchFields. If you are currently using searchFields, please update your code to the 2021-04-30-Preview API version and use semanticConfiguration instead.
 
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
@@ -77,7 +83,7 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 ## Create a semantic configuration
 
 > [!NOTE]
-> Semantic configurations are a new addition to the 2021-04-30-Preview API and are now required for semantic queries. If using 2020-06-30-Preview, the **searchFields** is used instead of **semanticConfiguration**. We recommend upgrading to 2021-04-30-Preview for best results.
+> Semantic configurations are a new addition to the 2021-04-30-Preview API and are now required for semantic queries. If using 2020-06-30-Preview, **searchFields** is used instead of **semanticConfiguration**. We recommend upgrading to 2021-04-30-Preview  and using **semanticConfiguration** for best results.
 
 In order to get the best results from semantic search, it's important to give the underlying models hints about which fields in your index are most important for semantic ranking, captions, highlights, and answers. To provide that information, you'll need to create a semantic configuration.
 

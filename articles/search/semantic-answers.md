@@ -42,6 +42,8 @@ Answers are returned as an independent, top-level object in the query response p
 
 ## How to specify "answers" in a query request
 
+The approach for listing fields in priority order has changed recently, with semanticConfiguration replacing searchFields. If you are currently using searchFields, please update your code to the 2021-04-30-Preview API version and use semanticConfiguration instead.
+
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.

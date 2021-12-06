@@ -96,11 +96,13 @@ Charges for semantic search are levied when query requests include "queryType=se
 By default, semantic search is disabled on all services. To enable semantic search for your search service:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Navigate to your search service.
+1. Navigate to your Standard tier search service.
 1. On the left-nav pane, select **Semantic Search (Preview)**.
-1. Select either the **Free plan** or the **Standard plan**.
+1. Select either the **Free plan** or the **Standard plan**. You can switch between the free plan and the standard plan at any time.
 
 :::image type="content" source="media/semantic-search-overview/semantic-search-billing.png" alt-text="Screenshot of enabling semantic search in the Azure portal" border="true":::
+
+ Semantic Search's free plan is capped at 1,000 queries per month. After the first 1,000 queries in the free plan, you'll receive an error message letting you know you've exhausted your quota whenever you issue a semantic query. When this happens, you'll need to upgrade to the standard plan to continue using semantic search.
 
 Alternatively, you can also enable semantic search using the [Create or Update Service API](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#searchsemanticsearch) that's described in the next section.
 
