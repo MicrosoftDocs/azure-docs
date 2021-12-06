@@ -258,7 +258,7 @@ You can select the **Reset** button that appears in the **Config Server** tab to
 
 When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
 
-1. Register a scheduled task to pull changes from config server.
+1. Register a scheduled task to refresh the context in a given interval.
 
     ```java
     @ConditionalOnBean({RefreshEndpoint.class})
