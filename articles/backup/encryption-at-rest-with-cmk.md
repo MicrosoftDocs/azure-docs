@@ -363,7 +363,7 @@ To assign the key and follow the steps, choose a client:
     2. Browse and select the key from the Key Vault in the key picker pane.
 
         >[!NOTE]
-        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enabling-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
+        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enable-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -542,7 +542,7 @@ When your subscription is allow-listed, the **Backup Encryption** tab will displ
 
 1. To specify the key to be used for encryption, select the appropriate option.
 
-   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, auto-rotation of the encryption key will enable automatically. [Learn more on auto-rotation](#enabling-auto-rotation-of-encryption-keys). 
+   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, auto-rotation of the encryption key will enable automatically. [Learn more on auto-rotation](#enable-auto-rotation-of-encryption-keys). 
 
 1. Specify the user assigned managed identity to manage encryption with customer-managed keys. Click **Select** to browse and select the required identity.
 
