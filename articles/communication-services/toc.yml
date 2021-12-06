@@ -17,6 +17,8 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
+      - name: Manage access tokens for Teams users
+        href: quickstarts/identity/manage-teams-identity.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
       - name: Authenticate with Azure AD (Azure CLI)
