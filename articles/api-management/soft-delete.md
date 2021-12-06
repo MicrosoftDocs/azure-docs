@@ -43,7 +43,7 @@ If your APIM instance is not recovered within 48 hours, it will be hard deleted 
 
 ## List deleted APIM instances
 
-You can verify that a soft-deleted APIM instance is available to restore (undelete) using either the Deleted Services [Get By Name](/rest/api/apimanagement/2021-01-01-preview/deleted-services/get-by-name) or [List By Subscription](/rest/api/apimanagement/2021-08-01/deleted-services/list-by-subscription) operations.
+You can verify that a soft-deleted APIM instance is available to restore (undelete) using either the Deleted Services [Get By Name](/rest/api/apimanagement/2021-08-01/deleted-services/get-by-name) or [List By Subscription](/rest/api/apimanagement/2021-08-01/deleted-services/list-by-subscription) operations.
 
 ### Get a soft-deleted instance by name
 
@@ -85,7 +85,7 @@ Use the API Management [Create Or Update](/rest/api/apimanagement/2021-08-01/api
 
 ```rest
 PUT
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-01-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ApiManagement/service/{apimServiceName}?api-version=2021-08-01
 ```
 
 . . . and set the `restore` property to `true` in the request body. (When this flag is specified and set to *true*, all other properties will be ignored.) For example:
