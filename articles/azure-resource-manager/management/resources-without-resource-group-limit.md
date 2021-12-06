@@ -43,6 +43,7 @@ Some resources have a limit on the number instances per region. This limit is di
 * snapshots
 * virtualMachineScaleSets - By default, limited to 800 instances. That limit can be increased by contacting support.
 * virtualMachines
+* virtualMachines/extensions - supports an unlimited number of VM extension instances
 
 ## Microsoft.ContainerInstance
 
