@@ -91,7 +91,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
 az spring-cloud app deploy \
     --name <your-app-name> \
     --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
-    --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<elastic-apm-java-agent-location-from-mounted-storage>' \
+    --jvm-options='-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql -javaagent:<Elastic-APM-Java-Agent-location-from-mounted-storage>' \
     --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
           ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
           ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
