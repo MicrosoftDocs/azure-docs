@@ -160,9 +160,9 @@ Field order is critical because the semantic ranker limits the amount of content
 
 #### Step 3: Remove or bracket query features that bypass relevance scoring
 
-Several query capabilities in Cognitive Search do not undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you will not get relevance scores or semantic ranking on your results:
+Several query capabilities in Cognitive Search do not undergo relevance scoring, and some bypass the full text search engine altogether. If your query logic includes the following features, you will not get graduated relevance scores that feed into the semantic re-ranking of results:
 
-+ Filters, fuzzy search queries, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content. Search scores for all of the above query forms are a uniform 1.0, and won't provide meaningful input for semantic ranking.
++ Empty search (`search=0`), wildcard search, fuzzy search, and regular expressions iterate over untokenized text, scanning for verbatim matches in the content, returning an un-scored result set. An un-scored result set assigns a uniform 1.0 on each match, and won't provide meaningful input for semantic ranking. Up to 50 documents will still be passed to the re-ranker, but the document selection is arbitrary.
 
 + Sorting (orderBy clauses) on specific fields will also override search scores and semantic score. Given that semantic score is used to order results, including explicit sort logic will cause an HTTP 400 error to be returned.
 
