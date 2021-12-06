@@ -76,6 +76,10 @@ Data Sync isn't the preferred solution for the following scenarios:
 | **Disadvantages** | - No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
 ## Private link for Data Sync
+
+> [!NOTE]
+> The SQL Data Sync private link is different from the [Azure Private Link](https://azure.microsoft.com/services/private-link/). 
+
 The new private link feature allows you to choose a service managed private endpoint to establish a secure connection between the sync service and your member/hub databases during the data synchronization process. A service managed private endpoint is a private IP address within a specific virtual network and subnet. Within Data Sync, the service managed private endpoint is created by Microsoft and is exclusively used by the Data Sync service for a given sync operation. 
 Before setting up the private link, read the [general requirements](sql-data-sync-data-sql-server-sql-database.md#general-requirements) for the feature. 
 

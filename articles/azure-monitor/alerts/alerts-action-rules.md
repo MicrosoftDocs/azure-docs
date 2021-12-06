@@ -13,7 +13,7 @@ ms.date: 11/11/2021
 
 > [!NOTE]
 > The previous name for alert processing rules was **action rules**.  
-> The Azure resource type of these rules is Microsoft.AlertsManagement/actionRules
+> The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
 
 Alert processing rules allow you to apply processing on **fired alerts**. You may be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different; they are rules that modify the fired alerts themselves as they are being fired. You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. Alert processing rules can be applied to different resource scopes, from a single resource to an entire subscription. They can also allow you to apply various filters or have the rule work on a pre-defined schedule.
 
