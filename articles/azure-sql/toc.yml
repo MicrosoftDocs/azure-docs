@@ -800,7 +800,7 @@
         - name: Add a single database to a failover group
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Configure a failover group for an elastic pool
-          href: ../sql-database/scripts/add-elastic-pool-to-failover-group-cli.md
+          href: database/scripts/add-elastic-pool-to-failover-group-cli.md
         - name: Configure and fail over a single database by using active geo-replication
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
         - name: Configure and fail over a pooled database by using active geo-replication

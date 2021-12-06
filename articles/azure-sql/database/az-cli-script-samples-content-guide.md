@@ -41,11 +41,11 @@ The following table includes links to Azure CLI script examples to manage single
 | [Scale an elastic pool](scripts/scale-pool-cli.md) | Scales a SQL elastic pool to a different compute size. |
 |**Configure geo-replication and failover**||
 | [Add a single database to a failover group](scripts/add-database-to-failover-group-cli.md)| Creates a database and a failover group, adds the database to the failover group, then tests failover to the secondary server. |
-| [Configure a failover group for an elastic pool](../../sql-database/scripts/add-elastic-pool-to-failover-group-cli.md) | Creates a database, adds it to an elastic pool, adds the elastic pool to the failover group, then tests failover to the secondary server. |
+| [Configure a failover group for an elastic pool](scripts/add-elastic-pool-to-failover-group-cli.md) | Creates a database, adds it to an elastic pool, adds the elastic pool to the failover group, then tests failover to the secondary server. |
 | [Configure and fail over a single database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for a database in Azure SQL Database and fails it over to the secondary replica. |
 | [Configure and fail over a pooled database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configures active geo-replication for a database in an elastic pool, then fails it over to the secondary replica. |
 | **Auditing and threat detection** |
-| [Configure auditing and threat-detection](../scripts/auditing-and-threat-detection-cli.md)| Configures auditing and threat detection policies for a database in Azure SQL Database. |
+| [Configure auditing and threat-detection](scripts/auditing-and-threat-detection-cli.md)| Configures auditing and threat detection policies for a database in Azure SQL Database. |
 | **Back up, restore, copy, and import a database**||
 | [Back up a database](scripts/backup-database-cli.md)| Backs up a database in SQL Database to an Azure storage backup. |
 | [Restore a database](../../sql-database/scripts/sql-database-restore-database-cli.md)| Restores a database in SQL Database from a geo-redundant backup and restores a deleted database to the latest backup. |
