@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot high CPU
 titleSuffix: Azure SQL Database
 description: Learn to diagnose and troubleshoot high CPU problems in Azure SQL Database.
 services: sql-database
-ms.service: sql-db
+ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
@@ -46,7 +46,7 @@ GO
 Common causes of high CPU incidents are:
 
 * New queries in the workload that use a large amount of CPU.
-* [Query plan regression](database/intelligent-insights-troubleshoot-performance.md#plan-regression) resulting in one or more queries consuming more CPU.
+* [Query plan regression](intelligent-insights-troubleshoot-performance.md#plan-regression) resulting in one or more queries consuming more CPU.
 * An increase in the frequency of regularly running queries.
 * A significant increase in compilation or recompilation of query plans.
 
