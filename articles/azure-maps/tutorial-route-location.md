@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Find route to a location | Microsoft Azure Maps'
 description: Tutorial on how to find a route to a point of interest. See how to set address coordinates and query the Azure Maps Route service for directions to the point.
-author: anastasia-ms
-ms.author: v-stharr
+author: philmea
+ms.author: philmea
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
