@@ -1,7 +1,7 @@
 ---
 title: What's new in Form Recognizer?
 titleSuffix: Azure Applied AI Services
-description: Understand the latest changes to the Form Recognizer API.
+description: Learn the latest changes to the Form Recognizer API.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -19,13 +19,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## November 2021
 
- The next beta.2 version of  the Azure Form Recognizer SDKs have been released. The new beta release that incorporates bug fixes and minor feature updates.
+ The beta.2 version of the Azure Form Recognizer SDKs has been released. The new beta release that incorporates bug fixes and minor feature updates.
 
 ### Form Recognizer v3.0 preview release (beta.2)
 
 ### [**C#**](#tab/csharp)
 
-| [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md) | [**API reference documentation**](dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview)
+| [**Package (NuGet)**](https://www.nuget.org/packages/Azure.AI.FormRecognizer/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md) | [**API reference documentation**](/dotnet/api/azure.ai.formrecognizer?view=azure-dotnet-preview&preserve-view=true)
 
 #### Bugs Fixed
 
@@ -51,7 +51,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### [**JavaScript**](#tab/javascript)
 
-| [**Package (NPM)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md) | [**API reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview) |
+| [**Package (NPM)**](https://www.npmjs.com/package/@azure/ai-form-recognizer/v/4.0.0-beta.2) | [**Changelog**](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md) | [**API reference documentation**](/javascript/api/overview/azure/ai-form-recognizer-readme?view=azure-node-preview&preserve-view=true) |
 
 #### Feature updates
 
@@ -65,7 +65,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Breaking changes
 
-* The `operationId` field for `DocumentAnalysisPollOperationState` has been replaced with the `operationLocation` field which contains the full operation URL not the operation GUID.
+* The `operationId` field for `DocumentAnalysisPollOperationState` has been replaced with the `operationLocation` field that contains the full operation URL not the operation GUID.
 
 ### [**Python**](#tab/python)
 
@@ -73,7 +73,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 #### Feature updates
 
-* Added `get_words()` method to `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on Github.
+* Added `get_words()` method to `DocumentLine` model. *See* our [How to get words contained in a Document line](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/samples/v3.2-beta/sample_get_words_on_document_line.py) sample on GitHub.
 
 
 ---
@@ -89,13 +89,13 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 * [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
 * [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
 
-* [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. The preview includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports seven languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
 
 * **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
 
 * [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
 
-Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
+Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md), or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
 
  #### Form Recognizer model data extraction
 
@@ -132,7 +132,7 @@ Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/d
 
 ### System-assigned managed identity support
 
- You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
+ You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including accounts protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
 ## June 2021
 
@@ -148,7 +148,7 @@ Form Recognizer features are now supported by six feature containers—**Layout*
 
 ### Form Recognizer SDK v3.1.0 patched to v3.1.1 for C#, Java, and Python
 
-The patch addresses invoices that do not have sub-line item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
+The patch addresses invoices that do not have subline item fields detected such as a  `FormField` with `Text` but no `BoundingBox` or `Page` information.
 
 ### [**C#**](#tab/csharp)
 
@@ -175,7 +175,7 @@ The patch addresses invoices that do not have sub-line item fields detected such
 
 ### Form Recognizer 2.1 API Generally Available (GA) release
 
-* Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
+* Form Recognizer 2.1 is generally available. The General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following document types:
 
 * [Documents](concept-layout.md)
 * [Receipts](./concept-receipt.md)
@@ -270,7 +270,7 @@ The updated Layout API table feature adds header recognition with column headers
 
 * **FormReadingOrder** and **FormLanguage**. *ReadingOrder* renamed to *FormReadingOrder*. *Language* renamed to **FormLanguage**.
 
-* **FormCountryRegionField** and  **countryRegion**. *FormCountryField* type renamed to **FormCountryRegionField**, and renamed the valueType *country* to **countryRegion**:.
+* **FormCountryRegionField** and  **countryRegion**. *FormCountryField* type renamed to **FormCountryRegionField**, and renamed the valueType *country* to **countryRegion**.
 
 * **TextAppearance** interface now includes **styleName** and **styleConfidence** properties (formerly name and confidence properties in the **TextStyle**  interface).
 
@@ -562,7 +562,7 @@ pip package version 3.1.0b4
 
 * **CopyModel API added to client SDKs** - You can now use the client SDKs to copy models from one subscription to another. See [Back up and recover models](./disaster-recovery.md) for general information on this feature.
 * **Azure Active Directory integration** - You can now use your Azure AD credentials to authenticate your Form Recognizer client objects in the SDKs.
-* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. See the SDK changelogs for more information.
+* **SDK-specific changes** - This change includes both minor feature additions and breaking changes. For more informatin, *see* the SDK changelogs for more information.
   * [C# SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
   * [Python SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
   * [Java SDK Preview 3 changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
