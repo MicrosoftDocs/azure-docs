@@ -16,9 +16,9 @@ Ransomware and extortion are a high profit, low-cost business which has a debili
 
 To ensure customers running on Azure are protected against ransomware attacks, Microsoft has invested heavily on the security of our cloud platforms and has provided you the security controls you need to protect your Azure cloud workloads.​
 
-By leveraging Azure native ransomware protections and implementing the best practices recommended in this eBook, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.  ​
+By leveraging Azure native ransomware protections and implementing the best practices recommended in this article, you are taking measures that ensures your organization is optimally positioned to prevent, protect and detect potential ransomware attacks on your Azure assets.  ​
 
-This eBook lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud. ​
+This article lays out key Azure native capabilities and defenses for ransomware attacks and guidance on how to proactively leverage these to protect your assets on Azure cloud. ​
 
 ## A growing threat
 
@@ -385,7 +385,7 @@ Ensure rapid detection and remediation of common attacks on VMs, SQL Servers, We
   - **Brute Force** - Monitor for brute-force attempts like password spray
 - **Monitor for Adversary Disabling Security** – as this is often part of Human Operated Ransomware (HumOR) attack chain
   - **Event Logs Clearing** – especially the Security Event log and PowerShell Operational logs
-  - ***Disabling of security tools/controls*** (associated with some groups)
+  - **Disabling of security tools/controls** (associated with some groups)
 - **Don't Ignore Commodity Malware** - Ransomware attackers regularly purchase access to target organizations from dark markets
 - **Integrate outside experts** – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART).
 - **Rapidly isolate** compromised computers using Defender for Endpoint in on-premises deployment.
@@ -405,6 +405,7 @@ In general, various server/endpoint antimalware, email antimalware and network p
 Microsoft provides extensive resources to help update your incident response processes on the Top Azure Security Best Practices.
 
 The following are recommended actions to contain or mitigate a declared incident involving ransomware where automated actions taken by antimalware systems have been unsuccessful:
+
 1. Engage antimalware vendors through standard support processes
 1. Manually add hashes and other information associated with malware to antimalware systems  
 1. Apply antimalware vendor updates 
@@ -438,17 +439,28 @@ Microsoft focuses heavily on both security of our cloud and providing you the se
 
 We look forward to partnering with you in addressing ransomware protection, detection and prevention in a holistic manner.
 
-Additional resources
-- Bunch
-- Of
-- Links
 
-Connect with us
+### Additional resources
 
-AskAzureSecurity@microsoft.com 
+- Microsoft Cloud Adoption Framework for Azure
+- Build great solutions with the Microsoft Azure Well-Architected Framework
+- Azure Top Security Best Practices
+- Security Baselines  
+- Resource Center | Microsoft Azure
+- Azure Migration Guide
+- Security Compliance Management 
+- Azure Security Control – Incident Response
+- Zero Trust Guidance Center
+- Azure Web Application Firewall
+- Azure VPN gateway
+- Azure Multi-Factor Authentication (MFA)
+- Azure AD Identity Protection 
+- Azure AD Conditional Access
+- Azure Security Center documentation
 
-www.microsoft.com/services
-
+Connect with us:
+- AskAzureSecurity@microsoft.com 
+- [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
 
