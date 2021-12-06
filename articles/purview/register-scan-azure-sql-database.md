@@ -83,6 +83,9 @@ The following options are supported:
 
 * **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
+>[!IMPORTANT]
+> If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
+
 ##### Configure Azure AD authentication in the database account
 
 The service principal or managed identity must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
@@ -131,6 +134,9 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to create a secret":::
 
 #### Using a system or user assigned managed identity for scanning
+
+>[!IMPORTANT]
+> If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
 
 It is important to give your Purview account's system managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
 
