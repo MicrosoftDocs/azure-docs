@@ -47,14 +47,14 @@ Take the following steps in the Azure portal to create an action rule for your A
 
       [ ![Illustration of the Create Action Rule screen in Azure Stack Edge with the Select Scope panel open. The Edit command for Scope is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01-inline.png) ](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-01-expanded.png#lightbox)
 
-   2. Select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
+   2. On the **Select Scope** panel, select the **Subscription** for the action rule, and optionally filter by a **Resource** type. To filter to Azure Stack Edge resources, select **Data Box Edge devices (dataBoxEdge)**.
    
       ![Screenshot of the Select Scope panel for an action rule in Azure Stack Edge, with resource group filters. The Data Box Edge Devices filter is highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-02.png)
 
       The **Resource** area lists the available resources based on your selections.
 
-   3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources. 
-   
+   3. Select the check box by each resource you want to apply the rule to. You can select the subscription, resource groups, or individual resources.
+
    4. When you finish, select **Done**.
 
       ![Screenshot of the Select Scope panel for an action rule in Azure Stack Edge. Two selected resources and the Done button are highlighted.](media/azure-stack-edge-gpu-manage-device-event-alert-notifications/new-action-rule-scope-03.png)
