@@ -347,7 +347,7 @@ sections:
           
           ### Can I move my managed instance to another subnet?
           
-          No. This is a current Managed Instance design limitation. However, you can provision a new instance in another subnet and manually back up and restore data between the old and the new instance or perform cross-instance [point-in-time restore](point-in-time-restore.md?tabs=azure-powershell).
+          Yes. Instance can be moved to another subnet inside the same virtual network in an online way. Learn how to [move Azure SQL Managed Instance across subnets](./vnet-existing-add-subnet.md).
           
           ### Do I need an empty virtual network to create a Managed Instance?
           
