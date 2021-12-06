@@ -124,11 +124,12 @@ If the column `query_plan_with_transient_statistics` returns an execution plan, 
 The following query against **sys.dm_db_resource_stats** returns the average CPU used over 15-second intervals for approximately the last hour.
 
 ```sql
-SELECT    
- end_time,
- avg_cpu_percent,
- avg_instance_cpu_percent
-FROM sys.dm_db_resource_stats; 
+SELECT
+    end_time,
+    avg_cpu_percent,
+    avg_instance_cpu_percent
+FROM sys.dm_db_resource_stats
+ORDER BY end_time DESC; 
 GO
 ```
 
@@ -140,31 +141,32 @@ Query Store tracks execution statistics, including CPU usage, for queries. The f
 
 ```sql
 WITH AggregatedCPU AS 
- (SELECT q.query_hash, 
-  SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec, 
-  SUM(count_executions * avg_cpu_time / 1000.0)/ SUM(count_executions) AS avg_cpu_millisec, 
-  MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec, 
-  MAX(max_logical_io_reads) max_logical_reads, 
-  COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans, 
-  COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids, 
-  SUM(CASE WHEN rs.execution_type_desc='Aborted' THEN count_executions ELSE 0 END) AS Aborted_Execution_Count, 
-  SUM(CASE WHEN rs.execution_type_desc='Regular' THEN count_executions ELSE 0 END) AS Regular_Execution_Count, 
-  SUM(CASE WHEN rs.execution_type_desc='Exception' THEN count_executions ELSE 0 END) AS Exception_Execution_Count, 
-  SUM(count_executions) AS total_executions, 
-  MIN(qt.query_sql_text) AS sampled_query_text
- FROM sys.query_store_query_text AS qt
- JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
- JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
- JOIN sys.query_store_runtime_stats AS rs ON rs.plan_id=p.plan_id
- JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=rs.runtime_stats_interval_id
- WHERE 
-  rs.execution_type_desc IN ('Regular', 'Aborted', 'Exception') AND 
-  rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
- GROUP BY q.query_hash), 
+    (SELECT
+        q.query_hash, 
+        SUM(count_executions * avg_cpu_time / 1000.0) AS total_cpu_millisec, 
+        SUM(count_executions * avg_cpu_time / 1000.0)/ SUM(count_executions) AS avg_cpu_millisec, 
+        MAX(rs.max_cpu_time / 1000.00) AS max_cpu_millisec, 
+        MAX(max_logical_io_reads) max_logical_reads, 
+        COUNT(DISTINCT p.plan_id) AS number_of_distinct_plans, 
+        COUNT(DISTINCT p.query_id) AS number_of_distinct_query_ids, 
+        SUM(CASE WHEN rs.execution_type_desc='Aborted' THEN count_executions ELSE 0 END) AS Aborted_Execution_Count, 
+        SUM(CASE WHEN rs.execution_type_desc='Regular' THEN count_executions ELSE 0 END) AS Regular_Execution_Count, 
+        SUM(CASE WHEN rs.execution_type_desc='Exception' THEN count_executions ELSE 0 END) AS Exception_Execution_Count, 
+        SUM(count_executions) AS total_executions, 
+        MIN(qt.query_sql_text) AS sampled_query_text
+    FROM sys.query_store_query_text AS qt
+    JOIN sys.query_store_query AS q ON qt.query_text_id=q.query_text_id
+    JOIN sys.query_store_plan AS p ON q.query_id=p.query_id
+    JOIN sys.query_store_runtime_stats AS rs ON rs.plan_id=p.plan_id
+    JOIN sys.query_store_runtime_stats_interval AS rsi ON rsi.runtime_stats_interval_id=rs.runtime_stats_interval_id
+    WHERE 
+            rs.execution_type_desc IN ('Regular', 'Aborted', 'Exception') AND 
+        rsi.start_time>=DATEADD(HOUR, -2, GETUTCDATE())
+     GROUP BY q.query_hash), 
 OrderedCPU AS 
- (SELECT *, 
-  ROW_NUMBER() OVER (ORDER BY total_cpu_millisec DESC, query_hash ASC) AS RN
- FROM AggregatedCPU)
+    (SELECT *, 
+    ROW_NUMBER() OVER (ORDER BY total_cpu_millisec DESC, query_hash ASC) AS RN
+    FROM AggregatedCPU)
 SELECT *
 FROM OrderedCPU AS OD
 WHERE OD.RN<=15
@@ -182,14 +184,14 @@ Query Store tracks the number of times queries are compiled. Run the following q
 
 ```sql
 SELECT TOP (20)
- query_hash,
- MIN(initial_compile_start_time) as initial_compile_start_time,
- MAX(last_compile_start_time) as last_compile_start_time,
- CASE WHEN DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) > 0
-  THEN 1.* SUM(count_compiles) / DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) 
-  ELSE 0 
- END as avg_compiles_minute,
- SUM(count_compiles) as count_compiles
+    query_hash,
+    MIN(initial_compile_start_time) as initial_compile_start_time,
+    MAX(last_compile_start_time) as last_compile_start_time,
+    CASE WHEN DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) > 0
+        THEN 1.* SUM(count_compiles) / DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) 
+        ELSE 0 
+        END as avg_compiles_minute,
+    SUM(count_compiles) as count_compiles
 FROM sys.query_store_query AS q
 GROUP BY query_hash
 ORDER BY count_compiles DESC;
@@ -208,24 +210,24 @@ declare @query_hash binary(8);
 SET @query_hash = 0x6557BE7936AA2E91;
 
 with query_ids as (
- SELECT
-  q.query_hash,
-  q.query_id,
-  p.query_plan_hash,
-  SUM(qrs.count_executions) * AVG(qrs.avg_cpu_time) as total_cpu_time,
-  SUM(qrs.count_executions) AS sum_executions,
-  AVG(qrs.avg_cpu_time) AS avg_cpu_time
- FROM sys.query_store_query q
- JOIN sys.query_store_plan p on q.query_id=p.query_id
- CROSS APPLY (SELECT TRY_CONVERT(XML, p.query_plan) AS query_plan_xml) AS qpx
- JOIN sys.query_store_runtime_stats qrs on p.plan_id = qrs.plan_id
- JOIN sys.query_store_runtime_stats_interval qsrsi on qrs.runtime_stats_interval_id=qsrsi.runtime_stats_interval_id
- WHERE q.query_hash = @query_hash
- GROUP BY q.query_id, q.query_hash, p.query_plan_hash)
+    SELECT
+        q.query_hash,
+        q.query_id,
+        p.query_plan_hash,
+        SUM(qrs.count_executions) * AVG(qrs.avg_cpu_time) as total_cpu_time,
+        SUM(qrs.count_executions) AS sum_executions,
+        AVG(qrs.avg_cpu_time) AS avg_cpu_time
+        FROM sys.query_store_query q
+    JOIN sys.query_store_plan p on q.query_id=p.query_id
+    CROSS APPLY (SELECT TRY_CONVERT(XML, p.query_plan) AS query_plan_xml) AS qpx
+    JOIN sys.query_store_runtime_stats qrs on p.plan_id = qrs.plan_id
+    JOIN sys.query_store_runtime_stats_interval qsrsi on qrs.runtime_stats_interval_id=qsrsi.runtime_stats_interval_id
+    WHERE q.query_hash = @query_hash
+    GROUP BY q.query_id, q.query_hash, p.query_plan_hash)
 SELECT qid.*,
- qt.query_sql_text,
- p.count_compiles,
- cast(p.query_plan as XML) as query_plan
+    qt.query_sql_text,
+    p.count_compiles,
+    cast(p.query_plan as XML) as query_plan
 FROM query_ids as qid
 JOIN sys.query_store_query AS q ON qid.query_id=q.query_id
 JOIN sys.query_store_query_text AS qt on q.query_text_id = qt.query_text_id
@@ -299,7 +301,11 @@ In some cases, a large number of parallel queries running concurrently can slow 
 You can identify the max degree of parallelism setting for your database with Transact-SQL. Connect to your database with SSMS or Azure Data Studio and run the following query:
 
 ```sql
-SELECT name, value, value_for_secondary, is_value_default 
+SELECT 
+    name, 
+    value, 
+    value_for_secondary, 
+    is_value_default 
 FROM sys.database_scoped_configurations
 WHERE name=N'MAXDOP';
 GO
