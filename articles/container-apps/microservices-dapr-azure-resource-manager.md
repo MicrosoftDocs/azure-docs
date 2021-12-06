@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template'
-description: Deploy a Dapr application to Azure Container Apps using an ARM template.
+title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template'
+description: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template.
 services: container-apps
 author: asw101
 ms.service: container-apps
@@ -8,9 +8,10 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aawislan
 ms.custom: ignite-fall-2021
+zone_pivot_groups: container-apps
 ---
 
-# Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template
+# Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template
 
 [Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps build resilient, stateless, and stateful microservices. In this tutorial, a sample Dapr application is deployed to Azure Container Apps.
 
@@ -31,6 +32,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/install-azure-cli)
+* Powershell: Install Azure Az Powershell module
 
 ## Before you begin
 
@@ -90,8 +92,8 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az login
+```powershell
+Connect-AzAccount
 ```
 
 ---
@@ -140,8 +142,8 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az provider register --namespace Microsoft.Web
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Web
 ```
 
 ---
@@ -158,10 +160,8 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group create `
-  --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+```powershell
+  New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
@@ -186,10 +186,12 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics workspace create `
-  --resource-group $RESOURCE_GROUP `
-  --workspace-name $LOG_ANALYTICS_WORKSPACE
+```powershell
+New-AzOperationalInsightsWorkspace `
+-Location $LOCATION `
+-Name $LOG_ANALYTICS_WORKSPACE `
+-Sku Standard `
+-ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
@@ -267,13 +269,11 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az storage account create `
-  --name $STORAGE_ACCOUNT `
-  --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION" `
-  --sku Standard_RAGRS `
-  --kind StorageV2
+```powershell
+New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
+    -Name $STORAGE_ACCOUNT `
+    -Location $LOCATION `
+    -SkuName Standard_RAGRS
 ```
 
 ---
@@ -299,6 +299,7 @@ $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GR
 ```
 
 ---
+::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) templates
 
@@ -402,10 +403,61 @@ Save the following file as *serviceapp.json*:
 }
 ```
 
+::: zone-end
+::: zone pivot="container-apps-bicep"
+### Create Azure Bicep templates
+
+Create two Bicep templates.
+
+The Bicep template has the Container App definition and a Dapr component definition.
+
+The following example shows how your Bicep template should look when configured for your Azure Blob Storage account.
+
+Save the following file as *serviceapp.bicep*:
+
+```bicep
+param location string = 'canadacentral'
+param environment_name string
+
+resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
+  name: 'pythonapp'
+  kind: 'containerapp'
+  location: location
+  properties: {
+    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    configuration: {}
+    template: {
+      containers: [
+        {
+          image: 'dapriosamples/hello-k8s-python:latest'
+          name: 'hello-k8s-python'
+          resources: {
+            cpu: '0.5'
+            memory: '1Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+      dapr: {
+        enabled: true
+        appId: 'pythonapp'
+      }
+    }
+  }
+}
+```
+
+::: zone-end
+
 > [!NOTE]
 > Container Apps does not currently support the native [Dapr components schema](https://docs.dapr.io/operations/components/component-schema/). The above example uses the supported schema.
 >
 > In a production-grade application, follow [secret management](https://docs.dapr.io/operations/components/component-secrets) instructions to securely manage your secrets.
+
+::: zone pivot="container-apps-arm"
 
 Save the following file as *clientapp.json*:
 
@@ -459,9 +511,54 @@ Save the following file as *clientapp.json*:
 }
 ```
 
+::: zone-end
+::: zone pivot="container-apps-bicep"
+
+Save the following file as *clientapp.bicep*:
+
+```bicep
+param location string = 'canadacentral'
+param environment_name string
+
+resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
+  name: 'pythonapp'
+  kind: 'containerapp'
+  location: location
+  properties: {
+    kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
+    configuration: {}
+    template: {
+      containers: [
+        {
+          image: 'dapriosamples/hello-k8s-python:latest'
+          name: 'hello-k8s-python'
+          resources: {
+            cpu: '0.5'
+            memory: '1Gi'
+          }
+        }
+      ]
+      scale: {
+        minReplicas: 1
+        maxReplicas: 1
+      }
+      dapr: {
+        enabled: true
+        appId: 'pythonapp'
+      }
+    }
+  }
+}
+    
+```
+
+::: zone-end
+
 ## Deploy the service application (HTTP web server)
 
 Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
+
+::: zone pivot="container-apps-arm"
 
 # [Bash](#tab/bash)
 
@@ -479,17 +576,48 @@ az deployment group create \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az deployment group create `
-  --resource-group "$RESOURCE_GROUP" `
-  --template-file ./serviceapp.json `
-  --parameters `
-      environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+```powershell
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateFile ./serviceapp.json `
+  < environment_name="$CONTAINERAPPS_ENVIRONMENT" `
       location="$LOCATION" `
       storage_account_name="$STORAGE_ACCOUNT" `
       storage_account_key="$STORAGE_ACCOUNT_KEY" `
+      storage_container_name="$STORAGE_ACCOUNT_CONTAINER">
+```
+
+::: zone-end
+::: zone pivot="container-apps-bicep"
+
+# [Bash](#tab/bash)
+
+```azurecli
+az deployment group create \
+  --resource-group "$RESOURCE_GROUP" \
+  --template-file ./serviceapp.bicep \
+  --parameters \
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION" \
+      storage_account_name="$STORAGE_ACCOUNT" \
+      storage_account_key="$STORAGE_ACCOUNT_KEY" \
       storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+New-AzResourceGroupDeployment `
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateFile ./serviceapp.bicep `
+  < environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+      location="$LOCATION" `
+      storage_account_name="$STORAGE_ACCOUNT" `
+      storage_account_key="$STORAGE_ACCOUNT_KEY" `
+      storage_container_name="$STORAGE_ACCOUNT_CONTAINER">
+```
+
+::: zone-end
 
 ---
 
@@ -498,6 +626,8 @@ This command deploys the service (Node) app server on `targetPort: 3000` (the ap
 ## Deploy the client application (headless client)
 
 Run the command below to deploy the client container app.
+
+::: zone pivot="container-apps-arm"
 
 # [Bash](#tab/bash)
 
@@ -511,14 +641,36 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 
 # [PowerShell](#tab/powershell)
 
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateFile ./clientapp.json `
+  <environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+   location="$LOCATION">
+```
+
+::: zone-end
+::: zone pivot="container-apps-bicep"
+
+# [Bash](#tab/bash)
+
 ```azurecli
-az deployment group create --resource-group "$RESOURCE_GROUP" `
-  --template-file ./clientapp.json `
-  --parameters `
-    environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+az deployment group create --resource-group "$RESOURCE_GROUP" \
+  --template-file ./clientapp.bicep \
+  --parameters \
+    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
     location="$LOCATION"
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateFile ./clientapp.bicep `
+  <environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+   location="$LOCATION">
+```
+
+::: zone-end
 ---
 
 This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `targetPort` to start a server, nor is there a need to enable ingress.
@@ -560,11 +712,10 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az monitor log-analytics query `
-  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
-  --out table
+```powershell
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
+$queryResults.Results
 ```
 
 ---
@@ -597,9 +748,8 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
-az group delete `
-    --resource-group $RESOURCE_GROUP
+```powershell
+Remove-AzResourceGroup -Name $RESOURCE_GROUP
 ```
 
 ---
