@@ -85,7 +85,7 @@ After doing the above, the Update Content Handler can install and apply the upda
   - Design and build the device.
   - Integrate Device Update Agent and its dependencies.
   - Implement device-specific **Component Enumerator Extension** and register with DU Agent.
-  - The **Component Enumerator** uses the components information from a component inventory or configuration file. Then augment static (DU required) component data with the dynamic data (for example, firmware version, connection status, hardware id, etc.)
+  - The **Component Enumerator** uses the components information from a component inventory or configuration file. Then augment static (Device Update required) component data with the dynamic data (for example, firmware version, connection status, hardware identity, etc.)
   - Create a Proxy Update containing one or more Child Updates that target one or more components on (or connected to) the device.
   - Sent the update to their Solution Operator
 - **Solution Operator**
@@ -120,7 +120,7 @@ The ComponentInfo JSON string must include following required properties
 
 | Name | Type | Description |
 |---|---|---|
-|id| string | A component's unique ID (device scope)<br/><br/>for example, hardware's serial number, disk partition id, unique file path of the component, etc.|
+|id| string | A component's unique identity (device scope)<br/><br/>for example, hardware's serial number, disk partition id, unique file path of the component, etc.|
 |name| string| A component's `logical` name. This is the name that a device builder assigns to a component that is available in every device of the same `device class`.<br/><br/>For example, every Contoso Virtual-Vacuum device contains a motor that drives left wheel. Contoso assigned 'Left Motor' as a common (logical) name for this motor, to easily refer to this component, instead of hardware ID, which can be globally unique.|
 |group|string|A group that this component belongs to.<br/><br/>For example, all motors could belong to a 'motors' group.|
 |manufacturer|string|For physical hardware component, it is a manufacturer or vendor name.<br/><br/>For logical component, such as, disk partition or directory, it can be any device Builder's Defined value.|
