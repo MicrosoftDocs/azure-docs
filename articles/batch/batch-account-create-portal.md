@@ -124,7 +124,7 @@ Make sure to set the following parameters based on your Batch pool's configurati
 - `Name`: the offer SKU
 
 
-An example below:
+For example:
 
 ```powershell
 Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
