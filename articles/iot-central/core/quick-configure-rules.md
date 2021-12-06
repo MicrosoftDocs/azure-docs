@@ -44,7 +44,24 @@ When the phone is lying on its back, the **z** value is greater than `9`, when t
     | Aggregation      | Minimum          |
     | Value            | -9               |
 
-    :::image type="content" source="media/quick-configure-rules/rule-target-condition-android.png" alt-text="Screenshot that shows the rule condition.":::
+    :::image type="content" source="media/quick-configure-rules/rule-target-condition-android.png" alt-text="Screenshot that shows the rule condition." lightbox="media/quick-configure-rules/rule-target-condition-android.png":::
+
+1. To add an email action to run when the rule triggers, in the **Actions** section, select **+ Email**.
+
+1. Use the information in the following table to define your action and then select **Done**:
+
+    | Setting      | Value                    |
+    |--------------|--------------------------|
+    | Display name | Your phone moved         |
+    | To           | Your email address       |
+    | Notes        | Your phone is face down! |
+
+    > [!TIP]
+    > To receive an email notification, the email address must be a [user ID in the application](howto-manage-users-roles.md), and the user must have signed in to the application at least once.
+
+    :::image type="content" source="media/quick-configure-rules/rule-action.png" alt-text="Screenshot that shows an email action added to the rule" lightbox="media/quick-configure-rules/rule-action.png":::
+
+1. Select **Save**. Your rule is now listed on the **Rules** page.
 
 # [iOS](#tab/ios)
 
@@ -68,9 +85,7 @@ When the phone is lying on its back, the **z** value is less than `-0.9`, when t
     | Aggregation      | Maximum          |
     | Value            | 0.9              |
 
-    :::image type="content" source="media/quick-configure-rules/rule-target-condition-ios.png" alt-text="Screenshot that shows the rule condition.":::
-
----
+    :::image type="content" source="media/quick-configure-rules/rule-target-condition-ios.png" alt-text="Screenshot that shows the rule condition." lightbox="media/quick-configure-rules/rule-target-condition-ios.png":::
 
 1. To add an email action to run when the rule triggers, in the **Actions** section, select **+ Email**.
 
@@ -85,15 +100,17 @@ When the phone is lying on its back, the **z** value is less than `-0.9`, when t
     > [!TIP]
     > To receive an email notification, the email address must be a [user ID in the application](howto-manage-users-roles.md), and the user must have signed in to the application at least once.
 
-    :::image type="content" source="media/quick-configure-rules/rule-action.png" alt-text="Screenshot that shows an email action added to the rule":::
+    :::image type="content" source="media/quick-configure-rules/rule-action.png" alt-text="Screenshot that shows an email action added to the rule" lightbox="media/quick-configure-rules/rule-action.png":::
 
 1. Select **Save**. Your rule is now listed on the **Rules** page.
+
+---
 
 ## Test the rule
 
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, IoT Central sends an email to the address you specified in the action.
 
-To trigger the rule, make sure the smartphone app is sending data and then place it face down on your desk. The app now sends accelerometer z-axis telemetry values less than `-9`. After five minutes, IoT Central sends you an email to notify you that your smartphone is face down.
+To trigger the rule, make sure the smartphone app is sending data and then place it face down on your desk. After five minutes, IoT Central sends you an email to notify you that your smartphone is face down.
 
 After your testing is complete, disable the rule to stop receiving the notification emails in your inbox.
 
