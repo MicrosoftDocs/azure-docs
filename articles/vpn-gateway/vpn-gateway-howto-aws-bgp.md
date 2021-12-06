@@ -147,7 +147,7 @@ You will be creating **two Customer Gateways**, one for each of the IP addresses
 3.	For **Routing**, select **Dynamic**.
 4.	For **BGP ASN**, enter the ASN you used in Azure.
 5.	For **IP Address**, enter your first public IP address for your VPN Gateway. You can locate your **Public IP address** on Azure in the **Configuration** section of your **Virtual Network Gateway**, under **Public IP Address**.
-6.	Leave the rest of the fields as default and select **Create Customer Gateway**
+6.	Leave the rest of the fields as default and select **Create Customer Gateway**.
 7.	Create a **second Customer Gateway** by **repeating steps 1 to 6** with your second public IP address. You can locate your **Second Public IP address** on Azure in the **Configuration** section of your **Virtual Network Gateway**, under **Second Public IP Address**.
 
 :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-cgw.png" alt-text="Create a Customer Gateway" border="false":::
@@ -156,13 +156,13 @@ You will be creating **two Customer Gateways**, one for each of the IP addresses
 1.	In the navigation pane, choose **Site-to-Site VPN Connections**, **Create VPN Connection**.
 2.	Enter a name for your Site-to-Site VPN connection.
 3.	For **Target Gateway Type**, choose **Virtual Private Gateway**. Then choose the Virtual Private Gateway you created.
-4.	For **Customer Gateway ID**, select the customer gateway that you created earlier.
+4.	For **Customer Gateway ID**, select the customer gateway that you created.
 5.	For **Routing Options**, select **Dynamic (requires BGP)**.
 6.	Leave both **Local IPv4 Network CIDR** and **Remote IPv4 Network CIDR** the default value of **(0.0.0.0/0)**.
 7.	Under **Tunnel Options**
-    * Enter the **Inside IPv4 CIDR for Tunnel 1** [from the APIPA configuration you chose](#apipa-config) 
+    * Enter the **Inside IPv4 CIDR for Tunnel 1** [from the APIPA configuration you chose](#apipa-config).
     * Enter a value for the **Pre-Shared Key for Tunnel 1**. This key will need to match the one you later provide in Azure.
-    * Enter the **Inside IPv4 CIDR for Tunnel 2** [from the APIPA configuration you chose](#apipa-config) 
+    * Enter the **Inside IPv4 CIDR for Tunnel 2** [from the APIPA configuration you chose](#apipa-config).
     * Enter a value for the **Pre-Shared Key for Tunnel 2**. This key will need to match the one you later provide in Azure.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-create-connection.png" alt-text="Parameters for creating connection" border="false":::
@@ -173,7 +173,7 @@ You will be creating **two Customer Gateways**, one for each of the IP addresses
 10.	Select **Create VPN Connection**.
 11.	You will need to save the IP address of the tunnels for both of your site-to-site connections after they have finished deploying. Making sure you are still in the **Site-to-Site VPN Connections** page, select the connection you made, and select the **Tunnel Details** tab. You will need the **Outside IP Address** for both **Tunnel 1** and **Tunnel 2** to connect to Azure.
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-tunnel-ip.png" alt-text="Getting tunnel IP addresses" border="false":::
-12.	Repeat steps **1-11**, with the same values for everything but **Inside IPv4 CIDR for Tunnel 1** and **Inside IPv4 CIDR for Tunnel 2**. For these values, instead use the address space corresponding to your **Second Custom Azure APIPA BGP IP address**.
+12.	Repeat steps **1-11**, with the same values for everything but **Customer Gateway ID**, **Inside IPv4 CIDR for Tunnel 1**, and **Inside IPv4 CIDR for Tunnel 2**. For these values, instead use the Customer Gateway and address space corresponding to your **Second Custom Azure APIPA BGP IP address**.
 
 ## <a name ="part-3"></a> Part 3: Connect to your AWS Customer Gateways from Azure
 In this step, you will connect your AWS tunnels to Azure. For each of the four tunnels, you will have both a Local Network Gateway and a site-to-site connection. You should have the AWS **Outside IP Address** for each of these four tunnels from step 11 of the previous section.
@@ -205,7 +205,7 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
 5. Enter the **Shared key (PSK)** that matches the **Pre-Shared Key** you entered when making the AWS connections.
 6. Select **Enable BGP**, then **Enable Custom BGP Addresses**.
 7. Under **Custom BGP Addresses**
-    * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config) 
+    * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config).
     * The **Custom BGP Address** (Inside IPv4 CIDR in AWS) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the **Local Network Gateway** you are using for this connection.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-ip-cidr.png" alt-text="Where to find APIPA and IP Address on AWS" border="false":::
@@ -228,12 +228,12 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-connection.png" alt-text="Modifying connection" border="false":::
 
 9. From the **Connections** page for your VPN Gateway, select the connection you created and navigate to the **Configuration** page.
-10. Select **ResponderOnly** for the **Connection Mode** and select **Save**
+10. Select **ResponderOnly** for the **Connection Mode** and select **Save**.
 
 
 Verify that you have a **Local Network Gateway** and **Connection** for **each of your four AWS tunnels**. 
 
-## <a name ="part-4"></a> Part 4: Test your connections
+## <a name ="part-4"></a> Part 4: (Optional) Check the status of your connections
 ### <a name ="verify-azure"></a> Check your connections status on Azure
 1. Open the page for your **Virtual Network Gateway**, navigate to the **Connections** page.
 2. Verify that all 4 connections show as **Connected**.
