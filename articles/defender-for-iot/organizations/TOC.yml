@@ -30,7 +30,7 @@
       href: tutorial-onboarding.md
     - name: Get started with Enterprise IoT
       displayNAme: EIoT, Enterprise, IoT
-      href: tutorial-get-started-eiot.md 
+      href: tutorial-getting-started-eiot-sensor.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
