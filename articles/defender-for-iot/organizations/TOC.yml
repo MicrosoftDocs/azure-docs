@@ -1,14 +1,18 @@
 - name: Microsoft Defender for IoT for end-user organizations
   href: index.yml
   items:
-- name: Overview
-  displayName: IoT, OT, getting started
-  href: overview.md
+- name: Overview 
   items:
+  - name: Overview for OT networks
+    displayName: IoT, OT, getting started
+    href: overview.md
+  - name: Overview for EIoT networks
+    displayName: IoT, OT, getting started
+    href: overview-eiot.md
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: Agentless solution architecture
+  - name: What is Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
@@ -24,6 +28,9 @@
     items: 
     - name: Defender for IoT trial setup
       href: tutorial-onboarding.md
+    - name: Get started with Enterprise IoT
+      displayNAme: EIoT, Enterprise, IoT
+      href: tutorial-get-started-eiot.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
