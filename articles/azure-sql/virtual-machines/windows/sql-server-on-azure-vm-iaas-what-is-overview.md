@@ -147,6 +147,9 @@ The Customer Experience Improvement Program (CEIP) is enabled by default. This p
 * [SQL Server documentation](/sql/index)
 * [Azure SQL Database comparison](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
+### Data Residency
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. Customer data is stored in Geo for all other regions. See See [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/) for more information.
+
 ## Next steps
 
 Get started with SQL Server on Azure Virtual Machines:
