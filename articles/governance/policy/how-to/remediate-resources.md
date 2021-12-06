@@ -24,7 +24,7 @@ automatically grants the managed identity the listed roles once assignment start
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
 doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US wit Log Analytics Contributor permissions." border="false":::
+:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US with Log Analytics Contributor permissions." border="false":::
 
 > [!IMPORTANT]
 > In the following scenarios, the assignment's managed identity must be
@@ -132,7 +132,7 @@ $policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/poli
 $resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Get the existing user assigned managed identity ID
-$userassignedidentity = New-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $userassignedidentityname -Location $location
+$userassignedidentity = Get-AzUserAssignedIdentity -ResourceGroupName $rgname -Name $userassignedidentityname 
 $userassignedidentityid = $userassignedidentity.Id
 
 # Create the assignment using the -Location and -Identity properties
@@ -141,7 +141,7 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the
 standard values returned when creating a policy assignment. It can be accessed through
-`$assignment.Identity.PrincipalId`.
+`$assignment.Identity.PrincipalId` for system assigned managed identites and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user assigned managed identites.  
 
 ### Grant a managed identity defined roles with PowerShell
 
@@ -243,7 +243,7 @@ To create a **remediation task**, follow these steps:
 1.  On the same page, filter the resources to remediate by using the **Scope**
    ellipses to pick child resources from where the policy is assigned (including down to the
    individual resource objects). Additionally, use the **Locations** dropdown list to further filter
-   the resources. The table will only show a subset (top 250) resources. 
+   the resources. 
 
    :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot of the Remediate node and the grid of resources to remediate." border="false":::
 
@@ -254,7 +254,7 @@ To create a **remediation task**, follow these steps:
    :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot of the Remediation tasks tab and progress of existing remediation tasks." border="false":::
 
 1. Select on the **remediation task** from the policy compliance page to get details about the
-   progress. The filtering used for the task is shown along with status and a list of the top 500 resources being
+   progress. The filtering used for the task is shown along with status and a list of resources being
    remediated.
 
 1. From the **Remediation task** page, select and hold (or right-click) on a resource to view either the remediation

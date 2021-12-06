@@ -196,7 +196,7 @@ same policy definition is reusable with a different set of parameters for a diff
 reducing the duplication and complexity of policy definitions while providing flexibility.
 
 ## Identity 
-For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. 
+For policy assignments with effect set to **deployIfNotExisit** or **modify**, it is required to have an identity property to do remediation on non-compliant resources. When using identity, the user must also specify a location for the assignment. 
 
 ```json
 # System assigned identity 
@@ -211,6 +211,8 @@ For policy assignments with effect set to **deployIfNotExisit** or **modify**, i
     }
   },
 ```
+
+
 
 ## Next steps
 
