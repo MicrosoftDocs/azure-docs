@@ -1,6 +1,6 @@
 ---
-title: How to use Components Enumerator for Proxy updates | Microsoft Docs
-description: How to use Components Enumerator for Proxy updates
+title: How to use Components Enumerator for Proxy Updates for Device Updates for IoT Hub | Microsoft Docs
+description: How to use Components Enumerator for Proxy Updates
 author: valls
 ms.author: valls
 ms.date: 12/3/2021
@@ -52,7 +52,8 @@ We use the following directory structure to simulate the components mentioned ab
 
 Each component's directory contains a JSON file that stores a mock software version number of each component. For example, `firmware.json` or `diskimage.json`.  
 
-> **Note:** For this demo, to update the components' firmware, we will copy a `firmware.json` or `diskimage.json` (update payload) to `targetted components' directory`.
+> [!NOTE] 
+> For this demo, to update the components' firmware, we will copy a `firmware.json` or `diskimage.json` (update payload) to `targetted components' directory`.
 
 Example `firmware.json` file:
 
@@ -63,7 +64,8 @@ Example `firmware.json` file:
 }
 ```
 
-> **Note:** The Contoso Virtual-Vacuum doesn't provide any other functionality besides containing software or firmware versions for Proxy Update demonstration purposes.  
+> [!NOTE]
+> The Contoso Virtual-Vacuum doesn't provide any other functionality besides containing software or firmware versions for Proxy Update demonstration purposes.  
 
 ## What is a Component Enumerator?
 
@@ -93,7 +95,7 @@ After doing the above, the Update Content Handler can install and apply the upda
   - Receives update information from Azure IoT Hub (via Device Twin or Module Twin)
   - Invokes **Steps Handler** to process the Proxy Update intended for one or more components on the device
     - For each Child Update (in this example, there are two updates, `host-fw-1.1` and `motors-fw-1.1`), Parent **Steps Handler** invokes Child **Steps Handler** to enumerate all components that match the **Compatibilities** properties specified in Child Update Manifest file. Next the handler downloads, installs and applies the Child Update to all targeted components.
-    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/>**Note:** If there are no matching components, the Child Update will be skipped.
+    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/> [!NOTE] If there are no matching components, the Child Update will be skipped.
   - Collects all update results from Parent and Child Update(s) and reports it to the Azure IoT Hub.
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
@@ -346,7 +348,8 @@ Output (**hostfw** component):
 }
 ```
 
-**Note:** The above example demonstrated that, if needed, it's possible to send a newer update to any instance of a component when selected by `name` property.  
+> [!NOTE]
+> The above example demonstrated that, if needed, it's possible to send a newer update to any instance of a component when selected by `name` property.  
 For example, deploy `motor-fw-2.0` update to `vacuum-motor` while continue using `motor-fw-1.0` on `left-motor` and `right-motor`.
 
 ## component-inventory.json
@@ -359,7 +362,8 @@ The example implementation shown above for Contoso Component Enumerator will rea
 
 #### Example component-inventory.json file
 
-Note: The content in this file looks almost the same as the returned value from `GetAllComponents` function. However, `ComponentInfo` in this file doesn't contain `version` and `status` properties. These properties will be populated at runtime, by the Component Enumerator.
+> [!NOTE]
+> The content in this file looks almost the same as the returned value from `GetAllComponents` function. However, `ComponentInfo` in this file doesn't contain `version` and `status` properties. These properties will be populated at runtime, by the Component Enumerator.
 
 For example, for `hostfw`, the value of property `properties.version` will be populate with value from the specified (mock) `firmwareDataFile` (`/usr/local/contoso-devices/vacuum-1/hostfw/firmware.json`)
 
