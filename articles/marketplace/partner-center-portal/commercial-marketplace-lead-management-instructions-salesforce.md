@@ -79,7 +79,7 @@ When you're ready to configure the lead management information for your offer in
 
 To make sure you've successfully connected to a lead destination, select **Validate**. If successful, you'll have a test lead in the lead destination.
 
-:::image type="content" source="media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-validate.png" alt-text="Connection lead validation":::
+:::image type="content" source="media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-validate.png" alt-text="Connection lead validation" lightbox="media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-validate.png":::
 
 >[!NOTE]
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
