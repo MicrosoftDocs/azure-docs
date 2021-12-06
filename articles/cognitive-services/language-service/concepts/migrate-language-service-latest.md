@@ -1,21 +1,24 @@
 ---
-title: Migration guide for v2 of the Text Analytics API
+title: Migrate to the latest version of Azure Cognitive Service for Language
 titleSuffix: Azure Cognitive Services
-description: Learn how to move your applications to use version 3 of the Text Analytics API.
+description: Learn how to move your Text Analytics applications to use the latest version of the Language Service.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/06/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
 
-# Migrate from version 2 of the Text Analytics API
+# Migrate to the latest version of Azure Cognitive Service for Language
 
-If your applications are using version 2.1 of the Text Analytics API, this article will help you upgrade your applications to use the latest version of the features, which are now a part of [Azure Cognitive Service for language](../overview.md).
+> [!TIP]
+> Just getting started with Azure Cognitive Service for Language? See the [overview article](../overview.md) for details on the service, available features, and links to quickstarts for sending your first API requests. 
+
+If your applications are using an older version of the Text Analytics API (before v3.1), or client library (before stable v5.1.0), this article will help you upgrade your applications to use the latest version of the [Azure Cognitive Service for language](../overview.md) features.
 
 ## Features
 
@@ -23,14 +26,15 @@ Select one of the features below to see information you can use to update your a
 
 ## [Sentiment analysis](#tab/sentiment-analysis)
 
-> [!TIP]
-> Want to use the latest version of the API in your application? See the [sentiment analysis](../sentiment-opinion-mining/how-to/call-api.md) how-to article  and [quickstart](../sentiment-opinion-mining/quickstart.md) for information on the current version of the API. 
+> [!NOTE]
+> * Want to use the latest version of the API in your application? See the [sentiment analysis](../sentiment-opinion-mining/how-to/call-api.md) how-to article  and [quickstart](../sentiment-opinion-mining/quickstart.md) for information on the current version of the API. 
+> * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client library has been deprecated.
 
-## Feature changes 
+## Feature changes from version 2.1
 
-Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores. 
+Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for each document sent to the API, with scores closer to 1 indicating more positive sentiment. The current version of this feature returns sentiment labels (such as "positive" or "negative")  for both the sentences and the document as a whole, and their associated confidence scores.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -45,22 +49,24 @@ See the reference documentation for examples of the JSON response.
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../sentiment-opinion-mining/quickstart.md) lists the commands you can use for your preferred language, with example code.
 
-## [NER and entity linking](#tab/named-entity-recognition)
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
 
-> [!TIP]
+## [NER, PII, and entity linking](#tab/named-entity-recognition)
+
+> [!NOTE]
 > Want to use the latest version of the API in your application? See the following articles for information on the current version of the APIs:
-> NER:
-> * [Quickstart](../named-entity-recognition/quickstart.md)
-> * [how to call the API](../named-entity-recognition/how-to-call.md) 
-> Entity linking
-> * [Quickstart](../entity-linking/quickstart.md)
-> * [how to call the API](../entity-linking/how-to/call-api.md)
+>
+> * [NER quickstart](../named-entity-recognition/quickstart.md)
+> * [Entity linking quickstart](../entity-linking/quickstart.md)
+> * [Personally Identifying Information (PII) detection quickstart](../personally-identifiable-information/quickstart.md)
+>
+> The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client libraries has been deprecated.
 
-## Feature changes
+## Feature changes from version 2.1
 
-In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md). 
+In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md).
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -82,6 +88,8 @@ See the reference documentation for examples of the JSON response.
 ### Client libraries
 
 To use the latest version of the NER and entity linking client libraries, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The quickstart article for [Named Entity Recognition](../named-entity-recognition/quickstart.md) and [entity linking](../entity-linking/quickstart.md) lists the commands you can use for your preferred language, with example code.
+
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
 
 #### Version 2.1 entity categories
 
@@ -114,14 +122,15 @@ The following table lists the entity categories returned for NER v2.1.
 
 ## [Language detection](#tab/language-detection)
 
-> [!TIP]
-> Want to use the latest version of the API in your application? See the [language detection](../language-detection/how-to/call-api.md) how-to article and [quickstart](../language-detection/quickstart.md) for information on the current version of the API. 
+> [!NOTE]
+> * Want to use the latest version of the API in your application? See the [language detection](../language-detection/how-to/call-api.md) how-to article and [quickstart](../language-detection/quickstart.md) for information on the current version of the API. 
+> * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client libraries has been deprecated.
 
-## Feature changes 
+## Feature changes from version 2.1
 
 The language detection feature output has changed in the current version. The JSON response will contain `ConfidenceScore` instead of `score`. The current version also only returns one language in a  `detectedLanguage` attribute for each document.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -136,16 +145,19 @@ See the reference documentation for examples of the JSON response.
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../language-detection/quickstart.md) lists the commands you can use for your preferred language, with example code.
 
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
+
 ## [Key phrase extraction](#tab/key-phrase-extraction)
 
-> [!TIP]
-> Want to use the latest version of the API in your application? See the [key phrase extraction](../key-phrase-extraction/how-to/call-api.md) how-to article and [quickstart](../key-phrase-extraction/quickstart.md) for information on the current version of the API. 
+> [!NOTE]
+> * Want to use the latest version of the API in your application? See the [key phrase extraction](../key-phrase-extraction/how-to/call-api.md) how-to article and [quickstart](../key-phrase-extraction/quickstart.md) for information on the current version of the API. 
+> * The version `3.1-preview.x` REST API endpoints and `5.1.0-beta.x` client library has been deprecated.
 
-## Feature changes 
+## Feature changes from version 2.1
 
 The key phrase extraction feature currently has not changed outside of the endpoint version.
 
-## Steps to migrate
+## Migrate to the current version
 
 ### REST API
 
@@ -159,6 +171,8 @@ See the reference documentation for examples of the JSON response.
 ### Client libraries
 
 To use the latest version of the sentiment analysis client library, you will need to download the latest software package in the `Azure.AI.TextAnalytics` namespace. The [quickstart article](../key-phrase-extraction/quickstart.md) lists the commands you can use for your preferred language, with example code.
+
+[!INCLUDE [SDK target versions](../includes/sdk-target-versions.md)]
 
 ---
 
