@@ -47,13 +47,13 @@ You can use the values below for your BGP APIPA configuration throughout the tut
 | **AWS Tunnel 1 to Azure Instance 1** | 169.254.21.6                                | 169.254.21.5                 | 169.254.21.4/30            |
 | **AWS Tunnel 2 to Azure Instance 1** | 169.254.22.6                                | 169.254.22.5                 | 169.254.22.4/30            |
 
-You can also set up your own custom APIPA addresses. AWS requires a /30 **Inside IPv4 CIDR** in the APIPA range of **169.254.0.0/16** for each tunnel. This CIDR must also be in the Azure-reserved APIPA range for VPN, which is from **169.254.21.0** to **169.254.22.255**. AWS will use the first IP address of your /30 inside CIDR and Azure will use the second. This means you will need to reserve space for two IP addresses in your AWS /30 inside CIDR.
+You can also set up your own custom APIPA addresses. AWS requires a /30 **Inside IPv4 CIDR** in the APIPA range of **169.254.0.0/16** for each tunnel. This CIDR must also be in the Azure-reserved APIPA range for VPN, which is from **169.254.21.0** to **169.254.22.255**. AWS will use the first IP address of your /30 inside CIDR and Azure will use the second. This means you will need to reserve space for two IP addresses in your AWS /30 CIDR.
 
 For example, if you set your AWS **Inside IPv4 CIDR** to be **169.254.21.0/30**, AWS will use the BGP IP address **169.254.21.1** and Azure will use the IP address **169.254.21.2**. 
    >
    > [!IMPORTANT]
    >
-   > * Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
+   > Your APIPA addresses must not overlap between the on-premises VPN devices and all connected Azure VPN gateways.
    >
 
 ## Prerequisites
@@ -82,11 +82,10 @@ Create a VPN gateway using the following values:
 * **SKU**: VpnGw2
 * **Generation**: Generation 2
 * **Virtual network**: VNet1
-* **Gateway subnet address range**: 10.1.255.0/27
+* **Gateway subnet address range**: 10.1.1.0/24
 * **Public IP address**: Create new
 * **Public IP address name**: VNet1GWpip
 * **Enable active-active mode**: Enabled
-* **Public IP address name**: VNet1GWpip
 * **SECOND PUBLIC IP ADDRESS**: Create new
 * **Public IP address 2 name**: VNet1GWpip2
 * **Configure BGP**: Enabled
@@ -205,11 +204,11 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
 6. Select **Enable BGP**, then **Enable Custom BGP Addresses**.
 7. Under **Custom BGP Addresses**
     * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config) 
-    * The **Custom BGP Address** (Inside IPv4 CIDR) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the **Local Network Gateway** you are using for this connection.
+    * The **Custom BGP Address** (Inside IPv4 CIDR in AWS) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the **Local Network Gateway** you are using for this connection.
 
     :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-ip-cidr.png" alt-text="Where to find APIPA and IP Address on AWS" border="false":::
 
-    * Only one of the two Custom BGP Addresses will matter, depending on the tunnel you are specifying it for.
+    * Only one of the two Custom BGP Addresses will be used, depending on the tunnel you are specifying it for.
     * For making a connection from AWS to the **first public IP address** of your VPN Gateway (instance 0), **only the Primary Custom BGP Address** will be used.
     * For making a connection from AWS to the **second public IP address** of your VPN Gateway (instance 1), **only the Secondary Custom BGP Address** will be used.
     * Leave the other **Custom BGP Address** as default.
@@ -236,5 +235,20 @@ Verify that you have a **Local Network Gateway** and **Connection** for **each o
 ### <a name ="create-customer-gateways"></a> Check your connections status on Azure
 1. Open the page for your **Virtual Network Gateway**, navigate to the **Connections** page.
 2. Verify that all 4 connections show as **Connected**.
+
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-connections.png" alt-text="Verify AWS connections" border="false":::
+
 ### <a name ="create-customer-gateways"></a> Check your BGP Peers status on Azure
+1. Open the page for your **Virtual Network Gateway**, navigate to the **BGP Peers** page.
+2. In the **BGP Peers** table, verify that all of the connections with the **Peer address** you specified show as **Connected** and are exchanging routes.
+
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-peers.png" alt-text="Verify BGP Peers" border="false":::
+
 ### <a name ="create-customer-gateways"></a> Check your connections status on AWS
+1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/)
+2.	In the navigation pane, click **Site-to-Site VPN Connections**.
+3. Select the first connection you made and then select the **Tunnel Details** tab.
+4. Verify that the **Status** of both tunnels shows as **UP**.
+5. Verify that the **Details** of both tunnels shows one or more BGP routes.
+
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-aws.png" alt-text="Verify AWS connections" border="false":::
