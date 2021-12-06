@@ -15,9 +15,9 @@ understand and accomplish remediation with Azure Policy.
 
 ## How remediation security works
 
-When Azure Policy runs the template in a **deployIfNotExists** policy definition or runs **modify operations**, it does so using
-a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
-Azure Policy allows the option to either create (system assigned) or select (user assigned) a managed identity  for each assignment, but the identity must have details about what roles
+When Azure Policy starts a template deployment when evaluating **deployIfNotExists** policies or modifies a resource  when evaluating **modify** policies, it does so using
+a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that is associated with the policy assignment.
+Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user.  The managed identity needs to be granted the appropriate roles required for remediating resources
 to grant the managed identity. If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
 automatically grants the managed identity the listed roles once assignment starts. When using SDK,
@@ -66,7 +66,7 @@ az role definition list --name 'Contributor'
 ## Manually configure the managed identity
 
 When creating an assignment using the portal, Azure Policy can both generate a managed identity and
-grants it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
+grant it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
 the managed identity and assign it permissions must be done manually:
 
 - While using the SDK (such as Azure PowerShell)
@@ -94,13 +94,13 @@ is selected under "Types of Managed Identity".
 1. Select the managed identity under "Existing user assigned identities". 
 
  > [!NOTE]
-   > If the managed identity does not have the permissions need to execute the required remediation task,
+   > If the managed identity does not have the permissions needed to execute the required remediation task,
    > it will be granted permissions *automatically* only through the portal. 
-   > For all methods, permissions must be configure manually. 
+   > For all other methods, permissions must be configured manually. 
 
 ### Create managed identity with PowerShell
 
-To create a identity during the assignment of the policy, **Location** must be defined and
+To create an identity during the assignment of the policy, **Location** must be defined and
 **Identity** used. The following example gets the definition of the built-in policy **Deploy
 SQL DB transparent data encryption**, sets the target resource group, and then creates the
 assignment using a **system assigned** managed identity.
