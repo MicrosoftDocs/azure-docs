@@ -853,6 +853,13 @@ The shared memory feature is intented to improve throughput within the Python wo
 
 By default, the data used between functions host and Python worker is tranferred through GRPC channel. However, as the data size increases, the GRPC channels become a bottleneck.
 
+### Diagrams
+
+![Existing design](./media/functions-reference-python/sharedmemory_existing.png)
+
+![Shared memory design](./media/functions-reference-python/sharedmemory_new.png)
+
+
 ## Known issues and FAQ
 
 Following is a list of troubleshooting guides for common issues:
