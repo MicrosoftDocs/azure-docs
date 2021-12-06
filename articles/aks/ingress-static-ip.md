@@ -678,7 +678,6 @@ You can also:
 [aks-quickstart-powershell]: kubernetes-walkthrough-powershell.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [client-source-ip]: concepts-network.md#ingress-controllers
-[install-azure-cli]: /cli/azure/install-azure-cli
 [aks-static-ip]: static-ip.md
 [aks-supported versions]: supported-kubernetes-versions.md
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
