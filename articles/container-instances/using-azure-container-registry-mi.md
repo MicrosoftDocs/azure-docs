@@ -13,7 +13,7 @@ ms.custom: mvc, devx-track-azurecli
 
 ## Prerequisites
 
-**Azure container registry**: You need a premium SKU Azure container registry with at least one image. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started]. Be sure to take note of the registry's `Id` and `loginServer`
+**Azure container registry**: You need a premium SKU Azure container registry with at least one image. If you need to create a registry, see [Create a container registry using the Azure CLI][acr-get-started]. Be sure to take note of the registry's `id` and `loginServer`
 
 **Azure CLI**: The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally, or use the [Azure Cloud Shell][cloud-shell-bash].
 
@@ -83,9 +83,7 @@ In order for your identity to access your container registry, you must grant it 
 az role assignment create --assignee $spID --scope $registryID --role acrpull
 ```
 
-## Deploy the container group
-
-### Deploy using an Azure Resource Manager (ARM) template
+## Deploy using an Azure Resource Manager (ARM) template
 
 Start by copying the following JSON into a new file named `azuredeploy.json`. In Azure Cloud Shell, you can use Visual Studio Code to create the file in your working directory:
 
@@ -151,7 +149,7 @@ You can specify the properties of your Azure container registry in an ARM templa
   }
 ```
 
-#### Deploy the template
+### Deploy the template
 
 Deploy your Resource Manager template with the following command:
 
@@ -159,7 +157,7 @@ Deploy your Resource Manager template with the following command:
 az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-### Deploy using the Azure CLI
+## Deploy using the Azure CLI
 
 To deploy a container group using managed identity to authenticate image pulls via the Azure CLI, use the following command, making sure that your `<dns-label>` is globally unique:
 
