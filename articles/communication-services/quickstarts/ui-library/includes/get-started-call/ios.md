@@ -34,14 +34,11 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 2. Add the following to your Podfile:
 
 ```
-source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/Azure/AzurePrivatePodspecs.git'
-
 platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
+    pod 'AzureCommunicationUI', '1.0.0-beta.1'
 end
 
 post_install do |installer|
@@ -53,7 +50,7 @@ post_install do |installer|
 end
 ```
 
-3. Run `pod install --repo-update`. (This process may take 10-15 min.)
+3. Run `pod install --repo-update`.
 4. Open the generated `.xcworkspace` with Xcode.
 
 ### Request access to the microphone, camera, etc.
