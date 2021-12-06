@@ -12,7 +12,7 @@
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
-  - name: What is Agentless solution architecture
+  - name: Agentless solution architecture
     displayName: deployment, where to deploy
     href: architecture.md
 - name: Quickstarts
