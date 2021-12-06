@@ -29,7 +29,7 @@ To use a Append Variable activity in a pipeline, complete the following steps:
 1. Select the variable for the Name property.
 1. Enter an expression for the value, which will be appended to the array in the variable.  This can be a literal string expression, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
 
-   :::image type="content" source="media/control-flow-append-variable-activity/append-variable.png" alt-text="Shows the UI for an Append Variable activity with numbered indications of each step to configure it.":::
+   :::image type="content" source="media/control-flow-append-variable-activity/append-variable.png" alt-text="Shows the UI for an Append Variable activity.":::
 
 ## Type properties
 
