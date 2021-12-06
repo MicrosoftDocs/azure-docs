@@ -363,7 +363,7 @@ To assign the key and follow the steps, choose a client:
     2. Browse and select the key from the Key Vault in the key picker pane.
 
         >[!NOTE]
-        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enabling-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
+        >When specifying the encryption key using the key picker pane, the key will be auto-rotated whenever a new version for the key is enabled. [Learn more](#enable-auto-rotation-of-encryption-keys) on enabling auto-rotation of encryption keys.
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
@@ -452,7 +452,7 @@ Before proceeding to configure protection, we strongly recommend you ensure the 
 
 The process to configure and perform backups to a Recovery Services vault encrypted with customer-managed keys is the same as to a vault that uses platform-managed keys, with **no changes to the experience**. This holds true for [backup of Azure VMs](./quick-backup-vm-portal.md) as well as backup of workloads running inside a VM (for example, [SAP HANA](./tutorial-backup-sap-hana-db.md), [SQL Server](./tutorial-sql-backup.md) databases).
 
-## Restoring data from backup
+## Restore data from backup
 
 ### VM backup
 
@@ -513,11 +513,11 @@ az backup restore restore-disks --container-name MyContainer --disk-encryption-s
 
 ---
 
-#### Restoring files
+#### Restore files
 
 When performing a file restore, the restored data will be encrypted with the key used for encrypting the target location.
 
-### Restoring SAP HANA/SQL databases in Azure VMs
+### Restore SAP HANA/SQL databases in Azure VMs
 
 When restoring from a backed-up SAP HANA/SQL database running in an Azure VM, the restored data will be encrypted using the encryption key used at the target storage location. It may be a customer-managed key or a platform-managed key used for encrypting the disks of the VM.
 
@@ -542,13 +542,13 @@ When your subscription is allow-listed, the **Backup Encryption** tab will displ
 
 1. To specify the key to be used for encryption, select the appropriate option.
 
-   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, auto-rotation of the encryption key will enable automatically. [Learn more on auto-rotation](#enabling-auto-rotation-of-encryption-keys). 
+   You can provide the URI for the encryption key, or browse and select the key. When you specify the key using the **Select the Key Vault** option, auto-rotation of the encryption key will enable automatically. [Learn more on auto-rotation](#enable-auto-rotation-of-encryption-keys). 
 
 1. Specify the user assigned managed identity to manage encryption with customer-managed keys. Click **Select** to browse and select the required identity.
 
 1. Once done, proceed to add Tags (optional) and continue creating the vault.
 
-### Enabling auto-rotation of encryption keys
+### Enable auto-rotation of encryption keys
 
 When you specify the customer-managed key that must be used to encrypt backups, use the following methods to specify it:
 
@@ -559,7 +559,7 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 - Key version update may take up to an hour to take effect.
 - When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
 
-### Using Azure Policies for auditing and enforcing encryption utilizing customer-managed keys (in preview)
+### Use Azure Policies to audit and enforce encryption with customer-managed keys (in preview)
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 

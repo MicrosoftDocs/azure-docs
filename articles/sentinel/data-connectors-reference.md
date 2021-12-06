@@ -595,7 +595,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
-| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
+| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://docs.citrix.com/en-us/security-analytics/getting-started-security/siem-integration/azure-sentinel-integration.html) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
