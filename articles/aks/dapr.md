@@ -34,7 +34,7 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 
 ## Supported Kubernetes versions
 
-The Dapr extension uses the same support window as AKS. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
+The Dapr extension uses support window similar to AKS, but instead of N-2, Dapr supports N-1. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
 
 ## Prerequisites 
 
