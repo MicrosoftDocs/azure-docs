@@ -47,7 +47,9 @@ items:
       - name: Lineage best practices
         href: concept-best-practices-lineage-azure-data-factory.md
       - name: Accounts architecture
-        href: concept-best-practices-accounts.md    
+        href: concept-best-practices-accounts.md  
+      - name: Security best practices
+        href: concept-best-practices-security.md        
       - name: Collections architecture
         href: concept-best-practices-collections.md
       - name: Network architecture

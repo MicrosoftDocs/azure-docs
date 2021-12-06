@@ -64,9 +64,7 @@
       - name: Certificate signing options
         href: certificate-signing-options.md
       - name: Manage certificates
-        href: manage-certificates-for-federated-single-sign-on.md
-      - name: Protect against consent phishing
-        href: protect-against-consent-phishing.md
+        href: manage-certificates-for-federated-single-sign-on.md 
       - name: Tenant restrictions
         href: tenant-restrictions.md
       - name: Configure SAML token encryption
@@ -75,6 +73,14 @@
         href: end-user-experiences.md
       - name: Cloud app visibility and control
         href: cloud-app-security.md
+    - name: Consent and permissions
+      items:
+      - name: Consent and permissions overview
+        href: consent-and-permissions-overview.md
+      - name: Manage and evaluate consent requests
+        href: manage-consent-requests.md
+      - name: Protect against consent phishing
+        href: protect-against-consent-phishing.md
   - name: How-to guides
     expanded: false
     items:
@@ -82,22 +88,26 @@
       href: assign-app-owners.md
     - name: Manage access
       items:
-      - name: Consent and permissions
+      - name: Manage consent and permissions
         items:
         - name: Configure user consent
           href: configure-user-consent.md
         - name: Configure group owner consent
           href: configure-user-consent-groups.md
+        - name: Configure risked-based step-up consent
+          href: configure-risk-based-step-up-consent.md
         - name: Configure permission classifications
           href: configure-permission-classifications.md
         - name: Manage app consent policies
           href: manage-app-consent-policies.md
         - name: Configure admin consent workflow
           href: configure-admin-consent-workflow.md
-        - name: Manage and evaluate consent requests
-          href: manage-consent-requests.md
+        - name: Review admin consent requests
+          href: review-admin-consent-requests.md
         - name: Grant tenant-wide admin consent
           href: grant-admin-consent.md
+        - name: Grant consent on behalf of a single user
+          href: grant-consent-single-user.md
         - name: Review permissions granted to apps
           href: manage-application-permissions.md
       - name: Manage user assignment
@@ -190,6 +200,8 @@
         href: application-sign-in-problem-first-party-microsoft.md
   - name: Reference
     items:
+    - name: Admin consent workflow FAQ
+      href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
     - name: Reasons apps appear in Enterprise Applications
