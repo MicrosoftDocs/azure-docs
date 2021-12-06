@@ -29,9 +29,9 @@ AWS
 * Two Customer Gateways
 * Two site-to-site connections, each with two tunnels (total of four tunnels)
 
-A site-to-site connection on AWS has two tunnels, each with their own Outside IP Address and Inside IPv4 CIDR (used for BGP APIPA). An active-passive VPN Gateway only supports **one** custom BGP APIPA. To connect to each of the four tunnels in AWS, you will need to enable **active-active** on your Azure VPN Gateway. 
+A site-to-site connection on AWS has two tunnels, each with their own Outside IP Address and Inside IPv4 CIDR (used for BGP APIPA). An active-passive VPN Gateway only supports **one** custom BGP APIPA. You will need to enable **active-active** on your Azure VPN Gateway to connect to multiple AWS tunnels. 
 
-On the AWS side, you will create a Customer Gateway and site-to-site connection for **each of the two Azure VPN Gateway instances** (total of four outgoing tunnels). In Azure, you will need to create four Local Network Gateways and connections to receive these four AWS tunnels.
+On the AWS side, you will create a Customer Gateway and site-to-site connection for **each of the two Azure VPN Gateway instances** (total of four outgoing tunnels). In Azure, you will need to create four Local Network Gateways and four connections to receive these four AWS tunnels.
 
 :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/Architecture.png" alt-text="Diagram showing architecture for this setup" border="false":::
 
@@ -66,7 +66,7 @@ You must have both an Azure account and AWS account with an active subscription.
 Create a Virtual Network with the following values by following the steps in the [create a gateway tutorial](./tutorial-create-gateway-portal.md#CreatVNet).
 
 * **VNet Name**: VNet1
-* **Address space**: 10.1.0.0/16]
+* **Address space**: 10.1.0.0/16
 * **Subnet name**: FrontEnd
 * **Subnet address range**: 10.1.0.0/24
 * **Subscription**: If you have more than one subscription, verify that you are using the correct one.
@@ -229,6 +229,7 @@ Repeat the following sections for **each of your four AWS tunnels**, using their
 
 9. From the **Connections** page for your VPN Gateway, select the connection you created and navigate to the **Configuration** page.
 10. Select **ResponderOnly** for the **Connection Mode** and select **Save**.
+    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/responder-only.png" alt-text="Make connections ResponderOnly" border="false":::
 
 
 Verify that you have a **Local Network Gateway** and **Connection** for **each of your four AWS tunnels**. 
