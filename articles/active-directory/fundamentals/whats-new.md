@@ -441,7 +441,7 @@ We now support native single sign-on (SSO) support and device-based Conditional 
 **Product capability:** Identity Governance
  
 
-We've released beta MS Graph API for Azure AD access reviews. The API has methods to return a list of contacted reviewer names in addition to the reviewer type. [Learn more](/graph/api/resources/accessreviewinstance?view=graph-rest-beta&preserve-view=true).
+We've released beta MS Graph API for Azure AD access reviews. The API has methods to return a list of contacted reviewer names in addition to the reviewer type. [Learn more](/graph/api/resources/accessreviewinstance).
  
 ---
 
@@ -646,7 +646,7 @@ For more information on My Apps, read [Sign in and start apps from the My Apps p
 **Service category:** MS Graph  
 **Product capability:** Developer Experience
  
-Application authentication method policies in MS Graph which allow IT admins to enforce lifetime on application password secret credential or block the use of secrets altogether. Policies can be enforced for an entire tenant as a default configuration and it can be scoped to specific applications or service principals. [Learn more](/graph/api/resources/policy-overview?view=graph-rest-beta&preserve-view=true).
+Application authentication method policies in MS Graph which allow IT admins to enforce lifetime on application password secret credential or block the use of secrets altogether. Policies can be enforced for an entire tenant as a default configuration and it can be scoped to specific applications or service principals. [Learn more](/graph/api/resources/policy-overview).
  
 ---
 
@@ -1238,7 +1238,7 @@ The Azure Information Protection service signs users into the tenant that encryp
 **Product capability:** Monitoring & Reporting
  
 
-The attributes "Action" and "statusInfo" will be changed to "provisioningAction" and "provisoiningStatusInfo." Update any scripts that you have created using the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true) or [Azure Monitor integrations](../app-provisioning/application-provisioning-log-analytics.md). 
+The attributes "Action" and "statusInfo" will be changed to "provisioningAction" and "provisoiningStatusInfo." Update any scripts that you have created using the [provisioning logs Graph API](/graph/api/resources/provisioningobjectsummary) or [Azure Monitor integrations](../app-provisioning/application-provisioning-log-analytics.md). 
  
 
 ---
