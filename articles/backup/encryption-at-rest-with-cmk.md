@@ -559,7 +559,7 @@ Using the **Select from Key Vault** option helps to enable auto-rotation for the
 - Key version update may take up to an hour to take effect.
 - When a new version of the key takes effect, the old version should also be available (in enabled state) for at least one subsequent backup job after the key update has taken effect.
 
-### Use Azure Policies for auditing and enforcing encryption utilizing customer-managed keys (in preview)
+### Use Azure Policies to audit and enforce encryption utilizing customer-managed keys (in preview)
 
 Azure Backup allows you to use Azure Polices to audit and enforce encryption, using customer-managed keys, of data in the Recovery Services vault. Using the Azure Policies:
 
