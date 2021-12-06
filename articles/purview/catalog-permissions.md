@@ -1,6 +1,6 @@
 ---
 title: Understand access and permissions
-description: This article gives an overview permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
+description: This article gives an overview of permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
@@ -18,16 +18,16 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 
 > [!NOTE]
 > As of November 8th, 2021, ***Insights*** is accessible to Data Curators. Data Readers do not have access to Insights.
->
->
+
 ## Roles
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
 - **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
-- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, and glossary terms.
 - **Data source admins** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Data share contributor** - A role that can share data within an organization and with other organizations using Data share capabilities in Azure Purview. Data share contributors can view, create, update, and delete sent and received shares.
 
 ## Who should be assigned to what role?
 
@@ -41,6 +41,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 |I need to set up scans via the Purview Studio|Data Curator on the collection **or** Data Curator **And** Data Source Administrator where the source is registered|
 |I need to enable a Service Principal or group to set up and monitor scans in Azure Purview without allowing them to access the catalog's information |Data Source Admin|
 |I need to put users into roles in Azure Purview | Collection Admin |
+|I need to share data from sources registered in Azure Purview | Data share contributor|
 
 :::image type="content" source="./media/catalog-permissions/collection-permissions-roles.png" alt-text="Chart showing Purview roles" lightbox="./media/catalog-permissions/collection-permissions-roles.png":::
 
@@ -56,7 +57,7 @@ All other users can only access information within the Azure Purview account if 
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
-You can assign Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
+You can assign Purview roles to users, security groups, and service principals from your Azure Active Directory, which is associated with your purview account's subscription.
 
 ## Assign permissions to your users
 
@@ -90,13 +91,13 @@ Now that we have a base understanding of collections, permissions, and how they 
 This is one way an organization might structure their data: Starting with their root collection (Contoso, in this example) collections are organized into regions, and then into departments and subdepartments. Data sources and assets can be added to any one these collections to organize data resources by these regions and department, and manage access control along those lines. There's one subdepartment, Revenue, that has strict access guidelines, so permissions will need to be tightly managed.
 
 The [data reader role](#roles) can access information within the catalog, but not manage or edit it. So for our example above, adding the Data Reader permission to a group on the root collection and allowing inheritance will give all users in that group reader permissions on Purview sources and assets. This makes these resources discoverable, but not editable, by everyone in that group. [Restricting inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on the Revenue group will control access to those assets. Users who need access to revenue information can be added separately to the Revenue collection.
-Similarly with the Data Curator and Data Source Admin roles, permissions for those groups will start at the collection where they're assigned and trickle down to subcollections that haven't restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
+Similarly, with the Data Curator and Data Source Admin roles, permissions start at the collection where they're assigned and trickle down to subcollections that haven't restricted inheritance. Below we have assigned permissions for several groups at collections levels in the Americas sub collection.
 
-:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department showing permissions distribution." border="true":::
+:::image type="content" source="./media/catalog-permissions/collection-permissions-example.png" alt-text="Chart showing a sample collections hierarchy broken up by region and department, showing permissions distribution." border="true":::
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab, they will be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 
