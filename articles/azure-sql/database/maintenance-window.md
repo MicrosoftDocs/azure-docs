@@ -112,10 +112,10 @@ Choosing a maintenance window other than the default is currently available in t
 | UAE North | Yes | | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
-| US Gov Central | Yes | | | 
-| US Gov East | Yes | | | 
-| US Gov South Central| Yes | | | 
-| US Gov South West | Yes | | |
+| US Gov Arizona | Yes | | |
+| US Gov Iowa | Yes | | | 
+| US Gov Texas| Yes | | | 
+| US Gov Virginia | Yes | | | 
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
 | West India | Yes | | |
