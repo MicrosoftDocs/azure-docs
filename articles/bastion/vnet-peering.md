@@ -20,6 +20,10 @@ Azure Bastion works with the following types of peering:
 * **Virtual network peering:** Connect virtual networks within the same Azure region.
 * **Global virtual network peering:** Connecting virtual networks across Azure regions.
 
+> [!NOTE]
+> This configuration is not supported with Virtual WAN.
+>
+
 ## Architecture
 
 When VNet peering is configured, Azure Bastion can be deployed in hub-and-spoke or full-mesh topologies. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
@@ -43,7 +47,7 @@ Review the following considerations when working with this architecture:
   * Reader role on the virtual machine.
   * Reader role on the NIC with private IP of the virtual machine.
   * Reader role on the Azure Bastion resource.
-  * Reader role on the virtual network (This role is not required if there is no peered virtual network).
+  * Reader role on the virtual network (This role is not required if there isn't a peered virtual network).
 
 ### To configure Azure Bastion
 
