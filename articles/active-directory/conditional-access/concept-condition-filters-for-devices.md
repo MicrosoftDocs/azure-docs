@@ -126,7 +126,7 @@ The following device attributes can be used with the filter for devices conditio
 | extensionAttribute1-15 | Equals, NotEquals, StartsWith, NotStartsWith, EndsWith, NotEndsWith, Contains, NotContains, In, NotIn | extensionAttributes1-15 are attributes that customers can use for device objects. Customers can update any of the extensionAttributes1 through 15 with custom values and use them in the filter for devices condition in Conditional Access. Any string value can be used. | (device.extensionAttribute1 -eq ‘SAW’) |
 
 > [!NOTE] 
-> `Contains` and `NotContains` operator works differently depending on attribute types. For string attributes such as operatingSystem and model, Contains operator indicates whether a specified substring occurs within the attribute. For string collection attributes such as physicalIds and systemLabels, Contains operator indicates whether a specified string matches one of the whole string in the collection.
+> The `Contains` and the `NotContains` operators work differently depending on attribute types. For string attributes such as `operatingSystem` and `model`, the `Contains` operator indicates whether a specified substring occurs within the attribute. For string collection attributes such as `physicalIds` and `systemLabels`, the `Contains` operator indicates whether a specified string matches one of the whole strings in the collection.
 
 ## Policy behavior with filter for devices
 
