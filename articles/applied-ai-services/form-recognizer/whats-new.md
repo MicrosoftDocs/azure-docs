@@ -19,7 +19,7 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## November 2021
 
- The beta.2 version of the Azure Form Recognizer SDKs has been released. The new beta release that incorporates bug fixes and minor feature updates.
+ The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
 
 ### Form Recognizer v3.0 preview release (beta.2)
 
@@ -55,13 +55,13 @@ The `BuildModelOperation` and `CopyModelOperation` now correctly populate the `P
 
 #### Feature updates
 
-* The `words` property has been added to `DocumentLine` interface.
+* The `words` property has been added to the `DocumentLine` interface.
 
-* The `createdOn` (date created) and `lastUpdatedOn` (time last modified) properties have been added to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState` interfaces.
+* The `createdOn` (date created) and `lastUpdatedOn` (time last modified) properties have been added to the `DocumentAnalysisPollOperationState` and `TrainingPollOperationState` interfaces.
 
 #### Bugs fixed
 
-* The handling of long-running operations (analysis and model creation operations) has been improved. Clients will no longer attempt to parse model IDs and accept operation-location fields verbatim. Thus, the *unable to parse operationLocation* error is no longer possible.
+* The handling of long-running operations (analysis and model creation operations) has been improved. Clients will no longer attempt to parse model IDs and will now accept operation-location fields verbatim. Thus, the *unable to parse operationLocation* error is no longer possible.
 
 #### Breaking changes
 
