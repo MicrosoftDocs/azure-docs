@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/28/2021
+ms.date: 12/06/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -31,9 +31,31 @@ You can track the status of your import or export jobs on the **Import/Export** 
   
 ## View job status
 
-You see one of the following job statuses depending on where your drive is in the process.
+XXX
 
-| Job Status | Description |
+### [Portal (Preview)](#tab/azure-portal)
+
+If you create your job in the Preview portal, you see one of the following job statuses depending on where your drive is in the process.
+
+| Job status                        | Description                                                                                    |
+|:----------------------------------|:-----------------------------------------------------------------------------------------------|
+| Awaiting shipment information     | After a job is created, its state is set to **Awaiting shipment information**. While the job is in this state, the Import/Export service assumes the drives haven't been shipped to the datacenter. To proceed further, the customer needs to provide the shipment information for the job. A job may remain in this state for up to two weeks, after which the service automatically deletes it. |
+| Shipped                           | After you ship your package, you should update the tracking information in the Azure portal. Doing so changes the job state to **Shipped**. The job remains in the **Shipped** state for up to two weeks.<br/>When a job reaches **Shipped** state, it can no longer be canceled. |
+| Received                          | After all drives are received at the datacenter, the job state is set to **Received**.<br/>The job status may change 1 to 3 business days after the carrier delivers the device, when order processing completes in the datacenter. |
+| Data copy in progress             | Once processing begins for at least one drive, the job state is set to **Data copy in progress**. For more information, go to [View drive status](#view-drive-status). |
+| Data copy completed with errors   | The job moves to **Data copy completed with errors** state when the service has experienced errors while copying data in at least one of the drives. |
+| Data copy completed with warnings | The job moves to **Data copy completed with warnings** state when the service has completed the data copy but some warnings were encountered during the process. |
+| Data copy failed                  | Data copy failed due to issues encountered while copying data to or from at least one of the drives. |
+| Preparing to ship                 | After all drives have completed processing, the job is placed in **Preparing to ship** state until the drives are shipped back to you. |
+| Shipped to customer               | After all drives have been shipped back to you, the job status changes to **Shipped to customer**. |
+| Completed                         | After all drives are shipped back to you, if the job has completed without errors, then the job is set to **Completed**. The job is automatically deleted after 90 days in the **Completed** state. |
+| Canceled                          | The job has been canceled. |
+
+### [Portal (Classic)](#tab/azure-portal)
+
+If you create your job using the Classic method, you see one of the following job statuses depending on where your drive is in the process.<!--Check Anam's table for status updates.-->
+
+| Job status | Description |
 |:--- |:--- |
 | Creating | After a job is created, its state is set to **Creating**. While the job is in the **Creating** state, the Import/Export service assumes the drives haven't been shipped to the data center. A job may remain in this state for up to two weeks, after which it's automatically deleted by the service. |
 | Shipping | After you ship your package, you should update the tracking information in the Azure portal. Doing so turns the job into **Shipping** state. The job remains in the **Shipping** state for up to two weeks.<br>When a job reaches Shipping state, it can no longer be canceled.
@@ -45,9 +67,48 @@ You see one of the following job statuses depending on where your drive is in th
 
 ## View drive status
 
-The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure portal.
+XXXX
 
-The following table describes each state that each drive in a job may pass through.
+### [Portal (Preview)](#tab/azure-portal)
+
+The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure Preview portal.<!--Move sentence to section introcuction.-->
+
+The following table describes each state that each drive in a job may pass through when the drive is successfully processed.
+
+| Drive status                       | Description   |
+|:-----------------------------------|:------------------------------------------|
+| Data copy not started              | This state indicates that data copy is yet to start on the drive. |
+| %age completed<br/>                | This state indicates the copy progress of the job in terms of percentage completion. |
+| Data copy completed                | A drive moves to the **Data copy completed** state when the service has successfully transferred all the data with no errors. |
+| Data copy completed with errors    | A drive moves to the **Data copy completed with errors** state when the service has ran across errors while copying data from or to the drive. |
+| Data copy completed with warnings  | A drive moves to the **Data copy completed with warnings** state when the service has completed copying data from or to the drive, but some warnings were raised in the process. |
+
+<!--Add a screenshot from the Preview portal?-->
+
+The following table describes the drive Failure states and the actions to take in each state.
+
+| Drive status                      | Description   |
+|:----------------------------------|:------------------------------------------|
+| Disk not received at datacenter   | A drive moves to this state when the disks are not received at the datacenter. |
+| Issues faced while processing the job. Contact support for more info. |
+| Manifest file error               | Issues in the manifest file or format. |
+| Export blob list format invalid   | For an export job, the export blob list blob doesn't conform to the required format. |
+| Blob access forbidden             | For an export job, access to the export blob list in the storage account is forbidden. This might be due to an invalid storage account key or container SAS. |
+| Unsupported disk                  | Disk not supported by Azure Import/Export service. For list of supported disk types, see [Supported disk types](XXX). |
+| Disk corrupted                    | Data on the disk is corrupted. |
+| BitLocker unlock volume failed    | Attempt to unlock the BitLocker volume failed. |
+| BitLocker volume not found        | Disk doesn't contain a BitLocker-enabled volume. |
+| BitLocker key invalid             | Customer-provided BitLocker key is not valid. |
+| Hardware error                    | Disk has reported a media failure. |
+| NTFS volume not found             | The first data volume on the disk is not in NTFS format. |
+| Storage account not accessible    | The customer storage account is not accessible to proceed with the data copy. |
+| Unsupported data                  | The data copied to the disk doesn't conform to Azure conventions ADD LINK, or the data cannot be exported because it's not supported on NTFS volumes ADD LINK. |
+
+### [Portal (Classic)](#tab/azure-portal)
+
+The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure portal when you create an import/export job in the Classic experience.
+
+The following table describes each state that each drive in a job may pass through when the drive is successfully processed.
 
 | Drive State | Description |
 |:--- |:--- |
@@ -69,6 +130,8 @@ The following table describes the drive failure states and the actions taken for
 |:--- |:--- |:--- |
 | Never received | A drive that's marked as **NeverReceived** (because it wasn't received as part of the job's shipment) arrives in another shipment. | The operations team moves the drive to **Received**. |
 | N/A | A drive that isn't part of any job arrives at the datacenter as part of another job. | The drive is marked as an extra drive. It's returned to you when the job associated with the original package is completed. |
+
+---
 
 ## Time to process job
 The amount of time it takes to process an import/export job varies based on a number of factors such as:
