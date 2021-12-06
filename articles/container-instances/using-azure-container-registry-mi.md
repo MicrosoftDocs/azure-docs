@@ -153,7 +153,7 @@ You can specify the properties of your Azure container registry in an ARM templa
 
 #### Deploy the template
 
-Deploy your resource manager template with the following command:
+Deploy your Resource Manager template with the following command:
 
 ```azurecli-interactive
 az deployment group create --resource-group myResourceGroup --template-file azuredeploy.json
