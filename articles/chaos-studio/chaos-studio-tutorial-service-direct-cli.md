@@ -45,7 +45,7 @@ Chaos Studio cannot inject faults against a resource unless that resource has be
     For example, if onboarding a virtual machine as a service-direct target:
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
 2. Create the capabilities on the target by replacing `$RESOURCE_ID` with the resource ID of the resource you are onboarding, `$TARGET_TYPE` with the [target type you are onboarding](chaos-studio-fault-providers.md) and `$CAPABILITY` with the [name of the fault capability you are enabling](chaos-studio-fault-library.md).
@@ -57,7 +57,7 @@ Chaos Studio cannot inject faults against a resource unless that resource has be
     For example, if enabling the Virtual Machine shut down capability:
 
     ```azurecli-interactive
-    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/microsoft-virtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
+    az rest --method put --url "https://management.azure.com/subscriptions/b65f2fec-d6b2-4edd-817e-9339d8c01dc4/resourceGroups/myRG/providers/Microsoft.Compute/virtualMachines/myVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/shutdown-1.0?api-version=2021-09-15-preview" --body "{\"properties\":{}}"
     ```
 
 You have now successfully onboarded your Azure Cosmos DB account to Chaos Studio.
