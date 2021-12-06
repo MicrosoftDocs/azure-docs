@@ -43,7 +43,7 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension 5.x and higher](#tab/extensionv5/in-process)
 
-A new version of the Storage bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
+A Blob-specific version of the Storage bindings extension is available. With this version, you can [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the tutorial [creating a function app with identity-based connections](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Blobs](/dotnet/api/azure.storage.blobs). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
 
 This extension version is available by installing the [NuGet package], version 5.x.
 
@@ -91,12 +91,7 @@ You can install this version of the extension in your function app by registerin
 
 # [Functions 2.x and higher](#tab/functionsv2/csharp-script)
 
-Working with the trigger and bindings requires that you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
-
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C# Script | Registering the [extension bundle]          | The [Azure Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack) is recommended to use with Visual Studio Code. |
-| C# Script (online-only in Azure portal)         | Adding a binding                            | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
+You can install this version of the extension in your function app by registering the [extension bundle], version 2.x. 
 
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
@@ -110,7 +105,7 @@ Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJob
 
 ## Install bundle
 
-The Blob is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
+The Blob storage binding is part of an [extension bundle], which is specified in your host.json project file. You may need to modify this bundle to change the version of the binding, or if bundles aren't already installed. To learn more, see [extension bundle].
 
 # [Bundle v3.x](#tab/extensionv3)
 
