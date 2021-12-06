@@ -33,7 +33,6 @@ An alternative to using HTTP BASIC authentication for the zip deployment is to u
 A valid Azure AD access token for the the user or service principal performing the deployment will be required. An access token can be retrieved using the Azure CLI's `az account get-access-token` command.  The access token will be used in the Authentication header of the HTTP POST request.
 
 ```bash
-
 curl -X POST \
     --data-binary @"<zip_file_path>" \
     -H "Authorization: Bearer <access_token>" \
