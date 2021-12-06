@@ -83,7 +83,7 @@ For all clusters hosted outside of Azure, [Azure Arc-enabled Kubernetes](../azur
 
 With an EKS-based cluster, Arc and its Defender extension are needed to collect policy and configuration data from nodes. We use AWS's CloudWatch to collect log data. Of course, to monitor your EKS clusters with Defender for Cloud, your AWS account needs to be connected to Microsoft Defender for Cloud [via the environment settings page](quickstart-onboard-aws.md). You'll need both the **Defender for Containers** plan and the **CSPM** plan (for configuration monitoring and recommendations).
 
-:::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
+:::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
 
 ---
 
