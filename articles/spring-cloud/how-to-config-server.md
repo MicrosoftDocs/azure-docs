@@ -291,7 +291,7 @@ When properties are changed, services consuming those properties need to be noti
     }
     ```
 
-2. Enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 5 seconds, which is the minimum value you can set for refresh interval.
+2. Enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 60 seconds, which is the minimum value you can set for refresh interval.
 By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
 
     ```yml
@@ -299,7 +299,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
       cloud:
         config:
           auto-refresh: true
-          refresh-interval: 5
+          refresh-interval: 60
     management:
       endpoints:
         web:
@@ -308,7 +308,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
               - refresh
     ```
 
-3. Add @refreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 5 seconds.
+3. Add @RefreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 60 seconds.
 
     ```java
     @RestController
