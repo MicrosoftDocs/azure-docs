@@ -11,7 +11,7 @@ ms.author: zxue
 
 # Register a client application using CLI and REST API
 
-In this article, you'll learn how to register a client application in Azure Active Directory (Azure AD) using Azure CLI and REST API to access the Healthcare APIs. While you can do the same process using the Azure portal, this option supports the infrastructure as code approach. This enables you to test and deploy resources with scripts. For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure CLI and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, using Azure CLI and REST API support the infrastructure as code approach. This approach enables you to test and deploy resources with scripts. For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
 
 > [!Note] 
 > The scripts are tested in Visual Studio Code, and they're used "as is" in most cases. However, you'll need to validate them in your environment and make necessary adjustments. For example, you can run the scripts in the PowerShell environment, but you'll need to add the `$` symbol variable that's required in PowerShell.
@@ -27,7 +27,7 @@ az extension add --name healthcareapis
 az provider register --namespace 'Microsoft.HealthcareApis'
 az provider show --namespace Microsoft.HealthcareApis --query "resourceTypes[?resourceType=='services'].locations"
 ```
-You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set&preserve-view=true). FOr more information about how to sign in to a specific tenant, see [Azure login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+You can sign in to Azure using the CLI login command, and list the Azure subscription and tenant you are in by default. For more information, see [change the default subscription](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set&preserve-view=true). For more information about how to sign in to a specific tenant, see [Azure login](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
 
 ```
 az login
@@ -60,7 +60,7 @@ You can use `echo $<variable name>` to display the value of a specified variable
 
 ## Remove the user_impersonation scope
 
-The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting under "Expose an API" in application registrations from the Azure portal. This is not required in most cases. Therefore, you can remove it.
+The `az ad app create` command in its current form adds a `user_impersonation` scope to expose the application as an API. You can view the setting under "Expose an API" in application registrations from the Azure portal. This scope is not required in most cases. Therefore, you can remove it.
 
 [![User_Impersonation](media/app-registration-scope.png)](media/app-registration-scope.png#lightbox)
 
@@ -84,7 +84,7 @@ clientid=$(az rest -m post -u https://graph.microsoft.com/v1.0/applications  --h
 
 For confidential client applications, you'll need to add a client secret. For public client applications, you can skip this step.
 
-Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the "--end-date" option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts you can save and store the value in Azure Key Vault and rotate it periodically.
+Choose a name for the secret and specify the expiration duration. The default is one year, but you can use the "--end-date" option to specify the duration. The client secret is saved in the variable and can be displayed with the echo command. Make a note of it as it is not visible on the portal.  In your deployment scripts, you can save and store the value in Azure Key Vault and rotate it periodically.
 
 ```
 ###Add client secret with expiration. The default is one year.
@@ -109,7 +109,7 @@ az ad app update  --id $clientid  --set publicClient=true
 
 This is an optional step. You can use the "--reply-urls" to add one or more reply (or redirect) URLs for web apps. However, you can't specify application or platform type with the parameter. 
 
-For single page app, mobile and desktop applications, use the REST API instead and specify the application or platform type. 
+For single page app, mobile, and desktop applications, use the REST API instead and specify the application or platform type. 
 
 ```
 ###Update app registration using REST. az ad supports reply-urls only. 
