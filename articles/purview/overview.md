@@ -20,7 +20,7 @@ With the **Purview Data Catalog**, business and technical users alike can quickl
 
 **Purview Data Share** enables organizations to easily and securely share data both within the organization or cross organizations with business partners and customers. You can share or receive data with just a few clicks. Data providers can centrally manage and monitor data sharing relationships, and revoke sharing at any time. Data consumers can access received data with their own analytics tools and turn data into insights within minutes.
 
-With the **Purview Data Insights**, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
+With **Purview Data Insights**, data officers and security officers can get a bird’s eye view and at a glance understand what data is actively scanned, where sensitive data is and how it moves.
 
 ## Discovery challenges for data consumers
 
