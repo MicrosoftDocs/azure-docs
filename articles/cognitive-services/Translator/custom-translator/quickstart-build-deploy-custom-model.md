@@ -54,7 +54,7 @@ On the Custom Translator portal landing page, click New Project. On the dialog y
 name, language pair, and category, as well as other relevant fields. Then, save
 your project. For more details, visit [Create Project](how-to-create-project.md).
 
-![Create project](media/quickstart/ct-how-to-create-project.png)
+![Create project](media/how-to/how-to-create-project.png)
 
 
 ## Upload documents
@@ -64,7 +64,7 @@ Next, upload [training](training-and-model.md#training-document-type-for-custom-
 You can upload documents from either the documents tab or from a specific
 project's page.
 
-![Upload documents](media/quickstart/ct-how-to-upload.png)
+![Upload documents](media/how-to/how-to-upload-1.png)
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
@@ -82,7 +82,7 @@ included in your model. You can select [training](training-and-model.md#training
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
-![Create a model](media/quickstart/ct-how-to-train.png)
+![Create a model](media/how-to/how-to-train-model-1.png)
 
 When you've finished selecting your desired documents, click Create Model button to
 create your model and start training. You can see the status of your training,
@@ -107,13 +107,13 @@ can have one deployed model per project, and you can view the status of your
 deployment in the Status column. For more details, visit [Model
 Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
-![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
+![Deploy a trained model](media/how-to/how-to-deploy.png)
 
 ## Swap deployed model
 
 To swap a deployed model with another within a project click the "Swap" button displayed next to the desired model. During the swap process, the deployed model will continue to be available to serve translation requests. 
 
-![Swap deployed model](media/quickstart/ct-how-to-swap-model.png)
+![Swap deployed model](media/how-to/how-to-swap-model.png)
 
 ## Use a deployed model
 
