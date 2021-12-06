@@ -155,10 +155,10 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the devices support remote security management.|
+|Description|The purpose of the test is to validate the devices supports Remote administration via OSConfig.|
 |Target Availability|2021|
 |Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the device supports the ability to be remotely manageable and specifically security configurations. And the status is reported back to IoT Hub/Azure Defender for IoT.|
+|Validation|Device to be validated through toolset to ensure the device supports the ability to be remotely manageable and configured by OSConfig.|
 |Resources||
 
 ---
