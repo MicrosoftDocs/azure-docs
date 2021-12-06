@@ -6,9 +6,9 @@ ms.date: 05/06/2019
 ms.author: wolfma
 ---
 
-### Neural and standard voices
+### Prebuilt neural voices
 
-Use this table to determine **availability of neural and standard voices** by region/endpoint:
+Use this table to determine **availability of neural voices** by region/endpoint:
 
 | Region | Endpoint |
 |--------|----------|
@@ -35,11 +35,11 @@ Use this table to determine **availability of neural and standard voices** by re
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` |
 
 > [!TIP]
-> [Voices in preview](../articles/cognitive-services/Speech-Service/language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+> [Voices in preview](../language-support.md#prebuilt-neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
 
-### Custom voices
+### Custom neural voices
 
-If you've created a custom voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your voice model.
+If you've created a custom neural voice font, use the endpoint that you've created. You can also use the endpoints listed below, replacing the `{deploymentId}` with the deployment ID for your neural voice model.
 
 | Region | Endpoint |
 |--------|----------|
@@ -61,19 +61,12 @@ If you've created a custom voice font, use the endpoint that you've created. You
 | Southeast Asia | `https://southeastasia.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | UK South | `https://uksouth.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West Europe | `https://westeurope.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
+| West Central US | `https://westcentralus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US | `https://westus.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 | West US 2 | `https://westus2.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
-### Custom Neural Voice
-
-The following table details regional support for Custom Neural Voice features.
-
-| Feature | Supported regions |
-|---|---|
-| Voice model hosting | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
-| Realtime Characters | East US, West US 2, South Central US, Southeast Asia, UK South, West Europe, Australia East |
-| Long Audio Characters | East US, West Europe, Southeast Asia, UK South, India Central |
-| Custom Neural Training | East US, Southeast Asia, UK South |
+> [!NOTE]
+> The above regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is only available in the three regions: East US, Southeast Asia, and UK South. But users can easily copy a neural voice model from the three regions to other different regions listed above.
 
 ### Long audio API
 
@@ -81,8 +74,10 @@ The Long audio API is available in multiple regions with unique endpoints.
 
 | Region | Endpoint |
 |--------|----------|
+| Australia East | `https://australiaeast.customvoice.api.speech.microsoft.com` |
 | East US | `https://eastus.customvoice.api.speech.microsoft.com` |
 | India Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| South Central US | `https://southcentralus.customvoice.api.speech.microsoft.com` |
 | Southeast Asia | `https://southeastasia.customvoice.api.speech.microsoft.com` |
 | UK South | `https://uksouth.customvoice.api.speech.microsoft.com` |
 | West Europe | `https://westeurope.customvoice.api.speech.microsoft.com` |
