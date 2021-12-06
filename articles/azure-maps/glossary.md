@@ -1,8 +1,8 @@
 ---
 title: Azure Maps Glossary | Microsoft Docs 
 description: A glossary of commonly used terms associated with Azure Maps, Location-Based Services, and GIS. 
-author: philmea
-ms.author: philmea
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps

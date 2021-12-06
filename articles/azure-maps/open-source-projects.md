@@ -1,8 +1,8 @@
 ---
 title: Azure Maps community Open-source projects | Microsoft Azure Maps
 description: Open-source projects coordinated for the Microsoft Azure Maps platform.
-author: philmea
-ms.author: philmea
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
