@@ -380,13 +380,30 @@ You should see something like this:
 
 Otherwise, something must be wrong with the Azure Arc components, please check the [Azure Arc agents](../azure-arc/kubernetes/troubleshooting.md#azure-arc-agents).
 
-#### The extension installation fails
-    Get error from Portal
-    Get error from extension configurations
-    Get error from extension operator
+#### The extension installation failure
+1 [Connect to your cluster](../azure-arc/kubernetes/cluster-connect.md#access-your-cluster)
 
+2 Check the extension status and error logs
+```azurecli
+kubectl get extensionconfigs.clusterconfig.azure.com -A -o yaml
+```
+```azurecli
+kubectl logs -lcontrol-plane=extension-manager -n azure-arc -c manager
+```
 
-
+3 Common issues:
+ 
+ Pod security policy violation
+    
+   - [Change the policy accordingly](https://kubernetes.io/docs/concepts/policy/pod-security-policy)
+ 
+ A certain pod is not running
+ 
+ ```azurecli
+ kubectl describe pod <pod_name> -n <namespace>
+ ```
+     
+ Helm installation failure  
 
 
 ---
