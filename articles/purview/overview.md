@@ -5,54 +5,28 @@ author: hophanms
 ms.author: hophan
 ms.service: purview
 ms.topic: overview
-ms.date: 10/05/2021
+ms.date: 12/06/2021
 ---
 
 # What is Azure Purview?
 
-## Transcript
-
-Every organization are being disrupted by shifts in digital and data resources. In the modern business landscape, the intake of data is growing at a rapid pace. And organizations need to be able to gain insights to their data on any scale, to empower their users. Data is the most strategic asset for any organization. Data governance requires and understanding of your entier data estate, and that has been a highly manual task, which creates challenges for tool development, discovery, and managing security and privacy regulations across your data estate.
-
-Azure Purview aims to unify data governance to help organizations form a complete understanding of their data and facilitate responsible, impactful use of that data. Across your entire data state, multi-cloud, platform agnostic, and offer integrated apps and services that keep you up to date.
-
-Azure Purview automates collecting, integrating, analyzing, and governing data to maximaize the power of your data across your entire data landscape. Azure Purview automatically identifies sensitive data, evaluating regulatory risk, and helps to ensure compliant use.
-
-Purview is a unified approach to data governance using the Purview platform. The platform automates data discovery by providing data scanning and classification as a service for assets across your data estate. All descriptions of discovered data assets and their relationships are integrated into a wholistic map of your data estate. Atop this map, there are purpose built apps, like data catalog and data insights. All these governance apps have an up-to-date understanding of your entire data landscape, and any enhancements made by a single app, are immediately available to all others.
-
-The data map is an open intelligence platform, exposed using Apache Atlas APIs, it supports and ecosystem of first and third party applications and tools.
-
-Additional applications will be added to Purview to further facilitate discovering and managing your data assets.
-
-Automates data discovery by providing scan, classification, and lineage extraction as a service. On prem and multicloud and adding new source types all the time. Includes data classifiers that Automates the detection of sensitive data types. Currently supports Over 200 data types-- government IDs, names, locations, and more. Configurating and management all occur in the Purview Studio user interface, with no code required.
-
-As data scan discovers data assets, the assets are integrated into the data map, which eliminates data silos by providing a complete picture of your data estates in one place. This map auto-scales as your data estate expands. It supports fine grained access control across your metadata and resources, allows you to drive data use across your organization, while ensuring sensitive data assets can only be discoverd by appropriate consumers.
-
-Automated lineage extraction is supported.
-
-Data catalog allows you to search, browse and curate your assets so your consumers can find trusted data sources. The data catalog is fully managed, and resources are automatically integrated as they are scanned. Integrated business glossary allows you to provide the business context associated with your assets. This allows users to search for data with the language and terms they use every day.
-
-Data insights, provides an understanding of your data estate, with the ability to drill down to pinpoint issue, and manage compliant use. Key insights, distribution, location of sensitive data, how effectively the glossary is being used, and where the data is moving is all made available to your datd managers automatically.
-
-## Orig
-
 Azure Purview is a unified data governance service that helps you manage and govern your on-premises, multi-cloud, and software-as-a-service (SaaS) data. Create a holistic, up-to-date map of your data landscape with automated data discovery, sensitive data classification, and end-to-end data lineage. Enable data curators to manage and secure your data estate. Empower data consumers to find valuable, trustworthy data.
 
-:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High level architecture of Azure Purview, showing multi-cloud and on premises sources flowing into Purview, and Purviews apps (Data Catalog, Map, and Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Azure Purview for additional processing." lightbox="./media/overview/high-level-overview.png":::
+:::image type="content" source="./media/overview/high-level-overview.png" alt-text="High-level architecture of Azure Purview, showing multi-cloud and on premises sources flowing into Purview, and Azure Purview's apps (Data Catalog, Map, and Insights) allowing data consumers and data curators to view and manage metadata. This metadata is also being ported to external analytics services from Azure Purview for more processing." lightbox="./media/overview/high-level-overview-large.png":::
 
-Purview is a unified approach to data governance using the Purview platform. The platform automates data discovery by providing data scanning and classification as a service for assets across your data estate. All descriptions of discovered data assets and their relationships are integrated into a wholistic map of your data estate. Atop this map, there are purpose built apps, like data catalog and data insights. All these governance apps have an up-to-date understanding of your entire data landscape, and any enhancements made by a single app, are immediately available to all others.
-
-The data map is an open intelligence platform, exposed using Apache Atlas APIs, it supports and ecosystem of first and third party applications and tools.
+Azure Purview automates data discovery by providing data scanning and classification as a service for assets across your data estate. Metadata and descriptions of discovered data assets are integrated into a holistic map of your data estate. Atop this map, there are purpose-built apps that create environments for data discovery, access management, and insights about your data landscape.
 
 |App  |Description  |
 |----------|-----------|
 |[Data Map](#data-map) | Makes your data meaningful by graphing your data assets, and their relationships, across your data estate. The data map used to discover data and manage access to that data. |
-|[Data Catalog](#data-catalog)  | Find trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms, and data classification to identify data sources.      |
-|[Data Insights](#data-insights) | Gives you an overview of your data estate, to help you discover what kinds of data you have and where. |
+|[Data Catalog](#data-catalog)  | Find trusted data sources by browsing and searching your data assets. The data catalog aligns your assets with friendly business terms and data classification to identify data sources.      |
+|[Data Insights](#data-insights) | Gives you an overview of your data estate to help you discover what kinds of data you have and where. |
 
 ## Data Map
 
 Azure Purview Data Map provides the foundation for data discovery and effective data governance. Purview Data Map is a cloud native PaaS service that captures metadata about enterprise data present in analytics and operation systems on-premises and cloud. Purview Data Map is automatically kept up to date with built-in automated scanning and classification system. Business users can configure and use the Purview Data Map through an intuitive UI and developers can programmatically interact with the Data Map using open-source Apache Atlas 2.0 APIs.
+
+The data map is an open intelligence platform, exposed using Apache Atlas APIs, it supports and ecosystem of first and third-party applications and tools.
 
 Azure Purview Data Map powers the Purview Data Catalog and Purview data insights as unified experiences within the [Purview Studio](https://web.purview.azure.com/resource/).
 
@@ -92,10 +66,10 @@ When such challenges are combined, they present a significant barrier for compan
 
 ## Discovery challenges for security administrators
 
-Users who are responsible for ensuring the security of their organization's data may have any of the challenges listed above as data consumers and producers, as well as the following additional challenges:
+Users who are responsible for ensuring the security of their organization's data may have any of the challenges listed above as data consumers and producers, and the following extra challenges:
 
 * An organization's data is constantly growing, stored, and shared in new directions. The task of discovering, protecting, and governing your sensitive data is one that never ends. You want to make sure that your organization's content is being shared with the correct people, applications, and with the correct permissions.
-* Understanding the risk levels in your organization's data requires diving deep into your content, looking for keywords, RegEx patterns and/or and sensitive data types. Sensitive data types can include Credit Card numbers, Social Security numbers, or Bank Account numbers, to name a few. You must constantly monitor all data sources for sensitive content, as even the smallest amount of data loss can be critical to your organization.
+* Understanding the risk levels in your organization's data requires diving deep into your content, looking for keywords, RegEx patterns, and sensitive data types. Sensitive data types can include Credit Card numbers, Social Security numbers, or Bank Account numbers, to name a few. You constantly monitor all data sources for sensitive content, as even the smallest amount of data loss can be critical to your organization.
 * Ensuring that your organization's continues to comply with corporate security policies is a challenging task as your content grows and changes, and as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring data security in the quickest time possible.
 
 ## Azure Purview advantages
@@ -111,10 +85,8 @@ Discovering and understanding data sources and their use is the primary purpose 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
 ## In-region data residency
-For Azure Purview, certain table names, file paths and object path information are stored in the United States. Subject to aforementioned exception, the capability to enable storing all other customer data in a single region is currently available in all Geos.
+For Azure Purview, certain table names, file paths, and object path information are stored in the United States. Subject to aforementioned exception, the capability to enable storing all other customer data in a single region is currently available in all Geos.
 
 ## Next steps
 
 To get started with Azure Purview, see [Create an Azure Purview account](create-catalog-portal.md).
-
-To review best practices for deploying Azure Purview see our [best practices guides](deployment-best-practices.md)
