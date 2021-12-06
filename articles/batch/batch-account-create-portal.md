@@ -130,7 +130,6 @@ For example:
 Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
 ```
 
-Please notice that you will need to set the Publisher, Product(Offer) and Name(Sku) based on your Batch pool's setting.
 
 ## Other Batch account management options
 
