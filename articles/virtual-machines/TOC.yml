@@ -1836,6 +1836,8 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
+    -  name: Creating restore points
+       href: virtual-machines-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI
