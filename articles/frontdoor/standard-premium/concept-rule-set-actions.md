@@ -1,17 +1,20 @@
 ---
-title: Configure Azure Front Door rules actions
-description: This article provides a list of the various actions you can do with Azure Front Door rules. 
+title: Configure Azure Front Door Standard/Premium rule set actions
+description: This article provides a list of the various actions you can do with Azure Front Door rule set. 
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: conceptual
-ms.date: 11/10/2021
+ms.date: 03/31/2021
 ms.author: yuajia
 ---
 
-# Azure Front Door rules actions
+# Azure Front Door Standard/Premium (Preview) Rule Set actions
 
-Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door Standard/Premium [Rule Set](standard-premium/concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the type actions you can use in Azure Front Door Rules Engine or Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. A rule can contain up to five actions.
+> [!Note]
+> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+
+An Azure Front Door Standard/Premium [Rule Set](concept-rule-set.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in Azure Front Door Standard/Premium Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door (Standard/Premium) Rule Set, a rule can contain up to five actions.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) is currently in public preview.
@@ -20,7 +23,7 @@ Azure Front Door [Rules Engine](front-door-rules-engine.md) and Azure Front Door
 
 The following actions are available to use in Azure Front Door rule set.  
 
-## Cache expiration
+## <a name="CacheExpiration"></a> Cache expiration
 
 Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
 
@@ -40,7 +43,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+:::image type="content" source="../media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
 
 # [JSON](#tab/json)
 
@@ -72,7 +75,7 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 ---
 
-## Cache key query string
+## <a name="CacheKeyQueryString"></a> Cache key query string
 
 Use the **cache key query string** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache.
 
@@ -89,7 +92,7 @@ In this example, we modify the cache key to include a query string parameter nam
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
+:::image type="content" source="../media/concept-rule-set-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
 
 # [JSON](#tab/json)
 
@@ -119,7 +122,7 @@ In this example, we modify the cache key to include a query string parameter nam
 
 ---
 
-## Modify request header
+## <a name="ModifyRequestHeader"></a> Modify request header
 
 Use the **modify request header** action to modify the headers in the request when it is sent to your origin.
 
@@ -137,7 +140,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
+:::image type="content" source="../media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
 
 # [JSON](#tab/json)
 
@@ -169,7 +172,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 ---
 
-## Modify response header
+## <a name="ModifyResponseHeader"></a> Modify response header
 
 Use the **modify response header** action to modify headers that are present in responses before they are returned to your clients.
 
@@ -187,7 +190,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
+:::image type="content" source="../media/concept-rule-set-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
 
 # [JSON](#tab/json)
 
@@ -217,7 +220,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 ---
 
-## URL redirect
+## <a name="UrlRedirect"></a> URL redirect
 
 Use the **URL redirect** action to redirect clients to a new URL. Clients are sent a redirection response from Front Door.
 
@@ -238,7 +241,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
+:::image type="content" source="../media/concept-rule-set-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
 
 # [JSON](#tab/json)
 
@@ -274,7 +277,7 @@ In this example, we redirect the request to `https://contoso.com/exampleredirect
 
 ---
 
-## URL rewrite
+## <a name="UrlRewrite"></a> URL rewrite
 
 Use the **URL rewrite** action to rewrite the path of a request that's en route to your origin.
 
@@ -292,7 +295,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
+:::image type="content" source="../media/concept-rule-set-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
 
 # [JSON](#tab/json)
 
@@ -324,7 +327,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ---
 
-## Origin group override
+## <a name="OriginGroupOverride"></a> Origin group override
 
 Use the **Origin group override** action to change the origin group that the request should be routed to.
 
@@ -340,7 +343,7 @@ In this example, we route all matched requests to an origin group named `SecondO
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/rules-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
+:::image type="content" source="../media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
 
 # [JSON](#tab/json)
 
@@ -414,6 +417,5 @@ Server variables are supported on the following actions:
 
 ## Next steps
 
-* Learn more about [Azure Front Door Standard/Premium Rule Set](standard-premium/concept-rule-set.md).
-* Learn more about [Azure Front Door Rules Engine](front-door-rules-engine.md).
-* Learn more about [Rule Set match conditions](rules-match-conditions.md).
+* Learn more about [Azure Front Door Standard/Premium Rule Set](concept-rule-set.md).
+* Learn more about [Rule Set match conditions](concept-rule-set-match-conditions.md).

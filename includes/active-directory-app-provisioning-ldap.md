@@ -368,8 +368,8 @@ This file is used to automate and create an instance of AD LDS.
  [ADAMInstall]
  InstallType=Unique
  InstanceName=AD-APP-LDAP
- LocalLDAPPortToListenOn=51300
- LocalSSLPortToListenOn=51301
+ LocalLDAPPortToListenOn=389
+ LocalSSLPortToListenOn=636
  NewApplicationPartitionToCreate=CN=App,DC=contoso,DC=lab
  DataFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
  LogFilesPath=C:\Program Files\Microsoft ADAM\AD-APP-LDAP\data
@@ -414,11 +414,11 @@ New-ADUser -name "svcAccountLDAP" -accountpassword  (ConvertTo-SecureString -AsP
 Write-Output "Creating service account"
 
 # Enable the new service account
-Enable-ADAccount -Identity "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
+Enable-ADAccount -Identity "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab" -Server "APP3:389"
 Write-Output "Enabling service account"
 
 # Add the service account to the Administrators role
-Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccountLDAP,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
+Get-ADGroup -Server "APP3:389" -SearchBase "CN=Administrators,CN=Roles,CN=App,DC=contoso,DC=lab" -Filter "name -like 'Administrators'" | Add-ADGroupMember -Members "CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab"
 Write-Output "Adding service accounnt to Administrators role"
 
 
