@@ -170,7 +170,7 @@ Use [Azure Purview collections](concept-best-practices-collections.md#define-a-c
 
 Follow least privilege access model when assigning roles inside Azure Purview collections by segregating duties within your team and grant only the amount of access to users that they need to perform their jobs. 
 
-For more information how to assign least privilege access model in Azure Purview, based on Purview collection hierarchy, see [Access control in Azure Purview](catalog-permissions#assign-permissions-to-your-users.md#a-collections-example).
+For more information how to assign least privilege access model in Azure Purview, based on Purview collection hierarchy, see [Access control in Azure Purview](catalog-permissions.md#assign-permissions-to-your-users).
 
 ### Lower exposure of privileged accounts 
 
