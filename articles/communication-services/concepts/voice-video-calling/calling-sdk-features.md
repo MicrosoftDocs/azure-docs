@@ -79,7 +79,7 @@ The following list presents the set of features which are currently available in
 > [!NOTE]
 > (*) Calling SDKs are supporting only Bring Your Own Identity principle (ACS identity) and does not support Microsoft 365 Teams identities.
 
-# Calling SDK streaming support
+## Calling SDK streaming support
 The Communication Services Calling SDK supports the following streaming configurations:
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
