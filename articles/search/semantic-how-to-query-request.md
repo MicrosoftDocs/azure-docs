@@ -81,7 +81,7 @@ Only the top 50 matches from the initial results can be semantically ranked, and
 
 In order to get the best results from semantic search, it's important to give the underlying models hints about which fields in your index are most important for semantic ranking, captions, highlights, and answers. To provide that information, you'll need to create a semantic configuration.
 
-A semantic configuration contains properties to list three different types of fields which map back to the inputs the underlying models for semantic search expect:
+A semantic configuration contains properties to list three different types of fields, which map back to the inputs the underlying models for semantic search expect:
 
 + **Title field** - A title field should be a concise description of the document, ideally a string that is under 25 words. This could be the title of the document, name of the product, or item in your search index. If you don't have a title in your search index, leave this field blank.
 + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the text of a document, the description of a product, or other free-form text.
@@ -272,7 +272,7 @@ Add a semanticConfiguration to the request. A semantic configuration is required
 "semanticConfiguration": "my-semantic-config",
 ```
 
-The [semantic configuration](#create-a-semantic-configuration) is used to tell semantic search's models which fields are most important for re-ranking search results based on semantic similarity. 
+The [semantic configuration](#create-a-semantic-configuration) is used to tell semantic search's models which fields are most important for reranking search results based on semantic similarity. 
 
 
 #### Step 3: Remove or bracket query features that bypass relevance scoring
