@@ -18,7 +18,7 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 ## View authentication details
 
 > [!IMPORTANT]
-> We recommend that you use the primary key as the subscription key when you use [Shared Key authentication](./azure-maps-authentication.md#shared-key-authentication) to call Azure Maps. It's best to use the secondary key in scenarios like rolling key changes. For more information, see [Authentication with Azure Maps](./azure-maps-authentication.md).
+> We recommend that you use the primary key as the subscription key when you use Shared Key authentication to call Azure Maps. It's best to use the secondary key in scenarios like rolling key changes.
 
 To view your Azure Maps authentication details:
 
@@ -41,7 +41,7 @@ Depending on your application needs, there are specific pathways to application 
 
 ## How to add and remove Managed identities
 
-You may want to add a uUser Assigned Identity to enable Sas token authentication with Azure Maps REST APIs.
+To enable Sas token authentication with Azure Maps REST APIs you must to add a user assigned identity to your Maps account.
 
 ### Create a managed identity
 
