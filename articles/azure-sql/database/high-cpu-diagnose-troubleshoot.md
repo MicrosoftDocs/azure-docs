@@ -174,7 +174,7 @@ ORDER BY total_cpu_millisec DESC;
 GO
 ```
 
-This query groups by a hashed value of the query. If you find a high value in the `number_of_distinct_query_ids` column, investigate if a frequently run query is not parameterized. To learn more about an individual query, note the query hash and use it in the query below.
+This query groups by a hashed value of the query. If you find a high value in the `number_of_distinct_query_ids` column, investigate if a frequently run query is not parameterized. To learn more about an individual query, note the query hash and use it to [Identify the CPU usage and query plan for a given query hash](#identify-the-cpu-usage-and-query-plan-for-a-given-query-hash).
 
 ### Query the most frequently compiled queries by query hash
 
@@ -198,9 +198,9 @@ ORDER BY count_compiles DESC;
 GO
 ```
 
-This query groups by a hashed value of the query so that it will also include queries that may not be properly parameterized. To learn more about an individual query, note the query hash and use it in the query below.
+This query groups by a hashed value of the query so that it will also include queries that may not be properly parameterized. To learn more about an individual query, note the query hash and use it to [Identify the CPU usage and query plan for a given query hash](#identify-the-cpu-usage-and-query-plan-for-a-given-query-hash).
 
-### Identify the CPU usage by query plan for a given query hash
+### Identify the CPU usage and query plan for a given query hash
 
 Run the following query to find the individual query ID, query text, and query execution plans for a given `query_hash`. Substitute in a valid `query_hash` for your workload.
 
