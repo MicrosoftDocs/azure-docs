@@ -9,6 +9,7 @@ ms.service: iot-hub-device-update
 ---
 
 # Device Update for Azure IoT Hub tutorial using the Device Update binary agent for Proxy Updates
+If you haven't already done so, review [Using Proxy Updates with Device Update for Azure IoT Hub](device-update-proxy-updates.md).
 
 ## Setup Test Device or Virtual Machine (VM)
 
@@ -20,69 +21,69 @@ ms.service: iot-hub-device-update
 
 1. Register packages.microsoft.com in APT package repository
 
-```sh
-curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ~/microsoft-prod.list
+    ```sh
+    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ~/microsoft-prod.list
 
-sudo cp ~/microsoft-prod.list /etc/apt/sources.list.d/
+    sudo cp ~/microsoft-prod.list /etc/apt/sources.list.d/
 
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > ~/microsoft.gpg
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > ~/microsoft.gpg
 
-sudo cp ~/microsoft.gpg /etc/apt/trusted.gpg.d/
+    sudo cp ~/microsoft.gpg /etc/apt/trusted.gpg.d/
 
-sudo apt-get update
-```
+    sudo apt-get update
+    ```
 
 2. Install the **deviceupdate-agent** on the IoT device.  
-  - Download the latest Device Update debian file from packages.microsoft.com 
-  ```sh
-  sudo apt-get install deviceupdate-agent
-  ```
-
-  - If you downloaded the file on your pc/laptop, follow these steps to add it to the test VM
- 
-  Copy the latest Device Update debian file to the test VM. If using PowerShell on your pc/laptop, run the following shell command
-  ```sh 
-    scp <path to the .deb file> tester@<your vm's ip address>:~
-   ```
-   
-  Then remote into your VM and run following shell command in the home folder
-   
+   - Download the latest Device Update debian file from packages.microsoft.com 
    ```sh
-       #go to home folder 
-       cd ~
-       #install latest Device Update agent
-       sudo apt-get install ./<debian file name from the previous step>
+   sudo apt-get install deviceupdate-agent
+   ```
+
+   - If you downloaded the file on your pc/laptop, follow these steps to add it to the test VM
+
+   Copy the latest Device Update debian file to the test VM. If using PowerShell on your pc/laptop, run the following shell command
+   ```sh 
+     scp <path to the .deb file> tester@<your vm's ip address>:~
+   ```
+
+   Then remote into your VM and run following shell command in the home folder
+
+   ```sh
+         #go to home folder 
+         cd ~
+         #install latest Device Update agent
+         sudo apt-get install ./<debian file name from the previous step>
    ```
    
   
 3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. Replace any default value for the "connectionData" field with the primary connection string in the du-config.json file. To make changes to the du-config.json file on your VM open the file using the following command             
-    ```sh
-       sudo nano /etc/adu/du-config.json  
-    ```
+   ```sh
+      sudo nano /etc/adu/du-config.json  
+   ```
        
 4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well. For example. 
 
-```sh
-{
-  "logComponents":[
-    {
-      "componentName":"adu",
-      "logPath":"/var/log/adu/"
-    },
-    {
-      "componentName":"do",
-      "logPath":"/var/log/deliveryoptimization-agent/"
-    }
-  ],
-  "maxKilobytesToUploadPerLogPath":50
-}
-```
+   ```sh
+   {
+     "logComponents":[
+       {
+         "componentName":"adu",
+          "logPath":"/var/log/adu/"
+       },
+       {
+         "componentName":"do",
+         "logPath":"/var/log/deliveryoptimization-agent/"
+       }
+     ],
+     "maxKilobytesToUploadPerLogPath":50
+   }
+   ```
 
 5. Restart the Device Update agent
 
-```sh
-sudo systemctl restart adu-agent
-```
+   ```sh
+   sudo systemctl restart adu-agent
+   ```
 
 ### Setup Mock Components
 
@@ -93,19 +94,19 @@ For testing and demonstration purposes, we'll be creating following mock compone
 - "hostfs"
 - "rootfs"
 
-**IMPORTANT**  
-This components configuration depends on the implementation of an example Component Enumerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
+> [!IMPORTANT]
+> This components configuration depends on the implementation of an example Component Enumerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
 
 1. Copy the folder [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM and then run the following command to copy required files to the right locations.
 
-```sh
-`~/demo/tools/reset-demo-components.sh` 
-```
+   ```sh
+   `~/demo/tools/reset-demo-components.sh` 
+   ```
 2. View and record the current components' software version by using the following command
- 
- ```sh
- ~/demo/show-demo-components.sh
-```
+
+   ```sh
+   ~/demo/show-demo-components.sh
+  ```
 **Congratulations!** Your VM should now support Proxy Updates!
 
 **Additional details**: The reset-demo-components.sh command above will perform the following steps on your behalf. 
@@ -119,11 +120,11 @@ This components configuration depends on the implementation of an example Compon
  - Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
  - Register the extension
 
- ```sh
- sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
- ```
+   ```sh
+   sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
+   ```
 
-## How To Import Example Updates
+## How to import example updates
 
 ### Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
