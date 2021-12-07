@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 12/07/2021
 
 ms.author: justinha
 author: justinha
@@ -121,6 +121,6 @@ The following table shows the available HR-provisioning apps.
 |SuccessFactors to Azure AD User Provisioning | Available and provisioning works. | 
 |SuccessFactors to Writeback | Available and provisioning works. |
 |Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br>
-`AADConnectProvisioningAgent.Installer.exe`<br>`ENVIRONMENTNAME=AzureUSGovernment` |
+`AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment`|
 
 
