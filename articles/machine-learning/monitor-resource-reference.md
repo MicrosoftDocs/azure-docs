@@ -259,7 +259,7 @@ The following schemas are in use by Azure Machine Learning
 | TotalE2ETimeInSeconds | Total time node was active |
 
 > [!NOTE]
-> Effective February 2022, AmlComputeClusterNodeEvent table will be deprecated. We recommend to use AmlComputeClusterEvent instead.
+> Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
 
 ### AmlComputeInstanceEvent table
 
