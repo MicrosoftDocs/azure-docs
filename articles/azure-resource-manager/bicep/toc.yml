@@ -20,7 +20,7 @@
     href: quickstart-create-bicep-use-visual-studio-code.md
   - name: Use loops
     displayName: multiple
-    href: quickstart-loop.md
+    href: quickstart-loops.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines

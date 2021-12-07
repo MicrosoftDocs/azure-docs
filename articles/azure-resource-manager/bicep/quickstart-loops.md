@@ -9,14 +9,14 @@ ms.topic: quickstart
 
 # Quickstart: Create multiple instances
 
-Learn how to use different `for` syntax to create multiple resource instances in Bicep. Even though this articles only shows how to create multiple resource instances, the same methods can be used to define copies of module, variable, property, or output. To learn more, see [Bicep loops](./loops.md).
+Learn how to use different `for` syntax to create multiple resource instances in Bicep. Even though this article only shows creating multiple resource instances, the same methods can be used to define copies of module, variable, property, or output. To learn more, see [Bicep loops](./loops.md).
 
-These article contains the following topics:
+This article contains the following topics:
 
 - [use integer index](#use-integer-index)
 - [use array elements](#use-array-elements)
 - [use array and index](#use-array-and-index)
-- [use object](#use-dictionary-object)
+- [use dictionary object](#use-dictionary-object)
 - [loop with condition](#loop-with-condition)
 
 ## Prerequisites
@@ -27,10 +27,10 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 ## Create a single instance
 
-In this section, you learn how to define a Bicep file for creating a storage account, and how to deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntax. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it is likely one of the two causes:
+In this section, you define a Bicep file for creating a storage account, and then deploy the Bicep file. The subsequent sections provide the Bicep samples for different `for` syntaxes. You can use the same deployment method to deploy and experiment those samples. If your deployment fails, it is likely one of the two causes:
 
 - The storage account name is too long. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- The storage account name is not unique. Your storage account name must be unique within Azure
+- The storage account name is not unique. Your storage account name must be unique within Azure.
 
 The following Bicep file defines one storage account:
 
@@ -51,10 +51,10 @@ az deployment group create --resource-group $resourceGroupName --template-file $
 
 # [PowerShell](#tab/PowerShell)
 
+```azurepowershell
 $resourceGroupName = "{provide-a-resource-group-name}"
 $templateFile = "{provide-the-path-to-the-bicep-file}"
 
-```azurepowershell
 New-AzResourceGroup -Name $resourceGroupName -Location eastus
 
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFile
@@ -72,7 +72,7 @@ The index number is used as a part of the storage account name. After deploying 
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-number-0-2.png" alt-text="Use integer index with 0 as the starting number":::
 
-Inside range(), the first number is the starting number, and the second number is the number of time the loop will run. So if you change it to **range(3,2)**, you will also get two storage accounts:
+Inside range(), the first number is the starting number, and the second number is the number of times the loop will run. So if you change it to **range(3,2)**, you will also get two storage accounts:
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-number-3-2.png" alt-text="Use integer index with 3 as the starting number":::
 
@@ -118,13 +118,15 @@ In same cases, you might want to combine an array loop with an index loop. The f
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="2-5,7-8":::
 
+After deploying the preceding sample, you create two storage accounts that are simliar to:
+
 :::image type="content" source="./media/quickstart-loops/bicep-loop-array-string-number.png" alt-text="Use an array of strings and index number":::
 
 ## Use dictionary object
 
-To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the value property to get properties on the objects.
+To iterate over elements in a dictionary object, use the [items function](./bicep-functions-array.md#items), which converts the object to an array. Use the `value` property to get properties on the objects.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="13-14,17":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopObject.bicep" highlight="3-12,14,15,18":::
 
 The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
 
@@ -132,7 +134,7 @@ The loop creates two storage accounts. The SKU of the storage account with the n
 
 ## Loop with condition
 
-For resources and modules, you can add an if expression with the loop syntax to conditionally deploy the collection.
+For resources and modules, you can add an `if` expression with the loop syntax to conditionally deploy the collection.
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopWithCondition.bicep" highlight="3,5":::
 
@@ -145,7 +147,7 @@ When the Azure resources are no longer needed, use the Azure CLI or Azure PowerS
 # [CLI](#tab/CLI)
 
 ```azurecli
-resourceGroupName = "{provide-a-resource-group-name}"
+resourceGroupName = "{provide-the-resource-group-name}"
 
 az group delete --name $resourceGroupName
 ```
@@ -153,7 +155,7 @@ az group delete --name $resourceGroupName
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell
-$resourceGroupName = "{provide-a-resource-group-name}"
+$resourceGroupName = "{provide-the-resource-group-name}"
 
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
