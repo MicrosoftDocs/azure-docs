@@ -86,6 +86,7 @@ The SharePoint Online indexer will use this Azure AD application for authenticat
         + **Delegated - User.Read**
         
         ![Delegated API permissions](media/search-howto-index-sharepoint-online/delegated-api-permissions.png "Delegated API permissions")
+        
         Delegated permissions allow the search client to connect to SharePoint Online under the security identity of the current user.
 
     + If the indexer is using application API permissions, then select **Application permissions** and add the following:
@@ -94,6 +95,7 @@ The SharePoint Online indexer will use this Azure AD application for authenticat
         + **Application - Sites.Read.All**
         
         ![Application API permissions](media/search-howto-index-sharepoint-online/application-api-permissions.png "Application API permissions")
+        
         Using application permissions means that the indexer will access the SharePoint site in a service context. So when you run the indexer it will have access to all content in the SharePoint Online tenant, which requires tenant admin approval. A client secret is also required for authentication. Setting up the client secret is described later in this article.
 
 1. Give admin consent.
@@ -112,15 +114,15 @@ The SharePoint Online indexer will use this Azure AD application for authenticat
 
     + Select **Certificates & Secrets** from the menu on the left, then **Client secrets**, then **New client secret**
     
-    ![New client secret](media/search-howto-index-sharepoint-online/application-client-secret.png "New client secret")
+        ![New client secret](media/search-howto-index-sharepoint-online/application-client-secret.png "New client secret")
     
     + In the menu that pops up, enter a description for the new client secret. Adjust the expiration date if necessary. If the secret expires it will need to be recreated and the indexer needs to be updated with the new secret.
     
-    ![Setup client secret](media/search-howto-index-sharepoint-online/application-client-secret-setup.png "Setup client secret")
+        ![Setup client secret](media/search-howto-index-sharepoint-online/application-client-secret-setup.png "Setup client secret")
     
     + The new client secret will appear in the secret list. Once you navigate away from the page the secret will no longer be visible, so copy it using the copy button and save it in a secure location.
     
-    ![Copy client secret](media/search-howto-index-sharepoint-online/application-client-secret-copy.png "Copy client secret")
+        ![Copy client secret](media/search-howto-index-sharepoint-online/application-client-secret-copy.png "Copy client secret")
 
 <a name="create-data-source"></a>
 
