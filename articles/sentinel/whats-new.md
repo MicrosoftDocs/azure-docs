@@ -29,19 +29,21 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## December 2021
 
+- [Codeless data connectors (Public preview)](#codeless-data-connectors-public-preview)
+- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace--public-preview)
+
 ### Codeless data connectors (Public preview)
 
+Microsoft Sentinel now supports a new method for partners, advanced users, and developers to create custom connectors, connect them, and ingest data to Microsoft Sentinel.
 
-Microsoft Sentinel now supports codeless connectors, which support flexible data connections without advanced development for each new connector.
+CCP provides support either via an ARM template, an API, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
-The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners to create custom connectors, via an ARM template, API, or as a solution to the Microsoft Sentinel solution [content hub](sentinel-solutions.md).
-
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
-- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace)
 
-### Ingest GitHub logs into your Microsoft Sentinel workspace
+
+### Ingest GitHub logs into your Microsoft Sentinel workspace (Public Preview)
 
 Use the new [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
 

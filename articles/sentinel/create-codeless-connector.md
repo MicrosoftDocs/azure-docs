@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 11/07/2021
+ms.date: 12/07/2021
 ---
 
 # Create a codeless connector for Microsoft Sentinel (Public preview)
@@ -16,125 +16,19 @@ ms.date: 11/07/2021
 > The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
-This article describes how to create a codeless connector for Microsoft Sentinel using the Codeless Connector Platform (CCP) via API.
+The Codeless Connector Platform (CCP) provides partners, advanced users, and developers with the ability to create custom connectors, connect them, and ingest data to Microsoft Sentinel. Connectors created via the CCP can be deployed via API, an ARM template, or as a solution in the the Microsoft Sentinel [content hub](sentinel-solutions.md).
 
-The Codeless Connector Platform (CCP) provides a JSON configuration file that can be used by both customers and partners to create a connector, including both the back-end connection and the user interface displayed in Microsoft Sentinel. Deploy the connector to your own Microsoft Sentinel workspace via an ARM template or an API call, or as a solution to Microsoft Sentinel's solution's gallery.
+Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
-Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
-
-> [!NOTE]
-> - The CCP supports connections that can be polled via REST API and provide a JSON log format. Data connetions require a publicly accessibly REST API endpoint.
->
-> - Issues due to authentication errors or the data source's REST API availability are the customers' responsibility. Microsoft Sentinel provides built-in health data, and you can open a support ticket to request detailed health audit records as needed.
->
-
-## Create and deploy your connector via API
-
-This section describes how to create your data connector and then deploy it to your Microsoft Sentinel workspace.
-
-**To create your codeless connector**:
-
-1. Create a JSON configuration file, defining details for your connector using the syntax described in the following sections.
-
-1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to create your new connector. Provide the credentials and relevant parameters provided by your data source.
-
-    Microsoft Sentinel will attempt to access your data source using the provided credentials and fetch log files. If Microsoft Sentinel succeeds, the API response is `200`, which confirms that Microsoft Sentinel can fetch the log files.
-
-1. In Microsoft Sentinel, go to the **Logs** page and verify that you see the logs from your data source flowing in to your workspace.
-
-### Troubleshooting your connector
-
-TBD
-
-## Data source authentication
-
-Codeless data connectors pull data from publicly accessible APIs. To pull data, Microsoft Sentinel must authenticate to the data source service using an authentication method supported by both the data source's API and the CCP.
-
-Authentication data isn't included in the codeless connector's configuration, but provided when you connect your data connector from Microsoft Sentinel. This connection is performed using the [CONNECT](#connect) action, with connection data stored in an encrypted keystore residing in the customer region.
-
-Supported authentication methods include:
-
-- **Basic authentication**. Passes a username and password to authenticate to the REST API.
-
-- **API key**. Provides an API key to the API.
-
-- **OAuth2**. Uses an open standard for access delegation intended to grant access from applications to an API without supporting the actual authentication data.
-
-    Using OAuth2 requires app registration, authentication, and then getting a token and access by the application using the registration and authentication data. When connecting a codeless data connector, register Microsoft Sentinel as your application, and then interact directly with your data source's API authentication process for the required keys. Provide the keys to the connector when you need to connect.
-
-For more information, see [Connect to your data connector from Microsoft Sentinel](#connect-to-your-data-connector-from-azure-sentinel).
-
-
-## Supported REST API actions
-
-This section describes the API actions supported by the CCP, and the REST API endpoints provided to manage the connector:
-
-### GET
-
-Retrieves the connector configuration file for the specified connector ID.
-
-**Method**: GET
-
-**Endpoint URL**:
-
-```rest
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}`
-```
-
-### UPSERT
-
-Creates a new connector, or updates an existing connector, for the specified connector ID. New connectors are created by pushing the connector configuration in the body of the UPSERT action.
-
-**Method**: PUT
-
-**Endpoint URL**:
-
-```rest
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}
-```
-
-### CONNECT
-
-Initiates the connector data pulling mechanism for the specified connector ID. Connect using credentials, by passing configurations, or by using UI.
-
-**Method**: POST
-
-**Endpoint URL**:
-
-```rest
-subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/connect?api-version={apiVersion}
-```
-
-### DISCONNECT
-
-Deactivates the connector specified by the connector ID.
-
-**Method**: POST
-
-**Endpoint URL**:
-
-```rest
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/disconnect?api-version={apiVersion}
-```
-
-### DELETE
-
-**Method**: DELETE
-
-Deletes a connector specified by the connector ID.
-
-```rest
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}
-```
-
-For more information, see the [DataConnectors.json](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/stable/2020-01-01/DataConnectors.json) file in the Azure REST API specs GitHub repository.
-
+This article describes the syntax used in the JSON configuration file that defines how your connector works, and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
 
 ## Connector configuration
 
-The following code shows the basic syntax of the CCP configuration file:
+A codeless connector JSON configuration file defines both the user interface displayed for the connector in Microsoft Sentinel, and the back-end polling connection between Microsoft Sentinel and your data source.
 
-```rest
+The following sample shows the basic syntax of the JSON configuration file:
+
+```json
 {
     "kind": "APIPolling",
     "properties": {
@@ -152,6 +46,10 @@ For more information, see:
 
 - [User interface configuration](#user-interface-configuration)
 - [Polling configuration](#polling-configuration)
+
+> [!TIP]
+> Before building a connector, we recommend that you learn and understand how the source behaves and exactly what it expects to be connected to. For example, the types of authentication, pagination, and API endpoints are required for successful connections.
+>
 
 ## User interface configuration
 
@@ -437,6 +335,7 @@ For example:
 
 
 
+
 ## Polling configuration
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
@@ -530,13 +429,13 @@ The `request` section of the [pollingConfig](#polling-configuration) configurati
 |---------|---------|---------|
 |**apiEndpoint**     |   The endpoint to pull data from.      |   Mandatory, string      |
 |**httpMethod**     | The API method: `GET` or `POST`       |    Mandatory, string.     |
-|**queryTimeFormat**     |   The format used to define the query time.      |    Mandatory, string     |
+|**queryTimeFormat**     |   The format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |    Mandatory, string     |
 |**startTimeAttributeName**     |  The name of the attribute that defines the query start time.        |   Mandatory<sup>*</sup>, string      |
 |**endTimeAttributeName**     |   The name of the attribute that defines the query end time.      |   Mandatory<sup>*</sup>, string      |
 |**queryTimeIntervalAttributeName**     |  The name of the attribute that defines the query time interval       |  Optional, string       |
 |**queryTimeIntervalDelimiter**     |    The query time interval delimiter     |   Optional, string      |
 |**queryWindowInMin**     |  The available query window, in minutes       |  Optional, string <br><br>Minimum: 5 minutes       |
-|**queryParameters**     |   Parameters passed in the query (`eventsJsonPaths`)     |   Optional, string in the following syntax:  `dictionary<string, string>`     |
+|**queryParameters**     |   Parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.     |   Optional, string in the following syntax:  `dictionary<string, string>`     |
 |**queryParametersTemplate**     | The query parameters template, to use when passing query parameters in advanced scenarios <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |   Optional, string object      |
 |**isPostPayloadJson**     | Set to `true` if the POST payload is in JSON format        |   Optional, boolean      |
 |**rateLimitQPS**     |   <!--description tbd-->      |    Optional, double     |
@@ -552,11 +451,19 @@ The `response` section of the [pollingConfig](#polling-configuration) configurat
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|   **eventsJsonPaths**  |    Defines the path to the message in the response JSON     |  Mandatory, list of strings       |
+|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |    Defines the path to the message in the response JSON     |  Mandatory, list of strings       |
 | **successStatusJsonPath**    |  Defines the path to the success message in the response JSON       |   Optional, string      |
 |  **successStatusValue**   |  Defines the path to the success message value in the response JSON       |   Optional, string      |
 |  **isGzipCompressed**   |   Determines whether the response is compressed in a zip file       |  Optional, boolean       |
 |     |         |         |
+
+The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
+
+```json
+"eventsJsonPaths": [
+              "$"
+            ]
+```
 
 
 ### paging configuration
@@ -616,6 +523,92 @@ The following code shows an example of the `pollingConfig` section of the CCP co
 }
 ```
 
+## Create a JSON configuration file template with placeholders
+
+You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
+
+To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the `instructions` section of your JSON file, using the following syntax:
+
+```json
+"instructions": [
+                {
+                  "parameters": {
+                    "enable": "true",
+                    "userRequestPlaceHoldersInput": [
+                      {
+                        "displayText": "Organization Name",
+                        "requestObjectKey": "apiEndpoint",
+                        "placeHolderName": "{{placeHolder1}}"
+                      }
+                    ]
+                  },
+                  "type": "APIKey"
+                }
+              ]
+```
+
+The `userRequestPlaceHoldersInput` parameter includes the following attributes:
+
+|Name  |Type  |Description  |
+|---------|---------|---------|
+|**DisplayText**     |  String       | The text box display value, which is displayed to the user when connecting.       |
+|**RequestObjectKey** |String | The ID used to identify where in the request section of the API call to replace the placeholder value with a user value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
+|**PollingKeyPaths** |String |An array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
+|**PlaceHolderName** |String |The name of the placeholder parameter in the JSON template file. This can be any unique value, such as {{placeHolder}}. |
+| | |
+
+
+## Deploy your codeless connector via API
+
+After creating your [JSON configuration file](#connector-configuration), you can deploy your connector via REST API.
+
+**To deploy your connector via API**:
+
+1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to create your new connector. Provide the credentials and relevant parameters provided by your data source.
+
+    If you're using a template configuration file with placeholder data, send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+
+    ```rest
+    "requestConfigUserInputValues": [
+        {
+           "displayText": "<A display name>",
+           "placeHolderName": "<A placeholder name>",
+           "placeHolderValue": "<A value for the placeholder>",
+           "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
+         }
+    ]
+    ```
+
+    If you are using the Azure portal, user data is sent automatically.
+
+    Microsoft Sentinel will attempt to access your data source using the provided credentials and fetch log files. If Microsoft Sentinel succeeds, the API response is `200`, which confirms that Microsoft Sentinel can fetch the log files.
+
+1. In Microsoft Sentinel, go to the **Logs** page and verify that you see the logs from your data source flowing in to your workspace.
+
+If you don't see data flowing into Microsoft Sentinel, check your data source documentation and troubleshooting resources, check the configuration details, and check the connectivity.
+
+## Create an ARM template for deploying your codeless connector
+
+After creating your [JSON configuration file](#connector-configuration), you can create an ARM template to be used when deploying your connector.
+
+**To create an ARM template for your connector**:
+
+1. TBD. If there's not much information here, change this to a note.
+1.
+## Create a solution for deploying your codeless conector
+
+After creating your [JSON configuration file](#connector-configuration), you can create Microsoft Sentinel solution template to be used when deploying your connector.
+
+> [!TIP]
+> Solutions are packaged content or integrations that deliver end-to-end product value for one or more domain or vertical scenarios. For example, you may want to include analytics rules, workbooks, notebooks, and more, customized for your data connector.
+>
+> For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+>
+
+**To create a Microsoft Sentinel solution for your connector**:
+
+1. TBD. If there's not much information here, change this to a note.
+
 ## Connect to your data connector from Microsoft Sentinel
 
 After you've configured your CCP connector JSON file, use the [UPSERT](#upsert) API or an ARM template to deploy an instance of your connector to your workspace.
@@ -640,22 +633,6 @@ Then connect by passing credentials with one of the following methods:
     > [!TIP]
     > The parameters required for each authType are defined in the [auth configuration](#auth-configuration) area of the CCP configuration file.
 
-If you're connecting via API, and you've defined the `userRequestPlaceHoldersInput` value in the `instructionsSteps` > `instructions` section, you'll also need to send those parameters in the API call. For example:
-
-```rest
-"requestConfigUserInputValues": [
-    {
-       "displayText": "<A display name>",
-       "placeHolderName": "<A placeholder name>",
-       "placeHolderValue": "<A value for the placeholder>",
-       "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
-     }
-]
-```
-
-The `pollingKeyPaths` parameter value is an array, in [JsonPath](https://www.npmjs.com/package/JSONPath) syntax.
-
-For example: `"pollingKeyPaths":["$.request.queryParameters.test1"]`
 
 ## Disconnect your connector
 
@@ -671,8 +648,92 @@ Use one of the following methods:
     https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
     ```
 
+## Supported REST API actions
+
+This section describes the API actions supported by the CCP, and the REST API endpoints provided to manage the connector:
+
+### GET
+
+Retrieves the connector configuration file for the specified connector ID.
+
+**Method**: GET
+
+**Endpoint URL**:
+
+```rest
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}`
+```
+
+### UPSERT
+
+Creates a new connector, or updates an existing connector, for the specified connector ID. New connectors are created by pushing the connector configuration in the body of the UPSERT action.
+
+**Method**: PUT
+
+**Endpoint URL**:
+
+```rest
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}
+```
+
+### CONNECT
+
+Initiates the connector data pulling mechanism for the specified connector ID.
+
+Codeless data connectors pull data from publicly accessible APIs. To pull data, Microsoft Sentinel must authenticate to the data source service using an authentication method supported by both the data source's API and the CCP.
+
+Authentication data isn't included in the codeless connector's configuration, but provided when you [connect your data connector from Microsoft Sentinel](#connect-to-your-data-connector-from-microsoft-sentinel). This connection is performed using the **CONNECT** action, with connection data stored in an encrypted keystore residing in the customer region.
+
+Connect using one of the following authentication methods:
+
+- **Basic authentication**. Passes a username and password to authenticate to the REST API.
+
+- **API key**. Provides an API key to the API.
+
+- **OAuth2**. Uses an open standard for access delegation intended to grant access from applications to an API without supporting the actual authentication data.
+
+    Using OAuth2 requires app registration, authentication, and then getting a token and access by the application using the registration and authentication data. When connecting a codeless data connector, register Microsoft Sentinel as your application, and then interact directly with your data source's API authentication process for the required keys. Provide the keys to the connector when you need to connect.
+
+
+**Method**: POST
+
+**Endpoint URL**:
+
+```rest
+subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/connect?api-version={apiVersion}
+```
+
+
+### DISCONNECT
+
+[Disconnects the connector](#disconnect-your-connector) specified by the connector ID from Microsoft Sentinel.
+
+**Method**: POST
+
+**Endpoint URL**:
+
+```rest
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/disconnect?api-version={apiVersion}
+```
+
+### DELETE
+
+**Method**: DELETE
+
+Deletes a connector specified by the connector ID.
+
+```rest
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/providers/Microsoft.SecurityInsights/dataConnectors/{connector-name-GUID}/?api-version={apiVersion}
+```
+
+For more information, see the [DataConnectors.json](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/securityinsights/resource-manager/Microsoft.SecurityInsights/stable/2020-01-01/DataConnectors.json) file in the Azure REST API specs GitHub repository.
+
+
+
+
+
 ## Next steps
 
-Share your new codeless data connector with the Microsoft Sentinel community! Create a solution for your data connector and share it in the Microsoft Sentinel Marketplace.
+If you haven't yet, share your new codeless data connector with the Microsoft Sentinel community! Create a solution for your data connector and share it in the Microsoft Sentinel Marketplace.
 
 For more information, see [About Microsoft Sentinel solutions](sentinel-solutions.md).
