@@ -3,7 +3,7 @@ title: Storage service add-ons for Azure NetApp Files | Microsoft Docs
 description: Describes the services provided through the storage service add-ons for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Storage service add-ons for Azure NetApp Files
 

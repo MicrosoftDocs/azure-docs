@@ -269,7 +269,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 ### User Operations
 
-* Users can be queried by `userName` or `email[type eq "work"]` attributes.  
+* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
 
 #### Create User
 
@@ -974,7 +974,6 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
                 services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
                     .AddJwtBearer(options =>
@@ -1009,7 +1008,6 @@ public void ConfigureServices(IServiceCollection services)
     {
         services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })
