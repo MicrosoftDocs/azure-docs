@@ -11,17 +11,17 @@ ms.date: 09/16/2021
 # How to monitor the server-side latency for operations in an Azure Cosmos DB container or account
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation at two different connection modes. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about connection mode, you can find in the [Connectivity modes](sql-sdk-connection-modes.md).
+Azure Monitor for Azure Cosmos DB provides a metrics view to monitor your account and create dashboards. The Azure Cosmos DB metrics are collected by default, this feature does not require you to enable or configure anything explicitly. The server-side latency metric direct and server-side latency gateway metrics are used to view the server-side latency of an operation in two different connection modes. Use server-side latency gateway metric if your request operation is in gateway connectivity mode. Use server-side latency direct metric if your request operation is in direct connectivity mode. Azure Cosmos DB provides SLA of less than 10 ms for point read/write operations with direct connectivity. For point read and write operations, the SLAs are calculated as detailed in the [SLA document](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/). For more information about connection mode, see the [Connectivity modes](sql-sdk-connection-modes.md) article.
 
-The below table indicates which server-side latency metrics (Direct versus Gateway) that you should be using based on your request API.
+The following table indicates which API supports server-side latency metrics (Direct versus Gateway):
 
 |API               |Server Side Latency Direct          |Server Side Latency Gateway         |
 |------------------|:----------------------------------:|:----------------------------------:|
-|SQL               |X                                   |X                                   |
-|Mongo             |                                    |X                                   |
-|Cassandra         |                                    |X                                   |
-|Gremlin           |                                    |X                                   |
-|Tables            |X                                   |X                                   |
+|SQL               |✓                                   |✓                                   |
+|MongoDB           |                                    |✓                                  |
+|Cassandra         |                                    |✓                                   |
+|Gremlin           |                                    |✓                                   |
+|Table             |✓                                   |✓                                   |
 
 You can monitor server-side latency metrics if you see unusually high latency for point operation such as:
 
@@ -45,7 +45,7 @@ You can look up the diagnostic log to see the size of the data returned. If you 
 
 1. Next select the **Server Side Latency Gateway**  metric from the list of available metrics, if your operation is in gateway connectivity mode. Select the **Server Side Latency Direct** metric, if your operation is in direct connectivity mode. To learn in detail about all the available metrics in this list, see the [Metrics by category](monitor-cosmos-db-reference.md) article. In this example, let's select **Server Side Latency Gateway** and **Avg** as the aggregation value. In addition to these details, you can also select the **Time range** and **Time granularity** of the metrics. At max, you can view metrics for the past 30 days.  After you apply the filter, a chart is displayed based on your filter. You can see the server-side latency in gateway connectivity mode per 5 minute for the selected period.  
 
-   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-gateway-metric.png" alt-text="Choose the Server-Side Latency Gatway metric from the Azure portal" border="true":::
+   :::image type="content" source="./media/monitor-server-side-latency/server-side-latency-gateway-metric.png" alt-text="Choose the Server-Side Latency Gatway metric from the Azure portal" border="true" lightbox="./media/monitor-server-side-latency/server-side-latency-gateway-metric.png":::
 
 ## Filters for server-side latency
 
@@ -55,7 +55,7 @@ To filter the metrics, select **Add filter** and choose the required property su
 
 The **Server Side Latency Gateway** metrics for each operation are displayed as shown in the following image:
 
-:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-gateway-filters.png" alt-text="Filters for server-side latency gatway metrics" border="true":::
+:::image type="content" source="./media/monitor-server-side-latency/server-side-latency-gateway-filters.png" alt-text="Filters for server-side latency gatway metrics"  border="true" lightbox="./media/monitor-server-side-latency/server-side-latency-gateway-filters.png":::
 
 You can also group the metrics by using the **Apply splitting** option.  
 
