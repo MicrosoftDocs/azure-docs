@@ -95,7 +95,7 @@ To configure an identity provider, follow these steps:
 
 3. Select **OK**.
 
-4. Select **Map this identity provider’s claims**.
+4. Select **Map this identity provider's claims**.
 
 5. Fill out the form to map the Identity provider:
 
