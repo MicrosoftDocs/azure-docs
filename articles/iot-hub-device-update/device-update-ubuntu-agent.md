@@ -81,12 +81,12 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
    > If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
 
-### (Optional) Manually prepare a device
+### Manually prepare a device
 Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
-   > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
+   > The Device Update agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
    > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
 
@@ -95,6 +95,7 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    ```bash
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
+   
 1. Enter your IoT device's module (or device, depending on how you (provisioned the device with Device Update)[device-update-agent-provisioning.md]) primary connection string in the configuration file by running the command below.
 
    ```markdown
