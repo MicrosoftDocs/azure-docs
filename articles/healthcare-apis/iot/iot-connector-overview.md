@@ -17,9 +17,12 @@ ms.author: jasteppe
 
 ## Overview
 
-IoT connector is an optional service of the Azure Healthcare APIs that provides the capability to ingest message data from Internet of Medical Things (IoMT) devices and wearables. 
+IoT connector is an optional service of the Azure Healthcare APIs designed to ingest health data from multiple and disparate Internet of Medical Things (IoMT) devices and persisting the health data in a FHIR service.
 
-IoT connector transforms device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources and then persists the transformed messages into the Azure Healthcare APIs [FHIR service](../fhir/overview.md).
+The IoT connector is important because health data collected from patients and health care consumers can be fragmented from access across multiple systems, device types, and formats. Managing healthcare data can be difficult, however, trying to gain insight from the data can be one of the biggest barriers to population and personal wellness understanding as well as sustaining health.  
+
+
+IoT connector transforms device data into Fast Healthcare Interoperability Resources (FHIR®)-based Observation resources and then persists the transformed messages into the Azure Healthcare APIs FHIR service. Allowing for a unified approach to health data access, standardization, and trend capture enabling the discovery of operational and clinical insights, connecting new device applications, and enabling new research projects.
 
 Below is an overview of each step IoT connector does once IoMT device data is received. Each step will be further explained in the [IoT connector data flow](./iot-data-flow.md) article.
 
@@ -30,11 +33,15 @@ Below is an overview of each step IoT connector does once IoMT device data is re
 
 ## Scalable
 
-IoT connector is designed out-of-the-box to handle even the most demanding IoMT device message workloads by using autoscaling features. 
+IoT connector is designed out-of-the-box to support growth and adaptation to the changes and pace of healthcare by using autoscaling features. The service enables developers to modify and extend the capabilities to support additional device mapping template types and FHIR resources.
 
 ## Configurable 
 
 IoT connector is configured by using [Device](./how-to-use-device-mappings.md) and [FHIR destination](./how-to-use-fhir-mappings.md) mappings. The mappings instruct the filtering and transformation of your IoMT device messages into the FHIR format.
+
+The different points for extension are:
+* Normalization: Health data from disparate devices can be aligned and standardized into a common format to make sense of the data from a unified lens and capture trends.
+* FHIR conversion: Health data is normalized and grouped by mapping commonalities to FHIR. Observations can be created or updated according to chosen or configured templates. Devices and health care consumers can be linked for enhanced insights and trend capture.
 
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.

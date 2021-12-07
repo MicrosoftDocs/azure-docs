@@ -21,6 +21,33 @@ The Azure Data Factory service is improved on an ongoing basis. To stay up to da
 
 This page is updated monthly, so revisit it regularly. 
 
+## November 2021
+<br>
+<table>
+<tr><td><b>Service Category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr>
+  <td><b>CI/CD</b></td>
+  <td>GitHub integration improvements</td>
+  <td>Improvements in ADF and GitHub integration removes limits on 1000 data factory resources per resource type (datasets, pipelines, etc.). For large data factories, this helps mitigate the impact of GitHub API rate limit.<br><a href="source-control.md">Learn more</a></td>
+ </tr>
+  
+<tr><td rowspan=3><b>Data Flow</b></td><td>Set a custom error code and error message with the Fail activity</td><td>Fail Activity enables ETL developers to set the error message and custom error code for an Azure Data Factory pipeline.<br><a href="control-flow-fail-activity.md">Learn more</a></td></tr>
+<tr><td>External call transformation</td><td>Mapping Data Flows External Call transformation enables ETL developers to leverage transformations, and data enrichments provided by REST endpoints or 3rd party API services.<br><a href="data-flow-external-call.md">Learn more</a></td></tr>
+<tr><td>Synapse quick re-use</td><td>When executing Data flow in Synapse Analytics, use the TTL feature. The TTL feature uses the quick re-use feature so that sequential data flows will execute within a few seconds. You can set the TTL when configuring an Azure Integration runtime.<br><a href="control-flow-execute-data-flow-activity.md#data-flow-integration-runtime">Learn more</a></td></tr>
+
+<tr><td rowspan=3><b>Data Movement</b></td><td>Copy activity supports reading data from FTP/SFTP without chunking</td><td>Automatically determining the file length or the relevant offset to be read when copying data from an FTP or SFTP server. With this capability, Azure Data Factory will automatically connect to the FTP/SFTP server to determine the file length. Once this is determined, Azure Data Factory will dive the file into multiple chunks and read them in parallel.<br><a href="connector-ftp.md">Learn more</a></td></tr>
+<tr><td><i>UTF-8 without BOM</i> support in Copy activity</td><td>Copy activity supports writing data with encoding type <i>UTF-8 without BOM</i> for JSON and delimited text datasets.</td></tr>
+<tr><td>Multi-character column delimiter support</td><td>Copy activity supports using multi-character column delimiters (for delimited text datasets).</td></tr>
+  
+<tr>
+  <td><b>Integration Runtime</b></td>
+  <td>Run any process anywhere in 3 easy steps with SSIS in Azure Data Factory</td>
+  <td>In this article, you will learn how to use the best of Azure Data Factory and SSIS capabilities in a pipeline. A sample SSIS package (with parameterized properties) is provided to help you jumpstart. Using Azure Data Factory Studio, the SSIS package can be easily dragged & dropped into a pipeline and used as part of an Execute SSIS Package activity.<br><br>This enables you to run the Azure Data Factory pipeline (with SSIS package) on self-hosted/SSIS integration runtimes (SHIR/SSIS IR). By providing run-time parameter values, you can leverage the powerful capabilities of Azure Data Factory and SSIS capabilities together.  This article illustrates 3 easy steps to run any process (which can be any executable, such as application/program/utility/batch file) anywhere.
+<br><a href="https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-process-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2962609">Learn more</a></td>
+ </tr>
+</table>
+
 ## October 2021
 <br>
 <table>
