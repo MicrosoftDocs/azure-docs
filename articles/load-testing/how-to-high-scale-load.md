@@ -16,7 +16,7 @@ ms.topic: how-to
 In this article, learn how to set up a load test for high-scale load by using Azure Load Testing Preview. To simulate a large number of virtual users, you'll configure the test engine instances.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in PREVIEW.
+> Azure Load Testing is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
 
 ## Prerequisites  
