@@ -85,6 +85,7 @@ For existing VMs, you can enable or disable secure boot and vTPM settings. Updat
 az vm update \  
    --resource-group myResourceGroup \ 
    --name myVM \ 
+   --security-type trustedLaunch \
    --enable-secure-boot true \  
    --enable-vtpm true 
 ```  
