@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy Azure Arc-enable data services - indirectly connected mode - Azure portal
+title: Quickstart - Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI
 description: Demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from beginning, including a Kubernetes cluster. Uses Azure CLI. Finishes with an instance of Azure SQL Managed Instance.
 author: MikeRayMSFT
 ms.author: mikeray
