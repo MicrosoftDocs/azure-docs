@@ -226,13 +226,28 @@ All of the above are some very good reasons to trust Microsoft—and Azure—wit
 
 ### Adopt a Cybersecurity framework
 
-A good place to start is to adopt Azure Security Benchmark to secure the Azure environment.  Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. It provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls. 
-
-Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks. 
+A good place to start is to adopt the [Azure Security Benchmark](/security/benchmark/azure/) to secure the Azure environment. The Azure Security Benchmark is Azure's own security control framework based on industry-based security control frameworks such as NIST SP800-53, CIS Controls v7.1. 
 
 :::image type="content" source="./media/ransomware/ransomware13.png" alt-text="Dummy text":::
 
-(ASB STACK)
+The Azure Security Benchmark provides organizations guidance on how to configure Azure and Azure Services and implement the security controls. Organizations can use Microsoft Defender for Cloud to monitor their live Azure environment status with all the Azure Security Benchmark controls. 
+
+Ultimately, the Framework is aimed at reducing and better managing cybersecurity risks. 
+
+| Azure Security Benchmark stack | 
+|--|
+| [Network&nbsp;security&nbsp;(NS)](security-controls-v3-network-security.md) | 
+| [Identity&nbsp;Management&nbsp;(IM)](security-controls-v3-identity-management.md) | 
+| [Privileged&nbsp;Access&nbsp;(PA)](security-controls-v3-privileged-access.md) | 
+| [Data&nbsp;Protection&nbsp;(DP)](security-controls-v3-data-protection.md) | 
+| [Asset&nbsp;Management&nbsp;(AM)](security-controls-v3-asset-management.md) | 
+| [Logging&nbsp;and&nbsp;Threat&nbsp;Detection (LT)](security-controls-v2-logging-threat-detection.md) | 
+| [Incident&nbsp;Response&nbsp;(IR)](security-controls-v3-incident-response.md) | 
+| [Posture&nbsp;and&nbsp;Vulnerability&nbsp;Management&nbsp;(PV)](security-controls-v3-posture-vulnerability-management.md) | 
+| [Endpoint&nbsp;Security&nbsp;(ES)](security-controls-v3-endpoint-security.md) | 
+| [Backup&nbsp;and&nbsp;Recovery&nbsp;(BR)](security-controls-v3-backup-recovery.md) | 
+| [DevOps&nbsp;Security&nbsp;(DS)](security-controls-v3-devops-security.md) |
+| [Governance&nbsp;and&nbsp;Strategy&nbsp;(GS)](security-controls-v3-governance-strategy.md) | 
 
 ### Prioritized Mitigation
 
@@ -424,7 +439,7 @@ Understanding and fixing the fundamental security issues that led to the comprom
 
 Integrate outside experts – into processes to supplement expertise, such as Microsoft Detection and Response Team (DART). The DART engages with customers around the world, helping to protect and harden against attacks before they occur, as well as investigating and remediating when an attack has occurred. 
 
-Customers can engage our security experts directly from within Microsoft Defender Security Center for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns. 
+Customers can engage our security experts directly from within the Microsoft 365 Defender portal for timely and accurate response. Experts provide insights needed to better understand the complex threats affecting your organization, from alert inquiries, potentially compromised devices, root cause of a suspicious network connection, to additional threat intelligence regarding ongoing advanced persistent threat campaigns. 
 
 Microsoft is ready to assist your company in returning to safe operations.
 Microsoft performs hundreds of compromise recoveries and has a tried-and-true methodology. Not only will it get you to a more secure position, it affords you the opportunity to consider your long-term strategy rather than reacting to the situation. 
@@ -442,24 +457,24 @@ We look forward to partnering with you in addressing ransomware protection, dete
 
 ### Additional resources
 
-- Microsoft Cloud Adoption Framework for Azure
-- Build great solutions with the Microsoft Azure Well-Architected Framework
-- Azure Top Security Best Practices
-- Security Baselines  
-- Resource Center | Microsoft Azure
-- Azure Migration Guide
-- Security Compliance Management 
-- Azure Security Control – Incident Response
-- Zero Trust Guidance Center
-- Azure Web Application Firewall
-- Azure VPN gateway
-- Azure Multi-Factor Authentication (MFA)
-- Azure AD Identity Protection 
-- Azure AD Conditional Access
-- Azure Security Center documentation
+- [Microsoft Cloud Adoption Framework for Azure](/azure/cloud-adoption-framework/)
+- [Build great solutions with the Microsoft Azure Well-Architected Framework](/learn/paths/azure-well-architected-framework/)
+- [Azure Top Security Best Practices](/azure/cloud-adoption-framework/get-started/security#step-1-establish-essential-security-practices)
+- [Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)
+- [Microsoft Azure Resource Center](https://azure.microsoft.com/en-us/resources/)
+- [Azure Migration Guide](/azure/cloud-adoption-framework/migrate/azure-migration-guide/)
+- [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
+- [Azure Security Control – Incident Response](/security/benchmark/azure/security-controls-v3-incident-response)
+- [Zero Trust Guidance Center](/security/zero-trust/)
+- [Azure Web Application Firewall](/azure/web-application-firewall/ag/application-gateway-crs-rulegroups-rules?tabs=owasp32)
+- [Azure VPN gateway](/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+- [Azure Multi-Factor Authentication (MFA)](/azure/active-directory/authentication/howto-mfa-userstates)
+- [Azure AD Identity Protection](/azure/active-directory/authentication/concept-password-ban-bad)
+- [Azure AD Conditional Access](/azure/active-directory/conditional-access/overview)
+- [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
 
 Connect with us:
-- AskAzureSecurity@microsoft.com 
+- [AskAzureSecurity@microsoft.com](email:AskAzureSecurity@microsoft.com) 
 - [www.microsoft.com/services](https://www.microsoft.com/en-us/msservices)
 
 For detailed information on how Microsoft secures our cloud, visit the [service trust portal](https://servicetrust.microsoft.com/).
