@@ -58,10 +58,9 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 (coordinator node)**.
 
 > [!NOTE]
-> Note that there is a vCore quota per Azure subscription per region.  The
-> default quota should be more than enough to experiment with Hyperscale
-> (Citus).  If you need more vCores for a region in your subscription, see
-> [subscription vCore
+> There is a vCore quota per Azure subscription per region.  The default quota
+> should be more than enough to experiment with Hyperscale (Citus).  If you
+> need more vCores for a region in your subscription, see [subscription vCore
 > limits](concepts-hyperscale-limits.md#subscription-vcore-limits).
 
 ## Increase storage on nodes
