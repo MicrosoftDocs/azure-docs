@@ -20,7 +20,7 @@ To set up authentication and authorization for the Azure Monitor Log Analytics A
 
 Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
 - Your AAD tenant
-- Your workspace ID (with [workspace linked to your AAD app](aad-setup.md))
+- Your workspace ID
 - Your client ID for the AAD app
 - A client secret for the AAD app (referred to as "keys" in the AAD App menu bar).
 
