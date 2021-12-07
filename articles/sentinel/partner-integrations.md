@@ -21,7 +21,7 @@ For example, your integration may add value for any of the following goals:
 
 - **Automation in Microsoft Sentinel**. For example, your integration might include rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure.
 
-We recommend that you package and publish your integration as a Microsoft Sentinel [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.  Sentinel Solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
+We recommend that you package and publish your integration as a Microsoft Sentinel [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.  Microsoft Sentinel solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
 
 ## Integrations to collect data
 
