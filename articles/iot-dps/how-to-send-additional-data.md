@@ -21,37 +21,37 @@ This feature can be used as an enhancement for [custom allocation](./how-to-use-
 
 When your device is sending a [register device call](/rest/api/iot-dps/device/runtime-registration/register-device) to DPS, The register call can be enhanced to take other fields in the body. The body looks like the following:
 
-   ```json
-   { 
-       "registrationId": "mydevice", 
-       "tpm": { 
-           "endorsementKey": "stuff", 
-           "storageRootKey": "things" 
-       }, 
-       "payload": "A JSON object that contains your additional data." 
-    } 
-   ```
+```json
+{ 
+    "registrationId": "mydevice", 
+    "tpm": { 
+        "endorsementKey": "stuff", 
+        "storageRootKey": "things" 
+    }, 
+    "payload": "A JSON object that contains your additional data." 
+} 
+```
 
 ## DPS returns data to the device
 
 If the custom allocation policy webhook wishes to return some data to the device, it will pass the data back as a JSON object in the webhook response. The change is in the payload section below.
 
-   ```json
-   { 
-       "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
-       "initialTwin": { 
-           "tags": { 
-               "tag1": true 
-               }, 
-               "properties": { 
-                   "desired": { 
-                       "tag2": true 
-                    } 
-                } 
-            }, 
-        "payload": "A JSON object that contains the data returned by the webhook." 
-    } 
-   ```
+```json
+{ 
+    "iotHubHostName": "sample-iot-hub-1.azure-devices.net", 
+    "initialTwin": { 
+        "tags": { 
+            "tag1": true 
+        }, 
+        "properties": { 
+            "desired": { 
+                "prop1": true 
+            } 
+        } 
+    }, 
+    "payload": "A JSON object that contains the data returned by the webhook." 
+} 
+```
 
 ## SDK support
 
