@@ -15,7 +15,7 @@ ms.author: jeedes
 
 # Tutorial: Azure Active Directory single sign-on integration with Cloud Academy
 
-In  this tutorial, you'll learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Cloud Academy with Azure Active Directory (Azure AD). When you integrate Cloud Academy with Azure AD, you can:
 
 * Use Azure AD to control who can access Cloud Academy.
 * Enable your users to be automatically signed in to Cloud Academy with their Azure AD accounts.
