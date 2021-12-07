@@ -1,12 +1,13 @@
 ---
 title: Configure a VM test drive
 description: Configure a VM test drive in Partner Center.
-ms.service: marketplace 
+ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/15/2021
+ms.date: 12/06/2021
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure a VM test drive
@@ -52,10 +53,10 @@ For Microsoft to deploy the test drive on your behalf, connect to your Azure Sub
     1. If you don't have it yet, install the [Azure Az PowerShell module](/powershell/azure/install-az-ps?branch=main&view=azps-6.6.0).
     2. Add the Service Principal for Microsoft Test-Drive application.
         1. Run `Connect-AzAccount` and provide credentials to sign in to your Azure account, which requires the Azure active directory **Global Administrator** [built-in role](/azure/active-directory/roles/permissions-reference?branch=main).
-        2. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive' -SkipAssignment`.
+        2. Create a new service principal: `New-AzADServicePrincipal -ApplicationId d7e39695-0b24-441c-a140-047800a05ede -DisplayName 'Microsoft TestDrive'`.
         3. Ensure the service principal has been created: `Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive'`.
             :::image type="content" source="media/test-drive/commands-to-verify-service-principal.png" alt-text="Shows how to ensure the principal has been created.":::
-1. **Azure AD App ID** - After provisioning the Microsoft Test-Drive application to your tenant, then paste in this Application ID: `d7e39695-0b24-441c-a140-047800a05ede`.  
+1. **Azure AD App ID** - After provisioning the Microsoft Test-Drive application to your tenant, then paste in this Application ID: `d7e39695-0b24-441c-a140-047800a05ede`.
 1. **Azure AD app client secret** – No secret is required. Insert a dummy secret, such as “no-secret”.
 1. Since we are using the application to deploy to the subscription, we need to add the application as a contributor on the subscription. Do this using either the Azure portal or PowerShell:
 
