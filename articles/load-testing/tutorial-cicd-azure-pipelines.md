@@ -41,7 +41,7 @@ You'll learn how to:
 
 ## Set up your repository
 
-To get started, you need a GitHub repository with the sample web application. You'll then use this repository to configure an Azure Pipelines workflow to run the load test.
+To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure an Azure Pipelines workflow to run the load test.
 
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
@@ -120,7 +120,7 @@ To access Azure resources, create a service connection in Azure DevOps and use r
     az ad sp show --id "<application-client-id>"
     ```
     
-    Replace the placeholder text `<sp-object-id>` with the ID of the service principal object. Also, replace `<subscription-name-or-id>` with your Azure subscription ID.
+    Next, assign the Load Test Contributor role to the service principal. Replace the placeholder text `<sp-object-id>` with the ID of the service principal object. Also, replace `<subscription-name-or-id>` with your Azure subscription ID.
 
     ```azurecli
     az role assignment create --assignee "<sp-object-id>" \
@@ -204,7 +204,7 @@ To view the results of the load test in the pipeline log:
 
 ## Define test pass/fail criteria
 
-In this section, you'll add failure criteria to determine the outcome of your load test. If at least one of the failure criteria evaluates to `true`, the load test is unsuccessful.
+In this section, you'll add criteria to determine whether your load test passes or fails. If at least one of the pass/fail criteria evaluates to `true`, the load test is unsuccessful.
 
 You can specify these criteria in the test configuration YAML file:
 
@@ -218,7 +218,7 @@ You can specify these criteria in the test configuration YAML file:
         - percentage(error) > 20
     ```
 
-    You've now specified failure criteria for your load test. The test will fail if at least one of these conditions is met:
+    You've now specified pass/fail criteria for your load test. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
     - The aggregate percentage of errors is greater than 20%.
@@ -229,13 +229,13 @@ You can specify these criteria in the test configuration YAML file:
 
 1. On the page for pipeline runs, select the most recent entry from the list.
 
-    After the load test finishes, you'll notice that the pipeline failed because the average response time was higher than the number that you specified in the failure criteria.
+    After the load test finishes, you'll notice that the pipeline failed because the average response time was higher than the number that you specified in the pass/fail criteria.
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/test-criteria-failed.png" alt-text="Screenshot that shows pipeline logs after failed test criteria.":::
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test failure criteria:
+1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria:
 
     ```yaml
     failureCriteria: 
@@ -308,7 +308,7 @@ In this tutorial, you'll reconfigure the sample application to accept only secur
 
 1. Select **Variables**, and then select **New variable**.
 
-1. Enter the **Name** (**mySecret**) and **Value** (**1797669089**) information, and then select the **Keep this value secret** checkbox to store the variable securely. 
+1. Enter the **Name** (**mySecret**) and **Value** (**1797669089**) information. Then select the **Keep this value secret** checkbox to store the variable securely. 
 
     :::image type="content" source="./media/tutorial-cicd-azure-pipelines/new-variable.png" alt-text="Screenshot that shows selections for creating a pipeline variable.":::
 

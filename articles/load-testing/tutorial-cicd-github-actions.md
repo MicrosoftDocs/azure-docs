@@ -38,13 +38,13 @@ You'll learn how to:
 
 ## Set up your repository
 
-To get started, you need a GitHub repository with the sample web application. You'll then use this repository to configure a GitHub Actions workflow to run the load test.
+To get started, you need a GitHub repository with the sample web application. You'll use this repository to configure a GitHub Actions workflow to run the load test.
 
 1. Open a browser and go to the sample application's [source GitHub repository](https://github.com/Azure-Samples/nodejs-appsvc-cosmosdb-bottleneck.git).
 
     The sample application is a Node.js app that consists of an Azure App Service web component and an Azure Cosmos DB database.
 
-1. Select **Fork** to fork the sample applications' repository to your GitHub account.
+1. Select **Fork** to fork the sample application's repository to your GitHub account.
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/fork-github-repo.png" alt-text="Screenshot that shows the button to fork the sample application's GitHub repo.":::
 
@@ -191,7 +191,7 @@ To view the results of the load test in the GitHub Actions workflow log:
     
 ## Define test pass/fail criteria
 
-In this section, you'll add failure criteria to determine the outcome of your load test. If at least one of the failure criteria evaluates to `true`, the load test is unsuccessful.
+In this section, you'll add criteria to determine whether your load test passes or fails. If at least one of the pass/fail criteria evaluates to `true`, the load test is unsuccessful.
 
 You can specify these criteria in the test configuration YAML file:
 
@@ -205,7 +205,7 @@ You can specify these criteria in the test configuration YAML file:
     - percentage(error) > 20
     ```
 
-    You've now specified failure criteria for your load test. The test will fail if at least one of these conditions is met:
+    You've now specified pass/fail criteria for your load test. The test will fail if at least one of these conditions is met:
     
     - The aggregate average response time is greater than 100 ms.    
     - The aggregate percentage of errors is greater than 20%.
@@ -218,11 +218,11 @@ You can specify these criteria in the test configuration YAML file:
 
     :::image type="content" source="./media/tutorial-cicd-github-actions/github-actions-workflow-failed.png" alt-text="Screenshot that shows the failed workflow output log.":::
 
-    After the load test finishes, you'll notice that the workflow failed because the average response time was higher than the time that you specified in the failure criteria.
+    After the load test finishes, you'll notice that the workflow failed because the average response time was higher than the time that you specified in the pass/fail criteria.
 
     The Azure Load Testing service evaluates the criteria during the test run. If any of these conditions fails, Azure Load Testing service returns a nonzero exit code. This code informs the CI/CD workflow that the test has failed.
 
-1. Edit the *SampleApp.yml* file and change the test's failure criteria:
+1. Edit the *SampleApp.yml* file and change the test's pass/fail criteria:
 
     ```yaml
     failureCriteria: 
