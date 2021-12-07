@@ -103,42 +103,29 @@ Create a service principal and configure its access to Azure resources. Use a se
 
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants permissions to your service principal with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create an access policy for your key vault that grants key permissions to your user account
 
 ```azurecli
-az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principal-id> --key-permissions delete get update list create purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 ## Set environment variables
 
-1. Collect the following required environment variables:
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-    |Name|Value|
-    |--|--|
-    |AZURE_TENANT_ID|From the service principal result, YOUR-TENANT-ID.|
-    |AZURE_CLIENT_ID|From the service principal result, YOUR-SERVICE-PRINCIPAL-ID|
-    |AZURE_CLIENT_SECRET|From the service principal result, YOUR-SERVICE-PRINCIPAL-SECRET|
-    |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+```
 
-1. Select your command and run it four times, once for each of the keys and settings in the previous table. 
-
-    # [Windows](#tab/env-windows)
-    
-    ```cmd
-    set name=value
-    ```
-    # [Windows PowerShell](#tab/env-windows-powershell)
-    
-    ```powershell
-    $Env:name="value"
-    ```
-    # [macOS or Linux](#tab/env-mac-linux)
-    
-    ```cmd
-    export name=value
-    ```
-    
-    ---
+macOS or Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## Code example
 
@@ -152,10 +139,6 @@ The code sample below will show you how to create a client, set a key, retrieve 
     const { KeyClient } = require("@azure/keyvault-keys");
     const { DefaultAzureCredential } = require("@azure/identity");
     
-    // Load the .env file if it exists
-    const dotenv = require("dotenv");
-    dotenv.config();
-
     async function main() {
 
         // DefaultAzureCredential expects the following three environment variables:
