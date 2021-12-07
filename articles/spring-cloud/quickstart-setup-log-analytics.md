@@ -1,88 +1,101 @@
 ---
-title: "Quickstart - Set up Log Analytics workspace"
-description: Describes the setup of Log Analytics workspace for app deployment.
+title: "Quickstart - Set up a Log Analytics workspace"
+description: Describes the setup of a Log Analytics workspace for app deployment.
 author: karlerickson
 ms.author: felixsong
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/25/2021
+ms.date: 12/07/2021
 ms.custom: devx-track-java, fasttrack-edit, mode-other
 ---
 
-# Quickstart: Set up Log Analytics workspace
+# Quickstart: Set up a Log Analytics workspace
 
-Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You may write a simple query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze them. Or you may write a more advanced query to perform statistical analysis and visualize the results in a chart to identify a particular trend. Whether you work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks, Log Analytics is the tool that you're going to use write and test them.
+This quickstart explains how to set up a Log Analytics workspace in Azure Spring Cloud for application development.
 
-You can set up Azure Monitor Logs for your Azure Spring Cloud instance to collect logs and run logs queries via Log Analytics.
+Log Analytics is a tool in the Azure portal used to edit and run log queries with data in Azure Monitor Logs. You may write a simple query that returns a set of records and then use features of Log Analytics to sort, filter, and analyze those records. You may also write a more advanced query to perform statistical analysis and visualize the results in a chart to identify particular trends. Whether you work with the results of your queries interactively or use them with other Azure Monitor features such as log query alerts or workbooks, Log Analytics is the tool used to write and test queries.
+
+You can set up Azure Monitor Logs for your application in Azure Spring Cloud to collect logs and run logs queries via Log Analytics.
 
 ## Prerequisites
 
 * Complete the previous quickstart in this series: [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
 
-## Set up Log Analytics workspace
+## Set up a Log Analytics workspace
+
+Use the following steps to set up your Log Analytics workspace.
 
 #### [Portal](#tab/Azure-Portal)
 
-## Create Log Analytics Workspace
+## Create a Log Analytics Workspace
 
-* You can refer to [log analytics manual](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) to create a workspace.
+* To create a workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace).
 
-## Set up Log Analytics for new service
+## Set up Log Analytics for a new service
 
 * In the create Azure Spring Cloud service wizard, you can configure **Log Analytics workspace** with an existing LA workspace or create one.
 
-    [ ![setup diagnostic settings during provisioning](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png) ](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png#lightbox)
+    [![Where to setup diagnostic settings during provisioning](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png)](media/spring-cloud-quickstart-setup-log-analytics/setup-diagnostics-setting.png#lightbox)
 
-## Set up Log Analytics for existing service
+## Set up Log Analytics for an existing service
 
-1. In the Azure portal, go to the **Diagnostic Settings** blade under **Monitoring**.
+1. In the Azure portal, go to the **Diagnostic Settings** section under **Monitoring**.
 
-    [ ![diagnostic settings menu](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png#lightbox) 
+    [![Location of the diagnostic settings menu](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png)](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-entry.png#lightbox) 
 
-1. If no settings exist, Click **Add diagnostic setting**, otherwise you can click **Edit setting** to update existing settings, or click **Add diagnostic setting** to add new ones. 
+1. If no settings exist, select **Add diagnostic setting**. You can also select **Edit setting** to update existing settings.
 
-    [ ![add or update a diagnositc setting](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-add.png#lightbox)
-
-1. Fill out the form on **Diagnostics setting** page.
+1. Fill out the form on the **Diagnostics setting** page.
     * **Diagnostic setting name**: Set a unique name for the given configuration.
-    * **Logs/Categories**: You can choose **ApplicationConsole** and **SystemLogs** for quick start. See [diagnostic settings doc](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) for more guidance about the different log categories and contents of those logs.
+    * **Logs/Categories**: Choose **ApplicationConsole** and **SystemLogs**. See [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) for more information on the different log categories and the contents of those logs.
     * **Destination details**: Choose **Send to Log Analytics workspace** and specify the Log Analytics workspace you created previously.
 
-    [ ![diagnostic settings edit form](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png) ](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png#lightbox)
+    [![Setup example of diagnostic settings](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png)](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png#lightbox)
 
 1. Click **Save**
 
 #### [CLI](#tab/Azure-CLI)
 
-## Create Log Analytics Workspace
+## Create a Log Analytics Workspace
 
-1. Create Log Analytics workspace and get workspace ID
+1. Create a Log Analytics workspace and get the workspace ID
 
-    ```azurecli
-    az monitor log-analytics workspace create --workspace-name <give a name for workspace> --resource-group <your resource group> --location <your service region> --query id --output tsv
+   ```azurecli
+   az monitor log-analytics workspace create \
+       --workspace-name <new-workspace-name> \
+       --resource-group <your-resource-group> \
+       --location <your-service-region> \
+       --query id --output tsv
+   ```
+
+    If you have an existing workspace, you can get the workspace ID with the following command:
+
+   ```azurecli
+   az monitor log-analytics workspace show \
+        --resource-group <your-resource-group> \
+        --workspace-name <workspace-name> \
+        --query id --output tsv
+   ```
+
+## Set up Log Analytics for an existing service
+
+1. Get the Azure Spring Cloud service instance ID
+
+   ```azurecli
+   az spring-cloud show \
+       --name <spring-cloud-service-name> \
+       --resource-group <your-resource-group> \
+       --query id --output tsv
     ```
 
-    If you have already created a workspace before, you can get the workspace ID with the command.
+1. Set up the diagnostic settings. See [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) for more information on the different log categories and the contents of those logs.
 
-    ```azurecli
-    az monitor log-analytics workspace show --resource-group <your resource group> --workspace-name <workspace name> --query id --output tsv
-    ```
-
-## Set up Log Analytics for existing service
-
-1. Get Azure Spring Cloud service instance ID
-
-    ```azurecli
-    az spring-cloud show --name <spring cloud service name> --resource-group <your resource group> --query id --output tsv
-    ```
-
-1. Set up diagnostic setting. You can refer to [diagnostic settings doc](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostic-settings) for more about the different log categories and contents.
-
-    ```azurecli
-    az monitor diagnositc-settings create --name "<give your setting a name>" \
-        --resource "<service instance id>" \
-        --workspace "<workspace id>" \
-        --logs '[
+   ```azurecli
+   az monitor diagnositc-settings create \
+       --name "<new-name-for-settings>" \
+       --resource "<service-instance-id>" \
+       --workspace "<workspace-id>" \
+       --logs '[
             {
                 "category": "ApplicationConsole",
                 "enabled": true,
