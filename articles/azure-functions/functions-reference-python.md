@@ -847,7 +847,7 @@ CORS is fully supported for Python function apps.
 
 ## Shared memory (preview)
 
-The shared memory feature is intented to improve throughput within the Python worker. To enable the feature, set `FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED` application setting to 1 and `DOCKER_SHM_SIZE` to 268435456 (256MB in bytes).
+Functions lets your Python worker use shared memory to improve throughput. When your function app is hitting bottlenecks, you can enable shared memory by setting `FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED` to `1` in application settings and `DOCKER_SHM_SIZE` to `268435456` (which is equivalent to 256MB).
 
 ### Architecture
 
