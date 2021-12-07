@@ -133,7 +133,7 @@ Now that our cluster is up and running, we are ready to create the data controll
 The CLI command to create the data controller is: 
 
 ```azurecli
-az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name arc --azure-subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
+az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
 ```
 
 ## Create Azure Arc-enabled SQL Managed Instance
