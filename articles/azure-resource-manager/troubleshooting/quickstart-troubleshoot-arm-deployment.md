@@ -3,7 +3,7 @@ title: Troubleshoot ARM template deployments
 description: Learn how to troubleshoot Azure Resource Manager template (ARM template) deployments.
 ms.date: 11/08/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Troubleshoot ARM template deployments

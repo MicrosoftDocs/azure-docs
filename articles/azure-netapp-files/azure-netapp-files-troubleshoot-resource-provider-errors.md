@@ -3,7 +3,7 @@ title: Troubleshoot Azure NetApp Files Resource Provider errors | Microsoft Docs
 description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 tags:
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/04/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
 

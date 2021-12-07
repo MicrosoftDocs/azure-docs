@@ -1,16 +1,7 @@
 ---
 title: Microsoft Sentinel File Event normalization schema reference | Microsoft Docs
 description: This article describes the Microsoft Sentinel File Event normalization schema.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol

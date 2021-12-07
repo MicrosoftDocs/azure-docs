@@ -27,8 +27,6 @@ landingContent:
         links:
           - text: Deploy your first container app - Azure CLI
             url: ./get-started.md
-      - linkListType: quickstart
-        links: 
           - text: Deploy your first container app - Azure portal
             url: ./quickstart-portal.md
       - linkListType: concept

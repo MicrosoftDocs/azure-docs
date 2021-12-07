@@ -5,7 +5,7 @@ ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Analyze live video with your own model - gRPC

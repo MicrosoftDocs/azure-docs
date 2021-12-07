@@ -19,7 +19,7 @@
   - name: Install Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
     href: quickstart-standalone-agent-binary-installation.md
-  - name: Create a Defender for Cloud IoT micro agent module twin (Preview)
+  - name: Create a Defender for IoT micro agent module twin (Preview)
     href: quickstart-create-micro-agent-module-twin.md
   - name: Configure Defender-IoT-micro-agent for Azure RTOS
     href: quickstart-azure-rtos-security-module.md
@@ -120,6 +120,9 @@
       href: concept-rtos-security-module.md
     - name: Defender-IoT-micro-agent for Azure RTOS alerts and recommendations 
       href: concept-rtos-security-alerts-recommendations.md
+  - name: Manage cloud device inventory
+    href: how-to-manage-device-inventory-on-the-cloud.md
+    displayNAme: device inventory, device, inventory, EIoT, eiot
   - name: Classic
     items:
       - name: Which agent should I deploy?
@@ -155,7 +158,7 @@
         href: how-to-investigate-device.md
   - name: Troubleshoot
     items:
-    - name: Defender for Cloud IoT micro agent troubleshooting (Preview)
+    - name: Defender for IoT micro agent troubleshooting (Preview)
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
 - name: Reference

@@ -61,9 +61,9 @@ landingContent:
         - text: Fault providers
           url: chaos-studio-fault-providers.md
         - text: REST API documentation
-          url: https://docs.microsoft.com/rest/api/chaosstudio
+          url: /rest/api/chaosstudio
         - text: Python SDK
-          url: https://docs.microsoft.com/python/api/azure-mgmt-chaos/?view=azure-python-preview
+          url: /python/api/azure-mgmt-chaos/?view=azure-python-preview
 
   - title: Samples
     linkLists:

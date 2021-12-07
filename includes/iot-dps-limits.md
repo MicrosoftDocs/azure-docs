@@ -1,9 +1,9 @@
 ---
-author: anastasia-ms
+author: wesmc7777
 ms.service: iot-dps
 ms.topic: include
 ms.date: 10/10/2021	
-ms.author: v-stharr
+ms.author: wesmc
 ---
 
 > [!NOTE]
