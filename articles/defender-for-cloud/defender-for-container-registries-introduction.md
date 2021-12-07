@@ -48,12 +48,6 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
 
-> [!TIP]
-> To learn more about Defender for Cloud's container security features, see:
->
-> - [Microsoft Defender for Cloud and container security](container-security.md)
-> - [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-
 ## When are images scanned?
 
 There are three triggers for an image scan:

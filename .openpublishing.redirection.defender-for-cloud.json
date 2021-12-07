@@ -645,5 +645,15 @@
             "redirect_url": "/azure/defender-for-cloud/workload-protections-dashboard",
             "redirect_document_id": true
         }
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/container-security.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-introduction",
+            "redirect_document_id": true
+        }
+        {
+            "source_path_from_root": "/articles/defender-for-cloud/defender-for-kubernetes-azure-arc.md",
+            "redirect_url": "/azure/defender-for-cloud/defender-for-containers-enable?pivots=defender-for-container-arc#protect-arc-enabled-kubernetes-clusters",
+            "redirect_document_id": true
+        }
       ]
 }

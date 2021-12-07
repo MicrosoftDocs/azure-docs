@@ -1209,6 +1209,16 @@ groups:
     title: In the Azure portal
   - id: rest-api
     title: With the REST APIs
+- id: k8s-host
+  title: Host of the target Kubernetes clusters
+  prompt: Where are your Kubernetes clusters running?
+  pivots:
+  - id: defender-for-container-aks
+    title: Azure (AKS)
+  - id: defender-for-container-arc
+    title: On-premises / IaaS
+  - id: defender-for-container-eks
+    title: AWS (EKS)
 # Owner: mikeray
 - id: client-operating-system-macos-and-linux-windows-powershell
   title: Operating system / Console

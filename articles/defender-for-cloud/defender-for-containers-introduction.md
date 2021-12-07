@@ -30,7 +30,7 @@ You'll learn how Defender for Cloud helps with the core aspects of container sec
 
 ## What are the benefits of Microsoft Defender for Containers?
 
-Defender for Cloud helps with the core aspects of container security:
+Defender for Containers helps with the core aspects of container security:
 
 - **Environment hardening** - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-prem / IaaS, or Amazon EKS. By continuously assessing clusters, Defender for Containers provides visibility into misconfigurations and guidelines to help mitigate identified threats. Learn more in [Environment hardening through security recommendations](#environment-hardening-through-security-recommendations).
 
@@ -43,7 +43,7 @@ Defender for Cloud helps with the core aspects of container security:
 
 The architecture of the various elements involved in the full range of protections provided by Defender for Containers varies depending on where your Kubernetes clusters are hosted. 
 
-Defender for Kubernetes protects your Kubernetes clusters whether they're running in:
+Defender for Containers protects your clusters whether they're running in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
@@ -120,6 +120,9 @@ For example, you can mandate that privileged containers shouldn't be created, an
 
 Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protections.md).
 
+
+
+
 ## Vulnerability assessment
 
 ### Scanning images in ACR registries
@@ -133,7 +136,6 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 ### Scanning images at runtime
 
 Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing run-time visibility of vulnerabilities.
-
 
 ### Run-time protection for Kubernetes nodes and clusters
 
@@ -150,7 +152,7 @@ Our global team of security researchers constantly monitor the threat landscape.
 
 ## Next steps
 
-In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. For related material see:
+In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. To enable the plan, see:
 
-- [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Introduction to Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+> [!div class="nextstepaction"]
+> [Enable Defender for Containers](defender-for-container-enable.md)

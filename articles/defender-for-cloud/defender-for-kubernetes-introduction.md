@@ -9,7 +9,7 @@ ms.topic: overview
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender for Cloud provides environment hardening, workload protection, and run-time protections as outlined in [Container security in Defender for Cloud](container-security.md).
+Microsoft Defender for Cloud provides environment hardening, workload protection, and run-time protections as outlined in [Container security in Defender for Cloud](defender-for-containers-introduction.md).
 
 Defender for Kubernetes protects your Kubernetes clusters whether they're running in:
 

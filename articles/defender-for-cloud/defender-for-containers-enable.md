@@ -1,41 +1,41 @@
 ---
-title: Protect hybrid and multi-cloud Kubernetes deployments with Microsoft Defender for Kubernetes
-description: Use Microsoft Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters
-ms.topic: how-to
-ms.date: 11/09/2021
+title: How to enable Microsoft Defender for Containers in Microsoft Defender for Cloud
+description: Enable the container protections of Microsoft Defender for Containers
+ms.topic: overview
+zone_pivot_groups: k8s-host
+ms.date: 12/08/2021
 ---
-# Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
+# Enable Microsoft Defender for Containers
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The **Microsoft Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
+Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 
-The extension can also protect Kubernetes clusters on other cloud providers, although not on their managed Kubernetes services.
+Defender for Containers protects your clusters whether they're running in:
 
-> [!TIP]
-> We've put some sample files to help with the installation process in [Installation examples on GitHub](https://aka.ms/kubernetes-extension-installation-examples).
+- **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
-## Availability
+- **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** (preview) - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
-| Aspect | Details |
-|--------|---------|
-| Release state | **Preview**<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-| Required roles and permissions | [Security admin](../role-based-access-control/built-in-roles.md#security-admin) can dismiss alerts<br>[Security reader](../role-based-access-control/built-in-roles.md#security-reader) can view findings |
-| Pricing | Free (during preview) |
-| Supported Kubernetes distributions | Any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters |
-| Tested Kubernetes distributions | [Azure Kubernetes Service on Azure Stack HCI](/azure-stack/aks-hci/overview)<br>[Kubernetes](https://kubernetes.io/docs/home/)<br> [AKS Engine](https://github.com/Azure/aks-engine)<br> [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/)<br> [Red Hat OpenShift](https://www.openshift.com/learn/topics/kubernetes/) (version 4.6 or newer)<br> [VMware Tanzu Kubernetes Grid](https://tanzu.vmware.com/kubernetes-grid)<br> [Rancher Kubernetes Engine](https://rancher.com/docs/rke/latest/en/) |
-| Limitations | Azure Arc-enabled Kubernetes and the Defender extension **don't support** managed Kubernetes offerings like Google Kubernetes Engine and Elastic Kubernetes Service. [Defender for Cloud is natively available for Azure Kubernetes Service (AKS)](defender-for-kubernetes-introduction.md) and doesn't require connecting the cluster to Azure Arc. |
-| Environments and regions | Availability for this extension is the same as availability for [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md)|
+- **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
-## Architecture overview
+Learn about this plan in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
 
-For all Kubernetes clusters other than AKS, you'll need to connect your cluster to Azure Arc. Once connected, Microsoft Defender for Kubernetes can be deployed on [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) resources as a [cluster extension](../azure-arc/kubernetes/extensions.md).
 
-The extension components collect Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Microsoft Defender for Kubernetes backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
+::: zone pivot="defender-for-container-aks"
 
-This diagram shows the interaction between Microsoft Defender for Kubernetes and the Azure Arc-enabled Kubernetes cluster:
+## Protect AKS clusters
 
-:::image type="content" source="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png" alt-text="A high-level architecture diagram outlining the interaction between Microsoft Defender for Kubernetes and an Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/defender-for-kubernetes-architecture-overview.png":::
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere urna nec tincidunt praesent semper feugiat nibh sed. Volutpat lacus laoreet non curabitur gravida arcu. Pellentesque nec nam aliquam sem et tortor consequat id porta. Lacinia at quis risus sed vulputate odio. 
+
+Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Adipiscing diam donec adipiscing tristique risus nec feugiat. Sed id semper risus in hendrerit gravida rutrum quisque non. Et malesuada fames ac turpis. Pretium viverra suspendisse potenti nullam ac tortor vitae purus. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Vel pharetra vel turpis nunc eget. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi. 
+
+::: zone-end
+
+
+::: zone pivot="defender-for-container-arc"
+
+## Protect Arc-enabled Kubernetes clusters
 
 ## Prerequisites
 
@@ -257,11 +257,71 @@ To confirm a successful deployment, or to validate the status of your extension 
 
 ---
 
-## Simulate security alerts from Microsoft Defender for Kubernetes
 
-A full list of supported alerts is available in the [reference table of all security alerts in Microsoft Defender for Cloud](alerts-reference.md#alerts-k8scluster).
+::: zone-end
 
-1. To simulate a security alert, run the following command:
+
+
+::: zone pivot="defender-for-container-eks"
+
+## Protect Amazon Elastic Kubernetes Service clusters
+
+> [!IMPORTANT]
+> If you haven't already connected an AWS account, do so now using the instructions in [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md) and skip to step 3 below.
+
+To protect your EKS clusters, enable the Containers plan on the relevant account connector:
+
+1. From Defender for Cloud's menu, open **Environment settings**.
+1. Select the AWS connector.
+
+    :::image type="content" source="media/defender-for-kubernetes-intro/select-aws-connector.png" alt-text="Screenshot of Defender for Cloud's environment settings page showing an AWS connector.":::
+
+1. Set the toggle for the **Containers** plan to **On**.
+
+    :::image type="content" source="media/defender-for-kubernetes-intro/enable-containers-plan-on-aws-connector.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector.":::
+
+1. Optionally, to change the retention period for your audit logs, select **Configure**, enter the desired timeframe, and select **Save**.
+
+    :::image type="content" source="media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="./media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png":::
+
+1. Continue through the remaining pages of the connector wizard.
+
+1. Azure Arc-enabled Kubernetes and the Defender extension should be installed and running on your EKS clusters. A dedicated Defender for Cloud recommendation deploys the extension (and Arc if necessary):
+
+    1. From Defender for Cloud's **Recommendations** page, search for **EKS clusters should have Azure Defender's extension for Azure Arc installed**.
+    1. Select an unhealthy cluster.
+
+        > [!IMPORTANT]
+        > You must select the clusters one at a time.
+        >
+        > Don't select the clusters by their hyperlinked names: select anywhere else in the relevant row.
+
+    1. Select **Fix**.
+    1. Defender for Cloud generates a script in the language of your choice: select Bash (for Linux) or PowerShell (for Windows).
+    1. Select **Download remediation logic**.
+    1. Run the generated script on your cluster. 
+
+    :::image type="content" source="media/defender-for-kubernetes-intro/generate-script-defender-extension-kubernetes.gif" alt-text="Video of how to use the Defender for Cloud recommendation to generate a script for your EKS clusters that enables the Azure Arc extension. ":::
+
+### View recommendations and alerts for your EKS clusters
+
+> [!TIP]
+> You can simulate container alerts by following the instructions in [this blog post](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-demonstrate-the-new-containers-features-in-azure-security/ba-p/1011270).
+
+To view the alerts and recommendations for your EKS clusters, use the filters on the alerts, recommendations, and inventory pages to filter by resource type **AWS EKS cluster**.
+
+:::image type="content" source="media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png" alt-text="Screenshot of how to use filters on Microsoft Defender for Cloud's alerts page to view alerts related to AWS EKS clusters." lightbox="./media/defender-for-kubernetes-intro/view-alerts-for-aws-eks-clusters.png":::
+
+
+::: zone-end
+
+
+
+## Simulate security alerts from Microsoft Defender for Containers
+
+A full list of supported alerts is available in the [reference table of all Defender for Cloud security alerts](alerts-reference.md#alerts-k8scluster).
+
+1. To simulate a security alert, run the following command from the cluster:
 
     ```console
     kubectl get pods --namespace=asc-alerttest-662jfi039n
@@ -274,8 +334,18 @@ A full list of supported alerts is available in the [reference table of all secu
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
+ 
+
+
+
+
+
 
 ## Removing the Defender extension
+
+
+::: zone pivot="defender-for-container-arc"
+
 
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
@@ -344,10 +414,4 @@ The request may take several minutes to complete.
 
 ---
 
-## Next steps
-
-This page explained how to deploy the Defender extension for Azure Arc-enabled Kubernetes clusters. Learn more about Microsoft Defender for Cloud's container security features in the following pages:
-
-- [Container security in Defender for Cloud](defender-for-containers-introduction.md)
-- [Introduction to Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Protect your Kubernetes workloads](kubernetes-workload-protections.md)
+::: zone-end
