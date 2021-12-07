@@ -6,7 +6,7 @@ ms.date: 12/01/2021
 ---
 
 # Azure Resource Manager metrics in Azure Monitor
-When you create and manage resources in Azure, your requests are orchestrated through Azure's [control plane](../control-plane-and-data-plane.md), Azure Resource Manager. This article describes how to monitor the volume and latency of control plane requests made to Azure.
+When you create and manage resources in Azure, your requests are orchestrated through Azure's [control plane](./control-plane-and-data-plane.md), Azure Resource Manager. This article describes how to monitor the volume and latency of control plane requests made to Azure.
 
 With these metrics, you can observe traffic and latency for control plane requests throughout your subscriptions. The metrics are available for up to three months (93 days) and only track synchronous requests. For a scenario like a VM creation, the metrics do not represent the performance or reliability of the long running asynchronous operation.
 
@@ -16,7 +16,7 @@ You can access control plane metrics via the Azure Monitor REST APIs, SDKs, and 
 
 There is no opt-in or sign-up process to access control plane metrics.
 
-For guidance on how to retrieve a bearer token and make requests to Azure, see [Azure REST API reference](https://docs.microsoft.com/en-us/rest/api/azure/#create-the-request).
+For guidance on how to retrieve a bearer token and make requests to Azure, see [Azure REST API reference](/rest/api/azure/#create-the-request).
 
 ## Metric definition
 
