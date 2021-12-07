@@ -81,6 +81,22 @@ code language="azurecli" source="~/../../../azure_cli_scripts/sql-database/creat
 
 :::code language="azurecli" source="~../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
 
+### Run the script 13
+
+:::code language="azurecli" source="../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
+
+### Run the script 14
+
+:::code language="azurecli" source="../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
+
+### Run the script 15
+
+:::code language="azurecli" source="../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
+
+### Run the script 16
+
+:::code language="azurecli" source="../cli_scripts/sql-database/create-and-configure-d:::
+
 ### Run the script-orig
 
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
