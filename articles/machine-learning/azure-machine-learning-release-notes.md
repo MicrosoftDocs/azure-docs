@@ -20,10 +20,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-12-13
 
 ### Azure Machine Learning SDK for Python v1.37.0
-  + **azureml-automl-core**
-    + Added new feature that allows users to pass time series grains with one unique value.
-  + **azureml-automl-runtime**
-    + Added new feature that allows users to pass time series grains with one unique value. 
   + **azureml-core**
     + Removed instance types from the attach workflow for Kubernetes compute. Instance types can now directly be set up in the Kubernetes cluster. 
     + For more details, please visit aka.ms/amlarc/doc.
