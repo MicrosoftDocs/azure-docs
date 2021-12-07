@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, ignite-fall-2021
 ms.date: 09/13/2021
 ---
 

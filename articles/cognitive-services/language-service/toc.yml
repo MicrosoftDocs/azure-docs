@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
@@ -67,10 +69,19 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176818
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
-        
+        href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -116,9 +127,19 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176711
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
+      items:
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
@@ -139,8 +160,6 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model evaluation and scoring
-        href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Deploy a model and query the runtime API
         href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
@@ -159,12 +178,18 @@ items:
       href: conversational-language-understanding/prebuilt-component-reference.md
     - name: Service limits
       href: conversational-language-understanding/service-limits.md
-    - name: Prediction API
+    - name: REST API
       items:
-      - name: REST API
-        items:
-          - name: v3.2-preview.2
-            href: https://go.microsoft.com/fwlink/?linkid=2173145
+      - name: Authoring
+        href: https://aka.ms/clu-authoring-apis
+      - name: Runtime API
+        href: https://aka.ms/clu-apis
+    - name: SDKs
+      items:
+      - name: .NET
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
@@ -175,9 +200,6 @@ items:
     href: entity-linking/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for entity linking
-      href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -292,9 +314,9 @@ items:
     href: key-phrase-extraction/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for key phrase detection
-      href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI
+    - name: Transparency note for key phrase extraction
+      href: /legal/cognitive-services/language-service/transparency-note-key-phrase-extraction?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for key phrase extraction, key phrase extraction transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -509,20 +531,30 @@ items:
       href: question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: question-answering/how-to/manage-knowledge-base.md
-    - name: Filter responses
-      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Authoring API
+      href: question-answering/how-to/authoring.md
+    - name: Prebuilt API
+      href: question-answering/how-to/prebuilt.md
+    - name: Troubleshooting
+      href: question-answering/how-to/troubleshooting.md
   - name: Concepts
     items:
+    - name: Development lifecycle
+      href: question-answering/concepts/project-development-lifecycle.md
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
+    - name: App planning
+      href: question-answering/concepts/plan.md
     - name: Precise answering
       href: question-answering/concepts/precise-answering.md
     - name: Confidence score
       href: question-answering/concepts/confidence-score.md
     - name: Best practices
       href: question-answering/concepts/best-practices.md
+    - name: Limits
+      href: question-answering/concepts/limits.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
@@ -537,6 +569,16 @@ items:
       href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
       href: question-answering/tutorials/multiple-domains.md
+  - name: Reference
+    items: 
+    - name: REST API
+      items:
+      - name: Answers API 
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
+      - name: Prebuilt API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Authoring API
+        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -573,9 +615,9 @@ items:
   - name: Tutorials
     items:
     - name: Sentiment Analysis on streaming data using Azure Databricks
-      href: /databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
+      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services?context=/azure/cognitive-services/language-service/context/context
     - name: Use Flask to translate text, analyze sentiment, and synthesize speech
-      href: /translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
+      href: /azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context
   - name: Reference
     items:
     - name: REST API
@@ -727,6 +769,8 @@ items:
     href: concepts/migrate.md
   - name: Model lifecycle
     href: concepts/model-lifecycle.md
+  - name: Send requests asynchronously
+    href: concepts/use-asynchronously.md 
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
@@ -743,5 +787,5 @@ items:
   items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Migrate from Text Analytics v2
-      href: concepts/migrate-from-text-analytics-v2.md
+    - name: Migrate to the latest version
+      href: concepts/migrate-language-service-latest.md

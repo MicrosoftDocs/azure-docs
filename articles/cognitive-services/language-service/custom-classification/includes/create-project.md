@@ -5,7 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
-ms.author: aahi 
+ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 Once your resource and storage container are configured, create a new text classification project. A project is a work area for building your custom AI models based on your data. Your project can only be accessed by you and others who have contributor access to the Azure resource being used.

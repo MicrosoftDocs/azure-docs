@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.author: aahi
+ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
 # Custom Named Entity Recognition (NER) definitions and terms
@@ -33,7 +33,7 @@ Within your project you can do the following:
 
 ## Model
 
-A model is an object that has been trained to do a certain task, in our case custom entity extraction.
+A model is an object that has been trained to do a certain task, in this case custom named entity recognition.
 
 * **Model training** is the process of teaching your model what to extract based on your tagged data.
 * **Model evaluation** is the process that happens right after training to know how well does your model perform.

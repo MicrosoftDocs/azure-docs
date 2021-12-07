@@ -10,6 +10,7 @@ ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # Multilingual and emoji support in Language service features

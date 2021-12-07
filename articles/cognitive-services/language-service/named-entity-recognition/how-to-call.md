@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
-ms.custom: language-service-ner
+ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 
@@ -39,7 +39,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using the NER feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-When using these features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+[!INCLUDE [asynchronous-result-availability](../includes/async-result-availability.md)]
 
 The API will attempt to detect the [defined entity categories](concepts/named-entity-categories.md) for a given document language. 
 

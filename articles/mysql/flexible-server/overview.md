@@ -8,27 +8,30 @@ ms.custom: mvc, references_regions
 ms.topic: overview
 ms.date: 08/10/2021
 ---
-# Azure Database for MySQL - Flexible Server (Preview)
+# Azure Database for MySQL - Flexible Server 
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 
 Azure Database for MySQL powered by the MySQL community edition is available in two deployment modes:
 
+- Flexible Server
 - Single Server
-- Flexible Server (Preview)
 
 In this article, we'll provide an overview and introduction to core concepts of flexible server deployment model. For information on how to decide what deployment option is appropriate for your workload, see [choosing the right MySQL server option in Azure](./../select-right-deployment-type.md).
 
 ## Overview
 
-Azure Database for MySQL Flexible Server is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. In general, the service provides more flexibility and server configuration customizations based on the user requirements. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers also provide better cost optimization controls with ability to stop/start your server and burstable skus, ideal for workloads that don't need full compute capacity continuously. The service currently supports community version of MySQL 5.7 and 8.0. The service is currently in preview, available today in wide variety of [Azure regions](https://azure.microsoft.com/global-infrastructure/services/).
+Azure Database for MySQL Flexible Server is a fully managed production-ready database service designed for more granular control and flexibility over database management functions and configuration settings. The flexible server architecture allows users to opt for high availability within single availability zone and across multiple availability zones. Flexible servers provides better cost optimization controls with the ability to stop/start server and burstable compute tier, ideal for workloads that do not need full compute capacity continuously. Flexible Server also supports reserved instances allowing you to save up to 63% cost, ideal for production workloads with predictable compute capacity requirements. The service supports community version of MySQL 5.7 and 8.0. The service is generally available today in wide variety of [Azure regions](overview.md#azure-regions).
 
-Flexible servers are best suited for:
+The Flexible Server deployment option offers three compute tiers: Burstable, General Purpose, and Memory Optimized. Each tier offers different compute and memory capacity to support your database workloads. You can build your first app on a burstable tier for a few dollars a month, and then adjust the scale to meet the needs of your solution. Dynamic scalability enables your database to transparently respond to rapidly changing resource requirements. You only pay for the resources you need, and only when you need them. See [Compute and Storage](concepts-compute-storage.md) for details.
 
-- Application developments requiring better control and customizations.
-- Zone redundant high availability
-- Managed maintenance windows
+Flexible servers are best suited for
+- Ease of deployments, simplified scaling and low database management overhead for functions like backups, high availability, security and monitoring
+- Application developments requiring community version of MySQL with better control and customizations
+- Production workloads with same-zone, zone redundant high availability and managed maintenance windows
+- Simplified development experience 
+- Enterprise grade security, compliance and privacy
 
 For latest updates on Flexible Server, refer to [What's new in Azure Database for MySQL - Flexible Server](whats-new.md).
 
@@ -44,7 +47,7 @@ You can take advantage of this offer to develop and deploy applications that use
 
 ## High availability within and across availability zones
 
-Azure Database for MySQL Flexible Server (Preview) allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
+Azure Database for MySQL Flexible Server allows configuring high availability with automatic failover. The high availability solution is designed to ensure that committed data is never lost due to failures, and improve overall uptime for your application. When high availability is configured, flexible server automatically provisions and manages a standby replica. There are two high availability architectural models: 
 
 - **Zone Redundant High Availability (HA):** This option is preferred for complete isolation and redundancy of infrastructure across multiple availability zones. It provides highest level of availability, but it requires you to configure application redundancy across zones. Zone redundant HA is preferred when you want to achieve highest level of availability against any infrastructure failure in the availability zone and where latency across the availability zone is acceptable. Zone redundant HA is available in [subset of Azure regions](overview.md#azure-regions) where the region supports multiple Availability Zones and Zone redundant Premium file shares are available. 
 
@@ -64,7 +67,7 @@ See [Scheduled Maintenance](concepts-maintenance.md) for more details.
 
 ## Automatic backups
 
-The flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured up to 35 days. All backups are encrypted using AES 256-bit encryption.
+The flexible server service automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Backups can be used to restore your server to any point-in-time within the backup retention period. The default backup retention period is seven days. The retention can be optionally configured between 1-35 days. All backups are encrypted using AES 256-bit encryption.
 
 See [Backup concepts](concepts-backup-restore.md) to learn more.
 
@@ -112,11 +115,11 @@ For more information, see [Data-in replication concepts](concepts-data-in-replic
 
 ## Stop/Start server to optimize cost
 
-The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for seven days unless re-started sooner.
+The flexible server service allows you to stop and start server on-demand to optimize cost. The compute tier billing is stopped immediately when the server is stopped. This can allow you to have significant cost savings during development, testing and for time-bound predictable production workloads. The server remains in stopped state for thirty days unless re-started sooner.
 
 For more information, see [Server concepts](concept-servers.md).
 
-## Enterprise grade security and privacy
+## Enterprise grade security, compliance and privacy
 
 The flexible server service uses the FIPS 140-2 validated cryptographic module for storage encryption of data at-rest. Data, including backups, and temporary files created while running queries are encrypted. The service uses the AES 256-bit cipher included in Azure storage encryption, and the keys can be system managed (default).
 
@@ -130,7 +133,13 @@ For more information, see [Networking concepts](concepts-networking.md).
 
 ## Monitoring and alerting
 
-The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization and allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
+The flexible server service is equipped with built-in performance monitoring and alerting features. All Azure metrics have a one-minute frequency, and each metric provides 30 days of history. You can configure alerts on the metrics. The service exposes host server metrics to monitor resources utilization, allows configuring slow query logs. Using these tools, you can quickly optimize your workloads, and configure your server for best performance. Azure Database for MySQL Flexible Server is allows you to visualize the slow query and audit logs data using Azure Monitor workbooks. With workbooks, you get a flexible canvas for analyzing data and creating rich visual reports within the Azure portal. Azure Database for MySQL Flexible Server provides three available workbook templates out of the box viz Server Overview, [Auditing](tutorial-configure-audit.md) and [Query Performance Insights](tutorial-query-performance-insights.md). [Query Performance Insights](tutorial-query-performance-insights.md) workbook is designed to help you spend less time troubleshooting database performance by providing such information as:
+
+* Top N long-running queries and their trends.
+* The query details: view the query text as well as the history of execution with minimum, maximum, average, and standard deviation query time.
+* The resource utilizations (CPU, memory, and storage).
+
+In addition, you can use and integrate with community monitoring tools like [Percona Monitoring and Management with your MySQL Flexible Server](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/monitor-azure-database-for-mysql-using-percona-monitoring-and/ba-p/2568545). 
 
 For more information, see [Monitoring concepts](concepts-monitoring.md).
 
@@ -147,7 +156,7 @@ Use data-in replication with mydumper/myloader consistent backup/restore for ini
 
 To migrate from Azure Database for MySQL - Single Server to Flexible Server in 5 easy steps, refer to [this blog](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/migrate-from-azure-database-for-mysql-single-server-to-flexible/ba-p/2674057).
 
-For more information, see [Migration Guide for Azure Database for MySQL](../../mysql/migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md)
+For more information, see [Select the right tools for migration to Azure Database for MySQL](../../mysql/how-to-decide-on-right-migration-tools.md)
 
 ## Azure regions
 
@@ -157,7 +166,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada East | :heavy_check_mark: | :x: | :x: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -171,19 +180,22 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Japan West | :heavy_check_mark: | :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :x: |
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
 
 ## Contacts
 
@@ -193,7 +205,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 

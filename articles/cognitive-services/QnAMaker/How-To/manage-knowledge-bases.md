@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/18/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Create knowledge base and manage settings

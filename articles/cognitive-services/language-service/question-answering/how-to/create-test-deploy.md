@@ -5,10 +5,10 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021, mode-other
 ---
 
-# Create, test, and deploy custom question answering
+# Create, test, and deploy a custom question answering project
 
 You can create a question answering project from your own content, such as FAQs or product manuals. This article includes an example of creating a question answering project from a product manual, to answer questions.
 
@@ -16,7 +16,7 @@ You can create a question answering project from your own content, such as FAQs 
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled. Remember your Azure Active Directory ID, Subscription, language resource name you selected when you created the resource.
+> * A [language resource](https://aka.ms/create-language-resource) with the custom question answering feature enabled.
 
 ## Create your first question answering project
 
@@ -53,7 +53,7 @@ You can create a question answering project from your own content, such as FAQs 
     |--------|---------|
     |Surface Book User Guide |https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf |
 
-    The extraction process takes a few moments to read the document and identify questions and answers.
+    The extraction process takes a few moments to read the document and identify questions and answers. Question and answering will determine if the underlying content is structured or unstructured.
 
     After successfully adding the source, you can then edit the source contents to add more custom question answer sets.
 

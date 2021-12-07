@@ -1,5 +1,5 @@
 ---
-title: How to build a Conversational Language Understanding project schema 
+title: How to build a Conversational Language Understanding project schema
 titleSuffix: Azure Cognitive Services
 description: Use this article to start building a Conversational Language Understanding project schema
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-clu
+ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # How to build your project schema
@@ -77,6 +77,3 @@ To build a project schema for orchestration workflow projects:
 
 ## Next Steps
 * [Tag utterances](tag-utterances.md)
-
-
-

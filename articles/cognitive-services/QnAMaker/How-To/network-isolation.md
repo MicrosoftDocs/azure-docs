@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Recommended settings for network isolation

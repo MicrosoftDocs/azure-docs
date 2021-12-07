@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Entity linking using the client library and REST API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to perform Entity Linking, using C#, Python, Java, JavaScript, and the REST API.
+description: 'Use this quickstart to perform Entity Linking, using C#, Python, Java, JavaScript, and the REST API.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-entity-linking
+ms.author: aahi
+ms.custom: language-service-entity-linking, ignite-fall-2021, mode-other
 keywords: text mining, entity linking
-zone_pivot_groups: programming-languages-text-analytics       
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: Entity Linking using the client library and REST API

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 #  Network isolation and private endpoints
@@ -40,16 +40,16 @@ Private endpoints are provided by [Azure Private Link](../../../../private-link/
 5. Go to *Networking* tab of language resource and under the *Allow access from*, select the *Selected Networks and private endpoints* option and select *save*.
  
 > [!div class="mx-imgBorder"]
-> ![Text Analytics newtorking](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
+> ![Text Analytics networking](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-custom-qna.png)
 
 This will establish a private endpoint connection between language resource and Azure Cognitive Search service instance. You can verify the Private endpoint connection on the *Networking* tab of the Azure Cognitive Search service instance. Once the whole operation is completed, you are good to use your language resource with question answering enabled.
 
 ![Managed Networking Service](../../../QnAMaker/media/qnamaker-reference-private-endpoints/private-endpoint-networking-3.png)
 
 ## Support details
- * We don't support changes to Azure Cognitive Search service once you enable private access to your Text Analytics service. If you change the Azure Cognitive Search service via 'Features' tab after you have enabled private access, the Text Analytics service will become unusable.
+ * We don't support changes to Azure Cognitive Search service once you enable private access to your language resources. If you change the Azure Cognitive Search service via 'Features' tab after you have enabled private access, the language resource will become unusable.
 
- * After establishing Private Endpoint Connection, if you switch Azure Cognitive Search Service Networking to 'Public', you won't be able to use the Text Analytics service. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work.
+ * After establishing Private Endpoint Connection, if you switch Azure Cognitive Search Service Networking to 'Public', you won't be able to use the language resource. Azure Search Service Networking needs to be 'Private' for the Private Endpoint Connection to work.
 
 ## Restrict access to Cognitive Search resource
 

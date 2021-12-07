@@ -153,7 +153,7 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 * **There's an "App not found" error in Azure AD**: See if the appropriate URL is mapped to the app in Azure AD.
 
-* **You need support**: Reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). The team responds in 24-48 business hours.
+* **You need support**: Reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). The team responds in 24-48 business hours.
 
   You can also raise a support ticket with Microsoft through the Azure portal channel.
 
@@ -205,7 +205,7 @@ A restart is not required. You can start using the plug-in immediately.
 
 ### How do I get support for the plug-in?
 
-You can reach out to the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) for any support needed for this plug-in. The team responds in 24-48 business hours.
+You can reach out to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com) for any support needed for this plug-in. The team responds in 24-48 business hours.
 
 You can also raise a support ticket with Microsoft through the Azure portal channel.
 

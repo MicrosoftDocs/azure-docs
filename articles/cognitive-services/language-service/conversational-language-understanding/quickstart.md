@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-clu
+ms.custom: language-service-clu, ignite-fall-2021, mode-other
 zone_pivot_groups: usage-custom-language-features
 ---
 
@@ -33,4 +33,3 @@ Use this article to get started with Custom text classification using Language S
 ## Next steps
 
 * [Learn about entity components](concepts/entity-components.md)
-

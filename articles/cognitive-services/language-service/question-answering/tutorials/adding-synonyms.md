@@ -1,5 +1,5 @@
 ---
-title: Improve the quality of responses with synonyms 
+title: Improve the quality of responses with synonyms
 description: In this tutorial, learn how to improve response with synonyms and alternate words
 ms.service: cognitive-services
 ms.subservice: language-service
@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Improve quality of response with synonyms
@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 > * Add synonyms to improve the quality of your responses
 > * Evaluate the response quality via the inspect option of the Test pane
 
-This tutorial will show you how you can improve the quality of your responses by using synonyms. Let's assume that users are not getting an accurate response to their queries, when they use alternate forms, synonyms or acronyms of a word. So, they decide to improve the quality of the response by using [Authoring API](/rest/api/cognitiveservices-qnamaker/QnAMaker4.0/Alterations) to add synonyms for keywords.
+This tutorial will show you how you can improve the quality of your responses by using synonyms. Let's assume that users are not getting an accurate response to their queries, when they use alternate forms, synonyms or acronyms of a word. So, they decide to improve the quality of the response by using [Authoring API](../how-to/authoring.md) to add synonyms for keywords.
 
 ## Add synonyms using Authoring API
 
@@ -75,8 +75,7 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 > [!NOTE]
 > Synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
-
-For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
+> For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
 
 ## Next steps
 

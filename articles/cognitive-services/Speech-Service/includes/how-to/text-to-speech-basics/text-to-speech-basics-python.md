@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/02/2021
-ms.author: pafarley
+ms.author: eur
 ---
 
 In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
@@ -65,8 +65,8 @@ speech_config = SpeechConfig(subscription="<paste-your-speech-key-here>", region
 
 ## Select synthesis language and voice
 
-The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
-You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+The Azure Text-to-Speech service supports more than 270 voices and more than 110 languages and variants.
+You can get the [full list](../../../language-support.md#prebuilt-neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 Specify the language or voice of [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) to match your input text and use the wanted voice.
 
 ```python
@@ -158,7 +158,7 @@ Running your program again will write a customized `.wav` file to the specified 
 Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#neural-voices) of supported **neural** voices.
+First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported **neural** voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">

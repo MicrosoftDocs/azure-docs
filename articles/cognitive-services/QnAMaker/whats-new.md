@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
+ms.custom: ignite-fall-2021
 ---
 
 # What's new in QnA Maker
@@ -62,7 +63,7 @@ Learn what's new with QnA Maker.
 ### November 2019
 
 * [US Government cloud support](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers) for QnA Maker
-* [Multi-turn](./how-to/multiturn-conversation.md) feature in GA
+* [Multi-turn](./how-to/multi-turn.md) feature in GA
 * [Chit-chat support](./how-to/chit-chat-knowledge-base.md#language-support) available in tier-1 languages
 
 ### October 2019

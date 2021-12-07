@@ -3,6 +3,7 @@ title: "Quickstart: QnA Maker client library for Python"
 description: This quickstart shows how to get started with the QnA Maker client library for Python.
 ms.topic: include
 ms.date: 06/18/2020
+ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for python to:
@@ -21,6 +22,9 @@ Use the QnA Maker client library for python to:
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
+
+> [!NOTE]
+> This documentation does not apply to the latest release. To learn about using the Python API with the latest release consult the [question answering Python quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=programming-language-python).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)

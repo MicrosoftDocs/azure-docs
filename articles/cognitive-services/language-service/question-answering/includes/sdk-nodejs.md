@@ -3,7 +3,7 @@ title: "Quickstart: custom question answering client library for Node.js"
 description: This quickstart shows how to get started with the custom question answering client library for Node.js.
 ms.topic: include
 ms.date: 11/02/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, ignite-fall-2021
 ---
 
 Use the QnA Maker client library for Node.js to:

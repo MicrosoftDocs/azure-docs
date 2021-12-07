@@ -10,9 +10,9 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-language-detection
+ms.custom: language-service-language-detection, ignite-fall-2021, mode-other
 keywords: text mining, language detection
-zone_pivot_groups: programming-languages-text-analytics       
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using the Language Detection client library and REST API

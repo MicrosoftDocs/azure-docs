@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
 

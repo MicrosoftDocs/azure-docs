@@ -10,9 +10,9 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-health
+ms.custom: language-service-health, ignite-fall-2021, mode-other
 keywords: text mining, health, text analytics for health
-zone_pivot_groups: programming-languages-text-analytics       
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using Text Analytics for health client library and REST API

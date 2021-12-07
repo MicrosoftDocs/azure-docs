@@ -9,10 +9,10 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-key-phrase
+ms.author: aahi
+ms.custom: language-service-key-phrase, ignite-fall-2021, mode-other
 keywords: text mining, key phrase
-zone_pivot_groups: programming-languages-text-analytics       
+zone_pivot_groups: programming-languages-text-analytics
 ---
 
 # Quickstart: using the Key Phrase Extraction client library and REST API

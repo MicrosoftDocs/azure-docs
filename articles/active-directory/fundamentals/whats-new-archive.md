@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 9/30/2021
+ms.date: 10/30/2021
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
@@ -27,6 +27,136 @@ The What's new in Azure Active Directory? release notes provide information abou
 - Bug fixes
 - Deprecated functionality
 - Plans for changes
+
+---
+
+## April 2021
+
+### Bug fixed - Azure AD will no longer double-encode the state parameter in responses
+
+**Type:** Fixed  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+ 
+Azure AD has identified, tested, and released a fix for a bug in the `/authorize` response to a client application.  Azure AD was incorrectly URL encoding the `state` parameter twice when sending responses back to the client.  This can cause a client application to reject the request, due to a mismatch in state parameters. [Learn more](../develop/reference-breaking-changes.md#bug-fix-azure-ad-will-no-longer-url-encode-the-state-parameter-twice). 
+
+---
+
+### Users can only create security and Microsoft 365 groups in Azure portal being deprecated
+
+**Type:** Plan for change  
+**Service category:** Group Management  
+**Product capability:** Directory
+ 
+Users will no longer be limited to create security and Microsoft 365 groups only in the Azure portal. The new setting will allow users to create security groups in the Azure portal, PowerShell, and API. Users will be required to verify and update the new setting. [Learn more](../enterprise-users/groups-self-service-management.md).
+
+---
+
+### Public preview -  External Identities Self-Service Sign-up in AAD using Email One-Time Passcode accounts
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+External users can now use Email One-Time Passcode accounts to sign up or sign in to Azure AD 1st party and line-of-business applications. [Learn more](../external-identities/one-time-passcode.md).
+
+---
+
+### General availability - External Identities Self-Service Sign Up
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C
+ 
+Self-service sign-up for external users is now in general availability. With this new feature, external users can now self-service sign up to an application. 
+
+You can create customized experiences for these external users, including collecting information about your users during the registration process and allowing external identity providers like Facebook and Google. You can also integrate with third-party cloud providers for various functionalities like identity verification or approval of users. [Learn more](../external-identities/self-service-sign-up-overview.md).
+ 
+---
+
+### General availability - Azure AD B2C Phone Sign-up and Sign-in using Built-in Policy
+
+**Type:** New feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+B2C Phone Sign-up and Sign-in using a built-in policy enable IT administrators and developers of organizations to allow their end-users to sign in and sign-up using a phone number in user flows. With this feature, disclaimer links such as privacy policy and terms of use can be customized and shown on the page before the end-user proceeds to receive the one-time passcode via text message. [Learn more](../../active-directory-b2c/phone-authentication-user-flows.md).
+ 
+---
+
+### New Federated Apps available in Azure AD Application gallery - April 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+
+In April 2021, we have added following 31 new applications in our App gallery with Federation support
+
+[Zii Travel Azure AD Connect](https://azuremarketplace.microsoft.com/marketplace/apps/aad.ziitravelazureadconnect?tab=Overview), [Cerby](../saas-apps/cerby-tutorial.md), [Selflessly](https://app.selflessly.io/sign-in), [Apollo CX](https://apollo.cxlabs.de/sso/aad), [Pedagoo](https://account.pedagoo.com/), [Measureup](https://account.measureup.com/), [Wistec Education](https://wisteceducation.fi/login/index.php), [ProcessUnity](../saas-apps/processunity-tutorial.md), [Cisco Intersight](../saas-apps/cisco-intersight-tutorial.md), [Codility](../saas-apps/codility-tutorial.md), [H5mag](https://account.h5mag.com/auth/request-access/ms365), [Check Point Identity Awareness](../saas-apps/check-point-identity-awareness-tutorial.md), [Jarvis](https://jarvis.live/login), [desknet's NEO](../saas-apps/desknets-neo-tutorial.md), [SDS & Chemical Information Management](../saas-apps/sds-chemical-information-management-tutorial.md), [Wúru App](../saas-apps/wuru-app-tutorial.md), [Holmes](../saas-apps/holmes-tutorial.md), [Tide Multi Tenant](https://gallery.tideapp.co.uk/), [Telenor](https://admin.smartansatt.telenor.no/), [Yooz US](https://us1.getyooz.com/?kc_idp_hint=microsoft), [Mooncamp](https://app.mooncamp.com/#/login), [inwise SSO](https://app.inwise.com/defaultsso.aspx), [Ecolab Digital Solutions](https://ecolabb2c.b2clogin.com/account.ecolab.com/oauth2/v2.0/authorize?p=B2C_1A_Connect_OIDC_SignIn&client_id=01281626-dbed-4405-a430-66457825d361&nonce=defaultNonce&redirect_uri=https://jwt.ms&scope=openid&response_type=id_token&prompt=login), [Taguchi Digital Marketing System](https://login.taguchi.com.au/), [XpressDox EU Cloud](https://test.xpressdox.com/Authentication/Login.aspx), [EZSSH](https://docs.keytos.io/getting-started/registering-a-new-tenant/registering_app_in_tenant/), [EZSSH Client](https://portal.ezssh.io/signup), [Verto 365](https://www.vertocloud.com/Login/), [KPN Grip](https://www.grip-on-it.com/), [AddressLook](https://portal.bbsonlineservices.net/Manage/AddressLook), [Cornerstone Single Sign-On](../saas-apps/cornerstone-ondemand-tutorial.md)
+
+You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
+
+---
+
+### New provisioning connectors in the Azure AD Application Gallery - April 2021
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration
+ 
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Bentley - Automatic User Provisioning](../saas-apps/bentley-automatic-user-provisioning-tutorial.md)
+- [Boxcryptor](../saas-apps/boxcryptor-provisioning-tutorial.md)
+- [BrowserStack Single Sign-on](../saas-apps/browserstack-single-sign-on-provisioning-tutorial.md)
+- [Eletive](../saas-apps/eletive-provisioning-tutorial.md)
+- [Jostle](../saas-apps/jostle-provisioning-tutorial.md)
+- [Olfeo SAAS](../saas-apps/olfeo-saas-provisioning-tutorial.md)
+- [Proware](../saas-apps/proware-provisioning-tutorial.md)
+- [Segment](../saas-apps/segment-provisioning-tutorial.md)
+
+For more information about how to better secure your organization with automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### Introducing new versions of page layouts for B2C
+
+**Type:** Changed feature  
+**Service category:** B2C - Consumer Identity Management  
+**Product capability:** B2B/B2C
+ 
+The [page layouts](../../active-directory-b2c/page-layout.md) for B2C scenarios on the Azure AD B2C has been updated to reduce security risks by introducing the new versions of jQuery and Handlebars JS.
+ 
+---
+
+### Updates to Sign-in Diagnostic
+
+**Type:** Changed feature  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+ 
+The scenario coverage of the Sign-in Diagnostic tool has increased. 
+
+With this update, the following event-related scenarios will now be included in the sign-in diagnosis results: 
+- Enterprise Applications configuration problem events.
+- Enterprise Applications service provider (application-side) events.
+- Incorrect credentials events. 
+
+These results will show contextual and relevant details about the event and actions to take to resolve these problems. Also, for scenarios where we don't have deep contextual diagnostics, Sign-in Diagnostic will present more descriptive content about the error event.
+
+For more information, see [What is sign-in diagnostic in Azure AD?](../reports-monitoring/overview-sign-in-diagnostics.md)
+
+---
+### Azure AD Connect cloud sync general availability refresh 
+**Type:** Changed feature  
+**Service category:** Azure AD Connect Cloud Sync 
+**Product capability:** Directory
+
+Azure AD connect cloud sync now has an updated agent (version# - 1.1.359). For more details on agent updates, including bug fixes, check out the [version history](../cloud-sync/reference-version-history.md). With the updated agent, cloud sync customers can use GMSA cmdlets to set and reset their gMSA permission at a granular level. In addition that, we have changed the limit of syncing members using group scope filtering from 1499 to 50,000 (50K) members. 
+
+Check out the newly available [expression builder](../cloud-sync/how-to-expression-builder.md#deploy-the-expression) for cloud sync, which, helps you build complex expressions as well as simple expressions when you do transformations of attribute values from AD to Azure AD using attribute mapping.
 
 ---
 
@@ -288,7 +418,7 @@ Customers can now reinvite existing external guest users to reset their redempti
 **Service category:** App Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta&preserve-view=true).
+Customers can now use application.readwrite.ownedby as an application permission to call the synchronization APIs. Note this is only supported for provisioning from Azure AD out into third-party applications (for example, AWS, Data Bricks, etc.). It is currently not supported for HR-provisioning (Workday / Successfactors) or Cloud Sync (AD to Azure AD). [Learn more](/graph/api/resources/provisioningobjectsummary).
  
 ---
 
@@ -883,7 +1013,7 @@ Cloud provisioning agent has been released in public preview and is now availabl
  
 Previously, you could recover BitLocker keys via the /bitlocker endpoint. We'll eventually be deprecating this endpoint, and customers should begin consuming the API that now falls under /informationProtection. 
 
-See [BitLocker recovery API](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) for updates to the documentation to reflect these changes.
+See [BitLocker recovery API](/graph/api/resources/bitlockerrecoverykey) for updates to the documentation to reflect these changes.
 
 ---
 
@@ -1075,7 +1205,7 @@ The Integration Assistant (preview) experience is now available for Azure AD B2C
 
 You can now view the template ID of each Azure AD role in the Azure portal. In Azure AD, select  **description** of the selected role. 
 
-It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole) and [roleDefinition](/graph/api/resources/unifiedroledefinition?view=graph-rest-beta&preserve-view=true) objects. For more information on role template IDs, see [Azure AD built-in roles](../roles/permissions-reference.md).
+It's recommended that customers use role template IDs in their PowerShell script and code, instead of the display name. Role template ID is supported for use to [directoryRoles](/graph/api/resources/directoryrole) and [roleDefinition](/graph/api/resources/unifiedroledefinition) objects. For more information on role template IDs, see [Azure AD built-in roles](../roles/permissions-reference.md).
 
 ---
 
@@ -1248,7 +1378,7 @@ Azure AD Connect Cloud Provisioning public preview refresh features two major en
  
 When IT admins or end users read BitLocker recovery key(s) they have access to, Azure Active Directory now generates an audit log that captures who accessed the recovery key. The same audit provides details of the device the BitLocker key was associated with.
 
-End users can [access their recovery keys via My Account](https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API in beta](/graph/api/resources/bitlockerrecoverykey?view=graph-rest-beta&preserve-view=true) or via the Azure AD Portal. To learn more, see [View or copy BitLocker keys in the Azure AD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
+End users can [access their recovery keys via My Account](https://support.microsoft.com/account-billing/manage-your-work-or-school-account-connected-devices-from-the-devices-page-6b5a735d-0a7f-4e94-8cfd-f5da6bc13d4e#view-a-bitlocker-key). IT admins can access recovery keys via the [BitLocker recovery key API](/graph/api/resources/bitlockerrecoverykey) or via the Azure AD Portal. To learn more, see [View or copy BitLocker keys in the Azure AD Portal](../devices/device-management-azure-portal.md#view-or-copy-bitlocker-keys).
 
 ---
 
@@ -1515,7 +1645,7 @@ To learn more about how to configure SAP SuccessFactors inbound provisioning to 
 **Service category:** B2C - Consumer Identity Management  
 **Product capability:** B2B/B2C
  
-Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](/graph/api/resources/identityprovider?view=graph-rest-beta&preserve-view=true).
+Previously, Custom Open ID Connect providers could only be added or managed through the Azure portal. Now the Azure AD B2C customers can add and manage them through Microsoft Graph APIs beta version as well. To learn how to configure this resource with APIs, see [identityProvider resource type](/graph/api/resources/identityprovider).
  
 ---
 
@@ -1555,7 +1685,7 @@ Users in the Insights Administrator role can access the full set of administrati
 **Service category:** Azure AD roles  
 **Product capability:** Access Control
  
-Previously, only the Global Administrator could manage the [extension property](/graph/api/application-post-extensionproperty?view=graph-rest-beta&tabs=http&preserve-view=true). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
+Previously, only the Global Administrator could manage the [extension property](/graph/api/application-post-extensionproperty). We're now enabling this capability for the Application Administrator and Cloud Application Administrator as well.
  
 ---
 
@@ -1836,7 +1966,7 @@ The Azure AD provisioning service currently operates on a cyclic basis. The serv
 **Service category:** Other  
 **Product capability:** Entitlement Management
  
-A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta&preserve-view=true).
+A new delegated permission EntitlementManagement.Read.All is now available for use with the Entitlement Management API in Microsoft Graph beta. To find out more about the available APIs, see [Working with the Azure AD entitlement management API](/graph/api/resources/entitlementmanagement-root).
 
 ---
 
@@ -2034,7 +2164,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
 
-[Report-only mode for Azure AD Conditional Access](../conditional-access/concept-conditional-access-report-only.md) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode—over 26M users are already in scope of a report-only policy. With the announcement today, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can [manage report-only policies programmatically](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true) as well. 
+[Report-only mode for Azure AD Conditional Access](../conditional-access/concept-conditional-access-report-only.md) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode—over 26M users are already in scope of a report-only policy. With the announcement today, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can [manage report-only policies programmatically](/graph/api/resources/conditionalaccesspolicy) as well. 
 
 ---
 
@@ -2246,7 +2376,7 @@ We're expanding B2B invitation capability to allow existing internal accounts to
 
 **Product capability:** Identity Security & Protection
 
-[Report-only mode for Azure AD Conditional Access](../conditional-access/concept-conditional-access-report-only.md) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode, with over 26M users already in scope of a report-only policy. With this announcement, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can also [manage report-only policies programmatically](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta&preserve-view=true). 
+[Report-only mode for Azure AD Conditional Access](../conditional-access/concept-conditional-access-report-only.md) lets you evaluate the result of a policy without enforcing access controls. You can test report-only policies across your organization and understand their impact before enabling them, making deployment safer and easier. Over the past few months, we’ve seen strong adoption of report-only mode, with over 26M users already in scope of a report-only policy. With this announcement, new Azure AD Conditional Access policies will be created in report-only mode by default. This means you can monitor the impact of your policies from the moment they’re created. And for those of you who use the MS Graph APIs, you can also [manage report-only policies programmatically](/graph/api/resources/conditionalaccesspolicy). 
 
 ---
 
@@ -2351,7 +2481,7 @@ These APIs are a key tool for managing your users’ authentication methods. Now
 - Reset a user’s password
 - Turn on and off SMS-sign-in
 
-For more information, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
+For more information, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ---
 
@@ -3989,7 +4119,7 @@ For more information about these updates, see [Filter audit logs](../reports-mon
 
 We're pleased to announce the new riskDetections API for Microsoft Graph is now in public preview. You can use this new API to view a list of your organization's Identity Protection-related user and sign-in risk detections. You can also use this API to more efficiently query your risk detections, including details about the detection type, status, level, and more.
 
-For more information, see the [Risk detection API reference documentation](/graph/api/resources/riskdetection?view=graph-rest-beta&preserve-view=true).
+For more information, see the [Risk detection API reference documentation](/graph/api/resources/riskdetection).
 
 ---
 
@@ -4159,7 +4289,7 @@ For more information, see [Microsoft identity platform](../develop/index.yml) an
 
 We're pleased to announce that you can now use the Risky Users API to retrieve users' risk history, dismiss risky users, and to confirm users as compromised. This change helps you to more efficiently update the risk status of your users and understand their risk history.
 
-For more information, see the [Risky Users API reference documentation](/graph/api/resources/riskyuser?view=graph-rest-beta&preserve-view=true).
+For more information, see the [Risky Users API reference documentation](/graph/api/resources/riskyuser).
 
 ---
 

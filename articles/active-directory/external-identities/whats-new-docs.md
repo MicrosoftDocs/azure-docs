@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory external identities"
 description: "New and updated documentation for the Azure Active Directory external identities."
-ms.date: 10/05/2021
+ms.date: 12/02/2021
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
@@ -14,6 +14,25 @@ manager: CelesteDG
 # Azure Active Directory external identities: What's new
 
 Welcome to what's new in Azure Active Directory external identities documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the external identities service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## November 2021
+
+### Updated articles
+
+- [Tutorial: Enforce multi-factor authentication for B2B guest users](b2b-tutorial-require-mfa.md)
+- [Grant B2B users in Azure AD access to your on-premises applications](hybrid-cloud-to-on-premises.md)
+- [Azure Active Directory external identities: What's new](whats-new-docs.md)
+- [Conditional Access for B2B collaboration users](conditional-access.md)
+
+
+## October 2021
+
+### Updated articles
+
+- [Email one-time passcode authentication](one-time-passcode.md)
+- [Azure Active Directory B2B collaboration FAQs](faq.yml)
+- [Reset redemption status for a guest user (Preview)](reset-redemption-status.md)
+- [Add Google as an identity provider for B2B guest users](google-federation.md)
 
 ## September 2021
 

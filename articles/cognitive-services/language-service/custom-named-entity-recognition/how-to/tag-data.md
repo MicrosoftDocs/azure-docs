@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.author: aahi
+ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
 # Tag your data for Custom Named Entity Recognition (NER) in language studio
@@ -87,4 +87,3 @@ To delete or rename an entity:
 ## Next Steps
 
 After you've tagged your data, you can begin [training a model](train-model.md) that will learn based on your data.
-

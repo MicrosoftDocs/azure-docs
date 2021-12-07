@@ -1,5 +1,5 @@
 ---
-title: Custom classification evaluation metrics 
+title: Custom classification evaluation metrics
 titleSuffix: Azure Cognitive Services
 description: Learn about evaluation metrics in custom entity extraction.
 services: cognitive-services
@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Evaluation metrics

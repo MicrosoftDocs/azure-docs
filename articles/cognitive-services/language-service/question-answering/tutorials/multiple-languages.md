@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Create projects in multiple languages
@@ -16,7 +16,6 @@ In this tutorial, you learn how to:
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Create a project that supports multiple languages
 > * Create a project that supports English
 > * Create a project that supports German
 
@@ -29,7 +28,7 @@ To be able to create a project in more than one language, the multiple language 
 > [!div class="mx-imgBorder"]
 > [ ![Screenshot of UI for create project with I want to select the language when I create a project in this resource selected.]( ../media/multiple-languages/multiple-languages.png) ](../media/multiple-languages/multiple-languages.png#lightbox)
 
-1. From the [Language Studio](https://aka.ms/languageStudio), open the question answering page. Select **Create new project** > **I want to select the language when I create a project in this resource** > **Next**.
+1. From the [Language Studio](https://aka.ms/languageStudio) home page, select open custom question answering. Select **Create new project** > **I want to select the language when I create a project in this resource** > **Next**.
 
 2. Fill out enter basic information page and select **Next** > **Create project**.
 

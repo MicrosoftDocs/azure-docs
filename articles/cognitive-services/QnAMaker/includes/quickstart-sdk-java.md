@@ -8,6 +8,7 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
+ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for Java to:
@@ -169,4 +170,3 @@ java -cp .;lib\* Quickstart
 ```
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/qnamaker/sdk/quickstart.java).
-

@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-health
+ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # Configure Text Analytics for health docker containers

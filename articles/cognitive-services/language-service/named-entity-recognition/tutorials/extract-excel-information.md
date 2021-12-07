@@ -1,5 +1,5 @@
 ---
-title: Extract information in Excel using Power Automate 
+title: Extract information in Excel using Power Automate
 titleSuffix: Azure Cognitive Services
 description: Learn how to Extract Excel text without having to write code, using Named Entity Recognition and Power Automate.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner
+ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 # Extract information in Excel using Named Entity Recognition(NER) and Power Automate 

@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.author: aahi
+ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
 
@@ -48,4 +48,3 @@ See the [application development lifecycle](../overview.md#application-developme
 
 * After reviewing your model's evaluation, you can start [improving your model](improve-model.md).
 * Learn about the [metrics used in evaluation](../concepts/evaluation-metrics.md). 
-

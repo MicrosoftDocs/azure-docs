@@ -9,9 +9,9 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-ner
-zone_pivot_groups: usage-custom-language-features     
+ms.author: aahi
+ms.custom: language-service-custom-ner, ignite-fall-2021, mode-other
+zone_pivot_groups: usage-custom-language-features
 ---
 
 # Quickstart: Custom Named Entity Recognition (preview)

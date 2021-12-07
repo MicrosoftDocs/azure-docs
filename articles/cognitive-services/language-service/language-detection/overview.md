@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: sample
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-language-detection
+ms.custom: language-service-language-detection, ignite-fall-2021
 ---
 
 # What is language detection in Azure Cognitive Service for Language?

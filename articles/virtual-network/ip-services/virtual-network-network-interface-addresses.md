@@ -14,9 +14,9 @@ ms.date: 01/22/2020
 ms.author: allensu
 ---
 
-# Add, change, or remove IP addresses for an Azure network interface
+# Configure IP addresses for an Azure network interface
 
-Learn how to add, change, and remove public and private IP addresses for a network interface. Private IP addresses assigned to a network interface enable a virtual machine to communicate with other resources in an Azure virtual network and connected networks. A private IP address also enables outbound communication to the Internet using an unpredictable IP address. A [Public IP address](virtual-network-public-ip-address.md) assigned to a network interface enables inbound communication to a virtual machine from the Internet. The address also enables outbound communication from the virtual machine to the Internet using a predictable IP address. For details, see [Understanding outbound connections in Azure](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Both Private and Public IP addresses can be assigned to a virtual machine's network interface controller (NIC).  Private IP addresses assigned to a network interface enable a virtual machine to communicate with other resources in an Azure virtual network and connected networks. A private IP address also enables outbound communication to the Internet using an unpredictable IP address. A [Public IP address](virtual-network-public-ip-address.md) assigned to a network interface enables inbound communication to a virtual machine from the Internet and enables outbound communication from the virtual machine to the Internet using a predictable IP address. For details, see [Understanding outbound connections in Azure](../../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 If you need to create, change, or delete a network interface, read the [Manage a network interface](../../virtual-network/virtual-network-network-interface.md) article. If you need to add network interfaces to or remove network interfaces from a virtual machine, read the [Add or remove network interfaces](../../virtual-network/virtual-network-network-interface-vm.md) article.
 

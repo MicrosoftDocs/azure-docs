@@ -1,5 +1,5 @@
 ---
-title: How to train and evaluate models in Conversational Language Understanding 
+title: How to train and evaluate models in Conversational Language Understanding
 titleSuffix: Azure Cognitive Services
 description: Use this article to train a model and view its evaluation details to make improvements.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-clu
+ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Train and evaluate models

@@ -4,7 +4,7 @@ description: Azure Cosmos DB currently supports a one-way migration from periodi
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/04/2021
+ms.date: 10/28/2021
 ms.author: sngun
 ms.topic: how-to
 ms.reviewer: sngun
@@ -13,7 +13,7 @@ ms.reviewer: sngun
 # Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
-Azure CosmosDB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
+Azure Cosmos DB accounts with periodic mode backup policy can be migrated to continuous mode using [Azure portal](#portal), [CLI](#cli), [PowerShell](#powershell), or [Resource Manager templates](#ARM-template). Migration from periodic to continuous mode is a one-way migration and it’s not reversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
 
 The following are the key reasons to migrate into continuous mode:
 
@@ -26,7 +26,7 @@ The following are the key reasons to migrate into continuous mode:
 > [!NOTE]
 > The migration capability is one-way only and it's an irreversible action. Which means once you migrate from periodic mode to continuous mode, you can’t switch back to periodic mode.
 >
-> You can migrate an account to continuous backup mode only if the following conditions are true:
+> You can migrate an account to continuous backup mode only if the following conditions are true. Also checkout the [point in time restore limitations](continuous-backup-restore-introduction.md#current-limitations) before migrating your account:
 >
 > * If the account is of type SQL API or API for MongoDB.
 > * If the account has a single write region.

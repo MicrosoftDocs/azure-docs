@@ -1,10 +1,11 @@
 ---
 title: "Add questions and answer in QnA Maker portal"
-description:  This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
+description: This article shows how to add question and answer pairs with metadata so your users can find the right answer to their question.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Add questions and answer with QnA Maker portal
