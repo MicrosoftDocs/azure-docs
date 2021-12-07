@@ -4,7 +4,7 @@ description: Learn how to recover an Azure File Sync equipped server from a serv
 author: mtalasila
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 12/07/2021
 ms.author: mtalasila
 ms.subservice: files
 ---
