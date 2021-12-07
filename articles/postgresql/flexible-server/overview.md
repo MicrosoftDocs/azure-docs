@@ -5,7 +5,7 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/30/2021
+ms.date: 12/06/2021
 ms.custom: "mvc, references_regions"
 ---
 
@@ -98,7 +98,7 @@ One advantage of running your workload in Azure is global reach. The flexible se
 | Central US | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | East Asia | :heavy_check_mark: | :x: | :x: |
 | East US | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| East US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| East US 2 | :heavy_check_mark: | :x: | :heavy_check_mark: |
 | France Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Germany West Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Japan East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
