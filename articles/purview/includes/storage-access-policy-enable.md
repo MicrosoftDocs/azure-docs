@@ -19,4 +19,4 @@ Connect-AzAccount -Subscription <SubscriptionID>
 # Register the feature
 Register-AzProviderFeature -FeatureName AllowPurviewPolicyEnforcement -ProviderNamespace Microsoft.Storage
 ```
-If the output of the last command shows value of “RegistrationState” as “Registered”, then your subscription is enabled for this functionality.
+If the output of the last command shows value of *RegistrationState* as *Registered*, then your subscription is enabled for this functionality. If the output is *Registering*, wait 15 minutes and issue the last command again.
