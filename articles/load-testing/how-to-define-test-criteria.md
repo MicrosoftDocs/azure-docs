@@ -10,11 +10,11 @@ ms.date: 11/30/2021
 ms.topic: how-to
 ---
 
-# Define test criteria for load tests with Azure Load Testing Preview
+# Define test criteria for load tests by using Azure Load Testing Preview
 
 In this article, you'll learn how to define pass/fail criteria for your load tests with Azure Load Testing Preview. 
 
-Test criteria let you specify the performance expectations of your application under test. Azure Load Testing service allows you to set failure criteria for various test metrics.
+By defining test criteria, you can specify the performance expectations of your application under test. By using the Azure Load Testing service, you can set failure criteria for various test metrics.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in preview.
@@ -59,11 +59,11 @@ In this section, you configure test criteria for a load test in the Azure portal
 
     :::image type="content" source="media/how-to-define-test-criteria/configure-test-test-criteria.png" alt-text="Screenshot that shows the 'Test criteria' tab and the pane for configuring the criteria.":::
 
-1. In the **Test criteria** pane, use the dropdown lists to select the **Metric**, **Aggregate function**, **Condition**, and **Threshold** values for your test.
+1. On the **Test criteria** pane, use the dropdown lists to select the **Metric**, **Aggregate function**, **Condition**, and **Threshold** values for your test.
 
     :::image type="content" source="media/how-to-define-test-criteria/test-creation-criteria.png" alt-text="Screenshot of the 'Test criteria' pane and the dropdown controls for adding test criteria to a load test.":::
 
-    You can define maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
+    You can define a maximum of 10 test criteria for a load test. If there are multiple criteria for the same client metric, the criterion with the lowest threshold value is used.
 
 1. Select **Apply** to save the changes.
 
