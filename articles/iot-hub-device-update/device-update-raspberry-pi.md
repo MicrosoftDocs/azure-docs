@@ -108,14 +108,11 @@ IoT Hub, a connection string will be generated for the device.
    ssh raspberrypi3 -l root
       ```
 4. Enter login as 'root', and password should be left as empty.
-5. After you successfully ssh into the device, run the below commands
- 
-Replace `<device connection string>` with your connection string
+5. After you successfully ssh into the device, run 
  ```markdown
-	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
-	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
+	/etc/adu/du-config.json
    ```
+   and add your connection string withing the double quotes.
 
 ## Connect the device in Device Update IoT Hub
 
