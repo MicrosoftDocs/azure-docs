@@ -63,6 +63,11 @@ sections:
         answer: |
           This is supported with the 2021-07-01-preview release. See [Configure network settings for Service Fabric managed clusters](./how-to-managed-cluster-networking.md#byolb)
       
+      - question: | 
+          Can I change the AAD tenant after initial deployment?
+        answer: |
+          No. At this time you would need to create a new Service Fabric managed cluster resource.
+
       - question: |
           I want to enable IPv6, is that possible?
         answer: |
@@ -76,7 +81,7 @@ sections:
       - question: |
           Can I autoscale my cluster?
         answer: |
-          Autoscaling is not currently available. Please see our [managed clusters](https://github.com/microsoft/service-fabric/projects/17) github project for more details. 
+          Autoscaling is [available](./how-to-managed-cluster-autoscale.md)
 
       - question: |
           Can I deploy my cluster across availability zones?
