@@ -138,7 +138,7 @@
       href: index-similarity-and-scoring.md     
   - name: Indexing
     items:
-    - name: Data import
+    - name: Import
       href: search-what-is-data-import.md
     - name: Search indexes
       href: search-what-is-an-index.md
