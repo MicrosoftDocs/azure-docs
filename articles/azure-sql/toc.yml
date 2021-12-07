@@ -781,7 +781,7 @@
     items:
     - name: Azure CLI
       items:
-      - name: Overview of Azure SQL Database samples
+      - name: Overview of SQL Database samples
         href: database/az-cli-script-samples-content-guide.md?tabs=single-database
       - name: Create databases in Azure SQL Database
         items:
@@ -811,7 +811,7 @@
         items:
         - name: Configure auditing and threat-detection
           href: database/scripts/auditing-and-threat-detection-cli.md
-      - name: Back up, restore, copy, and import a database
+      - name: Database back up, restore, copy, and import
         items:
         - name: Back up a database
           href: database/scripts/backup-database-cli.md
@@ -1190,7 +1190,7 @@
     items:
     - name: Azure CLI
       items:
-      - name: Overview of Azure SQL Managed Instance samples
+      - name: Overview of Managed Instance samples
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
         href: managed-instance/scripts/create-configure-managed-instance-cli.md
