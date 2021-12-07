@@ -17,6 +17,8 @@ ms.collection: M365-identity-device-management
 
 # Cloud feature availability
 
+<!---Jeremy said there are additional features that don't fit nicely in this list that we need to add later--->
+
 This topic covers Azure AD feature availability in Azure Government.
 
 ## Feature availability
@@ -26,9 +28,9 @@ This topic covers Azure AD feature availability in Azure Government.
 | **Authentication, single sign-on and multifactor authentication (MFA)** |   | 
 | - Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | - Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
-| - Single sign-on (SSO) unlimited | Not available | 
-| - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Trusted IPs are not supported. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. | 
-| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | (ARL): Authenticator app only shows GUID and not UPN for compliance reason.  | 
+| - Single sign-on (SSO) unlimited |  | 
+| - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Authenticator app only shows GUID and not UPN for compliance reasons. | 
+| - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | ● | 
 | - Service-level agreement | ● | 
 | **Applications Access** |   |
 | - SaaS apps with modern authentication (Azure AD application gallery apps, SAML, and OAUTH 2.0) | ● | 
@@ -41,7 +43,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Conditional Access  | ● | 
 | - SharePoint limited access | ● | 
 | - Session lifetime management | ● | 
-| - Identity Protection (Risky sign-ins, risky users, risk-based conditional access) | ● | 
+| - Identity Protection (Risky sign-ins, risky users, risk-based conditional access) | See [Identity protection](#identity-protection). | 
 | **Administration and hybrid identity** |   |
 | - User and group management | ● | 
 | - Advanced group management (Dynamic groups, naming policies, expiration, default classification) | ● | 
@@ -63,7 +65,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | **Identity Governance** |  |
 | - Automated user provisioning to apps | ● |
 | - Automated group provisioning to apps | ● |
-| - HR-driven provisioning | ● |
+| - HR-driven provisioning | Partial. See [HR-provisioning apps](#hr-provisioning-apps). |
 | - Terms of use attestation | ● |
 | - Access certifications and reviews | ● |
 | - Entitlements management | ● |
@@ -75,12 +77,50 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Identity Protection: risk events investigation, SIEM connectivity | ● |
 | **Frontline workers** |  |
 | - SMS sign-in | ● |
-| - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available |
+| - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
 | - Delegated user management portal (My Staff) | ● |
 
 
 
 
+## Identity protection
 
+The following table shows the available risk detections.
+
+| Risk Detection | Availability |
+|----------------|:--------------------:|
+|Leaked credentials (MACE) | ● |
+|Azure AD threat intelligence |  |
+|Anonymous IP address | ● | 
+|Atypical travel | ● |
+|Anomalous Token | Pending Deployment |
+|Token Issuer Anomaly| Pending Deployment |
+|Malware linked IP address | ● |
+|Suspicious browser | ● |
+|Unfamiliar sign-in properties | ● |
+|Admin confirmed user compromised | ● |
+|Malicious IP address | ● |
+|Suspicious inbox manipulation rules | ● |
+|Password spray | ● |
+|Impossible travel | ● |
+|New country | ● |
+|Activity from anonymous IP address | ● |
+|Suspicious inbox forwarding | ● |
+|Azure AD threat intelligence |  |
+|Additional risk detected | ● |
+
+
+## HR-provisioning apps
+
+The following table shows the available HR-provisioning apps.
+
+| HR-provisioning app | Availability |
+|----------------|:--------------------:|
+|Workday to Azure AD User Provisioning | Available and provisioning works. |
+|Workday Writeback | Available and provisioning works. |
+|SuccessFactors to Azure AD User Provisioning | Available and provisioning works. | 
+|SuccessFactors to Writeback | Available and provisioning works. |
+|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br>
+`AADConnectProvisioningAgent.Installer.exe`<br>`ENVIRONMENTNAME=AzureUSGovernment` |
 
 
