@@ -118,7 +118,7 @@ In same cases, you might want to combine an array loop with an index loop. The f
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/samples/loops-quickstart/loopArrayStringAndNumber.bicep" highlight="2-5,7-8":::
 
-After deploying the preceding sample, you create two storage accounts that are simliar to:
+After deploying the preceding sample, you create two storage accounts that are similar to:
 
 :::image type="content" source="./media/quickstart-loops/bicep-loop-array-string-number.png" alt-text="Use an array of strings and index number":::
 
