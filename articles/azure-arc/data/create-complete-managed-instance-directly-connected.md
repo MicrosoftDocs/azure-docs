@@ -89,7 +89,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
    Azure CLI returns the following output.
 
    ```output
-   Merged "docs-k8s" as current context in C:<current path>\.kube\config
+   Merged "<namespace>" as current context in C:<current path>\.kube\config
    ```
 
 1. Confirm that your cluster is running. Use the following command: 
@@ -112,7 +112,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
 Now that the cluster is running, we need to connect our cluster to Azure. This can be done through the Azure CLI command: 
 
 ```azurecli
-az connectedk8s connect --resource-group docs-k8s_group --name docs-k8s 
+az connectedk8s connect --resource-group <resource group> --name <namespace> 
 ```
 
 After the connect command completes successfully, you can view the shadow object in the Azure portal. The shadow object is the representation of the Azure Arc-enabled cluster. 
