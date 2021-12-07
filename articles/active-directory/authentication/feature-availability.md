@@ -1,6 +1,6 @@
 ---
 title: Azure AD feature availability in Azure Government
-description: Learn which Azure AD features are availabile in Azure Government. 
+description: Learn which Azure AD features are available in Azure Government. 
 
 services: multi-factor-authentication
 ms.service: active-directory
