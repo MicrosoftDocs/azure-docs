@@ -178,4 +178,4 @@ az containerapp env create `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started](get-started.md)
+> [Managing autoscaling behavior](scale-app.md)
