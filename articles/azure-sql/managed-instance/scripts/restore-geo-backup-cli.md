@@ -26,12 +26,12 @@ An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL
 
 ### Sign in to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ### Run the script
 
 ```azurepowershell-interactive
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/sql-managed-instance-restore-geo-backup-cli.sh "Managed Instance Geo-Restore Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/sql-managed-instance-restore-geo-backup-cli.sh "Managed Instance Geo-Restore Database")]
 
 ```
 
@@ -47,4 +47,4 @@ This script uses the following commands. Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../azure-sql/database/az-cli-script-samples-content-guide.md).
+Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../../../azure-sql/database/az-cli-script-samples-content-guide.md).

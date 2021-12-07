@@ -48,7 +48,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Configure auditing and threat-detection](scripts/auditing-and-threat-detection-cli.md)| Configures auditing and threat detection policies for a database in Azure SQL Database. |
 | **Back up, restore, copy, and import a database**||
 | [Back up a database](scripts/backup-database-cli.md)| Backs up a database in SQL Database to an Azure storage backup. |
-| [Restore a database](../../sql-database/scripts/sql-database-restore-database-cli.md)| Restores a database in SQL Database from a geo-redundant backup and restores a deleted database to the latest backup. |
+| [Restore a database](scripts/restore-database-cli.md)| Restores a database in SQL Database to a specific point in time. |
 | [Copy a database to a new server](scripts/copy-database-to-new-server-cli.md) | Creates a copy of an existing database in SQL Database in a new server. |
 | [Import a database from a BACPAC file](scripts/import-from-bacpac-cli.md)| Imports a database to SQL Database from a BACPAC file. |
 |||
@@ -64,11 +64,11 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 | **Create a SQL Managed Instance**||
 | [Create a SQL Managed Instance](../managed-instance/scripts/create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
 | **Configure Transparent Data Encryption (TDE)**||
-| [Manage Transparent Data Encryption in a SQL Managed Instance by using Azure Key Vault](../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
+| [Manage Transparent Data Encryption in a SQL Managed Instance by using Azure Key Vault](../../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
 |**Configure a failover group**||
 | [Configure a failover group for SQL Managed Instance](../managed-instance/scripts/add-managed-instance-to-failover-group-cli.md) | Creates two instances of SQL Managed Instance, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. |
 |**Geo-restore a database**|
-| [Geo-restore a database for SQL Managed Instance](../managed-instance/scripts/restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance. |
+| [Geo-restore a database for SQL Managed Instance](../managed-instance/scripts/restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance to a specific point in time. |
 |||
 
 For additional SQL Managed Instance examples, see the [create](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [update](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [move a database](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
