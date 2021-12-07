@@ -69,7 +69,7 @@ If you haven't already enabled [single sign-on](#single-sign-on-sso) or saved yo
     - Username and password
 
 >[!IMPORTANT]
->In order for authentication to work properly, your local and virtual machines must also be able to access the URLs in the [Remote Desktop clients](safe-url-list.md#remote-desktop-clients) section of our [required URL list](safe-url-list.md).
+>In order for authentication to work properly, your local machine must also be able to access the URLs in the [Remote Desktop clients](safe-url-list.md#remote-desktop-clients) section of our [required URL list](safe-url-list.md).
 
 Azure Virtual Desktop supports both NT LAN Manager (NTLM) and Kerberos for session host authentication. Smart card and Windows Hello for Business can only use Kerberos to sign in. To use Kerberos, the client needs to get Kerberos security tickets from a Key Distribution Center (KDC) service running on a domain controller. To get tickets, the client needs a direct networking line-of-sight to the domain controller. You can get a line-of-sight by connecting directly within your corporate network, using a VPN connection or setting up a [KDC Proxy server](key-distribution-center-proxy.md).
 
