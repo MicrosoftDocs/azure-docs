@@ -28,6 +28,12 @@ An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
+```azurecli-interactive
+$subscription = "<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
+
 ### Run the script
 
 ```azurepowershell-interactive

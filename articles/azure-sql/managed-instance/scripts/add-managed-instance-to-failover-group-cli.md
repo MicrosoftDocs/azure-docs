@@ -28,6 +28,12 @@ If you choose to install and use the CLI locally, this article requires that you
 
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-cli.sh "Add managed instance to a failover group")]
 
+```azurecli-interactive
+$subscription = "<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
+
 ### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it. You will need to remove the resource group twice. Removing the resource group the first time will remove the managed instance and virtual clusters but will then fail with the error message `az group delete : Long running operation failed with status 'Conflict'.`. Run the az group delete command a second time to remove any residual resources as well as the resource group.
