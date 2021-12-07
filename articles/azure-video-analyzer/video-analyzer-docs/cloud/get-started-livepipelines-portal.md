@@ -138,7 +138,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 
 If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
 
-### [SampleCode](#tab/SampleCode)
+### [C#SampleCode](#tab/C#SampleCode)
 In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
 
 ### Prerequisites
@@ -185,7 +185,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 > [!NOTE]
 > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
 
-### Clean up resources
+- **Clean up resources**
 In the terminal window, pressing enter will deactivate the pipeline and cleanup the pipeline, topology deployed earlier. Program calls CleanUpResourcesAsync() method to cleanup the deployed resources.
 
 ---
