@@ -3103,7 +3103,7 @@ And returns this result: `1`
  
 *Example 2*
 
-If one or both of the values are negative, the result will match the sign of the dividend:
+This example shows that if one or both values are negative, the result matches the sign of the dividend:
 
 ```
 mod(-5, 2)
