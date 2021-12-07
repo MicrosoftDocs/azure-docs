@@ -28,7 +28,7 @@ Apache Kafka performance has two main aspects – throughput and latency. Throug
 
 ## Producer configurations
 
-The following sections will highlight some of the most important configuration properties to optimize performance of your Kafka producers. For a detailed explanation of all configuration properties, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
+The following sections will highlight some of the most important generic configuration properties to optimize performance of your Kafka producers. For a detailed explanation of all configuration properties, see [Apache Kafka documentation on producer configurations](https://kafka.apache.org/documentation/#producerconfigs).
 
 ### Batch size
 
@@ -74,11 +74,11 @@ For more information on replication, see [Apache Kafka: replication](https://kaf
 
 ## Consumer configurations
 
-The following section will highlight some of the important configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
+The following section will highlight some of the important generic configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
 
 ### Number of Consumers
 
-It is good practice to have the number of partitions equal to the number of consumers. If the number of consumers is less than the number of partitions then a few of the consumers will read from multiple partitions, increasing consumer latency. 
+It is a good practice to have the number of partitions equal to the number of consumers. If the number of consumers is less than the number of partitions then a few of the consumers will read from multiple partitions, increasing consumer latency. 
 
 If the number of consumers is greater than the number of partitions, then you will be wasting your consumer resources since those consumers will be idle. 
 
@@ -90,7 +90,7 @@ Consumers are considered alive if it can send a heartbeat to a broker within `se
 
 If the `session.timeout.ms` is too low, a consumer could experience repeated unnecessary rebalances, due to scenarios such as when a batch of messages takes longer to process or when a JVM GC pause takes too long. If you have a consumer that spends too much time processing messages, you can address this either by increasing the upper bound on the amount of time that a consumer can be idle before fetching more records with `max.poll.interval.ms` or by reducing the maximum size of batches returned with the configuration parameter `max.poll.records`.
 
-### Batching:
+### Batching
 
 Like producers, we can add batching for consumers. The amount of data consumers can get in each fetch request can be configured by changing the configuration `fetch.min.bytes`. This parameter defines the minimum bytes expected from a fetch response of a consumer. Increasing this value will reduce the number of fetch requests made to the broker, therefore reducing extra overhead. By default, this value is 1. Similarly, there is another configuration `fetch.max.wait.ms`. If a fetch request doesn’t have enough messages as per the size of `fetch.min.bytes`, it will wait until the expiration of the wait time based on this config `fetch.max.wait.ms`.
 
@@ -103,7 +103,7 @@ Like producers, we can add batching for consumers. The amount of data consumers 
 
 `vm.max_map_count` defines maximum number of mmap a process can have. By default, on HDInsight Apache Kafka cluster linux VM, the value is 65535. 
 
-In Apache Kafka, each log segment requires a pair of index/timeindex files, and each of these files consumes 1 mmap. In other words, each log segment uses 2 mmap. Thus, if each partition hosts a single log segment, it requires minimum 2 mmap. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling perio**d and, generally tends to be more than one. `Mmap value = 2*((partition size)/(segment size))*(partitions)`
+In Apache Kafka, each log segment requires a pair of index/timeindex files, and each of these files consumes 1 mmap. In other words, each log segment uses 2 mmap. Thus, if each partition hosts a single log segment, it requires minimum 2 mmap. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling period** and, generally tends to be more than one. `Mmap value = 2*((partition size)/(segment size))*(partitions)`
 
 If required mmap value exceeds the `vm.max_map_count`, broker would rais **"Map failed"** exception.
 
