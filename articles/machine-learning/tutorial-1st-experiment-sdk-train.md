@@ -162,7 +162,7 @@ if __name__ == "__main__":
                              compute_target='cpu-cluster')
 
     # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.6-CPU']
+    env = ws.environments['AzureML-pytorch-1.7-ubuntu18.04-py37-cuda11-gpu']
     config.run_config.environment = env
 
     run = experiment.submit(config)
