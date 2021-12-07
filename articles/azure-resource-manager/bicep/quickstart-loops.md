@@ -9,7 +9,7 @@ ms.topic: quickstart
 
 # Quickstart: Create multiple instances
 
-Learn how to use different `for` syntax to create multiple resource instances in Bicep. Even though this article only shows creating multiple resource instances, the same methods can be used to define copies of module, variable, property, or output. To learn more, see [Bicep loops](./loops.md).
+Learn how to use different `for` syntaxes to create multiple resource instances in Bicep. Even though this article only shows creating multiple resource instances, the same methods can be used to define copies of module, variable, property, or output. To learn more, see [Bicep loops](./loops.md).
 
 This article contains the following topics:
 
@@ -130,7 +130,7 @@ To iterate over elements in a dictionary object, use the [items function](./bice
 
 The loop creates two storage accounts. The SKU of the storage account with the name starting with **fabrikam** is **Premium_LRS**.
 
-:::image type="content" source="./media/quickstart-loops/bicep-loop-array-string.png" alt-text="Use a dictionary object":::
+:::image type="content" source="./media/quickstart-loops/bicep-loop-dictionary-object.png" alt-text="Use a dictionary object":::
 
 ## Loop with condition
 
