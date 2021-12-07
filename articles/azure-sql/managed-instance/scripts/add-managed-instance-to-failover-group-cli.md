@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 07/16/2019
+ms.date: 12/07/2021
 ---
 # Use CLI to add an Azure SQL Managed Instance to a failover group
 

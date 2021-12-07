@@ -10,7 +10,7 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 03/12/2019
+ms.date: 12/07/2021
 ---
 # Use CLI to configure active geo-replication for a single database in Azure SQL Database
 

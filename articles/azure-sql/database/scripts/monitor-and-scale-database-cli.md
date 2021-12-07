@@ -10,7 +10,7 @@ ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
-ms.date: 06/25/2019
+ms.date: 12/07/2021
 ---
 
 # Use the Azure CLI to monitor and scale a single database in Azure SQL Database

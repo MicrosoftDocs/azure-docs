@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: vanto 
-ms.date: 11/05/2019
+ms.date: 12/07/2021
 ---
 # Manage Transparent Data Encryption in a Managed Instance using your own key from Azure Key Vault
 
