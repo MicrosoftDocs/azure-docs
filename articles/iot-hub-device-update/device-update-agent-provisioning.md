@@ -28,16 +28,13 @@ If you are migrating from a device level agent to adding the agent as a Module i
 
 ## Support for Device Update
 
-The following IoT device types are currently supported with Device Update:
+The following IoT device over the air update types are currently supported with Device Update:
 
 * Linux devices (IoT Edge and Non-IoT Edge devices):
-    * Image A/B update:
-        - Yocto - ARM64 (reference image), extensible via open source to [build you own images](device-update-agent-provisioning.md#how-to-build-and-run-device-update-agent) for other architecture as needed.
-       
-    * Package Agent supported builds for the following platforms/architectures:
-        - Ubuntu Server 18.04 x64 Package Agent 
-        - Debian 9 
-        
+    * [Image A/B update](device-update-raspberry-pi.md)       
+    * [Package update](device-update-ubuntu-agent.md)
+    * [Proxy update for downstream devices](device-update-howto-proxy-updates.md)
+	
 * Constrained devices:
     * AzureRTOS Device Update agent samples: [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
 
@@ -239,13 +236,13 @@ If you run into issues, review the Device Update for IoT Hub [Troubleshooting Gu
 
 ## Next steps
 
-You can use the following pre-built images and binaries for a simple demonstration of Device Update for IoT Hub:
+You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
 
 - [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
 	
 - [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
 	
-- [Proxy Update: Getting Started using Device Update binary agent for Proxy Updates](device-update-howto-proxy-updates.md)
+- [Proxy Update: Getting Started using Device Update binary agent for downstream devices](device-update-howto-proxy-updates.md)
 	
 - [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
 
