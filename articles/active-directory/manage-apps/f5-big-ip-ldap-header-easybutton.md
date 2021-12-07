@@ -1,6 +1,6 @@
 ---
-title: F5 BIG-IP Easy Button for Header and LDAP Single Sign-on
-description: Learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+title: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO 
+description: Learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -13,11 +13,11 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: F5 BIG-IP Easy Button for Header and LDAP Single Sign-on
+# Tutorial: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO
 
-In this tutorial, you’ll learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 
-Integrating BIG-IP published applications with Azure AD provides many benefits, including:
+Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
 * Improved zero-trust governance through Azure AD pre-authentication and authorization
 

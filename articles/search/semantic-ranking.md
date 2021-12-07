@@ -28,13 +28,16 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
    Whatever the document count, whether one or 50, the initial result set establishes the first iteration of the document corpus for semantic ranking.
 
-1. Next, across the corpus, the contents of each field in "searchFields" are extracted and combined into a long string.
+1. Next, across the corpus, the contents of each field in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration) are extracted and combined into a long string. 
 
 1. After string consolidation, any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
-   This trimming exercise is why it's important to position concise fields first in "searchFields", to ensure they are included in the string. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
+   This trimming exercise is why it's important to add fields to your semantic configuration in prioritized order. If you have very large documents with text-heavy fields, anything after the maximum limit is ignored.
 
 Each document is now represented by a single long string.
+
+> [!NOTE]
+> In the 2020-06-30-preview, the "searchFields" parameter is used rather than the semantic configuration to determine which fields to use. We recommend upgrading to the 2021-04-30-preview API version for best results.
 
 The string is composed of tokens, not characters or words. The maximum token count is 128 unique tokens. For estimation purposes, you can assume that 128 tokens is roughly equivalent to a string that is 128 words in length. 
 

@@ -23,7 +23,7 @@ Azure Purview is a Platform as a Service (PaaS) solution in Azure. You can enabl
 
 - Enable [end-to-end network isolation](catalog-private-link-end-to-end.md) using Private Link Service. 
 - Use [Azure Purview Firewall](catalog-private-link-end-to-end.md#firewalls-to-restrict-public-access) to disable Public access.
-- Deploy [Network Security Group (NSG) rules](#use-network-security-groups) for subnets where Azure data sources private endpounts, Azure Purview private endpounts and self-hosted runtime VMs are deployed. 
+- Deploy [Network Security Group (NSG) rules](#use-network-security-groups) for subnets where Azure data sources private endpoints, Azure Purview private endpoints and self-hosted runtime VMs are deployed. 
 - Implement Azure Purview with private endpoints managed by a Network Virtual Appliance, such as [Azure Firewall](../firewall/overview.md) for network inspection and network filtering.
 
 :::image type="content" source="media/concept-best-practices/security-networking.png" alt-text="Screenshot that shows Azure Purview account in a network."lightbox="media/concept-best-practices/security-networking.png":::

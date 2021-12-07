@@ -71,7 +71,7 @@ When you're ready to configure the lead management information for your offer in
 
 1. On the **Connection details** pop-up window, select **Salesforce** for the **Lead destination** and paste the `oid` value from the Web-to-Lead Form you created into the **Organization identifier** field.
 
-    ![Connection details pop-up window Validate Contact email box](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
+   ![Connection details pop-up window Validate Contact email box.](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
 1. Under **Contact email**, enter email addresses for people in your company who should receive email notifications when a new lead is received. You can provide multiple emails by separating them with a semicolon.
 

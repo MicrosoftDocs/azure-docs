@@ -20,10 +20,10 @@ The Azure Communication Services Calling SDK enables Teams end-user devices to d
 
 Key features of the Calling SDK:
 
-- **Addressing** - Azure Communication Services is using [Azure Active Directory user identifier](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser) to address communication endpoints. Clients use Azure Active Directory identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](https://docs.microsoft.com/graph/api/user-get).
+- **Addressing** - Azure Communication Services is using [Azure Active Directory user identifier](/powershell/module/azuread/get-azureaduser) to address communication endpoints. Clients use Azure Active Directory identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](/graph/api/user-get).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Teams Admin Portal](https://docs.microsoft.com/microsoftteams/pstn-connectivity).
+- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Teams Admin Portal](/microsoftteams/pstn-connectivity).
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane. 
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
 
@@ -38,7 +38,7 @@ The following list presents the set of features which are currently available in
 |                   | Promote a one-to-one call with two users into a group call with more than two users                                 | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Join a group call after it has started                                                                              | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Invite another VoIP participant to join an ongoing group call                                                       | ✔️   | ❌       | ❌              | ❌                 |
-|                   | Join Teams meeting										                                                                              | ✔️   | ❌       | ❌              | ❌                 |
+|                   | Join Teams meeting                                                                                                                      | ✔️   | ❌       | ❌              | ❌                 |
 | Mid call control  | Turn your video on/off                                                                                              | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Mute/Unmute mic                                                                                                     | ✔️   | ❌       | ❌              | ❌                 |
 |                   | Switch between cameras                                                                                              | ✔️   | ❌       | ❌              | ❌                 |
