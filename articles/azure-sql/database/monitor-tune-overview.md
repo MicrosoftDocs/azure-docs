@@ -24,7 +24,7 @@ To monitor the performance of a database in Azure SQL Database and Azure SQL Man
 | [Query Performance Insight](#generate-intelligent-assessments-of-performance-issues) | **Yes** | No | No |
 | [Monitor using DMVs](monitoring-with-dmvs.md) | **Yes** | **Yes** | No |
 | [Monitor using query store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)  | **Yes** | **Yes** | No |
-| [SQL insights (preview)](monitoring-sql-database-azure-monitor.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | **Yes** | 
+| [SQL insights (preview)](../../azure-monitor/insights/sql-insights-overview.md) in [Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) | **Yes** |  **Yes** | **Yes** | 
 | [Azure SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md) using [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) \* | **Yes** | **Yes** | No |
 |||||
 
@@ -50,13 +50,12 @@ Outside of the Azure portal, the database engine has its own monitoring and diag
 
 Both offerings use different pipelines to present data to a variety of endpoints for coming Azure SQL Database metrics. 
 
-- Azure SQL insights (preview) is project inside Azure Monitor that can provide advanced insights into Azure SQL database activity. 
+- [Azure SQL insights (preview)](../../azure-monitor/insights/sql-insights-overview.md) is project inside Azure Monitor that can provide advanced insights into Azure SQL database activity. It is deployed via a customer-managed VM using Telegraf as a collection agent that connects to SQL sources, collects data, and moves data into Log Analytics.
 
-- Azure SQL Analytics (preview) requires Log Analytics to provide advanced insights into Azure SQL database activity.
+- [Azure SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md) also requires Log Analytics to provide advanced insights into Azure SQL database activity.
 
 - Azure diagnostic telemetry is an separate, streaming source of data for Azure SQL Database and Azure SQL Managed Instance. Not to be confused with the Azure SQL insights (preview) product, SQLInsights is one of several packages of telemetry emitted by Azure diagnostic settings. Diagnostic settings are a feature that contains Resource Log categories (formerly known as Diagnostic Logs). For more information, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#diagnostic-telemetry-for-export).
     - Azure SQL Analytics (preview) consumes the resource logs coming from the diagnistic settings, while Azure SQL insights (preview) uses a different pipeline to collect Azure SQL telemetry.
-
 
 <!-- Add diagram -->
 
