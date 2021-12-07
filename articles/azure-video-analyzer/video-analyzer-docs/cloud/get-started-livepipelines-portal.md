@@ -165,7 +165,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
 | ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
 | TokenAudience | Provide token audience (example: https://management.core.windows.net) |
-| PublicCameraSourceRTSPURL | Provide RTSP source url. For RTSP camera simulator, use rtsp://<VMpublicIP>:554/media/camera-1800s.mkv  |
+| PublicCameraSourceRTSPURL | Provide RTSP source url. For RTSP camera simulator, use rtsp://[VMpublicIP]:554/media/camera-1800s.mkv  |
 | PublicCameraSourceRTSPUserName | Provide RTSP source username |
 | PublicCameraSourceRTSPPassword | Provide RTSP source password |
 | PublicCameraVideoName | Provide unique video name to capture live video from this RTSP source|
@@ -175,8 +175,8 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 - Start a debugging session in VS code. If this project is not set as default, you can set it as default project to run on hitting F5 by modifying the files in .vscode folder: 
   -	launch.json - Update the "program" and "cwd" to launch PublicCameraPipelineSampleCode.
   -	tasks.json - Update "args" to point to PublicCameraPipelineSampleCode.csproj.
--	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using cd <path> to src\cloud-video-processing\ingest-from-rtsp-camera. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
--	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here] (https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera)
+-	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using cd 'path' to src\cloud-video-processing\ingest-from-rtsp-camera. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
+-	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera)
 -	Now you could go to Azure portal to play the recorded video under Video Analyzer account-> Videos pane. Its status will indicate Recording as pipeline is active and recording the live video stream.
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Diagram of the recorded video captured by live pipeline on the cloud.":::
