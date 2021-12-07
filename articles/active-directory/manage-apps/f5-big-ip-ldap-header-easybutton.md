@@ -31,7 +31,7 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content. Azure AD pre-authentication provides the user identifier, while other attributes fetched from an LDAP connected Human Resource (HR) system provide fine grained application permissions.
 
-Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introduce inevitable costs, and risk potential downtime.
+Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introducing inevitable costs and risk of potential downtime.
 
 Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet application is connected and will be used to gate inbound access, along with Azure AD for its extensive choice of authentication and authorization capabilities.
 
