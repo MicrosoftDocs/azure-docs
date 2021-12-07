@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/07/2021
 ms.custom:
 ---
 
@@ -184,7 +184,7 @@ The steps to publish a policy are as follows
 > Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 
 ## Limits
-- The limit for Purview policies that can be enforced by Storage accounts is 100MB for a subscription
+- The limit for Purview policies that can be enforced by Storage accounts is 100MB for a subscription, which roughly equates to 5000 policies.
 
 ## Policy action mapping
 
