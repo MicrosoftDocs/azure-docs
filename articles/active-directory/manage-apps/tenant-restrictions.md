@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/3/2021
+ms.date: 12/6/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
@@ -135,6 +135,10 @@ Microsoft 365 browser-based applications (the Office Portal, Yammer, SharePoint 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication isn't enabled, effectively bypassing tenant restrictions. Tenant restrictions may block applications that use legacy protocols if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
 For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](https://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
+
+### Azure RMS and Office Message Encryption incompatibility
+
+The [Azure Rights Management Service](https://docs.microsoft.com/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](https://docs.microsoft.com/microsoft-365/compliance/ome) features are not compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants will not be accessible.
 
 ## Testing
 

@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021, mode-other
 ## Prerequisites
 
 > [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=rest)
+> This documentation does not apply to the latest release. To learn about using the REST API with the latest release consult the [question answering REST API quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=rest)
 
 * The current version of [cURL](https://curl.haxx.se/). Several command-line switches are used in the quickstarts, which are noted in the [cURL documentation](https://curl.haxx.se/docs/manpage.html).
 * You must have a [QnA Maker resource](../how-to/set-up-qnamaker-service-azure.md?tabs=v1#create-a-new-qna-maker-service), to use the key and resource name. You entered the resource **Name** during resource creation, then the key was created for you. The resource name is used as the subdomain for your endpoint. To retrieve your key and resource name, select **Quickstart** for your resource in the Azure portal. The resource name is the first subdomain of the endpoint URL:
