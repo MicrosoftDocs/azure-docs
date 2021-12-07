@@ -3099,7 +3099,7 @@ This example divides the first number by the second number:
 mod(3, 2)
 ```
 
-And return this result: `1`
+And returns this result: `1`
  
 *Example 2*
 
