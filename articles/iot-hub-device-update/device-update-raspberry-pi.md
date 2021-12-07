@@ -112,7 +112,7 @@ IoT Hub, a connection string will be generated for the device.
  ```markdown
 	/etc/adu/du-config.json
    ```
-   and add your connection string withing the double quotes.
+   and add your connection string within the double quotes.
 
 ## Connect the device in Device Update IoT Hub
 
