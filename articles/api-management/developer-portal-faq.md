@@ -201,4 +201,3 @@ Learn more about the new developer portal:
 Browse other resources:
 
 - [GitHub repository with the source code](https://github.com/Azure/api-management-developer-portal)
-

@@ -24,7 +24,7 @@ Use the QnA Maker client library for .NET to:
 ## Prerequisites
 
 > [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-csharp).
+> This documentation does not apply to the latest release. To learn about using the C# API with the latest release consult the [question answering C# quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=programming-language-csharp).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
