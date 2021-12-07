@@ -257,7 +257,7 @@ In some cases, custom native C++ apps that use a multi-pass stereo rendering mod
 
 ## Conversion File Download Errors
 
-The Conversion service may encounter errors downloading files from blob storage because of file system limitations:
+The Conversion service may encounter errors downloading files from blob storage because of file system limitations. Specific failure cases are listed below. Comprehensive information on Windows file system limitations can be found in the [Naming Files, Paths, and Namespaces](https://docs.microsoft.com/windows/win32/fileio/naming-a-file) documentation.
 
 ### Colliding path and file name
 In blob storage it is possible to create a file and a folder of the exact same name as sibling entries. In Windows file system this is not possible. Accordingly, the service will emit a download error in that case.
