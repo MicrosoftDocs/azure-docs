@@ -84,7 +84,7 @@ synthesizeSpeech();
 ## Select synthesis language and voice
 
 The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
-You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+You can get the [full list](../../../language-support.md#prebuilt-neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 Specify the language or voice of [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) to match your input text and use the wanted voice.
 
 ```javascript
@@ -137,7 +137,7 @@ function synthesizeSpeech() {
 }
 ```
 
-Run the program, and a synthesized speech is written to a `.wav` file in the location you specified. 
+Run the program, and a synthesized speech is written to a `.wav` file in the location you specified.
 
 ## Synthesize to speaker output
 
@@ -273,7 +273,7 @@ Running your program again will write a `.wav` file to the specified path.
 Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#neural-voices) of supported **neural** voices.
+First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#prebuilt-neural-voices) of supported **neural** voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -323,7 +323,7 @@ function synthesizeSpeech() {
 
 ## Get facial pose events
 
-Speech can be a good way to drive the animation of facial expressions. Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme. 
+Speech can be a good way to drive the animation of facial expressions. Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
 
 You can subscribe to the `viseme` event in Speech SDK. Then, you apply `viseme` events to animate the face of a character as speech audio plays.
 
