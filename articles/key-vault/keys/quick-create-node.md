@@ -90,20 +90,20 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-per
 
 ## Set environment variables
 
-This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
+This application is using key vault name as an environment variable called `AZURE_KEY_VAULT_URI`.
 
 Windows
 ```cmd
-set KEY_VAULT_NAME=<your-key-vault-name>
+set AZURE_KEY_VAULT_URI=<your-key-vault-name>
 ````
 Windows PowerShell
 ```powershell
-$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+$Env:AZURE_KEY_VAULT_URI="<your-key-vault-name>"
 ```
 
 macOS or Linux
 ```cmd
-export KEY_VAULT_NAME=<your-key-vault-name>
+export AZURE_KEY_VAULT_URI=<your-key-vault-name>
 ```
 
 ## Code example
@@ -126,7 +126,7 @@ The code sample below will show you how to create a client, set a key, retrieve 
         // - AZURE_CLIENT_SECRET: The client secret for the registered application
         const credential = new DefaultAzureCredential();
         
-        const url = process.env["KEYVAULT_URI"] || "<keyvault-url>";
+        const url = process.env["AZURE_KEY_VAULT_URI"] || "<keyvault-url>";
         const client = new KeyClient(url, credential);
         
         const uniqueString = Date.now();
