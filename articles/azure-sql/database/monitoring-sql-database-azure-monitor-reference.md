@@ -23,7 +23,10 @@ For more on using Azure Monitor SQL insights for all products in the [Azure SQL 
 
 For data specific to Azure SQL Database, see [Data for Azure SQL Database](../../azure-monitor/insights/sql-insights-overview.md#data-for-azure-sql-database).
 
-For a complete list of metrics, see [Microsoft.Sql/servers/databases](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases).
+For a complete list of metrics, see: 
+- [Microsoft.Sql/servers/databases](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases)
+- [Microsoft.Sql/managedInstances](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances)
+- [Microsoft.Sql/servers/elasticPools](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools)
 
 ## Resource logs
 

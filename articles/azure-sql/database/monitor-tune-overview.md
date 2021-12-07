@@ -57,7 +57,7 @@ Both offerings use different pipelines to present data to a variety of endpoints
 - Azure diagnostic telemetry is an separate, streaming source of data for Azure SQL Database and Azure SQL Managed Instance. Not to be confused with the Azure SQL insights (preview) product, SQLInsights is one of several packages of telemetry emitted by Azure diagnostic settings. Diagnostic settings are a feature that contains Resource Log categories (formerly known as Diagnostic Logs). For more information, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#diagnostic-telemetry-for-export).
     - Azure SQL Analytics (preview) consumes the resource logs coming from the diagnostic telemetry (configurable under **Diagnostic Settings** in the Azure portal), while Azure SQL insights (preview) uses a different pipeline to collect Azure SQL telemetry.
 
-<!-- Add diagram -->
+<!-- Rob Boucher Add diagram -->
 
 ## Monitor and tune Azure SQL in the Azure portal
 
