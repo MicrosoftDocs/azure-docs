@@ -2,7 +2,6 @@
 title: Tutorial to configure Azure Active Directory B2C with Haventec
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Haventec for multifactor passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
