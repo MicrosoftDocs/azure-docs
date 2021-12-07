@@ -184,7 +184,7 @@ df = spark.read\
      .load()  
 ```
 
-* Azure Synapse Spark now supports properties with whitespaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+* Azure Synapse Spark now supports properties with white spaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
 
 ```Python
 df = spark.read\

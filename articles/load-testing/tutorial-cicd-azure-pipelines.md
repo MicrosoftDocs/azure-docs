@@ -30,8 +30,7 @@ You'll learn how to:
 > Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 > [!NOTE]
-> Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the status of the load test in the Azure portal.
->
+> Azure Pipelines has a 60-minute timeout on jobs that are running on Microsoft-hosted agents for private projects. If your load test is running for more than 60 minutes, you'll need to pay for [additional capacity](/azure/devops/pipelines/agents/hosted?tabs=yaml#capabilities-and-limitations). If not, the pipeline will time out without waiting for the test results. You can view the status of the load test in the Azure portal.
 
 ## Prerequisites
 
@@ -183,7 +182,7 @@ First, you'll install the Azure Load Testing extension from the Azure DevOps Mar
 For every update to the main branch, the Azure pipeline executes the following steps:
 
 - Deploy the sample Node.js application to an Azure App Service web app. The name of the web app is configured in the pipeline definition.
-- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration's YAML file in the repository.
+- Trigger Azure Load Testing to create and run the load test, based on the Apache JMeter script and the test configuration YAML file in the repository.
 
 To view the results of the load test in the pipeline log:
 
