@@ -107,7 +107,7 @@ Create Front Door with [az network front-door create](/cli/azure/network/front-d
 az network front-door create \
 --resource-group myRGFDCentral \
 --name contoso-frontend \
---accepted-protocols http https \
+--accepted-protocols Http Https \
 --backend-address webappcontoso-1.azurewebsites.net webappcontoso-2.azurewebsites.net 
 ```
 
@@ -115,7 +115,7 @@ az network front-door create \
 
 **--name:** Specify a globally unique name for your Azure Front Door. 
 
-**--accepted-protocols:** Accepted values are **http** and **https**. If you want to use both, specific both separated by a space.
+**--accepted-protocols:** Accepted values are **Http** and **Https**. If you want to use both, specific both separated by a space.
 
 **--backend-address:** Define both web apps host name here separated by a space.
 
