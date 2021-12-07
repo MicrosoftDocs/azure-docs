@@ -20178,11 +20178,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-pipeline-yaml",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/machine-learning/service/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
       "redirect_document_id": true
