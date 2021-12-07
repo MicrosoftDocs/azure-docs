@@ -24,6 +24,9 @@ This article outlines how to register an Azure Database for MySQL, and how to au
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
+> [!Important]
+>  Purview only supports single server deployment option for Azure Database for MySQL. 
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
