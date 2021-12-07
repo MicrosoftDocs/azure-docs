@@ -46,13 +46,13 @@ From [Custom Translator](https://portal.customtranslator.azure.ai) portal, Selec
 
     d.  Fill in the relevant section for either parallel data or combo data.
 
-        - Parallel data:
-            - Source file: Select source language file from your local computer.
-            - Target file: Select target language file from your local computer.
-            - Document name: Used only if you're uploading parallel files.
+    - Parallel data:
+        - Source file: Select source language file from your local computer.
+        - Target file: Select target language file from your local computer.
+        - Document name: Used only if you're uploading parallel files.
 
-        - Combo data:
-            - Combo File: Select the combo file from your local computer. Your combo file has both of your source and target language sentences. [Naming convention](document-formats-naming-convention.md) is important for combo files.
+    - Combo data:
+        - Combo File: Select the combo file from your local computer. Your combo file has both of your source and target language sentences. [Naming convention](document-formats-naming-convention.md) is important for combo files.
 
     e.  Select **Upload**.
 
