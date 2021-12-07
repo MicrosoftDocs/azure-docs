@@ -297,7 +297,7 @@ Initially the *EXTERNAL-IP* for the *django-app* service is shown as *pending*.
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
-django-app   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
+django-app   LoadBalancer   10.0.37.27   \<pending\>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
