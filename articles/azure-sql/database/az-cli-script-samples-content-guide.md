@@ -68,7 +68,7 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 |**Configure a failover group**||
 | [Configure a failover group for SQL Managed Instance](../managed-instance/scripts/add-managed-instance-to-failover-group-cli.md) | Creates two instances of SQL Managed Instance, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. |
 |**Geo-restore a database**|
-| [Geo-restore a database for SQL Managed Instance](../managed-instance/scripts/sql-managed-instance-restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance. |
+| [Geo-restore a database for SQL Managed Instance](../managed-instance/scripts/restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance. |
 |||
 
 For additional SQL Managed Instance examples, see the [create](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [update](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [move a database](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance), and [working with](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) scripts.
