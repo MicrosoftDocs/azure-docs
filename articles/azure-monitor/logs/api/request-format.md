@@ -28,25 +28,6 @@ where:
  - **workspaceId**: Your workspace ID
  - **parameters**: The data required for this query
 
-## Azure Resource Manager (ARM) API format
-
-The ARM API format is:
-
-```
-    https://management.azure.com/{resource}/query?[parameters]&api-version={api-version}
-```
-where:
- - **resource**: The Azure path of your Application Insights resource: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.OperationalInsights/workspaces/{workspace-name}`
- - **parameters**: The data required for this query
- - **api-version**: The API version. The current version is "2017-01-01"
-
-
-There are two parameters for the query.
-1.  **query**: (required) the Log Analytics [query](https://docs.loganalytics.io/docs/Language-Reference) to execute.
-2.  **timespan**: (optional) the timespan (in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) duration format) in which to run the query. If this parameter is not specified, the query will run on all data.
-
-Depending on the HTTP method, the parameters have to be included in either the query string or in the request body.
-
 ## GET /query
 
 When the HTTP method executed is `GET`, the parameters are included in the query string.

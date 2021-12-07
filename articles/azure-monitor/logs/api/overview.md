@@ -23,7 +23,7 @@ The Log Analytics API supports AAD authentication with three different [AAD OAut
 - Implicit
 - Client credentials 
 
-The authorization code flow and implicit flow both require at least one user-interactive login to your application. If you need a completely noninteractive flow, you must use the client credentials flow.
+The authorization code flow and implicit flow both require at least one user-interactive login to your application. If you need a completely non-interactive flow, you must use the client credentials flow.
 
 After receiving a token, the process for calling the Log Analytics API is identical for all flows. Requests require the `Authorization: Bearer` header, populated with the token received from the OAuth2 flow.
 
