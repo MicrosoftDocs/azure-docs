@@ -26,7 +26,6 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **Migrate with distributed AG** | It's now possible to migrate your database(s) from a [single instance](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [entire availability group](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-ag.md) over to SQL Server on Azure VMs using a distributed availability group! See the [prerequisites](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-prerequisites.md) to get started. | 
 | &nbsp; | &nbsp; |
 
-Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group]() to SQL Server on Azure Virtual Machines (VMs). 
 
 ## November 2021
 
