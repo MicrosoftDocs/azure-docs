@@ -435,8 +435,6 @@ The following commands demonstrate how to work with machine learning pipelines:
 
     For more information, see [az ml pipeline create-schedule](/cli/azure/ml(v1)/pipeline#az_ml_pipeline_create-schedule).
 
-    For more information on the pipeline schedule YAML file, see [Define machine learning pipelines in YAML](reference-yaml-job-pipeline.md#schedules).
-
 ## Model registration, profiling, deployment
 
 The following commands demonstrate how to register a trained model, and then deploy it as a production service:
