@@ -138,7 +138,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 
 If you want to try other quickstarts or tutorials, keep the resources that you created. Otherwise, go to the Azure portal, go to your resource groups, select the resource group where you ran this quickstart and delete all the resources.
 
-### [C#SampleCode](#tab/C#SampleCode)
+### [C# SampleCode](#tab/SampleCode)
 In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
 
 ### Prerequisites
