@@ -49,6 +49,7 @@ The rows in a downloaded CSV template are as follows:
 - We don't recommend adding new columns to the template. Any additional columns you add are ignored and not processed.
 - We recommend that you download the latest version of the CSV template as often as possible.
 - Make sure to check there is no unintended whitespace before/after any field. For **User principal name**, having such whitespace would cause import failure.
+- Ensure that values in the **Initial password** field must comply with the currently active [Password Policy](https://docs.microsoft.com/en-in/azure/active-directory/authentication/concept-sspr-policy#password-policies-that-only-apply-to-cloud-user-accounts).
 
 ## To create users in bulk
 
