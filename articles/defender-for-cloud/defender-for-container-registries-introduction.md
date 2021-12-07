@@ -1,10 +1,9 @@
 ---
 title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
-ms.date: 11/09/2021
+ms.date: 12/08/2021
 ms.topic: overview
 ---
-
 # Introduction to Microsoft Defender for container registries (deprecated)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -14,6 +13,17 @@ Azure Container Registry (ACR) is a managed, private Docker registry service tha
 To protect the Azure Resource Manager based registries in your subscription, enable **Microsoft Defender for container registries** at the subscription level. Defender for Cloud will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.
 
 ## Availability
+
+> [!IMPORTANT]
+> Microsoft Defender for container registries has been replaced with **Microsoft Defender for Containers**. If you've already enabled Defender for container registries on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+>
+> This plan is no longer available for subscriptions where it isn't already enabled.
+>
+> To upgrade to Microsoft Defender for Containers, open the Defender plans page in the portal and enable the new plan:
+>
+> :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
+>
+> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
 
 |Aspect|Details|
 |----|:----|

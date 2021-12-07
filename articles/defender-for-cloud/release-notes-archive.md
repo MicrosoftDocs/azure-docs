@@ -2,7 +2,7 @@
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 12/07/2021
+ms.date: 12/08/2021
 ---
 # Archive for what's new in Defender for Cloud?
 

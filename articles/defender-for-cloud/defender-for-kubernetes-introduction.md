@@ -25,7 +25,16 @@ Host-level threat detection for your Linux AKS nodes is available if you enable 
 ## Availability
 
 > [!IMPORTANT]
-> [NOTE ABOUT DEPRECATION AND UPGRADE PATH]
+> Microsoft Defender for Kubernetes has been replaced with **Microsoft Defender for Containers**. If you've already enabled Defender for Kubernetes on a subscription, you can continue to use it. However, you won't get Defender for Containers' improvements and new features.
+>
+> This plan is no longer available for subscriptions where it isn't already enabled.
+>
+> To upgrade to Microsoft Defender for Containers, open the Defender plans page in the portal and enable the new plan:
+>
+> :::image type="content" source="media/defender-for-containers/enable-defender-for-containers.png" alt-text="Enable Microsoft Defender for Containers from the Defender plans page.":::
+>
+> Learn more about this change in [the release note](release-notes.md#microsoft-defender-for-containers-plan-released-for-general-availability-ga).
+
 
 |Aspect|Details|
 |----|:----|
