@@ -5694,6 +5694,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
       "redirect_url": "/azure/azure-arc/data",
       "redirect_document_id": false

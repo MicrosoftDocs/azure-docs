@@ -36,7 +36,7 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with the [Azure CLI]( create-aks-cluster-data-controller.md), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](cli/azure/aks?view=azure-cli-latest#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
