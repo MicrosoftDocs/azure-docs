@@ -341,11 +341,9 @@ A full list of supported alerts is available in the [reference table of all Defe
 
 
 
-## Removing the Defender extension
-
-
 ::: zone pivot="defender-for-container-arc"
 
+## Removing the Defender extension
 
 You can remove the extension using Azure portal, Azure CLI, or REST API as explained in the tabs below.
 
