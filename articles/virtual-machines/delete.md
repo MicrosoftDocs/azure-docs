@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: 
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/19/2021
+ms.date: 12/07/2021
 ms.author: cynthn
 ms.custom: template-how-to 
 
@@ -18,6 +18,22 @@ By default, when you delete a VM it only deletes the VM resource, not the networ
 
 
 ## Set delete options when creating a VM
+
+### [Portal](#tab/portal2)
+
+
+1. Open the [portal](https://portal.azure.com).
+1. Select **+ Create a resource**.
+1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
+1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
+1. Under **Disk options**, select **Delete with VM** to delete the OS disk when you delete the VM.
+1. Under **Data disks**, you can choose which data disks, if any, to delete when you delete the VM.
+1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
+1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
+    
+1. When you are done making selections, select **Review + create**. The **Review + create** page will open.
+1. You can verify which resources you have chosen to delete when you delete the VM.
+1. When you are satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
 
 ### [CLI](#tab/cli2)
 
