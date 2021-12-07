@@ -80,7 +80,7 @@ Although semantic search is not beneficial in every scenario, certain content ca
 
 ## Availability and pricing
 
-Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilites](#enable-semantic-search) on your search service.
+Semantic search and spell check are available on services that meet the criteria in the table below. To use semantic search, your first need to [enable the capabilities](#enable-semantic-search) on your search service.
 
 | Feature | Tier | Region | Sign up | Pricing |
 |---------|------|--------|---------------------|-------------------|
@@ -89,7 +89,7 @@ Semantic search and spell check are available on services that meet the criteria
 
 <sup>1</sup> Due to the provisioning mechanisms and lifespan of shared (free) search services, a small number of services happen to have spell check on the free tier. However, spell check availability on free tier services is not guaranteed and should not be expected.
 
-Charges for semantic search are levied when query requests include "queryType=semantic" and the search string is not empty (for example, "search=pet friendly hotels in new york". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
+Charges for semantic search are levied when query requests include "queryType=semantic" and the search string is not empty (for example, "search=pet friendly hotels in New York". If your search string is empty ("search=*"), you won't be charged, even if the queryType is set to "semantic".
 
 ## Enable semantic search
 

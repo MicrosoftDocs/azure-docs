@@ -28,7 +28,7 @@ Before scoring for relevance, content must be reduced to a manageable number of 
 
    Whatever the document count, whether one or 50, the initial result set establishes the first iteration of the document corpus for semantic ranking.
 
-1. Next, across the corpus, the contents of each field in the [semantic configuration]() are extracted and combined into a long string. 
+1. Next, across the corpus, the contents of each field in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration) are extracted and combined into a long string. 
 
 1. After string consolidation, any strings that are excessively long are trimmed to ensure the overall length meets the input requirements of the summarization step.
 
