@@ -5,7 +5,7 @@ author: thakagi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/07/2021
 ms.author: hitakagi
 ms.reviewer: sngun
 ---
@@ -21,10 +21,10 @@ Before migrating, you must understand the differences between Azure Cosmos DB an
 ### Resource model
 
 Azure Cosmos DB has the following resource model:
-![cosmosdb-resource-model](./media/migrate-hbase-to-cosmosdb/cosmosdb-resource-model.png)
+:::image type="content" source="./media/migrate-hbase-to-cosmosdb/cosmosdb-resource-model.png" alt-text="Azure Cosmos DB resource model with account, databases, containers, and items.":::
 
 HBase has the following resource model:
-![cosmosdb-resource-model](./media/migrate-hbase-to-cosmosdb/hbase-data-model.jpg)
+:::image type="content" source="./media/migrate-hbase-to-cosmosdb/hbase-data-model.jpg" alt-text="HBase resource model with namespace, tables, rows, and columns.":::
 
 ### Resource mapping
 
@@ -168,7 +168,7 @@ For successful data migration, it is important to understand the characteristics
 > [!NOTE]
 > This document covers only offline migration.
 
-When performing offline data migration, it depends on the version of HBase you are currently running and the tools available. See the [Data Migration](#data-migration) section for more details.
+When performing offline data migration, it depends on the version of HBase you are currently running and the tools available. See the [Data Migration](#migrate-your-data) section for more details.
 
 ### Performance considerations
 
@@ -351,18 +351,17 @@ There are various methods to migrate data offline, but here we will introduce ho
 | Custom tool with Cosmos DB bulk executor library | All versions | Most flexible to create custom data migration tools using libraries. Requires more effort to set up. |
 
 The following flowchart uses some conditions to reach the available data migration methods.
-
-![Graphical user interface  Description automatically generated with low confidence](./media/migrate-hbase-to-cosmosdb/flowchart-hbase-cosmosdb-migration-tools.png)
+:::image type="content" source="./media/migrate-hbase-to-cosmosdb/flowchart-hbase-cosmosdb-migration-tools.png" alt-text="Flowchart for options to migrate data to Azure Cosmos DB.":::
 
 ### Migrate using Data Factory
 
 This option is suitable for large datasets. The Azure Cosmos DB Bulk Executor library is used. There are no checkpoints, so if you encounter any issues during the migration you will have to restart the migration process from the beginning. You can also use Data Factory's self-hosted integration runtime to connect to your on-premises HBase, or deploy Data Factory to a Managed VNET and connect to your on-premises network via VPN or ExpressRoute.
 
-Data Factory's Copy activity supports HBase as a data source. See the [Copy data from HBase using Azure Data Factory](../data-factory/connector-hbase.md) article for more details.
+Data Factory's Copy activity supports HBase as a data source. See the [Copy data from HBase using Azure Data Factory](../../data-factory/connector-hbase.md) article for more details.
 
-You can specify Cosmos DB (SQL API) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) article for more details.
+You can specify Cosmos DB (SQL API) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory](../../data-factory/connector-azure-cosmos-db.md) article for more details.
 
-![Graphical user interface  Description automatically generated with low confidence](./media/migrate-hbase-to-cosmosdb/data-migration-hbase-cosmos-adf.png)
+:::image type="content" source="./media/migrate-hbase-to-cosmosdb/data-migration-hbase-cosmos-adf.png" alt-text="Architecture for migrating data from on-premise to Azure Cosmos DB using Data Factory.":::
 
 ### Migrate using Apache Spark - Apache HBase Connector & Cosmos DB Spark connector
 
@@ -457,9 +456,9 @@ It writes in parallel at high speed, its performance is high. On the other hand,
 
 Phoenix is supported as a Data Factory data source. Refer to the following documents for detailed steps.
 
-* [Copy data from Phoenix using Azure Data Factory](../data-factory/connector-phoenix.md)
+* [Copy data from Phoenix using Azure Data Factory](../../data-factory/connector-phoenix.md)
 * [Tutorial: Use Data migration tool to migrate your data to Azure Cosmos DB](../import-data.md)
-* [Copy data from HBase using Azure Data Factory](../data-factory/connector-hbase.md)
+* [Copy data from HBase using Azure Data Factory](../../data-factory/connector-hbase.md)
 
 ## Migrate your code
 
@@ -825,10 +824,10 @@ Data security is a shared responsibility of the customer and the database provid
 | Monitoring for  attacks                                      | It needs to be  implemented using third party products.        | By using [audit logging and activity logs](../monitor-cosmos-db.md), you can monitor your account  for normal and abnormal activity. |
 | Responding to  attacks                                       | It needs to be  implemented using third party products.        | When you contact  Azure support and report a potential attack, a five-step incident response  process begins. |
 | Ability to  geo-fence data to adhere to data governance restrictions | You need to check  the restrictions of each country and implement it yourself. | Guarantees data  governance for sovereign regions (Germany, China, US Gov, etc.). |
-| Physical  protection of servers in protected data centers    | It depends on the  data center where the system is located.  | For a list of the latest certifications,  see the global [Azure compliance site](/compliance/regulatory/offering-home?view=o365-worldwide). |
-| Certifications     | Depends on the Hadoop  distribution.      | See [Azure compliance documentation \| Microsoft Docs](../../compliance.md) |
+| Physical  protection of servers in protected data centers    | It depends on the  data center where the system is located.  | For a list of the latest certifications,  see the global [Azure compliance site](/compliance/regulatory/offering-home?view=o365-worldwide&preserve-view=true). |
+| Certifications     | Depends on the Hadoop  distribution.      | See [Azure compliance documentation](../compliance.md) |
 
-For more information on security, please refer to [Security in Azure Cosmos DB - overview](database-security.md)
+For more information on security, please refer to [Security in Azure Cosmos DB - overview](../database-security.md)
 
 ## Monitoring
 
@@ -850,7 +849,7 @@ Azure Cosmos DB automatically backs up data at periodic intervals, which does no
 
 * [Periodic backup](../configure-periodic-backup-restore.md)
 
-* [Continuous backup](../continuous-backup-restore-introduction,md)
+* [Continuous backup](../continuous-backup-restore-introduction.md)
 
 ### Disaster recovery
 
@@ -870,11 +869,11 @@ SQL API provides the best end-to-end experience in terms of interface, service S
 
 #### Can I assign the HBase RowKey to the Azure Cosmos DB partition key?
 
-It may not be optimized as it is. In HBase, the data is sorted by the specified RowKey, stored in the Region, and divided into fixed sizes. This behaves differently than partitioning in Cosmos DB. Therefore, the keys need to be redesigned to better distribute the data according to the characteristics of the workload. See the [Distribution](#distribution) section for more details.
+It may not be optimized as it is. In HBase, the data is sorted by the specified RowKey, stored in the Region, and divided into fixed sizes. This behaves differently than partitioning in Cosmos DB. Therefore, the keys need to be redesigned to better distribute the data according to the characteristics of the workload. See the [Distribution](#data-distribution) section for more details.
 
 #### Data is sorted by RowKey in HBase, but partitioning by key in Cosmos DB. How can Cosmos DB achieve sorting and collocation?
 
-In Cosmos DB, you can add a Composite Index to sort your data in ascending or descending order to improve the performance of equality and range queries. See the [Distribution](#distribution) section and the [Composite Index](index-policy.md#composite-indexes) in product documentation.
+In Cosmos DB, you can add a Composite Index to sort your data in ascending or descending order to improve the performance of equality and range queries. See the [Distribution](#data-distribution) section and the [Composite Index](../index-policy.md#composite-indexes) in product documentation.
 
 #### Analytical processing is executed on HBase data with Hive or Spark. How can I modernize them in Cosmos DB?
 
