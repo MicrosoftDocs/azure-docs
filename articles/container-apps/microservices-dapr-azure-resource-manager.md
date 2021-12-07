@@ -215,11 +215,11 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
 ```
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).PrimarySharedKey
 ```
 
 ---
@@ -295,10 +295,11 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+$STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
 ---
+
 ::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) templates
@@ -404,7 +405,9 @@ Save the following file as *serviceapp.json*:
 ```
 
 ::: zone-end
+
 ::: zone pivot="container-apps-bicep"
+
 ### Create Azure Bicep templates
 
 Create two Bicep templates.
@@ -512,6 +515,7 @@ Save the following file as *clientapp.json*:
 ```
 
 ::: zone-end
+
 ::: zone pivot="container-apps-bicep"
 
 Save the following file as *clientapp.bicep*:
@@ -588,6 +592,7 @@ New-AzResourceGroupDeployment `
 ```
 
 ::: zone-end
+
 ::: zone pivot="container-apps-bicep"
 
 # [Bash](#tab/bash)
@@ -649,6 +654,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $RESOURCE_GROUP `
 ```
 
 ::: zone-end
+
 ::: zone pivot="container-apps-bicep"
 
 # [Bash](#tab/bash)
@@ -713,8 +719,7 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
 $queryResults.Results
 ```
 
@@ -749,7 +754,7 @@ az group delete \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP
+Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
 ```
 
 ---
