@@ -179,7 +179,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 ## References for getting started
 
-All Microsoft Sentinel Technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
+All Microsoft Sentinel technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
 
 When you are ready to begin work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
 
@@ -196,6 +196,7 @@ Microsoft offers the programs to help partners approach Microsoft customers:
 - [Microsoft Intelligent Security Association](https://www.microsoft.com/security/partnerships/intelligent-security-association) (MISA). MISA provides Microsoft Security Partners with help in creating awareness about partner-created integrations with Microsoft customers, and helps to provide discoverability for Microsoft Security product integrations.
 
     Joining the MISA program requires a nomination from a participating Microsoft Security Product Team. Building any of the following integrations can qualify partners for nomination:
+
 
     - A Microsoft Sentinel data connector and associated content, such as workbooks, sample queries, and analytics rules
     - Published Logic Apps connector and Microsoft Sentinel playbooks.
