@@ -2,7 +2,7 @@
 title: Connectivity modes and requirements
 description: Explains Azure Arc-enabled data services connectivity options for from your environment to Azure
 services: azure-arc
-ms.service: azure-arc-data
+ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
