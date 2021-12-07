@@ -299,6 +299,7 @@ $STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
+::: zone pivot="container-apps-arm"
 
 ::: zone pivot="container-apps-arm"
 
