@@ -28,9 +28,9 @@ After model-version deprecation, API calls to deprecated model-versions will ret
 
 ## Choose the model-version used on your data
 
-By default, API requests will use the latest Generally Available model, if available. If a Generally Available model isn't available, the latest preview version will be used instead. 
+By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model used in your API requests. To use preview versions, you must specify this parameter. For example: 
 
-You can use the optional model-version parameter to select the version of the model used in your API requests. To use preview versions, you must include this parameter For example: `<resource-url>/text/analytics/v3.1/sentiment?2021-10-01-preview`. 
+`<resource-url>/text/analytics/v3.1/sentiment?2021-10-01-preview`. 
 
 The model-version used in your API request will be included in the response object.
 
