@@ -176,26 +176,6 @@ The following FQDN / application rules are required for AKS clusters that have t
 | *.oms.opinsights.azure.com | **`HTTPS:443`** | This endpoint is used by omsagent, which is used to authenticate the log analytics service. |
 | *.monitoring.azure.com | **`HTTPS:443`** | This endpoint is used to send metrics data to Azure Monitor. |
 
-### Azure Dev Spaces
-
-Update your firewall or security configuration to allow network traffic to and from the all of the below FQDNs and [Azure Dev Spaces infrastructure services][dev-spaces-service-tags].
-
-#### Required network rules
-
-| Destination Endpoint                                                             | Protocol | Port    | Use  |
-|----------------------------------------------------------------------------------|----------|---------|------|
-| [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureDevSpaces`**  | TCP           | 443      | This endpoint is used to send metrics data and logs to Azure Monitor and Log Analytics. |
-
-#### Required FQDN / application rules
-
-The following FQDN / application rules are required for AKS clusters that have the Azure Dev Spaces enabled:
-
-| FQDN                                    | Port      | Use      |
-|-----------------------------------------|-----------|----------|
-| `cloudflare.docker.com` | **`HTTPS:443`** | This address is used to pull linux alpine and other Azure Dev Spaces images |
-| `gcr.io` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-| `storage.googleapis.com` | **`HTTPS:443`** | This address is used to pull helm/tiller images |
-
 ### Azure Policy
 
 #### Required FQDN / application rules
@@ -206,9 +186,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.core.windows.net`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
-| **`gov-prod-policy-data.trafficmanager.net`** | **`HTTPS:443`** | This address is used for correct operation of Azure Policy.  |
-| **`raw.githubusercontent.com`**               | **`HTTPS:443`** | This address is used to pull the built-in policies from GitHub to ensure correct operation of Azure Policy. |
-| **`dc.services.visualstudio.com`**            | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
+| **`dc.services.visualstudio.com`** | **`HTTPS:443`** | Azure Policy add-on that sends telemetry data to applications insights endpoint. |
 
 #### Azure China 21Vianet Required FQDN / application rules
 
@@ -227,6 +205,26 @@ The following FQDN / application rules are required for AKS clusters that have t
 |-----------------------------------------------|-----------|----------|
 | **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
+
+## Cluster extensions
+
+### Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+
+#### Azure US Government Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
 
 ## Restrict egress traffic using Azure firewall
 
@@ -375,7 +373,7 @@ Create an empty route table to be associated with a given subnet. The route tabl
 # Create UDR and add a route for Azure Firewall
 
 az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
-az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
+az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
 
@@ -425,7 +423,7 @@ A cluster identity (managed identity or service principal) is used by AKS to cre
 ```azurecli
 # Create SP and Assign Permission to Virtual Network
 
-az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
+az ad sp create-for-rbac -n "${PREFIX}sp"
 ```
 
 Now replace the `APPID` and `PASSWORD` below with the service principal appid and service principal password autogenerated by the previous command output. We'll reference the VNET resource ID to grant the permissions to the service principal so AKS can deploy resources into it.
@@ -802,4 +800,3 @@ If you want to restrict how pods communicate between themselves and East-West tr
 [aks-upgrade]: upgrade-cluster.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[dev-spaces-service-tags]: ../dev-spaces/configure-networking.md#virtual-network-or-subnet-configurations

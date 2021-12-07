@@ -1,8 +1,9 @@
 ---
-title: Add owners and users in Azure DevTest Labs| Microsoft Docs
+title: Add owners and users
 description: Add owners and users in Azure DevTest Labs using either the Azure portal or PowerShell
-ms.topic: article
-ms.date: 06/26/2020
+ms.topic: how-to
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Add owners and users in Azure DevTest Labs
@@ -46,20 +47,27 @@ The following table illustrates the actions that can be performed by users in ea
 
 ## Add an owner or user at the lab level
 Owners and users can be added at the lab level via the Azure portal. 
-A user can be an external user with a valid [Microsoft account (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+A user can be an external user with a valid [Microsoft account (MSA)](./devtest-lab-faq.yml).
 The following steps guide you through the process of adding an owner or user to a lab in Azure DevTest Labs:
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **All services**, and then select **DevTest Labs** from the list.
-3. From the list of labs, select the desired lab.
-4. On the lab's blade, select **Configuration and policies**. 
-5. On the **Configuration and policies** page, select **Access control (IAM)** from the menu on the left. 
-6. Select **Add role assignment** on the toolbar to add a user to a role.
-1. In the **Add permissions** window, do the following actions: 
-    1. Select a role (for example: DevTest Labs User). The section [Actions that can be performed in each role](#actions-that-can-be-performed-in-each-role) lists the various actions that can be performed by users in the Owner, DevTest User, and Contributor roles.
-    2. Select the user to be added to the role. 
-    3. Select **Save**. 
-11. When you return to the **Users** blade, the user has been added.  
+1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+1. Open the desired resource group and select **DevTest Labs**.
+
+1. In the navigation menu, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. On the **Role** tab, select the **OWNER** or **USER** role.
+
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Members** tab, select the user you want to give the desired role to.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
 
 ## Add an external user to a lab using PowerShell
 
@@ -109,20 +117,23 @@ For example, the added owners do not have full access to some of the resources t
 
 To add an owner to an Azure subscription, follow these steps:
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-2. Select **All Services**, and then select **Subscriptions** from the list.
-3. Select the desired subscription.
-4. Select **Access** icon. 
-   
-    ![Access users](./media/devtest-lab-add-devtest-user/access-users.png)
-5. On the **Users** blade, select **Add**.
-   
-    ![Add user](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-6. On the **Select a role** blade, select **Owner**.
-7. On the **Add users** blade, enter the email address or name of the user you want to add as an owner. If the user can't be found, you get an error message explaining the issue. If the user is found, that user is listed under the **User** text box.
-8. Select the located user name.
-9. Select **Select**.
-10. Select **OK** to close the **Add access** blade.
-11. When you return to the **Users** blade, the user has been added as an owner. This user is now an owner of any labs created under this subscription, and thus is able to perform owner tasks. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
+
+1. Open the desired Subscription group.
+
+1. In the navigation menu, select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. On the **Role** tab, select the **OWNER** role.
+
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Members** tab, select the user you want to give the owner role to.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

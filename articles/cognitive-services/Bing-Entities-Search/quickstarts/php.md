@@ -5,12 +5,12 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.custom: mode-other
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using PHP
@@ -53,8 +53,8 @@ To run this application, follow these steps:
 // Replace the subscriptionKey string value with your valid subscription key.
 $subscriptionKey = 'ENTER KEY HERE';
 
-$host = "https://api.cognitive.microsoft.com";
-$path = "/bing/v7.0/entities";
+$host = "https://api.bing.microsoft.com";
+$path = "/v7.0/search";
 
 $mkt = "en-US";
 $query = "italian restaurants near me";

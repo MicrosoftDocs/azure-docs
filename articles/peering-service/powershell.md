@@ -6,7 +6,8 @@ author: derekolo
 ms.service: peering-service
 ms.topic: tutorial
 ms.date: 05/18/2020
-ms.author: derekol
+ms.author: derekol 
+ms.custom: devx-track-azurepowershell
 # Customer intent: Customer wants to measure their connection telemetry per prefix to Microsoft services with Azure Peering Service .
 ---
 

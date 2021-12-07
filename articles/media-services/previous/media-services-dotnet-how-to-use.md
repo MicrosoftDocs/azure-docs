@@ -20,8 +20,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 This article discusses how to start developing Media Services applications using .NET.
 
@@ -44,7 +43,7 @@ Alternatively, you can get the latest Media Services .NET SDK bits from GitHub (
 2. Build the solution.
 3. Use **NuGet** to install and add **Azure Media Services .NET SDK Extensions** (**windowsazure.mediaservices.extensions**). Installing this package, also installs **Media Services .NET SDK** and adds all other required dependencies.
    
-    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](https://nuget.codeplex.com/).
+    Ensure that you have the newest version of NuGet installed. For more information and installation instructions, see [NuGet](https://www.nuget.org/packages/CodePlex.LinqToXsd/).
 
     1. In Solution Explorer, right-click the name of the project and choose **Manage NuGet Packages**.
 

@@ -13,6 +13,9 @@
   - name: Deploy firewall with policy - ARM template
     displayName: Resource Manager
     href: quick-firewall-policy.md
+  - name: Create and update policy
+    displayname: PowerShell
+    href: create-policy-powershell.md
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -61,6 +64,8 @@
     href: multiple-public-ip-powershell.md
   - name: Define a rule hierarchy
     href: rule-hierarchy.md
+  - name: Configure DDoS Protection Plan
+    href: configure-ddos.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -82,7 +87,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

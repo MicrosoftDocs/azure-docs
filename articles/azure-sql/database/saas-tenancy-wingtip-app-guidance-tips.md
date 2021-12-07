@@ -7,8 +7,8 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: 
 ms.date: 12/18/2018
 ---

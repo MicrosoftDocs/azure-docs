@@ -7,13 +7,14 @@ author: barclayn
 manager: daveba
 editor: daveba
 
+ms.custom: subject-rbac-steps
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/04/2020
+ms.date: 05/24/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
@@ -59,17 +60,13 @@ Later we will upload and download a file to the new storage account. Because fil
 
 ## Grant your VM's system-assigned managed identity access to use storage account access keys
 
-In this step, you grant your VM's system-assigned managed identity access to the keys to your storage account.   
+Azure Storage does not natively support Azure AD authentication.  However, you can use your VM's system-assigned managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS. Grant access by assigning the [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) role to the managed-identity at the scope of the resource group that contains your storage account.
+ 
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-1. Navigate back to your newly created storage account.
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Key Operator Service Role", on the right side of the page. 
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Linux Virtual Machine in the dropdown, then click **Save**. 
+>[!NOTE]
+> For more information on the various roles that you can use to grant permissions to storage review [Authorize access to blobs and queues using Azure Active Directory.](../../storage/blobs/authorize-access-azure-active-directory.md#assign-azure-roles-for-access-rights)
 
-    ![Alt image text](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager
 

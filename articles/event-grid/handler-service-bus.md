@@ -2,7 +2,7 @@
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/30/2021
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -11,6 +11,10 @@ An event handler is the place where the event is sent. The handler takes some fu
 You can use a Service queue or topic as a handler for events from Event Grid. 
 
 ## Service Bus queues
+
+> [!NOTE]
+> Session enabled queues are not supported as event handlers for Azure Event Grid events
+ 
 You can route events in Event Grid directly to Service Bus queues for use in buffering or command & control scenarios in enterprise applications.
 
 In the Azure portal, while creating an event subscription, select **Service Bus Queue** as endpoint type and then click **select an endpoint** to choose a Service Bus queue.
@@ -45,7 +49,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
-[!INCLUDE [event-grid-message-headers](../../includes/event-grid-message-headers.md)]
+[!INCLUDE [event-grid-message-headers](./includes/event-grid-message-headers.md)]
 
 When sending an event to a Service Bus queue or topic as a brokered message, the `messageid` of the brokered message is an internal system ID.
 
@@ -141,6 +145,29 @@ The internal system ID for the message will be maintained across redelivery of t
 	}
 }
 ```
+
+## Delivery properties
+Event subscriptions allow you to set up HTTP headers that are included in delivered events. This capability allows you to set custom headers that are required by a destination. You can set custom headers on the events that are delivered to Azure Service Bus queues and topics.
+
+Azure Service Bus supports the use of following message properties when sending single messages. 
+
+| Header name | Header type |
+| :-- | :-- |
+| `MessageId` | Dynamic |  
+| `PartitionKey` | Static or dynamic |
+| `SessionId` | Static or dynamic |
+| `CorrelationId` | Static or dynamic |
+| `Label` | Static or dynamic |
+| `ReplyTo` | Static or dynamic | 
+| `ReplyToSessionId` | Static or dynamic |
+| `To` |Static or dynamic |
+| `ViaPartitionKey` | Static or dynamic |
+
+> [!NOTE]
+> - The default value of `MessageId` is the internal ID of the Event Grid event. You can override it. For example, `data.field`.
+> - You can only set either `SessionId` or `MessageId`. 
+
+For more information, see [Custom delivery properties](delivery-properties.md). 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

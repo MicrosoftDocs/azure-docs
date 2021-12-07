@@ -43,4 +43,4 @@ To modify connection settings, see the "Modify a Direct peering" section in [Cre
 
 ## Additional resources
 
-For frequently asked questions, see the [Peering Service FAQ](service-faqs.md).
+For frequently asked questions, see the [Peering Service FAQ](service-faqs.yml).

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-other
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
@@ -276,7 +276,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az_network_public
     --sku Standard
 ```
 
-To create a zonal redundant public IP address in Zone 1:
+To create a zonal public IP address in Zone 1:
 
 ```azurecli-interactive
   az network public-ip create \

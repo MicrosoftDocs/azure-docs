@@ -3,13 +3,13 @@ title: Best practices for Azure SQL Data Sync
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: MaraSteiu 
+ms.author: masteiu
+ms.reviewer: mathoma
 ms.date: 12/20/2018
 ---
 # Best practices for Azure SQL Data Sync 
@@ -48,7 +48,7 @@ Azure SQL Database supports only a single set of credentials. To accomplish thes
 
 ### Auditing
 
-It is recommended to enable auditing at the level of the databases in the sync groups. 
+It is recommended to enable auditing at the level of the databases in the sync groups. Learn how to [enable auditing on your Azure SQL database](./auditing-overview.md) or [enable auditing on your SQL Server database](/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-ver15).
 
 ## Setup
 

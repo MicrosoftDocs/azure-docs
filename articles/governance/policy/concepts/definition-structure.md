@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure
 description: Describes how policy definitions are used to establish conventions for Azure resources in your organization.
-ms.date: 05/01/2021
+ms.date: 09/01/2021
 ms.topic: conceptual
 ---
 # Azure Policy definition structure
@@ -20,7 +20,7 @@ assignment is applied to a resource group, it's applicable to all the resources 
 group.
 
 The policy definition _policyRule_ schema is found here:
-[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
+[https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -119,7 +119,7 @@ We recommend that you set **mode** to `all` in most cases. All policy definition
 the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the **mode**
 parameter manually. If the policy definition doesn't include a **mode** value, it defaults to `all`
 in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to
-support backwards compatibility.
+support backward compatibility.
 
 `indexed` should be used when creating policies that enforce tags or locations. While not required,
 it prevents resources that don't support tags and locations from showing up as non-compliant in the
@@ -135,8 +135,13 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 The following Resource Provider mode is fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
-  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. Use of the
-  [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
+  using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
+  custom definitions as a _public preview_. See
+  [Create policy definition from constraint template](../how-to/extension-for-vscode.md) to create a
+  custom definition from an existing [Open Policy Agent](https://www.openpolicyagent.org/) (OPA)
+  GateKeeper v3
+  [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
+  of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
 
 The following Resource Provider modes are currently supported as a **preview**:
 
@@ -151,7 +156,7 @@ The following Resource Provider modes are currently supported as a **preview**:
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md).
+> [exemptions](./exemption-structure.md) if not explicitly stated.
 
 ## Metadata
 
@@ -163,11 +168,12 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ### Common metadata properties
 
 - `version` (string): Tracks details about the version of the contents of a policy definition.
-- `category` (string): Determines under which category in Azure portal the policy definition is
+- `category` (string): Determines under which category in the Azure portal the policy definition is
   displayed.
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
@@ -180,7 +186,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 ## Parameters
 
 Parameters help simplify your policy management by reducing the number of policy definitions. Think
-of parameters like the fields on a form – `name`, `address`, `city`, `state`. These parameters
+of parameters like the fields on a form - `name`, `address`, `city`, `state`. These parameters
 always stay the same, however their values change based on the individual filling out the form.
 Parameters work the same way when building policies. By including parameters in a policy definition,
 you can reuse that policy for different scenarios by using different values.
@@ -255,9 +261,9 @@ properties](#parameter-properties).
 
 ### strongType
 
-Within the `metadata` property, you can use **strongType** to provide a multi-select list of options
+Within the `metadata` property, you can use **strongType** to provide a multiselect list of options
 within the Azure portal. **strongType** can be a supported _resource type_ or an allowed value. To
-determine if a _resource type_ is valid for **strongType**, use
+determine whether a _resource type_ is valid for **strongType**, use
 [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider). The format for a
 _resource type_ **strongType** is `<Resource Provider>/<Resource Type>`. For example,
 `Microsoft.Network/virtualNetworks/subnets`.
@@ -946,6 +952,8 @@ For complete details on each effect, order of evaluation, properties, and exampl
 
 ### Policy functions
 
+Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
+
 All [Resource Manager template
 functions](../../../azure-resource-manager/templates/template-functions.md) are available to use
 within a policy rule, except the following functions and user-defined functions:
@@ -986,7 +994,7 @@ The following functions are only available in policy rules:
     [DeployIfNotExists example](effects.md#deployifnotexists-example).
 
 - `requestContext().apiVersion`
-  - Returns the API version of the request that triggered policy evaluation (example: `2019-09-01`).
+  - Returns the API version of the request that triggered policy evaluation (example: `2021-09-01`).
     This value is the API version that was used in the PUT/PATCH request for evaluations on resource
     creation/update. The latest API version is always used during compliance evaluation on existing
     resources.
@@ -1122,7 +1130,8 @@ array element to a target value. When used with [count](#count) expression, it's
 - Check if all\any\none of the array elements meet a complex condition
 - Check if exactly ***n*** array elements meet a complex condition
 
-For more information and examples, see [Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
+For more information and examples, see
+[Referencing array resource properties](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 ## Next steps
 

@@ -3,14 +3,11 @@ title: Convert configurations to composite resources for Azure Automation State 
 description: This article tells how to convert configurations to composite resources for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.service: automation
 ms.subservice: dsc
-author: mgreenegit
-ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
-manager: carmonm
 ---
+
 # Convert configurations to composite resources
 
 > Applies To: Windows PowerShell 5.1
@@ -22,7 +19,7 @@ Examples would be:
 
 - create a web server
 - create a DNS server
-- create a SharePoint server
+- create a server that runs SharePoint
 - configure a SQL cluster
 - manage firewall settings
 - manage password settings

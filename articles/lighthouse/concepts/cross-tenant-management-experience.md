@@ -1,16 +1,16 @@
 ---
 title: Cross-tenant management experiences
-description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 03/29/2021
+description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
+ms.date: 12/01/2021
 ms.topic: conceptual
 ---
 
 # Cross-tenant management experiences
 
-As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using [Azure delegated resource management](../concepts/azure-delegated-resource-management.md).
+As a service provider, you can use [Azure Lighthouse](../overview.md) to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant. Many tasks and services can be performed across managed tenants by using [Azure delegated resource management](../concepts/architecture.md).
 
 > [!TIP]
-> Azure delegated resource management can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
+> Azure Lighthouse can also be used [within an enterprise which has multiple Azure AD tenants of its own](enterprise.md) to simplify cross-tenant administration.
 
 ## Understanding tenants and delegation
 
@@ -45,12 +45,12 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Manage hybrid servers at scale - [Azure Arc enabled servers](../../azure-arc/servers/overview.md):
+- Manage hybrid servers at scale - [Azure Arc-enabled servers](../../azure-arc/servers/overview.md):
   - [Manage Windows Server or Linux machines outside Azure that are connected](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
-  - Use Azure Security Center to monitor compliance across customers' hybrid environments
-- Manage hybrid Kubernetes clusters at scale - [Azure Arc enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+  - Use Microsoft Defender for Cloud to monitor compliance across customers' hybrid environments
+- Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md):
   - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters
@@ -83,7 +83,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Manage hosted Kubernetes environments and deploy and manage containerized applications within customer tenants
 - Deploy and manage clusters in customer tenants
--	Use Azure Monitor for containers to monitor performance across customer tenants
+- Use Azure Monitor for containers to monitor performance across customer tenants
 
 [Azure Migrate](../../migrate/index.yml):
 
@@ -94,10 +94,11 @@ Most tasks and services can be performed on delegated resources across managed t
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - [Log analytics](../../azure-monitor/logs/service-providers.md): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- [Create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
+- Create, view, and manage [metric alerts](../../azure-monitor/alerts/alerts-metric.md), [log alerts](../../azure-monitor/alerts/alerts-log.md), and [activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in customer tenants to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
+- For Azure AD B2C, [route sign-in and auditing logs](../../active-directory-b2c/azure-monitor.md) to different monitoring solutions
 
 [Azure Networking](../../networking/fundamentals/networking-overview.md):
 
@@ -119,30 +120,6 @@ Most tasks and services can be performed on delegated resources across managed t
 
 - Now includes the tenant ID in returned query results, allowing you to identify whether a subscription belongs to a managed tenant
 
-[Azure Security Center](../../security-center/index.yml):
-
-- Cross-tenant visibility
-  - Monitor compliance to security policies and ensure security coverage across all tenants' resources
-  - Continuous regulatory compliance monitoring across multiple tenants in a single view
-  - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
-- Cross-tenant security posture management
-  - Manage security policies
-  - Take action on resources that are out of compliance with actionable security recommendations
-  - Collect and store security-related data
-- Cross-tenant threat detection and protection
-  - Detect threats across tenants' resources
-  - Apply advanced threat protection controls such as just-in-time (JIT) VM access
-  - Harden network security group configuration with Adaptive Network Hardening
-  - Ensure servers are running only the applications and processes they should be with adaptive application controls
-  - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
-- Note that the entire subscription must be delegated to the managing tenant; Azure Security Center scenarios are not supported with delegated resource groups
-
-[Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
-
-- Manage Azure Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
-- [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Azure Sentinel workspaces spread across tenants
-
 [Azure Service Health](../../service-health/index.yml):
 
 - Monitor the health of customer resources with Azure Resource Health
@@ -160,6 +137,30 @@ Most tasks and services can be performed on delegated resources across managed t
 - Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
 - Note that you can't use Azure Active Directory for remote login to VMs
 
+[Microsoft Defender for Cloud](../../security-center/index.yml):
+
+- Cross-tenant visibility
+  - Monitor compliance to security policies and ensure security coverage across all tenants' resources
+  - Continuous regulatory compliance monitoring across multiple tenants in a single view
+  - Monitor, triage, and prioritize actionable security recommendations with secure score calculation
+- Cross-tenant security posture management
+  - Manage security policies
+  - Take action on resources that are out of compliance with actionable security recommendations
+  - Collect and store security-related data
+- Cross-tenant threat detection and protection
+  - Detect threats across tenants' resources
+  - Apply advanced threat protection controls such as just-in-time (JIT) VM access
+  - Harden network security group configuration with Adaptive Network Hardening
+  - Ensure servers are running only the applications and processes they should be with adaptive application controls
+  - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
+- Note that the entire subscription must be delegated to the managing tenant; Microsoft Defender for Cloud scenarios are not supported with delegated resource groups
+
+[Microsoft Sentinel](../../sentinel/multiple-tenants-service-providers.md):
+
+- Manage Microsoft Sentinel resources [in customer tenants](../../sentinel/multiple-tenants-service-providers.md)
+- [Track attacks and view security alerts across multiple tenants](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
+- [View incidents](../../sentinel/multiple-workspace-view.md) across multiple Microsoft Sentinel workspaces spread across tenants
+
 Support requests:
 
 - [Open support requests from **Help + support**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) in the Azure portal for delegated resources (selecting the support plan available to the delegated scope)
@@ -170,7 +171,7 @@ Support requests:
 With all scenarios, please be aware of the following current limitations:
 
 - Requests handled by Azure Resource Manager can be performed using Azure Lighthouse. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as Key Vault secrets access or storage data access) aren't supported with Azure Lighthouse. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations.
-- Role assignments must use [Azure built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure delegated resource management except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
+- Role assignments must use [Azure built-in roles](../../role-based-access-control/built-in-roles.md). All built-in roles are currently supported with Azure Lighthouse, except for Owner or any built-in roles with [`DataActions`](../../role-based-access-control/role-definitions.md#dataactions) permission. The User Access Administrator role is supported only for limited use in [assigning roles to managed identities](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant).  Custom roles and [classic subscription administrator roles](../../role-based-access-control/classic-administrators.md) are not supported.
 - While you can onboard subscriptions that use Azure Databricks, users in the managing tenant can't launch Azure Databricks workspaces on a delegated subscription at this time.
 - While you can onboard subscriptions and resource groups that have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](../../role-based-access-control/deny-assignments.md) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can't create their own deny assignments (user-assigned deny assignments).
 - Delegation of subscriptions across a [national cloud](../../active-directory/develop/authentication-national-cloud.md) and the Azure public cloud, or across two separate national clouds, is not supported.

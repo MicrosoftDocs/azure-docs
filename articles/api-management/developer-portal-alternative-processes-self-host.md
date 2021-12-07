@@ -3,7 +3,7 @@ title: Alternatives for self-hosting developer portal
 titleSuffix: Azure API Management
 description: Learn about alternative approaches you can use when you self-host a developer portal in Azure API Management.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to
@@ -76,7 +76,7 @@ npm run build-function
 
 Then, sign in to the Azure CLI and deploy it:
 
-```sh
+```azurecli
 az login
 cd ./dist/function
 func azure functionapp publish <function app name>

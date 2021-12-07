@@ -1,6 +1,6 @@
 ---
 title: Using MSIXMGR tool - Azure
-description: How to use the MSIXMGR tool for Windows Virtual Desktop.
+description: How to use the MSIXMGR tool for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 02/23/2021
@@ -9,10 +9,10 @@ manager: femila
 ---
 # Using the MSIXMGR tool
 
-The MSIXMGR tool is for expanding MSIX-packaged applications into MSIX images. The tool takes an MSIX-packaged application (.MSIX) and expands it into a VHD, VHDx, or CIM file. The resulting MSIX image is stored in the Azure Storage account that your Windows Virtual Desktop deployment uses.This article will show you how to use the MSIXMGR tool.
+The MSIXMGR tool is for expanding MSIX-packaged applications into MSIX images. The tool takes an MSIX-packaged application (.MSIX) and expands it into a VHD, VHDx, or CIM file. The resulting MSIX image is stored in the Azure Storage account that your Azure Virtual Desktop deployment uses.This article will show you how to use the MSIXMGR tool.
 
 >[!NOTE]
->To guarantee compatibility, make sure the CIMs storing your MSIX images are generated on the OS version you're running in your Windows Virtual Desktop host pools. MSIXMGR can create CIM files, but you can only use those files with a host pool running Windows 10 20H2.
+>To guarantee compatibility, make sure the CIMs storing your MSIX images are generated on the OS version you're running in your Azure Virtual Desktop host pools. MSIXMGR can create CIM files, but you can only use those files with a host pool running Windows 10 20H2.
 
 ## Requirements
 
@@ -75,7 +75,7 @@ To learn how to set up app attach, check out these articles:
 - [Set up MSIX app attach with the Azure portal](app-attach-azure-portal.md)
 - [Set up MSIX app attach using PowerShell](app-attach-powershell.md)
 - [Create PowerShell scripts for MSIX app attach](app-attach.md)
-- [Prepare an MSIX image for Windows Virtual Desktop](app-attach-image-prep.md)
+- [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
 - [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
-If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.md) and [App attach glossary](app-attach-glossary.md).
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).

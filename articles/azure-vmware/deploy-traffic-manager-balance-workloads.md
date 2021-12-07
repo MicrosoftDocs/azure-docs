@@ -13,7 +13,7 @@ The gateways have Azure VMware Solution virtual machines (VMs) configured as bac
 
 The diagram shows how Traffic Manager provides load balancing for the applications at the DNS level between regional endpoints. The gateways have backend pool members configured as IIS Servers and referenced as Azure VMware Solution external endpoints. Connection over the virtual network between the two private cloud regions uses an ExpressRoute gateway.   
 
-:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Architecture diagram of the Traffic Manager integration with Azure VMware Solution" lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
+:::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the Traffic Manager integration with Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
 Before you begin, first review the [Prerequisites](#prerequisites) and then we'll walk through the procedures to:
 
@@ -51,7 +51,7 @@ The following steps verify the configuration of your application gateways.
 
    A window opens showing various information on the application gateway. 
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Screenshot of Application gateway page showing details of the selected application gateway." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-configuration.png" alt-text="Screenshot of Application gateway page showing details of the selected application gateway." lightbox="media/traffic-manager/backend-pool-configuration.png":::
 
 1. Select **Backend pools** to verify the configuration of one of the backend pools. You see one VM backend pool member configured as a web server with an IP address of 172.29.1.10.
  
@@ -65,7 +65,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 
 1. Select **Segments** to view your configured segments.  You see Contoso-segment1 connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-avs.png":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Screenshot showing segment profiles in NSX-T Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 
 1. Select **Tier-1 Gateways** to see a list of Tier-1 gateways with the number of linked segments. 
 
@@ -91,7 +91,7 @@ The following steps verify the configuration of the NSX-T segment in the Azure V
 3. Provide the following information and then select **Create**:
 
    - Profile name
-   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md)
+   - Routing method (use [weighted](../traffic-manager/traffic-manager-routing-methods.md))
    - Subscription
    - Resource group
 

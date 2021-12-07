@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: New policy assignment with JavaScript"
 description: In this quickstart, you use JavaScript to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---
@@ -117,7 +117,7 @@ The preceding commands use the following information:
   _audit-vm-manageddisks_.
 - **displayName** - Display name for the policy assignment. In this case, you're using _Audit VMs
   without managed disks Assignment_.
-- **policyDefID** – The policy definition path, based on which you're using to create the
+- **policyDefID** - The policy definition path, based on which you're using to create the
   assignment. In this case, it's the ID of policy definition _Audit VMs that do not use managed
   disks_.
 - **description** - A deeper explanation of what the policy does or why it's assigned to this scope.

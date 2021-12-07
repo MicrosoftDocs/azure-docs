@@ -1,12 +1,9 @@
 ---
 title: Use reference data for lookups in Azure Stream Analytics
 description: This article describes how to use reference data to lookup or correlate data in an Azure Stream Analytics job's query design.
-author: jseb225
-ms.author: jeanb
-
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 06/25/2021
 ---
 # Using reference data for lookups in Stream Analytics
 
@@ -113,7 +110,7 @@ It is recommended to use reference datasets which are less than 300 MB for best 
 |3   |150 MB or lower   |
 |6 and beyond   |5 GB or lower.    |
 
-Support for compression is not available for reference data.
+Support for compression is not available for reference data. For reference datasets larger than 300 MB, it is recommended to use Azure SQL Database as the source with [delta query](./sql-reference-data.md#delta-query) option for optimal performance. If delta query is not used in such scenarios, you will see in spikes in watermark delay metric every time the reference dataset is refreshed. 
 
 ## Joining multiple reference datasets in a job
 You can join only one stream input with one reference data input in a single step of your query. However, you can join multiple reference datasets by breaking down your query into multiple steps. An example is shown below.

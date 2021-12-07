@@ -3,7 +3,7 @@ title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/30/2019
+ms.date: 5/19/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ---
@@ -27,23 +27,23 @@ Do you want to:
 
 - Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
 
+- Understand risky users and risk detections trends in your tenant?
+
 - Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
 - Do you need to understand the impact of Conditional Access policies in your tenant?
 
-- Would you like the ability to review: sign-in log queries, the workbook 
-reports how many users were granted or denied access, as well as how many users bypassed 
+- Would you like the ability to review: sign-in log queries, with a workbook
+that reports how many users were granted or denied access, as well as how many users bypassed
 Conditional Access policies when accessing resources?
 
-- Interested in developing a deeper understanding of: the workbook details per 
-condition so that the impact of a policy can be contextualized per condition, 
+- Interested in developing a deeper understanding of conditional access, with a workbook details per
+condition so that the impact of a policy can be contextualized per condition,
 including device platform, device state, client app, sign-in risk, location, and application?
 
-- Gain deeper insights into sign-in log queries, the workbook 
-reports how many users were granted or denied access, as well as how many users bypassed 
-Conditional Access policies when accessing resources.
+- Archive and report on more than one year of historical application role and [access package assignment activity](../governance/entitlement-management-logs-and-reporting.md)?
 
-- To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+To help you to address these questions, Azure Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) combine text, analytics queries, metrics, and parameters into rich interactive reports.
 
 
 
@@ -294,10 +294,27 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
     ![Summary of sign-ins waiting on user action](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
+## Identity Protection Risk Analysis
 
+Use the **Identity Protection Risk Analysis** workbook in the **Usage** section to understand:
 
+- Distribution in risky users and risk detections by levels and types
+- Opportunities to better remediate risk
+- Where in the world risk is being detected
 
+You can filter the Risky Detections trends by:
+- Detection timing type
+- Risk level
+
+Real-time risk detections are those that can be detected at the point of authentication. These detections can be challenged by risky sign-in policies using Conditional Access to require multi-factor authentication. 
+
+You can filter the Risky Users trends by:
+- Risk detail
+- Risk level
+
+If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
 
 ## Next steps
 
-[Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+* [Create interactive reports by using Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+* [Create custom Azure Monitor queries using Azure PowerShell](../governance/entitlement-management-logs-and-reporting.md).

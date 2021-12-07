@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 10/29/2020
+ ms.date: 05/26/2021
  ms.author: cherylmc
  ms.custom: include file
 
@@ -28,7 +28,7 @@ Use the New-SelfSignedCertificate cmdlet to create a self-signed root certificat
    -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
    ```
 
-1. Leave the PowerShell console open and proceed with the next steps to generate a client certificates.
+1. Leave the PowerShell console open and proceed with the next steps to generate a client certificate.
 
 ## <a name="clientcert"></a>Generate a client certificate
 
@@ -66,7 +66,7 @@ If you are creating additional client certificates, or are not using the same Po
 
    ```
    Thumbprint                                Subject
-  
+   ----------                                -------
    AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
    7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
    ```
@@ -74,7 +74,7 @@ If you are creating additional client certificates, or are not using the same Po
 1. Declare a variable for the root certificate using the thumbprint from the previous step. Replace THUMBPRINT with the thumbprint of the root certificate from which you want to generate a child certificate.
 
    ```powershell
-   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\<THUMBPRINT>"
    ```
 
    For example, using the thumbprint for P2SRootCert in the previous step, the variable looks like this:

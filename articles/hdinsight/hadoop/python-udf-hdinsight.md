@@ -4,7 +4,7 @@ description: Learn how to use Python User Defined Functions (UDF) from Apache Hi
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
-ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
+ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python, devx-track-azurepowershell
 ---
 
 # Use Python User Defined Functions (UDF) with Apache Hive and Apache Pig in HDInsight

@@ -2,8 +2,8 @@
 title: Configure private endpoints for Azure Event Grid topics or domains
 description: This article describes how to configure private endpoints for Azure Event Grid topics or domain. 
 ms.topic: how-to
-ms.date: 11/18/2020 
-ms.custom: devx-track-azurecli
+ms.date: 07/22/2021 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure private endpoints for Azure Event Grid topics or domains

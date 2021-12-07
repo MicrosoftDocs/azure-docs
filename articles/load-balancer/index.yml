@@ -51,7 +51,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Load balance VMs across availability zones with a Standard Load Balancer
-            url: tutorial-load-balancer-standard-public-zone-redundant-portal.md
+            url: ./quickstart-load-balancer-standard-public-portal.md
           - text: Configure port forwarding in Azure Load Balancer
             url: tutorial-load-balancer-port-forwarding-portal.md
 
@@ -128,4 +128,4 @@ landingContent:
           - text: ARM templates
             url: /azure/templates/microsoft.network/loadbalancers#quickstart-templates
           - text: Frequently asked Load Balancer questions
-            url: load-balancer-faqs.md
+            url: load-balancer-faqs.yml

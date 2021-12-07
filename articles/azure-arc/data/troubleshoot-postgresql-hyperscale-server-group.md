@@ -7,64 +7,53 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
 # Troubleshooting PostgreSQL Hyperscale server groups
 This article describes some techniques you may use to troubleshoot your server group. In addition to this article you may want to read how to use [Kibana](monitor-grafana-kibana.md) to search the logs or use [Grafana](monitor-grafana-kibana.md) to visualize metrics about your server group. 
 
-## Getting more details about the execution of an azdata command
-You may add the parameter **--debug** to any azdata command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
+## Getting more details about the execution of a CLI command
+You may add the parameter **--debug** to any CLI command you execute. Doing so will display to your console additional information about the execution of that command. You should find it useful to get details to help you understand the behavior of that command.
 For example you could run
-```console
-azdata arc postgres server create -n postgres01 -w 2 --debug
+```azurecli
+az postgres arc-server create -n postgres01 -w 2 --debug --k8s-namespace <namespace> --use-k8s
 ```
 
 or
-```console
-azdata arc postgres server edit -n postgres01 --extension SomeExtensionName --debug
+```azurecli
+az postgres arc-server edit -n postgres01 --extension --k8s-namespace <namespace> --use-k8s SomeExtensionName --debug
 ```
 
-In addition, you may use the parameter --help on any azdata command to display some help, list of parameters for a specific command. For example:
-```console
-azdata arc postgres server create --help
+In addition, you may use the parameter --help on any CLI command to display some help, list of parameters for a specific command. For example:
+```azurecli
+az postgres arc-server create --help
 ```
 
 
 ## Collecting logs of the data controller and your server groups
-Read the article about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+Read the article about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
 
 
 
 ## Interactive troubleshooting with Jupyter notebooks in Azure Data Studio
+
 Notebooks can document procedures by including markdown content to describe what to do/how to do it. It can also provide executable code to automate a procedure.  This pattern is useful for everything from standard operating procedures to troubleshooting guides.
 
 For example, let's troubleshoot a PostgreSQL Hyperscale server group that might have some problems using Azure Data Studio.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ### Install tools
 
-Install Azure Data Studio, `kubectl` and [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
+Install Azure Data Studio, `kubectl`, and Azure (`az`) CLI with the `arcdata` extension on the client machine you are using to run the notebook in Azure Data Studio. To do this, please follow the instructions at [Install client tools](install-client-tools.md)
 
 ### Update the PATH environment variable
 
 Make sure that these tools can be invoked from anywhere on this client machine. For example, on a Windows client machine, update the PATH system environment variable and add the folder in which you installed kubectl.
-
-### Sign in with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
-
-Sign in your Arc Data Controller from this client machine and before you launch Azure Data Studio. To do this, run a command like:
-
-```console
-azdata login --endpoint https://<IP address>:<port>
-```
-
-Replace `<IP address>` with the IP address of your Kubernetes cluster, and `<port>` the port on which Kubernetes is listening. You will be prompted for user name and password. To see more details, run:_
-
-```console
-azdata login --help
-```
 
 ### Log into your Kubernetes cluster with kubectl
 
@@ -92,7 +81,7 @@ Implement the steps described in  [033-manage-Postgres-with-AzureDataStudio.md](
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Azure Data Studio - Open PostgreSQL troubleshooting Notebook":::
 
-The **TSG100 - The Azure Arc enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
+The **TSG100 - The Azure Arc-enabled PostgreSQL Hyperscale troubleshooter notebook** opens up:
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio - Use PostgreSQL troubleshooting notebook":::
 
 #### Run the scripts
@@ -103,7 +92,7 @@ View the output from the execution of the code cells for any potential issues.
 We'll add more details to the notebook over time about how to recognize common problems and how to solve them.
 
 ## Next step
-- Read about [getting logs for Azure Arc enabled data services](troubleshooting-get-logs.md)
+- Read about [getting logs for Azure Arc-enabled data services](troubleshooting-get-logs.md)
 - Read about [searching logs with Kibana](monitor-grafana-kibana.md)
 - Read about [monitoring with Grafana](monitor-grafana-kibana.md)
 - Create your own notebooks

@@ -21,7 +21,7 @@ From the virtual network perspective, private DNS zone becomes the registration 
 
 ## Resolution virtual network
 
-If you choose to link your virtual network with the private DNS zone without autoregistion. The virtual network is treated as a resolution virtual network only. DNS records for virtual machines deployed this virtual network won't be created automatically in the private zone. However, virtual machines deployed in the virtual network can successfully query for DNS records in the private zone. These records include manually created and auto registered records from other virtual networks linked to the private DNS zone.
+If you choose to link your virtual network with the private DNS zone without autoregistration. The virtual network is treated as a resolution virtual network only. DNS records for virtual machines deployed this virtual network won't be created automatically in the private zone. However, virtual machines deployed in the virtual network can successfully query for DNS records in the private zone. These records include manually created and auto registered records from other virtual networks linked to the private DNS zone.
 
 One private DNS zone can have multiple resolution virtual networks and a virtual network can have multiple resolution zones associated to it.
 
@@ -49,4 +49,4 @@ To understand how many registration and resolution networks, you can link to pri
 
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
 
-* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.md).
+* For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.yml).

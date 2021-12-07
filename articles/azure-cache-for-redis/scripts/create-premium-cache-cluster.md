@@ -1,8 +1,8 @@
 ---
 title: Create a Premium Azure Cache for Redis with clustering - Azure CLI
 description: This Azure CLI code sample shows how to create a 6 GB Premium tier Azure Cache for Redis with clustering enabled and two shards. 
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 tags: azure-service-management
 ms.service: cache
 ms.devlang: azurecli
@@ -21,7 +21,7 @@ In this scenario, you learn how to create a 6 GB Premium tier Azure Cache for Re
 
 [!code-azurecli[main](../../../cli_scripts/redis-cache/create-premium-cache-cluster/create-premium-cache-cluster.sh "Azure Cache for Redis")]
 
-[!INCLUDE [cli-script-clean-up](../../../includes/redis-cli-script-clean-up.md)]
+[!INCLUDE [cli-script-clean-up](../includes/redis-cli-script-clean-up.md)]
 
 ## Script explanation
 

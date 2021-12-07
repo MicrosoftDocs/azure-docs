@@ -5,13 +5,12 @@ author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 04/22/2021
+ms.date: 11/30/2021
 ---
 
 # Create and manage virtual networks for Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 Azure Database for PostgreSQL - Flexible Server supports two types of mutually exclusive network connectivity methods to connect to your flexible server. The two options are:
 
@@ -36,7 +35,7 @@ To create a flexible server in a virtual network, you need:
      4. On the pull-out screen, under **Service endpoint**, choose `Microsoft.storage` from the drop-down.
      5. Save the changes.
 
-- If you want to setup your own private DNS zone to use with the flexible server, please see [private DNS overview](https://docs.microsoft.com/azure/dns/private-dns-overview) documentation for more details. 
+- If you want to setup your own private DNS zone to use with the flexible server, please see [private DNS overview](../../dns/private-dns-overview.md) documentation for more details. 
   
 ## Create Azure Database for PostgreSQL - Flexible Server in an already existing virtual network
 
@@ -55,7 +54,7 @@ To create a flexible server in a virtual network, you need:
 > After the flexible server is deployed to a virtual network and subnet, you cannot move it to Public access (allowed IP addresses).
 
 >[!Note]
-> If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See this [linking the virtual network](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network) documentation on how to do it.
+> If you want to connect to the flexible server from a client that is provisioned in another VNET, you have to link the private DNS zone with the VNET. See this [linking the virtual network](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network) documentation on how to do it.
 
 ## Next steps
 - [Create and manage Azure Database for PostgreSQL - Flexible Server virtual network using Azure CLI](./how-to-manage-virtual-network-cli.md).

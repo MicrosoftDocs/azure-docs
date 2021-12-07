@@ -1,13 +1,13 @@
 ---
 title: Media blueprint sample overview
 description: Overview of the Media blueprint sample. This blueprint sample helps customers assess specific Media controls.
-ms.date: 04/02/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Overview of the Media blueprint sample
 
-Media blueprint sample provides a
-set of governance guard-rails using [Azure Policy](../../../policy/overview.md) that help towards
+Media blueprint sample provides a set of governance guardrails using
+[Azure Policy](../../../policy/overview.md) that help toward
 [Media](https://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/index.html)
 attestation.
 

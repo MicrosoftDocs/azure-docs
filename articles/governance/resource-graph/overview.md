@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale across subscriptions and tenants.
-ms.date: 05/01/2021
+ms.date: 08/17/2021
 ms.topic: overview
 ---
 # What is Azure Resource Graph?
@@ -125,8 +125,8 @@ For more information, see
 ## Running your first query
 
 Azure Resource Graph Explorer, part of Azure portal, enables running Resource Graph queries directly
-in Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to your
-portal workflow. For more information, see
+in the Azure portal. Pin the results as dynamic charts to provide real-time dynamic information to
+your portal workflow. For more information, see
 [First query with Azure Resource Graph Explorer](./first-query-portal.md).
 
 Resource Graph supports Azure CLI, Azure PowerShell, Azure SDK for Python, and more. The query is

@@ -34,7 +34,7 @@ sample as a starter.
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-   - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint
+   - **Blueprint name** Provide a name for your copy of the CAF Migration landing zone blueprint
      sample.
    - **Definition location** Use the ellipsis and select the management group to save your copy of
      the sample to.
@@ -85,7 +85,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
      - **Location**: Select a region for the managed identity to be created in.
-     - Azure Blueprint uses this managed identity to deploy all artifacts in the assigned blueprint.
+     - Azure Blueprints uses this managed identity to deploy all artifacts in the assigned blueprint.
        To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint

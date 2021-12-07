@@ -52,7 +52,7 @@ If you are using an older version of the agent, you must have the Virtual Machin
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-The python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
+Again, only if you are using an older version of the agent, the python2 executable must be aliased to *python*. Following is one method that you can use to set this alias:
 
 1. Run the following command to remove any existing aliases.
  
@@ -71,10 +71,11 @@ The OMS Agent has limited customization and hardening support for Linux.
 
 The following are currently supported: 
 - FIPs
+- SELINUX (Marketplace images for CENTOS and RHEL with their default settings)
 
 The following are not supported:
 - CIS
-- SELINUX
+- SELINUX (custom hardening like MLS)
 
 CIS and SELINUX hardening support is planned for [Azure Monitoring Agent](./azure-monitor-agent-overview.md). Further hardening and customization methods are not supported nor planned for OMS Agent.  
 

@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Stack Edge Pro power cord technical specifications based on location| Microsoft Docs
-description: Learn about the technical specifications for your Azure Stack Edge Pro power cords.
+title: Azure Stack Edge Pro FPGA power cord technical specifications by location
+description: Learn about the technical specifications for your Azure Stack Edge Pro FPGA power cords.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 11/10/2021
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro power cord specifications
+# Azure Stack Edge Pro FPGA power cord specifications
 
-Your Azure Stack Edge Pro device will need a power cord that will vary depending on your Azure region.
+Your Azure Stack Edge Pro FPGA device will need a power cord that will vary depending on your Azure region.
 
 ## Supported power cords
 
@@ -75,7 +75,7 @@ You can use the following table to find the correct cord specifications for your
 |Israel|250|2.5|H05VV-F 3x1.00|SI 32|C13|2000|
 |Italy|250|10|H05VV-F 3x0.75|CEI 23-50|C13|1800|
 |Jamaica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Japan|125|15|VCTF 3x2.00|JIS C 8303|C13|2300|
+|Japan|125|15|VCTF 3x2.00<br>Act on Product Safety of Electrical Appliances and Materials|JIS C 8303|C13|2300|
 |Jordan|250|5|H05Z1Z1-F 3x0.75|BS 1363|C13|1830|
 |Kazakhstan|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Kenya|250|5|H05VV-F 3x0.75|BS1363  SS145/A|C13|1800|
@@ -154,4 +154,4 @@ You can use the following table to find the correct cord specifications for your
 
 ## Next steps
 
-[Azure Stack Edge Pro technical specifications](./azure-stack-edge-technical-specifications-compliance.md)
+[Azure Stack Edge Pro FPGA technical specifications](./azure-stack-edge-technical-specifications-compliance.md)

@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/07/2021
+ms.date: 11/08/2021
 ---
 
 # What's new in Language Understanding
@@ -12,6 +12,13 @@ ms.date: 04/07/2021
 Learn what's new in the service. These items include release notes, videos, blog posts, and other types of information. Bookmark this page to keep up to date with the service.
 
 ## Release notes
+
+### November 2021
+* [Azure Role-based access control (RBAC) article](role-based-access-control.md)
+
+### August 2021
+* Norway East [publishing region](luis-reference-regions.md#publishing-to-europe).
+* West US 3 [publishing region](luis-reference-regions.md#other-publishing-regions).
 
 ### April 2021
 
@@ -38,7 +45,7 @@ Learn what's new in the service. These items include release notes, videos, blog
         * [Continuous Integration and Continuous Delivery workflows for LUIS DevOps](luis-concept-devops-automation.md)
         * [Testing for LUIS DevOps](luis-concept-devops-testing.md)
     * How-to
-        * [Apply DevOps to LUIS app development using GitHub Actions](luis-how-to-devops-with-github.md)
+        * [Apply DevOps to LUIS app development using GitHub Actions](./luis-concept-devops-automation.md)
     * [Complete code GitHub repo](https://github.com/Azure-Samples/LUIS-DevOps-Template)
 
 ### May 2020 - //Build

@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Security Benchmark Foundation blueprint sample
 description: Deploy steps for the Azure Security Benchmark Foundation blueprint sample including blueprint artifact parameter details.
-ms.date: 03/12/2021
+ms.date: 09/08/2021
 ms.topic: sample
 ---
 # Deploy the Azure Security Benchmark Foundation blueprint sample
@@ -84,7 +84,7 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
      - **Location**: Select a region for the managed identity to be created in.
-     - Azure Blueprint uses this managed identity to deploy all artifacts in the assigned blueprint.
+     - Azure Blueprints uses this managed identity to deploy all artifacts in the assigned blueprint.
        To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
@@ -152,7 +152,7 @@ The following table provides a list of the blueprint parameters:
 |Hub resource group|Resource group|Resource group location|Locked - Uses hub location|
 |Azure Firewall template|Resource Manager template|Azure Firewall private IP address||
 |Azure Log Analytics and Diagnostics template|Resource Manager template|Log Analytics workspace location|Location where Log Analytics workspace is created; run `Get-AzLocation | Where-Object Providers -like 'Microsoft.OperationalInsights' | Select DisplayName` in Azure PowersShell to see available regions|
-|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional)|Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
+|Azure Log Analytics and Diagnostics template|Resource Manager template|Azure Automation account ID (optional) |Automation account resource ID; used to create a linked service between Log Analytics and an Automation account|
 |Azure Network Security Group template|Resource Manager template|Enable NSG flow logs|Enter 'true' or 'false' to enable or disable NSG flow logs|
 |Azure Virtual Network hub template|Resource Manager template|Virtual network address prefix|Virtual network address prefix for hub virtual network|
 |Azure Virtual Network hub template|Resource Manager template|Firewall subnet address prefix|Firewall subnet address prefix for hub virtual network|

@@ -9,6 +9,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/18/2018
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Quickstart for PowerShell in Azure Cloud Shell
@@ -106,11 +107,11 @@ You can use `Enter-AzVM` to interactively log into a VM running in Azure.
   PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -Credential (Get-Credential)
   ```
 
-You can also navigate to the `VirtualMachines` directory first and run `Enter-AzVM` as follows
+You can also navigate to the `VirtualMachines` directory first and run `Enter-AzVM` as follows:
 
-  ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
- ```
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM -Credential (Get-Credential)
+```
 
 ### Discover WebApps
 
@@ -237,9 +238,9 @@ To clone a Git repo in the Cloud Shell, you need to create a [personal access to
 
 Type `exit` to terminate the session.
 
-[bashqs]:quickstart.md
-[gallery]:https://www.powershellgallery.com/
-[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[bashqs]: quickstart.md
+[gallery]: https://www.powershellgallery.com/
+[customex]: ../virtual-machines/extensions/custom-script-windows.md
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
