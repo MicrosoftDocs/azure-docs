@@ -27,15 +27,14 @@ For simplicity, join your target SQL Server VM to the same domain as your source
 Use the same SQL Server instance name for the target as the source SQL Server instance. Using a different instance name for each replica is not recommended, and may causes issues with file paths when adding new databases. 
 
 This article uses the following example parameters:
+
 - Database name: **Adventureworks**
-- Source machine name: **SQLonPrem**
+- Source machine name (global primary in DAG): **SQLonPrem**
 - Source SQL Server instance name: **SQL1**
-- Source availability group name (global primary in DAG): **OnPremAg**
-
-- Target SQL Server VM name: **SQLonAzure**
+- Source availability group name: **OnPremAg**
+- Target SQL Server VM name (forwarder in DAG): **SQLonAzure**
 - Target SQL Server on Azure VM instance name: **SQL1**
-- Target availability group name (forwarder in DAG): **AzureAG**
-
+- Target availability group name: **AzureAG**
 - Endpoint name: **Hadr_endpoint**
 - Distributed availability group name: **DAG**
 - Domain name: **Contoso** 
@@ -58,7 +57,7 @@ FOR DATA_MIRRORING (
 GO 
 ```
 
-Domain accounts automatically have access to endpoints, but service accounts may not automatically be part of the sysadmin group and may not have connect permission. To manually grant the SQL Server service account connect permission to endpoint,  run the following T-SQL script on both servers: 
+Domain accounts automatically have access to endpoints, but service accounts may not automatically be part of the sysadmin group and may not have connect permission. To manually grant the SQL Server service account connect permission to the endpoint,  run the following T-SQL script on both servers: 
 
 ```sql
 GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [<your account>] 
@@ -66,11 +65,11 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [<your account>]
 
 ## Create source AG
 
-Since a distributed availability group is a special availability group that spans across two individual availability groups, you first need to create an availability group on the SQL Server instance. If you already have an availability group that you would like to maintain in Azure, then [migrate your availability group](sql-server-distributed-availability-group-migrate-ag.md) instead. 
+Since a distributed availability group is a special availability group that spans across two individual availability groups, you first need to create an availability group on the source SQL Server instance. If you already have an availability group that you would like to maintain in Azure, then [migrate your availability group](sql-server-distributed-availability-group-migrate-ag.md) instead. 
 
 Use Transact-SQL (T-SQL) to create an availability group (**OnPremAg**) on the source (**SQLonPrem\SQL1**) instance for the example **Adventureworks** database. 
 
-To create the availability group on the source, run this script on the source: 
+To create the availability group, run this script on the source: 
 
 ```sql
 CREATE AVAILABILITY GROUP [OnPremAG] 
@@ -94,7 +93,7 @@ You also need to create an availability group on the target SQL Server VM as wel
 
 Use Transact-SQL (T-SQL) to create an availability group (**AzureAG**) on the target **SQLonAzure\SQL1** instance. 
 
-To create the availability group on the target, run this script on the target: 
+To create the availability group, run this script on the target: 
 
 ```sql
 CREATE AVAILABILITY GROUP [AzureAG]
@@ -115,7 +114,7 @@ After you have your source (**OnPremAG**) and target (**AzureAG**) availability 
 
 Use Transact-SQL on the source SQL Server instance (**SQLonPrem\SQL1**) and AG (**OnPremAG**) to create the distributed availability group (**DAG**). 
 
-To create the distributed AG on the source, run this script on the source: 
+To create the distributed AG, run this script on the source: 
 
 ```sql
 CREATE AVAILABILITY GROUP [DAG]   

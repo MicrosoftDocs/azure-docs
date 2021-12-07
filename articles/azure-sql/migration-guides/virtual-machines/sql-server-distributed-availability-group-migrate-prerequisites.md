@@ -10,7 +10,7 @@ ms.author: mathoma
 ---
 # Prerequisites: Migrate to SQL Server VM using distributed AG
 
-Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [single instance](sql-server-distributed-availability-group-migrate-prerequisites.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to SQL Server on Azure Virtual Machines (VMs). 
+Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to SQL Server on Azure Virtual Machines (VMs). 
 
 This article describes the prerequisites to prepare your source and target environments to migrate your SQL Server instance or availability group to SQL Server VMs using a distributed ag.
 
@@ -54,7 +54,7 @@ If the source and target servers are part of different domains, configure [feder
 
 ## Next steps
 
-Once you have configured both source and target environment to meet the prerequisites, you're ready to migrate either your [single instance](sql-server-distributed-availability-group-migrate-prerequisites.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to your target SQL Server VM(s). 
+Once you have configured both source and target environment to meet the prerequisites, you're ready to migrate either your [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to your target SQL Server VM(s). 
 
 
 

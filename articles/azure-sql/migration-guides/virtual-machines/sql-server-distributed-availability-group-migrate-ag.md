@@ -22,29 +22,28 @@ The first step is to create your SQL Server VMs in Azure. You can do so by using
 
 Be sure to configure your SQL Server VMs according to the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md). Choose between a single subnet deployment, which relies on an Azure Load Balancer or distributed network name to route traffic to  your availability group listener, or a multi-subnet deployment which does not have such a requirement. The multi-subnet deployment is recommended. To learn more, see [connectivity](../../virtual-machines/windows/availability-group-overview.md#connectivity). 
 
-For simplicity, join your target SQL Server VMs to the same domain as your source SQL Server. Otherwise, join your target SQL Server VM to a domain that's federated with the domain of your source SQL Server. 
+For simplicity, join your target SQL Server VMs to the same domain as your source SQL Server instances. Otherwise, join your target SQL Server VM to a domain that's federated with the domain of your source SQL Server instances. 
 
 Use the same SQL Server instance names for the target as the source SQL Server instances. Using a different instance name for each replica is not recommended, and may causes issues with file paths when adding new databases. 
 
 This article uses the following example parameters:
+
 - Database name: **Adventureworks**
-- Source machine names: **OnPremNode1** (Primary), **OnPremNode2** (Secondary)
+- Source machine names : **OnPremNode1** (global primary in DAG), **OnPremNode2** 
 - Source SQL Server instance names: **SQL1**, **SQL2**
-- Source availability group name (global primary in DAG): **OnPremAg**
+- Source availability group name : **OnPremAg**
 - Source availability group listener name: **OnPremAG_LST**
-
-- Target SQL Server VM names: **AzureNode1** (Primary), **Azure Node2** (Secondary)
+- Target SQL Server VM names: **AzureNode1** (forwarder in DAG), **AzureNode2** 
 - Target SQL Server on Azure VM instance names: **SQL1**, **SQL2**
-- Target availability group name (forwarder in DAG): **AzureAG**
-- - Source availability group listener name: **AzureAG_LST**
-
+- Target availability group name: **AzureAG**
+- Source availability group listener name: **AzureAG_LST**
 - Endpoint name: **Hadr_endpoint**
 - Distributed availability group name: **DAG**
 - Domain name: **Contoso** 
 
 ## Create endpoints
 
-Use Transact-SQL (T-SQL) to create endpoints on both your two source instances (**OnPremNode1\SQL1**, **OnPremNode2\SQL2**) and target (**AzureNode1\SQL1**, **AzureNode2\SQL2**) SQL Server instances. 
+Use Transact-SQL (T-SQL) to create endpoints on both your two source instances (**OnPremNode1\SQL1**, **OnPremNode2\SQL2**) and target SQL Server instances (**AzureNode1\SQL1**, **AzureNode2\SQL2**). 
 
 If you already have an availability group configured on the source instances, only run this script on the two target instances. 
 
@@ -62,7 +61,7 @@ FOR DATA_MIRRORING (
 GO 
 ```
 
-Domain accounts automatically have access to endpoints, but service accounts may not automatically be part of the sysadmin group and may not have connect permission. To manually grant the SQL Server service account connect permission to endpoint,  run the following T-SQL script on both servers: 
+Domain accounts automatically have access to endpoints, but service accounts may not automatically be part of the sysadmin group and may not have connect permission. To manually grant the SQL Server service account connect permission to the endpoint, run the following T-SQL script on both servers: 
 
 ```sql
 GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [<your account>] 
@@ -74,7 +73,7 @@ Since a distributed availability group is a special availability group that span
 
 If you already have an availability group on your source instances, skip this section. 
 
-Use Transact-SQL (T-SQL) to create an availability group (**OnPremAg**) between your two source instances (**OnPremNode1\SQL1**, **OnPremNode2\SQL2**) for the example **Adventureworks** database. 
+Use Transact-SQL (T-SQL) to create an availability group (**OnPremAG**) between your two source instances (**OnPremNode1\SQL1**, **OnPremNode2\SQL2**) for the example **Adventureworks** database. 
 
 To create the availability group on the source instances, run this script on the source primary replica (**OnPremNode1\SQL1**): 
 
@@ -144,7 +143,7 @@ FOR
    BACKUP_PRIORITY = 50,
    SECONDARY_ROLE(ALLOW_CONNECTIONS = NO),
    SEEDING_MODE = AUTOMATIC),    
-N'AZUREAGNODE2\SQL2' WITH (ENDPOINT_URL = N'TCP://AZUREAGNODE2.contoso.com:5022',    
+N'AzureNode2\SQL2' WITH (ENDPOINT_URL = N'TCP://AzureNode2.contoso.com:5022',    
    FAILOVER_MODE = MANUAL,    
    AVAILABILITY_MODE = SYNCHRONOUS_COMMIT,    
    BACKUP_PRIORITY = 50,    
