@@ -94,7 +94,7 @@ You can configure the following logs for Azure Machine Learning:
 | RunReadEvent | Events when ML experiments are read. |
 
 > [!NOTE]
-> Effective February 2022, AmlComputeClusterNodeEvent category will be deprecated. We recommend to use AmlComputeClusterEvent instead.
+> Effective February 2022, the AmlComputeClusterNodeEvent category will be deprecated. We recommend that you instead use the AmlComputeClusterEvent category.
 
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
@@ -147,7 +147,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
 
 > [!NOTE]
-> Effective February 2022, AmlComputeClusterNodeEvent table will be deprecated. We recommend to use AmlComputeClusterEvent instead.
+> Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
