@@ -1,5 +1,5 @@
 ---
-title: "Az CLI: Configure active geo-replication for an elastic pool" 
+title: "CLI example: Configure active geo-replication for an elastic pool" 
 description: Azure CLI example script to set up active geo-replication for a pooled database in Azure SQL Database and fail it over.
 services: sql-database
 ms.service: sql-database

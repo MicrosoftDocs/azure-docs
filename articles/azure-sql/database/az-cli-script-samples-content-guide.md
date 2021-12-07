@@ -40,6 +40,7 @@ The following table includes links to Azure CLI script examples to manage single
 | [Scale a single database](scripts/monitor-and-scale-database-cli.md) | Scales a database in SQL Database to a different compute size after querying the size information for the database. |
 | [Scale an elastic pool](scripts/scale-pool-cli.md) | Scales a SQL elastic pool to a different compute size. |
 |**Configure geo-replication and failover**||
+| [Configure a failover group](scripts/setup-geodr-and-failover-group-cli.md) | Configures a failover group for a group of databases and failover over databases to the secondary server. |
 | [Add a single database to a failover group](scripts/add-database-to-failover-group-cli.md)| Creates a database and a failover group, adds the database to the failover group, then tests failover to the secondary server. |
 | [Configure a failover group for an elastic pool](scripts/add-elastic-pool-to-failover-group-cli.md) | Creates a database, adds it to an elastic pool, adds the elastic pool to the failover group, then tests failover to the secondary server. |
 | [Configure and fail over a single database by using active geo-replication](scripts/setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for a database in Azure SQL Database and fails it over to the secondary replica. |
