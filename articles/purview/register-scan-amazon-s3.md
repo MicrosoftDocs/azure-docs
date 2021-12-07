@@ -25,6 +25,7 @@ For this service, use Purview to provide a Microsoft account with secure access 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
 | Yes | Yes | Yes | Yes | Yes | No | Limited** |
+|
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -551,7 +552,7 @@ Make sure that the S3 bucket URL is properly defined:
 1. In AWS, navigate to your S3 bucket, and copy the bucket name.
 1. In Purview, edit the Amazon S3 data source, and update the bucket URL to include your copied bucket name, using the following syntax: `s3://<BucketName>`
 
-### Check Bucket Policy
+### Check bucket policy
 
 Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
 
