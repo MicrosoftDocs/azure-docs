@@ -138,6 +138,8 @@
       href: index-similarity-and-scoring.md     
   - name: Indexing
     items:
+    - name: Import
+      href: search-what-is-data-import.md
     - name: Search indexes
       href: search-what-is-an-index.md
     - name: Analyzers
@@ -287,8 +289,6 @@
       href: index-add-custom-analyzers.md
   - name: Data import
     items:
-    - name: Data import overview
-      href: search-what-is-data-import.md
     - name: Import data (portal)
       href: search-import-data-portal.md
     - name: Rebuild an index
