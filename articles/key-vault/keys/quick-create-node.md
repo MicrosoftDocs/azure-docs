@@ -79,27 +79,6 @@ Create a Node.js application that uses your key vault.
     npm install @azure/identity
     ```
 
-## Create a Service principal
-
-Create a service principal and configure its access to Azure resources. Use a service principal instead of your own individual user account and password.
-
-1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
-
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
-    ```
-
-2. Make note of the command response in order to set up your Azure authentication to the Azure SDK later in this quickstart:
-
-    ```json
-    {
-      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
-      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
-      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
-      "password": "YOUR-SERVICE-PRINCIPAL-SECRET",
-      "tenant": "YOUR-TENANT-ID"
-    }
-    ```
 
 ## Grant access to your key vault
 
