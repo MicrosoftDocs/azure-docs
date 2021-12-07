@@ -11,9 +11,6 @@ keywords: java, jakartaee, javaee, microprofile, open-liberty, websphere-liberty
 ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-track-javaee-liberty-aks
 ---
 
-PENDING: Read this guide for how to write how-to guides.  https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-howto?branch=master .  Make this conform to https://review.docs.microsoft.com/en-us/help/contribute/global-how-to-template?branch=master I suggest saving the existing document aside with a different file name, deleting the contents of this file, pasting in the template, and then copying the content over from the saved aside file.
-
-
 # Deploy a Java application with Azure Database for PostgreSQL server to Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 
 This article demonstrates how to:  
@@ -35,11 +32,6 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-
-## Prerequisites
-
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-- A user-assigned managed identity that has a **Contributor** role in this subscription. If you do not have a user-assigned managed identity, you can [follow these steps to create one](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). If your user-assigned managed identity is not assigned with the required role, you can [follow these steps](../role-based-access-control/role-assignments-portal-managed-identity.md#user-assigned-managed-identity).
 
 ## Create IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service using our offer
 With the following configuration, this offer will create a Azure Container Registry and a Azure Kubernetes Service cluster for the sample application.
@@ -100,10 +92,10 @@ You can find the sample project used in the documentation [here](https://github.
 cd <path-to-your-repo>
 git clone git@github.com:Azure-Samples/open-liberty-on-aks.git
 ```
-There are three sample in the repository, and we will use *javaee-app-db-using-actions*. The file structure is as follows:
+There are three sample in the repository, and we will use *javaee-app-db-using-actions/postgres*. The file structure is as follows:
 ```
 
-javaee-app-db-using-actions/
+javaee-app-db-using-actions/postgres
 ├─ src/main/
 │  ├─ aks/
 │  │  ├─ db-secret.yaml
@@ -138,7 +130,7 @@ Once the offer is successfully deployed, an AKS cluster with a namespace will be
 ### Build project
 Build your application.
 ```bash
-cd <path-to-your-repo>/javaee-app-db-using-actions
+cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
 # The following varaibles will be used for deployment file generation
 export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
@@ -165,7 +157,7 @@ We've prepared the *Dockerfile-local* for it in the sample application.
   ```
 * Start the application in `liberty:devc` mode
   ```bash
-  cd <path-to-your-repo>/javaee-app-db-using-actions
+  cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
   ```
@@ -176,13 +168,13 @@ Go to `http://localhost:9080/` and verify the application is accessible and all 
 ### Build image for AKS deployment
 Run docker command to build the image
 ```bash
-cd <path-to-your-repo>/javaee-app-db-using-actions
+cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
 # Fetch maven artifactId as image name, maven build version as image version
 IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
 IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
 
-cd <path-to-your-repo>/javaee-app-db-using-actions/target
+cd <path-to-your-repo>/javaee-app-db-using-actions/postgres/target
 
 docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
 ```
@@ -201,11 +193,11 @@ az aks get-credentials --resource-group java-liberty-project-rg --name <AKS_CLUS
 ```
 ### Apply DB secret
 ```bash
-kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/target/db-secret.yaml
+kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/db-secret.yaml
 ```
 ### Apply deployment file
 ```bash
-kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/target/openlibertyapplication.yaml
+kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/openlibertyapplication.yaml
 ```
 ### Watch the pods to be restarted
 Watch all pods are restarted successfully using the following command
