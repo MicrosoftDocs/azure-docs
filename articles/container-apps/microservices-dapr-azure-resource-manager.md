@@ -298,10 +298,9 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 $STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
----
 ::: zone pivot="container-apps-arm"
 
-::: zone pivot="container-apps-arm"
+---
 
 ### Create Azure Resource Manager (ARM) templates
 
