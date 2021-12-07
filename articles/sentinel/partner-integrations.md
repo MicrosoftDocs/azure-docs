@@ -21,7 +21,7 @@ For example, your integration may add value for any of the following goals:
 
 - **Automation in Microsoft Sentinel**. For example, your integration might include rules for enrichment, remediation, or orchestration security activities within the customer’s environment and infrastructure.
 
-We recommend that you create your integration using Microsoft Sentinel [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.
+We recommend that you package and publish your integration as a Microsoft Sentinel [solutions](sentinel-solutions.md) so that joint customers can discover, deploy, and maximize the value of your partner integration.  Sentinel Solutions are published in Azure Marketplace and appear in the Microsoft Sentinel Content hub.
 
 ## Integrations to collect data
 
@@ -170,7 +170,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 **Examples**: 	Firewalls, NDR, EDR, MDM, Identity solutions, Conditional Access solutions, physical access solutions, other products that support block/allow or other actionable security policies
 
-**How to use your data in Azure Sentinel**: Azure Sentinel actions and workflows enabling remediations and responses to threats
+**How to use your data in Microsoft Sentinel**: Microsoft Sentinel actions and workflows enabling remediations and responses to threats
 
 **What to build**: For this scenario, include the following elements in your solution:
 
@@ -179,7 +179,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 ## References for getting started
 
-All Azure Sentinel Technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
+All Microsoft Sentinel Technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
 
 When you are ready to begin work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
 
