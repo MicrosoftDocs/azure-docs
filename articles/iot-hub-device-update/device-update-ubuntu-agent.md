@@ -95,6 +95,17 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
    ```bash
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
+1. Enter your IoT device's module (or device depending on how you (provisioned the device with Device Update)[device-update-agent-provisioning.md]) primary connection string in the configuration file by running the command below.
+
+   ```markdown
+   /etc/adu/du-config.json
+   ```
+   
+1. Finally restart the Device Update agent by running the command below.
+
+   ```markdown
+    sudo systemctl restart adu-agent
+   ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
   * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
