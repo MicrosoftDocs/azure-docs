@@ -200,6 +200,10 @@ In this example, you enable OAuth 2.0 user authorization in the developer consol
 
 1. Select **Save**.
 
+> [!NOTE]
+> To see the latest configuration of your portal, publish the portal. You can publish the portal in the portal's administrative interface or from the Azure portal.
+
+
 ## 5. Successfully call the API from the developer portal
 
 > [!NOTE]
