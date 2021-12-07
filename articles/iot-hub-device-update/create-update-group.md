@@ -92,7 +92,7 @@ Tags can also be added or updated in Device twin or Module Twin directly.
 7. Once the group is created, you will see that the update compliance chart and groups list are updated.  Update compliance chart shows the count of devices in various states of compliance: On latest update, New updates available, and Updates in Progress. [Learn  about update compliance.](device-update-compliance.md)
    :::image type="content" source="media/create-update-group/updated-view.png" alt-text="Screenshot of update compliance view." lightbox="media/create-update-group/updated-view.png":::
 
-8. You should see your newly created group and any available updates for the devices in the new group. You can deploy the best available update to the new group from this view by clicking on the "Deploy" button next to the group. See Next Step: Deploy Update for more details.
+8. You should see your newly created group and any available updates for the devices in the new group. If there are devices that don't meet the device class requirements of the group, they will show up in a corresponding invalid group. You can deploy the best available update to the new user-defined group from this view by clicking on the "Deploy" button next to the group. See Next Step: Deploy Update for more details.
 
 ## View Device details for the group you created
 
