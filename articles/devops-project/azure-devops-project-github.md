@@ -3,7 +3,7 @@ title: 'Tutorial: Create a CI/CD pipeline for your existing code by using Azure 
 description: Azure DevOps Starter makes it easy to get started on Azure. In a few quick steps, DevOps Projects helps you use your own code and GitHub repo to launch an app on an Azure service.
 services: vsts
 documentationcenter: vs-devops-build
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.workload: web
 ms.prod: devops
@@ -11,7 +11,7 @@ ms.technology: devops-cicd
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ms.custom: mvc
 ---
 

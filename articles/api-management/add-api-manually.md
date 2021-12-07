@@ -9,6 +9,7 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 04/26/2021
 ms.author: danlep
+ms.custom: fasttrack-edit
 
 ---
 
@@ -70,8 +71,8 @@ This section shows how to add an operation that takes a parameter. In this case,
 
 1. Select the API you created in the previous step.
 2. Click **+ Add Operation**.
-3. In the **URL**, select **GET** and enter `*/status/{code}` in the resource. Optionally, you can provide some information associated with this parameter. For example, enter "*Number*" for **TYPE**, "*200*" (default) for **VALUES**.
-4. Enter "WildcardGet" for **Display name**.
+3. In the **URL**, select **GET** and enter `/status/{code}` in the resource. Optionally, you can provide some information associated with this parameter. For example, enter "*Number*" for **TYPE**, "*200*" (default) for **VALUES**.
+4. Enter "GetStatus" for **Display name**.
 5. Select **Save**.
 
 ### Test the operation 
@@ -79,7 +80,7 @@ This section shows how to add an operation that takes a parameter. In this case,
 Test the operation in the Azure portal.  Alternatively, you can test it in the **Developer portal**.
 
 1. Select the **Test** tab.
-2. Select **WildcardGet**. By default the code value is set to "*200*". You can change it to test other values. For example, type "*418*".
+2. Select **GetStatus**. By default the code value is set to "*200*". You can change it to test other values. For example, type "*418*".
 3. Press **Send**.
 
     The response that the "http://httpbin.org/status/200" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
@@ -107,6 +108,9 @@ Test the operation in the Azure portal.  Alternatively, you can test it in the *
 1. Press **Send**.
 
     The response that the "http://httpbin.org/headers" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+  
+>[!NOTE] 
+> It can be important to understand how the host for the backend API you are integrating with handles trailing slashes on an operation URL. For more information, please see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

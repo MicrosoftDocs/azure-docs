@@ -149,7 +149,7 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
 These code samples show how to:
 
-* Take the *delegation validation key*, which is set in the **Delegation** screen of the publisher portal.
+* Take the *delegation validation key*, which is set in the **Delegation** screen of the Azure portal.
 * Create an HMAC, which validates the signature, proving the validity of the passed returnUrl.
 
 With slight modification, you can use the same code for the **productId** and **userId**.

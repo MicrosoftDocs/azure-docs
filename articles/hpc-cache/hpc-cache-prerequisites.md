@@ -4,8 +4,8 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/06/2021
-ms.author: v-erkel
+ms.date: 11/03/2021
+ms.author: rohogue
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -74,6 +74,26 @@ To use a custom DNS server, you need to do these setup steps before you create y
 A simple DNS server also can be used to load balance client connections among all the available cache mount points.
 
 Learn more about Azure virtual networks and DNS server configurations in [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+
+### NTP access
+
+The HPC Cache needs access to an NTP server for regular operation. If you restrict outbound traffic from your virtual networks, make sure to allow traffic to at least one NTP server. The default server is time.windows.com, and the cache contacts this server on UDP port 123.
+
+Create a rule in your cache network's [network security group](../virtual-network/network-security-groups-overview.md) that allows outbound traffic to your NTP server. The rule can simply allow all outbound traffic on UDP port 123, or have more restrictions.
+
+This example explicitly opens outbound traffic to the IP address 168.61.215.74, which is the address used by time.windows.com.
+
+| Priority | Name | Port | Protocol | Source | Destination   | Action |
+|----------|------|------|----------|--------|---------------|--------|
+| 200      | NTP  | Any  | UDP      | Any    | 168.61.215.74 | Allow  |
+
+Make sure that the NTP rule has a higher priority than any rules that broadly deny outbound access.
+
+Additional tips for NTP access:
+
+* If you have firewalls between your HPC Cache and the NTP server, make sure these firewalls also allow NTP access.
+
+* You can configure which NTP server your HPC Cache uses on the **Networking** page. Read [Configure additional settings](configuration.md#customize-ntp) for more information.
 
 ## Permissions
 

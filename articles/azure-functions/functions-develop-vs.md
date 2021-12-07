@@ -179,6 +179,7 @@ As with triggers, input and output bindings are added to your function as bindin
         }
     }
     ```
+
    The connection to Queue storage is obtained from the `AzureWebJobsStorage` setting. For more information, see the reference article for the specific binding. 
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]

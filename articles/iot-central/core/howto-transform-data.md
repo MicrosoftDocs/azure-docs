@@ -11,7 +11,7 @@ services: iot-central
 # This topic applies to solution builders.
 ---
 
-# Transform data for IoT Central
+# Transform data externally for IoT Central
 
 IoT devices send data in various formats. To use the device data with your IoT Central application, you may need to use a transformation to:
 
@@ -21,6 +21,9 @@ IoT devices send data in various formats. To use the device data with your IoT C
 - Enrich the data from other sources.
 
 This article shows you how to transform device data outside of IoT Central either at ingress or egress.
+
+> [!NOTE]
+> IoT Central can also transform data internally, to learn more see [Map telemetry on ingress to IoT Central](howto-map-data.md) and [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).
 
 The following diagram shows three routes for data that include transformations:
 

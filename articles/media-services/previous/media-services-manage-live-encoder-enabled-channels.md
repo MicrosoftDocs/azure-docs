@@ -267,7 +267,7 @@ Optional. Specifies the Asset Id of the Media Services Asset which contains the 
 
 > [!NOTE] 
 > Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). This image is used only when the live encoder is inserting a slate due to an ad break, or has been explicitly signaled to insert a slate. 
-> There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
+> There is currently no option to use a custom image when the live encoder enters such an 'input signal lost' state. You can vote for this feature [here](https://feedback.azure.com/d365community/idea/b249e4f3-0d25-ec11-b6e6-000d3a4f09d0).
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.

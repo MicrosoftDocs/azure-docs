@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 04/23/2021
-ms.custom: devx-track-java
+ms.date: 10/12/2021
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 

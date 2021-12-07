@@ -42,7 +42,7 @@ each is assigned to a subscription in a single operation that can be audited and
 
 Nearly everything that you want to include for deployment in Azure Blueprints can be accomplished
 with an ARM template. However, an ARM template is a document that doesn't exist natively in Azure -
-each is stored either locally or in source control. The template gets used for deployments of one or
+each is stored either locally or in source control or in [Templates (preview)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Gallery%2Fmyareas%2Fgalleryitems). The template gets used for deployments of one or
 more Azure resources, but once those resources deploy there's no active connection or relationship
 to the template.
 
@@ -165,7 +165,7 @@ The following built-in roles are available:
 
 |Azure role | Description |
 |-|-|
-|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
+|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprints related permissions. |
 |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
 |[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
 |[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |

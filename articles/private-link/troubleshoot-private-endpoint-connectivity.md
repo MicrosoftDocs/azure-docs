@@ -55,7 +55,7 @@ Review these steps to make sure all the usual configurations are as expected to 
     
 1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
 
-    a. On the private endpoint resource, select **Monitor**.
+    a. On the private endpoint resource, select **Metrics**.
      - Select **Bytes In** or **Bytes Out**. 
      - See if data is flowing when you attempt to connect to the private endpoint. Expect a delay of approximately 10 minutes.
     
@@ -100,8 +100,9 @@ Review these steps to make sure all the usual configurations are as expected to 
 1. Source Virtual Machine should have the route to Private Endpoint IP next hop as InterfaceEndpoints in the NIC Effective Routes. 
 
     a. If you are not able to see the Private Endpoint Route in the Source VM, check if 
-     - The Source VM and the Private Endpoint belongs to the same VNET. If yes, then you need to engage support. 
-     - The Source VM and the Private Endpoint are part of different VNETs, then check for the IP connectivity between the VNETS. If there are IP connectivity and still you are not able to see the route, engage support. 
+     - The Source VM and the Private Endpoint are part of the same VNET. If yes, then you need to engage support. 
+     - The Source VM and the Private Endpoint are part of different VNETs that are directly peered with each other. If yes, then you need to engage support.
+     - The Source VM and the Private Endpoint are part of different VNETs that are not directly peered with each other, then check for the IP connectivity between the VNETs.
 
 1. If the connection has validated results, the connectivity problem might be related to other aspects like secrets, tokens, and passwords at the application layer.
    - In this case, review the configuration of the private link resource associated with the private endpoint. For more information, see the [Azure Private Link troubleshooting guide](troubleshoot-private-link-connectivity.md)

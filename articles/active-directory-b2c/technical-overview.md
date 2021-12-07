@@ -1,15 +1,15 @@
 ---
 title: Technical and feature overview - Azure Active Directory B2C
-description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
+description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 10/01/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -77,7 +77,7 @@ Learn more about [sign-in options](sign-in-options.md) or how to [set up the loc
 
 Azure AD B2C lets you manage common attributes of consumer account profiles. For example display name, surname, given name, city, and others.
 
-You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication. For more information, see:
+You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multifactor authentication. For more information, see:
 
 * [User profile attributes](user-profile-attributes.md)
 * [Add user attributes and customize user input in](configure-user-input.md)
@@ -118,7 +118,7 @@ Read the [User flows and custom policies overview](user-flow-overview.md) articl
 
 ## User interface
 
-In Azure AD B2C, you can craft your users' identity experiences so that the pages are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
+In Azure AD B2C, you can craft your users' identity experiences so that the pages that are shown blend seamlessly with the look and feel of your brand. You get nearly full control of the HTML and CSS content presented to your users when they proceed through your application's identity journeys. With this flexibility, you can maintain brand and visual consistency between your application and Azure AD B2C.
 
 
 
@@ -132,7 +132,7 @@ For information on UI customization, see:
 
 ## Custom domain
 
-You can customize your Azure AD B2C domain in the redirect URLs for Azure AD B2C. Custom domain allows you to create a seamless experience so that the pages are shown blend seamlessly with the domain name of your application.
+You can customize your Azure AD B2C domain in the redirect URLs for Azure AD B2C. Custom domain allows you to create a seamless experience so that the pages that are shown blend seamlessly with the domain name of your application.
 
 ![Screenshots of Azure AD B2C custom domain](media/technical-overview/custom-domain.png)
 
@@ -157,9 +157,9 @@ You can customize the email to users that sign up to use your applications. By u
 * [Custom email verification with Mailjet](custom-email-mailjet.md)
 * [Custom email verification with SendGrid](custom-email-sendgrid.md)
 
-## Add your own business logic
+## Add your own business logic and call RESTful API
 
-If you choose to use custom policies, you can integrate with a RESTful API in a user journey to add your own business logic to the journey. For example, Azure AD B2C can exchange data with a RESTful service to:
+You can integrate with a RESTful API in both user flows and custom policies. The difference is, in user flows, you make calls at specified places, whereas in custom policies, you add your own business logic to the journey. This feature allows you to retrieve and use data from external identity sources. Azure AD B2C can exchange data with a RESTful service to:
 
 * Display custom user-friendly error messages.
 * Validate user input to prevent malformed data from persisting in your user directory. For example, you can modify the data entered by the user, such as capitalizing their first name if they entered it in all lowercase.
@@ -208,13 +208,13 @@ Multiple applications can use the same user flow or custom policy. A single appl
 
 For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the *profile edit* user flow.
 
-## Multi-factor authentication (MFA)
+## Multifactor authentication (MFA)
 
-Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
+Azure AD B2C Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
 
 Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ## Conditional Access
 
@@ -222,7 +222,7 @@ Azure AD Identity Protection risk-detection features, including risky users and 
 
 ![Conditional access flow](media/technical-overview/conditional-access-flow.png)
 
-Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multi-factor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multifactor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
 
 ## Password complexity
 
@@ -295,6 +295,17 @@ Azure AD B2C allows you to discover when people sign up or sign in to your app, 
 By integrating Azure Application Insights into Azure AD B2C custom policies, you can gain insight into how people sign up, sign in, reset their password or edit their profile. With such knowledge, you can make data-driven decisions for your upcoming development cycles.
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
+
+## Region availability and data residency
+Azure AD B2C service is generally available worldwide with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
+
+Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md) and [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
+
+## Automation using Microsoft Graph API
+
+Use MS graph API to manage your Azure AD B2C directory. You can also create the Azure AD B2C directory itself. You can manage users, identity providers, user flows, custom policies and many more. 
+
+Learn more about how to [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md). 
 
 ## Azure AD B2C service limits and restrictions
 Learn more about [Azure AD B2C service limits and restrictions](service-limits.md)

@@ -12,7 +12,7 @@ ms.date: 06/30/2020
 This article provides an overview of the options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
-- [Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
+- [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
    - [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
    - [AKS engine](https://github.com/Azure/aks-engine)
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
@@ -49,7 +49,7 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
    
    If you choose to create the workspace yourself, you can create it through: 
    - [Azure Resource Manager](../logs/resource-manager-workspace.md)
-   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [The Azure portal](../logs/quick-create-workspace.md) 
    
    For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Container insights](container-insights-region-mapping.md).
@@ -72,6 +72,9 @@ Container insights officially supports the following configurations:
 - Environments: Azure Red Hat OpenShift, Kubernetes on-premises, and the AKS engine on Azure and Azure Stack. For more information, see [the AKS engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
 - The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
 - We recommend connecting your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) and enabling monitoring through Container Insights via Azure Arc.
+
+> [!IMPORTANT]
+> Please note that the monitoring add-on is not currently supported for AKS clusters configured with the [HTTP Proxy (preview)](../../aks/http-proxy.md)
 
 ## Network firewall requirements
 

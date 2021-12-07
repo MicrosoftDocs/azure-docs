@@ -4,7 +4,7 @@ description: This tutorial explains how to use the Azure AD Reporting API with c
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 
 ms.service: active-directory

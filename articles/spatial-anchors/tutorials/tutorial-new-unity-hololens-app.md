@@ -19,9 +19,11 @@ This tutorial will show you how to create a new HoloLens Unity app with Azure Sp
 
 To complete this tutorial, make sure you have:
 
-1. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
-2. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
+1. A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
+2. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+3. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
+4. A Unity installation. For supported versions and required capabilities, visit the [Unity project setup page](../how-tos/setup-unity-project.md).
+
 
 ## Getting started
 
@@ -61,6 +63,8 @@ We need to configure our Unity app with an immersive view, rather than a 2D view
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
 3. In the **Publishing Settings** Configuration section, check **InternetClientServer** and **SpatialPerception**.
+> [!IMPORTANT]
+> If using a network that is configured to be private, then you will also need to enable the **PrivateNetworkClientServer** capability.
 
 **Set up the main virtual camera**
 1. In the **Hierarchy Panel**, select **Main Camera**.
@@ -135,6 +139,9 @@ We can use the Update() loop to check if there is an Action queued. If so, we wi
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=100-110&highlight=4-10)]
 
 ## Get the Azure Spatial Anchors SDK
+
+### Choose ASA version
+[!INCLUDE [Choose SDK Version](../../../includes/spatial-anchors-unity-choose-sdk-version.md)]
 
 ### Download packages
 [!INCLUDE [Download Unity Packages](../../../includes/spatial-anchors-unity-download-packages.md)]

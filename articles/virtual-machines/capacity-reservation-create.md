@@ -24,11 +24,6 @@ A Capacity Reservation creation succeeds or fails in its entirety. For a request
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must [register your subscription for the preview](capacity-reservation-overview.md#register-for-capacity-reservation). The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-
 ## Considerations
 
 The Capacity Reservation must meet the following rules: 
@@ -120,6 +115,39 @@ The Capacity Reservation must meet the following rules:
 1. Select **Create**
 
 
+### [CLI](#tab/cli1)
+
+1. Before you can create a capacity reservation, create a resource group with `az group create`. The following example creates a resource group *myResourceGroup* in the East US location.
+
+    ```azurecli-interactive
+    az group create 
+    -l eastus 
+    -g myResourceGroup
+    ```
+
+1. Now create a Capacity Reservation Group with `az capacity reservation group create`. The following example creates a group *myCapacityReservationGroup* in the East US location for all 3 availability zones.
+
+    ```azurecli-interactive
+    az capacity reservation group create 
+    -n myCapacityReservationGroup 
+    -l eastus 
+    -g myResourceGroup 
+    --zones 1 2 3 
+    ```
+
+1. Once the Capacity Reservation Group is created, create a new Capacity Reservation with `az capacity reservation create`. The following example creates *myCapacityReservation* for 5 quantities of Standard_D2s_v3 VM size in Zone 1 of East US location.
+
+    ```azurecli-interactive
+    az capacity reservation create 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    -l eastus 
+    -g myResourceGroup 
+    --sku Standard_D2s_v3 
+    --capacity 5 
+    --zone 1
+    ```
+
 ### [PowerShell](#tab/powershell1)
 
 1. Before you can create a capacity reservation, create a resource group with `New-AzResourceGroup`. The following example creates a resource group *myResourceGroup* in the East US location.
@@ -204,6 +232,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 } 
 ```
 
+### [CLI](#tab/cli2)
+
+ ```azurecli-interactive
+ az capacity reservation show 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup
+ ```
+
 ### [PowerShell](#tab/powershell2)
 
 Check on your Capacity Reservation:
@@ -238,7 +275,6 @@ To learn more, go to Azure PowerShell command [Get-AzCapacityReservation](/power
 1. Select **Overview** on the left
 1. Select **Reservations**
 1. In this view, you will be able to see all the reservations in the group along with the VM size and quantity reserved
-
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
 
