@@ -101,7 +101,7 @@ If you need to use a custom DNS name, you must add the custom name in your Web A
 The custom name must be validated like any custom name, using public DNS resolution. 
 For more information, see [custom DNS validation][dnsvalidation].
 
-For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records in your Azure DNS private zone or your custom DNS server pointing to the Private Endpoint IP. The first is for your Web App, the second is for the SCM of your Web App.
+For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records pointing to the Private Endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your Web App, the second is for the SCM of your Web App.
 
 | Name | Type | Value |
 |-----|-----|-----|
