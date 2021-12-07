@@ -43,7 +43,7 @@ GO
 
 ## Identify the causes of high CPU
 
-Common causes of high CPU incidents are:
+Common causes of new and unusual high CPU utilization are:
 
 * New queries in the workload that use a large amount of CPU.
 * [Query plan regression](intelligent-insights-troubleshoot-performance.md#plan-regression) resulting in one or more queries consuming more CPU.
