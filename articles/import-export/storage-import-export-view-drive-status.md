@@ -92,9 +92,9 @@ The following table describes the drive Failure states and the actions to take i
 
 | Drive status                      | Description   |
 |:----------------------------------|:------------------------------------------|
-| Disk not received at datacenter   | A drive moves to this state when the disks are not received at the datacenter.<!--Clearer wording? "A drive moves to this state when the disk associated with a journal file was not received at the datacenter."--> |
-| Issues faced while processing the job. [Contact Microsoft Support](storage-import-export-contact-microsoft-support.md) for more information. |
-| Manifest file error               | Errors in the manifest file or format. |
+| Disk not received at datacenter   | Disks were not received at the datacenter.<!--Clearer wording? "A drive moves to this state when the disk associated with a journal file was not received at the datacenter."--> |
+|Failed                             | Issues faced while processing the job. [Contact Microsoft Support](storage-import-export-contact-microsoft-support.md) for more information. |
+| Manifest file error               | There are issues in the manifest file or format. |
 | Export blob list format invalid   | For an export job, the blob list file is not in the required format. An XML file with valid blob paths and prefixes is required. See [Valid blob path prefixes](../databox/data-box-deploy-export-ordered.md#valid-blob-path-prefixes) for more information.<!--Possible issues: 1) This links to Create XML file in Data Box, as does the "Export from blob list file (XML format)" section (shared) in the Import/Export tutorial. (Breadcrumbs needed in the IE TOC.) 2) In Import/Export, only blobs can be exported. "Create XML file" includes both blob and file exports.--> |
 | Blob access forbidden             | For an export job, access to the export blob list in the storage account is forbidden. This might be due to an invalid storage account key or container SAS. |
 | Unsupported disk                  | Disk not supported by Azure Import/Export service. For more information, see [Supported disk types](storage-import-export-requirements.md#supported-disks). |
