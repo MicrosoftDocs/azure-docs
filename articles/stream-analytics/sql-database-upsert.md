@@ -29,7 +29,7 @@ Writing data in a table can generally be done in the following manners:
 
 To illustrate the differences, we can look at what happens when ingesting the following two records:
 
-|Arrival_Time|Device_Key|Measure_Value|
+|Arrival_Time|Device_Id|Measure_Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
@@ -42,26 +42,26 @@ INSERT INTO [target] VALUES (...);
 
 Resulting in:
 
-|Modified_Time|Device_Key|Measure_Value|
+|Modified_Time|Device_Id|Measure_Value|
 |-|-|-|
 |10:00|A|1|
 |10:05|A|20|
 
-In **replace** mode, we get only the last value by key. The equivalent T-SQL statement is:
+In **replace** mode, we get only the last value by key. Here we will use **Device_Id as the key.** The equivalent T-SQL statement is:
 
 ```SQL
 MERGE INTO [target] t
-USING (VALUES ...) AS v (Modified_Time,Device_Key,Measure_Value)
-ON t.Device_Key = v.Device_Key
+USING (VALUES ...) AS v (Modified_Time,Device_Id,Measure_Value)
+ON t.Device_Key = v.Device_Id
 -- Replace when the key exists
 WHEN MATCHED THEN
     UPDATE SET
-        t.[Modified_Time] = v.[Modified_Time],
-        t.[Measure_Value] = v.[Measure_Value]
+        t.Modified_Time = v.Modified_Time,
+        t.Measure_Value = v.Measure_Value
 -- Insert new keys
 WHEN NOT MATCHED BY t THEN
-    INSERT ([Modified_Time],[Device_Key],[Measure_Value])
-    VALUES (v.[Modified_Time],v.[Device_Key],v.[Measure_Value])
+    INSERT (Modified_Time,Device_Key,Measure_Value)
+    VALUES (v.Modified_Time,v.Device_Id,v.Measure_Value)
 ```
 
 Resulting in:
@@ -70,23 +70,21 @@ Resulting in:
 |-|-|-|
 |10:05|A|20|
 
-
-Finally, in **accumulate** mode we sum Value with a compound assignment operator:
-
+Finally, in **accumulate** mode we sum `Value` with a compound assignment operator (`+=`). Here also we will use Device_Id as the key:
 
 ```SQL
 MERGE INTO [target] t
-USING (VALUES ...) AS v (Modified_Time,Device_Key,Measure_Value)
-ON t.Device_Key = v.Device_Key
+USING (VALUES ...) AS v (Modified_Time,Device_Id,Measure_Value)
+ON t.Device_Key = v.Device_Id
 -- Replace and/or accumulate when the key exists
 WHEN MATCHED THEN
     UPDATE SET
-        t.[Modified_Time] = v.[Modified_Time],
-        t.[Measure_Value] += v.[Measure_Value] -- += accumulator on value
+        t.Modified_Time = v.Modified_Time,
+        t.Measure_Value += v.Measure_Value
 -- Insert new keys
 WHEN NOT MATCHED BY t THEN
-    INSERT ([Modified_Time],[Device_Key],[Measure_Value])
-    VALUES (v.[Modified_Time],v.[Device_Key],v.[Measure_Value])
+    INSERT (Modified_Time,Device_Key,Measure_Value)
+    VALUES (v.Modified_Time,v.Device_Id,v.Measure_Value)
 ```
 
 Resulting in:
@@ -251,6 +249,9 @@ The function can now be [published](/azure/azure-functions/create-first-function
 The function can then be defined as an output in the ASA job, and used to replace records instead of inserting them.
 
 ## Option 2: Merge with compound assignment (accumulate) via a custom SQL query
+
+> [!NOTE]
+> Upon restart and recovery, ASA may re-send output events that were already emitted. This is an expected behavior that can cause the accumulation logic to fail (doubling individual values). To prevent this, it is recommended to output the same data in a table via the native ASA SQL Output. This control table can then be used to detect issues and re-synch the accumulation when necessary.
 
 This option uses [Microsoft.Data.SqlClient](https://github.com/dotnet/SqlClient). This library lets us issue any SQL queries to a SQL Database.
 
