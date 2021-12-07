@@ -41,22 +41,10 @@
   - name: Concepts
     expanded: true
     items: 
-    - name: App ownership
+    - name: Application gallery
+      href: overview-application-gallery.md
+    - name: Application ownership
       href: overview-assign-app-owners.md
-    - name: Home realm discovery policy
-      href: home-realm-discovery-policy.md
-    - name: Planning a cloud app integration
-      items:
-      - name: Get started with app integration
-        href: plan-an-application-integration.md
-      - name: Plan a My Apps deployment
-        href: my-apps-deployment-plan.md
-    - name: Single sign-on
-      items:
-      - name: What is single sign-on?
-        href: what-is-single-sign-on.md
-      - name: Plan for deployment
-        href: plan-sso-deployment.md
     - name: Application security
       items:
       - name: App access options
@@ -73,6 +61,20 @@
         href: end-user-experiences.md
       - name: Cloud app visibility and control
         href: cloud-app-security.md
+    - name: Home realm discovery policy
+      href: home-realm-discovery-policy.md
+    - name: Planning a cloud app integration
+      items:
+      - name: Get started with app integration
+        href: plan-an-application-integration.md
+      - name: Plan a My Apps deployment
+        href: my-apps-deployment-plan.md
+    - name: Single sign-on
+      items:
+      - name: What is single sign-on?
+        href: what-is-single-sign-on.md
+      - name: Plan for deployment
+        href: plan-sso-deployment.md
     - name: Consent and permissions
       items:
       - name: Consent and permissions overview
