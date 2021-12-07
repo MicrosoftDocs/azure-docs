@@ -4,7 +4,7 @@ description: See answers to frequently asked questions about Azure Virtual WAN n
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: troubleshooting
-ms.date: 08/18/2021
+ms.date: 12/07/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to read more details about Virtual WAN in a FAQ format.
 ---
