@@ -30,6 +30,8 @@ To monitor the performance of a database in Azure SQL Database and Azure SQL Man
 
 \* For solutions requiring low latency monitoring, Azure SQL Analytics (preview) is not recommended.
 
+## Database advisors in the Azure portal 
+
 Azure SQL Database provides a number of Database Advisors to provide intelligent performance tuning recommendations and automatic tuning options to improve performance. 
 
 Additionally, the [Query Performance Insight](query-performance-insight-use.md) page shows you details about the queries responsible for the most CPU and IO usage for single and pooled databases. 
@@ -43,6 +45,20 @@ Outside of the Azure portal, the database engine has its own monitoring and diag
 
 > [!div class="nextstepaction"]
 > [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+
+### Azure SQL insights (preview) and Azure SQL Analytics (preview)
+
+Both offerings use different pipelines to present data to a variety of endpoints for coming Azure SQL Database metrics. 
+
+- Azure SQL insights (preview) is project inside Azure Monitor that can provide advanced insights into Azure SQL database activity. 
+
+- Azure SQL Analytics (preview) requires Log Analytics to provide advanced insights into Azure SQL database activity.
+
+- Azure diagnostic telemetry is an separate, streaming source of data for Azure SQL Database and Azure SQL Managed Instance. Not to be confused with the Azure SQL insights (preview) product, SQLInsights is one of several packages of telemetry emitted by Azure diagnostic settings. Diagnostic settings are a feature that contains Resource Log categories (formerly known as Diagnostic Logs). For more information, see [Diagnostic telemetry for export](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal#diagnostic-telemetry-for-export).
+    - Azure SQL Analytics (preview) consumes the resource logs coming from the diagnistic settings, while Azure SQL insights (preview) uses a different pipeline to collect Azure SQL telemetry.
+
+
+<!-- Add diagram -->
 
 ## Monitor and tune Azure SQL in the Azure portal
 
@@ -114,7 +130,7 @@ You configure diagnostic settings to stream categories of metrics and resource l
 
 ### Log Analytics workspace in Azure Monitor
 
-You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
+You can stream metrics and resource logs to a [Log Analytics workspace in Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). Data streamed here can be consumed by [SQL Analytics (preview)](../../azure-monitor/insights/azure-sql.md), which is a cloud only monitoring solution that provides intelligent monitoring of your databases that includes performance reports, alerts, and mitigation recommendations. Data streamed to a Log Analytics workspace can be analyzed with other monitoring data collected and also enables you to leverage other Azure Monitor features such as alerts and visualizations.
 
 ### Azure Event Hubs
 
