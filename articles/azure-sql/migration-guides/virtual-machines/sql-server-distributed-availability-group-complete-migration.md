@@ -26,8 +26,8 @@ Use the following script to monitor the migration:
 
 ```sql
 SELECT ag.name 
-      	 , drs.database_id 
-       	, db_name(drs.database_id) as database_name 
+       , drs.database_id 
+       , db_name(drs.database_id) as database_name 
        , drs.group_id 
        , drs.replica_id 
        , drs.synchronization_state_desc 
