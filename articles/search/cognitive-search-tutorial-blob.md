@@ -12,13 +12,13 @@ ms.date: 12/01/2021
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios. 
+If you have mixed media, such as unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content for full-text search or knowledge mining scenarios.
 
 In this REST tutorial, you will learn how to:
 
 > [!div class="checklist"]
 > * Set up a development environment
-> * Define a pipeline that uses OCR, language detection, and entity and key phrase recognition.
+> * Define a pipeline that uses OCR, entity recognition, and key phrase extraction.
 > * Execute the pipeline to invoke transformations, and to create and load a search index.
 > * Explore results using full text search and a rich query syntax.
 
@@ -28,9 +28,9 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 This tutorial uses Postman and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/) to create a data source, index, indexer, and skillset. 
 
-The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index. 
+The indexer connects to Azure Blob Storage and retrieves the content. It then invokes the skillset for specialized processing, and ingests the enriched content into a search index. 
 
-The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, language detection on text, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
+The skillset is attached to the indexer. It uses built-in skills from Microsoft to find and extract information. Steps in the pipeline include Optical Character Recognition (OCR) on images, key phrase extraction, and entity recognition (organizations). New information created by the pipeline is stored in new fields in an index. Once the index is populated, you can use the fields in queries, facets, and filters.
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ If possible, create both in the same region and resource group for proximity and
 1. Before you leave Azure Storage, get a connection string so that you can formulate a connection in Azure Cognitive Search. 
 
    1. Browse back to the Overview page of your storage account (we used *blobstragewestus* as an example). 
-   
+
    1. In the left navigation pane, select **Access keys** and copy one of the connection strings. 
 
    The connection string is a URL similar to the following example:
@@ -186,9 +186,8 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
    | Skill                 | Description    |
    |-----------------------|----------------|
    | [Optical Character Recognition](cognitive-search-skill-ocr.md) | Recognizes text and numbers in image files. |
-   | [Text Merge](cognitive-search-skill-textmerger.md)  | Document cracking separates image and text content in a document. The merge skill reunites them so that image captions and tags appear with text and numeric data for the same document. |
+   | [Text Merge](cognitive-search-skill-textmerger.md)  | Document cracking separates image and text content in a document. The merge skill reunites them so that image captions and tags appear with text and numeric data for the same document. If your source files include a mixture of images and embedded text (common in PDF and application files), this skill will merge the OCR or image analysis text output with the document's inline text under the same document.|
    | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
-   | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the content's language. |
    | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
    | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
 
