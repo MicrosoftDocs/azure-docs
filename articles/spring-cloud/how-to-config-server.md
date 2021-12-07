@@ -319,6 +319,9 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
     }
     ```
 
+> [!TIP]
+> You can also refer this [sample project](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) for more information.
+
 ## Next steps
 
 In this article, you learned how to enable and configure your Spring Cloud Config Server instance. To learn more about managing your application, see [Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).
