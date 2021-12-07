@@ -81,7 +81,7 @@
       displayName: adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions
     - name: Azure Data Lake Storage Gen 1
       href: azure-data-lake-storage-gen1-output.md
-    - name: Azure Database Explorer 
+    - name: Azure Database Explorer
       href: azure-database-explorer-output.md
     - name: Azure Database for PostgreSQL
       href: postgresql-database-output.md
@@ -284,6 +284,8 @@
     items:
     - name: Complete code with IntelliSense
       href: vs-code-intellisense.md
+    - name: Run jobs locally with VS Code
+      href: visual-studio-code-local-run-all.md
     - name: Test locally with sample data
       href: visual-studio-code-local-run.md
     - name: Test locally with live data
