@@ -95,7 +95,7 @@ Include automation playbooks in your integration solution to support workflows w
 - Integrating alert lifecycle management across partner solutions
 
 
-### What to include in your integration?
+## What to include in your integration?
 
 The following sections describe common partner integration scenarios, and recommendations for what to include in a solution for each scenario.
 
@@ -201,7 +201,7 @@ Microsoft offers the programs to help partners approach Microsoft customers:
     - Published Logic Apps connector and Microsoft Sentinel playbooks.
     - API integrations, on a case-by-case basis
 
-    To request a MISA nomination review or for questions, contact: MicrosoftSentinelPartner@microsoft.com. <!--changed from Azure sentinel>
+    To request a MISA nomination review or for questions, contact [MicrosoftSentinelPartner@microsoft.com](mailto:MicrosoftSentinelPartner@microsoft.com).
 
 ## Next steps
 
