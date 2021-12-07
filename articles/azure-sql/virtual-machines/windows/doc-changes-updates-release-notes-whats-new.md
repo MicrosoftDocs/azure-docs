@@ -11,13 +11,22 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/10/2021
+ms.date: 12/15/2021
 ms.custom: ignite-fall-2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
+
+## December 2021
+
+| Changes | Details |
+| --- | --- |
+| **Migrate with distributed AG** | It's now possible to migrate your database(s) from a [single instance](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [entire availability group](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-ag.md) over to SQL Server on Azure VMs using a distributed availability group! See the [prerequisites](../../migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-prerequisites.md) to get started. | 
+| &nbsp; | &nbsp; |
+
+Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group]() to SQL Server on Azure Virtual Machines (VMs). 
 
 ## November 2021
 
