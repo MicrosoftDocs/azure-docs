@@ -316,7 +316,7 @@ You can also manage the passwordless authentication methods using the authentica
 
 * Manage your authentication method policies for security keys and Microsoft Authenticator app.
 
-For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
+For more information on what authentication methods can be managed in Microsoft Graph, see [Azure AD authentication methods API overview](/graph/api/resources/authenticationmethods-overview).
 
 ### Rollback
 

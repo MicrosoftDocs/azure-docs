@@ -433,16 +433,6 @@
       "redirect_url": "/azure/frontdoor/rules-match-conditions",
       "redirect_document_id": false
     },
-    {
-      "source_path_from_root": "/articles/frontdoor/standard-premium/concept-rule-set-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/frontdoor/front-door-rules-engine-actions.md",
-      "redirect_url": "/azure/frontdoor/rules-actions",
-      "redirect_document_id": false
-    },
     { 
       "source_path_from_root": "/articles/frontdoor/standard-premium/geo-filtering.md",
       "redirect_url": "/articles/frontdoor/front-door-geo-filtering",
@@ -5599,6 +5589,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/best-practices-availability-paired-regions.md",
+      "redirect_url": "/azure/availability-zones/cross-region-replication-azure",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/availability-zones/index.md",
       "redirect_url": "/azure/availability-zones/az-overview",
       "redirect_document_id": false
@@ -6844,6 +6839,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-maps/power-bi-visual-getting-started.md ",
+      "redirect_url": "/azure/azure-maps/power-bi-visual-get-started",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/monitoring-and-diagnostics/index.md",
       "redirect_url": "/azure/azure-monitor",
       "redirect_document_id": false
@@ -7314,6 +7314,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/concepts/migrate-from-text-analytics-v2.md",
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate-language-service-latest",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/index.yml",
       "redirect_url": "/azure/cognitive-services/language-service/index",
       "redirect_document_id": true
@@ -7454,6 +7459,16 @@
     {
       "source_path_from_root": "/articles/cognitive-services/LUIS/deploy-luis-on-container-instances.md",
       "redirect_url": "/azure/cognitive-services/containers/azure-container-instance-recipe",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-csharp-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/LUIS/luis-nodejs-tutorial-bf-v4.md",
+      "redirect_url": "/azure/bot-service/bot-builder-howto-v4-luis",
       "redirect_document_id": false
     },
     {

@@ -5,15 +5,15 @@ services: load-testing
 ms.service: load-testing
 ms.custom: "include file"
 ms.topic: "include"
-author: j-martens
-ms.author: jmartens
-ms.date: 9/04/2021
+author: ntrogh
+ms.author: nicktrog
+ms.date: 11/30/2021
 ---
 
 >[!IMPORTANT]
->You can use the resources that you created as prerequisites to other Azure Load Testing tutorials and how-to articles. 
+>You can reuse the Azure Load Testing resource that you created for other Azure Load Testing tutorials and how-to articles. 
 
-If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges.
+If you don't plan to use any of the resources that you created, delete them so you don't incur any further charges. If you've deployed the sample application in a different resource group, you might want to repeat the following steps.
 
 * In the Azure portal:
     1. Select the menu button in the upper-left corner, then select **Resource groups**.

@@ -12,18 +12,10 @@ ms.date: 11/18/2021
 # Azure Purview classification best practices
 
 Data classification, in the context of Azure Purview, is a way of categorizing data assets by assigning unique logical labels or class to the data assets based on the business context of data, for example, Passport Number, Driving License Number, Credit Card Number, SWIFT code, Person’s Name, etc.
-When data assets are classified, you can understand, search and govern it better. Most importantly it helps to understand the risks associated with data and implement measures to  protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate. 
+When data assets are classified, you can understand, search and govern them better. Most importantly it helps to understand the risks associated with data and implement measures to  protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate. 
  
 Azure Purview provides automated classification capability while you scan your data sources, offering 200+ system built-in classifications as well as the ability to create custom classifications for your data. Classifications can be applied to assets either automatically (when configured as part of scan) or can be manually edited in the Purview Studio post the scan and ingestion.  
  
-## Intended audience
-
-* Data Engineer 
-* Domain Owner 
-* Business Owner
-* Data Consumers
-* Data Owners and Stewards
-
 ## Why do you need to adopt classification? 
 
 Classification is the process of organizing data into **logical categories** that make it easy to retrieve, sort and identify for future use. This can be of particular importance for data governance. There are many reasons why classification is important, and the following are the most common reasons : 
@@ -35,6 +27,7 @@ Observe that in the scenario below, it is possible to apply classifications at b
 
 :::image type="content" source="./media/concept-best-practices/classification-customers-example-1.png" alt-text="Screen shot showing a classification in Azure SQL Database." lightbox="./media/concept-best-practices/classification-customers-example-1.png":::
 
+Azure Purview supports both system and custom classifications.
 **System classifications**: Azure Purview supports a large set of system classifications by default. For the entire list of available system classifications, see [Supported classifications in Azure Purview](./supported-classifications.md). 
 
 In the example above, Person’s Name is a system classification. 
@@ -50,30 +43,11 @@ For example, if employee ID column follows EMPLOYEE{GUID} pattern  (e.g. EMPLOYE
 
 ## Classification best practice and considerations
 
-### Considerations
-
-* In Purview, classifications can be assigned at asset level and/or at column level, automatically by including relevant classifications in the scan rule or manually after ingesting the metadata into Purview.
-* For automatic assignment, review [supported data source types](./purview-connector-overview.md).
-* Before you scan your data sources in Azure Purview, it is important to understand your data, and configure appropriate scan rule set (selecting relevant system classification, custom classifications, or a combination of both) to classify your data assets as this could impact your scan performance. Refer [supported classification](./supported-classifications.md) for more details.
-* To decide what classifications are required to be applied to the assets prior to scanning, considering the use case of how classifications would be used. Unnecessary classification labels may look noisy and even misleading for data consumers. Consider below aspects to decide, for example:
-    * Classifications can be used to describe the nature of the data that exists in the data asset or schema being scanned. In other words, classifications should enable customers to identify the content of data asset or schema from the classification labels while searching the catalog.
-    * Classifications can be used to set priorities and develop a plan to achieve security and compliance needs of an organization. 
-    * Classifications can be used to describe the phases in the data prep processes (raw zone, landing zone, etc.) and assign the classifications to specific assets to mark the phase in the process.
-
-* Purview scanner applies data sampling rules for deep scan (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. Refer [this](./sources-and-scans.md#sampling-within-a-file) document for more details. 
-* The sampling rules apply to resource sets as well. Refer [here](./sources-and-scans.md#resource-set-file-sampling) for more details.
-* Custom classifications cannot be applied on document type assets using custom classification rules. Classifications for such types can be applied manually only.
-* Custom classifications are not included in any default scan rules, therefore, if automatic assignment of custom classifications is expected, it is required to deploy and use a custom scan rule including the custom classification to run the scan.
-* If classifications are applied manually from Purview Studio, such classifications are retained in the subsequent scans. 
-* Subsequent scans would not remove any classifications from assets, if they were detected previously even if the classification rules are not applicable.
-* For **encrypted source** data assets, Purview will only pick file names, fully qualified names and schema details for structured file types and database tables. For classification to work, decrypt the encrypted data before running scans. 
-
 ### Best practices
 
 #### Scan rule set:
 
-* A scan rule set determines what file types you are scanning and what classification rules will be applied to the data assets you are scanning. It is recommended to select/create and configure appropriate scan rule set for the data source being scanned. 
-* Specific to classification, select relevant system classifications and/or custom classifications (if you have created one for the data being scanned). 
+* A scan rule set allows you to configure the relevant classifications that should be applied to the particular scan for the data source. Select the relevant system classifications and/or custom classifications (if you have created one for the data being scanned). 
 
 For example, in the scenario below, only the specific selected system and custom classifications will be applied for the data source being scanned (e.g., Financial data)
     
@@ -82,12 +56,12 @@ For example, in the scenario below, only the specific selected system and custom
 #### Annotation management:
 
 * While deciding on classifications to be applied, it is recommended to:
-    * Start with **Data Map>Annotation management>Classifications** blade and 
+    * Start with **Data Map > Annotation management > Classifications** blade and 
     * Review the available system classifications to be applied on data assets being scanned. The formal names of system classifications have MICROSOFT* prefix
  
     :::image type="content" source="./media/concept-best-practices/classification-classification-example-4.png" alt-text="Screen shot showing classifications." lightbox="./media/concept-best-practices/classification-classification-example-4.png":::
 
-    * Create custom classification name, if necessary, first from this blade and then move to **Data Map>Annotation management>classification rules** and create the classification rule for the custom classification name created in the previous step
+    * Create custom classification name, if necessary, first from this blade and then move to **Data Map > Annotation management > Classification rules** and create the classification rule for the custom classification name created in the previous step
 
     :::image type="content" source="./media/concept-best-practices/classification-classification-rules-example-2.png" alt-text="Screen shot showing a classification rule." lightbox="./media/concept-best-practices/classification-classification-rules-example-2.png":::
 
@@ -100,16 +74,13 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
     
 :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screen shot showing a EMPLOYEE_ID custom classifications." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
 
-* While creating and configuring the classification rule for a custom classification:
+* While creating and configuring the classification rules for a custom classification:
 
     * Select the appropriate classification **name** for which the classification **rule** is to be created
 
-    * Purview supports two methods for custom classification rule – Regular Expression and Dictionary 
-
-    * Select appropriate method for the classification rule:
-        
-        * Use **Regular Expression** (regex) method if the data population can be expressed through a generic pattern
-        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified (considering future values as well)
+    * Purview supports two methods for custom classification rule – **Regular Expression** and **Dictionary** 
+        * Use **Regular Expression** (regex) method if the data element can be consistently expressed using regular expression pattern or the pattern can be generated using data file. Ensure that the sample data is reflective of the population.
+        * Use **Dictionary** method only if the list of values in the dictionary file represents all possible values of data to be classified and is expected to conform to a given set of data (considering future values as well)
  
             :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-6.png" alt-text="Screen shot showing setting of regular expression and dictionary." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-6.png":::
 
@@ -141,7 +112,7 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
 
 * **How "threshold" parameter works in the regular expression?**
 
-    * Consider below sample source data for example, where there are five columns and custom classification rule should be applied to columns 'Sample_col1, Sample_col2, Sample_col3' for the data pattern "N{Digit}{Digit}{Digit}AN"
+    * Consider below sample source data, for example, where there are five columns and custom classification rule should be applied to columns 'Sample_col1, Sample_col2, Sample_col3' for the data pattern "N{Digit}{Digit}{Digit}AN"
     
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png" alt-text="Screen shot showing example source data." lightbox="./media/concept-best-practices/classification-custom-classification-rule-example-source-data-9.png":::
 
@@ -197,6 +168,25 @@ As an example, for the custom EMPLOYEE_ID classification for a company named Con
     :::image type="content" source="./media/concept-best-practices/classification-delete-classification-rule-19.png" alt-text="Screen shot showing delete classification rule." lightbox="./media/concept-best-practices/classification-delete-classification-rule-19.png":::
 
 * Purview also allows bulk edit of classification through Purview Studio. Read [here](how-to-bulk-edit-assets.md) for more details.
+
+### Considerations
+
+Some considerations to bear in mind while defining classifications:
+* To decide what classifications are required to be applied to the assets prior to scanning, consider the use case of how classifications would be used. Unnecessary classification labels may look noisy and even misleading for data consumers. Consider below aspects to decide, for example:
+    * Classifications can be used to describe the nature of the data that exists in the data asset or schema being scanned. In other words, classifications should enable customers to identify the content of data asset or schema from the classification labels while searching the catalog.
+    * Classifications can be used to set priorities and develop a plan to achieve security and compliance needs of an organization. 
+    * Classifications can be used to describe the phases in the data prep processes (raw zone, landing zone, etc.) and assign the classifications to specific assets to mark the phase in the process.
+* In Purview, classifications can be assigned at asset level and/or at column level automatically by including relevant classifications in the scan rule or manually after ingesting the metadata into Purview.
+* For automatic assignment, review [supported data source types](./purview-connector-overview.md).
+* Before you scan your data sources in Azure Purview, it is important to understand your data, and configure appropriate scan rule set (selecting relevant system classification, custom classifications, or a combination of both) to classify your data assets as this could impact your scan performance. Refer [supported classification](./supported-classifications.md) for more details.
+* Purview scanner applies data sampling rules for deep scan (subject to classification) for both system and custom classifications. The sampling rule is based on the type of data sources. Refer [this](./sources-and-scans.md#sampling-within-a-file) document for more details. 
+* The sampling rules apply to resource sets as well. Refer [here](./sources-and-scans.md#resource-set-file-sampling) for more details.
+* Custom classifications cannot be applied on document type assets using custom classification rules. Classifications for such types can be applied manually only.
+* Custom classifications are not included in any default scan rules, therefore, if automatic assignment of custom classifications is expected, it is required to deploy and use a custom scan rule including the custom classification to run the scan.
+* If classifications are applied manually from Purview Studio, such classifications are retained in the subsequent scans. 
+* Subsequent scans would not remove any classifications from assets, if they were detected previously even if the classification rules are not applicable.
+* For **encrypted source** data assets, Purview will only pick file names, fully qualified names and schema details for structured file types and database tables. For classification to work, decrypt the encrypted data before running scans. 
+
 
 ## Next steps
 - [Apply system classification](./apply-classifications.md)
