@@ -804,7 +804,7 @@
         - name: Configure and fail over a single database by using active geo-replication
           href: database/scripts/setup-geodr-and-failover-database-cli.md
         - name: Configure and fail over a pooled database by using active geo-replication
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
+          href: database/scripts/setup-geodr-and-failover-pool-cli.md
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
@@ -1193,9 +1193,11 @@
       - name: Create a SQL Managed Instance
         href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE) using Azure Key Vault
-        href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
+        href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Configure a failover group
         href: managed-instance/scripts/add-managed-instance-to-failover-group-cli.md
+      - name: Restore a database to another geo-region
+        href: managed-instance/scripts/restore-geo-backup-cli.md
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager

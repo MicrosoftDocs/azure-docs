@@ -42,8 +42,8 @@ The following table includes links to Azure CLI script examples to manage single
 |**Configure geo-replication and failover**||
 | [Add a single database to a failover group](scripts/add-database-to-failover-group-cli.md)| Creates a database and a failover group, adds the database to the failover group, then tests failover to the secondary server. |
 | [Configure a failover group for an elastic pool](scripts/add-elastic-pool-to-failover-group-cli.md) | Creates a database, adds it to an elastic pool, adds the elastic pool to the failover group, then tests failover to the secondary server. |
-| [Configure and fail over a single database by using active geo-replication](../../scripts/setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for a database in Azure SQL Database and fails it over to the secondary replica. |
-| [Configure and fail over a pooled database by using active geo-replication](../../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md)| Configures active geo-replication for a database in an elastic pool, then fails it over to the secondary replica. |
+| [Configure and fail over a single database by using active geo-replication](scripts/setup-geodr-and-failover-database-cli.md)| Configures active geo-replication for a database in Azure SQL Database and fails it over to the secondary replica. |
+| [Configure and fail over a pooled database by using active geo-replication](scripts/setup-geodr-and-failover-pool-cli.md)| Configures active geo-replication for a database in an elastic pool, then fails it over to the secondary replica. |
 | **Auditing and threat detection** |
 | [Configure auditing and threat-detection](scripts/auditing-and-threat-detection-cli.md)| Configures auditing and threat detection policies for a database in Azure SQL Database. |
 | **Back up, restore, copy, and import a database**||
@@ -64,7 +64,7 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 | **Create a SQL Managed Instance**||
 | [Create a SQL Managed Instance](../managed-instance/scripts/create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
 | **Configure Transparent Data Encryption (TDE)**||
-| [Manage Transparent Data Encryption in a SQL Managed Instance by using Azure Key Vault](../../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
+| [Manage Transparent Data Encryption in a SQL Managed Instance by using Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
 |**Configure a failover group**||
 | [Configure a failover group for SQL Managed Instance](../managed-instance/scripts/add-managed-instance-to-failover-group-cli.md) | Creates two instances of SQL Managed Instance, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. |
 |**Geo-restore a database**|

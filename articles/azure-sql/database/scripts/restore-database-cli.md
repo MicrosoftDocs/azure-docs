@@ -32,7 +32,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/database/restore-database/restore-database.sh "Restore SQL Database")]
+[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/restore-database/restore-database.sh "Restore SQL Database")]
 
 ### Clean up deployment
 
