@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to, ignite-fall-2021
+ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
 # Connect to and manage Azure databases for MySQL in Azure Purview
