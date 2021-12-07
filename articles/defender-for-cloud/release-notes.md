@@ -30,6 +30,7 @@ The preview alert that detected this was called **“Anonymous scan of public st
 We have improved the detection logic, updated the alert metadata, and changed the alert name and alert type.
 
 These are the new alerts:
+
 | Alert   (alert type)                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | MITRE tactic | Severity |
 |---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|----------|
 | **Publicly accessible storage containers successfully discovered**<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery) | A successful discovery of   publicly open storage container(s) in your storage account was performed in the last hour by a scanning script or tool.<br><br>            This usually indicates a reconnaissance attack, where the threat actor tries to list blobs by guessing container names, in the hope of finding misconfigured open storage containers with sensitive data in them.<br><br>            The threat actor may use their own script or use known scanning tools like   Microburst to scan for publicly open containers.<br><br>            ✔ Azure Blob Storage<br>      ✖ Azure Files<br>      ✖ Azure Data Lake Storage Gen2 | Collection   | Medium   |
@@ -38,9 +39,8 @@ These are the new alerts:
 
 For more information, see:
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
-- [Introduction to Azure Defender for Storage](https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction)
-- [List of alerts provided by Azure Defender for Storage](https://docs.microsoft.com/en-us/azure/defender-for-cloud/alerts-reference#alerts-azurestorage)
-
+- [Introduction to Microsoft Defender for Storage](https://docs.microsoft.com/azure/defender-for-cloud/defender-for-storage-introduction)
+- [List of alerts provided by Microsoft Defender for Storage](https://docs.microsoft.com/azure/defender-for-cloud/alerts-reference#alerts-azurestorage)
 
 
 ## November 2021
