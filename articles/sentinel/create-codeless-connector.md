@@ -22,7 +22,7 @@ Connectors created using CCP are fully SaaS, without any requirements for servic
 
 This article describes the syntax used in the JSON configuration file that defines how your connector works, and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
 
-## Connector configuration
+## Connector configuration overview
 
 A codeless connector JSON configuration file defines both the user interface displayed for the connector in Microsoft Sentinel, and the back-end polling connection between Microsoft Sentinel and your data source.
 
@@ -523,7 +523,7 @@ The following code shows an example of the `pollingConfig` section of the CCP co
 }
 ```
 
-## Create a JSON configuration file template with placeholders
+## Connector configuration with placeholders
 
 You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
 
@@ -558,28 +558,49 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 | | |
 
 
-## Deploy your codeless connector via API
+## Deploy your connector in your Microsoft Sentinel workspace
 
-After creating your [JSON configuration file](#connector-configuration), you can deploy your connector via REST API.
+After creating your [JSON configuration file](#connector-configuration), you can deploy your connector in your Microsoft Sentinel workspace via REST API.
+
+> [!TIP]
+> You can also create an ARM template or a Microsoft Sentinel solution to make it simpler for users to deploy your connector. For more information, see the [ARM template GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/ARM-Templates/DataConnectors) for sample templates and the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
+>
 
 **To deploy your connector via API**:
 
-1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to create your new connector. Provide the credentials and relevant parameters provided by your data source.
+1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to deploy your new connector.
 
-    If you're using a template configuration file with placeholder data, send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+1. Connect your data source to Microsoft Sentinel by passing credentials and the relevant parameters provided by your data source. Use one the following methods:
 
-    ```rest
-    "requestConfigUserInputValues": [
-        {
-           "displayText": "<A display name>",
-           "placeHolderName": "<A placeholder name>",
-           "placeHolderValue": "<A value for the placeholder>",
-           "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
-         }
-    ]
-    ```
+    - **Connect via the user interface**: In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
-    If you are using the Azure portal, user data is sent automatically.
+        The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+
+        When you use the Azure portal to connect, user data is sent automatically.
+
+    - **Connect via API**: Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+
+        Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
+
+        |authType  |Attributes  |
+        |---------|---------|
+        |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
+        |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
+        |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
+        |     |         |
+
+        If you're using a [template configuration file with placeholder data](#connector-configuration-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+
+        ```rest
+        "requestConfigUserInputValues": [
+            {
+               "displayText": "<A display name>",
+               "placeHolderName": "<A placeholder name>",
+               "placeHolderValue": "<A value for the placeholder>",
+               "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
+             }
+        ]
+        ```
 
     Microsoft Sentinel will attempt to access your data source using the provided credentials and fetch log files. If Microsoft Sentinel succeeds, the API response is `200`, which confirms that Microsoft Sentinel can fetch the log files.
 
@@ -587,54 +608,7 @@ After creating your [JSON configuration file](#connector-configuration), you can
 
 If you don't see data flowing into Microsoft Sentinel, check your data source documentation and troubleshooting resources, check the configuration details, and check the connectivity.
 
-## Create an ARM template for deploying your codeless connector
-
-After creating your [JSON configuration file](#connector-configuration), you can create an ARM template to be used when deploying your connector.
-
-**To create an ARM template for your connector**:
-
-1. TBD. If there's not much information here, change this to a note.
-1.
-## Create a solution for deploying your codeless conector
-
-After creating your [JSON configuration file](#connector-configuration), you can create Microsoft Sentinel solution template to be used when deploying your connector.
-
-> [!TIP]
-> Solutions are packaged content or integrations that deliver end-to-end product value for one or more domain or vertical scenarios. For example, you may want to include analytics rules, workbooks, notebooks, and more, customized for your data connector.
->
-> For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
->
-
-**To create a Microsoft Sentinel solution for your connector**:
-
-1. TBD. If there's not much information here, change this to a note.
-
-## Connect to your data connector from Microsoft Sentinel
-
-After you've configured your CCP connector JSON file, use the [UPSERT](#upsert) API or an ARM template to deploy an instance of your connector to your workspace.
-
-Then connect by passing credentials with one of the following methods:
-
-- **Connect via the user interface**: In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
-
-    The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
-
-- **Connect via API**: Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
-
-    Use the following API attributes, depending on the [authType](#authtype) defined. For each authType, all listed parameters are mandatory and strings.
-
-    |authType  |Attributes  |
-    |---------|---------|
-    |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
-    |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
-    |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
-    |     |         |
-
-    > [!TIP]
-    > The parameters required for each authType are defined in the [auth configuration](#auth-configuration) area of the CCP configuration file.
-
-
-## Disconnect your connector
+### Disconnect your connector
 
 If you no longer need your connector's data, disconnect the connector to stop the data flow.
 
