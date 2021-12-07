@@ -118,7 +118,7 @@ The following video provides an end-to-end walk-through of the scenario: <br><br
 | Restore | Restore to a distinct full/ differential/ incremental recovery point | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-a-database). | Supported | N/A | N/A | N/A | N/A |
 | Restore | Restore to a point in time | Currently not supported  | Supported    <br><br> [See the examples](./tutorial-sap-hana-restore-cli.md#restore-a-database). | Supported | N/A | N/A | N/A | N/A |
 | Restore | Cross-region restore | Currently not supported | Supported | Supported | N/A | N/A | N/A | N/A |
-| Manage | Monitor jobs | Currently not supported  | Supported | Supported | N/A | N/A | N/A | N/A | N/A | N/A | N/A | N/A |
+| Manage | Monitor jobs | Currently not supported  | Supported | Supported | N/A | N/A | N/A | N/A |
 | Manage | Modify backup policy | Currently not supported | Supported    <br><br> [See the examples](./tutorial-sap-hana-manage-cli.md#change-policy). | Supported | N/A | N/A | N/A | Currently not supported |
 | Manage | Stop protection and retain backup data | Currently not supported  | Supported    <br><br> [See the examples](./tutorial-sap-hana-manage-cli.md#stop-protection-with-retain-data) | Supported    <br><br> [See the examples](./backup-azure-arm-userestapi-createorupdatepolicy.md). | N/A | N/A | N/A | N/A |
 | Manage | Stop protection and delete backup data | Currently not supported  | Supported    <br><br> [See the examples](./tutorial-sap-hana-manage-cli.md#stop-protection-without-retain-data). | Supported    <br><br> [See the examples](/rest/api/backup/protected-items/delete). | N/A | N/A | N/A | N/A |
@@ -153,14 +153,14 @@ The following video provides an end-to-end walk-through of the scenario: <br><br
 
 | **Category** | **Operation** | **PowerShell** | **CLI** | **REST API** | **Azure Policy** | **ARM Template** | **Bicep** | **Terraform** |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Backup | Create backup policy and configure backup | Supported   <br><br> [See the examples](./backup-managed-disks-ps.md). | Supported    <br><br> [See the examples](./backup-managed-disks-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-backup-disks.md). | Currently not supported | Supported | N/A | N/A | Supported    <br><br> [See the examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dataprotection/backup-create-disk-enable-protection). | Supported    <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_disk). |
-| Backup | Run on-demand backup | Supported    <br><br> [See the examples](./backup-managed-disks-ps.md#run-an-on-demand-backup). | Supported    <br><br> [See the examples](./backup-managed-disks-cli.md#run-an-on-demand-backup). |  N/A | N/A | N/A | N/A | N/A | N/A |
-| Restore | Restore to new disk | Supported    <br><br> [See the examples](./restore-managed-disks-ps.md). | Supported    <br><br> [See the examples](./restore-managed-disks-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-disks.md). | N/A | N/A | N/A | N/A | N/A | N/A |
-| Manage | Monitor jobs | Supported    <br><br> [See the examples](./restore-managed-disks-ps.md#tracking-job). | Supported    <br><br> [See the examples](./restore-managed-disks-cli.md#tracking-job). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-disks.md#track-jobs). | N/A | N/A |  N/A | N/A | N/A | N/A |
-| Manage | Modify backup policy | Currently not supported | Currently not supported | Currently not supported | N/A | N/A | N/A | N/A | N/A | N/A |
-| Manage | Stop protection and retain backup data | Supported | Supported | Supported | N/A | N/A | N/A | N/A | N/A | N/A |
-| Manage | Stop protection and delete backup data | Supported | Supported | Supported | N/A | N/A | N/A | N/A | N/A | N/A |
-| Manage | Resume protection | Supported | Supported | Supported | N/A | N/A | N/A | N/A | N/A | N/A |
+| Backup | Create backup policy and configure backup | Supported   <br><br> [See the examples](./backup-managed-disks-ps.md). | Supported    <br><br> [See the examples](./backup-managed-disks-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-backup-disks.md). | Currently not supported | Supported | Supported    <br><br> [See the examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.dataprotection/backup-create-disk-enable-protection). | Supported    <br><br> [See the examples](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/data_protection_backup_instance_disk). |
+| Backup | Run on-demand backup | Supported    <br><br> [See the examples](./backup-managed-disks-ps.md#run-an-on-demand-backup). | Supported    <br><br> [See the examples](./backup-managed-disks-cli.md#run-an-on-demand-backup). |  N/A | N/A | N/A | N/A | N/A |
+| Restore | Restore to new disk | Supported    <br><br> [See the examples](./restore-managed-disks-ps.md). | Supported    <br><br> [See the examples](./restore-managed-disks-cli.md). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-disks.md). | N/A | N/A | N/A | N/A |
+| Manage | Monitor jobs | Supported    <br><br> [See the examples](./restore-managed-disks-ps.md#tracking-job). | Supported    <br><br> [See the examples](./restore-managed-disks-cli.md#tracking-job). | Supported    <br><br> [See the examples](./backup-azure-dataprotection-use-rest-api-restore-disks.md#track-jobs). | N/A | N/A |  N/A | N/A | 
+| Manage | Modify backup policy | Currently not supported | Currently not supported | Currently not supported | N/A | N/A | N/A | N/A |
+| Manage | Stop protection and retain backup data | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
+| Manage | Stop protection and delete backup data | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
+| Manage | Resume protection | Supported | Supported | Supported | N/A | N/A | N/A | N/A |
 
 ### Azure Database for PostgreSQL Server
 

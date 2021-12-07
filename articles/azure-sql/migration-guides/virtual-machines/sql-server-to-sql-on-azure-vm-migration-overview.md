@@ -1,10 +1,8 @@
 ---
 title: SQL Server to SQL Server on Azure VM (Migration overview)
 description: Learn about the different migration strategies when you want to migrate your SQL Server to SQL Server on Azure VMs. 
-ms.custom: ""
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
-ms.devlang: 
 ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
@@ -140,11 +138,11 @@ Alternatively, you can also migrate SSRS reports to paginated reports in Power B
 ### SQL Server Analysis Services
 SQL Server Analysis Services databases (multidimensional or tabular models) can be migrated from your source SQL Server to SQL Server on Azure VM using one of the following options:
 
--	Interactively using SSMS
--	Programmatically using Analysis Management Objects (AMO)
--	By script using XMLA (XML for Analysis)
+-    Interactively using SSMS
+-    Programmatically using Analysis Management Objects (AMO)
+-    By script using XMLA (XML for Analysis)
 
-See [Move an Analysis Services Database](/analysis-services/multidimensional-models/move-an-analysis-services-database?view=asallproducts-allversions) to learn more.
+See [Move an Analysis Services Database](/analysis-services/multidimensional-models/move-an-analysis-services-database?view=asallproducts-allversions&preserve-view=true) to learn more.
 
 Alternatively, you can consider migrating your on-premises Analysis Services tabular models to [Azure Analysis Services](https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/) or to [Power BI Premium by using the new XMLA read/write endpoints](/power-bi/admin/service-premium-connect-tools). 
 
