@@ -142,7 +142,7 @@ If you want to try other quickstarts or tutorials, keep the resources that you c
 In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
 
 ### Prerequisites
-- Get your Azure Active Directory [Tenant Id](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+- Retrieve your Azure Active Directory [Tenant Id](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
   - Register an application with Microsoft identity platform to get app registration [Client Id](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions:
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
@@ -175,7 +175,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 - Start a debugging session in VS code. If this project is not set as default, you can set it as default project to run on hitting F5 by modifying the files in .vscode folder: 
   -	launch.json - Update the "program" and "cwd" to launch PublicCameraPipelineSampleCode.
   -	tasks.json - Update "args" to point to PublicCameraPipelineSampleCode.csproj.
--	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using cd <path> to src/ cloud-video-processing\ingest-from-rtsp-camera. Type commands dotnet build and dotnet run to compile and run the program respectively.
+-	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using cd <path> to src\cloud-video-processing\ingest-from-rtsp-camera. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
 -	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here] (https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera)
 -	Now you could go to Azure portal to play the recorded video under Video Analyzer account-> Videos pane. Its status will indicate Recording as pipeline is active and recording the live video stream.
     > [!div class="mx-imgBorder"]
@@ -186,7 +186,7 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 > If you are using an RTSP camera simulator, it’s not possible to accurately determine end-to-end latency. Further, after the RTSP camera simulator reaches the end of the MKV file, it will stop. The live pipeline will attempt to reconnect and after a while, the simulator will restart the stream from the beginning of the file. If you let this live pipeline run for many hours, you will see gaps in the video recording whenever the simulator stops and restarts.
 
 - **Clean up resources**
-In the terminal window, pressing enter will deactivate the pipeline and cleanup the pipeline, topology deployed earlier. Program calls CleanUpResourcesAsync() method to cleanup the deployed resources.
+In the terminal window, pressing enter will deactivate the pipeline, delete the pipeline and delete the topology deployed earlier. Program calls CleanUpResourcesAsync() method to cleanup the deployed resources.
 
 ---
 
