@@ -47,15 +47,21 @@ items:
       - name: Lineage best practices
         href: concept-best-practices-lineage-azure-data-factory.md
       - name: Accounts architecture
-        href: concept-best-practices-accounts.md    
+        href: concept-best-practices-accounts.md  
+      - name: Security best practices
+        href: concept-best-practices-security.md        
       - name: Collections architecture
         href: concept-best-practices-collections.md
       - name: Network architecture
         href: concept-best-practices-network.md
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
+      - name: Classification best practices 
+        href: concept-best-practices-classification.md 
       - name: Automation best practices 
         href: concept-best-practices-automation.md
+      - name: Default Purview account 
+        href: concept-default-purview-account.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map

@@ -2,7 +2,6 @@
 title: Software releases for Azure Percept DK USB cable updates
 description: Information and download links for the USB cable update package of Azure Percept DK 
 author: EthanChangAED
-ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
@@ -23,7 +22,7 @@ This page provides information and download links for all the dev kit OS/firmwar
 ## Latest releases
 
 - **Latest service release**  
-September Service Release (2109): [Azure-Percept-DK-1.0.20210929.1747-public_preview_1.0.zip](https://go.microsoft.com/fwlink/?linkid=2174462)
+November Service Release (2111): [Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip](<https://download.microsoft.com/download/9/5/4/95464a73-109e-46c7-8624-251ceed0c5ea/Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip>)
 - **Latest major update or known stable version**  
 Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download.microsoft.com/download/6/4/d/64d53e60-f702-432d-a446-007920a4612c/Azure-Percept-DK-1.0.20210409.2055.zip)
 
@@ -31,6 +30,7 @@ Feature Update (2104): [Azure-Percept-DK-1.0.20210409.2055.zip](https://download
 
 |Release|Download Links|Note|
 |---|---|:---:|
+|November Service Release (2111)|[Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip](<https://download.microsoft.com/download/9/5/4/95464a73-109e-46c7-8624-251ceed0c5ea/Azure-Percept-DK-1.0.20211124.1851-public_preview_1.0.zip>)||
 |September Service Release (2109)|[Azure-Percept-DK-1.0.20210929.1747-public_preview_1.0.zip](https://go.microsoft.com/fwlink/?linkid=2174462)||
 |July Service Release (2107)|[Azure-Percept-DK-1.0.20210729.0957-public_preview_1.0.zip](https://download.microsoft.com/download/f/a/9/fa95d9d9-a739-493c-8fad-bccf839072c9/Azure-Percept-DK-1.0.20210729.0957-public_preview_1.0.zip)||
 |June Service Release (2106)|[Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip](https://download.microsoft.com/download/1/5/8/1588f7e3-f8ae-4c06-baa2-c559364daae5/Azure-Percept-DK-1.0.20210611.0952-public_preview_1.0.zip)||

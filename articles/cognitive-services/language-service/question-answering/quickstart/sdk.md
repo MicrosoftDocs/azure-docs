@@ -40,7 +40,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 To learn about automating your question answering pipeline consult the REST API documentation. Currently authoring functionality is only available via REST API:
 
-* [Authoring API reference](https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects)
+* [Authoring API reference](/rest/api/cognitiveservices/questionanswering/question-answering-projects)
 * [Authoring API cURL examples](../how-to/authoring.md)
 
 ## Next steps

@@ -3,7 +3,7 @@ title: Restore a backup to a new Azure NetApp Files volume | Microsoft Docs
 description: Describes how to restore a backup to a new volume. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Restore a backup to a new volume
 

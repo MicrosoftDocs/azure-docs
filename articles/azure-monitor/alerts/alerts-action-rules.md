@@ -12,7 +12,7 @@ ms.date: 11/11/2021
 <a name="suppression-of-alerts"></a>
 
 > [!NOTE]
-> The previous name for alert processing rules was **action rules**.
+> The previous name for alert processing rules was **action rules**. The Azure resource type of these rules remains **Microsoft.AlertsManagement/actionRules** for backward compatibility.
 
 Alert processing rules allow you to apply processing on **fired alerts**. You may be familiar with Azure Monitor alert rules, which are rules that generate new alerts. Alert processing rules are different; they are rules that modify the fired alerts themselves as they are being fired. You can use alert processing rules to add [action groups](./action-groups.md) or remove (suppress) action groups from your fired alerts. Alert processing rules can be applied to different resource scopes, from a single resource to an entire subscription. They can also allow you to apply various filters or have the rule work on a pre-defined schedule.
 
@@ -83,11 +83,11 @@ If you define multiple filters in a rule, all of them apply. For example, if you
 Choose one of the following actions:
 
 * **Suppression**  
-Suppression removes all the action groups from a fired alert. While the fired alert will still be visible, it will not invoke any of its action groups.  
-Suppression action has a higher priority over "apply action groups" action - if a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
+This action removes all the action groups from the affected fired alerts. So, the fired alerts will not invoke any of their action groups (not even at the end of the maintenance window). Those fired alerts will still be visible when you list your alerts in the portal, Azure Resource Graph, API, PowerShell etc.
+The suppression action has a higher priority over the "apply action groups" action - if a single fired alert is affected by different alert processing rules of both types, the action groups of that alert will be suppressed.
 
 * **Apply action groups**  
-This action adds one or more action groups to the fired alert.
+This action adds one or more action groups to the affected fired alerts.
 
 ### When should this rule apply?
 

@@ -52,6 +52,10 @@ The following configurations aren't restored after the point-in-time recovery:
 
 You can add these configurations to the restored account after the restore is completed.
 
+## Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
+
 ## Restore scenarios
 
 The following are some of the key scenarios that are addressed by the point-in-time-restore feature. Scenarios [a] through [c] demonstrate how to trigger a restore if the restore timestamp is known beforehand.
@@ -95,18 +99,13 @@ For example, if you have 1-TB of data in two regions then:
 
 * Restore cost is calculated as (1000 * 0.15) = $150 per restore
 
-## Customer-managed keys
-
-See [How do customer-managed keys affect continuous backups?](./how-to-setup-cmk.md#how-do-customer-managed-keys-affect-continuous-backups) to learn:
-
-- How to configure your Azure Cosmos DB account when using customer-managed keys in conjunction with continous backups.
-- How do customer-managed keys affect restores.
-
 ## Current limitations
 
 Currently the point in time restore functionality has the following limitations:
 
 * Only Azure Cosmos DB APIs for SQL and MongoDB are supported for continuous backup. Cassandra, Table, and Gremlin APIs are not yet supported.
+
+* Accounts with customer-managed keys are not supported to use continuous backup.
 
 * Multi-regions write accounts are not supported.
 
