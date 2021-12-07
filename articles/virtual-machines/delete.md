@@ -27,10 +27,15 @@ By default, when you delete a VM it only deletes the VM resource, not the networ
 1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
 1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
 1. Under **Disk options**, select **Delete with VM** to delete the OS disk when you delete the VM.
+
+        :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
+
 1. Under **Data disks**, you can choose which data disks, if any, to delete when you delete the VM.
 1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
 1. Towards the bottom of the page, select **Delete public IP and NIC when VM is deleted**.
-    
+
+    :::image type="content" source="media/delete/delete-networking.png" alt-text="Screenshot showing the checkbox to choose to delete the public IP and NIC when the VM is deleted.":::
+
 1. When you are done making selections, select **Review + create**. The **Review + create** page will open.
 1. You can verify which resources you have chosen to delete when you delete the VM.
 1. When you are satisfied with your selections, and validation passes, select **Create** to deploy the VM. 
