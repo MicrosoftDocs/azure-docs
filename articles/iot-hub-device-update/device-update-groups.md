@@ -28,7 +28,6 @@ Tags enable users to group devices. Devices need to have a ADUGroup key and a va
 }
 ```
 
-
 ## Uncategorized device group
 
 Uncategorized is a reserved word that is used to group devices that:
@@ -72,6 +71,9 @@ Below are the devices and the possible groups that can be created for them.
 |Device4	|Uncategorized|
 
 
+## Invalid groups
+
+A corresponding invalid group is created for every user-defined group. A device is added to the invalid group if it doesn't meet the compatibility requirements of the user-defined group. This can be resolved by either re-tagging and regrouping the device under a new group, or modifying it's compatibility properties through the agent configuration file. 
 
 ## Next steps
 
