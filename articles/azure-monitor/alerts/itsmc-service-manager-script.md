@@ -4,7 +4,7 @@ description: Create a Service Manager Web app using an automated script to conne
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 01/23/2018 
+ms.date: 12/06/2021
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -76,7 +76,7 @@ $serviceName = ""
 # Installations
 ################
 
-# Allowing the execution of the script for current user.  
+# Allowing the execution of the script for current user.
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 Write-Host "Checking for required modules..."
@@ -89,7 +89,7 @@ $module = Get-Module -ListAvailable -Name Az
 
 if(!$module -or ($module[0].Version.Major -lt 1))
 {
-    Write-Host "Installing Az Module..."  
+    Write-Host "Installing Az Module..."
     try
     {
         # In case of Win 10 Anniversary update
@@ -207,7 +207,7 @@ catch
 
 $clientId = $adApp.ApplicationId
 
-$servicePrincipal = New-AzADServicePrincipal -ApplicationId $clientId
+$servicePrincipal = New-AzADServicePrincipal -ApplicationId $clientId -Role Contributor
 
 # Web App Configuration
 #######################
@@ -309,7 +309,7 @@ Write-Host "Client Secret:"  $secret
 Write-Host "URI:"  $azureSite
 if(!$err)
 {
-    Write-Host "ServiceBus Namespace:"  $serviceName  
+    Write-Host "ServiceBus Namespace:"  $serviceName
 }
 ```
 

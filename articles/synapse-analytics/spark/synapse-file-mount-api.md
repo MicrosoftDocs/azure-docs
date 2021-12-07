@@ -149,7 +149,7 @@ When you access the data using local file system API, as above section shared, t
 
 While when you want to access the data with mssparkutils fs API, the path format is like: 
 
-`synfs://{jobId}/{filename}`
+`synfs:/{jobId}/{filename}`
 
 You can see the **synfs** is used as schema in this case instead of a part of the mounted path. 
 
@@ -158,19 +158,19 @@ Below are three examples to show how to access file with mount point path using 
 + List dirs:  
 
     ```python 
-    mssparkutils.fs.ls("synfs://49/") 
+    mssparkutils.fs.ls("synfs:/49/") 
     ``` 
 
 + Read file content: 
 
     ```python 
-    mssparkutils.fs.head("synfs://49/myFile.txt") 
+    mssparkutils.fs.head("synfs:/49/myFile.txt") 
     ``` 
 
 + Create directory: 
 
     ```python 
-    mssparkutils.fs.mkdirs("synfs://49/mydir") 
+    mssparkutils.fs.mkdirs("synfs:/49/mydir") 
     ``` 
 
  
@@ -179,7 +179,7 @@ Below are three examples to show how to access file with mount point path using 
 
 You can also use Spark read API with mounted path as parameter to access the data after mount as well, the path format here is same with the format of using mssparkutils fs API: 
 
-`synfs://{jobId}/{filename} `
+`synfs:/{jobId}/{filename} `
 
 Below are two code examples, one is for a mounted gen2 storage, another is for a mounted blob storage. 
 
@@ -190,7 +190,7 @@ Below are two code examples, one is for a mounted gen2 storage, another is for a
 
 # Assume a gen2 storage was already mounted then read file using mount path 
 
-df = spark.read.load("synfs://49/myFile.csv", format='csv') 
+df = spark.read.load("synfs:/49/myFile.csv", format='csv') 
 df.show() 
 ``` 
 
@@ -221,7 +221,7 @@ Notice that if you mounted a blob storage account then want to access it using *
     ```python
     %%spark
     // mount blob storage container and then read file using mount path
-    val df = spark.read.text("synfs://49/test/myFile.txt")
+    val df = spark.read.text("synfs:/49/test/myFile.txt")
     df.show()
     ```
 
