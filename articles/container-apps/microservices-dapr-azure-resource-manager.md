@@ -298,9 +298,9 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 $STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
 ```
 
-::: zone pivot="container-apps-arm"
-
 ---
+
+::: zone pivot="container-apps-arm"
 
 ### Create Azure Resource Manager (ARM) templates
 
@@ -581,14 +581,19 @@ az deployment group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$params = @{
+      environment_name = $CONTAINERAPPS_ENVIRONMENT
+      location = $LOCATION
+      storage_account_name =  $STORAGE_ACCOUNT
+      storage_account_key = $STORAGE_ACCOUNT_KEY
+      storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+}
+
 New-AzResourceGroupDeployment `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -TemplateFile ./serviceapp.json `
-  < environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-      location="$LOCATION" `
-      storage_account_name="$STORAGE_ACCOUNT" `
-      storage_account_key="$STORAGE_ACCOUNT_KEY" `
-      storage_container_name="$STORAGE_ACCOUNT_CONTAINER">
+-ResourceGroupName $RESOURCE_GROUP `
+-TemplateParameterObject $params `
+-TemplateFile ./serviceapp.json `
+-SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -612,14 +617,19 @@ az deployment group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$params = @{
+      environment_name = $CONTAINERAPPS_ENVIRONMENT
+      location = $LOCATION
+      storage_account_name =  $STORAGE_ACCOUNT
+      storage_account_key = $STORAGE_ACCOUNT_KEY
+      storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+}
+
 New-AzResourceGroupDeployment `
-  -ResourceGroupName $RESOURCE_GROUP `
-  -TemplateFile ./serviceapp.bicep `
-  < environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-      location="$LOCATION" `
-      storage_account_name="$STORAGE_ACCOUNT" `
-      storage_account_key="$STORAGE_ACCOUNT_KEY" `
-      storage_container_name="$STORAGE_ACCOUNT_CONTAINER">
+-ResourceGroupName $RESOURCE_GROUP `
+-TemplateParameterObject $params `
+-TemplateFile ./serviceapp.json `
+-SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -647,10 +657,16 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName $RESOURCE_GROUP `
-  -TemplateFile ./clientapp.json `
-  <environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-   location="$LOCATION">
+$params = @{
+      environment_name = $CONTAINERAPPS_ENVIRONMENT
+      location = $LOCATION
+}
+
+New-AzResourceGroupDeployment `
+-ResourceGroupName $RESOURCE_GROUP `
+-TemplateParameterObject $params `
+-TemplateFile ./clientapp.json `
+-SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -670,13 +686,20 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-New-AzResourceGroupDeployment -ResourceGroupName $RESOURCE_GROUP `
-  -TemplateFile ./clientapp.bicep `
-  <environment_name="$CONTAINERAPPS_ENVIRONMENT" `
-   location="$LOCATION">
+$params = @{
+      environment_name = $CONTAINERAPPS_ENVIRONMENT
+      location = $LOCATION
+}
+
+New-AzResourceGroupDeployment `
+-ResourceGroupName $RESOURCE_GROUP `
+-TemplateParameterObject $params `
+-TemplateFile ./clientapp.bicep `
+-SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
+
 ---
 
 This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `targetPort` to start a server, nor is there a need to enable ingress.
