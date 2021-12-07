@@ -142,6 +142,17 @@ kubectl apply -k overlays/watch-all-namespaces
 
 ## Build application image
 
+# [with DB connection](#tab/with-sql)
+
+1. Create an Azure SQL Database
+Follow the doc to create Azure SQL Database: https://docs.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?tabs=azure-portal
+
+### add steps here
+
+add steps here
+
+# [without DB connection](#tab/without-sql)
+
 To deploy and run your Liberty application on the AKS cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
 
 1. Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
@@ -170,7 +181,13 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
      az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --file=Dockerfile-wlp .
      ```
 
+---
+
 ## Deploy application on the AKS cluster
+
+# [with DB connection](#tab/with-sql)
+
+# [without DB connection](#tab/without-sql)
 
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
@@ -208,7 +225,6 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, use `CTRL-C` to stop the `kubectl` watch process.
 
 ### Test the application
-
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
@@ -228,6 +244,8 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 >[!NOTE]
 > - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
+
+---
 
 ## Clean up the resources
 
