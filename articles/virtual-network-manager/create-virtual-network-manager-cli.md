@@ -194,7 +194,7 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
         --resource-group "myAVNMResourceGroup"
     ```
 
-1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/group#az_group_delete):
+1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/azure/group#az_group_delete):
 
     ```azurecli-interactive
     az group delete \
