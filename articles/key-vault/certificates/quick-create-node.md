@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault certificate client library for JavaScript (
 description: Learn how to create, retrieve, and delete certificates from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/29/2021
+ms.date: 12/07/2021
 ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
@@ -81,67 +81,31 @@ Create a Node.js application that uses your key vault.
     npm install @azure/identity
     ```
 
-## Create a Service principal
-
-Create a service principal and configure its access to Azure resources. Use a service principal instead of your own individual user account and password.
-
-1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
-
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
-    ```
-
-2. Make note of the command response in order to set up your Azure authentication to the Azure SDK later in this quickstart:
-
-    ```json
-    {
-      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
-      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
-      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
-      "password": "YOUR-SERVICE-PRINCIPAL-SECRET",
-      "tenant": "YOUR-TENANT-ID"
-    }
-    ```
-
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants permissions to your service principal with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create an access policy for your key vault that grants key permissions to your user account
 
 ```azurecli
-az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principal-id> --certificate-permissions delete get list update create purge
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --key-permissions delete get list create purge
 ```
 
 ## Set environment variables
 
-1. Collect the following required environment variables:
+This application is using key vault name as an environment variable called `AZURE_KEY_VAULT_URI`.
 
-    |Name|Value|
-    |--|--|
-    |AZURE_TENANT_ID|From the service principal result, YOUR-TENANT-ID.|
-    |AZURE_CLIENT_ID|From the service principal result, YOUR-SERVICE-PRINCIPAL-ID|
-    |AZURE_CLIENT_SECRET|From the service principal result, YOUR-SERVICE-PRINCIPAL-SECRET|
-    |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
+Windows
+```cmd
+set AZURE_KEY_VAULT_URI=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:AZURE_KEY_VAULT_URI="<your-key-vault-name>"
+```
 
-1. Select your command and run it four times, once for each of the keys and settings in the previous table. 
-
-    # [Windows](#tab/env-windows)
-    
-    ```cmd
-    set name=value
-    ```
-    # [Windows PowerShell](#tab/env-windows-powershell)
-    
-    ```powershell
-    $Env:name="value"
-    ```
-    # [macOS or Linux](#tab/env-mac-linux)
-    
-    ```cmd
-    export name=value
-    ```
-    
-    ---
-
+macOS or Linux
+```cmd
+export AZURE_KEY_VAULT_URI=<your-key-vault-name>
+```
 
 ## Code example
 
@@ -155,17 +119,13 @@ The code samples below will show you how to create a client, set a certificate, 
     const { CertificateClient, DefaultCertificatePolicy } = require("@azure/keyvault-certificates");
     const { DefaultAzureCredential } = require("@azure/identity");
     
-    // Load the .env file if it exists
-    const dotenv = require("dotenv");
-    dotenv.config();
-    
     async function main() {
       // If you're using MSI, DefaultAzureCredential should "just work".
       // Otherwise, DefaultAzureCredential expects the following three environment variables:
       // - AZURE_TENANT_ID: The tenant ID in Azure Active Directory
       // - AZURE_CLIENT_ID: The application (client) ID registered in the AAD tenant
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
-      const url = process.env["KEYVAULT_URI"] || "<keyvault-url>";
+      const url = process.env["AZURE_KEY_VAULT_URI"] || "<keyvault-url>";
       const credential = new DefaultAzureCredential();
     
       const client = new CertificateClient(url, credential);
