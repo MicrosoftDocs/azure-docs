@@ -11,10 +11,12 @@ ms.author: zxue
 
 # Register a client application using CLI and REST API
 
-In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, using Azure CLI and REST API support the infrastructure as code approach. This approach enables you to test and deploy resources with scripts. For more information, see [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md).
+In this article, you'll learn how to register a client application in the Azure Active Directory (Azure AD) using Azure Command-Line Interface (CLI) and REST API to access the Healthcare APIs. While you can register a client application using the Azure portal, the scripting approach enables you to test and deploy resources directly. For more information, see [Register a client application with the Azure portal](register-application.md).
+
+You can create a confidential or public client application by following the steps, including some optional steps, one by one or in a combined form. Also, you can define the variables upfront instead of placing them in the middle of the scripts. For more information, see [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/appregistrationcli.http).
 
 > [!Note] 
-> The scripts are tested in Visual Studio Code, and they're used "as is" in most cases. However, you'll need to validate them in your environment and make necessary adjustments. For example, you can run the scripts in the PowerShell environment, but you'll need to add the `$` symbol variable that's required in PowerShell.
+> The scripts are created and tested in Visual Studio Code. However, you'll need to validate them in your environment and make necessary adjustments. For example, you can run the scripts in the PowerShell environment, but you'll need to add the `$` symbol for your variables.
 
 ## Sign in to your Azure subscription
 
@@ -33,18 +35,16 @@ You can sign in to Azure using the CLI login command, and list the Azure subscri
 az login
 az account show --output table
 ```
-You can create a confidential or public client application by following the steps, including some optional steps, one by one or in a combined form. Also, you can define the variables upfront instead of placing them in the middle of the scripts. For more information, see [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/appregistrationcli.http).
-
 
 ## Create a client application
 
-You can use the CLI command to create a confidential client application registration. See the following code example, to change the display name.
+You can use the CLI command to create a confidential client application registration. You will need to change the display name "myappregtest1" in your scripts.
 
 `
 az ad app create --display-name myappregtest1
 `
 
-In practice, you'll define a few variables, assign values to them, capture the client app ID, and object ID, which are used later.
+In practice, you'll define variables, assign values to them, and set references to client app ID and object ID, which are used in subsequent steps.
 
 ```
 ### Define app registration name, etc.
@@ -56,7 +56,6 @@ objectid=$(az ad app show --id $clientid --query objectId --output tsv)
 You can use `echo $<variable name>` to display the value of a specified variable.
 
 `echo $clientid`
-
 
 ## Remove the user_impersonation scope
 
@@ -122,7 +121,7 @@ graphurl=https://graph.microsoft.com/v1.0/applications/$objectid
 az rest --method PATCH --uri $graphurl --headers 'Content-Type=application/json' --body '{"'$redirecttype'":{"redirectUris":["'$redirecturl'"]}}'
 ```
 
-For more information about iOS, macOS, and Android applications, see [github](https://github.com/Azure/azure-cli/issues/9501).
+For more information about iOS/macOS, and Android applications, see [github](https://github.com/Azure/azure-cli/issues/9501).
 
 ## Create a service principal
 
@@ -147,7 +146,7 @@ Now that you've completed the application registration using CLI and REST API, y
 
 ## Next steps
 
-In this article, you learned how to register a client application in Azure AD using CLI and REST API.  For information on how to register a client application using the Azure portal, see 
+In this article, you learned how to register a client application in Azure AD using CLI and REST API. For information on how to grant permissions for Healthcare APIs, see 
 
 >[!div class="nextstepaction"]
->[Register a client application in Azure AD](register-application.md)
+>[Configure RBAC for Healthcare APIs](configure-azure-rbac.md)
