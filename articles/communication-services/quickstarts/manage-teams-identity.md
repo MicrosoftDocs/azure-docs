@@ -69,7 +69,7 @@ The application must declare Teams.ManageCalls permission to have access to Team
 1. In the **Add Permissions** menu select **Azure Communication Services**
 1. Select the permission **Teams.ManageCalls** and click **Add permissions**
 
-![Permissions part1.](./media/active-directory-permissions.png)
+![Add Teams.ManageCalls permission to the Azure Active Directory application created in previous step](./media/active-directory-permissions.png)
 
 ### Step 4: Create or select a Communication Services resource
 
