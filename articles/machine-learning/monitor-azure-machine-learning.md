@@ -67,8 +67,34 @@ You can configure the following logs for Azure Machine Learning:
 | Category | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
-| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+| AmlComputeCpuGpuUtilization | ML services compute CPU and GPU utilizaion logs. |
+| AmlRunStatusChangedEvent | ML run status changes. |
+| ModelsChangeEvent | Events when ML model is accessed created or deleted. |
+| ModelsReadEvent | Events when ML model is read. |
+| ModelsActionEvent | Events when ML model is accessed. |
+| DeploymentReadEvent | Events when a model deployment is read. |
+| DeploymentEventACI | Events when a model deployment happens on ACI (very chatty). |
+| DeploymentEventAKS | Events when a model deployment happens on AKS (very chatty). |
+| InferencingOperationAKS | Events for inference or related operation on AKS compute type. |
+| InferencingOperationACI | Events for inference or related operation on ACI compute type. |
+| EnvironmentChangeEvent | Events when ML environment configurations are created or deleted. |
+| EnvironmentReadEvent | Events when ML environment configurations are read (very chatty). |
+| DataLabelChangeEvent | Events when data label(s) or its projects is created or deleted.  |
+| DataLabelReadEvent | Events when data label(s) or its projects is read.  |
+| ComputeInstanceEvent | Events when ML Compute Instance is accessed (very chatty). |
+| DataStoreChangeEvent | Events when ML datastore is created or deleted. |
+| DataStoreReadEvent | Events when ML datastore is read. |
+| DataSetChangeEvent | Events when ML datastore is created or deleted. |
+| DataSetReadEvent | Events when ML datastore is read.  |
+| PipelineChangeEvent | Events when ML pipeline draft or endpoint or module are created or deleted.  |
+| PipelineReadEvent | Events when ML pipeline draft or endpoint or module are read.  |
+| RunEvent | Events when ML experiments are created or deleted. |
+| RunReadEvent | Events when ML experiments are read. |
+
+> [!NOTE]
+> Effective February 2022, AmlComputeClusterNodeEvent category will be deprecated. We recommend to use AmlComputeClusterEvent instead.
 
 
 > [!NOTE]
@@ -158,12 +184,12 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     | project  ClusterName , InitialNodeCount , MaximumNodeCount , QuotaAllocated , QuotaUtilized
     ```
 
-+ Get nodes allocated in the last eight days:
++ Get the cluster node allocations in the last eight days::
 
     ```Kusto
-    AmlComputeClusterNodeEvent
-    | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
-    | distinct NodeId
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(8d) and TargetNodeCount  > CurrentNodeCount
+    | project TimeGenerated, ClusterName, CurrentNodeCount, TargetNodeCount
     ```
 
 When you connect multiple Azure Machine Learning workspaces to the same Log Analytics workspace, you can query across all resources. 
