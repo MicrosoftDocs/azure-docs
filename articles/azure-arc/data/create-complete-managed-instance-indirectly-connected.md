@@ -66,9 +66,12 @@ $ENV:AZDATA_METRICSUI_PASSWORD="<password for metrics>"
 
 ---
 
-## Access your Kubernetes cluster
+## Create and connect to your Kubernetes cluster
 
-After you install the client tools, and configure the environment variables, you need access to a Kubernetes cluster. Follow the steps below to create the cluster in the Azure portal.  
+After you install the client tools, and configure the environment variables, you need access to a Kubernetes cluster. The steps in this section deploy an cluster on Azure Kubernetes Service (AKS).
+
+
+Follow the steps below to deploy the cluster from the Azure CLI.  
 
 1. Create the resource group
 
@@ -120,6 +123,8 @@ After you install the client tools, and configure the environment variables, you
    aks-nodepool1-34164736-vmss000001   Ready    agent   4h28m   v1.20.9
    aks-nodepool1-34164736-vmss000002   Ready    agent   4h28m   v1.20.9
    ```
+
+
 
 ## Create the data controller
 
