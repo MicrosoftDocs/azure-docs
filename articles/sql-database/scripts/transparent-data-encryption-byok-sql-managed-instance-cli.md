@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Prerequisites
 
-An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed Instance](sql-database-create-configure-managed-instance-cli.md).
+An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md).
 
 ### Sign in to Azure
 

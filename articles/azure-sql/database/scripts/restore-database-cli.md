@@ -10,7 +10,7 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: carlrab
-ms.date: 03/27/2019
+ms.date: 12/07/2021
 ---
 # Use CLI to restore a single database in Azure SQL Database to an earlier point in time
 

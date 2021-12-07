@@ -22,7 +22,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Prerequisites
 
-An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL Managed Instance](sql-database-create-configure-managed-instance-cli.md).
+An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL Managed Instance](create-configure-managed-instance-cli.md) to create a pair of managed instances in different regions.
 
 ### Sign in to Azure
 
@@ -31,19 +31,8 @@ An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL
 ### Run the script
 
 ```azurepowershell-interactive
-#!/bin/bash
-$instance = "<instanceId>" # add instance here
-$targetInstance = "<targetInstanceId>" # add target instance here
-$resource = "<resourceId>" # add resource here
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/sql-managed-instance-restore-geo-backup-cli.sh "Managed Instance Geo-Restore Database")]
 
-$randomIdentifier = $(Get-Random)
-$managedDatabase = "managedDatabase-$randomIdentifier"
-
-echo "Creating $($managedDatabase) on $($instance)..."
-az sql midb create -g $resource --mi $instance -n $managedDatabase
-
-echo "Restoring $($managedDatabase) to $($targetInstance)..."
-az sql midb restore -g $resource --mi $instance -n $managedDatabase --dest-name $targetInstance --time "2018-05-20T05:34:22"
 ```
 
 ## Sample reference

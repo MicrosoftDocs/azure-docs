@@ -1191,7 +1191,7 @@
       - name: Overview of Azure SQL Managed Instance samples
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
-        href: ../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md
+        href: ../managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE) using Azure Key Vault
         href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Configure a failover group

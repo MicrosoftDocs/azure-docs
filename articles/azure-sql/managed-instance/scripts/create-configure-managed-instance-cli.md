@@ -10,7 +10,7 @@ ms.topic: sample
 author: urosmil 
 ms.author: urmilano
 ms.reviewer:  mathoma
-ms.date: 03/25/2019
+ms.date: 12/07/2021
 ---
 # Use CLI to create an Azure SQL Managed Instance
 
