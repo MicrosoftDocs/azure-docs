@@ -32,9 +32,6 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Configuration
 [!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-### Opt-in to participate in Azure Purview data access policy preview
-This functionality is currently in preview. You will need to [opt-in to Purview data access policies preview](https://aka.ms/opt-in-data-use-policy)
-
 ### Register Purview as a resource provider in other subscriptions
 Execute this step only if the Storage and Purview accounts are in different subscriptions. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide: [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
