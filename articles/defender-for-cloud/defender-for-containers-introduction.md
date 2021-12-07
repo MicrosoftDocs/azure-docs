@@ -127,11 +127,22 @@ Learn more in [Protect your Kubernetes workloads](kubernetes-workload-protection
 
 ### Scanning images in ACR registries
 
-With Defender for Containers enabled on subscriptions with Azure Container Registry registries, Defender for Cloud scans any images pulled within the last 30 days, pushed to your registry, or imported. The integrated vulnerability scanner is provided by the industry-leading vulnerability scanning vendor, Qualys.
+Defender for Containers includes an integrated vulnerability scanner for scanning images in Azure Container Registry registries.
 
-When issues are found – by Qualys or Defender for Cloud – you'll get notified in the [Workload protections dashboard](workload-protections-dashboard.md). For every vulnerability, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. For details of Defender for Cloud's recommendations for containers, see the [reference list of recommendations](recommendations-reference.md#recs-compute).
+There are three triggers for an image scan:
+
+- **On push** - Whenever an image is pushed to your registry, Defender for container registries automatically scans that image. To trigger the scan of an image, push it to your repository.
+
+- **Recently pulled** - Since new vulnerabilities are discovered every day, **Microsoft Defender for container registries** also scans, on a weekly basis, any image that has been pulled within the last 30 days. There's no additional charge for these rescans; as mentioned above, you're billed once per image.
+
+- **On import** - Azure Container Registry has import tools to bring images to your registry from Docker Hub, Microsoft Container Registry, or another Azure container registry. **Microsoft Defender for container registries** scans any supported images you import. Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+ 
+The scan typically completes within 2 minutes, but it might take up to 40 minutes. For every vulnerability identified, Defender for Cloud provides actionable recommendations, along with a severity classification, and guidance for how to remediate the issue. 
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
+
+:::image type="content" source="./media/azure-container-registry-integration/container-security-acr-page.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image." lightbox="./media/azure-container-registry-integration/container-security-acr-page.png":::
+
 
 ### Scanning images at runtime
 

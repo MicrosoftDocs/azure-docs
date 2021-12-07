@@ -216,10 +216,10 @@
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
-    - name: Overview of Defender for Kubernetes (deprecated)
+    - name: Defender for Kubernetes (deprecated)
       displayName: clusters, k8s, aks
       href: defender-for-kubernetes-introduction.md
-    - name: Overview of Defender for container registries (deprecated)
+    - name: Defender for container registries (deprecated)
       displayName: ACR, registry, images
       href: defender-for-container-registries-introduction.md
     - name: Scan your registry images for vulnerabilities
