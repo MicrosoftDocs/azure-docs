@@ -18,10 +18,10 @@ ms.reviewer: cynthn
 This article attempts to list recent common issues and their solutions when using the [H-series](../../sizes-hpc.md) and [N-series](../../sizes-gpu.md) HPC and GPU VMs.
 
 ## Memory Capacity on Standard_HB120rs_v2
-As of the week of December 6th, 2021 we are temporarily reducing the amount of memory (RAM) exposed to the Standard_HB120rs_v2 VM size, otherwise known as [HBv2](../../hbv2-series.md). We are reducing the memory footprint to 432 GB from its current value of 448 GB (a 3.5% reduction). This reduction is temporary and the full memory capacity should be restored in early 2022. We are making this change to ensure to address an issue that can result in long VM deployment times or VM deployments for which not all devices function correctly. Note that the reduction in memory capacity does not affect VM performance. 
+As of the week of December 6, 2021 we are temporarily reducing the amount of memory (RAM) exposed to the Standard_HB120rs_v2 VM size, otherwise known as [HBv2](../../hbv2-series.md). We are reducing the memory footprint to 432 GB from its current value of 448 GB (a 3.5% reduction). This reduction is temporary and the full memory capacity should be restored in early 2022. We are making this change to ensure to address an issue that can result in long VM deployment times or VM deployments for which not all devices function correctly. Note that the reduction in memory capacity does not affect VM performance. 
 
 ## Cache topology on Standard_HB120rs_v3
-`lstopo` displays incorrect cache topology on the Standard_HB120rs_v3 VM size. It may display that there’s only 32 MB L3 per NUMA. However in practice there is indeed 120 MB L3 per NUMA as expected since the same 480 MB of L3 to the entire VM is available as with the other constrained-core HBv3 VM sizes. This is a cosmetic error in displaying the correct value which should not impact workloads.
+`lstopo` displays incorrect cache topology on the Standard_HB120rs_v3 VM size. It may display that there’s only 32 MB L3 per NUMA. However in practice there is indeed 120 MB L3 per NUMA as expected since the same 480 MB of L3 to the entire VM is available as with the other constrained-core HBv3 VM sizes. This is a cosmetic error in displaying the correct value, which should not impact workloads.
 
 ## qp0 Access Restriction
 To prevent low-level hardware access that can result in security vulnerabilities, Queue Pair 0 is not accessible to guest VMs. This should only affect actions typically associated with administration of the ConnectX InfiniBand NIC, and running some InfiniBand diagnostics like ibdiagnet, but not end-user applications.
@@ -50,7 +50,7 @@ More details on this are available on this [TechCommunity article](https://techc
 
 ## InfiniBand driver installation on non-SR-IOV VMs
 
-Currently H16r, H16mr and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](../../sizes-hpc.md#rdma-capable-instances).
+Currently H16r, H16mr, and NC24r are not SR-IOV enabled. For more information on the InfiniBand stack bifurcation, see [Azure VM sizes - HPC](../../sizes-hpc.md#rdma-capable-instances).
 InfiniBand can be configured on the SR-IOV enabled VM sizes with the OFED drivers while the non-SR-IOV VM sizes require ND drivers. This IB support is available appropriately for [CentOS, RHEL, and Ubuntu](configure.md).
 
 ## Duplicate MAC with cloud-init with Ubuntu on H-series and N-series VMs
