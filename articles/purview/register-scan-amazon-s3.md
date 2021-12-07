@@ -6,7 +6,7 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 12/07/2021
 ms.custom: references_regions
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon S3 service to set up, configure, and scan my Amazon S3 buckets.
 ---
@@ -516,6 +516,53 @@ Make sure to define your resource with a wildcard. For example:
     ]
 }
 ```
+
+## Troubleshooting
+
+Scanning Amazon S3 resources requires [creating a role in AWS IAM](#create-a-new-aws-role-for-purview) to allow the Purview scanner service running in Microsoft account in AWS to read the data.
+
+Configuration errors in the role can lead to connection failure. This section describes some connection test errors that may appear while setting up the scan, and the troubleshooting guidelines for each case.
+
+If all of the items described in the following sections are properly configured, and scanning S3 buckets still fails with errors, contact Microsoft support.
+
+### Bucket is encrypted with KMS
+
+Make sure that the AWS role has **KMS Decrypt** permissions. For more information, see [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets).
+
+### AWS role is missing an external ID
+
+Make sure that the AWS role has the correct external ID:
+
+1. In the AWS IAM area, select the **Role > Trust relationships** tab.
+1. Follow the steps in [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview) again to verify your details.
+
+### Error found with the role ARN
+
+This is a general error that indicates an issue when using the Role ARN. Troubleshoot as follows:
+
+- Make sure that the AWS role has the required permissions to read the selected S3 bucket.  Required permissions include `AmazonS3ReadOnlyAccess` or the [minimum read permissions](#minimum-permissions-for-your-aws-policy), and `KMS Decrypt` for encrypted buckets.
+
+- Make sure that the AWS role has the correct Microsoft account ID. In the AWS IAM area, select the **Role > Trust relationships** tab and then follow the steps in [Create a new AWS role for Purview](#create-a-new-aws-role-for-purview) again to verify your details.
+
+### Cannot find the specified bucket
+
+Make sure that the S3 bucket URL is properly defined:
+
+1. In AWS, navigate to your S3 bucket, and copy the bucket name.
+1. In Purview, edit the Amazon S3 data source, and update the bucket URL to include your copied bucket name, using the following syntax: `s3://<BucketName>`
+
+### Check Bucket Policy
+
+Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
+
+1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > **Bucket policy**.
+1. Check the policy details to make sure that it doesn't block the connection from the Purview scanner service.
+
+### SCP policy issues
+
+Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. For example, an SCP policy blocks read API calls from the [AWS scanning region](#storage-and-scanning-regions).
+
+Follow the [SCP documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html), review your organization’s SCP policies, and make sure all the [permissions required for the Purview scanner](#create-a-new-aws-role-for-purview) are available.
 
 ## Next steps
 
