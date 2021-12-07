@@ -19,6 +19,33 @@ You can work directly inside of the Power Query mash-up editor to perform intera
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4MFYn]
 
+## Create a Power Query activity with UI
+
+To use a Power Query activity in a pipeline, complete the following steps:
+
+1. Search for _Power Query_ in the pipeline Activities pane, and drag a Power Query activity to the pipeline canvas.
+1. Select the new Power Query activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-power-query-activity/power-query-activity-settings.png" alt-text="Shows the UI for the &nbsp;Settings&nbsp; tab of a Power Query activity.":::
+
+1. Select an existing Power Query and select Open, or select the New button to create a new Power Query, opening the Power Query editor.
+  
+1. Select an existing dataset or select New to define a new one.  Use the rich features of Power Query directly within the pipeline editing experience to transform the dataset however you require.  You can add multiple queries from multiple datasets in the editor and use them subsequently.
+
+   :::image type="content" source="media/control-flow-power-query-activity/power-query-editor.png" alt-text="Shows the Power Query editor.":::
+
+1. After defining one or more Power Queries in the prior step, you can also designate sink locations for any/all/none of them, on the Sink tab for the Power Query activity. 
+
+   :::image type="content" source="media/control-flow-power-query-activity/power-query-activity-sink.png" alt-text="Shows the Sink tab of the Power Query activity.":::
+
+1. You can also use the output of your Power Query activity as inputs to other activities.  Here is an example of a For Each activity that references the output of the previously defined Power Query for its Items property.  Its Items support dynamic content, where you can reference any outputs from the Power Query used as its input.
+
+   :::image type="content" source="media/control-flow-power-query-activity/for-each-activity-using-power-query-output.png" alt-text="Shows the ForEach Activity's Settings tab with &nbsp;Add dynamic content&nbsp; link for the Items property.":::
+
+1. Any activity outputs are displayed and can be used when defining your dynamic content by selecting them in the **Add dynamic content** pane.
+
+   :::image type="content" source="media/control-flow-power-query-activity/using-power-query-output-in-dynamic-content.png" alt-text="Shows the &nbsp;Add dynamic content&nbsp; pane referencing the Power Query defined above.":::
+
 ## Translation to data flow script
 
 To achieve scale with your Power Query activity, Azure Data Factory translates your ```M``` script into a data flow script so that you can execute your Power Query at scale using the Azure Data Factory data flow Spark environment. Author your wrangling data flow using code-free data preparation. For the list of available functions, see [transformation functions](wrangling-functions.md).
