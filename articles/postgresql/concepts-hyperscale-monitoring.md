@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 12/06/2021
 ---
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -72,3 +72,4 @@ multiple nodes can be placed on the same graph.
 - Learn how to do [metric
   splitting](../azure-monitor/essentials/metrics-charts.md#metric-splitting) to
   inspect metrics per node in a server group.
+- See other measures of database health with [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).

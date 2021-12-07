@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 1/5/2021
+ms.date: 12/06/2021
 ---
 
 # Determine table and relation size
@@ -93,3 +93,4 @@ Output:
 
 * Learn to [scale a server group](howto-hyperscale-scale-grow.md) to hold more data.
 * Distinguish [table types](concepts-hyperscale-nodes.md) in a Hyperscale (Citus) server group.
+* See other [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).
