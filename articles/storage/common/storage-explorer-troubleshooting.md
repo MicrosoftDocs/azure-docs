@@ -196,7 +196,7 @@ If you continue to have issues after you do a reset, try these steps:
 
 1. Open Storage Explorer.
 1. Remove all accounts and then close Storage Explorer.
-1. Delete the *.IdentityService* folder from your machine. On Windows, the folder is located at *C:\users\\<username\>AppData\Local*. For Mac and Linux, you can find the folder at the root of your user directory.
+1. Delete the *.IdentityService* folder from your machine. On Windows, the folder is located at *C:\users\\<username\>\AppData\Local*. For Mac and Linux, you can find the folder at the root of your user directory.
 1. If you're running Mac or Linux, you also need to delete the Microsoft.Developer.IdentityService entry from your operating system's keystore. On the Mac, the keystore is the Gnome Keychain application. In Linux, the application is typically called *Keyring*, but the name might differ depending on your distribution.
 1. Restart Storage Explorer and try to sign in again.
 
@@ -515,7 +515,7 @@ Logs are split into folders for each session of Storage Explorer that you run. F
 
 For issues related to sign-in or Storage Explorer's authentication library, you'll most likely need to gather authentication logs. Authentication logs are stored at:
 
-- Windows: *C:\Users\\<your username\>AppData\Local\Temp\servicehub\logs*
+- Windows: *C:\Users\\<your username\>\AppData\Local\Temp\servicehub\logs*
 - macOS and Linux: *~/.ServiceHub/logs*
 
 Generally, you can follow these steps to gather the logs:
@@ -534,7 +534,7 @@ If you're having trouble transferring data, you might need to get the AzCopy log
 - For failed transfers still in the Activity Log, select **Go to AzCopy Log File**.
 - For transfers that failed in the past, go to the AzCopy logs folder. This folder can be found at:
 
-  - Windows: *C:\Users\\<your username\>.azcopy*
+  - Windows: *C:\Users\\<your username\>\.azcopy*
   - macOS and Linux: *~/.azcopy*
 
 ### Network logs
@@ -561,7 +561,7 @@ For some issues, you'll need to provide logs of the network calls made by Storag
 1. In the export wizard, choose the following options:
 
     - Base-64 encoded X.509.
-    - For file name, browse to *C:\Users\\<your user dir\>AppData\Roaming\StorageExplorer\certs*. Then you can save it as any file name.
+    - For file name, browse to *C:\Users\\<your user dir\>\AppData\Roaming\StorageExplorer\certs*. Then you can save it as any file name.
 
 1. Close the certificate window.
 1. Start Storage Explorer.
