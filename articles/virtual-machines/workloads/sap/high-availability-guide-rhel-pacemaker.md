@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 08/26/2021
+ms.date: 12/07/2021
 ms.author: radeltch
 
 ---
@@ -35,7 +35,9 @@ ms.author: radeltch
 
 [virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
+The article describes how to configure basic Pacemaker cluster on Red Hat Enterprise Server(RHEL). The instructions cover both RHEL 7 and RHEL 8.   
 
+## Prerequisites
 Read the following SAP Notes and papers first:
 
 * SAP Note [1928533], which has:
@@ -75,9 +77,9 @@ Read the following SAP Notes and papers first:
 > Red Hat doesn't support software-emulated watchdog. Red Hat doesn't support SBD on cloud platforms. For details see [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691).
 > The only supported fencing mechanism for Pacemaker Red Hat Enterprise Linux clusters on Azure, is Azure fence agent.  
 
-The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2.
+The following items are prefixed with either **[A]** - applicable to all nodes, **[1]** - only applicable to node 1 or **[2]** - only applicable to node 2. Differences in the commands or the configuration between RHEL 7 and RHEL 8 are marked in the document.
 
-1. **[A]** Register. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Register - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
    Register your virtual machines and attach it to a pool that contains repositories for RHEL 7.
 
@@ -89,9 +91,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    By attaching a pool to an Azure Marketplace PAYG RHEL image, you will be effectively double-billed for your RHEL usage: once for the PAYG image, and once for the RHEL entitlement in the pool you attach. To mitigate this, Azure now provides BYOS RHEL images. For more information, see [Red Hat Enterprise Linux bring-your-own-subscription Azure images](../redhat/byos.md).
 
-1. **[A]** Enable RHEL for SAP repos. This step is not required, if using RHEL SAP HA-enabled images.  
+1. **[A]** Enable RHEL for SAP repos - optional step. This step is not required, if using RHEL SAP HA-enabled images.  
 
-   In order to install the required packages, enable the following repositories.
+   In order to install the required packages on RHEL 7, enable the following repositories.
 
    <pre><code>sudo subscription-manager repos --disable "*"
    sudo subscription-manager repos --enable=rhel-7-server-rpms
