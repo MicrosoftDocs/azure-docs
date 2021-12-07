@@ -180,7 +180,7 @@ items:
         href: vm/monitor-virtual-machine-alerts.md
       - name: Monitor workloads
         href: vm/monitor-virtual-machine-workloads.md
-        displayName: VM
+      displayName: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
   - name: Manage and configure
@@ -575,7 +575,7 @@ items:
         href: ../service-health/alerts-activity-log-service-notifications-portal.md
     - name: Notifications and actions
       items:
-      - name: Action rules (Preview)
+      - name: Alert Processing Rules (Preview)
         href: alerts/alerts-action-rules.md
         displayName: Azure CLI, az monitor action rule
       - name: Create action group
