@@ -167,11 +167,11 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 - Number of messages sent (20 + 30 + 18 + 30 + 25 + 35) x $0.0008 = $0.1264
 
 
-## Telephony and SMS
+## Telephony
 
 ## Price
 
-Telephony services are priced on a per-minute basis, while SMS is priced on a per-message basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls and SMS messages.
+Telephony services are priced on a per-minute basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls.
 
 ### Telephone number leasing
 
@@ -209,12 +209,7 @@ The following prices include required communications taxes and fees:
 |France     |Starting at $0.016/min   |
 
 
-### SMS
+## Next Steps
+The following documents may be interesting to you:
 
-SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
-
-The following prices include required communications taxes and fees:
-
-|Country   |Send messages|Receive messages|
-|-----------|------------|------------|
-|USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |
+- [SMS Pricing](./sms-pricing.md)

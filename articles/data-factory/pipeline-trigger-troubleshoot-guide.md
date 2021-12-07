@@ -3,7 +3,7 @@ title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
 ms.service: data-factory
-ms.date: 11/17/2021
+ms.date: 11/22/2021
 ms.subservice: troubleshooting
 ms.topic: troubleshooting
 ms.author: susabat
@@ -262,7 +262,7 @@ You have not optimized mapping data flow.
 
 **Cause**
 
-Failure type is user configuration issue. String of parameters, instead of Array, is passed to to child pipeline.
+Failure type is user configuration issue. String of parameters, instead of Array, is passed to the child pipeline.
 
 **Resolution**
 

@@ -4,8 +4,8 @@ description: "This article indexes various time points in our 81 minutes video a
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 
 ms.reviewer: 
 ms.custom: sqldbrb=1
