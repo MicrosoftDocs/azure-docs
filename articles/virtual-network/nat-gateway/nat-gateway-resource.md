@@ -1,5 +1,5 @@
 ---
-title: Designing virtual networks with NAT gateway resources
+title: Designing virtual networks with NAT gateway
 titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks that use Network Address Translation (NAT) gateway resources.
 services: virtual-network
@@ -17,9 +17,9 @@ ms.date: 11/11/2021
 ms.author: allensu
 ---
 
-# Designing virtual networks with NAT gateway resources
+# Designing virtual networks with NAT gateway
 
-NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and provide outbound internet connectivity for one or more subnets of a virtual network. The subnet of the virtual network states which NAT gateway will be used. NAT provides source network address translation (SNAT) for a subnet. NAT gateway resources specify which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources (PIP), public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway resource. A NAT gateway resource can use a total of up to 16 static IP addresses from either.
+NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
@@ -31,9 +31,9 @@ NAT gateway resources are part of [Virtual Network NAT](nat-overview.md) and pro
 
 Configuring and using NAT gateway is intentionally made simple:
 
-NAT gateway resource:
+NAT gateway:
 
-- Create a regional (in a zone, undeclared) or zonal (zone specified) NAT gateway resource.
+- Create a non-zonal or zonal NAT gateway.
 - Assign a public IP address and/or public IP prefix.
 - If necessary, modify TCP idle timeout (optional). Review [timers](#timers) before you change the default.
 
@@ -49,9 +49,9 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Connecting to Azure services
 
-When connecting to Azure services, the recommended approach is to leverage [Private Link](../../private-link/private-link-overview.md). 
+When connecting to Azure services from your privante network, the recommended approach is to leverage [Private Link](../../private-link/private-link-overview.md). 
 
-Private Link ties Azure resources to your virtual network and control access to your Azure service resources. For example, when you access Azure Storage, use a private endpoint for storage to ensure your connection is fully private.
+Private Link enables you to access services in Azure from your private network without the use of a public IP address but instead with a private endpoint. Connecting to these services over the internet are not necessary as they are handled over the Azure backbone network. For example, when you access Azure Storage, you can use a private endpoint to ensure your connection is fully private.
 
 ### Connecting to the internet
 
@@ -108,7 +108,7 @@ A network security group allows you to filter inbound and outbound traffic to an
 
 To learn more about NSG flow logs, see [NSG Flow Log Overview](/azure/network-watcher/network-watcher-nsg-flow-logging-overview).
 
-For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
+For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](/azure/network-watcher/network-watcher-nsg-flow-logging-overview#enabling-nsg-flow-logs).
 
 ## Performance
 
@@ -192,14 +192,14 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Scaling
 
-Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway resource. You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory. 
+Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory. 
 
 > [!NOTE]
 > If you assign a public IP prefix resource, the entire public IP prefix is used. You can't assign a public IP prefix resource and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses from the public IP prefix resource and assign them as needed instead of using the public IP prefix resource itself.
 
-SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway resource uses 64,000 ports (SNAT ports) per configured public IP address for this translation. NAT gateway resources can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway resources.
+SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway uses 64,000 ports (SNAT ports) per configured public IP address for this translation. A single NAT gateway can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
 
-NAT gateway resources opportunistically reuse source (SNAT) ports. When you design scaling, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
+NAT gateway opportunistically reuses source (SNAT) ports. When you design scaling, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
 
 SNAT ports set to different destinations will most likely be reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
 
@@ -207,7 +207,7 @@ For a SNAT example, see [SNAT fundamentals](#source-network-address-translation)
 
 ### Protocols
 
-NAT gateway resources interact with IP and IP transport headers of UDP and TCP flows. NAT gateway resources are agnostic to application layer payloads. Other IP protocols aren't supported.
+NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT gateway is agnostic to application layer payloads. Other IP protocols aren't supported.
 
 ### Timers
 
@@ -220,7 +220,7 @@ The following timers indicate how long a connection is maintained before closing
 | TCP FIN | Occurs when the private side of NAT initiates termination of a TCP connection. A timer is set after the FIN packet is sent by the public endpoint. This timer allows the private endpoint time to resend an ACK (acknowledgement) packet should it be lost. Once the timer ends, the connection is closed. | 60 seconds |
 | TCP RST | Occurs when the private side of NAT sends a RST (reset) packet in an attempt to communicate on the TCP connection. If the RST packet is not received by the public side of NAT, or the RST packet is returned to the private endpoint, the connection will timeout and close. The public side of NAT doesn't generate TCP RST packets or any other traffic. | 10 seconds |
 | TCP half open | Occurs when the public endpoint is waiting for acknowledgement from the private endpoint that the connection between the two is fully bidirectional. | 30 seconds |
-| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to timeout a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | 4 minutes (default) - 120 minutes |
+| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to timeout a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
 
 > [!NOTE]
 > These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
@@ -241,5 +241,5 @@ Here are some design recommendations for configuring timers:
 ## Next steps
 
 - Review [virtual network NAT](nat-overview.md).
-- Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
-- Learn how to [troubleshoot NAT gateway resources](troubleshoot-nat.md).
+- Learn about [metrics and alerts for NAT gateway](nat-metrics.md).
+- Learn how to [troubleshoot NAT gateway](troubleshoot-nat.md).
