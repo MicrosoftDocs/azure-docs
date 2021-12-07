@@ -31,6 +31,11 @@ In this tutorial you will learn how to:
 
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 * The [connection string for an IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
+* If you used the [Simulator agent tutorial](device-update-simulator.md) for testing prior to this, run the below command to invoke the APT handler and can deploy over-the-air Package Updates in this tutorial.
+
+```sh
+# sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+```
 
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
