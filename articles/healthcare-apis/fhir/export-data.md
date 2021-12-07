@@ -146,4 +146,4 @@ In this article, you've learned how to export FHIR resources using the $export c
 >[Export de-identified data](de-identified-export.md)
 
 >[!div class="nextstepaction"]
->[Move to Synapse](move-to-synapse.md)
+>[Export to Synapse](move-to-synapse.md)
