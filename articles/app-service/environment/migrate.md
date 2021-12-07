@@ -18,9 +18,11 @@ App Service can now migrate your App Service Environment (ASE) v2 to an [App Ser
 
 At this time, ASE migrations to v3 are supported for both [Internal Load Balancer (ILB)](create-ilb-ase.md) and [external (internet facing with public IP)](create-external-ase.md) ASEv2 in the following regions:
 
-- region1
-- region2
-- region3
+- Central US EUAP
+- East US 2 EUAP
+- Canada Central
+- Canada East
+- UK South
 
 You can find the version of your ASE by navigating to your ASE in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your ASE.
 
@@ -94,9 +96,7 @@ There's no cost to migrate your ASE. You'll stop being charged for your previous
 
 ## Migration tool limitations
 
-The following scenarios aren't planned for support using the migration tool. If your environment falls into one of these categories, see [migration alternatives](migration-alternatives.md).
-
-- ASEv1 with classic VNet
+The migration tool doesn't plan on supporting ASEv1 within a classic VNet. See [migration alternatives](migration-alternatives.md) if your ASE falls into this category.
 
 ## Frequently asked questions
 

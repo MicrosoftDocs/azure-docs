@@ -104,10 +104,6 @@ Get the details of your new environment by running the following command or by n
 az appservice ase show --name $ASE_NAME --resource group $ASE_RG
 ```
 
-## Troubleshooting
-
-If you experience any issues during the migration process, support teams will be available...
-
 ## Next steps
 
 > [!div class="nextstepaction"]
