@@ -66,6 +66,8 @@ If you create your job using the Classic method, you see one of the following jo
 | Closed | After all drives are shipped back to you, if there were any errors during the job processing, the job is set to **Closed**. The job is automatically deleted after 90 days in the **Closed** state. |
 | Canceled                          | The job has been canceled. |
 
+---
+
 ## View drive status
 
 XXX
