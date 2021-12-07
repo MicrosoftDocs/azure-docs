@@ -353,24 +353,25 @@ Use the `identity_type` argument to enable `SystemAssigned` or `UserAssigned` ma
 > `--user-assigned-identities` is only required for `UserAssigned` managed identities. Although you can provide a list of comma-separated user managed identities, only the first one is used when you attach your cluster.
 
 ## Troubleshoot & Debug
-#### Azure Arc setup related issues
+
+### Azure Arc setup related issues
 - [Prerequisites for Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#prerequisites)
 - [Azure Arc-enabled Kubernetes Troubleshooting](../azure-arc/kubernetes/troubleshooting.md)
 
-#### Azure Resource Creation Failure
+### Azure Resource Creation Failure
 An Azure Relay and a Service Bus are created while installing extensions, therefore the subscription should be registered as these [resource providers](../azure/azure-resource-manager/management/resource-providers-and-types) and be granted with the permission to create these resources.
 Check all registered providers
 ```azurecli
 az provider list
 ```
 
-#### Check whether the extension is installed properly
+### Check whether the extension is installed properly
 You can check the extension status in thee Azure portal.
 
 ![Arc Extensions](./media/how-to-attach-arc-kubernetes/arc-extensions.png)
 
 
-#### The extension installation is pending
+### The extension installation is pending
 ```azurecli
 kubectl get extensionconfigs -A
 ```
@@ -381,9 +382,9 @@ You should see something like this:
 Otherwise, something must be wrong with the Azure Arc components, please check the [Azure Arc agents](../azure-arc/kubernetes/troubleshooting.md#azure-arc-agents).
 
 #### The extension installation failure
-1 [Connect to your cluster](../azure-arc/kubernetes/cluster-connect.md#access-your-cluster)
+1. [Connect to your cluster](../azure-arc/kubernetes/cluster-connect.md#access-your-cluster)
 
-2 Check the extension status and error logs
+2. Check the extension status and error logs
 ```azurecli
 kubectl get extensionconfigs.clusterconfig.azure.com -A -o yaml
 ```
@@ -391,19 +392,35 @@ kubectl get extensionconfigs.clusterconfig.azure.com -A -o yaml
 kubectl logs -lcontrol-plane=extension-manager -n azure-arc -c manager
 ```
 
-3 Common issues:
+3. Common issues:
  
- Pod security policy violation
+   Pod security policy violation
     
-   - [Change the policy accordingly](https://kubernetes.io/docs/concepts/policy/pod-security-policy)
+     - [Change the policy accordingly](https://kubernetes.io/docs/concepts/policy/pod-security-policy)
  
- A certain pod is not running
+   A certain pod is not running
  
- ```azurecli
- kubectl describe pod <pod_name> -n <namespace>
- ```
+   ```azurecli
+   kubectl describe pod <pod_name> -n <namespace>
+   ```
      
- Helm installation failure  
+   Rendered manifests contain a resource that already exists. Unable to continue with install:
+
+   You can either disable the installation of the conflict component by setting the corresponding flags or remove the the conflict component from your cluster.
+
+    Turn off nvidia device plugin:
+    ```azurecli
+    az k8s-extension create  -g <resource group> -c kind --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installNvidiaDevicePlugin=false
+    ```
+
+    Turn off blobfuse flexvol plugin:
+    ```azurecli
+    az k8s-extension create  -g <resource group> -c kind --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installBlobfuseFlexvol=false
+    ```
+
+
+
+
 
 
 ---
