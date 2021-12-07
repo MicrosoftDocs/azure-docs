@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/06/2021
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
@@ -23,6 +23,7 @@ The following table provides a high-level features and capabilities comparisons 
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
+| Uptime SLA | [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_1/)| [SLA](https://azure.microsoft.com/support/legal/sla/postgresql/v1_2/) |
 | **Connectivity** | | |
 | Username in connection string | `<user_name>@server_name`. For example, `pgadmusr@mypgServer` | Just username. For example, `pgadmusr` | 
 | lc_collate  | English_United States.1252 | en_US.utf8 |
