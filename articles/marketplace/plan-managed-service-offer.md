@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
-ms.date: 12/23/2020
+ms.date: 12/06/2021
 ---
 
 # Plan a Managed Service offer

@@ -175,7 +175,6 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
