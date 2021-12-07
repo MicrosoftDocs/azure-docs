@@ -126,7 +126,7 @@ HTTP sessions are application layer sessions that utilize TCP/IP as the underlyi
 
 The following ASIM Network Session schema have specific guidelines when used for a Web Session event:
 - The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
-- The field [EventResultOriginalDetails](#eventresultoriginaldetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails) 
+- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails) 
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
@@ -159,11 +159,11 @@ The following are additional fields that are specific to web sessions:
 | **FileSHA256** | Optional | SHA256 | For HTTP uploads, the SHA256 hash of the uploaded file.<br><br>Example:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
 | **FileSHA512** | Optional | SHA512 | For HTTP uploads, the SHA512 hash of the uploaded file. |
 | <a name="hash"></a>**Hash** | Alias || Alias to the available Hash field. | 
-| **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, 'SHA256`, and `SHA512`. |
+| **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, 'SHA256`, and`SHA512`. |
 | **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
-| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
-| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `23` |
+| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
+| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example:`23`|
 | **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber` |
 | **ThreatId** | Optional | String | The ID of the threat or malware identified in the Web session.<br><br>Example: `Tr.124` |
 | **ThreatName** | Optional | String | The name of the threat or malware identified in the Web session.<br><br>Example: `EICAR Test File` |
