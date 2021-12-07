@@ -25,9 +25,9 @@ A test configuration uses the following keys:
 | Key | Type | Description | 
 | ----- | ----- | ----- | 
 | `version` | string | Version of the YAML configuration file that the service uses. Currently, the only valid value is `v0.1`. |
-| `testName` | string | (*Required*) Name of the test to run. The results of various test runs will be collected under this test name in the Azure portal. |
-| `testPlan` | string | (*Required*) Relative path to the Apache JMeter test script to run. |
-| `engineInstances` | integer | (*Required*) Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
+| `testName` | string | *Required*. Name of the test to run. The results of various test runs will be collected under this test name in the Azure portal. |
+| `testPlan` | string | *Required*. Relative path to the Apache JMeter test script to run. |
+| `engineInstances` | integer | *Required*. Number of parallel instances of the test engine to execute the provided test plan. You can update this property to increase the amount of load that the service can generate. |
 | `configurationFiles` | array | List of relevant configuration files, which are references from the Apache JMeter script. By default, the wildcard `*.csv` is generated to reference all *.csv* files in the test plan's folder. |
 | `description` | string | Short description of the test run. |
 | `failureCriteria` | object | Criteria that indicate failure of the test. Each criterion is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- `[Aggregate function] ([client_metric])` is either `avg(response_time_ms)` or `percentage(error).`<BR>- `value` is an integer number. |
