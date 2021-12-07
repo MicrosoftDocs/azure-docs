@@ -502,7 +502,7 @@ $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -Storag
 
 # [CLI](#tab/cli)
 
-Use the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set?view=azure-cli-latest) to be used for encrypting the restored disk.
+Use the [az backup restore restore-disks](/cli/azure/backup/restore#az_backup_restore_restore_disks) command with the parameter [`-DiskEncryptionSetId <string>`] to [specify the DES](/cli/azure/disk-encryption-set) to be used for encrypting the restored disk.
 
 Example:
 
