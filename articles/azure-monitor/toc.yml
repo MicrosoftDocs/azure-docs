@@ -338,8 +338,6 @@ items:
               href: logs/api/prefer-options.md
           - name: Errors
             href: logs/api/errors.md
-        - name: Tools
-          href: logs/api/tools.md
       - name: Data export
         items:
         - name: Workspace data export
