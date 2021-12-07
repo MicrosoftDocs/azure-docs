@@ -14,7 +14,7 @@ This article explains how to configure common settings for web apps, mobile back
 
 ## Configure app settings
 
-In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. In either case, they're injected into your app environment at app startup. When you add, remove, or edit app settings, App Service triggers an app restart. App setting names can't contain periods (`.`). If an app setting contains a period, the period is replaced with an underscore in the container.
 
 In the [Azure portal], search for and select **App Services**, and then select your app. 
 
@@ -190,7 +190,7 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
@@ -257,7 +257,7 @@ You can [add custom storage for your containerized app](configure-connect-to-azu
 - **Storage accounts**: The storage account with the container you want.
 - **Storage type**: **Azure Blobs** or **Azure Files**.
   > [!NOTE]
-  > Windows container apps only support Azure Files.
+  > Windows custom containers only support Azure Files.
 - **Storage container**: For basic configuration, the container you want.
 - **Share name**: For advanced configuration, the file share name.
 - **Access key**: For advanced configuration, the access key.
@@ -280,6 +280,7 @@ See [Configure a custom Linux container for Azure App Service](configure-custom-
 
 ## Next steps
 
+- [Environment variables and app settings reference](reference-app-settings.md)
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
 - [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)

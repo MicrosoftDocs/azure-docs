@@ -45,7 +45,7 @@ items:
     href: connected-cache-configure.md
   - name: Device update importing
     href: import-concepts.md
-  - name: Import-related schema
+  - name: Import-related schema and API details
     href: import-schema.md
   - name: Device Update limits
     href: device-update-limits.md
@@ -108,10 +108,8 @@ items:
       href: /microsoft-iot-central/
     - name: IoT Edge
       href: ../iot-edge/index.yml
-    - name: IoT solution accelerators
-      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

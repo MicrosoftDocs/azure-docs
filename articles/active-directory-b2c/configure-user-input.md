@@ -3,15 +3,15 @@ title: Add user attributes and customize user input
 titleSuffix: Azure AD B2C
 description: Learn how to customize user input and add user attributes to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/03/2021
+ms.date: 10/22/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -32,6 +32,10 @@ In this article, you collect a new attribute during your sign-up journey in Azur
 
 ## Add user attributes your user flow
 
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Under  **Azure services**, select  **Azure AD B2C**. Or use the search box to find and select  **Azure AD B2C**.
 1. In your Azure AD B2C tenant, select **User flows**.
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. Select **User attributes** and then select the user attribute (for example, "City"). 
@@ -63,7 +67,7 @@ To provide a set list of values for the city attribute:
 1. [Enable language customization on the user flow](language-customization.md#support-requested-languages-for-ui_locales)
 1. Select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. On the **Languages** page for the user flow, select the language that you want to customize.
-1. Under **Page-level-resources files**, select **Local account sign up page**.
+1. Under **Page-level resources files**, select **Local account sign up page**.
 1. Select **Download defaults** (or **Download overrides** if you have previously edited this language).
 1. Create a `LocalizedCollections` attribute.
 
@@ -107,7 +111,7 @@ The `LocalizedCollections` is an array of `Name` and `Value` pairs. The order fo
 1. Select **User flows** and select your policy (for example, "B2C_1_SignupSignin") to open it.
 1. Select **Languages**.
 1. Select the language that you want to translate to.
-1. Select the **Local account sign up page**.
+1. Under **Page-level-resources files**, select **Local account sign up page**.
 1. Select the folder icon, and select the JSON file to upload. The changes are saved to your user flow automatically.
 
 ## Test your user flow
@@ -156,7 +160,7 @@ Open the extensions file of your policy. For example, <em>`SocialAndLocalAccount
       <UserInputType>DropdownSingleSelect</UserInputType>
       <Restriction>
         <Enumeration Text="Berlin" Value="berlin" />
-        <Enumeration Text="London" Value="bondon" />
+        <Enumeration Text="London" Value="london" />
         <Enumeration Text="Seattle" Value="seattle" />
       </Restriction>
     </ClaimType>
@@ -170,7 +174,7 @@ Include the [SelectByDefault](claimsschema.md#enumeration) attribute on an `Enum
 ```xml
 <Restriction>
   <Enumeration Text="Berlin" Value="berlin" />
-  <Enumeration Text="London" Value="bondon" SelectByDefault="true" />
+  <Enumeration Text="London" Value="london" SelectByDefault="true" />
   <Enumeration Text="Seattle" Value="seattle" />
 </Restriction>
 ```
@@ -317,7 +321,8 @@ To return the city claim back to the relying party application, add an output cl
 
 ## Upload and test your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.

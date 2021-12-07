@@ -21,7 +21,7 @@ This article introduces you to Change Tracking and Inventory in Azure Automation
 > [!NOTE]
 > To track Azure Resource Manager property changes, see the Azure Resource Graph [change history](../../governance/resource-graph/how-to/get-resource-changes.md).
 
-Change Tracking and Inventory makes use of [Azure Security Center File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examines operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
+Change Tracking and Inventory makes use of [Microsoft Defender for Cloud File Integrity Monitoring (FIM)](../../security-center/security-center-file-integrity-monitoring.md) to examine operating system and application files, and Windows Registry. While FIM monitors those entities, Change Tracking and Inventory natively tracks:
 
 - Software changes
 - Windows services
@@ -29,7 +29,7 @@ Change Tracking and Inventory makes use of [Azure Security Center File Integrity
 
 Enabling all features included in Change Tracking and Inventory might cause additional charges. Before proceeding, review [Automation Pricing](https://azure.microsoft.com/pricing/details/automation/) and [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
-Change Tracking and Inventory forwards data to Azure Monitor Logs, and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Azure Defender for servers** is enabled. See Azure Security Center [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory. We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/logs/manage-cost-storage.md).
+Change Tracking and Inventory forwards data to Azure Monitor Logs, and this collected data is stored in a Log Analytics workspace. The File Integrity Monitoring (FIM) feature is available only when **Microsoft Defender for servers** is enabled. See Microsoft Defender for Cloud [Pricing](../../security-center/security-center-pricing.md) to learn more. FIM uploads data to the same Log Analytics workspace as the one created to store data from Change Tracking and Inventory. We recommend that you monitor your linked Log Analytics workspace to keep track of your exact usage. For more information about analyzing Azure Monitor Logs data usage, see [Manage usage and cost](../../azure-monitor/logs/manage-cost-storage.md).
 
 Machines connected to the Log Analytics workspace use the [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) to collect data about changes to installed software, Windows services, Windows registry and files, and Linux daemons on monitored servers. When data is available, the agent sends it to Azure Monitor Logs for processing. Azure Monitor Logs applies logic to the received data, records it, and makes it available for analysis.
 
@@ -62,7 +62,7 @@ For limits that apply to Change Tracking and Inventory, see [Azure Automation se
 
 Change Tracking and Inventory is supported on all operating systems that meet Log Analytics agent requirements. See [supported operating systems](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Log Analytics agent.
 
-To understand client requirements for TLS 1.2, see [TLS 1.2 enforcement for Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
+To understand client requirements for TLS 1.2, see [TLS 1.2 for Azure Automation](../automation-managing-data.md#tls-12-for-azure-automation).
 
 ### Python requirement
 
@@ -84,7 +84,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
 
-- Manually for non-Azure machines, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+- Manually for non-Azure machines, including machines or servers registered with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 - For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 05/17/2021
+ms.date: 11/10/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -118,10 +118,10 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 * While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If you want to preserve metadata (ACLs, timestamps, and file attributes) when transferring data to Azure Files, follow the guidance in [Preserving file ACLs, attributes, and timestamps with Azure Data Box](data-box-file-acls-preservation.md)  
 * If data that is being uploaded by Data Box is also being uploaded by another application, outside Data Box, at the same time, this could result in upload job failures and data corruption.
-* We recommend that:
-  * You don't use both SMB and NFS at the same time.
-  * Copy the same data to same end destination on Azure.
-  In these cases, the final outcome can't be determined.
+* If you use both the SMB and NFS protocols for data copies, we recommend that you:
+  * Use different storage accounts for SMB and NFS.
+  * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
+  * Although copying via both SMB and NFS in parallel can work, we don't recommend doing that as it's prone to human error. Wait until your SMB data copy is complete before you start an NFS data copy.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
@@ -212,6 +212,8 @@ C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicem
     Bytes :     3.9 k     3.9 k         0         0         0         0
 C:\Users>
 ```
+
+For more specific scenarios such as using `robocopy` to list, copy, or delete files on Data Box, see [Use robocopy to list, copy, modify files on Data Box](data-box-file-acls-preservation.md#use-robocopy-to-list-copy-modify-files-on-data-box).
 
 To optimize the performance, use the following robocopy parameters when copying the data.
 

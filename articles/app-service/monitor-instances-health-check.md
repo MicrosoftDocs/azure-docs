@@ -1,13 +1,13 @@
 ---
 title: Monitor the health of App Service instances
 description: Learn how to monitor the health of App Service instances using Health check.
-keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring,
+keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 12/03/2020
+ms.date: 07/19/2021
 ms.author: msangapu
-
+ms.custom: contperf-fy22q1
 ---
 
 # Monitor App Service instances using Health check
@@ -20,13 +20,13 @@ This article uses Health check in the Azure portal to monitor App Service instan
 
 - When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
 - If an instance doesn't respond with a status code between 200-299 (inclusive) after two or more requests, or fails to respond to the ping, the system determines it's unhealthy and removes it.
-- After removal, Health check continues to ping the unhealthy instance. If it continues to respond unsuccessfully, App Service restarts the underlying VM in an effort to return the instance to a healthy state.
+- After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299) then the instance is returned to the load balancer.
 - If an instance remains unhealthy for one hour, it will be replaced with new instance.
 - Furthermore, when scaling up or out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
-> Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->
+>- Health check doesn't follow 302 redirects. At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- Note, if your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health Check
 
@@ -77,7 +77,7 @@ The Health check request are sent to your site internally, so the request will n
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
-The Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
+On Windows App Service, the Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and cannot be sent over HTTP**S** at this time.
 
 ### What if I have multiple apps on the same App Service Plan?
 
@@ -96,9 +96,14 @@ Imagine you have two applications (or one app with a slot) with Health check ena
 
 In the scenario where all instances of your application are unhealthy, App Service will remove instances from the load balancer up to the percentage specified in `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT`. In this scenario, taking all unhealthy app instances out of the load balancer rotation would effectively cause an outage for your application.
 
+### Does Health Check work on App Service Environments?
+
+Yes, on App Service Environments (ASEs), the platform will ping your instances on the specified path and remove any unhealthy instances from the load balancer so requests will not be routed to them. However, currently these unhealthy instances will not be replaced with new instances if they remain unhealthy for 1 hour.
+
 ## Next steps
 - [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png

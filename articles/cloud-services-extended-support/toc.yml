@@ -92,7 +92,7 @@
     - name: Role startup failure
       href: role-startup-failure.md
     - name: Frequently asked questions
-      href: faq.md
+      href: faq.yml
 - name: Samples
   items: 
   - name: Sample templates
@@ -108,13 +108,13 @@
   - name: Sample deployment files
     href: https://github.com/Azure-Samples/cloud-services-extended-support
   - name: Az.CloudService module
-    href: https://www.powershellgallery.com/packages/Az.CloudService/0.1.0
+    href: https://www.powershellgallery.com/packages/Az.CloudService/0.5.0
   - name: PowerShell cmdlets
     href: /powershell/module/az.cloudservice/#cloudservice
   - name: ARM template reference
     href: /azure/templates/microsoft.compute/cloudservices
   - name: REST
-    href: /rest/api/compute/cloudservices
+    href: /rest/api/compute/cloud-services
   - name: .NET
     href: /dotnet/api/overview/azure/virtualmachines/management
   - name: SDK
@@ -126,7 +126,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=compute
   - name: Learning path
-    href: /learn/paths/azure-fundamentals/
+    href: /learn/paths/az-900-describe-cloud-concepts/
   - name: Microsoft Q&A
     href: /answers/topics/azure-cloud-services.html
   - name: Pricing

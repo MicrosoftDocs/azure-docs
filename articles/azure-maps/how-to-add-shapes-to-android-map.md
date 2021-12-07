@@ -1,8 +1,8 @@
 ---
 title: Add a polygon layer to Android maps | Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Android SDK to customize geometric shapes and make them easy to update and maintain.
-author: rbrundritt
-ms.author: richbrun
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 2/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
@@ -252,7 +252,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 
 | ![Purple arrow icon image](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
 |:-----------------------------------------------------------------------:|
-| fill_checker_red.png                                                    |
+| fill-checker-red.png                                                    |
 
 The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 

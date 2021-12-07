@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 08/18/2021
 
 ---
 # Configure managed identities in Batch pools
@@ -48,10 +48,10 @@ var poolParameters = new Pool(name: "yourPoolName")
         Identity = new BatchPoolIdentity
         {
             Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, BatchPoolIdentityUserAssignedIdentitiesValue>
+            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
             {
                 ["Your Identity Resource Id"] =
-                    new BatchPoolIdentityUserAssignedIdentitiesValue()
+                    new UserAssignedIdentities()
             }
         }
     };
@@ -66,7 +66,14 @@ var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
 
 ## Use user-assigned managed identities in Batch nodes
 
-After you've created your pools, your user-assigned managed identities can access the pool nodes via Secure Shell (SSH) or Remote Desktop (RDP). You can also configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
+Many Azure Batch technologies which access other Azure resources, such as Azure Storage or Azure Container Registry, support managed identities. For more information on using managed identities with Azure Batch, see the following links:
+
+- [Resource files](resource-files.md)
+- [Output files](batch-task-output-files.md#specify-output-files-using-managed-identity)
+- [Azure Container Registry](batch-docker-container-workloads.md#managed-identity-support-for-acr)
+- [Azure Blob container file system](virtual-file-mount.md#azure-blob-container)
+
+You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
 Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Azure AD authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
 

@@ -2,7 +2,7 @@
 title: What is Azure IoT Edge for Linux on Windows | Microsoft Docs
 description: Overview of you can run Linux IoT Edge modules on Windows 10 devices
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: twarwick
 ms.service: iot-edge
@@ -21,7 +21,7 @@ Azure IoT Edge for Linux on Windows allows you to run containerized Linux worklo
 
 IoT Edge for Linux on Windows works by running a Linux virtual machine on a Windows device. The Linux virtual machine comes pre-installed with the IoT Edge runtime. Any IoT Edge modules deployed to the device run inside the virtual machine. Meanwhile, Windows applications running on the Windows host device can communicate with the modules running in the Linux virtual machine.
 
-[Get started](how-to-install-iot-edge-on-windows.md) today.
+[Get started](how-to-provision-single-device-linux-on-windows-symmetric.md) today.
 
 ## Components
 
@@ -37,6 +37,21 @@ IoT Edge for Linux on Windows uses the following components to enable Linux and 
 
 Bi-directional communication between Windows process and the Linux virtual machine means that Windows processes can provide user interfaces or hardware proxies for workloads run in the Linux containers.
 
+
+## Prerequisites
+
+A Windows device with the following minimum requirements:
+
+* System Requirements
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
+
+* Hardware requirements
+  * Minimum Free Memory: 1 GB
+  * Minimum Free Disk Space: 10 GB
+
+
 ## Samples
 
 IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.
@@ -51,10 +66,10 @@ Use the IoT Edge support and feedback channels to get assistance with IoT Edge f
 
 **Microsoft Customer Support team** – Users who have a [support plan](https://azure.microsoft.com/support/plans/) can engage the Microsoft Customer Support team by creating a support ticket directly from the [Azure portal](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Feature requests** – The Azure IoT Edge product tracks feature requests via the product's [User Voice page](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 
 Watch [IoT Edge for Linux on Windows 10 IoT Enterprise](https://aka.ms/azeflow-show) for more information and a sample in action.
 
-Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
+Follow the steps in [Manually provision a single Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md) to set up a device with IoT Edge for Linux on Windows.

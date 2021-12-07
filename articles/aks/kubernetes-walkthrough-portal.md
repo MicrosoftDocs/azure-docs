@@ -5,9 +5,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 07/01/2021
-
-ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3
-
+ms.custom: mvc, seo-javascript-october2019, contperf-fy21q3, mode-portal
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -46,6 +44,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
         * Leave the default values selected.
     
     ![Create AKS cluster - provide basic information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+
+    > [!NOTE]
+    > You can change the preset configuration when creating your cluster by selecting *View all preset configurations* and choosing a different option.
+    > ![Create AKS cluster - portal preset options](media/kubernetes-walkthrough-portal/cluster-preset-options.png)
 
 4. Select **Next: Node pools** when complete.
 
@@ -141,7 +143,7 @@ Two Kubernetes Services are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -184,7 +186,7 @@ Two Kubernetes Services are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

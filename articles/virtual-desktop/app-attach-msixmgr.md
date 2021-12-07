@@ -78,4 +78,4 @@ To learn how to set up app attach, check out these articles:
 - [Prepare an MSIX image for Azure Virtual Desktop](app-attach-image-prep.md)
 - [Set up a file share for MSIX app attach](app-attach-file-share.md)
 
-If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.md) and [App attach glossary](app-attach-glossary.md).
+If you have questions about MSIX app attach, see our [App attach FAQ](app-attach-faq.yml) and [App attach glossary](app-attach-glossary.md).

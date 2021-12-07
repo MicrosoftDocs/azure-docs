@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Add an NSX-T network segment in Azure VMware Solution
-description: Learn how to add an NSX-T network segment to use for virtual machines (VMs) in vCenter.
+title: Tutorial - Add a network segment in Azure VMware Solution
+description: Learn how to add a network segment to use for virtual machines (VMs) in vCenter.
 ms.topic: tutorial
 ms.custom: contperf-fy22q1
 ms.date: 07/16/2021
 ---
 
-# Tutorial: Add an NSX-T network segment in Azure VMware Solution 
+# Tutorial: Add a network segment in Azure VMware Solution 
 
-After deploying Azure VMware Solution, you can configure an NSX-T network segment either from NSX-T Manager or the Azure portal.  Once configured, the segments are visible in Azure VMware Solution, NSX-T Manger, and vCenter.  NSX-T comes pre-previsioned by default with an NSX-T Tier-0 gateway in **Active/Active** mode and a default NSX-T Tier-1 gateway in **Active/Standby** mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
+After deploying Azure VMware Solution, you can configure an NSX-T network segment from NSX-T Manager or the Azure portal. Once configured, the segments are visible in Azure VMware Solution, NSX-T Manger, and vCenter. NSX-T comes pre-provisioned by default with an NSX-T Tier-0 gateway in **Active/Active** mode and a default NSX-T Tier-1 gateway in **Active/Standby** mode.  These gateways let you connect the segments (logical switches) and provide East-West and North-South connectivity. 
 
 >[!TIP]
 >The Azure portal presents a simplified view of NSX-T operations a VMware administrator needs regularly and targeted at users not familiar with NSX-T Manager. 
@@ -54,7 +54,7 @@ In this tutorial, you created an NSX-T network segment to use for VMs in vCenter
 You can now: 
 
 - [Configure and manage DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md)
-- [Create a content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) 
+- [Create a Content Library to deploy VMs in Azure VMware Solution](deploy-vm-content-library.md) 
 - [Peer on-premises environments to a private cloud](tutorial-expressroute-global-reach-private-cloud.md)
 
 

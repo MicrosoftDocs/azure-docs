@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/21/2021
 
 ms.author: mimart
 author: msmimart
@@ -22,11 +22,10 @@ This article describes the ways guest users can access your resources and the co
 
 When you add a guest user to your directory, the guest user account has a consent status (viewable in PowerShell) that’s initially set to **PendingAcceptance**. This setting remains until the guest accepts your invitation and agrees to your privacy policy and terms of use. After that, the consent status changes to **Accepted**, and the consent pages are no longer presented to the guest.
 
-   > [!IMPORTANT]
-   >
-   > - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
-   > - **Starting October 2021**, Microsoft will no longer support the redemption of invitations by creating unmanaged Azure AD accounts and tenants for B2B collaboration scenarios. In preparation, we encourage customers to opt into [email one-time passcode authentication](one-time-passcode.md), which is now generally available.
+> [!IMPORTANT]
+> - **Starting July 12, 2021**,  if Azure AD B2B customers set up new Google integrations for use with self-service sign-up for their custom or line-of-business applications, authentication with Google identities won’t work until authentications are moved to system web-views. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting September 30, 2021**, Google is [deprecating embedded web-view sign-in support](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). If your apps authenticate users with an embedded web-view and you're using Google federation with [Azure AD B2C](../../active-directory-b2c/identity-provider-google.md) or Azure AD B2B for [external user invitations](google-federation.md) or [self-service sign-up](identity-providers.md), Google Gmail users won't be able to authenticate. [Learn more](google-federation.md#deprecation-of-web-view-sign-in-support).
+> - **Starting November 1, 2021**, we'll begin rolling out a change to turn on the email one-time passcode feature for all existing tenants and enable it by default for new tenants. As part of this change, Microsoft will stop creating new, unmanaged ("viral") Azure AD accounts and tenants during B2B collaboration invitation redemption. To minimize disruptions during the holidays and deployment lockdowns, the majority of tenants will see changes rolled out in January 2022. We're enabling the email one-time passcode feature because it provides a seamless fallback authentication method for your guest users. However, if you don't want to allow this feature to turn on automatically, you can [disable it](one-time-passcode.md#disable-email-one-time-passcode). 
 
 ## Redemption and sign-in through a common endpoint
 
@@ -71,8 +70,8 @@ To unblock users who can't redeem an invitation due to a conflicting [Contact ob
 1. Delete the conflicting Contact object.
 2. Delete the guest user in the Azure portal (the user's "Invitation accepted" property should be in a pending state).
 3. Re-invite the guest user.
-4. Wait for the user to redeem invitation
-5. Add the user's Contact email back into Exchange and any DLs they should be a part of
+4. Wait for the user to redeem invitation.
+5. Add the user's Contact email back into Exchange and any DLs they should be a part of.
 
 ## Invitation redemption flow
 
@@ -127,7 +126,13 @@ When a guest signs in to access resources in a partner organization for the firs
 
    ![Screenshot showing the Apps access panel](media/redemption-experience/myapps.png) 
 
+> [!NOTE]
+> The consent experience appears only after the user signs in, and not before. There are some scenarios where the consent experience will not be displayed to the user, for example:
+> - The user already accepted the consent experience
+> - The admin [grants tenant-wide admin consent to an application](../manage-apps/grant-admin-consent.md)
+
 In your directory, the guest's **Invitation accepted** value changes to **Yes**. If an MSA was created, the guest’s **Source** shows **Microsoft Account**. For more information about guest user account properties, see [Properties of an Azure AD B2B collaboration user](user-properties.md). 
+If you see an error that requires admin consent while accessing an application, see [how to grant admin consent to apps](../develop/v2-admin-consent.md).
 
 ## Next steps
 

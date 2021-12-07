@@ -2,14 +2,15 @@
 title: Voice and video concepts in Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services call types.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Voice and video concepts
 
@@ -50,5 +51,5 @@ We support up to Full HD 1080p on the native (iOS, Android) SDKs. For Web (JS) S
 
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
-- [Phone number types](../telephony-sms/plan-solution.md)
+- [Phone number types](../telephony/plan-solution.md)
 - Learn about the [Calling SDK capabilities](../voice-video-calling/calling-sdk-features.md)

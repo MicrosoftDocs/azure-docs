@@ -12,9 +12,15 @@ ms.date: 06/17/2021
 
 [!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
-Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6, 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
+Azure Database for MySQL is a relational database service in the Microsoft cloud. The service is based on the [MySQL Community Edition](https://www.mysql.com/products/community/) (available under the GPLv2 license) database engine and supports versions 5.6(retired), 5.7, and 8.0. [Azure Database for MySQL - Single Server](./overview.md#azure-database-for-mysql---single-server) is a deployment mode that provides a fully managed database service with minimal requirements for customizations of database. The Single Server platform is designed to handle most database management functions such as patching, backups, high availability, and security, all with minimal user configuration and control.
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
+
+## October 2021
+
+- **Known Issues**
+
+The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](./flexible-server/overview.md) instead.
 
 ## June 2021
   
@@ -23,10 +29,6 @@ This release of Azure Database for MySQL - Single Server includes the following 
 - **Enabled the ability to change the server parameter `activate_all_roles_on_login` from Portal/CLI for MySQL 8.0**
 
   Users can now change the value of the activate_all_roles_on_login parameter using the Azure portal and CLI. This parameter helps to configure whether to enable automatic activation of all granted roles when users sign in to the server. For more information, see  [Server System Variables](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html).
-
-- **Enabled the parameter `redirect_enabled` by default**
-
-  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](howto-redirection.md).
 
 - **Addressed MySQL Community Bugs #29596969 and #94668**
 
@@ -47,6 +49,17 @@ This release of Azure Database for MySQL - Single Server includes the following 
 - **General Availability of planned maintenance notification**
 
   This release provides General Availability of planned maintenance notifications in Azure Database for MySQL - Single Server. For more information, see the article [Planned maintenance notification](concepts-planned-maintenance-notification.md).
+
+- **Enabled the parameter `redirect_enabled` by default**
+
+  With this release, the parameter `redirect_enabled` will be enabled by default. Redirection aims to reduce network latency between client applications and MySQL servers by allowing applications to connect directly to backend server nodes. Support for redirection in PHP applications is available through the [mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft. For more information, see the article [Connect to Azure Database for MySQL with redirection](howto-redirection.md).
+
+>[!Note]
+> * Redirection does not work with Private link setup. If you are using Private link for Azure Database for MySQL, you might encounter connection issue. To resolve the issue, make sure the parameter redirect_enabled is set to “OFF” and the client application is restarted.</br>
+> * If you have a PHP application that uses the mysqlnd_azure redirection driver to connect to Azure Database for MySQL (with redirection enabled by default), you might face a data encoding issue that impacts your insert transactions..</br>
+> To resolve this issue, either:
+>    - In Azure portal, disable the redirection by setting the redirect_enabled parameter to “OFF”, and restart the PHP application to clear the driver cache after the change.
+>     - Explicitly set the charset related parameters at the session level, based on your settings after the connection is established (for example “set names utf8mb4”).
 
 ## February 2021
 
@@ -72,7 +85,7 @@ In addition, consider the following points of contact as appropriate:
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+- To provide feedback or to request new features, create an entry via [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0).
 
 ## Next steps
 

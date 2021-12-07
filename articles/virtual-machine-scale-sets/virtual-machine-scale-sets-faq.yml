@@ -29,6 +29,7 @@ sections:
           Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
           * Azure files (SMB shared drives)
+          * Azure shared disks
           * OS drive
           * Temp drive (local, not backed by Azure Storage)
           * Azure data service (for example, Azure tables, Azure blobs)
@@ -472,8 +473,9 @@ sections:
               Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
 
           - Reset the password using the VM access extensions. Make sure to follow the password requirements as described [here](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+          - Using a VM access extension doesn't require reimaging because the extension doesn't update the password in the model. The extension runs a script to append the password to the password or to the SSH key file. The extension doesn't remove the original SSH key.
 
-              Use the following PowerShell example:
+              Use the following PowerShell example for a Windows virtual machine scale set:
 
               ```powershell
               $vmssName = "myvmss"
@@ -485,6 +487,21 @@ sections:
               $publisher = "Microsoft.Compute"
               $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
               $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+              Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+              ```
+
+              Use the following PowerShell example for a Linux virtual machine scale set:
+
+              ```powershell
+              $vmssName = "myvmss"
+              $vmssResourceGroup = "myvmssrg"
+              $publicConfig = @{"UserName" = "newuser"}
+              $privateConfig = @{"Password" = "********"}
+
+              $extName = "VMAccessForAgent"
+              $publisher = "Microsoft.OSTCExtensions"
+              $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+              $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "1.4" -AutoUpgradeMinorVersion $true
               Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
               ```
 

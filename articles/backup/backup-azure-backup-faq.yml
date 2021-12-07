@@ -2,9 +2,12 @@
 metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
-  ms.topic: conceptual
-  ms.date: 06/10/2021
-    
+  ms.topic: article
+  ms.service: backup
+  ms.date: 11/02/2021
+  author: v-amallick
+  ms.author: v-amallick
+
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
 
@@ -31,7 +34,7 @@ sections:
       - question: |
           How many policies can I create per vault?
         answer: |
-          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as Powershell, CLI is limited to 50 over a span of 24 hours.
+          You can only have up to 200 policies per vault. However, adding new backup policies or editing current policies through Azure Resource Manager (ARM) templates or Azure automation clients such as PowerShell, CLI is limited to 50 over a span of 24 hours.
 
       - question: |
           If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
@@ -170,6 +173,11 @@ sections:
           Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
         answer: |
           Data backed up from Azure Backup Agent, DPM, and Azure Backup Server is compressed and encrypted before being transferred. With compression and encryption is applied, the data in the vault is 30-40% smaller.
+
+      - question: |
+          Can I view the expiration time for the recovery points?
+        answer: |
+          No, you can't view the expiration time for the scheduled backups. However, you can view the expiration time for the on-demand backups through backup jobs.
 
       - question: |
           Can I delete individual files from a recovery point in the vault?

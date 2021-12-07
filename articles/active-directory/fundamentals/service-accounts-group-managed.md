@@ -52,7 +52,7 @@ Potential security issues and mitigations for using gMSAs are shown in the follo
 | Security issue| Mitigation |
 | - | - |
 | gMSA is a member of privileged groups. | <li>Review your group memberships. To do so, you create a PowerShell script to enumerate all group memberships. You can then filter a resultant CSV file by the names of your gMSA files.<li>Remove the gMSA from privileged groups.<li>Grant the gMSA only the rights and permissions it requires to run its service (consult with your service vendor). 
-| gMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Azure Sentinel, for analysis.<li>Remove unnecessary resource permissions if you detect an undesirable level of access. |
+| gMSA has read/write access to sensitive resources. | <li>Audit access to sensitive resources.<li>Archive audit logs to a SIEM, such as Azure Log Analytics or Microsoft Sentinel, for analysis.<li>Remove unnecessary resource permissions if you detect an undesirable level of access. |
 | | |
 
 
@@ -90,7 +90,7 @@ Get-ADServiceAccount -Filter *
 
 # To filter results to only gMSAs:
 
-Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
+Get-ADServiceAccount –Filter * | where-object {$_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
 ```
 
 ## Manage gMSAs

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Route events with a managed identity (preview)
+title: Route events with a managed identity
 titleSuffix: Azure Digital Twins
 description: See how to enable a system-assigned identity for Azure Digital Twins and use it to forward events, using the Azure portal or CLI.
 author: baanders
@@ -16,9 +16,9 @@ ms.custom: subject-rbac-steps, contperf-fy21q4
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
-# Enable a managed identity for routing Azure Digital Twins events (preview)
+# Enable a managed identity for routing Azure Digital Twins events
 
-This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources-preview) (currently in preview), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
+This article describes how to enable a [system-assigned identity for an Azure Digital Twins instance](concepts-security.md#managed-identity-for-accessing-other-resources), and use the identity when forwarding events to supported routing destinations. Setting up a managed identity isn't required for routing, but it can help the instance to easily access other Azure AD-protected resources, such as [Event Hub](../event-hubs/event-hubs-about.md), [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) destinations, and [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md).
 
 Here are the steps that are covered in this article: 
 
@@ -46,7 +46,7 @@ The system-managed identity option is located in the **Advanced** tab of instanc
 
 In this tab, select the **On** option for **System managed identity** to turn on this feature.
 
-:::image type="content" source="media/how-to-enable-managed-identities/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
+:::image type="content" source="media/how-to-route-with-managed-identity/create-instance-advanced.png" alt-text="Screenshot of the Azure portal showing the Advanced tab of the Create Resource dialog for Azure Digital Twins. System managed identity is turned on.":::
 
 You can then use the bottom navigation buttons to continue with the rest of instance setup.
    
@@ -72,13 +72,13 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Search for the name of your instance in the portal search bar, and select it to view its details.
 
-1. Select **Identity (preview)** in the left-hand menu.
+1. Select **Identity** in the left-hand menu.
 
 1. On this page, select the **On** option to turn on this feature.
 
 1. Select the **Save** button, and **Yes** to confirm.
 
-    :::image type="content" source="media/how-to-enable-managed-identities/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity (preview) page for an Azure Digital Twins instance.":::
+    :::image type="content" source="media/how-to-route-with-managed-identity/identity-digital-twins.png" alt-text="Screenshot of the Azure portal showing the Identity page for an Azure Digital Twins instance.":::
 
 After the change is saved, more fields will appear on this page for the new identity's **Object ID** and **Permissions**.
 
@@ -119,7 +119,7 @@ Here are the minimum roles that an identity needs to access an endpoint, dependi
 | Azure Service Bus | Azure Service Bus Data Sender |
 | Azure storage container | Storage Blob Data Contributor |
 
-For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [Concepts: Event routes](concepts-route-events.md).
+For more about endpoints, routes, and the types of destinations supported for routing in Azure Digital Twins, see [Event routes](concepts-route-events.md).
 
 ### Assign the role
 

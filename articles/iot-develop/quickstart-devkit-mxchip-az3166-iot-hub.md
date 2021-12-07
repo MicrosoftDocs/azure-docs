@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -18,7 +19,7 @@ ms.date: 06/09/2021
 
 In this quickstart, you use Azure RTOS to connect an MXCHIP AZ3166 IoT DevKit (hereafter, MXCHIP DevKit) to Azure IoT. 
 
-You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information, see the [IoT Plug and Play documentation](../iot-pnp/index.yml).
+You'll also use IoT Explorer and IoT Plug and Play to manage the MXCHIP DevKit. IoT Plug and Play provides an open device model that lets applications programmatically query a device's capabilities and interact with it. A device uses this model to broadcast its capabilities to an IoT Plug and Play-enabled application. By using this model, you can streamline and enhance the tasks of adding, configuring, and managing devices. For more information, see the [IoT Plug and Play documentation](../iot-develop/index.yml).
 
 You'll complete the following tasks:
 
@@ -29,7 +30,7 @@ You'll complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Azure CLI. You have two options for running Azure CLI commands in this quickstart:
@@ -239,7 +240,7 @@ You can use the **Termite** app to monitor communication and confirm that your d
 
 1. Start **Termite**.
     > [!TIP]
-    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://my.st.com/content/ccc/resource/technical/software/driver/files/stsw-link009.zip) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
+    > If you are unable to connect Termite to your devkit, install the [ST-LINK driver](https://www.st.com/en/development-tools/stsw-link009.html) and try again. See  [Troubleshooting](troubleshoot-embedded-device-quickstarts.md) for additional steps.
 1. Select **Settings**.
 1. In the **Serial port settings** dialog, check the following settings and update if needed:
     * **Baud rate**: 115,200
