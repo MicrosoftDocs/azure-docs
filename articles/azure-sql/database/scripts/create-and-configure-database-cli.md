@@ -41,9 +41,16 @@ az account set -s $subscription # ...or use 'az login'
 
 :::code language="azurecli" source="~../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
 
-:::code language="azurecli" source="~../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+:::code language="azurecli" source="~../cli_scripts/sql-database/create-and-configure-d:::code language="azurecli" source="~../../../../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
 
-:::code language="azurecli" source="~../../../../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+:::code language="azurecli" source="~/../../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+
+:::code language="azurecli" source="~/../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+atabase/create-and-configure-database.sh" range="7-21" highlight="8,12":::
+
+:::code language="azurecli" source="~/../../../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
 
 :::code language="azurecli" source="~../../../azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::
 
