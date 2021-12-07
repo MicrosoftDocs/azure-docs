@@ -39,4 +39,6 @@ To try the API without writing any code, you can use:
   - Your favorite client such as [Fiddler](https://www.telerik.com/fiddler) or [Postman](https://www.getpostman.com/) to manually generate queries with a user interface.
   - [cURL](https://curl.haxx.se/) from the command line, and then pipe the output into [jsonlint](https://github.com/zaach/jsonlint) to get readable JSON. 
 
+The Azure Monitor Query SDK is a wrapper around the REST API. Retrieve log data from the workspace via an idiomatic client library for [.NET](/dotnet/api/overview/azure/Monitor.Query-readme), [Java](/java/api/overview/azure/monitor-query-readme), [JavaScript](/javascript/api/overview/azure/monitor-query-readme), or [Python](/python/api/overview/azure/monitor-query-readme).
+
 To learn more about the query language, see the [query language documentation](https://docs.loganalytics.io/) which includes a [language reference](https://docs.loganalytics.io/docs/Language-Reference), [examples](https://docs.loganalytics.io/docs/Examples), [tutorials](https://docs.loganalytics.io/docs/Learn/Tutorials/Date-and-time-operations), and [cheat sheets](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language). It also offers a full-featured [demo environment](https://portal.loganalytics.io/demo) that lets you try out any query on sample data.
