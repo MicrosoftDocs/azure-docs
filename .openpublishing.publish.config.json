@@ -324,13 +324,13 @@
     {
       "path_to_root": "azure-iot-sdk-node",
       "url": "https://github.com/Azure/azure-iot-sdk-node",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
       "path_to_root": "iot-samples-c",
       "url": "https://github.com/Azure/azure-iot-sdk-c",
-      "branch": "master",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -526,12 +526,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-sdk-for-java-cosmos-db",
-      "url": "https://github.com/Azure/azure-sdk-for-java/",
-      "branch": "main",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-sdk-for-java-script-event-hubs",
       "url": "https://github.com/Azure/azure-sdk-for-js/",
       "branch": "main",
@@ -588,12 +582,6 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
-      "path_to_root": "samples-cosmosdb-dotnet-v2",
-      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
       "branch": "master",
       "branch_mapping": {}
     },
@@ -718,12 +706,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azure-cosmosdb-java-v2",
-      "url": "https://github.com/Azure/azure-cosmosdb-java",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "azure-cosmosdb-graph-dotnet",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
       "branch": "main",
@@ -834,6 +816,7 @@
     ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-percept.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   
     "articles/azure-relay/.openpublishing.redirection.relay.json",

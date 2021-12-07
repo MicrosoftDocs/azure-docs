@@ -30,7 +30,7 @@ This tutorial uses an Azure VM as a simulated IoT Edge device, and it uses a sim
 
 When you set up the Azure resources, a short video of a parking lot is copied to the Linux VM in Azure that you're using as the IoT Edge device. This tutorial uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the video](https://avamedia.blob.core.windows.net/public/lots_015.mkv) to start playback. You see the footage of vehicles in a parking lot, most of them parked, and one moving.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 

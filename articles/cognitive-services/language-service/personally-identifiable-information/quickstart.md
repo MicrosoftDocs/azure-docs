@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 11/19/2021
 ms.author: aahi
-ms.custom: language-service-pii, ignite-fall-2021
+ms.custom: language-service-pii, ignite-fall-2021, mode-other
 zone_pivot_groups: programming-languages-text-analytics
 ---
 
