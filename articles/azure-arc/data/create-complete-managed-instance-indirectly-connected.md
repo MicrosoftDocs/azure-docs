@@ -14,6 +14,8 @@ ms.custom: template-quickstart
 
 This article demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from with the Azure CLI.
 
+To deploy in directly connected mode, see [Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md).
+
 When you complete the steps in this article, you will have:
 
 1. A Kubernetes cluster on Azure Kubernetes Services (AKS) 
@@ -124,8 +126,6 @@ Follow the steps below to deploy the cluster from the Azure CLI.
    aks-nodepool1-34164736-vmss000002   Ready    agent   4h28m   v1.20.9
    ```
 
-
-
 ## Create the data controller
 
 Now that our cluster is up and running, we are ready to create the data controller in indirectly connected mode.
@@ -146,16 +146,8 @@ az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s
 
 ## Connect to managed instance on Azure Data Studio
 
-Now, we are finally ready to view our Azure MI on Azure Data Studio (ADS). 
-
+To connect with Azure Data Studio, see [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md). 
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-> [Next steps button](contribute-how-to-mvc-quickstart.md)
-
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+[Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md)
