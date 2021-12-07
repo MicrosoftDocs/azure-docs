@@ -34,7 +34,7 @@ Defender for Containers helps with the core aspects of container security:
 
 - **Environment hardening** - Defender for Containers protects your Kubernetes clusters whether they're running on Azure Kubernetes Service, Kubernetes on-prem / IaaS, or Amazon EKS. By continuously assessing clusters, Defender for Containers provides visibility into misconfigurations and guidelines to help mitigate identified threats. Learn more in [Environment hardening through security recommendations](#environment-hardening-through-security-recommendations).
 
-- **Vulnerability assessment scanning** - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service. Learn more in [Vulnerability management - scanning container images](#vulnerability-management---scanning-container-images)
+- **Vulnerability assessment scanning** - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service. Learn more in [Vulnerability assessment](#vulnerability-assessment).
 
 - **Run-time threat protection for nodes and clusters** - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities. Learn more in [Run-time protection for Kubernetes nodes and clusters](#run-time-protection-for-kubernetes-nodes-and-clusters).
 
@@ -141,7 +141,7 @@ Defender for Containers expands on the registry scanning features of the Defende
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Defender for Cloud provides threat protection at the cluster level by analyzing the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a list of the cluster level alerts, see the [Reference table of alerts](../articles/security-center/alerts-reference.md#alerts-k8scluster).
+Defender for Cloud provides threat protection at the cluster level by analyzing the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a list of the cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
@@ -155,4 +155,4 @@ Our global team of security researchers constantly monitor the threat landscape.
 In this overview, you learned about the core elements of container security in Microsoft Defender for Cloud. To enable the plan, see:
 
 > [!div class="nextstepaction"]
-> [Enable Defender for Containers](defender-for-container-enable.md)
+> [Enable Defender for Containers](defender-for-containers-enable.md)
