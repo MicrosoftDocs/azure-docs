@@ -34,6 +34,8 @@ az account set -s $subscription # ...or use 'az login'
 ```
 ### Run the script
 
+[:::code language="azurecli" source="~../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="7-21" highlight="8,12":::]
+
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ### Clean up deployment
