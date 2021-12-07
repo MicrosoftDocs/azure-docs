@@ -3109,7 +3109,9 @@ This example shows that if one or both values are negative, the result matches t
 mod(-5, 2)
 mod(4, -3)
 ```
-And return these results:
+
+The example returns these results:
+
 
 * First example: `-1`
 * Second example: `1`
