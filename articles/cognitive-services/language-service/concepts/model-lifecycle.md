@@ -20,19 +20,26 @@ Language service features utilize AI models that are versioned. We update the la
 
 As new models and new functionality become available and older, less accurate models are retired, see the following timelines for model and endpoint expiration:
 
-New Langauge AI models are being released every few months. So, an expiration of any publicly available model is 6 months after a deprecation notice is issued followed by new model-version release. 
+New Language AI models are being released every few months. So, an expiration of any publicly available model is six months after a deprecation notice is issued followed by new model-version release. 
 
-Model-version retirement period is defined from a release of a newer model-version for the capability until a specific older version is deprecated. This period is defined as 6 months for stable model versions, and 3 months for previews. For example, a stable model-version 2021-01-01 will be deprecated 6 months after a successor model-version 2021-07-01 is released, on January 1st 2022. Note, that preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
+Model-version retirement period is defined from a release of a newer model-version for the capability until a specific older version is deprecated. This period is defined as six months for stable model versions, and three months for previews. For example, a stable model-version `2021-01-01` will be deprecated six months after a successor model-version `2021-07-01` is released, on January 1, 2022. Note, that preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
 
 After model-version deprecation, API calls to deprecated model-versions will return an error. 
 
+## Choose the model-version used on your data
+
+By default, API requests will use the latest Generally Available model, if available. If a Generally Available model isn't available, the latest preview version will be used instead. 
+
+You can use the optional model-version parameter to select the version of the model used in your API requests. To use preview versions, you must include this parameter For example: `<resource-url>/text/analytics/v3.1/sentiment?2021-10-01-preview`. 
+
+The model-version used in your API request will be included in the response object.
 
 ## Available versions
 
 Use the table below to find which model versions are supported by each feature.
 
 
-| Endpoint                                            | Supported Versions                                                  | latest Generally Available version | latest preview version |
+| Endpoint                                            | Supported Versions                                                  | Latest Generally Available version | Latest preview version |
 |-----------------------------------------------------|---------------------------------------------------------------------|------------------------------------|------------------------|
 | Custom text classification                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Conversational language understanding               | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
@@ -42,7 +49,7 @@ Use the table below to find which model versions are supported by each feature.
 | Named Entity Recognition (NER)                      | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`,`2021-06-01`  | `2021-06-01`                       |                        |
 | Custom NER                                          | `2021-11-01-preview`                                                |                                    | `2021-11-01-preview`   |
 | Personally Identifiable Information (PII) detection | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15` | `2021-01-15`                       |                        |
-| Question answering                                  | `2021-10-01`                                                        |                                    |
+| Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                                  |
 | Text Analytics for health                           | `2021-05-15`                                                        | `2021-05-15`                       |                        |
 | Key phrase extraction                               | `2019-10-01`, `2020-07-01`, `2021-06-01`                            | `2021-06-01`                       |                        |
 | Text summarization                                  | `2021-08-01`                                                        | `2021-08-01`                       |                        |
