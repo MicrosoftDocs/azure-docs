@@ -20,7 +20,7 @@ items:
         - name: Directly connected | Azure portal example
           href: create-complete-managed-instance-directly-connected.md
         - name: Indirectly connected | Azure CLI example
-          href: create-complete-managed-instance-directly-connected.md
+          href: create-complete-managed-instance-indirectly-connected.md
     - name: Create AKS cluster
       href: create-aks-cluster-data-controller.md
 - name: Concepts
