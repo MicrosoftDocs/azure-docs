@@ -818,7 +818,7 @@
         - name: Copy a database to a new server
           href: database/scripts/copy-database-to-new-server-cli.md
         - name: Import a database from a BACPAC file
-          href: ../sql-database/scripts/sql-database-import-from-bacpac-cli.md
+          href: database/scripts/import-from-bacpac-cli.md
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=single-database
     - name: Azure Resource Manager
