@@ -28,6 +28,8 @@
       href: application-lifecycle-management.md
     - name: Microservices
       href: microservices.md
+    - name: Networking
+      href: networking.md
 - name: How-to guides
   items:
     - name: Scale an app
