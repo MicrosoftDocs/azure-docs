@@ -1,5 +1,5 @@
 ---
-title: How to use Components Enumerator for Proxy Updates for Device Updates for IoT Hub | Microsoft Docs
+title: How to use Components Enumerator for Proxy Updates for Device Updates for Azure IoT Hub | Microsoft Docs
 description: How to use Components Enumerator for Proxy Updates
 author: valls
 ms.author: valls
