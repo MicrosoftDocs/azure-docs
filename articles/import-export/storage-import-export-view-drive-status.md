@@ -33,7 +33,7 @@ You can track the status of your import or export jobs on the **Import/Export** 
 
 XXX
 
-### [Portal (Preview)](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
 
 If you create your job in the Preview portal, you see one of the following job statuses depending on where your drive is in the process.
 
@@ -51,7 +51,7 @@ If you create your job in the Preview portal, you see one of the following job s
 | Completed                         | After all drives are shipped back to you, if the job has completed without errors, then the job is set to **Completed**. The job is automatically deleted after 90 days in the **Completed** state. |
 | Canceled                          | The job has been canceled. |
 
-### [Portal (Classic)](#tab/azure-portal)
+### [Portal (Classic)](#tab/azure-portal-classic)
 
 If you create your job using the Classic method, you see one of the following job statuses depending on where your drive is in the process.<!--Check Anam's table for status updates.-->
 
@@ -64,24 +64,25 @@ If you create your job using the Classic method, you see one of the following jo
 | Packaging | After all drives have completed processing, the job is placed in **Packaging** state until the drives are shipped back to you. |
 | Completed | After all drives are shipped back to you, if the job has completed without errors, then the job is set to **Completed**. The job is automatically deleted after 90 days in the **Completed** state. |
 | Closed | After all drives are shipped back to you, if there were any errors during the job processing, the job is set to **Closed**. The job is automatically deleted after 90 days in the **Closed** state. |
+| Canceled                          | The job has been canceled. |
 
 ## View drive status
 
-XXXX
+XXX
 
-### [Portal (Preview)](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
 
-The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure Preview portal.<!--Move sentence to section introcuction.-->
+The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure Preview portal.<!--Move sentence to section introduction.-->
 
 The following table describes each state that each drive in a job may pass through when the drive is successfully processed.
 
-| Drive status                       | Description   |
-|:-----------------------------------|:------------------------------------------|
-| Data copy not started              | This state indicates that data copy is yet to start on the drive. |
-| %age completed<br/>                | This state indicates the copy progress of the job in terms of percentage completion. |
-| Data copy completed                | A drive moves to the **Data copy completed** state when the service has successfully transferred all the data with no errors. |
-| Data copy completed with errors    | A drive moves to the **Data copy completed with errors** state when the service has ran across errors while copying data from or to the drive. |
-| Data copy completed with warnings  | A drive moves to the **Data copy completed with warnings** state when the service has completed copying data from or to the drive, but some warnings were raised in the process. |
+| Drive status                       | Description                                 |
+|:-----------------------------------|:--------------------------------------------|
+| Data copy not started              | Data copy has not yet started on the drive. |
+| %age completed<br/>                | Data copy is in progress for the drive, and this percentage is complete. |
+| Data copy completed                | The service successfully transferred all the data from or to the drive with no errors. |
+| Data copy completed with errors    | The service came across errors while copying data from or to the drive. |
+| Data copy completed with warnings  | The service completed copying data from or to the drive, but some warnings were raised in the process. |
 
 <!--Add a screenshot from the Preview portal?-->
 
@@ -89,22 +90,22 @@ The following table describes the drive Failure states and the actions to take i
 
 | Drive status                      | Description   |
 |:----------------------------------|:------------------------------------------|
-| Disk not received at datacenter   | A drive moves to this state when the disks are not received at the datacenter. |
-| Issues faced while processing the job. Contact support for more info. |
-| Manifest file error               | Issues in the manifest file or format. |
-| Export blob list format invalid   | For an export job, the export blob list blob doesn't conform to the required format. |
+| Disk not received at datacenter   | A drive moves to this state when the disks are not received at the datacenter.<!--Clearer wording? "A drive moves to this state when the disk associated with a journal file was not received at the datacenter."--> |
+| Issues faced while processing the job. [Contact Microsoft Support](storage-import-export-contact-microsoft-support.md) for more information. |
+| Manifest file error               | Errors in the manifest file or format. |
+| Export blob list format invalid   | For an export job, the blob list file is not in the required format. An XML file with valid blob paths and prefixes is required. See [Valid blob path prefixes](../databox/data-box-deploy-export-ordered.md#valid-blob-path-prefixes) for more information.<!--Possible issues: 1) This links to Create XML file in Data Box, as does the "Export from blob list file (XML format)" section (shared) in the Import/Export tutorial. (Breadcrumbs needed in the IE TOC.) 2) In Import/Export, only blobs can be exported. "Create XML file" includes both blob and file exports.--> |
 | Blob access forbidden             | For an export job, access to the export blob list in the storage account is forbidden. This might be due to an invalid storage account key or container SAS. |
-| Unsupported disk                  | Disk not supported by Azure Import/Export service. For list of supported disk types, see [Supported disk types](XXX). |
+| Unsupported disk                  | Disk not supported by Azure Import/Export service. For more information, see [Supported disk types](storage-import-export-requirements.md#supported-disks). |
 | Disk corrupted                    | Data on the disk is corrupted. |
 | BitLocker unlock volume failed    | Attempt to unlock the BitLocker volume failed. |
 | BitLocker volume not found        | Disk doesn't contain a BitLocker-enabled volume. |
 | BitLocker key invalid             | Customer-provided BitLocker key is not valid. |
 | Hardware error                    | Disk has reported a media failure. |
 | NTFS volume not found             | The first data volume on the disk is not in NTFS format. |
-| Storage account not accessible    | The customer storage account is not accessible to proceed with the data copy. |
-| Unsupported data                  | The data copied to the disk doesn't conform to Azure conventions ADD LINK, or the data cannot be exported because it's not supported on NTFS volumes ADD LINK. |
+| Storage account not accessible    | Customer storage account is not accessible, and the data copy can't proceed. |
+| Unsupported data                  | The data copied to the disk doesn't conform to Azure conventions *ADD LINK*, or the data cannot be exported because it's not supported on NTFS volumes *ADD LINK*.|
 
-### [Portal (Classic)](#tab/azure-portal)
+### [Portal (Classic)](#tab/azure-portal-classic)
 
 The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure portal when you create an import/export job in the Classic experience.
 
