@@ -798,7 +798,7 @@
       - name: Configure geo-replication and failover
         items:
         - name: Configure a failover group
-          href: database/scripts/setup-geodr-and-failover-group-cli.md)
+          href: database/scripts/setup-geodr-and-failover-group-cli.md
         - name: Add a single database to a failover group
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Configure a failover group for an elastic pool
