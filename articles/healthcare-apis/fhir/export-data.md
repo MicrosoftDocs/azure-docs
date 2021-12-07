@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/02/2021
+ms.date: 12/06/2021
 ms.author: cavoeg
 ---
 # How to export FHIR data
@@ -140,7 +140,10 @@ address range in CIDR format is used instead, 100.64.0.0/10. The reason why the 
     
 ## Next steps
 
-In this article, you've learned how to export FHIR resources using $export command. Next, to learn how to export de-identified data, see:
+In this article, you've learned how to export FHIR resources using the $export command. For more information about how to set up and use de-identified export or how to export data from Azure API for FHIR to Azure Synapse Analytics, see
  
 >[!div class="nextstepaction"]
 >[Export de-identified data](de-identified-export.md)
+
+>[!div class="nextstepaction"]
+>[Move to Synapse](move-to-synapse.md)

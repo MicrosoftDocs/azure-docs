@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 12/01/2021
+ms.date: 12/06/2021
 ms.author: ranku
 ---
 
@@ -210,3 +210,10 @@ For a private network access (i.e. private link), you can also disable the publi
 Make a call to the $convert-data API specifying your template reference in the templateCollectionReference parameter.
 
 `<RegistryServer>/<imageName>@<imageDigest>`
+
+## Next steps
+
+In this article, you've learned about the $convert-data endpoint and customize-converter templates to convert data in the Healthcare APIs. For more information about how to export FHIR data, see
+ 
+>[!div class="nextstepaction"]
+>[Export data](export-data.md)

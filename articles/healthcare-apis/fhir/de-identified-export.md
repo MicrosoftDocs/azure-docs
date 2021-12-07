@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/30/2021
+ms.date: 12/06/2021
 ms.author: ranku
 ---
 # Exporting de-identified data (preview)
@@ -63,7 +63,7 @@ For more detailed information on each of these 4 sections of the configuration f
 
 ## Next steps
 
-In this article, you've learned how to set up and use de-identified export. Next, to learn how to export data, see:
+In this article, you've learned how to set up and use de-identified export. For more information about how to export FHIR data, see
  
 >[!div class="nextstepaction"]
 >[Export data](export-data.md)
