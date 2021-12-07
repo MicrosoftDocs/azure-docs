@@ -173,9 +173,11 @@ Because these are _application permissions_, not delegated permissions, an admin
 
 The **Status** column should reflect that consent has been **Granted for \<tenant name\>**.
 
-## Use app roles in your web API
+## Usage scenario of app roles
 
-Once you've defined app roles and assigned them to a user, group, or application, your next step is to add code to your web API that checks for those roles when the API is called. That is, when a client app requests an API operation you've decided requires authorization, your API's code must verify the scopes are in the access token presented in the client app's call.
+If you are implementing app role business logic in your application scenario which signs-in the users, then you would define the app roles and assign them to a user/group in the app registration. These assigned app roles will be included as part of the id token that was issued by Azure AD after user signs into the app. However, please do note that, if the app requests for an access token to call any other resources(for example graph), then role claim will not be present in the access token claims.  
+
+If you are implementing app role business logic in app-calling-API scenario, then you will have two app registrations. One for app and second one for API. In this case, define the app roles and assign them to user/group in the app registration of API. When the user authenticates with the app and requests for an access token to call the API, roles claim will be included in the access token. Your next step is to add code to your web API that checks for those roles when the API is called.
 
 To learn how to add authorization to your web API, see [Protected web API: Verify scopes and app roles](scenario-protected-web-api-verification-scope-app-roles.md).
 
