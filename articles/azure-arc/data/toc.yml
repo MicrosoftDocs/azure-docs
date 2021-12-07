@@ -15,8 +15,12 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
-    - name: Create data services from portal
-      href: create-complete-managed-instance-directly-connected.md
+    - name: Create data services
+      items:
+        - name: Directly connected | Azure portal example
+          href: create-complete-managed-instance-directly-connected.md
+        - name: Indirectly connected | Azure CLI example
+          href: create-complete-managed-instance-directly-connected.md
     - name: Create AKS cluster
       href: create-aks-cluster-data-controller.md
 - name: Concepts

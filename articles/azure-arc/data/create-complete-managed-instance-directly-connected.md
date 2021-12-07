@@ -16,8 +16,8 @@ This article demonstrates how to deploy Azure Arc-enabled data services in direc
 
 When you complete the steps in this article, you will have:
 
-1. A Kubernetes cluster on Azure Kubernetes Services (AKS)
-1. A data controller
+1. A Kubernetes cluster on Azure Kubernetes Services (AKS) in connected to Azure
+1. A data controller in directly connected mode
 1. An instance of Azure Arc-enabled SQL Managed Instance
 1. A connection to the instance with Azure Data Studio
 
@@ -29,7 +29,7 @@ Azure Arc allows you to run Azure data services on-premises, at the edge, and in
 
 First, install the [client tools](install-client-tools.md) needed on your machine. To complete the steps in this article, you will use the following tools:
 * Azure Data Studio
-* the Azure Arc extension for Azure Data Studio
+* The Azure Arc extension for Azure Data Studio
 * Kubernetes CLI
 * Azure CLI 
 * arcdata extension for Azure CLI.
