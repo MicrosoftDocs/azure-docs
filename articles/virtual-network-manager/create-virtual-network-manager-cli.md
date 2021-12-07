@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI'
-description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager using Azure CLI.
+description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager using the Azure CLI.
 author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
@@ -8,9 +8,9 @@ ms.topic: quickstart
 ms.date: 11/16/2021
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using Azure CLI
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI
 
-Get started with Azure Virtual Network Manager by using Azure CLI to manage connectivity for all your virtual networks.
+Get started with Azure Virtual Network Manager by using the Azure CLI to manage connectivity for all your virtual networks.
 
 In this quickstart, you'll deploy three virtual networks and use Azure Virtual Network Manager to create a mesh network topology. Then you'll verify if the connectivity configuration got applied.
 
@@ -25,7 +25,7 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 * Make sure you have the [latest Azure CLI](/cli/azure/install-azure-cli) or you can use Azure Cloud Shell in the portal.
 * Run `az extension add -n virtual-network-manager` to add the Azure Virtual Network Manager extension.
 
-##  Sign in to your Azure account and select your subscription. 
+##  Sign in to your Azure account and select your subscription
 
 To begin your configuration, sign in to your Azure account. If you use the Cloud Shell "Try It", you're signed in automatically. Use the following examples to help you connect:
 
@@ -152,7 +152,7 @@ az network manager post-commit \
 
 ## Clean up resources
 
-If you no longer need the Azure Virtual Network Manager, you'll need to make sure all of following is true before you can delete the resource:
+If you no longer need the Azure Virtual Network Manager, you'll need to make sure all of following are true before you can delete the resource:
 
 * There are no deployments of configurations to any region.
 * All configurations have been deleted.
@@ -160,46 +160,46 @@ If you no longer need the Azure Virtual Network Manager, you'll need to make sur
 
 1. Remove the connectivity deployment by committing no configurations with [az network manager post-commit](/cli/azure/network/manager#az_network_manager_post_commit):
 
-```azurecli-interactive
-az network manager post-commit \
-    --network-manager-name "myAVNM" \
-    --commit-type "Connectivity" \
-    --target-locations "westus" \
-    --resource-group "myAVNMResourceGroup"
-```
+    ```azurecli-interactive
+    az network manager post-commit \
+        --network-manager-name "myAVNM" \
+        --commit-type "Connectivity" \
+        --target-locations "westus" \
+        --resource-group "myAVNMResourceGroup"
+    ```
 
 1. Remove the connectivity configuration with [az network manager connect-config delete](/cli/azure/network/manager/connect-config#az_network_manager_connect_config_delete):
 
-```azurecli-interactive
-az network manager connect-config delete \
-    --configuration-name "connectivityconfig" \
-    --name "myAVNM" \
-    --resource-group "myAVNMResourceGroup"
-```
+    ```azurecli-interactive
+    az network manager connect-config delete \
+        --configuration-name "connectivityconfig" \
+        --name "myAVNM" \
+        --resource-group "myAVNMResourceGroup"
+    ```
 
 1. Remove the network group with [az network manager group delete](/cli/azure/network/manager/group#az_network_manager_group_delete):
 
-```azurecli-interactive
-az network manager group delete \
-    --name "myNetworkGroup" \
-    --network-manager-name "myAVNM" \
-    --resource-group "myAVNMResourceGroup"
-```
+    ```azurecli-interactive
+    az network manager group delete \
+        --name "myNetworkGroup" \
+        --network-manager-name "myAVNM" \
+        --resource-group "myAVNMResourceGroup"
+    ```
 
 1. Delete the network manager instance with [az network manager delete](/cli/azure/network/manager#az_network_manager_delete):
 
-```azurecli-interactive
-az network manager delete \
-    --name "myAVNM" \
-    --resource-group "myAVNMResourceGroup"
-```
+    ```azurecli-interactive
+    az network manager delete \
+        --name "myAVNM" \
+        --resource-group "myAVNMResourceGroup"
+    ```
 
-1. If you no longer need the resource created, delete the resource group with [az group delete]():
+1. If you no longer need the resource created, delete the resource group with [az group delete](/cli/group#az_group_delete):
 
-```azurecli-interactive
-az group delete \
-    --name "myAVNMResourceGroup"
-```
+    ```azurecli-interactive
+    az group delete \
+        --name "myAVNMResourceGroup"
+    ```
 
 ## Next steps
 
