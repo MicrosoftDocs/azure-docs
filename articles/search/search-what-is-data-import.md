@@ -81,7 +81,7 @@ An advantage to using the portal is that Azure Cognitive Search can usually gene
 
 A quick way to perform a preliminary check on the document upload is to use [**Search explorer**](search-explorer.md) in the portal.
 
-:::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Screenshot of Search Explorer command in Azure portal." border="true":::
+:::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Screenshot of Search Explorer command in the Azure portal." border="true":::
 
 The explorer lets you query an index without having to write any code. The search experience is based on default settings, such as the [simple syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and default [searchMode query parameter](/rest/api/searchservice/search-documents). Results are returned in JSON so that you can inspect the entire document.
 
