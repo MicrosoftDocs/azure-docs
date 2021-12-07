@@ -244,8 +244,8 @@ Delete or Disable the subscription-based Azure Policy assignment while creating 
 
 ### Resolution
 
-* For Azure Blob storage accounts, don't create an HDInsight cluster using the [RA-GRS or RA-ZRS secondary endpoint](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#design-your-applications-for-read-access-to-the-secondary). Only use the primary endpoint.
-* For Data Lake Storage Gen2, use [GRS or RA-GRS redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#geo-redundant-storage).
+* For Azure Blob storage accounts, don't create an HDInsight cluster using the [RA-GRS or RA-ZRS secondary endpoint](../storage/common/storage-redundancy.md#design-your-applications-for-read-access-to-the-secondary). Only use the primary endpoint.
+* For Data Lake Storage Gen2, use [GRS or RA-GRS redundancy](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 ---
 ## Next steps
