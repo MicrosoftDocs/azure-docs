@@ -3112,7 +3112,7 @@ mod(4, -3)
 And return these results:
 
 * First example: `-1`
-* Second example `1`
+* Second example: `1`
 
 <a name="mul"></a>
 
