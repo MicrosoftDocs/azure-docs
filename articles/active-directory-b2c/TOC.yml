@@ -265,6 +265,9 @@
       href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
+    - name: SwissID
+      href:  identity-provider-swissid.md
+      displayName: Swiss ID      
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat

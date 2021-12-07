@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Login to Windows virtual machine in Azure using Azure Active Directory authentication
 
-Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
+Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
 
 There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
 - Use your corporate AD credentials to login to Windows VMs in Azure.
@@ -38,7 +38,7 @@ There are many security benefits of using Azure AD based authentication to login
 
 The following Windows distributions are currently supported for this feature:
 
-- Windows Server 2019 Datacenter
+- Windows Server 2019 Datacenter and later
 - Windows 10 1809 and later
 
 > [!IMPORTANT]

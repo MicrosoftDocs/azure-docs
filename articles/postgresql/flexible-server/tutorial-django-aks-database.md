@@ -306,7 +306,7 @@ When the *EXTERNAL-IP* address changes from *pending* to an actual public IP add
 django-app  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Now open a web browser to the external IP address of your service (http:<service-external-ip-address>) and view the Django application.  
+Now open a web browser to the external IP address of your service (http://\<service-external-ip-address\>) and view the Django application.  
 
 >[!NOTE]
 > - Currently the Django site is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](../../aks/ingress-own-tls.md).
