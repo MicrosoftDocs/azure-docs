@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 12/06/2021
+ms.date: 12/07/2021
 ---
 
 # Maintenance window (Preview)
@@ -113,7 +113,6 @@ Choosing a maintenance window other than the default is currently available in t
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
 | US Gov Arizona | Yes | | |
-| US Gov Iowa | Yes | | | 
 | US Gov Texas| Yes | | | 
 | US Gov Virginia | Yes | | | 
 | West Central US | Yes | Yes | |
