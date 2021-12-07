@@ -304,6 +304,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
     - name: Common (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+  - name: UI Library
+    items:
+    - name: UI Library (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
 - name: Resources
   items:
   - name: Release notes
