@@ -20178,11 +20178,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
-      "redirect_url": "/azure/machine-learning/reference-pipeline-yaml",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/machine-learning/service/resource-known-issues.md",
       "redirect_url": "/azure/machine-learning/how-to-debug-visual-studio-code",
       "redirect_document_id": true
@@ -20757,6 +20752,12 @@
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
     },
+    {
+      "source_path_from_root": "/articles/machine-learning/service/reference-pipeline-yaml.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-job-pipeline",
+      "redirect_document_id": false
+    },
+    
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
       "redirect_url": "/azure/cognitive-services/language/custom-question-answering/concepts/precise-answering",
