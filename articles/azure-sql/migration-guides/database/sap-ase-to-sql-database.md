@@ -7,7 +7,8 @@ ms.custom:
 ms.devlang: 
 ms.topic: how-to
 author: mokabiru
-ms.author: chadam, mathoma, kendralittle
+ms.author: chadam
+ms.reviewer: mathoma, kendralittle
 ms.date: 03/19/2021
 ---
 
