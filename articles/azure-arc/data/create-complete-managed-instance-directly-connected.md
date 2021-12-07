@@ -174,7 +174,7 @@ NAME      STATE
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.
-1. Type **managed instance**, select **Azure SQL Managed Instance - Azure Arc.
+1. Type *managed instance*, select **Azure SQL Managed Instance - Azure Arc**.
 1. Click **Create**. 
 1. Specify your resource group, and custom location.
 1. Set the **LoadBalancer** service type. 
