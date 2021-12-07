@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # VNet peering and Azure Bastion
 
-Azure Bastion and VNet peering can be used together. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional Bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Azure Bastion and VNet peering can be used together. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 Azure Bastion works with the following types of peering:
 
@@ -57,7 +57,7 @@ Verify the following permissions when working with this architecture:
   * Reader role on the Azure Bastion resource.
   * Reader role on the virtual network (for peered virtual networks).
 
-## <a name="FAQ"></a>Bastion VNet Peering FAQ
+## <a name="FAQ"></a>Bastion VNet peering FAQ
 
 For frequently asked questions, see the Bastion VNet peering [FAQ](bastion-faq.md#peering).
 
