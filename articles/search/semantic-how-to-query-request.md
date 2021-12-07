@@ -161,6 +161,9 @@ definition.SemanticSettings = semanticSettings;
 adminClient.CreateOrUpdateIndex(definition);
 ```
 
+To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
+[semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
+
 ---
 
 ## Query using REST
