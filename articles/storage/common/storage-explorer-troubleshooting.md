@@ -534,7 +534,7 @@ If you're having trouble transferring data, you might need to get the AzCopy log
 - For failed transfers still in the Activity Log, select **Go to AzCopy Log File**.
 - For transfers that failed in the past, go to the AzCopy logs folder. This folder can be found at:
 
-  - Windows: *C:\Users\\<your username\>\.azcopy*
+  - Windows: *C:\Users\\<your username\>\\.azcopy*
   - macOS and Linux: *~/.azcopy*
 
 ### Network logs
