@@ -10,7 +10,7 @@ ms.date: 12/06/2021
 ms.custom: template-quickstart 
 ---
 
-# Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure poCLIrtal
+# Quickstart: Deploy Azure Arc-enable data services - indirectly connected mode - Azure CLI
 
 This article demonstrates how to deploy Azure Arc-enabled data services in indirectly connected mode from with the Azure CLI.
 
