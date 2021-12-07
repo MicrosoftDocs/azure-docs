@@ -96,7 +96,6 @@ You can configure the following logs for Azure Machine Learning:
 > [!NOTE]
 > Effective February 2022, AmlComputeClusterNodeEvent category will be deprecated. We recommend to use AmlComputeClusterEvent instead.
 
-
 > [!NOTE]
 > When you enable metrics in a diagnostic setting, dimension information is not currently included as part of the information sent to a storage account, event hub, or log analytics.
 
@@ -134,7 +133,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | Table | Description |
 |:---|:---|
 | AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters.|
-| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeClusterNodeEvent (deprecated) | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 | AmlComputeInstanceEvent | Events when ML Compute Instance is accessed (read/write). Category includes:ComputeInstanceEvent (very chatty). |
 | AmlDataLabelEvent | Events when data label(s) or its projects is accessed (read, created, or deleted). Category includes:DataLabelReadEvent,DataLabelChangeEvent.  |
@@ -147,6 +146,8 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlRunEvent | Events when ML experiments are accessed (read, created, or deleted). Category includes:RunReadEvent,RunEvent. |
 | AmlEnvironmentEvent | Events when ML environment configurations (read, created, or deleted). Category includes:EnvironmentReadEvent (very chatty),EnvironmentChangeEvent. |
 
+> [!NOTE]
+> Effective February 2022, AmlComputeClusterNodeEvent table will be deprecated. We recommend to use AmlComputeClusterEvent instead.
 
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
