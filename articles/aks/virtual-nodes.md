@@ -41,7 +41,7 @@ Virtual Nodes functionality is heavily dependent on ACI's feature set. In additi
 * Virtual nodes support scheduling Linux pods. You can manually install the open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) provider to schedule Windows Server containers to ACI.
 * Virtual nodes require AKS clusters with Azure CNI networking.
 * Using api server authorized ip ranges for AKS.
-* Volume mounting Azure Files share support [General-purpose V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Follow the instructions for mounting [a volume with Azure Files share](azure-files-volume.md)
+* The AKS virtual nodes currently does not support persistent volume. If you need to use an Azure File Share with a pod created on AKS virtual node please [mount file share as an inline volume](azure-files-volume.md#mount-file-share-as-an-inline-volume).
 * Using IPv6 is not supported.
 
 ## Next steps
