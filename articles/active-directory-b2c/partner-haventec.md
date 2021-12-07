@@ -2,7 +2,6 @@
 title: Tutorial to configure Azure Active Directory B2C with Haventec
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with Haventec for multifactor passwordless authentication
-services: active-directory-b2c
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
@@ -52,13 +51,13 @@ To get started, you'll need:
 - An Azure AD subscription. If you don\'t have one, get a [free
   account](https://azure.microsoft.com/free/).
 
-- An [Azure AD B2C tenant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
+- An [Azure AD B2C tenant](/azure/active-directory-b2c/tutorial-create-tenant) that is linked to your Azure subscription.
 
 - A Haventec Authenticate [demo environment](https://www.haventec.com/products/get-started).
 
 ### Part - 1 Create an application registration in Haventec
 
-If you haven't already done so, [register](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications) a web application, and [enable ID token implicit grant](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
+If you haven't already done so, [register](/azure/active-directory-b2c/tutorial-register-applications) a web application, and [enable ID token implicit grant](/azure/active-directory-b2c/tutorial-register-applications#enable-id-token-implicit-grant).
 
 ### Part - 2 Add a new Identity provider in Azure AD B2C
 
@@ -159,6 +158,6 @@ For additional information, review the following articles:
 
 - [Haventec](https://docs.haventec.com/) documentation
 
-- [Custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-overview)
+- [Custom policies in Azure AD B2C](/azure/active-directory-b2c/custom-policy-overview)
 
-- [Get started with custom policies in Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
+- [Get started with custom policies in Azure AD B2C](/azure/active-directory-b2c/custom-policy-get-started?tabs=applications)
