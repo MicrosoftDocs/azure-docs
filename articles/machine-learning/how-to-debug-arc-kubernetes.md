@@ -51,4 +51,61 @@ Here is a sample output
 }
 ```
 
+## Insufficient github.com/fuse
+
+Check whether k8s-host-device-plugin-daemonset is installed properly.
+
+``` azure cli
+kubectl get ds -A | grep k8s-host-device-plugin-daemonset
+```
+
+## Insufficient nvidia.com/gpu
+
+Check whether nvidia-device-plugin-daemonset is installed properly. For more details, please refer to [k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin)
+
+``` azure cli
+kubectl get ds -A | grep nvidia-device-plugin-daemonset
+```
+
+## The "ps-0" pod is stuck in pending status
+
+``` azure cli
+kubectl get pods | grep ps-0
+```
+
+Please try using another instance-type of lower resource requested.
+
+## blobfuse fails to mount
+
+Make sure the [blobfuse-flexvolume-installer](https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume#config-kubelet-service-to-enable-flexvolume-driver) daemonset is installed properly
+
+## no volume plugin matched
+
+``` error message
+Warning  FailedMount xxx  kubelet  xxxx: failed to get Plugin from volumeSpec for volume "f38a008f5870bd913f36e68c12dc1827-blobfuse-0" err=no volume plugin matched
+```
+
+This error message indicates that the flexvol is not installed properly.
+
+Try changing the installation path for the volume plugin
+
+``` azure cli
+az k8s-extension create  -g <resource group> -c <cluster> --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n trainingcompute --release-train stable --config enableTraining=true  --configuration-settings volumePluginDir=/usr/libexec/kubernetes/kubelet-plugins/volume/exec/
+```
+
+# Job is in failed status
+
+## OOM Error
+
+## ORET Error
+
 ## 
+
+
+
+
+
+
+
+
+
