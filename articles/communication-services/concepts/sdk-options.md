@@ -28,7 +28,7 @@ Communication Services APIs are documented alongside other Azure REST APIs in [d
 |--------|----------|---------|----------------------------------|
 | Azure Resource Manager | [REST](/rest/api/communication/communicationservice)| Service| Provision and manage Communication Services resources|
 | Common | N/A | Client & Service | Provides base types for other SDKs |
-| Identity | [REST](/rest/api/communication/communicationidentity) | Service| Manage users, access tokens|
+| Identity | [REST](/rest/api/communication/communicationidentity/communication-identity) | Service| Manage users, access tokens|
 | Phone numbers| [REST](/rest/api/communication/phonenumbers)| Service| Acquire and manage phone numbers |
 | SMS| [REST](/rest/api/communication/sms) | Service| Send and receive SMS messages|
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
@@ -137,7 +137,7 @@ For more information, see the following SDK overviews:
 
 - [Calling SDK Overview](../concepts/voice-video-calling/calling-sdk-features.md)
 - [Chat SDK Overview](../concepts/chat/sdk-features.md)
-- [SMS SDK Overview](../concepts/telephony-sms/sdk-features.md)
+- [SMS SDK Overview](../concepts/sms/sdk-features.md)
 
 To get started with Azure Communication Services:
 

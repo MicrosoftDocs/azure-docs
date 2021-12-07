@@ -3,6 +3,7 @@ title: 'Quickstart: Onboard Defender for IoT to an agent-based solution'
 description: In this quickstart, you will learn how to onboard and enable the Defender for IoT security service in your Azure IoT Hub.
 ms.topic: quickstart
 ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Onboard Defender for IoT to an agent-based solution

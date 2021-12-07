@@ -54,6 +54,9 @@ Create an SSH key pair using the `ssh-keygen` command. Enter a filename, or use 
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
+> [!NOTE]
+> You can also create key pairs with the [Azure CLI](/cli/azure) with the [az sshkey create](/cli/azure/sshkey#az_sshkey_create) command, as described in [Generate and store SSH keys](../ssh-keys-azure-cli.md).
+
 ## Create a VM using your key
 
 To create a Linux VM that uses SSH keys for authentication, provide your SSH public key when creating the VM.
@@ -95,7 +98,9 @@ If the VM is using the just-in-time access policy, you need to request access be
 
 ## Next steps
 
-- For information about SSH keys in the Azure portal, see [Generate and store SSH keys in the Azure portal](../ssh-keys-portal.md) to use when creating VMs in the portal.
+- For information about SSH keys in the Azure portal to use when creating VMs, see [Generate and store SSH keys in the Azure portal](../ssh-keys-portal.md).
+
+- For information about SSH keys in the Azure CLI to use when creating VMs, see [Generate and store SSH keys with the Azure CLI](../ssh-keys-azure-cli.md).
 
 - For detailed steps, options, and advanced examples of working with SSH keys, see [Detailed steps to create SSH key pairs](create-ssh-keys-detailed.md).
 

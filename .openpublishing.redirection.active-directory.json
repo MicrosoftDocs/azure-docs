@@ -6,6 +6,11 @@
           "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-kerberos.md",
+           "redirect_url": "/azure/virtual-desktop/create-profile-container-azure-ad",
+           "redirect_document_id": false
+        },
+        {
           "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
           "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
           "redirect_document_id": false

@@ -55,7 +55,7 @@ Review the [Blob Storage feature support in Azure Storage accounts](storage-feat
    > [!div class="mx-imgBorder"]
    > ![Error json page](./media/upgrade-to-data-lake-storage-gen2-how-to/error-json.png)
 
-   Open the downloaded file to determine why the account did not pass the validation step. 
+   Open the downloaded file to determine why the account did not pass the validation step. If you have a Blob Storage feature that is fully supported, but which in Data Lake Storage Gen2 is supported only at the preview level or is not yet supported, validation might fail. To see how each Blob Storage feature is supported with Data Lake Storage Gen2, see [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md).
 
    The following JSON indicates that an incompatible feature is enabled on the account. In this case, you would disable the feature and then start the validation process again.
 

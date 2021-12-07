@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/30/2021
+ms.date: 12/6/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ Large organizations that emphasize security want to move to cloud services like 
 
 The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
 
-With tenant restrictions, organizations can specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
+With tenant restrictions, organizations can specify the list of tenants that users on their network are permitted to access. Azure AD then only grants access to these permitted tenants - all other tenants are blocked, even ones that your users may be a guest in. 
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
@@ -67,7 +67,7 @@ The following configuration is required to enable tenant restrictions through yo
 For each outgoing request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
 > [!NOTE]
-> Do not include subdomains under `*.login.microsoftonline.com` in your proxy configuration. Doing so will include device.login.microsoftonline.com and will interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com from TLS break-and-inspect and header injection.
+> Do not include subdomains under `*.login.microsoftonline.com` in your proxy configuration. Doing so will include device.login.microsoftonline.com and will interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com and enterpriseregistration.windows.net from TLS break-and-inspect and header injection.
 
 The headers should include the following elements:
 
@@ -135,6 +135,10 @@ Microsoft 365 browser-based applications (the Office Portal, Yammer, SharePoint 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication isn't enabled, effectively bypassing tenant restrictions. Tenant restrictions may block applications that use legacy protocols if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
 For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](https://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
+
+### Azure RMS and Office Message Encryption incompatibility
+
+The [Azure Rights Management Service](https://docs.microsoft.com/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](https://docs.microsoft.com/microsoft-365/compliance/ome) features are not compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants will not be accessible.
 
 ## Testing
 

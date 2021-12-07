@@ -243,7 +243,7 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
-    - name: Getting started with Android map control
+    - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
@@ -279,14 +279,46 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
-    - name: Getting started with iOS map control
+    - name: The iOS map control
       href: how-to-use-ios-map-control-library.md
+    - name: Change the style of a map
+      href: set-map-style-ios-sdk.md
+    - name: Add controls to a map
+      href: add-controls-map-ios.md
+    - name: Create a data source
+      href: create-data-source-ios-sdk.md
+    - name: Add a symbol layer
+      href: add-symbol-layer-ios.md
+    - name: Add a bubble layer
+      href: add-bubble-layer-map-ios.md
+    - name: Display feature information
+      href: display-feature-information-ios-sdk.md
+    - name: Add a line layer
+      href: add-line-layer-map-ios.md
+    - name: Add a polygon layer
+      href: add-polygon-layer-map-ios.md
+    - name: Add a polygon extrusion layer
+      href: add-polygon-extrusion-layer-map-ios.md
+    - name: Add heat map layer
+      href: add-heat-map-layer-ios.md
+    - name: Add an image layer
+      href: add-image-layer-map-ios.md
+    - name: Add a tile layer
+      href: add-tile-layer-map-ios.md
+    - name: Show traffic data 
+      href: show-traffic-data-map-ios-sdk.md
+    - name: Clustering point data
+      href: clustering-point-data-ios-sdk.md
+    - name: Use data-driven expressions
+      href: data-driven-style-expressions-ios-sdk.md
+    - name: React to events
+      href: interact-map-ios-sdk.md  
     - name: Use the Azure Maps indoor maps module
       href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
-    - name: Getting started
-      href: power-bi-visual-getting-started.md
+    - name: The Azure Maps Power BI visual
+      href: power-bi-visual-get-started.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer
