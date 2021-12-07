@@ -55,7 +55,7 @@
     - name: Rules Match Conditions
       href: rules-match-conditions.md
     - name: Rules Actions
-      href: rules-actions.md
+      href: front-door-rules-engine-actions.md
   - name: URL rewrite
     href: front-door-url-rewrite.md
   - name: URL redirect

@@ -265,6 +265,9 @@
       href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
+    - name: SwissID
+      href:  identity-provider-swissid.md
+      displayName: Swiss ID      
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat
@@ -312,6 +315,8 @@
         items:
         - name: BlokSec
           href: partner-bloksec.md
+        - name: Haventec
+          href: partner-haventec.md
         - name: HYPR
           href: partner-hypr.md
         - name: IDEMIA
