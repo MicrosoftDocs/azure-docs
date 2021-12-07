@@ -121,7 +121,7 @@ If the column `query_plan_with_transient_statistics` returns an execution plan, 
 
 ### Review CPU usage metrics for the last hour
 
-The following query against **sys.dm_db_resource_stats** returns the average CPU used over 15-second intervals for approximately the last hour.
+The following query against `sys.dm_db_resource_stats` returns the average CPU used over 15-second intervals for approximately the last hour.
 
 ```sql
 SELECT
@@ -232,7 +232,7 @@ FROM query_ids as qid
 JOIN sys.query_store_query AS q ON qid.query_id=q.query_id
 JOIN sys.query_store_query_text AS qt on q.query_text_id = qt.query_text_id
 JOIN sys.query_store_plan AS p ON qid.query_id=p.query_id and qid.query_plan_hash=p.query_plan_hash
-ORDER BY total_cpu_time DESC
+ORDER BY total_cpu_time DESC;
 GO
 ```
 
@@ -258,7 +258,7 @@ Each bar in the top-left quadrant represents a query. Select a bar to see detail
 
 ## Reduce CPU usage with manual and automatic tuning
 
-You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database.
+Part of your troubleshooting should include learning more about the queries identified in the previous section. You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database. Consider the following strategies in this section.
 
 ### Reduce CPU usage with automatic index tuning
 
@@ -311,7 +311,7 @@ WHERE name=N'MAXDOP';
 GO
 ```
 
-Learn to [configure max degree of parallelism](configure-max-degree-of-parallelism.md) for your database as a whole and for individual queries.
+Consider experimenting with small changes in the MAXDOP configuration at the database level, or, modifying individual problematic queries to use a non-default MAXDOP using a query hint. For more information, see the examples in [configure max degree of parallelism](configure-max-degree-of-parallelism.md).
 
 ## When to add more CPU resources to your database
 
