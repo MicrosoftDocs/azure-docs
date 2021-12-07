@@ -6,8 +6,8 @@ ms.subservice: migration-guide
 ms.custom:
 ms.devlang:
 ms.topic: how-to
-author: cawrites
-ms.author: chadam
+author: mokabiru
+ms.author: chadam, mathoma, kendralittle
 ms.date: 08/25/2020
 ---
 

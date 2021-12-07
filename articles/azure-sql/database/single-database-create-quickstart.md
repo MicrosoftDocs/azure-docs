@@ -8,7 +8,7 @@ ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mod
 ms.topic: quickstart
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 01/27/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
