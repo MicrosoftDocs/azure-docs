@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/21/2021
+ms.date: 12/07/2021
 ms.topic: article
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
@@ -148,21 +148,29 @@ To recover from this issue, follow these steps:
 3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
 4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
 
-## Configuration management
+## GitOps management
 
 ### General
-To help troubleshoot issues with configuration resource, run az commands with `--debug` parameter specified.
+
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration create <parameters> --debug
 ```
 
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+
+```console
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration flux create <parameters> --debug
+```
+
 ### Create configurations
 
 Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
 
-### Configuration remains `Pending`
+### `sourceControlConfigurations` remains `Pending` (Flux v1)
 
 ```console
 kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
@@ -204,6 +212,56 @@ kind: List
 metadata:
   resourceVersion: ""
   selfLink: ""
+```
+
+### Installing the `microsoft.flux` extension (Flux v2)
+
+If the `microsoft.flux` extension is in a failed state, you can run a script to investigate.  The cluster-type parameter can be set to `connectedClusters` for Arc cluster or `managedClusters` for AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a `fluxConfigurations` resource. Look in the "statuses" object for information.
+
+One example:
+
+```console
+az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+
+...
+"statuses": [
+    {
+      "code": "InstallationFailed",
+      "displayStatus": null,
+      "level": null,
+      "message": "unable to add the configuration with configId {extension:flux} due to error: {error while adding the CRD configuration: error {Operation cannot be fulfilled on extensionconfigs.clusterconfig.azure.com \"flux\": the object has been modified; please apply your changes to the latest version and try again}}",
+      "time": null
+    }
+  ]
+```
+
+Another example:
+
+```console
+az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+
+"statuses": [
+    {
+      "code": "InstallationFailed",
+      "displayStatus": null,
+      "level": null,
+      "message": "Error: {failed to install chart from path [] for release [flux]: err [cannot re-use a name that is still in use]} occurred while doing the operation : {Installing the extension} on the config",
+      "time": null
+    }
+  ]
+```
+
+In both of these cases, delete the `flux-system` namespace and uninstall the Helm release. This should resolve the extension installation issue.
+
+```console
+kubectl delete namespaces flux-system -A
+helm uninstall flux -n -flux-system
+```
+
+If that doesn't resolve the issue, you can delete the extension. After deleting the extension, you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
+
+```console
+az k8s-extension delete --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters –name flux
 ```
 
 ## Monitoring
