@@ -1,13 +1,13 @@
 ---
 title: "Deploy a trusted launch VM"
 description: Deploy a VM that uses trusted launch.
-author: khyewei
-ms.author: khwei
+author: cynthn
+ms.author: cynthn
 ms.reviewer: cynthn
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 12/07/2021
 ms.custom: template-how-to
 ---
 
@@ -74,9 +74,9 @@ az vm create \
    --image UbuntuLTS \ 
    --admin-username azureuser \ 
    --generate-ssh-keys \ 
-   --SecurityType trustedLaunch \ 
-   --EnableSecureBoot true \  
-   --EnableVtpm true \
+   --security-type TrustedLaunch \ 
+   --enable-secure-boot true \  
+   --enable-vtpm true 
 ```
  
 For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
@@ -85,8 +85,8 @@ For existing VMs, you can enable or disable secure boot and vTPM settings. Updat
 az vm update \  
    --resource-group myResourceGroup \ 
    --name myVM \ 
-   --EnableSecureBoot \  
-   --EnableVtpm 
+   --enable-secure-boot true \  
+   --enable-vtpm true 
 ```  
 
 ### [PowerShell](#tab/powershell)
