@@ -802,7 +802,7 @@
         - name: Configure a failover group for an elastic pool
           href: database/scripts/add-elastic-pool-to-failover-group-cli.md
         - name: Configure and fail over a single database by using active geo-replication
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
+          href: database/scripts/setup-geodr-and-failover-database-cli.md
         - name: Configure and fail over a pooled database by using active geo-replication
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
       - name: Auditing and threat detection
@@ -814,7 +814,7 @@
         - name: Back up a database
           href: database/scripts/backup-database-cli.md
         - name: Restore a database
-          href: ../sql-database/scripts/sql-database-restore-database-cli.md
+          href: database/scripts/restore-database-cli.md
         - name: Copy a database to a new server
           href: database/scripts/copy-database-to-new-server-cli.md
         - name: Import a database from a BACPAC file
@@ -1191,7 +1191,7 @@
       - name: Overview of Azure SQL Managed Instance samples
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
-        href: ../managed-instance/scripts/create-configure-managed-instance-cli.md
+        href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE) using Azure Key Vault
         href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Configure a failover group
