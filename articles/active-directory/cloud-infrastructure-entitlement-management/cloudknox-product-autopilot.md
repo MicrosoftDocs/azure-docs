@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management - Autopilot
 
-Microsoft CloudKnox Permissions Management's Autopilot function allows administrators to delete, modify, or update in batch mode, including deleting unused roles, disabling access keys older than 90 days, etc. It is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule associated to where a new rule can be created. 
+Microsoft CloudKnox Permissions Management's Autopilot function allows administrators to delete, modify, or update in batch mode, including deleting unused roles, disabling access keys older than 90 days, etc. It is a multi-step process with the ability to apply or remove recommendations at a given time. AWS, Azure, and GCP each have one rule associated to where a new rule can be created.   
 
 For more information on rules for each authorization system, see [How to create a new rule](cloudknox-prod-autopilot.md#how-to-create-a-new-rule).
 
