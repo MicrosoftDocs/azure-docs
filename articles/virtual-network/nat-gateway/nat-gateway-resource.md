@@ -19,7 +19,7 @@ ms.author: allensu
 
 # Designing virtual networks with NAT gateway
 
-NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP address resources, public IP prefix resources, or both. If a public IP prefix resource is used, all IP addresses of the entire public IP prefix resource are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
+NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Diagram that depicts a NAT gateway resource that consumes all I P addresses for a public I P prefix and directs that traffic to and from two subnets of V Ms and a virtual machine scale set." width="256" title="Virtual Network NAT for flows outbound to the internet">
@@ -112,7 +112,7 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](/azure/n
 
 ## Performance
 
-Each NAT gateway resource can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
+Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
 Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outbound IP address. Review the following section for details as well as the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
@@ -192,12 +192,12 @@ After a SNAT port is released, it's available for use by any VM on subnets confi
 
 ### Scaling
 
-Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP address resources, public IP prefix resources, or both to create SNAT port inventory. 
+Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP addresses, public IP prefixes, or both to create SNAT port inventory. 
 
 > [!NOTE]
-> If you assign a public IP prefix resource, the entire public IP prefix is used. You can't assign a public IP prefix resource and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses from the public IP prefix resource and assign them as needed instead of using the public IP prefix resource itself.
+> If you assign a public IP prefix, the entire public IP prefix is used. You can't assign a public IP prefix and then break out individual IP addresses to assign to other resources. If you want to assign individual IP addresses from a public IP prefix to multiple resources, you need to create individual public IP addresses and assign them as needed instead of using the public IP prefix itself.
 
-SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway uses 64,000 ports (SNAT ports) per configured public IP address for this translation. A single NAT gateway can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix resource is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
+SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway uses 64,000 ports (SNAT ports) per configured public IP address for this translation. A single NAT gateway can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
 
 NAT gateway opportunistically reuses source (SNAT) ports. When you design scaling, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
 
