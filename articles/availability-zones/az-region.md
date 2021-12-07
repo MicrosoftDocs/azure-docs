@@ -4,7 +4,7 @@ description: Learn what services are supported by availability zones and underst
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 11/22/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
@@ -103,7 +103,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service environments](../app-service/environment/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure API Management](../api-management/zone-redundancy.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
@@ -122,6 +122,8 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Firewall Manager](../firewall-manager/quick-firewall-policy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Functions](https://azure.github.io/AppService/2021/08/25/App-service-support-for-availability-zones.html)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md#availability) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Kubernetes Service (AKS)](../aks/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -173,7 +175,6 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |

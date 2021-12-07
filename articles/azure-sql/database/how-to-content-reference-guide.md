@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: guide
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.date: 01/14/2020
 ---
 # Configure and manage content reference - Azure SQL Database

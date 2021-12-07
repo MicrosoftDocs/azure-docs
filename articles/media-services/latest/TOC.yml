@@ -335,12 +335,6 @@
         displayName: security, baseline
       - name: Account security
         items:
-        - name: What is the Microsoft identity platform?
-          href: ../../active-directory/develop/app-objects-and-service-principals.md
-        - name: What is an application and service principal?
-          href: ../../active-directory/develop/app-objects-and-service-principals.md
-        - name: What are managed identities for Azure resources?
-          href: ../../active-directory/managed-identities-azure-resources/overview.md
         - name: Azure RBAC
           href: security-rbac-concept.md
           displayName: RBAC, role based access, role based access control, roles, access, secure, security, authorization
@@ -616,10 +610,8 @@
     items:
       - name: Account security
         items:
-        - name: How to create user-assigned managed identity in the portal
-          href: ../../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md
-        - name: How to assign a managed identity access to another Azure resources
-          href: ../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md
+        - name: Create a Media Services account
+          href: account-create-how-to.md
       - name: Network security
         items:
         - name: Use a Private Link with a Streaming endpoint
