@@ -74,7 +74,7 @@
       items:
       - name: Deploy using a service principal
         href: container-instances-using-azure-container-registry.md
-      - name: Deploy using a managed identity
+      - name: Deploy using a managed identity (preview)
         href: using-azure-container-registry-mi.md
     - name: Deploy with GitHub Actions
       href: container-instances-github-action.md

@@ -7,9 +7,12 @@ ms.date: 11/11/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Deploy to Azure Container Instances from Azure Container Registry using a managed identity
+# Deploy to Azure Container Instances from Azure Container Registry using a managed identity (preview)
 
 [Azure Container Registry][acr-overview] (ACR) is an Azure-based, managed container registry service used to store private Docker container images. This article describes how to pull container images stored in an Azure container registry when deploying to container groups with Azure Container Instances. One way to configure registry access is to create an Azure Active Directory managed identity.
+
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the supplemental terms of use.
 
 ## Prerequisites
 
