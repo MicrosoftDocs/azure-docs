@@ -179,6 +179,11 @@
             "source_path_from_root": "/articles/azure-sql/database/job-automation-managed-instances.md",
             "redirect_url": "/azure/azure-sql/managed-instance/job-automation-managed-instance",
             "redirect_document_id": true
-        }                                                                                                                        
+        },   
+        {
+            "source_path": "articles/azure-sql/database/service-tiers-general-purpose-business-critical.md",
+            "redirect_url": "/azure/azure-sql/database/service-tiers-vcore",
+            "redirect_document_id": false
+        }                                                                                                                  
     ]
 }
