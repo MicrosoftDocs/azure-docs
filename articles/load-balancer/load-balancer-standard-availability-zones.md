@@ -69,7 +69,7 @@ It is recommended you use zone-redundant Load Balancer for your production workl
 
 ### Multiple frontends
 
-Using multiple frontends allow you to load balance traffic on more than one port and/or IP address.  When designing your architecture, it is important to account for the way zone redundancy and multiple frontends can interact.  Note that if the goal is to always have every frontend be resilient to failure, then all IP addresses used assigned as frontends must be zone-redundant.   If a set of frontends are intended to be associated with a single zone, then every IP address for that set must be associated with that specific zone.  It is not required to have a load balancer for each zone; rather, each zonal frontend (or set of zonal frontends) could be associated with virtual machines in the backend pool that are part of that specific availability zone.
+Using multiple frontends allow you to load balance traffic on more than one port and/or IP address.  When designing your architecture, it is important to account for the way zone redundancy and multiple frontends can interact.  Note that if the goal is to always have every frontend be resilient to failure, then all IP addresses assigned as frontends must be zone-redundant.   If a set of frontends are intended to be associated with a single zone, then every IP address for that set must be associated with that specific zone.  It is not required to have a load balancer for each zone; rather, each zonal frontend (or set of zonal frontends) could be associated with virtual machines in the backend pool that are part of that specific availability zone.
 
 ### Transition between regional zonal models
 
