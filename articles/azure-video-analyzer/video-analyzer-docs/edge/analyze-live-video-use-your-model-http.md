@@ -8,7 +8,7 @@ zone_pivot_groups: video-analyzer-programming-languages
 ms.custom: ignite-fall-2021, mode-other, contperf-fy22qX
 ---
 
-# Quickstart: analyze a live video feed from a (simulated) IP camera using HTTP
+# Quickstart: analyze a live video feed from an IP camera using your own model - HTTP
 
 [!INCLUDE [header](includes/edge-env.md)]
 
