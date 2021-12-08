@@ -801,8 +801,10 @@
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
         - name: Pooled database
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
-      - name: Configure failover
+      - name: Configure failover group
         items: 
+        - name: Failover group
+          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-group-cli.md
         - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Pooled database
