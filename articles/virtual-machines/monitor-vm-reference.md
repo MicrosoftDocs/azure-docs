@@ -36,9 +36,9 @@ Azure virtual machines and virtual machine scale sets have the following dimensi
 | VMName | Used with virtual machine scale sets |
 | | |
 
-## Azure Monitor log tables
+## Azure Monitor Logs tables
 
-This section refers to all the Azure Monitor log tables that are relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
+This section refers to all the Azure Monitor Logs tables that are relevant to virtual machines and virtual machine scale sets and available for query by Log Analytics. 
 
 |Resource type | Notes |
 |-------|-----|
@@ -46,7 +46,7 @@ This section refers to all the Azure Monitor log tables that are relevant to vir
 | [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
 | | |
 
-For reference documentation about Azure Monitor logs and Log Analytics tables, see the [Azure Monitor log table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
+For reference documentation about Azure Monitor Logs and Log Analytics tables, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
 
 ## Activity log
 
