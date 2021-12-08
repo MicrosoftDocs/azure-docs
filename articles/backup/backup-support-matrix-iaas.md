@@ -165,7 +165,7 @@ Windows Storage Spaces configuration of standalone Azure VMs | Supported
 [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) | Supported for flexible orchestration model to back up and restore Single Azure VM.
 Restore with Managed identities | Yes, supported for managed Azure VMs, and not supported for classic and unmanaged Azure VMs.  <br><br> Cross Region Restore isn't supported with managed identities. <br><br> Currently, this is available in all Azure public and national cloud regions.   <br><br> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-managed-identities).
 
-### Trusted Launch VM
+## Trusted Launch VM support
 
 **Compute** | **Support**
 --- | ---
