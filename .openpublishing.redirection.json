@@ -1,6 +1,226 @@
 {
   "redirections": [
     {
+      "source_path": "articles/machine-learning/classic/ai-gallery-control-personal-data-dsr.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/ai-gallery-control-personal-data-dsr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/algorithm-parameters-optimize.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/algorithm-parameters-optimize",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/azure-ml-netsharp-reference-guide.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/azure-ml-netsharp-reference-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/consume-web-services.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/consume-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/consuming-from-excel.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/consuming-from-excel",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-endpoint.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-experiment.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-experiment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-models-and-endpoints-with-powershell.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-models-and-endpoints-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/create-workspace.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/create-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/custom-r-modules.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/custom-r-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-a-machine-learning-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-a-machine-learning-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-consume-web-service-guide.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-consume-web-service-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/deploy-with-resource-manager-template.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/deploy-with-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/evaluate-model-performance.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/evaluate-model-performance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/excel-add-in-for-web-services.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/excel-add-in-for-web-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/execute-python-scripts.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/execute-python-scripts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/export-delete-personal-data-dsr.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/export-delete-personal-data-dsr",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/gallery-how-to-use-contribute-publish.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/gallery-how-to-use-contribute-publish",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/import-data.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/import-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/interpret-model-results.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/interpret-model-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-experiment-iterations.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-experiment-iterations",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-new-webservice.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-new-webservice",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-web-service-endpoints-using-api-management.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-web-service-endpoints-using-api-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/manage-workspace.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/manage-workspace",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/model-progression-experiment-to-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/model-progression-experiment-to-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/powershell-module.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/powershell-module",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/r-get-started.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/r-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retired-data-science-for-beginners-videos.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retrain-classic-web-service.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retrain-classic-web-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/retrain-machine-learning-model.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/retrain-machine-learning-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/sample-experiments.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/sample-experiments",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/studio-classic-overview.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/studio-classic-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/support-aml-studio.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/support-aml-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part1-credit-risk.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part1-credit-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part2-credit-risk-train.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part2-credit-risk-train",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/tutorial-part3-credit-risk-deploy.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/tutorial-part3-credit-risk-deploy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/use-data-from-an-on-premises-sql-server.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/use-data-from-an-on-premises-sql-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/use-sample-datasets.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/use-sample-datasets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/version-control.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/version-control",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-service-error-codes.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-service-error-codes",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-service-parameters.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-service-parameters",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-services-logging.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-services-logging",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/web-services-that-use-import-export-modules.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/web-services-that-use-import-export-modules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/classic/index.yml",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-c-plus-plus-how-to-use-blobs.md",
       "redirect_url": "/azure/storage/blobs/quickstart-blobs-c-plus-plus",
       "redirect_document_id": false

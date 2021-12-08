@@ -4,7 +4,7 @@ description: This article describes how to configure Azure RBAC for FHIR.
 author: SteveWohl
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 12/08/2021
 ms.author: zxue
 ---
 
@@ -15,7 +15,7 @@ ms.author: zxue
 
 In this article, you'll learn how to use [Azure role-based access control (Azure RBAC)](../role-based-access-control/index.yml) to assign access to the Healthcare APIs data plane. Azure RBAC is the preferred methods for assigning data plane access when data plane users are managed in the Azure Active Directory tenant associated with your Azure subscription.
 
-You can complete role assignments through the Azure portal. Note that the FHIR service and the DICOM service have defined different application roles. Add or remove one or more roles to manage user access controls.
+You can complete role assignments through the Azure portal. Note that the FHIR service and DICOM service have defined different application roles. Add or remove one or more roles to manage user access controls.
 
 ## Assign roles for the FHIR service
 
