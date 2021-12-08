@@ -40,7 +40,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Get started with verifiable credentials
-            url: enable-your-tenant-verifiable-credentials.md
+            url: verifiable-credentials-configure-tenant.md
       - linkListType: tutorial
         links:
           - text: Issue verifiable credentials

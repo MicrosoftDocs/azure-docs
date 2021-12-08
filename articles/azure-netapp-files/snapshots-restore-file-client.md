@@ -3,7 +3,7 @@ title: Restore a file from a snapshot using a client with Azure NetApp Files | M
 description: Describes how to restore a file from a snapshot using a client with the volume mounted using Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 
 # Restore a file from a snapshot using a client with Azure NetApp Files

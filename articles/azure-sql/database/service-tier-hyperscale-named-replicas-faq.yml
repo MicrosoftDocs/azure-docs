@@ -10,7 +10,7 @@ metadata:
   ms.topic: conceptual
   author: yorek
   ms.author: damauri
-  ms.reviewer:
+  ms.reviewer: kendralittle, mathoma
   ms.date: 07/27/2021
     
 title: Azure SQL Database Hyperscale named replicas FAQ

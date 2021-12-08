@@ -104,6 +104,8 @@
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: "Create a secure workspace"
       href: "tutorial-create-secure-workspace.md"
+    - name: "Create a secure workspace with templates"
+      href: "tutorial-create-secure-workspace-template.md"
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -813,8 +815,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Machine learning CLI (v1) pipeline YAML reference
-      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

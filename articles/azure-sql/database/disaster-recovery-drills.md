@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/18/2018
 ---
 # Performing disaster recovery drills

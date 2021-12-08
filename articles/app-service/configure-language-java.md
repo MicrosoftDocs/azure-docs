@@ -463,7 +463,7 @@ This section shows how to connect Java applications deployed on Azure App Servic
 
 ### Configure Application Insights
 
-Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app.
+Azure Monitor application insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, auto-collecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. See the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md) for more information about the available app settings for configuring the agent.
 
 #### Azure portal
 
@@ -1135,7 +1135,6 @@ Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomc
 ### Deprecation and retirement
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
-
 
 ### Local development
 

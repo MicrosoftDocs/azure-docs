@@ -6,6 +6,11 @@
           "redirect_document_id": false
         },
         {
+           "source_path_from_root": "/articles/active-directory/authentication/how-to-authentication-kerberos.md",
+           "redirect_url": "/azure/virtual-desktop/create-profile-container-azure-ad",
+           "redirect_document_id": false
+        },
+        {
           "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
           "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
           "redirect_document_id": false
@@ -10594,7 +10599,25 @@
             "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/enable-your-tenant-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
         }
+        ,
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/issue-verify-verifiable-credentials-your-tenant.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/get-started-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
+        }
+
+
    
          
     ]
