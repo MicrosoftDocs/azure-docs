@@ -14,7 +14,7 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 ## 2021 quarter 4 (October, November, December)
 ### Increased IOPS for premium file shares
-Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that 100 GiB share (the minimum share size) is guaranteed at 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to 10,000 IOPS or more. 
+Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed at 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to 10,000 IOPS or more. 
 
 Formula changes:
 
