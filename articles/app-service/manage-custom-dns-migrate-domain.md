@@ -19,9 +19,7 @@ If you're not worried about downtime in DNS resolution, see [Map an existing cus
 
 ## Prerequisites
 
-To complete this how-to:
-
-- [Make sure that your App Service app is not in FREE tier](app-service-web-tutorial-custom-domain.md#checkpricing).
+To complete this how-to, [make sure that your App Service app is not in FREE tier](manage-scale-up.md#scale-up-your-pricing-tier).
 
 ## Bind the domain name preemptively
 
