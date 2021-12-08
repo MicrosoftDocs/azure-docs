@@ -200,7 +200,7 @@ The following example shows how to create a memory scaling rule.
 
 ## Azure Pipelines
 
-Azure Pipelines scaling allows your container agent to scale in or out depending on how long the queue of waiting jobs in an Azure DevOps agent pool is. Azure Pipelines scaling allows your container app to scale to 0 but you need to be aware of one problem to solve, which is [explained on KEDA's blog post](https://keda.sh/blog/2021-05-27-azure-pipelines-scaler/). For more information regarding this scaler, see [KEDA Azure Pipelines scaler](https://keda.sh/docs/2.4/scalers/azure-pipelines/).
+Azure Pipelines scaling allows your container app to scale in or out depending on the number of jobs in the Azure DevOps agent pool. With Azure Pipelines, your app can scale to zero, but you need [at least one agent registered in the pool schedule additional agents](https://keda.sh/blog/2021-05-27-azure-pipelines-scaler/). For more information regarding this scaler, see [KEDA Azure Pipelines scaler](https://keda.sh/docs/2.4/scalers/azure-pipelines/).
 
 The following example shows how to create a memory scaling rule.
 
