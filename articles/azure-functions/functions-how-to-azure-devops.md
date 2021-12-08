@@ -233,6 +233,7 @@ steps:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/build$(Build.BuildId).zip'
     artifactName: 'drop'
 ```
+---
 
 ## Deploy your app
 
