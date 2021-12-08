@@ -213,9 +213,9 @@ HasImmutableStorageWithVersioning : False
 
 Containers support the use of metadata, which allows a greater degree of flexibility when performing operations on containers and their contents. Metadata consists of a series of key-value pairs that can be used to describe or categorize your data. Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata.
 
-In order to access the metadata, utilize the `BlobContainerClient`. This allows you to access and manipulate containers and their blobs. To update metadata, you'll need to call the `SetMetadata()` method. The method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, refer to the [BlobContainerClient class](/dotnet/api/azure.storage.blobs.blobcontainerclient)
+To access the metadata, you'll use the `BlobContainerClient` object. This object allows you to access and manipulate containers and their blobs. To update metadata, you'll need to call the `SetMetadata()` method. The method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobContainerClient class](/dotnet/api/azure.storage.blobs.blobcontainerclient)
 
-The example below first updates a container's metadata and afterward retrieve a container's metadata. Note that the example flushes the sample container from memory and retrieves it again to ensure that metadata is not being read from the object in memory.
+The example below first updates a container's metadata and afterward retrieve a container's metadata. The example flushes the sample container from memory and retrieves it again to ensure that metadata isn't being read from the object in memory.
 
 ```azurepowershell
 # Create variables
@@ -255,11 +255,11 @@ individual-container metadata:
 
 ## Get a shared access signature for a container
 
-A shared access signature (SAS) provides secure delegated access to Azure resources. With a SAS, you have granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations which the client can perform on available resources, as well as specify the amount of time for which the actions can be taken.
+A shared access signature (SAS) provides delegated access to Azure resources. A SAS gives you granular control over how a client can access your data. For example, you can specify which resources are available to the client. You can also limit the types of operations that the client can perform, and specify the amount of time for which the actions can be taken.
 
-SAS are commonly used to provide temporary and secure access to a client who would not normally have established permissions. An example of this scenario would be a service which allows users read and write their own data to your storage account.
+A SAS is commonly used to provide temporary and secure access to a client who wouldn't normally have permissions. An example of this scenario would be a service that allows users read and write their own data to your storage account.
 
-Azure Storage supports three types of shared access signatures: user delegation, service, and account SAS. For more information on shared access signatures, refer to the [Create a service SAS for a container or blob](../common/storage-sas-overview) article.
+Azure Storage supports three types of shared access signatures: user delegation, service, and account SAS. For more information on shared access signatures, see the [Create a service SAS for a container or blob](../common/storage-sas-overview.md) article.
 
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
@@ -298,7 +298,7 @@ The following example illustrates the process of configuring a service SAS for a
 
 ## Delete a container
 
-Depending on your use case, you can retrieve a container or container collection with the `Remove-AzStorageContainer` cmdlet. When deleting a collection, you can leverage conditional operations or loops, or simply use the PowerShell pipeline as shown in the examples below.
+Depending on your use case, you can retrieve a container or container collection with the `Remove-AzStorageContainer` cmdlet. When deleting a collection, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
 ```azurepowershell
 # Create variables
@@ -323,9 +323,9 @@ Depending on your use case, you can retrieve a container or container collection
 
 ## Restore a soft-deleted container
 
-As mentioned in the [List containers](#list-containers) section, you can configure the soft delete data protection option on your storage account. When enabled, it is possible to restore containers deleted within the associated retention period.
+As mentioned in the [List containers](#list-containers) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period.
 
-The following example explains how to restore a soft-deleted container with the `Restore-AzStorageContainer` cmdlet. In order to utilize this example, you'll need to have soft delete enabled and configured for at least one of your storage accounts.
+The following example explains how to restore a soft-deleted container with the `Restore-AzStorageContainer` cmdlet. Before you can follow this example, you'll need to enable soft delete and configure it on at least one of your storage accounts.
 
 To learn more about the soft delete data protection option, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
