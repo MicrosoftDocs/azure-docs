@@ -124,6 +124,8 @@
           href: data-box-troubleshoot-data-upload.md
         - name: Data Box Blob storage issues
           href: data-box-troubleshoot-rest.md    
+        - name: Data Box time sync issues
+          href: data-box-troubleshoot-time-sync.md
  
   - name: Data Box Disk 
     items:

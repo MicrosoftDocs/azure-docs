@@ -1,16 +1,7 @@
 ---
 title: Bring your own ML into Microsoft Sentinel | Microsoft Docs
 description: This article explains how to create and use your own machine learning algorithms for data analysis in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin

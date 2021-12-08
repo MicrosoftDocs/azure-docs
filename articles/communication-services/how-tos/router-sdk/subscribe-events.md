@@ -23,7 +23,7 @@ This guide outlines the steps to subscribe to Job Router events from your Azure 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - Optional: Complete the quickstart to [get started with Job Router](../../quickstarts/router/get-started-router.md)
 - Install the [Azure Resource Manager (ARM) client](https://github.com/projectkudu/ARMClient)
-- Review the [GitHub sample project using the Event Grid Viewer](https://github.com/Azure/communication-preview/tree/master/samples/Job-Router/Event-Grid-Viewer)
+- Review the [GitHub sample project using a customized version of the Event Grid Viewer for Job Router](https://github.com/Azure/communication-preview/tree/master/samples/Job-Router/Event-Grid-Viewer)
 
 ## Create an Event Grid subscription
 
@@ -42,7 +42,7 @@ $env:SUB = 'subscriptions/<insert_subscription_id>'
 $env:RG = 'resourcegroups/<insert_resource_group_name>'
 ```
 
-**(Optional) List all ACS resources in subscription**
+**List all ACS resources in subscription**
 ```powershell
 armclient get "/$env:SUB/$env:RG/providers/Microsoft.Communication/communicationservices?api-version=2020-08-20"
 ```
@@ -52,28 +52,17 @@ armclient get "/$env:SUB/$env:RG/providers/Microsoft.Communication/communication
 
 As we can see, there is currently only one Azure Communication Services resource under the given subscription and resource group.
 
-**Set ACS Resource Name**
+**Set PowerShell variables**
 
 Set the name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set `ACS_RESOURCE_NAME` to the prefix of the DNS name; `contoso`.
 
 ```powershell
 $env:ACS_RESOURCE_NAME = "<insert_acs_resource_name>"
-```
-
-**(Optional) List existing event subscriptions**
-
-Check if there are any existing event subscriptions
-
-```powershell
 $env:ACS_RESOURCE_ARM_ID = "/$env:SUB/$env:RG/providers/Microsoft.Communication/CommunicationServices/$env:ACS_RESOURCE_NAME"
 $env:API_VERSION = "?api-version=2020-06-01"
 $env:EVENT_SUBSCRIPTIONS_PATH = "providers/Microsoft.EventGrid/eventSubscriptions"
-
-armclient get "$env:ACS_RESOURCE_ARM_ID/$env:EVENT_SUBSCRIPTIONS_PATH/$env:API_VERSION"
+$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_All"
 ```
-:::image type="content" source="media/check-subscriptions.png" alt-text="Check for existing subscriptions":::
-
-As we can see, no event subscriptions have been created for this resource.
 
 **Create a new event subscription for Router events**
 
@@ -113,11 +102,6 @@ Copy and paste the following json payload in a text file named `test.json`.
     }
   }
 }
-```
-
-**Set the event subscription name**
-```powershell
-$env:EVENT_SUBSCRIPTION_NAME = "RouterEventsSubScription_All"
 ```
 
 **Create the event subscription**

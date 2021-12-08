@@ -8,19 +8,19 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 7/30/2021
+ms.date: 12/6/2021
 ms.author: davidmu
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
 ---
 
-# Restrict access to a tenant in Azure Active Directory
+# Restrict access to a tenant
 
 Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
 The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization's Microsoft 365 applications, while preventing access to other organizations' instances of these same applications.  
 
-With tenant restrictions, organizations can specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
+With tenant restrictions, organizations can specify the list of tenants that users on their network are permitted to access. Azure AD then only grants access to these permitted tenants - all other tenants are blocked, even ones that your users may be a guest in. 
 
 This article focuses on tenant restrictions for Microsoft 365, but the feature protects all apps that send the user to Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by your Microsoft 365, make sure that all required tenants are permitted (e.g. in B2B collaboration scenarios). For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps).
 
@@ -67,13 +67,13 @@ The following configuration is required to enable tenant restrictions through yo
 For each outgoing request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
 
 > [!NOTE]
-> Do not include subdomains under `*.login.microsoftonline.com` in your proxy configuration. Doing so will include device.login.microsoftonline.com and will interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com from TLS break-and-inspect and header injection.
+> Do not include subdomains under `*.login.microsoftonline.com` in your proxy configuration. Doing so will include device.login.microsoftonline.com and will interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com and enterpriseregistration.windows.net from TLS break-and-inspect and header injection.
 
 The headers should include the following elements:
 
 - For *Restrict-Access-To-Tenants*, use a value of \<permitted tenant list\>, which is a comma-separated list of tenants you want to allow users to access. Any domain that is registered with a tenant can be used to identify the tenant in this list, as well as the directory ID itself. For an example of all three ways of describing a tenant, the name/value pair to allow Contoso, Fabrikam, and Microsoft looks like: `Restrict-Access-To-Tenants: contoso.com,fabrikam.onmicrosoft.com,72f988bf-86f1-41af-91ab-2d7cd011db47`
 
-- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. You *must* use your own directory ID here to get logs for these authentications. If you use any directory ID other than your own, those sign-in logs *will* appear in someone else’s tenant, with all personal information removed. For more information, see [Admin experience](#admin-experience).
+- For *Restrict-Access-Context*, use a value of a single directory ID, declaring which tenant is setting the tenant restrictions. For example, to declare Contoso as the tenant that set the tenant restrictions policy, the name/value pair looks like: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`. You *must* use your own directory ID here to get logs for these authentications. If you use any directory ID other than your own, those sign-in logs *will* appear in someone else's tenant, with all personal information removed. For more information, see [Admin experience](#admin-experience).
 
 > [!TIP]
 > You can find your directory ID in the [Azure Active Directory portal](https://aad.portal.azure.com/). Sign in as an administrator, select **Azure Active Directory**, then select **Properties**.
@@ -135,6 +135,10 @@ Microsoft 365 browser-based applications (the Office Portal, Yammer, SharePoint 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication isn't enabled, effectively bypassing tenant restrictions. Tenant restrictions may block applications that use legacy protocols if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 
 For Outlook on Windows, customers may choose to implement restrictions preventing end users from adding non-approved mail accounts to their profiles. For example, see the [Prevent adding non-default Exchange accounts](https://gpsearch.azurewebsites.net/default.aspx?ref=1) group policy setting.
+
+### Azure RMS and Office Message Encryption incompatibility
+
+The [Azure Rights Management Service](/azure/information-protection/what-is-azure-rms) (RMS) and [Office Message Encryption](/microsoft-365/compliance/ome) features are not compatible with tenant restrictions. These features rely on signing your users into other tenants in order to get decryption keys for the encrypted documents. Because tenant restrictions blocks access to other tenants, encrypted mail and documents sent to your users from untrusted tenants will not be accessible.
 
 ## Testing
 

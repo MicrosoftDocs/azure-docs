@@ -10,6 +10,7 @@ ms.date: 12/09/2019
 ms.author: lajanuar
 ms.topic: quickstart
 #Customer intent: As a user, I want to understand how to use Custom Translator so that I can build, deploy, and use a custom model for translation.
+ms.custom: mode-other
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
 
