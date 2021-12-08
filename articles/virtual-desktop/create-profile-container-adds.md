@@ -18,19 +18,19 @@ This article assumes you've already set up an Azure AD DS instance. If you don't
 
 ## Add Azure AD DS admins
 
-To add additional admins, you create a new user and grant them permissions.
+To add more admins, you must create a new user and grant them the necessary permissions.
 
 To add an admin:
 
 1. Select **Azure Active Directory** from the sidebar, then select **All users**, and then select **New user**.
 
-2.  Enter the user details into the fields.
+2. Enter the user details into the fields.
 
 3. In the Azure Active Directory pane on the left side of the screen, select **Groups**.
 
 4. Select the **AAD DC Administrators** group.
 
-5. In the left pane, select **Members**, then select **Add members** in the main pane. This will show a list of all users available in Azure AD. Select the name of the user profile you just created.
+5. In the pane on the left side of the window, select **Members**, then select **Add members** in the main pane. You will see a list of all available users in Azure AD. Select the name of the user profile you just created.
 
 ## Set up an Azure Storage account
 
@@ -76,20 +76,18 @@ To get the Storage Account access key:
 
 1. From the Azure portal sidebar, select **Storage accounts**.
 
-2. From the list of storage accounts, select the account for which you enabled Azure AD DS and created the custom roles in steps above.
+2. From the list of storage accounts, select the account that you enabled Azure AD DS and created the custom roles for in the previous sections.
 
 3. Under **Settings**, select **Access keys** and copy the key from **key1**.
 
 4. Go to the **Virtual Machines** tab and locate any VM that will become part of your host pool.
 
-5. Select the name of the virtual machine (VM) under **Virtual Machines (adVM)** and select **Connect**
-
-    This will download an RDP file that will let you sign in to the VM with its own credentials.
+5. Select the name of the virtual machine (VM) under **Virtual Machines (adVM)** and select **Connect**. Connecting will download an RDP file that will let you sign in to the VM with its own credentials.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the RDP tab of the Connect to virtual machine window.](media/rdp-tab.png)
 
-6. When you've signed in to the VM, run a command prompt as an administrator.
+6. When you've signed in to the VM, open a command prompt as an administrator.
 
 7. Run the following command:
 
@@ -131,7 +129,7 @@ To get the Storage Account access key:
 
 ## Create a profile container with FSLogix
 
-In order to use profile containers, you'll need to configure FSLogix on your session host VMs. If you're using a custom image that doesn't has the FSLogix Agent already installed, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host, as long as you don't use group policies to apply these settings at scale to multiple session hosts.
+In order to use profile containers, you'll need to configure FSLogix on your session host VMs. If you're using a custom image that doesn't have the FSLogix Agent already installed, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host, as long as you don't use group policies to apply these settings at scale to multiple session hosts.
 
 To configure FSLogix on your session host VM:
 
@@ -171,7 +169,7 @@ To check your permissions on your session:
 
 5. Open your file share and make sure the user profile folder you've created is in there.
 
-For additional testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
+For extra testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
 
 ## Next steps
 
