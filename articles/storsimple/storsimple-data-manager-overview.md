@@ -23,7 +23,7 @@ ms.author: alkohli
 
 ## Overview
 
-Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency. As the data is stored in StorSimple format, it is not readily consumable by other cloud applications that you may want to use.
+Microsoft Azure StorSimple uses cloud storage as an extension of the on-premises solution and automatically tiers data across on-premises storage and the cloud. Data is stored in the cloud in a deduped and compressed format for maximum efficiency. As the data is stored in StorSimple format, it isn't readily consumable by other cloud applications that you may want to use.
 
 The StorSimple Data Manager allows you to copy your StorSimple data to Azure file shares or Azure blob storage. This article focuses on the former.
 
@@ -31,11 +31,11 @@ In some scenarios, Azure blob storage can be the right choice, if file and folde
 The remainder of this article provides an overview of the StorSimple Data Manager. It also explains how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 
 > [!IMPORTANT]
-> To learn how to use the Data Manager to migrate away from StorSimple: [Continue reading the migration guide](../storage/files/storage-files-migration-storsimple-8000.md).
+> To learn how to use the Data Manager to migrate and preserve your data, see [StorSimple 8100 and 8600 migration to Azure File Sync](../storage/files/storage-files-migration-storsimple-8000.md).
 
 ## Functional overview
 
-The StorSimple Data Manager service identifies StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is deduped, compressed StorSimple format. The Data Manager service provides APIs to extract the StorSimple format data and transform it into other formats such as Azure blobs and Azure Files. This transformed data is then readily consumed by Azure HDInsight and Azure Media services. The data transformation thus enables these services to operate upon the transformed StorSimple data from StorSimple 8000 series on-premises device. This flow is illustrated in the following diagram.
+The StorSimple Data Manager service identifies StorSimple data in the cloud from a StorSimple 8000 series on-premises device. The StorSimple data in the cloud is deduped, compressed StorSimple format. The Data Manager service provides APIs to extract the StorSimple format data and transform it into other formats such as Azure blobs and Azure Files. This transformed data is then consumed by Azure HDInsight and Azure Media services. The data transformation enables these services to operate on the transformed StorSimple data from StorSimple 8000 series on-premises device. This flow is illustrated in the following diagram.
 
 ![High-level diagram](./media/storsimple-data-manager-overview/storsimple-data-manager-overview2.png)
 
@@ -80,22 +80,22 @@ The following items prevent a migration regardless of target storage:
 
 ### Target an Azure file share
 
-There are limitations for what can be stored in Azure file shares. Reference: [Azure file share scale targets](../storage/files/storage-files-scale-targets.md)
-File fidelity refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
+There are also limitations on what can be stored in Azure file shares. It's important to understand them before a migration.
+*File fidelity* refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
 [Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will cause per-item issues during a migration:
 
-* Timestamps: File change time will not be set - it is currently read-only over the REST protocol. Last access timestamp on a file will not be moved, it currently isn't a supported attribute on files stored in an Azure file share.
-* [Alternate Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams will be stripped from the file in the process.
+* Timestamps: File change time won't be set - it is currently read-only over the REST protocol. Last access timestamp on a file won't be moved, it currently isn't a supported attribute on files stored in an Azure file share.
+* [Alternate Data Streams](/openspecs/windows_protocols/ms-fscc/b134f29a-6278-4f3f-904f-5e58a713d2c5) can't be stored in Azure file shares. Files holding Alternate Data Streams will be copied, but Alternate Data Streams are stripped from the file in the process.
 * Symbolic links, hard links, junctions, and reparse points are skipped during a migration. The migration copy logs will list each skipped item and a reason.
 * EFS encrypted files will fail to copy. Copy logs will show the item failed to copy with *Access is denied*.
 * Corrupt files are skipped. The copy logs may list different errors for each item that is corrupt on the StorSimple disk: *The request failed due to a fatal device hardware error* or *The file or directory is corrupted or unreadable* or *The access control list (ACL) structure is invalid*.
-* A single file may not be larger than 4 TiB or it will be skipped in the migration.
-* File path lengths need to be equal to or fewer than 2048 characters. Files and folders with longer paths will be skipped.
+* A single file can't be larger than 4 TiB or it'll be skipped in the migration.
+* File path lengths must be equal to or fewer than 2048 characters. Files and folders with longer paths will be skipped.
 
 ### Target an Azure blob container
 
 - Blob transfer limitations:
-  - You cannot migrate your backup history. Only the latest StorSimple volume backup can be used as a source.
+  - You can't migrate your backup history. Only the latest StorSimple volume backup can be used as a source.
   - File path lengths need to be fewer than 256 characters else the job will fail.
   - Maximum supported file size for a blob is 4.7 TiB.
   - Most recent available backup set will be used.
