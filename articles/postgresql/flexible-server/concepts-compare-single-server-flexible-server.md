@@ -81,7 +81,7 @@ The following table provides a high-level features and capabilities comparisons 
 | PITR capability to any time within the retention period | Yes | Yes
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview) |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
 | Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
 | Support for read replicas | Yes | No |
