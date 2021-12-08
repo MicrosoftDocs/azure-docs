@@ -15,7 +15,7 @@ Sometimes DPS needs more data from devices to properly provision them to the rig
 
 ## When to use it
 
-This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For example, you want to allocate your devices based on the device model without human intervention. In this case, you can configure the device to report its model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload into to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the device as a JSON object in the webhook response.  
+This feature can be used as an enhancement for [custom allocation](./how-to-use-custom-allocation-policies.md). For example, you want to allocate your devices based on the device model without human intervention. In this case, you can configure the device to report its model information as part of the [register device call](/rest/api/iot-dps/device/runtime-registration/register-device). DPS will pass the device’s payload to the custom allocation webhook. Then your function can decide which IoT hub the device will be provisioned to based on the device model information. If needed, the webhook can return data back to the device as a JSON object in the webhook response.  
 
 ## Device sends data payload to DPS
 
