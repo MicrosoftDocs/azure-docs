@@ -74,7 +74,7 @@ The `connectorUiConfig` section of the configuration file includes the following
 |**publisher**     |    String     |  Your company name       |
 |**descriptionMarkdown**     |  String, in markdown       |   A description for the connector      |
 |**additionalRequirementBanner**     |   String, in markdown      |    Text for the **Prerequisites** section of the **Instructions** tab     |
-| **graphQueriesTableName** | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`
+| **graphQueriesTableName** | String | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`
 |**graphQueries**     |   [GraphQuery[]](#graphquery)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
 |**sampleQueries**     | [SampleQuery[]](#samplequery)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
 |**dataTypes**     | [DataTypes[]](#datatypes)        | A list of all data types for your connector, and a query to fetch the time of the last event for each data type.        |
@@ -112,7 +112,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |Name  |Type  |Description  |
 |---------|---------|---------|
 | **dataTypeName** | String | A meaningful description for the`lastDataReceivedQuery` query, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
-| **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: {{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)
+| **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: `{{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)`
 | | | |
 
 
@@ -121,7 +121,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |Name  |Type  |Description  |
 |---------|---------|---------|
 | **type** | ENUM | Always use `SentinelKindsV2` |
-| **value** | deprecated ||
+| **value** | deprecated |N/A |
 | | | |
 
 ### Availability
@@ -138,7 +138,7 @@ Provide either one query for all of the data connector's data types, or a differ
 |---------|---------|---------|
 | **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>Example: The **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
 | **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
-| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
+| **customs** | String | Description of any custom permissions required for your data connection, in the following syntax: `{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
 | **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | | |
 
@@ -146,7 +146,7 @@ Provide either one query for all of the data connector's data types, or a differ
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **provider** | 	ENUM	| Resource provider, one of the following values: <br>`Microsoft.OperationalInsights/workspaces` <br>`Microsoft.OperationalInsights/solutions`<br>`Microsoft.OperationalInsights/workspaces/datasources`<br>`microsoft.aadiam/diagnosticSettings`<br>`Microsoft.OperationalInsights/workspaces/sharedKeys`<br>`Microsoft.Authorization/policyAssignments` |
+| **provider** | 	ENUM	| Resource provider, one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
 | **providerDisplayName** | 	String	| Query that should return one row, indicating the last time that data was received, or no data if there is no relevant data. |
 | **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions |
 | **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector. One of the following values: `read`, `write`, `delete`, `action` |
@@ -171,9 +171,9 @@ This section provides metadata used when you're [deploying your data connector a
 |---------|---------|---------|
 | **id** | 	String | Define a GUID for your ARM tempalte.  |
 | **kind** 	| String | Define as	`dataConnector` |
-| **source** | 	String |Describe your data source using the following syntax: <br><br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
-| **author** |	String | Describe the data connector author using the following syntax: `{`<br>`  name:string`<br>`}`| 
-| **support** |	String | Describe the support provided for the data connector using the following syntax: 	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| 
+| **source** | 	String |Describe your data source using the following syntax: <br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
+| **author** |	String | Describe the data connector author using the following syntax: <br>`{`<br>`  name:string`<br>`}`| 
+| **support** |	String | Describe the support provided for the data connector using the following syntax: <br>	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| 
 | | | |
 
 ### Instructions
@@ -216,7 +216,7 @@ instructions: [
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**fillWith**     |  ENUM []       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId`      |
+|**fillWith**     |  ENUM       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId`      |
 |**label**     |  String       |   The label above the text box      |
 |**value**     |  String       |  The value to present, supports placeholders       |
 |**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
