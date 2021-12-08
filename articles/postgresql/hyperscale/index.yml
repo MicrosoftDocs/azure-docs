@@ -42,6 +42,22 @@ landingContent:
             url: https://www.youtube.com/watch?v=JwjjUT8K7po
 
   # Card
+  - title: Connect and query
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Public access
+            url: ../concepts-hyperscale-firewall-rules.md
+          - text: Private access
+            url: ../concepts-hyperscale-private-access.md
+          - text: Configure TLS
+            url: ../concepts-hyperscale-ssl-connection-security.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshoot connection issues
+            url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+
+  # Card
   - title: Administer
     linkLists:
       - linkListType: concept
@@ -68,20 +84,16 @@ landingContent:
             url: ../howto-hyperscale-troubleshoot-read-only.md
 
   # Card
-  - title: Connect and query
+  - title: Reference
     linkLists:
-      - linkListType: concept
+      - linkListType: reference
         links:
-          - text: Public access
-            url: ../concepts-hyperscale-firewall-rules.md
-          - text: Private access
-            url: ../concepts-hyperscale-private-access.md
-          - text: Configure TLS
-            url: ../concepts-hyperscale-ssl-connection-security.md
-      - linkListType: how-to-guide
-        links:
-          - text: Troubleshoot connection issues
-            url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+          - text: SQL API functions
+            url: ../reference-hyperscale-functions.md
+          - text: Server parameters
+            url: ../reference-hyperscale-parameters.md
+          - text: System tables
+            url: ../reference-hyperscale-metadata.md
 
   # Card
   - title: Scale
@@ -104,15 +116,3 @@ landingContent:
             url: ../howto-hyperscale-modify-distributed-tables.md
           - text: Create alerts on metrics
             url: ../howto-hyperscale-alert-on-metric.md
-
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: SQL API functions
-            url: ../reference-hyperscale-functions.md
-          - text: Server parameters
-            url: ../reference-hyperscale-parameters.md
-          - text: System tables
-            url: ../reference-hyperscale-metadata.md
