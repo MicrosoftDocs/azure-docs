@@ -24,7 +24,7 @@ automatically grants the managed identity the listed roles once assignment start
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
 doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US with Log Analytics Contributor permissions." border="false":::
+:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US with Log Analytics Contributor permissions.":::
 
 > [!IMPORTANT]
 > In the following scenarios, the assignment's managed identity must be
@@ -73,37 +73,33 @@ the managed identity and assign it permissions must be done manually:
 - When a resource outside the assignment scope is modified by the template
 - When a resource outside the assignment scope is read by the template
 
-## Configure a managed identity through Portal
+## Configure a managed identity through the Azure portal
 
-When creating an assignment using the portal, it is possible to select either a system or user assigned managed identity. 
+When creating an assignment using the portal, you can select either a system assigned managed identity or a user assigned managed identity. 
 
-To set a system assigned managed identity through portal follow these steps: 
+To set a system assigned managed identity in the portal: 
 
-1. In the **Remediation** tab of the create/edit assignment view, ensure that **System assigned managed identity** 
-is selected under "Types of Managed Identity". 
+1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **System assigned managed identity** 
+is selected. 
 
 1. Specify the location at which the managed identity is to be located. 
 
-To set a user assigned managed identity through portal follow these steps: 
+To set a user assigned managed identity in the portal: 
 
-1. In the **Remediation** tab of the create/edit assignment view, ensure that **User assigned managed identity** 
-is selected under "Types of Managed Identity". 
+1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity** 
+is selected. 
 
-1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but has to be in the same tenant. 
+1. Specify the scope where the managed identity is hosted. The scope of the managed identity does not have to equate to the scope of the assignment, but it must be in the same tenant. 
 
-1. Select the managed identity under "Existing user assigned identities". 
+1. Under **Existing user assigned identities**, select the managed identity. 
 
- > [!NOTE]
-   > If the managed identity does not have the permissions needed to execute the required remediation task,
-   > it will be granted permissions *automatically* only through the portal. 
-   > For all other methods, permissions must be configured manually. 
+   > [!NOTE]
+   > If the managed identity does not have the permissions needed to execute the required remediation task, it will be granted permissions *automatically* only through the portal. For all other methods, permissions must be configured manually.
+   >
 
 ### Create managed identity with PowerShell
 
-To create an identity during the assignment of the policy, **Location** must be defined and
-**Identity** used. The following example gets the definition of the built-in policy **Deploy
-SQL DB transparent data encryption**, sets the target resource group, and then creates the
-assignment using a **system assigned** managed identity.
+To create an identity during the assignment of the policy, **Location** must be defined and **Identity** used. The following example gets the definition of the built-in policy **Deploy SQL DB transparent data encryption** sets the target resource group, and then creates the assignment using a **system assigned** managed identity.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -139,9 +135,8 @@ $userassignedidentityid = $userassignedidentity.Id
 $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -IdentityType "UserAssigned" -IdentityId $userassignedidentityid
 ```
 
-The `$assignment` variable now contains the principal ID of the managed identity along with the
-standard values returned when creating a policy assignment. It can be accessed through
-`$assignment.Identity.PrincipalId` for system assigned managed identites and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user assigned managed identites.  
+The `$assignment` variable now contains the principal ID of the managed identity along with the standard values returned when creating a policy assignment. It can be accessed through
+`$assignment.Identity.PrincipalId` for system assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user assigned managed identities.  
 
 ### Grant a managed identity defined roles with PowerShell
 
@@ -164,7 +159,7 @@ if ($roleDefinitionIds.Count -gt 0)
 }
 ```
 
-### Grant a managed identity defined roles through portal
+### Grant a managed identity defined roles through the portal
 
 There are two ways to grant an assignment's managed identity the defined roles using the portal, by
 using **Access control (IAM)** or by editing the policy or initiative assignment and selecting
@@ -199,11 +194,11 @@ To add a role to the assignment's managed identity, follow these steps:
    **Select** box, paste or type the portion of the assignment resource ID located earlier. Once the
    search completes, select the object with the same name to select ID and select **Save**.
    
-
-
 ## Create a remediation task
 
-### Create a remediation task through portal
+The following sections describe how to create a remediation task.
+
+### Create a remediation task through the portal
 
 During evaluation, the policy assignment with **deployIfNotExists** or **modify** effects determines
 if there are non-compliant resources or subscriptions. When non-compliant resources or subscriptions
@@ -233,14 +228,14 @@ To create a **remediation task**, follow these steps:
 
 1. On the **New remediation task** page, optional remediation settings are shown: 
 
-1. **Failure Threshold percentage** used to specifying whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
-2. **Resource Count** determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maxium number of is 10,000 resources.
-3. **Parallel Deployments** determines how many resources to remediate at the same time. The allowed values are 1 to 15 resources at a time. The default value is 10. 
+    - **Failure Threshold percentage** - Used to specify whether the remediation task should fail if the percentage of failures exceeds the given threshold. Provided as a number between 0 to 100. By default, the failure threshold is 100%. 
+    - **Resource Count** - Determines how many non-compliant resources to remediate in a given remediation task. The default value is 500 (the previous limit). The maximum number of is 10,000 resources.
+    - **Parallel Deployments** - Determines how many resources to remediate at the same time. The allowed values are 1 to 15 resources at a time. The default value is 10. 
 
    > [!NOTE]
    > These settings cannot be changed once the remediation task has started.
  
-1.  On the same page, filter the resources to remediate by using the **Scope**
+1. On the same page, filter the resources to remediate by using the **Scope**
    ellipses to pick child resources from where the policy is assigned (including down to the
    individual resource objects). Additionally, use the **Locations** dropdown list to further filter
    the resources. 
@@ -253,7 +248,7 @@ To create a **remediation task**, follow these steps:
 
    :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot of the Remediation tasks tab and progress of existing remediation tasks." border="false":::
 
-1. Select on the **remediation task** from the policy compliance page to get details about the
+1. Select the **remediation task** from the policy compliance page to get details about the
    progress. The filtering used for the task is shown along with status and a list of resources being
    remediated.
 
