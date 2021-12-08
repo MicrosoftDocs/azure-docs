@@ -124,6 +124,10 @@ Fields common to all schemas are described in the [ASIM schema overview](normali
 
 HTTP sessions are application layer sessions that utilize TCP/IP as the underlying network layer session. The Web Session schema is a super set of [ASIM Network Session schema](network-normalization-schema.md) and all [Network Session Fields](network-normalization-schema.md#network-session-fields) are also included in the Web Session schema.
 
+The following ASIM Network Session schema have specific guidelines when used for a Web Session event:
+- The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
+- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails) 
+
 ### <a name="Intermediary"></a>Intermediary device fields
 
 Web Session events are commonly reported by intermediate devices which terminate the HTTP connection from the client and initiate a new connection, acting as a proxy, with the server. To represent the intermediate device, use the [ASIM Network Session schema](network-normalization-schema.md) [Intermediary device fields](network-normalization-schema.md#Intermediary)
@@ -154,14 +158,16 @@ The following are additional fields that are specific to web sessions:
 | **FileSHA1** | Optional | SHA1 | For HTTP uploads, the SHA1 hash of the uploaded file.<br><br>Example:<br>`d55c5a4df19b46db8c54`<br>`c801c4665d3338acdab0` |
 | **FileSHA256** | Optional | SHA256 | For HTTP uploads, the SHA256 hash of the uploaded file.<br><br>Example:<br>`e81bb824c4a09a811af17deae22f22dd`<br>`2e1ec8cbb00b22629d2899f7c68da274` |
 | **FileSHA512** | Optional | SHA512 | For HTTP uploads, the SHA512 hash of the uploaded file. |
+| <a name="hash"></a>**Hash** | Alias || Alias to the available Hash field. | 
+| **FileHashType** | Optional | Enumerated | The type of the hash in the [Hash](#hash) field. Possible values include: `MD5`, `SHA1`, `SHA256`, and `SHA512`. |
 | **FileSize** | Optional | Integer | For HTTP uploads, the size in bytes of the uploaded file. |
 | **FileContentType** | Optional | String | For HTTP uploads, the content type of the uploaded file. |
-| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `AnyAnyDrop` |
-| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `23` |
-| **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber` |
-| **ThreatId** | Optional | String | The ID of the threat or malware identified in the Web session.<br><br>Example: `Tr.124` |
-| **ThreatName** | Optional | String | The name of the threat or malware identified in the Web session.<br><br>Example: `EICAR Test File` |
-| **ThreatCategory** | Optional | String | The category of the threat or malware identified in the Web session.<br><br>Example: `Trojan` |
+| **RuleName** | Optional | String | The name or ID of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br>Example: `AnyAnyDrop`|
+| **RuleNumber** | Optional | Integer | The number of the rule by which [DvcAction](normalization-about-schemas.md#dvcaction) was decided upon.<br><br> Example: `23`|
+| **Rule** | Mandatory | String | Either `NetworkRuleName` or `NetworkRuleNumber`|
+| **ThreatId** | Optional | String | The ID of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`Tr.124`|
+| **ThreatName** | Optional | String | The name of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`EICAR Test File`|
+| **ThreatCategory** | Optional | String | The category of the threat or malware identified in the Web session.<br><br>Example:&nbsp;`Trojan`|
 | **ThreatRiskLevel** | Optional | Integer | The risk level associated with the Session. The level should be a number between **0** and a **100**.<br><br>**Note**: The value may be provided in the source record using a different scale, which should be normalized to this scale. The original value should be stored in [ThreatRiskLevelOriginal](#threatriskleveloriginal). |
 | <a name="threatriskleveloriginal"></a>**ThreatRiskLevelOriginal** | Optional | String | The risk level as reported by the reporting device. |
 | | | | |

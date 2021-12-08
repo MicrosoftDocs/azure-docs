@@ -8,7 +8,6 @@ ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # Secure an input constrained device with Azure AD and Azure Maps REST APIs
