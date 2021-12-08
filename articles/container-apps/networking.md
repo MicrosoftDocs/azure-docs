@@ -16,6 +16,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You control the subnet range used by the container app.
 - Once the environment is created, the subnet range is immutable.
 - Each [revision pod](revisions.md) is assigned an IP address in the subnet.
+- Current support is for outbound VNET only
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -25,7 +26,7 @@ The following example shows you how to create a Container Apps environment with 
 
 Before you begin, you need to following information:
 
-- [Subscription ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+- [Azure Subscription ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 - [Resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group) name and location
 - [Log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md) name
 
@@ -96,6 +97,9 @@ $VNET_NAME=<VNET_NAME>
 ---
 
 Now create an instance of the virtual network to associate with the Container Apps environment.
+
+> [!NOTE]
+> You can use an existing virtual network, but two empty subnets are required to use with Container Apps.
 
 # [Bash](#tab/bash)
 
