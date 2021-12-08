@@ -126,13 +126,13 @@ In the above example, we pre-defined the schema format of source URL for the fil
 
 Once the mount run successfully, you can access data via local file system API, while currently we limit the mount point always be created under **/synfs** folder of node and it was scoped to job/session level. 
 
-So, for example if you want to mount **mycontainer**, the created local mount point is /synfs/{jobid}/, that means if you want to access mount point via local fs APIs after a successful mount, the local path used should be `/synfs/{jobid}/` 
+So, for example if you mount **mycontainer** to **/test** folder, the created local mount point is `/synfs/{jobid}/test`, that means if you want to access mount point via local fs APIs after a successful mount, the local path used should be `/synfs/{jobid}/test` 
 
 Below is an example to show how it works. 
 
 ```python 
 jobId = mssparkutils.env.getJobId() 
-f = open(f"/synfs/{jobId}/myFile.txt", "a") 
+f = open(f"/synfs/{jobId}/test/myFile.txt", "a") 
 f.write("Hello world.") 
 f.close() 
 ``` 
@@ -141,15 +141,15 @@ f.close()
 
 The main purpose of the mount operation is to let customer access the data stored in remote storage account using local file system API, you can also access data using mssparkutils fs API with mounted path as a parameter. While the path format used here is a little different. 
 
-Assuming you mounted to the ADLS gen2 container **mycontainer** here. 
+Assuming you mounted to the ADLS gen2 container **mycontainer** to **/test** using mount API. 
 
 When you access the data using local file system API, as above section shared, the path format is like 
 
-`/synfs/{jobId}/{filename}`
+`/synfs/{jobId}/test/{filename}`
 
 While when you want to access the data with mssparkutils fs API, the path format is like: 
 
-`synfs:/{jobId}/{filename}`
+`synfs:/{jobId}/test/{filename}`
 
 You can see the **synfs** is used as schema in this case instead of a part of the mounted path. 
 
@@ -158,19 +158,19 @@ Below are three examples to show how to access file with mount point path using 
 + List dirs:  
 
     ```python 
-    mssparkutils.fs.ls("synfs:/49/") 
+    mssparkutils.fs.ls("synfs:/49/test") 
     ``` 
 
 + Read file content: 
 
     ```python 
-    mssparkutils.fs.head("synfs:/49/myFile.txt") 
+    mssparkutils.fs.head("synfs:/49/test/myFile.txt") 
     ``` 
 
 + Create directory: 
 
     ```python 
-    mssparkutils.fs.mkdirs("synfs:/49/mydir") 
+    mssparkutils.fs.mkdirs("synfs:/49/test/newdir") 
     ``` 
 
  
@@ -179,7 +179,7 @@ Below are three examples to show how to access file with mount point path using 
 
 You can also use Spark read API with mounted path as parameter to access the data after mount as well, the path format here is same with the format of using mssparkutils fs API: 
 
-`synfs:/{jobId}/{filename} `
+`synfs:/{jobId}/test/{filename} `
 
 Below are two code examples, one is for a mounted gen2 storage, another is for a mounted blob storage. 
 
@@ -190,15 +190,22 @@ Below are two code examples, one is for a mounted gen2 storage, another is for a
 
 # Assume a gen2 storage was already mounted then read file using mount path 
 
-df = spark.read.load("synfs:/49/myFile.csv", format='csv') 
+df = spark.read.load("synfs:/49/test/myFile.csv", format='csv') 
 df.show() 
 ``` 
 
 ### Read file from a mounted blob storage account 
 
-Notice that if you mounted a blob storage account then want to access it using **mssparkutils or Spark API**, you need to explicitly configure the sas token via linked service at first before try to read data. 
+Notice that if you mounted a blob storage account then want to access it using **mssparkutils or Spark API**, you need to explicitly configure the sas token via spark configuration at first before try to mount container using mount API. 
 
-1. Create link service **myblobstorageaccount**, Mount blob storage account with link service 
+1. Update Spark configuration as below code example if you want to access it using **mssparkutils or Spark API** after trigger mount, you can bypass this step if you only want to access it using local file api after mount:
+    ```python 
+    blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds("myblobstorageaccount") 
+
+    spark.conf.set('fs.azure.sas.mycontainer.<blobStorageAccountName>.blob.core.windows.net', blob_sas_token) 
+    ``` 
+
+2. Create link service **myblobstorageaccount**, mount blob storage account with link service 
 
     ```python 
     %%spark 
@@ -208,13 +215,6 @@ Notice that if you mounted a blob storage account then want to access it using *
         "/test", 
         Map("linkedService" -> "myblobstorageaccount") 
     ) 
-    ``` 
-
-2. Update Spark configuration and access the data using Spark APIs, this step is necessary. 
-    ```python 
-    blob_sas_token = mssparkutils.credentials.getConnectionStringOrCreds("myblobstorageaccount") 
-
-    spark.conf.set('fs.azure.sas.mycontainer.<blobStorageAccountName>.blob.core.windows.net', blob_sas_token) 
     ``` 
 
 3. Read data from mounted blob storage through Spark read API. 
@@ -227,9 +227,9 @@ Notice that if you mounted a blob storage account then want to access it using *
 
 ## How to unmount the mount point 
 
-Just call: 
+Unmount with your mount point, **/test** in our example: 
 ```python 
-mssparkutils.fs.unmount("/your_mount_point") 
+mssparkutils.fs.unmount("/test") 
 ``` 
 
 ## Known limitations
