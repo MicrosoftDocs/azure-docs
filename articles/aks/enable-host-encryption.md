@@ -27,7 +27,7 @@ This feature can only be set at cluster creation or node pool creation time.
 - Ensure you have the CLI extension v2.23 or higher version installed.
 - Ensure you have the `EncryptionAtHost` feature flag under `Microsoft.Compute` enabled.
 
-### Register `EncryptionAtHost`  preview features
+### Register `EncryptionAtHost` feature
 
 To create an AKS cluster that uses host-based encryption, you must enable the `EncryptionAtHost` feature flags on your subscription.
 
