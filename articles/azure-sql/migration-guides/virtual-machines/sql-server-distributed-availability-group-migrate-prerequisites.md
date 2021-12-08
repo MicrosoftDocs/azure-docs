@@ -10,17 +10,17 @@ ms.author: mathoma
 ---
 # Prerequisites: Migrate to SQL Server VM using distributed AG
 
-Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to SQL Server on Azure Virtual Machines (VMs). 
+Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate either a [standalone instance](sql-server-distributed-availability-group-migrate-standalone-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to SQL Server on Azure Virtual Machines (VMs). 
 
 This article describes the prerequisites to prepare your source and target environments to migrate your SQL Server instance or availability group to SQL Server VMs using a distributed ag.
 
-Migrating a database (or multiple databases) from a single instance using a distributed availability is a simple solution that does not require a Windows Server Failover Cluster, or an availability group listener on either the source or the target. Migrating an availability group requires a cluster, and a listener on both source and target. 
+Migrating a database (or multiple databases) from a standalone instance using a distributed availability is a simple solution that does not require a Windows Server Failover Cluster, or an availability group listener on either the source or the target. Migrating an availability group requires a cluster, and a listener on both source and target. 
 
 ## Source SQL Server  
 
 To migrate your instance or availability group, your source SQL Server should meet the following prerequisites: 
 
-- For a single instance migration, the minimum supported version is SQL Server 2017. For an availability group migration, SQL Server 2016 or later is supported. 
+- For a standalone instance migration, the minimum supported version is SQL Server 2017. For an availability group migration, SQL Server 2016 or later is supported. 
 - Your SQL Server edition should be enterprise. 
 - You must enable the [Always On feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 
 - The databases you intend to migrate have been backed up in full mode. 
@@ -32,7 +32,7 @@ To migrate your instance or availability group, your source SQL Server should me
 Before your target SQL Server VMs are ready for migration, make sure they meet the following prerequisites: 
 
 - The Azure account performing the migration is assigned as the owner or contributor to the resource group that contains target the SQL Server VMs. 
-- For simplicity, the target SQL Server instance should match the version of the source SQL Server instance. If you choose to upgrade during the migration process by using a higher version of SQL Server on the target, then you will need to manually seed your database rather than relying on autoseeding as is  provided in this series of articles. Review [Migrate to higher SQL Server versions](/sql/database-engine/availability-groups/windows/distributed-availability-groups#migrate-to-higher-sql-server-versions) for more details. 
+- For simplicity, the target SQL Server instance should match the version of the source SQL Server instance. If you choose to upgrade during the migration process by using a higher version of SQL Server on the target, then you will need to manually seed your database rather than relying on autoseeding as is  provided in this series of articles. Review [Migrate to higher SQL Server versions](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) for more details. 
 - The SQL Server edition should be enterprise. 
 - You must enable the [Always On feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 
 - Ports used by the SQL Server instance (1433 by default) and the database mirroring endpoint (5022 by default) must be open in the firewall. To migrate databases in an availability group, make sure the port used by the listener is also open in the firewall. 
@@ -54,7 +54,7 @@ If the source and target servers are part of different domains, configure [feder
 
 ## Next steps
 
-Once you have configured both source and target environment to meet the prerequisites, you're ready to migrate either your [single instance](sql-server-distributed-availability-group-migrate-single-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to your target SQL Server VM(s). 
+Once you have configured both source and target environment to meet the prerequisites, you're ready to migrate either your [standalone instance](sql-server-distributed-availability-group-migrate-standalone-instance.md) of SQL Server or an [Always On availability group](sql-server-distributed-availability-group-migrate-ag.md) to your target SQL Server VM(s). 
 
 
 

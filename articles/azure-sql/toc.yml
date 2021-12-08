@@ -1452,7 +1452,7 @@
           - name: Prerequisites
             href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-prerequisites.md
           - name: Single instance
-            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-single-instance.md
+            href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-standalone-instance.md
           - name: Availability group
             href: migration-guides/virtual-machines/sql-server-distributed-availability-group-migrate-ag.md
           - name: Complete migration 

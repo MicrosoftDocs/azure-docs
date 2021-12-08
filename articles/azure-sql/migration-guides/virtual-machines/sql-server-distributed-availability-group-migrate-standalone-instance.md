@@ -1,6 +1,6 @@
 ---
-title: Use distributed AG to migrate databases from a single instance 
-description: Learn to use a distributed availability group (AG) to migrate a database (or multiple databases) from a single instance of SQL Server to a target SQL Server on Azure VM. 
+title: Use distributed AG to migrate databases from a standalone instance 
+description: Learn to use a distributed availability group (AG) to migrate a database (or multiple databases) from a standalone instance of SQL Server to a target SQL Server on Azure VM. 
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
 author: MashaMSFT
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 12/15/2021
 ms.author: mathoma
 ---
-# Use distributed AG to migrate databases from a single instance 
+# Use distributed AG to migrate databases from a standalone instance 
 
-Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate a database (or multiple databases) from a single instance of SQL Server to SQL Server on Azure Virtual Machines (VMs). 
+Use a [distributed availability group (AG)](/sql/database-engine/availability-groups/windows/distributed-availability-groups) to migrate a database (or multiple databases) from a standalone instance of SQL Server to SQL Server on Azure Virtual Machines (VMs). 
 
-Once you've validated your source SQL Server instance meets the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md), follow the steps in this article to create an availability group on your single SQL Server instance and migrate your database (or group of databases) to your SQL Server VM in Azure. 
+Once you've validated your source SQL Server instance meets the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md), follow the steps in this article to create an availability group on your standalone SQL Server instance and migrate your database (or group of databases) to your SQL Server VM in Azure. 
 
-This article is intended for databases on a single instance of SQL Server. This solution does not require a Windows Server Failover Cluster (WSFC) or an availability group listener. It's also possible to [migrate databases in an availability group](sql-server-distributed-availability-group-migrate-ag.md). 
+This article is intended for databases on a standalone instance of SQL Server. This solution does not require a Windows Server Failover Cluster (WSFC) or an availability group listener. It's also possible to [migrate databases in an availability group](sql-server-distributed-availability-group-migrate-ag.md). 
 
 ## Initial setup
 
@@ -23,8 +23,6 @@ The first step is to create your SQL Server VM in Azure. You can do so by using 
 Be sure to configure your SQL Server VM according to the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md). 
 
 For simplicity, join your target SQL Server VM to the same domain as your source SQL Server. Otherwise, join your target SQL Server VM to a domain that's federated with the domain of your source SQL Server. 
-
-Use the same SQL Server instance name for the target as the source SQL Server instance. Using a different instance name for each replica is not recommended, and may causes issues with file paths when adding new databases. 
 
 This article uses the following example parameters:
 
@@ -76,6 +74,7 @@ CREATE AVAILABILITY GROUP [OnPremAG]
    WITH (AUTOMATED_BACKUP_PREFERENCE = PRIMARY, 
    DB_FAILOVER = OFF, 
    DTC_SUPPORT = NONE, 
+   CLUSTER_TYPE=NONE, 
    REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT = 0) 
    FOR DATABASE  [Adventureworks] 
 
@@ -101,7 +100,8 @@ FOR
 REPLICA ON N'SQLonAzure\SQL1' WITH (ENDPOINT_URL = N'TCP://SQLonAzure.contoso.com:5022',    
 FAILOVER_MODE = MANUAL,    
 AVAILABILITY_MODE = SYNCHRONOUS_COMMIT,    
-BACKUP_PRIORITY = 50,    
+BACKUP_PRIORITY = 50,
+CLUSTER_TYPE=NONE,     
 SECONDARY_ROLE(ALLOW_CONNECTIONS = NO),    
 SEEDING_MODE = AUTOMATIC);    
 
@@ -139,7 +139,7 @@ GO
 ```
 
 >[!NOTE]
-> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#migrate-to-higher-sql-server-versions) to learn more. 
+> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) to learn more. 
 
 After your distributed AG is created, join the target AG (**AzureAG**) on the target instance (**SQLonAzure\SQL1**) to the distributed AG (**DAG**). 
 

@@ -14,7 +14,7 @@ Use a [distributed availability group (AG)](/sql/database-engine/availability-gr
 
 Once you've validated your source SQL Server instances meet the [prerequisites](sql-server-distributed-availability-group-migrate-prerequisites.md), follow the steps in this article to create a distributed availability between your existing availability group, and your target availability group on your SQL Server on Azure VMs. 
 
-This article is intended for databases participating in an availability group, and requires a Windows Server Failover Cluster (WSFC) and an availability group listener. It's also possible to [migrate databases from a single SQL Server instance](sql-server-distributed-availability-group-migrate-single-instance.md). 
+This article is intended for databases participating in an availability group, and requires a Windows Server Failover Cluster (WSFC) and an availability group listener. It's also possible to [migrate databases from a standalone SQL Server instance](sql-server-distributed-availability-group-migrate-standalone-instance.md). 
 
 ## Initial setup
 
@@ -197,7 +197,7 @@ GO
 ```
 
 >[!NOTE]
-> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#migrate-to-higher-sql-server-versions) to learn more. 
+> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) to learn more. 
 
 After your distributed AG is created, join the target AG (**AzureAG**) on the target forwarder instance (**AzureNode1/SQL1**) to the distributed AG (**DAG**). 
 
