@@ -798,17 +798,17 @@
       - name: Configure geo-replication
         items:
         - name: Single database
-          href: database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
+          href: database/scripts/setup-geodr-and-failover-database-cli.md
         - name: Pooled database
-          href: database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
+          href: database/scripts/setup-geodr-and-failover-pool-cli.md
       - name: Configure failover group
         items: 
         - name: Failover group
-          href: database/scripts/sql-database-setup-geodr-and-failover-group-cli.md
+          href: database/scripts/etup-geodr-and-failover-group-cli.md
         - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Pooled database
-          href: database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
+          href: database/scripts/add-elastic-pool-to-failover-group-cli.md
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
@@ -1195,7 +1195,7 @@
       - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
-        href: managed-instance/scripts/sql-database-create-configure-managed-instance-cli.md
+        href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE)
         href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Restore geo-backup
