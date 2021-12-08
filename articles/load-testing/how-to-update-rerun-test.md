@@ -52,7 +52,7 @@ In this section, you'll update an existing load test to configure the Azure appl
 
     :::image type="content" source="media/how-to-update-rerun-test/modify-metrics.png" alt-text="Screenshot that shows a list of resource metrics to configure for a load test.":::  
 
-    Alternatively, you can update the app components and metrics from the test result details page.
+    Alternatively, you can update the app components and metrics from the page that shows test result details.
 
 1. Select **Run** to run the load test with the new configuration settings.
 
