@@ -19,7 +19,7 @@
     href: /learn/paths/sc-200-utilize-kql-for-azure-sentinel/
   - name: Use automation to respond to threats
     href: tutorial-respond-threats-playbook.md
-  - name: Integrate Microsoft Sentinel and Microsoft Defender for IoT
+  - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
