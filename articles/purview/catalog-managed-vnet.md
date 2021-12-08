@@ -10,7 +10,7 @@ ms.date: 12/06/2021
 # Customer intent: As a Purview admin, I want to set up managed virtual network and managed private endpoints for my Purview account.
 ---
 
-# Use private endpoints for your Azure Purview account
+# Use Managed VNet for your Azure Purview account
 
 > [!IMPORTANT]
 > Currently, managed virtual network and managed private endpoints are available for Azure Purview accounts deployed in the following regions:
@@ -40,7 +40,6 @@ Benefits of using Managed Virtual Network:
 > [!Note]
 > Existing global Azure integration runtime or self-hosted integration runtime can't switch to Azure integration runtime in Azure Purview managed virtual network and vice versa.
 
-:::image type="content" source="./media/catalog-managed-vnet/managed-vnet-architecture-diagram.png" alt-text="Purview Managed Virtual Network architecture":::
 
 A Managed VNet is created for your Azure Purview account when you create a managed vnet runtime for the first time in your Purview account. You can't view or manage the Managed VNets.
 
@@ -48,7 +47,6 @@ A Managed VNet is created for your Azure Purview account when you create a manag
 
 Managed private endpoints are private endpoints created in the Azure Purview Managed Virtual Network establishing a private link to Purview and Azure resources. Azure Purview manages these private endpoints on your behalf. 
 
-:::image type="content" source="./media/catalog-managed-vnet/new-managed-private-endpoint.png" alt-text="New Managed private endpoint":::
 
 Azure Purview supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
@@ -103,13 +101,13 @@ Before deploying a Managed VNet and Managed VNet runtime for an Azure Purview ac
 
    :::image type="content" source="media/catalog-managed-vnet\purview-managed-ir-create.png" alt-text="Screenshot that shows how to create new Azure runtime":::
 
-4. Provide a name for your managed vnet runtime, select the region and configure interactive authoring. Select 
+4. Provide a name for your managed vnet runtime, select the region and configure interactive authoring. Select **Create**.
 
-   :::image type="content" source="media/catalog-managed-vnet\purview-managed-ir-region.png" alt-text="Screenshot that shows how creating a managed vnet runtime":::
+   :::image type="content" source="media/catalog-managed-vnet\purview-managed-ir-region.png" alt-text="Screenshot that shows to create a managed vnet runtime":::
 
 5. Deploying the managed vnet runtime for the first time triggers multiple workflows in Purview Studio for creating managed private endpoints for Azure Purview and its Managed Storage Account. Click on each workflow to approve the private endpoint for the corresponding Azure resource.
 
-   :::image type="content" source="media/catalog-managed-vnet\purview-managed-ir-workflows.png" alt-text="Screenshot that shows how creating a managed vnet runtime":::
+   :::image type="content" source="media/catalog-managed-vnet\purview-managed-ir-workflows.png" alt-text="Screenshot that shows deployment of a managed vnet runtime":::
 
 6. In Azure portal, from your Purview account resource blade, approve the managed private endpoint. From Managed storage account blade approve the managed private endpoints for blob and queue services:
 
