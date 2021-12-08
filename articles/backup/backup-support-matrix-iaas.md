@@ -167,7 +167,7 @@ Restore with Managed identities | Yes, supported for managed Azure VMs, and not 
 
 ## Trusted Launch VM support
 
-**Compute** | **Support**
+**Operation** | **Support**
 --- | ---
 Trusted Launch VM backup   |  Back up supported (in preview)    <br><br>  To enroll your subscription for this feature, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com).    <br><br>  Backup for Trusted Launch VM is supported through [Enhanced policy](backup-azure-vms-enhanced-policy.md). You can enable backup only through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm).    <br><br>   **Feature details**   <br>  <ul><li> Migration of an existing [Generation 2](/azure/virtual-machines/generation-2) VM (protected with Azure Backup) to Trusted Launch VM is currently not supported. Learn about how to [create a Trusted Launch VM](/azure/virtual-machines/trusted-launch-portal?tabs=portal#deploy-a-trusted-vm). </li><li> Configurations of Backup, Alerts, and Monitoring for Trusted Launch VM are currently not supported through Backup center. </li><li> Currently, you can restore as [Create VM](/azure/backup/backup-azure-arm-restore-vms#create-a-vm), or [Restore disk](/azure/backup/backup-azure-arm-restore-vms#restore-disks) only.  </li><li> [vTPM state](/azure/virtual-machines/trusted-launch#vtpm) doesn't persist while you restore a VM from a recovery point. Therefore, scenarios that require vTPM persistence may not work across the backup and restore operation.  </li></ul>   
 
