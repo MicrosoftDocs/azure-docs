@@ -31,7 +31,7 @@ Creating an Azure IR within managed Virtual Network ensures that data integratio
 Benefits of using Managed Virtual Network:
 
 - With a Managed Virtual Network, you can offload the burden of managing the Virtual Network to Azure Purview. You don't need to create and manage VNets or subnets for Azure Integration Runtime to use for scanning Azure data sources. 
-- It does not require deep Azure networking knowledge to do data integrations securely. Using a managed virtual network is much simplified for data engineers. 
+- It doesn't require deep Azure networking knowledge to do data integrations securely. Using a managed virtual network is much simplified for data engineers. 
 - Managed Virtual Network along with Managed private endpoints protects against data exfiltration. 
 
 > [!IMPORTANT]
@@ -169,6 +169,8 @@ It is important to register the data source in Azure Purview prior to setting up
    3. In the **Select a collection** box, select a collection.
    4. Select **Register** to register the data sources.
 
+For more information, see[Manage data sources in Azure Purview](manage-data-sources.md)
+
 #### Setting up scan using Azure Purview Managed Identity (MSI)
 
 To scan a data source using a managed vnet runtime and Purview managed identity perform these steps:
@@ -210,10 +212,6 @@ Currently, managed virtual network and managed private endpoints are available f
 - East US 2
 - West Europe 
 
-## Known limitations
-To view list of current limitations related to Azure Purview private endpoints, see [Azure Purview private endpoints known limitations](./catalog-private-link-troubleshoot.md#known-limitations).
-
 ## Next steps
 
-- [Deploy end to end private networking](./catalog-private-link-end-to-end.md)
-- [Deploy private networking for the Purview Studio](./catalog-private-link-account-portal.md)
+- [Manage data sources in Azure Purview](.//manage-data-source.md)
