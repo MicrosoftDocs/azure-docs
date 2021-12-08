@@ -396,16 +396,16 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="Screenshot is showing two tabs in default view. Each tab will be used for different Teams user." lightbox="../../media/javascript/1-on-1-video-calling-a.png":::
 
 On the first tab, enter a valid user access token. On the second tab, enter another different valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1:1 video calling page - b":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="Screenshot is showing steps to initialize each Teams user in the browser tab."  lightbox="../../media/javascript/1-on-1-video-calling-b.png":::
 
 On the first tab, enter the ACS user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="Screenshot is showing experience when Teams users initialize the SDK and shows steps to start a call to second user and way how to accept the call." lightbox="../../media/javascript/1-on-1-video-calling-c.png":::
 
 From the second tab, select the "Accept Call" button. The call will be answered and connected. You should see the following:
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page - d":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="Screenshot is showing two tabs, with ongoing call between two Teams users, each logged in the individual tab."  lightbox="../../media/javascript/1-on-1-video-calling-d.png":::
 
 Both tabs are now successfully in a 1:1 video call. Both users can hear each other's audio and see each other video stream.
