@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/05/2021
+ms.date: 11/30/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -242,15 +242,17 @@ When you want to sign the user out of the application, it isn't enough to clear 
 Upon a sign-out request, Azure AD B2C:
 
 ::: zone pivot="b2c-user-flow"
+
 1. Invalidates the Azure AD B2C cookie-based session.
 1. Attempts to sign out from federated identity providers.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
+
 1. Invalidates the Azure AD B2C cookie-based session.
 1. Attempts to sign out from federated identity providers:
    - OpenId Connect - If the identity provider well-known configuration endpoint specifies an `end_session_endpoint` location. The sign-out request doesn't pass the `id_token_hint` parameter. If the federated identity provider requires this parameter, the sign-out request will fail.
-   - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#metadata) contains the `end_session_endpoint` location.
+   - OAuth2 - If the [identity provider metadata](oauth2-technical-profile.md#end-session-endpoint) contains the `end_session_endpoint` location.
    - SAML - If the [identity provider metadata](identity-provider-generic-saml.md) contains the `SingleLogoutService` location.
 1. Optionally, signs-out from other applications. For more information, see the [Single sign-out](#single-sign-out) section.
 

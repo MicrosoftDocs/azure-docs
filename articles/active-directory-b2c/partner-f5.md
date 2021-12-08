@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with F5 BIG-IP  
+title: Tutorial to extend Azure Active Directory B2C with F5 BIG-IP  
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
 author: gargi-sinha
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ---
 
-# Tutorial: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IP
+# Tutorial: Extend Azure Active Directory B2C using F5 BIG-IP
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [F5 BIG-IP Access Policy Manager (APM)](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory). This tutorial demonstrates how legacy applications can be securely exposed to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA), and Single sign-on (SSO).
 
@@ -428,4 +428,4 @@ Your application’s logs would then help understand if it received those attrib
   
   5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and select **Apply** again to refresh the access profile list.
 
-See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/en-us/bigip-14-1-0/big-ip-access-policy-manager-oauth-configuration-14-1-0/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)

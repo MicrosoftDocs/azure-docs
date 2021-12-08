@@ -1,22 +1,11 @@
 ---
 title: Advanced SIEM Information Model (ASIM) Schemas | Microsoft Docs
 description: This article explains Advanced SIEM Information Model (ASIM) schemas, and how they help ASIM normalizes data from many different sources to a uniform presentation
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf
 ms.custom: ignite-fall-2021
-
 --- 
 
 # Advanced SIEM Information Model (ASIM) schemas (Public preview)
@@ -108,9 +97,11 @@ The following fields are defined by ASIM for all schemas:
 | <a name="eventresultdetails"></a>**EventResultDetails** | Mandatory | Alias | Reason or details for the result reported in the [**EventResult**](#eventresult) field. Each schema documents the list of values valid for this field.<br><br>Example: `NXDOMAIN`|
 | **EventOriginalUid**    | Optional    | String     |   A unique ID of the original record, if provided by the source.<br><br>Example: `69f37748-ddcd-4331-bf0f-b137f1ea83b`|
 | **EventOriginalType**   | Optional    | String     |   The original event type or ID, if provided by the source. For example, this field will be used to store the original Windows event ID.<br><br>Example: `4624`|
+| <a name="eventoriginalresultdetails"></a>**EventOriginalResultDetails** | Optional | String | The original result details provided by the source. This value is used to derive [EventResultDetails](#eventresultdetails), which should have only one of the values documented for each schema. |
 | <a name="eventproduct"></a>**EventProduct**        | Mandatory   | String     |             The product generating the event. <br><br>Example: `Sysmon`<br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.           |
 | **EventProductVersion** | Optional    | String     | The version of the product generating the event. <br><br>Example: `12.1`      |
 | <a name="eventvendor"></a>**EventVendor**         | Mandatory   | String     |           The vendor of the product generating the event. <br><br>Example: `Microsoft`  <br><br>**Note**: This field may not be available in the source record. In such cases, this field must be set by the parser.  |
+| **EventSchema** | Mandatory | String | The schema the event is normalized to. Each schema documents its schema name. |
 | **EventSchemaVersion**  | Mandatory   | String     | The version of the schema. Each schema documents its current version.         |
 | **EventReportUrl**      | Optional    | String     | A URL provided in the event for a resource that provides additional information about the event.|
 | <a name="dvc"></a>**Dvc** | Mandatory       | String     | A unique identifier of the device on which the event occurred or which reported the event, depending on the schema. <br><br>This field may alias the [DvcFQDN](#dvcfqdn), [DvcId](#dvcid), [DvcHostname](#dvchostname), or [DvcIpAddr](#dvcipaddr) fields. For cloud sources, for which there is not apparent device, use the same value as the [Event Product](#eventproduct) field.            |
@@ -125,7 +116,8 @@ The following fields are defined by ASIM for all schemas:
 | **DvcZone** | Optional | String | The network on which the event occurred or which reported the event, depending on the schema. The zone is defined by the reporting device.<br><br>Example: `Dmz` |
 | **DvcOs**               | Optional    | String     |         The operating system running on the device on which the event occurred.    <br><br>Example: `Windows`    |
 | **DvcOsVersion**        | Optional    | String     |   The version of the operating system on the device on which the event occurred. <br><br>Example: `10` |
-| **DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
+| <a name="dvcaction"></a>**DvcAction** | Optional | String | For reporting security systems, the action taken by the system, if applicable. <br><br>Example: `Blocked` |
+| <a name="dvcoriginalaction"></a>**DvcOriginalAction** | Optional | String | The original [DvcAction](#dvcaction) as provided by the reporting device. |
 | <a name="additionalfields"></a>**AdditionalFields**    | Optional    | Dynamic    | If your source provides additional information worth preserving, either keep it with the original field names or create the dynamic **AdditionalFields** field, and add to it the extra information as key/value pairs.    |
 | | | | |
 

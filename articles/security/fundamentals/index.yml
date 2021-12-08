@@ -114,4 +114,4 @@ landingContent:
           - text: Implement resource management security
             url: /learn/paths/implement-resource-mgmt-security
           - text: Implement virtual machine host security
-            url: https://docs.microsoft.com/learn/paths/implement-host-security
+            url: /learn/paths/implement-host-security
