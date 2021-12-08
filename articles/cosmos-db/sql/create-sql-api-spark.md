@@ -138,7 +138,7 @@ customSchema = StructType([
       StructField("isAlive", BooleanType())
     ])
 
-df = spark.read.schema(schema).format("cosmos.oltp").options(**cfg)\
+df = spark.read.schema(customSchema).format("cosmos.oltp").options(**cfg)\
  .load()
  
 df.printSchema()

@@ -187,9 +187,9 @@ items:
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
       - name: Python
-        href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
