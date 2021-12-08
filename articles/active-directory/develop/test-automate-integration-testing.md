@@ -180,7 +180,7 @@ public HttpClient httpClient;
 
 public async Task InitializeAsync()
 {
-    var builder = new ConfigurationBuilder().AddJsonFile("C:\\Users\\username\\source\\repos\\IdentityTests\\appsettings.json");
+    var builder = new ConfigurationBuilder().AddJsonFile("<path-to-json-file>");
 
     IConfigurationRoot Configuration = builder.Build();
 
