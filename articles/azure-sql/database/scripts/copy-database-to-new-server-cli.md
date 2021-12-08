@@ -34,13 +34,17 @@ az account set -s $subscription # ...or use 'az login'
 
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.sh "Copy database to new server")]
 
+```azurecli-interactive
+:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.sh" range="4-36":::
+```
+
 ### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $resource
-az group delete --name $targetResource
+az group delete --name $resourceGroup
+az group delete --name $targetResourceGroup
 ```
 
 ## Sample reference

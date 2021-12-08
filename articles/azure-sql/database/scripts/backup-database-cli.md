@@ -32,11 +32,13 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/backup-database/backup-database.sh "Restore SQL Database")]
+```azurecli-interactive
+:::code language="code-azurecli" source="~/azure_cli_scripts/ssql-database/backup-database/backup-database.sh" range="4-40":::
+```
 
 ### Clean up deployment
 
-Use the following command to remove  the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
 az group delete --name $resource

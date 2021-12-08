@@ -33,28 +33,18 @@ subscription="<subscriptionId>" # add subscription here
 az account set -s $subscription # ...or use 'az login'
 ```
 
-### Run the script 1
+### Run the script
 
 ```azurecli-interactive
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-150":::
+:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
 ```
-
-### Run the script 2
-
-```azurecli-interactive
-:::code language="code-azurecli" source="~/cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
-```
-
-### Run the script-orig
-
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ### Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $resource
+az group delete --name $resourceGroup
 ```
 
 ## Sample reference

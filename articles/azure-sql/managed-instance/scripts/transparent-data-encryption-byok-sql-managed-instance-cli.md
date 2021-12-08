@@ -43,7 +43,7 @@ az account set -s $subscription # ...or use 'az login'
 Use the following command to remove the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name $resource
+az group delete --name $resourceGroup
 ```
 
 ## Sample reference
