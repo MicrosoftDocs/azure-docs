@@ -34,7 +34,7 @@ Configuring and using NAT gateway is intentionally made simple:
 NAT gateway:
 
 - Create a non-zonal or zonal NAT gateway.
-- Assign a public IP address and/or public IP prefix.
+- Assign a public IP address or public IP prefix.
 - If necessary, modify TCP idle timeout (optional). Review [timers](#timers) before you change the default.
 
 Virtual network:
@@ -49,9 +49,9 @@ Review this section to familiarize yourself with considerations for designing vi
 
 ### Connecting to Azure services
 
-When connecting to Azure services from your privante network, the recommended approach is to leverage [Private Link](../../private-link/private-link-overview.md). 
+When connecting to Azure services from your private network, the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
 
-Private Link enables you to access services in Azure from your private network without the use of a public IP address but instead with a private endpoint. Connecting to these services over the internet are not necessary as they are handled over the Azure backbone network. For example, when you access Azure Storage, you can use a private endpoint to ensure your connection is fully private.
+Private Link lets you access services in Azure from your private network without the use of a public IP address. Connecting to these services over the internet are not necessary and are handled over the Azure backbone network. For example, when you access Azure Storage, you can use a private endpoint to ensure your connection is fully private.
 
 ### Connecting to the internet
 
@@ -114,7 +114,7 @@ For guides on how to enable NSG flow logs, see [Enabling NSG Flow Logs](/azure/n
 
 Each NAT gateway can provide up to 50 Gbps of throughput. You can split your deployments into multiple subnets and assign each subnet or group of subnets a NAT gateway to scale out.
 
-Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outbound IP address. Review the following section for details as well as the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
+Each NAT gateway can support 64,000 flows each for TCP and UDP per assigned outbound IP address. Review the following section for details and the [troubleshooting article](./troubleshoot-nat.md) for specific problem resolution guidance.
 
 ## Source Network Address Translation
 
@@ -144,11 +144,11 @@ When NAT gateway is configured with public IP address 65.52.1.1, the source IPs 
 | 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-The destination will now see the source of the flows as 65.52.1.1 (source tuple after SNAT), with the assigned port shown. The act of NAT gateway replacing all of the source IPs and ports with that of the public IP and port before connecting to the internet is known as *IP/port masquerading*. Multiple private sources are masqueraded behind a public IP and port.
+The destination will now see the source of the flows as 65.52.1.1 (source tuple after SNAT), with the assigned port shown. The act of NAT gateway replacing all of the source ports and IPs with the public IP and port before connecting to the internet is known as *IP masquerading* or *port masquerading*. Multiple private sources are masqueraded behind a public IP.
 
 #### Source (SNAT) port reuse
 
-NAT gateway selects a port at random out of the available inventory of ports from any of the IPs configured for outbound traffic flow and will opportunistically reuse source (SNAT) ports. 
+Virtual machines can use any available port provided by the public IP(s) configured to NAT gateway for outbound connectivity. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gatewy will also opportunistically reuse source (SNAT) ports. 
 
 The following flow illustrates this concept with a VM flowing to destination IP 65.52.0.2 after flows 1 - 3 from the above tables have already taken place.
 
@@ -156,7 +156,7 @@ The following flow illustrates this concept with a VM flowing to destination IP 
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will translate flow 4 to a port that may have been recently used for other destinations as well. See [Scaling](#scaling) for additional discussion on correctly sizing your IP address provisioning.
+A NAT gateway will translate flow 4 to a port that may have been recently used for other destinations as well. See [Scaling](#scaling) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -168,7 +168,7 @@ SNAT provided by NAT is different from SNAT provided by a [load balancer](../../
 
 - NAT gateway selects source ports at random for outbound traffic flow whereas Load Balancer selects ports sequentially.
 - NAT gateway dynamically allocates SNAT ports across all VMs within a NAT gateway configured subnet whereas Load Balancer pre-allocates a fixed number of SNAT ports to each VM.
-- NAT gateway does not require any further configuration of SNAT port usage beyond the number of public IPs associated to it, whereas Load Balancer can be manually configured to allow fixed amounts of SNAT ports per VM.
+- NAT gateway does not require manual configuration of SNAT ports to VMs in your VNet, whereas Load Balancer can be manually configured to allow fixed amounts of SNAT ports per VM.
 
 ### On-demand
 
@@ -199,7 +199,7 @@ Scaling NAT is primarily a function of managing the shared, available SNAT port 
 
 SNAT maps private addresses to one or more public IP addresses, rewriting the source address and source port in the process. A NAT gateway uses 64,000 ports (SNAT ports) per configured public IP address for this translation. A single NAT gateway can scale up to 16 IP addresses and 1 million SNAT ports. If a public IP prefix is provided, each IP address within the prefix provides SNAT port inventory. Adding more public IP addresses increases the available inventory of SNAT ports. TCP and UDP are separate SNAT port inventories and are unrelated to NAT gateway.
 
-NAT gateway opportunistically reuses source (SNAT) ports. When you design scaling, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
+NAT gateway opportunistically reuses source (SNAT) ports. When you scale your workload, assume that each flow requires a new SNAT port, and then scale the total number of available IP addresses for outbound traffic. Carefully consider the scale you're designing for, and then provision IP addresses quantities accordingly.
 
 SNAT ports set to different destinations will most likely be reused when possible. As SNAT port exhaustion approaches, flows may not succeed.
 
@@ -213,19 +213,19 @@ NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. NAT
 
 TCP timers determine the amount of time a connection is held between two endpoints before it is terminated and the port is available for reuse. Depending on the type of packet sent by either endpoint, a specific type of timer will be triggered.
 
-The following timers indicate how long a connection is maintained before closing and releasing the destination SNAT port for reuse by a private endpoint behind NAT gateway:
+The following timers indicate how long a connection is maintained before closing and releasing the destination SNAT port for reuse:
 
 | Timer | Description | Value |
 |---|---|---|
-| TCP FIN | Occurs when the private side of NAT initiates termination of a TCP connection. A timer is set after the FIN packet is sent by the public endpoint. This timer allows the private endpoint time to resend an ACK (acknowledgement) packet should it be lost. Once the timer ends, the connection is closed. | 60 seconds |
+| TCP FIN | Occurs when the private side of NAT initiates termination of a TCP connection. A timer is set after the FIN packet is sent by the public endpoint. This timer allows the private endpoint time to resend an ACK (acknowledgment) packet should it be lost. Once the timer ends, the connection is closed. | 60 seconds |
 | TCP RST | Occurs when the private side of NAT sends a RST (reset) packet in an attempt to communicate on the TCP connection. If the RST packet is not received by the public side of NAT, or the RST packet is returned to the private endpoint, the connection will timeout and close. The public side of NAT doesn't generate TCP RST packets or any other traffic. | 10 seconds |
-| TCP half open | Occurs when the public endpoint is waiting for acknowledgement from the private endpoint that the connection between the two is fully bidirectional. | 30 seconds |
-| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to timeout a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
+| TCP half open | Occurs when the public endpoint is waiting for acknowledgment from the private endpoint that the connection between the two is fully bidirectional. | 30 seconds |
+| TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
 
 > [!NOTE]
 > These timer settings are subject to change. The values are provided to help with troubleshooting and you should not take a dependency on specific timers at this time.
 
-After a SNAT port is no longer in use, it is available for reuse to the same destination IP address and destination port after 5 seconds.
+After a SNAT port is no longer in use, it is available for reuse to the same destination IP address and port after 5 seconds.
 
 #### Timer Considerations
 
