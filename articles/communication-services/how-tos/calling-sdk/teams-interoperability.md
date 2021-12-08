@@ -15,6 +15,8 @@ ms.custom: template-how-to
 
 # Join a teams meeting
 
+[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
+
 Azure Communication Services SDKs can allow your users to join regular Microsoft Teams meetings. Here's how!
 
 ## Prerequisites
@@ -24,6 +26,9 @@ Azure Communication Services SDKs can allow your users to join regular Microsoft
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+> [!NOTE]
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+ 
 To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
 
 Join by using a meeting link:
