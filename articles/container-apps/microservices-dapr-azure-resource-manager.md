@@ -596,9 +596,9 @@ resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
 
 ## Deploy the service application (HTTP web server)
 
-Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
-
 ::: zone pivot="container-apps-arm"
+
+Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
 
 # [Bash](#tab/bash)
 
@@ -635,6 +635,8 @@ New-AzResourceGroupDeployment `
 ::: zone-end
 
 ::: zone pivot="container-apps-bicep"
+
+Navigate to the directory in which you stored the Bicep template file and run the command below to deploy the service container app.
 
 # [Bash](#tab/bash)
 
