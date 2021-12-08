@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 12/08/2021
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ This topic covers how to improve the security of user sign-in by adding applicat
 Your organization will need to enable Microsoft Authenticator push notifications for some users or groups using the new Authentication Methods Policy API. 
 
 >[!NOTE]
->Additional context can be targeted to only a single group, which can be dynamic or nested. On-premises synchronized security groups and cloud-only security groups are supported for the Authentication Method Policy.
+>The Authenticator app does not retrieve policy information just in time during every sign-in request. The Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working on optimizing the behavior. In the meantime, if you want to force a policy update as a work around, users must remove and re-add their accounts in the Authenticator app.
 
 ## Passwordless phone sign-in and multifactor authentication 
 
@@ -38,6 +38,8 @@ Identify a single target group for the schema configuration. Then use the follow
 
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 
+>[!NOTE]
+>Microsoft Authenticator retrieves policy weekly as a best effort. To force a policy update, users must remove and re-add their accounts in the Authenticator app.
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 
