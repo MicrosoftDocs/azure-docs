@@ -17,8 +17,7 @@ In this article, you'll learn how to define pass/fail criteria for your load tes
 By defining test criteria, you can specify the performance expectations of your application under test. By using the Azure Load Testing service, you can set failure criteria for various test metrics.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
