@@ -27,7 +27,7 @@ The CloudKnox Usage Analytics feature contains details about identities, resourc
 - **Access Keys** - Tracks the privilege usage of access keys for a given user.
 - **Serverless Functions** - Tracks assigned privileges and usage of the serverless functions.
 
-For common definitions used in the CloudKnox application, see the [Definitions page](cloudknox-product-definitions.md).
+For common definitions used in the CloudKnox application, see the [glossary](). 
 
 ## How to view usage analytics about users
 
@@ -44,7 +44,8 @@ On the **Usage Analytics** tab:
 
          - To view additional details about the user, click the username. 
 
-           Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. For more information, see [How to use identity explorer for Users](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-Users).
+           Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
+           For more information, see [How to use identity explorer for users](). 
 
     - **Domain/Account** - This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI) - Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
@@ -68,7 +69,9 @@ On the **Usage Analytics** tab:
 
     - **Tags** - Displays the number of tags applied to a user.
 
-    -  To expand details about the user, click the **Tags** icon. For more information, see [How to read Information Panel for users](cloudknox-product-usage-analytics.md#how-to-read-information-panel-for-users).
+    -  To expand details about the user, click the **Tags** icon. 
+
+       For more information, see [How to read the information panel for users](). 
 
 ### How to apply filters for users
 
@@ -395,9 +398,9 @@ The **Active Resources** dashboard provides a high-level overview of resource de
 
 - **Resource Name** - Provides the name of the resource.
 
-     - To view additional details about the resource, click the resource name. For more information, see [How to use identity explorer for Active Resources](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-active-resources).
+     - To view additional details about the resource, click the resource name. For more information, see [How to use identity explorer for Active Resources]().
 
-     Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
+       Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
 - **Account** - Displays the account name the resource belongs to.
 - **Resource Type** - Displays the type of resource, i.e., Key (encryption key) or bucket (storage).
@@ -498,12 +501,12 @@ The only tasks listed in this dashboard are those that have been used in the las
 The following components make up the **Active Tasks** table:
 
 - **Task Name** - Provides the name of the task. 
-    - To view additional details about the task, click the task name. For more information, see [How to use identity explorer for Active Tasks](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-active-tasks).
+    - To view additional details about the task, click the task name. For more information, see [How to use identity explorer for Active Tasks](). 
 
-      -  A **Deleted** icon next to the task name means the task is a delete task. 
+        -  A **Deleted** icon next to the task name means the task is a delete task. 
 
-      - A **High risk task** icon next to the task name means the task is high-risk. 
-      - A **Task** icon next to the task name means the task is a normal task.
+        - A **High risk task** icon next to the task name means the task is high-risk. 
+        - A **Task** icon next to the task name means the task is a normal task.
 
 - **No. of Times Task is Performed** - Captures the number of times the task has been performed by all users, groups, etc.
 - **Performed On (Resources)** - The number of resources the task was used on. For more information, see [How to view usage analytics about active resources](cloudknox-product-usage-analytics.md#how-to-view-usage-analytics-about-active-resources).
@@ -737,7 +740,7 @@ The CloudKnox explorers provide additional information about an identity, includ
 ### How to use the User Explorer
 
 1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
-For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
+For more information, see [How to apply filters to users](). 
 
 2. Under the **Username** column, click the username to expand details within the last 90 days. The default view is the **User Info** tab.
 3. The **User Info** tab displays the high risk activities performed in the last 90 days with the following details:
@@ -874,7 +877,7 @@ For more information, see [How to apply filters to users](cloudknox-product-usag
 
 1. To access the **Role Explorer**, choose an authorization system. 
 
-2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users).
+2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see [How to apply filters to users](). 
 
 3. To expand details within the last 90 days, under the **Username** column, click the username. The default view is the **Role Info** tab.
      
@@ -935,7 +938,8 @@ For more information, see [How to apply filters to users](cloudknox-product-usag
 
 ### How to use the Resource Explorer
 
-1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
+1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see [How to apply filters to users](). 
+
 2. To expand details within the last 90 days, under the **Resource Name** column, click the resource. 
 
 3. The default view is the **Access Graph** tab. It displays the following details:
@@ -1002,7 +1006,7 @@ For more information, see [How to apply filters to users](cloudknox-product-usag
 
 ### How to use the Task Explorer
 
-1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
+1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see [How to apply filters to users]().
 
     - To expand details within the last 90 days, in the **Task Name** column, click the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:

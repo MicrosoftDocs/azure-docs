@@ -276,7 +276,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 2. On the **Statements** screen, make edits to the **Tasks**, **Resources**, **Request Conditions**, and **Effect** as required. 
 
-    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws_only) or [How to Create a New Role (Azure/GCP/VCENTER)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-(azure/gcp/vcenter)).
+    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws-only) or [How to Create a New Role (Azure/GCP/VCENTER)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-azuregcpvcenter)).
 
 3. Click **Next**.
 
