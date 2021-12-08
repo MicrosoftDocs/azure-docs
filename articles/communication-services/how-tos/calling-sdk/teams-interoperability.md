@@ -28,7 +28,7 @@ Azure Communication Services SDKs can allow your users to join regular Microsoft
 
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
- 
+
 To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
 
 Join by using a meeting link:
