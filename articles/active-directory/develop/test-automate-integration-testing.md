@@ -39,25 +39,31 @@ To prepare for your automated integration tests, create some test users, create 
 
 Using the ROPC authentication flow is risky in a production environment, so [create a separate tenant](test-setup-environment.md#set-up-a-test-environment-in-a-separate-tenant) to test your applications. You can use an existing test tenant, but you need to be an admin in the tenant since some of the following steps require admin privileges.
 
-## Create test users
+## Create and configure a key vault
 
-Since these users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
+We recommend you securely store the test usernames and passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.  When you run the tests later, the tests run in the context of a security principal.  The security principal is an Azure AD user if you're running tests locally (for example, in Visual Studio or Visual Studio Code), or a service principal or managed identity if you're running tests in Azure Pipelines or another Azure resource.  The security principal must have **Read** and **List** secrets permissions so the test runner can get the test usernames and passwords from your key vault. For more information, read [Authentication in Azure Key Vault](/azure/key-vault/general/authentication).
+
 1. [Create a new key vault](/azure/key-vault/general/quick-create-portal) if you don't have one already.
 1. Take note of the **Vault URI** property value (similar to `https://<your-unique-keyvault-name>.vault.azure.net/`) which is used in the example test later in this article.
-1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests and getting the test username and password secrets from the key vault. To do: more info here on msi or running locally...
+1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests. Grant the user, service principal, or managed identity **Get** and **List** secrets permissions in the key vault.
 
-Create some test users in your tenant for testing:
+## Create test users
+
+Create some test users in your tenant for testing. Since the test users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
+
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
 1. Go to **Users**.
 1. Select **New user** and create one or more test user accounts in your directory.
 1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](/azure/key-vault/secrets/quick-create-portal) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
 ## Create and configure an app registration
-Register an application that acts as your client app when calling APIs.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
+Register an application that acts as your client app when calling APIs during testing.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
 
 ### Register an application
 
 Create an app registration. You can follow the steps in the [app registration quickstart](quickstart-register-app.md#register-an-application).  You don't need to add a redirect URI or add credentials, so you can skip those sections.
+
+Take note of the **Application (client) ID**, which is used in the example test later in this article.
 
 ### Enable your app for public client flows
 
@@ -121,7 +127,7 @@ Now that you're set up, you can write your automated tests.  The following .NET 
 
 ### Set up your appsettings.json file
 
-Add the client ID of your test app, the necessary scopes, and the username and password for the test user to the *appsettings.json* file of your test project.
+Add the client ID of the test app you previously created, the necessary scopes, and the key vault URI to the *appsettings.json* file of your test project.
 
 ```json
 {
@@ -138,14 +144,21 @@ Add the client ID of your test app, the necessary scopes, and the username and p
       //For this Microsoft Graph example.  Your value(s) will be different depending on the API you're calling
       "https://graph.microsoft.com/User.ReadBasic.All"  
     ]
+  },
+
+  "KeyVault": {
+    "KeyVaultUri": "https://<your-unique-keyvault-name>.vault.azure.net//"
   }
 }
 ```
 
 ### Set up your client for use across all your test classes
-Use [SecretClient()](/dotnet/api/azure.security.keyvault.secrets.secretclient) to get the test username and password secrets from Azure Key Vault. [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) authenticates with Key Vault using a token from a managed identity (if the code is running on an Azure resource with a managed identity) or the user's local credentials. For more information about authenticating to Key Vault, see the [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). The code also uses exponential back-off for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling).
 
-Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request. 
+Use [SecretClient()](/dotnet/api/azure.security.keyvault.secrets.secretclient) to get the test username and password secrets from Azure Key Vault. The code uses exponential back-off for retries in case Key Vault is being throttled.
+
+[DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) authenticates with Azure Key Vault by getting an access token from a service principal configured by environment variables or a managed identity (if the code is running on an Azure resource with a managed identity).  If the code is running locally, `DefaultAzureCredential` uses the local user's credentials. Read more in the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme#defaultazurecredential) content.
+
+Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request.
 
 ```csharp
 using Xunit;
@@ -171,33 +184,35 @@ public async Task InitializeAsync()
 
     IConfigurationRoot Configuration = builder.Build();
 
-    var PublicClientApplicationOptions = new PublicClientApplicationOptions();
-    Configuration.Bind("Authentication", PublicClientApplicationOptions);
-    var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
-        .Build();
-    
-    SecretClientOptions options = new SecretClientOptions()
-    {
-        Retry =
-        {
-            Delay= TimeSpan.FromSeconds(2),
-            MaxDelay = TimeSpan.FromSeconds(16),
-            MaxRetries = 5,
-            Mode = RetryMode.Exponential
-          }
-    };
-    var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(), options);
+            var PublicClientApplicationOptions = new PublicClientApplicationOptions();
+            Configuration.Bind("Authentication", PublicClientApplicationOptions);
+            var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(PublicClientApplicationOptions)
+                .Build();
 
-    KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");        
-    KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
+            SecretClientOptions options = new SecretClientOptions()
+            {
+                Retry =
+                {
+                    Delay= TimeSpan.FromSeconds(2),
+                    MaxDelay = TimeSpan.FromSeconds(16),
+                    MaxRetries = 5,
+                    Mode = RetryMode.Exponential
+                 }
+            };
 
-    string password = passwordSecret.Value;
-    string username = userNameSecret.Value;
-    string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
-    SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+            string keyVaultUri = Configuration.GetValue<string>("KeyVault:KeyVaultUri"); 
+            var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential(), options);
 
-    AuthenticationResult result = null;
-    httpClient = new HttpClient();
+            KeyVaultSecret userNameSecret = client.GetSecret("TestUserName");        
+            KeyVaultSecret passwordSecret = client.GetSecret("TestPassword");
+
+            string password = passwordSecret.Value;
+            string username = userNameSecret.Value;
+            string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
+            SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+
+            AuthenticationResult result = null;
+            httpClient = new HttpClient();
 
     try
     {
