@@ -136,7 +136,7 @@ Examples of control plane operations and data plane operations:
 |Setup a Private Endpoint for Azure Purview     | Control plane         | Contributor         | Azure RBAC roles        |
 |Delete a Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
 |View Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
-|Create a collection      | Data plane           | Control plane        | Azure RBAC roles        |
+|Create a collection      | Data plane           | Collection Admin        | Azure Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Azure Purview roles         |
 |Scan a SQL Server      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 |Search inside Purview Data Catalog      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
@@ -325,8 +325,8 @@ As a general rule, you can use the following options to set up integration runti
 |Scenario  |Runtime option   |Supported Credentials   |
 |---------|---------|---------|
 |Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 1: Azure Runtime          | Azure Purview Managed Identity, Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
 |Data source is inside an Azure IaaS VM such as SQL Server       | Self-hosted integration runtime deployed in Azure         | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Data source is inside an on-premises system such as SQL Server or Oracle      | Self-hosted integration runtime deployed in Azure or in the on-premises network        | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
