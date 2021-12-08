@@ -21,10 +21,10 @@ Before migrating, you must understand the differences between Azure Cosmos DB an
 ### Resource model
 
 Azure Cosmos DB has the following resource model:
-:::image type="content" source="./media/migrate-hbase-to-cosmosdb/cosmosdb-resource-model.png" alt-text="Azure Cosmos DB resource model with account, databases, containers, and items.":::
+:::image type="content" source="./media/migrate-hbase-to-cosmos-db/resource-model.png" alt-text="Azure Cosmos DB resource model with account, databases, containers, and items.":::
 
 HBase has the following resource model:
-:::image type="content" source="./media/migrate-hbase-to-cosmosdb/hbase-data-model.jpg" alt-text="HBase resource model with namespace, tables, rows, and columns.":::
+:::image type="content" source="./media/migrate-hbase-to-cosmos-db/hbase-data-model.png" alt-text="HBase resource model with namespace, tables, rows, and columns.":::
 
 ### Resource mapping
 
@@ -139,7 +139,7 @@ As with HBase RowKey, partition key design is important for Azure Cosmos DB. HBa
 HBase consists of Master; Region Server; and ZooKeeper. High availability in a single cluster can be achieved by making each component redundant. When configuring geo-redundancy, one can deploy HBase clusters across different physical data centers and use replication to keep multiple clusters in-sync.
 
 **Azure Cosmos DB**
-Azure Cosmos DB does not require any configuration such as cluster component redundancy. It provides a comprehensive SLA for high availability, consistency, and latency. You can place data in multiple regions simply by specifying the Azure region where you want to place the replica. This allows you to maintain high availability in the unlikely event of a regional failure.
+Azure Cosmos DB does not require any configuration such as cluster component redundancy. It provides a comprehensive SLA for high availability, consistency, and latency. Please see [SLA for Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/) for more detail.
 
 ### Data reliability
 
@@ -351,7 +351,7 @@ There are various methods to migrate data offline, but here we will introduce ho
 | Custom tool with Cosmos DB bulk executor library | All versions | Most flexible to create custom data migration tools using libraries. Requires more effort to set up. |
 
 The following flowchart uses some conditions to reach the available data migration methods.
-:::image type="content" source="./media/migrate-hbase-to-cosmosdb/flowchart-hbase-cosmosdb-migration-tools.png" alt-text="Flowchart for options to migrate data to Azure Cosmos DB.":::
+:::image type="content" source="./media/migrate-hbase-to-cosmos-db/flowchart-hbase-migration-tools.png" alt-text="Flowchart for options to migrate data to Azure Cosmos DB.":::
 
 ### Migrate using Data Factory
 
@@ -361,7 +361,7 @@ Data Factory's Copy activity supports HBase as a data source. See the [Copy data
 
 You can specify Cosmos DB (SQL API) as the destination for your data. See the [Copy and transform data in Azure Cosmos DB (SQL API) by using Azure Data Factory](../../data-factory/connector-azure-cosmos-db.md) article for more details.
 
-:::image type="content" source="./media/migrate-hbase-to-cosmosdb/data-migration-hbase-cosmos-adf.png" alt-text="Architecture for migrating data from on-premise to Azure Cosmos DB using Data Factory.":::
+:::image type="content" source="./media/migrate-hbase-to-cosmos-db/data-migration-hbase-azure-data-factory.png" alt-text="Architecture for migrating data from on-premise to Azure Cosmos DB using Data Factory.":::
 
 ### Migrate using Apache Spark - Apache HBase Connector & Cosmos DB Spark connector
 
