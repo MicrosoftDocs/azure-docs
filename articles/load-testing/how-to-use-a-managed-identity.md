@@ -19,8 +19,7 @@ A managed identity in Azure Active Directory (Azure AD) allows your resource to 
 Azure Load Testing supports only system-assigned identities. A system-assigned identity is associated with your Azure Load Testing resource and is removed when your resource is deleted. A resource can have only one system-assigned identity.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
