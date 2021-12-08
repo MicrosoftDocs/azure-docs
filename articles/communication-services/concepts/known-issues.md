@@ -22,6 +22,14 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
+
+ACS Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+
+This issue is fixed in ACS Calling SDK version 1.3.1-beta.1.
+
+* iOS Safari version: 15.1
+
 ### iOS with Safari crashes and refreshes the page if a user tries to send video in a call
 
 iOS 15.1 introduced a bug that affects the majority of Communication Services calls with video that are placed in iOS with Safari. Specifically, the problem occurs when a user joins a Communication Services call or a meeting in Microsoft Teams by using Communication Services on iOS 15.1 on any browser with video turned on. This set of circumstances causes the Safari browser to crash.
@@ -32,6 +40,23 @@ We managed to bypass that bug and now users will be able to join calls with vide
 * Going to background will refresh user's call. Mitigation: Stop video before going to background.
 
 This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505).
+
+
+### Safari on macOS Monterey blocks the connections 
+
+macOS Monterey introduced on new beta privacy feature on Safari that sends the traffic through a relay. That feature blocks SDK connections and prevents the SDK initialization process. 
+
+Mitigation
+
+Application can proactivevly inform the user to disable that setting. 
+
+Safari -> Preferences -> Privacy -> Disable "Hide IP address"
+
+### Android 12 causes video artifacts when user is sending video in a call
+
+Android 12 introduced a bug that affects outgoing video on all Chromium based browsers. Specifically, the problem occurs when a user joins a call using Communication Services on Android 12 with video turned on. The video will render on the receiver's end with artifacts. 
+
+This is a [known bug on Android 12](https://bugs.chromium.org/p/chromium/issues/detail?id=1237677).
 
 ### Refreshing a page doesn't immediately remove the user from their call
 
@@ -152,4 +177,9 @@ The following are known issues in the Communication Services Call Automation API
 - Calls between tenant users of Microsoft Teams and Communication Services users or server application entities aren't allowed.
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
+
+## Group call limiations for JS web Calling SDK users		
+
+Up to 100 users can join a group call using the JS web calling SDK. 
+
 

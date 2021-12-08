@@ -1,60 +1,62 @@
 ---
 title: Data access policy provisioning for Azure Storage
 description: Step-by-step guide on how to integrate Azure Storage into Azure Purview access policies and allow data owners to build access policies.
-author: vlrodrig
+author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 11/23/2021
-ms.custom: ignite-fall-2021
+ms.date: 12/07/2021
+ms.custom:
 ---
 
 # Dataset provisioning by data owner for Azure Storage (preview)
 
 ## Supported capabilities
 This guide describes how to configure Azure Storage to enforce data access policies created and managed from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
--   Data access policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2
+-   Data policies to control access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2.
 
-> [!IMPORTANT]
+> [!NOTE]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
->[!Note]
+>[!IMPORTANT]
 > The access policy feature is only available on **new** Azure Purview and Azure Storage accounts.
 - Create a new or use an existing isolated test subscription. You can [follow this guide to create one](../cost-management-billing/manage/create-subscription.md).
 - Create a new Purview account. You can [follow our quick-start guide to create one](create-catalog-portal.md).
-- Create a new Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md).
+- Create a new Azure Storage account in one of the regions listed below. You can [follow this guide to create one](../storage/common/storage-account-create.md). Only Storage account versions >= 81.x.x support policy enforcement.
 
 [!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
 
 ## Configuration
 [!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
 
-### Opt-in to participate in Azure Purview data access policy preview
-This functionality is currently in preview. You will need to [opt-in to Purview data access policies preview](https://aka.ms/opt-in-data-use-policy)
-
 ### Register Purview as a resource provider in other subscriptions
-Execute this step only if the Storage account you want to manage access to is in a different subscription from the one used for the Azure Purview account. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide:  
-[Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
+Execute this step only if the Storage and Purview accounts are in different subscriptions. Register Azure Purview as a resource provider in the subscription for the Azure Storage account by following this guide: [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md)
 
 ### Configure permissions for policy management actions
-- User needs to have role *Owner* in the Azure Storage account to register this source for *Data use Governance* in Azure Purview. You can [follow this guide to configure this permission](../role-based-access-control/check-access.md)
-- User needs to be member of Purview *Data source admins* role at the root collection level to register a source for *Data use governance*.
-- User needs to be member of Purview *Policy authors* role at root collection level to perform policy authoring/management actions.
-- User needs to be member of Purview *Data source admin* role at the root collection level to publish the policy.
+#### Storage account permissions
+User needs to have **either one of these** role combinations in the Azure Storage account to be able to register it for *Data use Governance* in Azure Purview:
+- IAM *Owner* 
+- Both IAM *Contributor* + IAM *User Access Administrator*
+ 
+You can follow this [guide to configure Azure RBAC permissions](../role-based-access-control/check-access.md)
 
-For Purview roles, check the section on managing role assignments in this guide: [How to create and manage collections](how-to-create-and-manage-collections.md)
-
+#### Purview account permissions
 >[!IMPORTANT]
+> - Policy operations are only supported at **root collection level** and not child collection level.
+- User needs Purview *Data source admins* role at the root collection level to:
+  - Register a source for *Data use governance*.
+  - Publish a policy.
+- User needs Purview *Policy authors* role at root collection level to create or edit policies.
+
+Check the section on managing Purview role assignments in this [guide](how-to-create-and-manage-collections.md).
+
+>[!WARNING]
 > **Known issues** related to permissions
-> - In addition to Purview *Policy authors* role, user requires directory *Reader* permission in Azure Active Directory (AAD) to create data owner policy.
+> - In addition to Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory (AAD) to create data owner policy. For more on AAD Directory Reader [click here](../active-directory/roles/permissions-reference.md#directory-readers)
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
-
->[!IMPORTANT]
-> **Limitations**
-> - Policy operations are only supported at root collection level and not child collection level.
 
 ### Register and scan data sources in Purview
 Register and scan each data source with Purview to later define access policies. You can follow these guides:
@@ -63,17 +65,23 @@ Register and scan each data source with Purview to later define access policies.
 
 -   [Register and scan Azure Data Lake Storage (ADLS) Gen2 - Azure Purview](register-scan-adls-gen2.md)
 
+>[!NOTE]
+> Make a note of the **Name** you give the source during registration. You will need it when you create or publish a policy statement. A best practice is to give it the same name you used for the Storage account.
+
 During registration, enable the data source for access policy through the **Data use governance** toggle, as shown in the picture
 
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
->[!NOTE]
-> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to register a source for *Data use governance*, any of those roles independently can de-register it.
+>[!IMPORTANT]
+> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to register a source for *Data use governance*, any of those roles can independently de-register it.
 > - Disabling a subscription for *Data use governance* will disable it also for all assets registered in that subscription.
 
+> [!WARNING]
+> **Known issues** related to source registration
+> - Moving data sources to a different resource group or subscription is not yet supported. If you need to do that, de-register the data source in Purview before moving it and then register it again after it has been moved.
 
 ### Data use governance best practices
-- We highly encourage you to register all data sources for *Data use governance* and manage all associated access policies from a single Azure Purview account.
+- We highly encourage registering data sources for *Data use governance* and managing all associated access policies from a single Azure Purview account.
 - However, in case you need to have multiple Purview accounts, be aware that all the data sources belonging to a subscription can only be registered for *Data use governance* in a single Purview account. That Purview account itself could be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
@@ -125,9 +133,15 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
-> [!IMPORTANT]
+> [!NOTE]
+> Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
+> - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
+> - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
+
+> [!WARNING]
 > **Known issues** related to Policy creation
-> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets are still allowed after that.
+> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
+> - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Update or delete a policy
 
@@ -166,6 +180,9 @@ The steps to publish a policy are as follows
 
 >[!NOTE]
 > Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
+
+## Limits
+- The limit for Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
 ## Policy action mapping
 

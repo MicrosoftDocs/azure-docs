@@ -15,6 +15,8 @@ ms.custom: contperf-fy21q1
 
 In this article, you'll learn how to configure your [Azure API Management](api-management-key-concepts.md) instance to protect an API, by using the [OAuth 2.0 protocol with Azure Active Directory (Azure AD)](../active-directory/develop/active-directory-v2-protocols.md). 
 
+You can configure authorization for developer accounts using other OAuth 2.0 providers. For more information, see [How to authorize developer accounts using OAuth 2.0 in Azure API Management](api-management-howto-oauth2.md).
+
 > [!NOTE]
 > This feature is available in the **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
 > 
@@ -38,7 +40,7 @@ Prior to following the steps in this article, you must have:
 
 1. In Azure AD, grant permissions to allow the client-app to call the backend-app.
 
-1. Configure the Developer Console in the developer portal to call the API using OAuth 2.0 user authorization.
+1. Configure the developer console in the developer portal to call the API using OAuth 2.0 user authorization.
 
 1. Add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 
@@ -77,7 +79,7 @@ For details about app registration, see [Quickstart: Configure an application to
 
 ## 2. Register another application in Azure AD to represent a client application
 
-Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **Developer Console** in the API Management developer portal. 
+Register every client application that calls the API as an application in Azure AD. In this example, the client application is the **developer console** in the API Management developer portal. 
 
 To register another application in Azure AD to represent the Developer Console:
 
@@ -130,7 +132,7 @@ Optionally:
 
 At this point, you have created your applications in Azure AD, and have granted proper permissions to allow the client-app to call the backend-app. 
 
-In this example, you enable OAuth 2.0 user authorization in the Developer Console (the client app).
+In this example, you enable OAuth 2.0 user authorization in the developer console (the client app).
 
 1. In the Azure portal, find the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
     1. Open the **App registrations** page. 
@@ -184,9 +186,9 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
     * Paste the redirect URI you saved earlier under **Redirect URIs**.
     * Click on **Configure** button to save.
 
-   Now that the Developer Console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the Developer Console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
+   Now that the developer console can obtain access tokens from Azure AD via your OAuth 2.0 authorization server, enable OAuth 2.0 user authorization for your API. This enables the developer console to know that it needs to obtain an access token on behalf of the user, before making calls to your API.
 
-15. Browse to your API Management instance, and go to **APIs**.
+1. Browse to your API Management instance, and go to **APIs**.
 
 1. Select the API you want to protect. For example, `Echo API`.
 
@@ -198,36 +200,23 @@ In this example, you enable OAuth 2.0 user authorization in the Developer Consol
 
 1. Select **Save**.
 
+> [!NOTE]
+> To see the latest configuration of your portal, publish the portal. You can publish the portal in the portal's administrative interface or from the Azure portal.
+
+
 ## 5. Successfully call the API from the developer portal
 
 > [!NOTE]
 > This section does not apply to the **Consumption** tier, as it does not support the developer portal.
 
-Now that the OAuth 2.0 user authorization is enabled on your API, the Developer Console will obtain an access token on behalf of the user, before calling the API.
-
-1. Browse to any operation under the API in the developer portal. 
-1. Select **Try it** to bring you to the Developer Console.
-
-1. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
-
-1. Select **Authorization code** from the authorization drop-down list. 
-1. Once prompted to sign into the Azure AD tenant. 
-    * If you are already signed into the account, you might not be prompted.
-
-1. After successful sign-in, an `Authorization` header is added to the request, with an access token from Azure AD. The following is a sample token (Base64 encoded):
-
-   ```
-   Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCIsImtpZCI6IlNTUWRoSTFjS3ZoUUVEU0p4RTJnR1lzNDBRMCJ9.eyJhdWQiOiIxYzg2ZWVmNC1jMjZkLTRiNGUtODEzNy0wYjBiZTEyM2NhMGMiLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC80NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgvIiwiaWF0IjoxNTIxMTUyNjMzLCJuYmYiOjE1MjExNTI2MzMsImV4cCI6MTUyMTE1NjUzMywiYWNyIjoiMSIsImFpbyI6IkFWUUFxLzhHQUFBQUptVzkzTFd6dVArcGF4ZzJPeGE1cGp2V1NXV1ZSVnd1ZXZ5QU5yMlNkc0tkQmFWNnNjcHZsbUpmT1dDOThscUJJMDhXdlB6cDdlenpJdzJLai9MdWdXWWdydHhkM1lmaDlYSGpXeFVaWk9JPSIsImFtciI6WyJyc2EiXSwiYXBwaWQiOiJhYTY5ODM1OC0yMWEzLTRhYTQtYjI3OC1mMzI2NTMzMDUzZTkiLCJhcHBpZGFjciI6IjEiLCJlbWFpbCI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsImZhbWlseV9uYW1lIjoiSmlhbmciLCJnaXZlbl9uYW1lIjoiTWlhbyIsImlkcCI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0Ny8iLCJpcGFkZHIiOiIxMzEuMTA3LjE3NC4xNDAiLCJuYW1lIjoiTWlhbyBKaWFuZyIsIm9pZCI6IjhiMTU4ZDEwLWVmZGItNDUxMS1iOTQzLTczOWZkYjMxNzAyZSIsInNjcCI6InVzZXJfaW1wZXJzb25hdGlvbiIsInN1YiI6IkFGaWtvWFk1TEV1LTNkbk1pa3Z3MUJzQUx4SGIybV9IaVJjaHVfSEM1aGciLCJ0aWQiOiI0NDc4ODkyMC05Yjk3LTRmOGItODIwYS0yMTFiMTMzZDk1MzgiLCJ1bmlxdWVfbmFtZSI6Im1pamlhbmdAbWljcm9zb2Z0LmNvbSIsInV0aSI6ImFQaTJxOVZ6ODBXdHNsYjRBMzBCQUEiLCJ2ZXIiOiIxLjAifQ.agGfaegYRnGj6DM_-N_eYulnQdXHhrsus45QDuApirETDR2P2aMRxRioOCR2YVwn8pmpQ1LoAhddcYMWisrw_qhaQr0AYsDPWRtJ6x0hDk5teUgbix3gazb7F-TVcC1gXpc9y7j77Ujxcq9z0r5lF65Y9bpNSefn9Te6GZYG7BgKEixqC4W6LqjtcjuOuW-ouy6LSSox71Fj4Ni3zkGfxX1T_jiOvQTd6BBltSrShDm0bTMefoyX8oqfMEA2ziKjwvBFrOjO0uK4rJLgLYH4qvkR0bdF9etdstqKMo5gecarWHNzWi_tghQu9aE3Z3EZdYNI_ZGM-Bbe3pkCfvEOyA
-   ```
-
-1. Select **Send** to call the API successfully.
+[!INCLUDE [api-management-test-oauth-authorization](../../includes/api-management-test-oauth-authorization.md)]
 
 ## 6. Configure a JWT validation policy to pre-authorize requests
 
 So far:
-* You've tried to make a call from the Developer Console.
+* You've tried to make a call from the developer console.
 * You've been prompted and have signed into the Azure AD tenant. 
-* The Developer Console obtains an access token on your behalf, and includes the token in the request made to the API.
+* The developer console obtains an access token on your behalf, and includes the token in the request made to the API.
 
 However, what if someone calls your API without a token or with an invalid token? For example, if you call the API without the `Authorization` header, the call will still go through, since API Management does not validate the access token. It simply passes the `Authorization` header to the back-end API.
 
@@ -259,7 +248,7 @@ For information on how to configure policies, see [Set or edit policies](./set-e
 
 ## Build an application to call the API
 
-In this guide, you used the Developer Console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
+In this guide, you used the developer console in API Management as the sample client application to call the `Echo API` protected by OAuth 2.0. To learn more about how to build an application and implement OAuth 2.0, see [Azure AD code samples](../active-directory/develop/sample-v2-code.md).
 
 ## Next steps
 

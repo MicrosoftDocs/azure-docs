@@ -83,7 +83,7 @@ This extension version is available from the extension bundle v3 by adding the f
 }
 ```
 
-When editing C# script functions in Azure portal, you can edit the `host.json` file in **Functions** > **App files** in the left navigation pane.
+[!INCLUDE [functions-bindings-storage-extension-v5-tables-note](../../includes/functions-bindings-storage-extension-v5-tables-note.md)]
 
 To learn more, see [Update your extensions].
 
