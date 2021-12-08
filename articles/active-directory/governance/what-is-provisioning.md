@@ -68,7 +68,7 @@ As many organizations historically have deployed HR-driven provisioning on-premi
 
 In addition, organizations may wish to also provision to on-premises systems from Azure AD.  For example, an organization may have brought guests into the Azure AD directory, but those guests will need access to on-premises Windows Integrated Authentication (WIA) based web applications via the app proxy.  This requires the provisioning of on-premises AD accounts for those users in Azure AD.
 
-For more information, see [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)
+For more information, see [What is inter-directory provisioning?](../hybrid/what-is-inter-directory-provisioning.md)
 
  
 ## Next steps 
