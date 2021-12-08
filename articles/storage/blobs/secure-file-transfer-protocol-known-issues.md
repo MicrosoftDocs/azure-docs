@@ -105,6 +105,21 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 - PowerShell and Azure CLI and not supported. You can leverage Portal and ARM templates for Public Preview.
 
+## Troubleshooting
+
+The user gets the following error when trying to enable SFTP:
+
+`Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.`
+
+To troubleshoot, ensure that the following pre-requisites are met at the storage account level:
+
+- The account needs to be a GPv2 or Block Blob Storage account.
+- The account needs to have LRS or ZRS replication setup.
+- The account needs to have hierarchical namespace enabled on it.
+- The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
+- Customer's subscription needs to be signed up for the preview. See this.
+
 ## See also
 
 - [SSH File Transfer Protocol (SFTP) support in Azure Blob Storage](secure-file-transfer-protocol-support.md)
+- [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP) (preview)](secure-file-transfer-protocol-support-how-to.md)
