@@ -96,7 +96,7 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 ## Disable specific findings (preview)
 
 > [!NOTE]
-> [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]
+> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
