@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management product reports
-description: How to use Microsoft CloudKnox Permissions Management's  system reports.
+description: How to use Microsoft CloudKnox Permissions Management's system reports.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -14,9 +14,9 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management product reports
 
-## Introduction
+Microsoft CloudKnox Permissions Management has various types of system reports available that capture specific sets of data that assist management in making timely decisions. These reports allow management to analyze trends and system/user performance. Identifying trends in data and high risk areas allows management to address issues more quickly and improve efficiency. 
 
-There are various types of system reports available in Microsoft CloudKnox Permissions Management that capture specific sets of data that will assist management in making timely decisions. These reports allow management to analyze trends and system/user performance. Identifying trends in data and high risk areas will allow management to address issues more quickly and improve efficiency. 
+## CloudKnox reports
 
 CloudKnox offers the following reports for management associated with the authorization systems noted in parenthesis:
 
@@ -46,7 +46,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary
 	- **Use cases:** 
-		 - All group level entitlements as well as the permission assignment, PCI, and number of members are listed as part of this report. 
+		 - All group level entitlements and permission assignments, PCIs, and the number of members are listed as part of this report. 
 
 - **Identity permissions**:
 	- **Summary of report:** Report on identities that have specific permissions, for example, identities that have permission to delete any S3 buckets.
@@ -66,8 +66,8 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases:** 
 		1. Any identity permission change can be captured using this report. 
 		2. The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**. 
-		3. The **User** summary lists the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
-		4. The **Group** summary lists the administrator level groups with the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, amd High-risk active/inactive groups.
+		3. The **User** summary lists the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
+		4. The **Group** summary lists the administrator level groups with the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
 		5. The **Role summary** lists similar details as Group Summary. 
 		6. The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period. 
 
@@ -159,9 +159,9 @@ CloudKnox offers the following reports for management associated with the author
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
 
 - **Report Name** - Lists the name of the report.
-- **Category** - Lists the type of report, i.e., **Permission**, **Compliance**, etc.
+- **Category** - Lists the type of report, for example, **Permission**, **Compliance**, etc.
 - **Authorization System** - Displays which authorizations the custom report applies to.
-- **Format** - Displays the output format the report can be generated in, i.e., CSV.
+- **Format** - Displays the output format the report can be generated in, for example, CSV.
 
     - To download the report, click the menu, click select **Download**, and then click the icon.
 
@@ -173,11 +173,11 @@ The reports dashboard provides a table of information with both System Reports a
      - **Report Name** - Displays the name of the report.
      - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, etc.
      - **Authorization Systems** - Displays which authorizations the custom report applies to.
-     - **Format** - Displays the output format the report can be generated in, i.e. CSV.
+     - **Format** - Displays the output format the report can be generated in, for example, CSV.
      - **Schedule** - Displays the date and time the next report will be generated.
      - **Next On** - Displays the date the next custom report will be generated on.
 
-2. Click the **New Custom Report** button in the top right hand side of the page.
+2. Click **New Custom Report**.
 
  	The **New Custom Report** box opens.
 
@@ -194,17 +194,17 @@ The reports dashboard provides a table of information with both System Reports a
 
 	Use **Search** to find an authorization system.
 
-7. To add specific users from each authorization system type, click the **Identities** tab from the left hand side.
+7. To add specific users from each authorization system type, click the **Identities** tab.
 
      - To find users, click each authorization system type. 
      - To find a specific user, click **Search** under **Users**, and add user names.
 
-8. Click the **Report Format** tab from the left hand side and check the following options, if applicable:
+8. Click the **Report Format** tab and check the following options, if applicable:
 	- **Detailed** - Check **CSV** for a detailed report.
 	- **Summary** - Check **CSV** and/or **PDF** for a summary of the report.
 	- **Dashboard** - Check **CSV** for a dashboard view of the report.
 
-9. Click the **Schedule** tab from the left hand side and choose from **None** up to **Monthly**.
+9. Click the **Schedule** tab and choose from **None** up to **Monthly**.
 
 	For **Hourly** and **Daily** options, you can set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
 
@@ -214,7 +214,7 @@ The reports dashboard provides a table of information with both System Reports a
 
 10. Click the **Share With** tab. 
 
-	The current user's email appears under **Email**, and additional email addresses can be added by typing them into the **Search Email to add** box.
+	The current user's email appears under **Email**, and other email addresses can be added by typing them into the **Search Email to add** box.
 
 	The **User Status** column displays the type of user the email address is associate with. 
     - To remove them from the list, click the **X** to the right of the users name.
@@ -237,7 +237,7 @@ The reports dashboard provides a table of information with both System Reports a
 
 	- To download a copy of the report, select the **Down arrow** icon.
 
-2. To perform actions to the report and select from the following options, click the ellipses (**...**) icon :
+2. To perform actions to the report and select from the following options, click the ellipses (**...**) icon:
 
 	 If there are reports listed that were not created by the current user, the only option from the list will be **Duplicate**.
 
@@ -247,20 +247,18 @@ The reports dashboard provides a table of information with both System Reports a
 
 	- **Duplicate** - Creates a duplicate of the report called **"Copy of XXX"**
 
-		 After clicking **Duplicate**, a pop up box appears asking if the user is sure they want to create a duplicate. Click **Confirm**. **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
+		 After clicking **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Click **Confirm**. **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
 
-	- **API Settings** - Download sthe report using API.
+	- **API Settings** - Download the report using API.
 
 		 When this option is clicked, **API Settings** window opens and displays **Report ID** and **Secret Key**. Click **Generate New Key**.
 
 	- **Delete** - Click this option to delete the report.
 
-		 After clicking **Delete**, a pop up box appears asking if the user is sure they want to delete the report. Click **Confirm**. **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
+		 After clicking **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Click **Confirm**. **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
 
 	- **Unsubscribe** - Unsubscribe the user from receiving scheduled reports and notifications.
 
 		 This option is only available after a report has been scheduled.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->

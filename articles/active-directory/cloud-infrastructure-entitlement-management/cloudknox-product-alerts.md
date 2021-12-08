@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management product alerts
-description: How to setup alerts through the Microsoft CloudKnox Permissions Management application.
+description: How to set-up alerts through the Microsoft CloudKnox Permissions Management application.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -56,10 +56,10 @@ The **Alerts** page provides settings you can use to create and save alerts so y
 
       - To select multiple accounts, select the boxes next to the account from the **List** and/or **Folder** tabs.  
       - To view alert conditions, click **View**.
-      - To edit alert conditions click **Edit**.
+      - To edit alert conditions, click **Edit**.
 5. To add a third criteria box, select an **Authorization System**, and then select an option. 
 6. To specify multiple values for an criteria, click **Add**.
-7. To add additional criteria for the alerts, click **Add**.
+7. To add criteria for the alerts, click **Add**.
 
 ### How to read the Operator options
 
@@ -74,9 +74,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Click **Access Key ID**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria in this section, click the plus (**+**) sign. 
+4. To add criteria in this section, click the plus (**+**) sign. 
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria you select can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria you select can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`. 
 5. To add a row of criteria, click the plus (**+**) sign, and, select **Or**. Then select **Not**, **Contains**, and enter `AKIAVP2T3XG7JUZRM7WU`. 
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -86,9 +86,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Click **Identity**, and then click **Tag Key**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria in this section, click the plus (**+**) sign. 
+4. To add criteria in this section, click the plus (**+**) sign. 
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**.
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**.
 5. Click the plus (**+**) sign, select **Or** with **Is**, and then enter, for example, *CloudKnox*.
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -98,9 +98,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Identity** **Tag Key Value**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria in this section, click the plus (**+**) sign.  
+4. To add criteria in this section, click the plus (**+**) sign.  
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Is**, and then enter, for example, *CloudKnox*.
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -110,9 +110,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Resource Name**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign. 
+4. To add criteria within this section, click the plus (**+**) sign. 
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter, for example, *CloudKnox*.
 6. To remove a row of criteria, click the minus (**-**) sign.
@@ -123,9 +123,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Resource Tag Key**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign. 
+4. To add criteria within this section, click the plus (**+**) sign. 
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Is**, and then enter, for example, *CloudKnox*.
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -135,9 +135,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Resource** **Tag Key Value**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign.  
+4. To add criteria within this section, click the plus (**+**) sign.  
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select from the dropdown options, **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Is**, and then enter, for example, *CloudKnox*.
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -147,11 +147,11 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Resource Type**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign. 
+4. To add criteria within this section, click the plus (**+**) sign. 
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
 
-5. Click the plus (**+**) sign, select **Or** with **Is** , and then from the dropdown options, select **ec2::instance**. 
+5. Click the plus (**+**) sign, select **Or** with **Is**, and then from the dropdown options, select **ec2::instance**. 
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
 
@@ -160,9 +160,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Role Name**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign.  
+4. To add criteria within this section, click the plus (**+**) sign.  
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter **CloudKnox**. 
     To remove a row of criteria, click the minus (**-**) sign.
 6. Click **Save**.
@@ -172,9 +172,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Role Session Name**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign.  
+4. To add criteria within this section, click the plus (**+**) sign.  
 
- You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+ You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter **CloudKnox**. 
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -184,9 +184,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Task Name**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign.  
+4. To add criteria within this section, click the plus (**+**) sign.  
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
 5. Click the plus (**+**) sign, select **Or** with **Is**, and then enter `ec2:TerminateInstance`. 
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -196,9 +196,9 @@ The **Operator** menu contains the following options:
 1. In the **Create Alert Trigger** section, click **Add**.
 2. Select **Username**.
 3. Click **Operator**, and then select the required option.
-4. To add additional criteria within this section, click the plus (**+**) sign.  
+4. To add criteria within this section, click the plus (**+**) sign.  
 
-   You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with username **Test**. 
+   You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with username **Test**. 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter **CloudKnox**. 
 6. To remove a row of criteria, click the minus (**-**) sign.
 7. Click **Save**.
@@ -242,7 +242,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
 1. You can view the following data in the **Alerts** section:
 
       - **Alert Name** - Lists the name of the alert.
-         to view the specific identity, resource, and task names that occurred during the alert collection period, click the **Alert Name**.
+         To view the specific identity, resource, and task names that occurred during the alert collection period, click the **Alert Name**.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
         For more information, see [How to create a new anomaly trigger]().
       - **# of Occurrences** - How many times the alert trigger has occurred.
@@ -261,7 +261,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
 
 ### How to create a new anomaly trigger
 
-1. From the **Alerts** section of the **Rule-Based Anomaly** tab, click the **Create Anomaly Trigger** button from the top right hand side of the screen.
+1. From the **Alerts** section of the **Rule-Based Anomaly** tab, click the **Create Anomaly Trigger** button.
 2. In the **Alert Name** box, enter a name for the alert.
 3. Select the **Authorization System**.
 4. Select one of the following conditions:
@@ -290,7 +290,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
       - **Last Modified On** - Displays the date and time the trigger was last modified.
       - **Subscription** - Switches between **On** and **Off**.
       - **View Trigger** - Displays the current trigger settings and applicable authorization system details.
-2. To view the following, click the ellipses (**...**):
+2. To view the following details, click the ellipses (**...**):
 
       - **Details** - Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria. 
           - To view the specific matches, click **Resources**, **Tasks**, or **Identities**.
@@ -320,7 +320,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - **View Trigger** - Displays the current trigger settings and applicable authorization system details
 2. To filter the alerts, select the appropriate alert name or choose **All** from the **Alert Name** dropdown menu. 
 3. From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and click **Apply**.
-4. To view the following, click the ellipses (**...**):
+4. To view the following details, click the ellipses (**...**):
 
       - **Details** - Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
 5. To view the specific matches, click **Resources**, **Tasks**, or **Identities**.
@@ -334,8 +334,8 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 3. Select the **Authorization System**.
 4. Select from one of the following conditions:
 
-      - **Identity Performed High Number of Tasks** - The identity performing a task is performing at a higher volume than usual, i.e. the their typical performance is 25 tasks per day and they are now performing 100 tasks per day.
-      - **Identity Performed Low Number of Tasks** - The identity performing a task is performing lower than their daily average, i.e. the their typical performance is 100 tasks per day and they are now performing 25 tasks per day.
+      - **Identity Performed High Number of Tasks** - The identity performing a task is performing at a higher volume than usual, that is, the typical performance is 25 tasks per day and they are now performing 100 tasks per day.
+      - **Identity Performed Low Number of Tasks** - The identity performing a task is performing lower than their daily average, that is, the typical performance is 100 tasks per day and they are now performing 25 tasks per day.
       - **Identity Performed Tasks with Multiple Unusual Patterns** - The identity is performing many unusual tasks and at different times, meaning they can be performing actions outside their normally logged hours or performance hours, as well as they performed a higher than usual volume of tasks than normal.
       - **Identity Performed Tasks with Unusual Results** - The identity performing an action gets a different result than usual, such as most tasks end in a successful result and are now ending in a failed result or vice versa.
       - **Identity Performed Tasks with Unusual Timing** - The identity is performing tasks outside of their normal logged in time or performance hours determined by the UTC actions hours grouped as follows:
@@ -355,7 +355,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 
      The **Controller** column displays if the controller is enabled or disabled.
 
-   The screen defaults to the **List** view but you can switch to **Folder** view using the top right menu, and then select the applicable folder instead of individually by system. 
+   The screen defaults to the **List** view but you can switch to **Folder** view using the menu, and then select the applicable folder instead of individually by system. 
 7. On the **Configuration** tab, you can update the **Time Interval** by selecting **90 Days**, **60 Days**, or **30 Days** from the menu list.
 8. Click **Save**.
 
@@ -371,7 +371,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - **Last Modified On** - Displays the date and time the trigger was last modified.
       - **Subscription** - Toggle the button to **On** or **Off**.
 2. Under the **Status** section, click **Activated & Deactivated** to filter by **Activated** or **Deactivated**.  Then select the appropriate option and click **Apply** to filter.
-3. To view the following, click the ellipses (**...**):
+3. To view the following details, click the ellipses (**...**):
 
       - **Details** - Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
       - To view the specific matches, click **Resources**, **Tasks**, or **Identities**.
@@ -397,7 +397,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 
       - From the **Date** dropdown menu, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**, and then click **Apply**.
       - **View Trigger** - Displays the current trigger settings and applicable authorization system details.
-3. To view the following , click the ellipses (**...**):
+3. To view the following details, click the ellipses (**...**):
 
       - **Details** - Displays **Authorization System Type**, **Authorization Systems**, **Resources**, **Tasks**, and **Identities** that matched the alert criteria.
 4. To view specific matches, click **Resources**, **Tasks**, or **Identities**. 
@@ -422,7 +422,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 
 ### How to read the Triggers table in the Permission Analytics Alert Triggers tab
 
-1. can view the following data in the **Alert Triggers** tab:
+1. You can view the following data in the **Alert Triggers** tab:
 
       - **Alert** - Lists the name of the alert.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. For more information, see [How to create a new anomaly trigger]().
@@ -442,6 +442,4 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
     1. Under the **Status** section, click the **Activated & Deactivated** dropdown menu.
     2. Select the appropriate option and click **Apply** to filter the results.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->

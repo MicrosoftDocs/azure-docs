@@ -42,13 +42,13 @@ There are 11 different query parameters that you can configure individually or i
 - To delete a function line in a query, click **Delete**.
 - To create multiple queries at one time, click the icon next to the **New Query** tab. 
 
-  You can open a maximum number of 6 query tab pages at the same time. A message will appear when you've reached the maximum.
+  You can open a maximum number of six query tab pages at the same time. A message will appear when you've reached the maximum.
 
 ### How to create a query with a date
 
 1. In the **New Query** section, the default displayed is **DATE IN "Last Day"**.
 
-    The first line item defaults to **Date**. This item cannot be deleted.
+    The first-line item defaults to **Date**. This item cannot be deleted.
 
 2. To edit date details, click **Edit**.
 
@@ -77,9 +77,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**.
+4. To add criteria to this section, click **Add**.
 
-    You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with the username **Test**.
+    You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with the username **Test**.
 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*.
 
@@ -97,9 +97,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**.   
+4. To add criteria to this section, click **Add**.   
 
-      You can change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
+      You can change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource name **Test**. 
 
 5. Click the plus (**+**) sign, select **Or** with **Contains**, and then enter a username, for example, *CloudKnox*. 
 
@@ -117,9 +117,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**.
+4. To add criteria to this section, click **Add**.
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with resource type **s3::bucket**. 
 
 6. Click the plus (**+**) sign, select **Or** with **Is**, and then enter or select  `ec2::instance`. 
 
@@ -138,9 +138,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with task name **s3:CreateBucket**. 
 
 6. Click **Add**, select **Or**  with **Is**, and then enter or select `ec2:TerminateInstance`. 
 
@@ -160,9 +160,9 @@ The **Operator** menu contains the following options:
 
     - **Is** / **Is Not** - Allows a user to click in the value field and select **Authorization Failure**, **Error**, or **Success**.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** with State **Authorization Failure**. 
 
 6. Click the **Add** icon, select **Or** with **Is**, and then select **Success**. 
 
@@ -180,9 +180,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 
 6. Click the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
 
@@ -200,9 +200,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free text **Test**. 
 
 6. Click the **Add** icon, select **Or** with **Contains**, and then enter your criteria, for example *CloudKnox*. 
 
@@ -220,9 +220,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Contains** with free `AKIAIFXNDW2Z2MPEH5OQ`. 
 
 6. Click the **Add** icon, select **Or** with **Not** **Contains**, and then enter `AKIAVP2T3XG7JUZRM7WU`. 
 
@@ -240,9 +240,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
 6. Click the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
 
@@ -260,9 +260,9 @@ The **Operator** menu contains the following options:
 
 3. From the **Operator** menu, select the required option.
 
-4. To add additional criteria to this section, click **Add**. 
+4. To add criteria to this section, click **Add**. 
 
-5. Change the operation between **And** / **Or** statements, and select additional criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
+5. Change the operation between **And** / **Or** statements, and select other criteria. For example, the first set of criteria selected can be **Is** and type in, or select **Test**. 
 
 6. Click the **Add** icon, select **Or** with **Is**, and then enter your criteria, for example *CloudKnox*. 
 
@@ -346,7 +346,7 @@ The **Operator** menu contains the following options:
       - **Date** - Sets the date when you want to receive the report.
       - **hh:mm** - Sets the specific time when you want to receive the report.
       - **Report File Format** - Select the output type for the file, for example, CSV.
-      - **Share Report with People** - The email address of the user who is creating the schedule is displayed in this field. You can add additional email addresses.
+      - **Share Report with People** - The email address of the user who is creating the schedule is displayed in this field. You can add other email addresses.
 
 4. After selecting your options, click **Schedule**.
 
@@ -372,6 +372,4 @@ The **Operator** menu contains the following options:
 
            The **Delete Schedule** box opens, asking you to confirm that you want to delete the schedule. Click **Yes** or **No**.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->
