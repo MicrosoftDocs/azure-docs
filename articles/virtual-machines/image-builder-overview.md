@@ -128,7 +128,7 @@ az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 For more information on which Azure VM images support Gen2, please visit: [Generation 2 VM images in Azure Marketplace
-](https://docs.microsoft.com/en-us/azure/virtual-machines/generation-2)
+](https://docs.microsoft.com/azure/virtual-machines/generation-2)
 
 ## Next steps 
  
