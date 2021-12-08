@@ -1136,7 +1136,6 @@ Tomcat 8.0 has reached [End of Life (EOL) as of September 30, 2018](https://tomc
 
 If a supported Java runtime will be retired, Azure developers using the affected runtime will be given a deprecation notice at least six months before the runtime is retired.
 
-
 ### Local development
 
 Developers can download the Production Edition of Azul Zulu Enterprise JDK for local development from [Azul's download site](https://www.azul.com/downloads/azure-only/zulu/).
