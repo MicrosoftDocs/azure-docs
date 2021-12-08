@@ -89,6 +89,9 @@ Follow these steps to use a query ID in SSMS's interactive Query Store tools to 
  
 The page will show the execution plan(s) and related metrics for the query over the most recent 24 hours.
 
+> [!NOTE]
+> **This content is focused on Azure SQL Database.** Azure SQL Database is based on the latest stable version of the Microsoft SQL Server database engine, so much of the content is similar though troubleshooting and configuration options differ. For information on monitoring CPU usage in SQL Server, see [Monitor CPU usage](/sql/relational-databases/performance-monitor/monitor-cpu-usage).
+
 ### Identify currently running queries with Transact-SQL
 
 Transact-SQL allows you to identify currently running queries with CPU time they have used so far. You can also use Transact-SQL to query recent CPU usage in your database, top queries by CPU, and queries that compiled the most often.
@@ -362,3 +365,4 @@ If your workload would benefit from scaling out storage and compute resources be
 * [Enable automatic tuning to monitor queries and improve workload performance](automatic-tuning-enable.md)
 * [Query processing architecture guide](/sql/relational-databases/query-processing-architecture-guide)
 * [Best practices with Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store)
+* [Detectable types of query performance bottlenecks in Azure SQL Database](../identify-query-performance-issues.md)
