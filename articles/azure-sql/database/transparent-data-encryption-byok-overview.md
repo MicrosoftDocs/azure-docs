@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 06/23/2021
 ---
 # Azure SQL Transparent Data Encryption with customer-managed key
