@@ -45,6 +45,8 @@ The following parameter types are extension version-specific and require `FileAc
 
 [!INCLUDE [functions-bindings-blob-storage-attribute](functions-bindings-blob-storage-attribute.md)]
 
+---
+
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
@@ -52,6 +54,8 @@ Isolated process currently only supports binding to string parameters.
 # [Extension 2.x and higher](#tab/extensionv2/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
+
+---
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 
@@ -89,6 +93,6 @@ The following parameter types are extension version-specific and require you to 
 
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](../azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](/azure/azure-functions/functions-bindings-storage-blob-trigger#concurrency-and-memory-usage).
 
-If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](../azure-functions/functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
+If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](/azure/azure-functions/functions-bindings-storage-blob#tabpanel_2_functionsv1_in-process).
