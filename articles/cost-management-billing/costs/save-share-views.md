@@ -65,4 +65,4 @@ When you want to share information with others that don't have access to Cost an
 ## Next steps
 
 - For more information about creating dashboards, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
-- To learn more about Cost Management, see [Cost Management + Billing documentation](../index.yml)
+- To learn more about Cost Management, see [Cost Management + Billing documentation](../index.yml).
