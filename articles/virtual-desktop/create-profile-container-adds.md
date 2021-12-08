@@ -165,7 +165,7 @@ To check your permissions on your session:
 
 2. Open the Azure portal.
 
-3. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
+3. Open the storage account you created in [Set up a storage account](##set-up-an-azure-storage-account).
 
 4. Go to **Data storage** in your storage account, then select **File shares**.
 
