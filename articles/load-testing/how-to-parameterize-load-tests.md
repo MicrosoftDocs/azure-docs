@@ -21,8 +21,7 @@ The Azure Load Testing service supports two types of parameters:
 - **Environment variables**: Contain non-sensitive information and are available as environment variables in the load test engine. For example, environment variables make the application endpoint URL configurable. For more information, see [Configure load tests with environment variables](#envvars).
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
