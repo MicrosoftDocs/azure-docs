@@ -798,17 +798,17 @@
       - name: Configure geo-replication
         items:
         - name: Single database
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
+          href: database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
         - name: Pooled database
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
+          href: database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
       - name: Configure failover group
         items: 
         - name: Failover group
-          href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-group-cli.md
+          href: database/scripts/sql-database-setup-geodr-and-failover-group-cli.md
         - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Pooled database
-          href: ../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
+          href: database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
@@ -1195,11 +1195,11 @@
       - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
-        href: ../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md
+        href: managed-instance/scripts/sql-database-create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE)
-        href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
+        href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Restore geo-backup
-        href: ../sql-database/scripts/restore-geo-backup.md  
+        href: managed-instance/scripts/restore-geo-backup.md  
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager

@@ -33,7 +33,7 @@ az account set -s $subscription # ...or use 'az login'
 ### Run the script
 
 ```azurecli-interactive
-:::code language="code-azurecli" source="~/azure_cli_scripts/ssql-database/backup-database/backup-database.sh" range="4-40":::
+:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/backup-database/backup-database.sh" range="4-40":::
 ```
 
 ### Clean up deployment
