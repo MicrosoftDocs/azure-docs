@@ -37,7 +37,6 @@ Follow the steps below to upload a new CA certificate. If you have not created a
 1. Browse for the certificate .cer file and decide on the certificate store. Only the public key is needed, so the password is optional.
 
     :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
-
 1. Select **Save**. This operation may take a few minutes.
 
 > [!NOTE]

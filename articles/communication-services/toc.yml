@@ -17,6 +17,8 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
+      - name: Manage access tokens for Teams users
+        href: quickstarts/manage-teams-identity.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
       - name: Authenticate with Azure AD (Azure CLI)
@@ -166,6 +168,8 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: Teams identity overview
+        href: concepts/interop/teams-user-calling.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
       - name: Call automation
@@ -304,6 +308,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
     - name: Common (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+  - name: UI Library
+    items:
+    - name: UI Library (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
 - name: Resources
   items:
   - name: Release notes

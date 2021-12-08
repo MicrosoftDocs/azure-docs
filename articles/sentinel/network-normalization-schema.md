@@ -217,7 +217,7 @@ The following fields are useful if the record includes information about an inte
 | --- | --- | --- | --- |
 | **DstNatIpAddr** | Optional | IP address | If reported by an intermediary NAT device, the IP address used by the NAT device for communication with the source.<br><br>Example: `2::1` |
 | **DstNatPortNumber** | Optional | Integer | If reported by an intermediary NAT device, the port used by the NAT device for communication with the source.<br><br>Example: `443` |
-| **SrcNatIpAddr** | Optional | IP address | If reported by an intermediary NAT device, the IP address used by the NAT device for communication with the destination.<br><br>Example: `4.3.2.1` |
+| <a name="srcnatipaddr"></a>**SrcNatIpAddr** | Optional | IP address | If reported by an intermediary NAT device, the IP address used by the NAT device for communication with the destination.<br><br>Example: `4.3.2.1` |
 | **SrcNatPortNumber** | Optional | Integer | If reported by an intermediary NAT device, the port used by the NAT device for communication with the destination.<br><br>Example: `345` |
 | **DvcInboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the source device.<br><br>Example: `eth0` |
 | **DvcOutboundInterface** | Optional | String | If reported by an intermediary device, the network interface used by the NAT device for the connection to the destination device.<br><br>Example: `Ethernet adapter Ethernet 4e` |

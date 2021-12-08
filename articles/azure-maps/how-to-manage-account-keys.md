@@ -7,7 +7,6 @@ ms.date: 04/26/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
 ---
 
 # Manage your Azure Maps account

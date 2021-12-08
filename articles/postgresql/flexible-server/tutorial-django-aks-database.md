@@ -21,8 +21,8 @@ In this quickstart, you deploy a Django application on Azure Kubernetes Service 
 ## Pre-requisites
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on you local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
-- Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- Launch [Azure Cloud Shell](https://shell.azure.com) in new browser window. You can [install Azure CLI](/cli/azure/install-azure-cli#install) on your local machine too. If you're using a local install, login with Azure CLI by using the [az login](/cli/azure/reference-index#az_login) command.  To finish the authentication process, follow the steps displayed in your terminal. 
+- Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade). This article requires the latest version of Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -198,7 +198,7 @@ docker build --tag myblog:latest .
 Deploy your image to [Docker hub](https://docs.docker.com/get-started/part3/#create-a-docker-hub-repository-and-push-your-image) or [Azure Container registry](../../container-registry/container-registry-get-started-azure-cli.md).
 
 > [!IMPORTANT]
->If you are using Azure container regdistry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
+>If you are using Azure container registry (ACR), then run the ```az aks update``` command to attach ACR account with the AKS cluster.
 >
 >```azurecli-interactive
 >az aks update -n djangoappcluster -g django-project --attach-acr <your-acr-name>
