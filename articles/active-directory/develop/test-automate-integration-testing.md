@@ -41,10 +41,16 @@ Using the ROPC authentication flow is risky in a production environment, so [cre
 
 ## Create test users
 
+Since these users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault.
+1. [Create a new key vault](/azure/key-vault/general/quick-create-portal) if you don't have one already.
+1. Take note of the **Vault URI** property value (similar to `https://<your-unique-keyvault-name>.vault.azure.net/`) which is used in the example test later in this article.
+1. [Assign an access policy](/azure/key-vault/general/assign-access-policy) for the security principal running the tests and getting the test username and password secrets from the key vault. To do: more info here on msi or running locally...
+
 Create some test users in your tenant for testing:
 1. In the [Azure portal](https://portal.azure.com), select **Azure Active Directory**.
-2. Go to **Users**.
-3. Select **New user** and create one or more test user accounts in your directory. Since these users are not actual humans, we recommend you assign complex passwords and securely store these passwords as [secrets](/azure/key-vault/secrets/about-secrets) in Azure Key Vault. For info on creating a key vault and setting secrets, see the [quickstart](/azure/key-vault/secrets/quick-create-cli).
+1. Go to **Users**.
+1. Select **New user** and create one or more test user accounts in your directory.
+1. The example test later in this article uses a single test user.  [Add the test username and password as secrets](/azure/key-vault/secrets/quick-create-portal) in the key vault you created previously. Add the username as a secret named "TestUserName" and the password as a secret named "TestPassword".
 
 ## Create and configure an app registration
 Register an application that acts as your client app when calling APIs.  This should *not* be the same application you may already have in production.  You should have a separate app to use only for testing purposes.
@@ -63,10 +69,12 @@ Since ROPC is not an interactive flow, you won't be prompted with a consent scre
 
 Add the permissions to your app. Do not add any sensitive or high-privilege permissions to the app, we recommend you scope your testing scenarios to basic integration scenarios around integrating with Azure AD.  
 
-From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. Once the permissions are added, you'll need to consent to them.  The way you consent to the permissions depends on if your test app is in the same tenant as the app registration and whether you're an admin in the tenant.
+From your app registration in the [Azure portal](https://portal.azure.com), go to **API Permissions** > **Add a permission**.  Add the permissions you need to call the APIs you'll be using. A test example further in this article uses the `https://graph.microsoft.com/User.Read` and `https://graph.microsoft.com/User.ReadBasic.All` permissions.
+
+Once the permissions are added, you'll need to consent to them.  The way you consent to the permissions depends on if your test app is in the same tenant as the app registration and whether you're an admin in the tenant.
 
 #### App and app registration are in the same tenant and you're an admin
-If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Azure portal](https://portal.azure.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button.
+If you plan on testing your app in the same tenant you registered it in and you are an administrator in that tenant, you can consent to the permissions from the [Azure portal](https://portal.azure.com). In your app registration in the Azure portal, go to **API Permissions** and select the **Grant admin consent for <your_tenant_name>** button next to the **Add a permission** button and then **Yes** to confirm.
 
 #### App and app registration are in different tenants, or you're not an admin
 If you do not plan on testing your app in the same tenant you registered it in, or you are not an administrator in your tenant, you cannot consent to the permissions from the [Azure portal](https://portal.azure.com).  You can still consent to some permissions, however, by triggering a sign-in prompt in a web browser.
@@ -135,8 +143,9 @@ Add the client ID of your test app, the necessary scopes, and the username and p
 ```
 
 ### Set up your client for use across all your test classes
+Use [SecretClient()](/dotnet/api/azure.security.keyvault.secrets.secretclient) to get the test username and password secrets from Azure Key Vault. [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) authenticates with Key Vault using a token from a managed identity (if the code is running on an Azure resource with a managed identity) or the user's local credentials. For more information about authenticating to Key Vault, see the [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). The code also uses exponential back-off for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling).
 
-Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request. Use [SecretClient()](/dotnet/api/azure.security.keyvault.secrets.secretclient) to get the test username and password secrets from Azure Key Vault. This code uses [DefaultAzureCredential()](/dotnet/api/azure.identity.defaultazurecredential) to authenticate to Key Vault, which uses a token from managed identity to authenticate. For more information about authenticating to Key Vault, see the [Developer's Guide](/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code). The code also uses exponential backoff for retries in case Key Vault is being throttled. For more information about Key Vault transaction limits, see [Azure Key Vault throttling guidance](/azure/key-vault/general/overview-throttling).
+Use Microsoft Authentication Library (MSAL) to authenticate using the ROPC flow and get an access token.  The access token is passed along as a bearer token in the HTTP request. 
 
 ```csharp
 using Xunit;
@@ -184,7 +193,7 @@ public async Task InitializeAsync()
 
     string password = passwordSecret.Value;
     string username = userNameSecret.Value;
-    string[] scopes = Configuration.GetValue<string[]>("WebAPI:Scopes");
+    string[] scopes = Configuration.GetSection( "WebAPI:Scopes").Get<string[]>();
     SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
     AuthenticationResult result = null;
