@@ -268,7 +268,7 @@ If you prefer to use graphic tools, follow these steps to use the interactive Qu
  
 Total CPU time for your database over the last month in milliseconds is shown in the bottom-left portion of the pane. In the default view, CPU time is aggregated by day.
 
-![Screenshot shows the Overall Resource Consumption view of Query Store in SSMS.](./media/high-cpu-troubleshoot/ssms-query-store-resources-consumption.png)
+:::image type="content" source="./media/high-cpu-troubleshoot/ssms-query-store-resources-consumption.png" alt-text="Screenshot shows the Overall Resource Consumption view of Query Store in SSMS.":::
 
 Select **Configure** in the top right of the pane to select a different time period. You can also change the unit of aggregation. For example, you can choose to see data for a specific date range and aggregate the data by hour.
 
@@ -276,7 +276,7 @@ Select **Configure** in the top right of the pane to select a different time per
 
 Select a bar in the chart to drill in and see queries running in a specific time period. The **Top Resource Consuming Queries** pane will open. Alternately, you can open **Top Resource Consuming Queries** from the Query Store node under your database in Object Explorer directly.
 
-![Screenshot shows the Top Resource Consuming Queries pane for Query Store in SSMS.](./media/high-cpu-troubleshoot/ssms-query-store-top-resource-consuming-queries.png)
+:::image type="content" source="./media/high-cpu-troubleshoot/ssms-query-store-top-resource-consuming-queries.png" alt-text="Screenshot shows the Top Resource Consuming Queries pane for Query Store in SSMS.":::
 
 In the default view, the **Top Resource Consuming Queries** pane shows queries by **Duration (ms)**. Duration may be different than CPU time, as queries using parallelism may use much more CPU time than their overall duration. To see queries by CPU time, select the **Metric** drop-down at the top left of the pane and select **CPU Time(ms)**.
 
