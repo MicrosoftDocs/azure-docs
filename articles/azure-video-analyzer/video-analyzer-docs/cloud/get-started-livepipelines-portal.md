@@ -95,7 +95,7 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 ### Deploy a live pipeline
 
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
 1. Go to Video Analyzer account and locate the **Live** menu item at the bottom left, select it. 
 1. In the Topologies plane, select the **Create topology** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
@@ -142,8 +142,8 @@ If you want to try other quickstarts or tutorials, keep the resources that you c
 In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
 
 ### Prerequisites
-- Retrieve your Azure Active Directory [Tenant Id](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
-  - Register an application with Microsoft identity platform to get app registration [Client Id](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
+- Retrieve your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+  - Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions:
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
@@ -156,10 +156,10 @@ In this tab, learn how to deploy live pipeline using using Video Analyzer’s [C
 
 | Variable       | Description                                |
 |----------------------|--------------------------------------------|
-| SubscriptionId | Provide Azure subscription Id    |
+| SubscriptionId | Provide Azure subscription ID    |
 | ResourceGroup | Provide resource group name |
 | AccountName | Provide Video Analyzer account name |
-| TenantId | Provide tenant id |
+| TenantId | Provide tenant ID |
 | ClientId | Provide app registration client id |
 | Secret | Provide app registration client secret |
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
