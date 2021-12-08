@@ -24,8 +24,6 @@
       href: tutorial-windows-vm-access-sql.md
     - name: Access Azure Key Vault
       href: tutorial-windows-vm-access-nonaad.md
-    - name: Access Azure Cosmos DB
-      href: tutorial-windows-vm-access-cosmos-db.md
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: tutorial-windows-vm-ua-arm.md
   - name: Linux VM/VMSS
@@ -40,12 +38,12 @@
       href: tutorial-linux-vm-access-storage-sas.md
     - name: Access Azure Key Vault
       href: tutorial-linux-vm-access-nonaad.md
-    - name: Access Azure Cosmos DB
-      href: tutorial-linux-vm-access-cosmos-db.md
     - name: Access Azure Container Registry
       href: ../../container-registry/container-registry-authentication-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Access Azure Resource Manager with a user-assigned managed identity
       href: msi-tutorial-linux-vm-access-arm.md
+  - name: Access Azure Cosmos DB
+    href: tutorial-vm-managed-identities-cosmos.md
   - name: Azure Service Bus
     href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure App Service and Functions
@@ -54,6 +52,8 @@
     href: ../../event-hubs/authenticate-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
   - name: Azure Container Instances
     href: ../../container-instances/container-instances-managed-identity.md?context=%2fazure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
 - name: Concepts
   items:
     - name: Managed identities and Azure VMs
@@ -121,6 +121,10 @@
     items:
     - name: PowerShell
       href: how-to-assign-app-role-managed-identity-powershell.md
+    - name: CLI
+      href: how-to-assign-app-role-managed-identity-cli.md
+  - name: View managed identity activity
+    href: how-to-view-managed-identity-activity.md
 
 - name: Reference
   items:
@@ -141,8 +145,10 @@
   - name: Known issues
     href: known-issues.md
   - name: Azure services that support managed identities for Azure resources
-    href: services-support-managed-identities.md
+    href: managed-identities-status.md
+  - name: Azure services that support Azure Active Directory authentication
+    href: services-azure-active-directory-support.md
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-msi
+    href: https://stackoverflow.com/questions/tagged/azure-managed-identity
   - name: Azure AD Developers forum
-    href: https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences
+    href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789?c=3abf25c9-ad25-ec11-b6e6-000d3a4f0789#

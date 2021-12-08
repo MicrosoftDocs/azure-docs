@@ -5,7 +5,7 @@ description: Provides you with a resolution to missing data in downloaded Azure 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
@@ -40,5 +40,5 @@ You can leverage [Azure AD Reporting APIs](concept-reporting-api.md) to fetch up
 
 ## Next steps
 
-* [Azure Active Directory reports FAQ](reports-faq.md)
+* [Azure Active Directory reports FAQ](reports-faq.yml)
 

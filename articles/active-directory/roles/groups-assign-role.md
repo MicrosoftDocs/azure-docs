@@ -33,9 +33,9 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 Assigning a group to an Azure AD role is similar to assigning users and service principals except that only groups that are role-assignable can be used. In the Azure portal, only groups that are role-assignable are displayed.
 
-1. Sign in to the [Azure AD admin center](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview).
+1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
-1. Select **Azure Active Directory** > **Roles and administrators**, and select the role you want to assign.
+1. Select **Azure Active Directory** > **Roles and administrators** and select the role you want to assign.
 
 1. On the ***role name*** page, select > **Add assignment**.
 

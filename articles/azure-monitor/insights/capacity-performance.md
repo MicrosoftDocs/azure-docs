@@ -37,7 +37,7 @@ The following table describes the connected sources that are supported by this s
 | Connected Source | Support | Description |
 |---|---|---|
 | [Windows agents](../agents/agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
-| [Linux agents](../vm/quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [Linux agents](../vm/monitor-virtual-machine.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](../agents/om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure storage does not include capacity and performance data.|
 
@@ -125,4 +125,3 @@ The following table provides sample log searches for capacity and performance da
 
 ## Next steps
 * Use [Log searches in Log Analytics](../logs/log-query-overview.md) to view detailed Capacity and Performance data.
-

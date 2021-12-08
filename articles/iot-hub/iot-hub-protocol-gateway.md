@@ -1,13 +1,13 @@
 ---
 title: Azure IoT protocol gateway | Microsoft Docs
 description: How to use an Azure IoT protocol gateway to extend IoT Hub capabilities and protocol support to enable devices to connect to your hub using protocols not supported by IoT Hub natively.
-author: robinsh
-manager: philmea
-ms.author: robinsh
+author: eross-msft
+
+ms.author: lizross
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 08/19/2021
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 

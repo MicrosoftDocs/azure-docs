@@ -1,101 +1,118 @@
 ---
-title: Configure cache and incremental enrichment (preview) 
+title: Enable caching for incremental enrichment (preview) 
 titleSuffix: Azure Cognitive Search
-description: Enable caching and preserve state of enriched content for controlled processing in a cognitive skillset. This feature is currently in public preview.
+description: Enable caching of enriched content for potential reuse when modifying downstream skills and projections in an AI enrichment pipeline. 
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 10/15/2021
 ---
 
-# How to configure caching for incremental enrichment in Azure Cognitive Search
+# Enable caching for incremental enrichment in Azure Cognitive Search
 
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature
 
-This article shows you how to add caching to an enrichment pipeline so that you can incrementally modify steps without having to rebuild every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With incremental enrichment, the indexer can determine which parts of the document tree need to be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
+This article explains how to add caching to an enrichment pipeline so that you can modify downstream enrichment steps without having to rebuild in full every time. By default, a skillset is stateless, and changing any part of its composition requires a full rerun of the indexer. With [**incremental enrichment**](cognitive-search-incremental-indexing-conceptual.md), the indexer can determine which parts of the document tree must be refreshed based on changes detected in the skillset or indexer definitions. Existing processed output is preserved and reused wherever possible. 
 
 Cached content is placed in Azure Storage using account information that you provide. The container, named `ms-az-search-indexercache-<alpha-numerc-string>`, is created when you run the indexer. It should be considered an internal component managed by your search service and must not be modified.
 
 If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md) and then continue on to [skillsets](cognitive-search-working-with-skillsets.md) to learn about enrichment pipelines. For more background on key concepts, see [incremental enrichment](cognitive-search-incremental-indexing-conceptual.md).
 
-## Enable caching on an existing indexer
+## Prerequisites
 
-If you have an existing indexer that already has a skillset, follow the steps in this section to add caching. As a one-time operation, you will have to reset and rerun the indexer in full before incremental processing can take effect.
+Azure Storage is used to store cached enrichments. The storage account must be [general purpose v2](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-> [!TIP]
-> As proof-of-concept, you can run through this [portal quickstart](cognitive-search-quickstart-blob.md) to create necessary objects, and then use Postman or the portal to make your updates. You might want to attach a billable Cognitive Services resource. Running the indexer multiple times will exhaust the free daily allocation before you can complete all of the steps.
+Preview APIs or beta Azure SDKs are required for enabling cache on an indexer. The portal does not currently provide an option for caching enrichment.
+
+## Enable on new indexers
+
+On new indexers, add the "cache" property in the indexer definition payload when calling [Create or Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer). You can also use the previous preview API version, 2020-06-30-Preview.
+
+```https
+POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-Preview
+    {
+        "name": "<YOUR-INDEXER-NAME>",
+        "targetIndexName": "<YOUR-INDEX-NAME>",
+        "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+        "skillsetName": "<YOUR-SKILLSET-NAME>",
+        "cache" : {
+            "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+            "enableReprocessing": true
+        },
+        "fieldMappings" : [],
+        "outputFieldMappings": [],
+        "parameters": []
+        }
+    }
+```
+
+## Enable on existing indexers
+
+For existing indexers that already have a skillset, use the following steps to add caching. As a one-time operation, reset and rerun the indexer in full to load the cache.
 
 ### Step 1: Get the indexer definition
 
-Start with a valid, existing indexer that has these components: data source, skillset, index. Your indexer should be runnable. 
-
-Using an API client, construct a [GET Indexer request](/rest/api/searchservice/get-indexer) to get the current configuration of the indexer. When you use the preview API version to the GET the indexer, a `cache` property set to null is added to the definitions.
+Start with a valid, work indexer that has these components: data source, skillset, index. Using an API client, send a [GET Indexer](/rest/api/searchservice/get-indexer) request to retrieve the indexer. When you use the preview API version to the GET the indexer, a "cache" property set to null is added to the definition automatically.
 
 ```http
-GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [YOUR-ADMIN-KEY]
+GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2021-04-30-Preview
+    Content-Type: application/json
+    api-key: [YOUR-ADMIN-KEY]
 ```
 
-Copy the indexer definition from the response.
+### Step 2: Set the cache property
 
-### Step 2: Modify the cache property in the indexer definition
+In the index definition, modify "cache" to include the following required and optional properties:
 
-By default the `cache` property is null. Use an API client to set the cache configuration (the portal does not support this particulate update). 
++ (Required) `storageConnectionString` must be set to an Azure Storage connection string.
++ (Optional) `enableReprocessing` boolean property (`true` by default), indicates that incremental enrichment is enabled. Set to `false` if you want to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then switch back to `true` later.
 
-Modify the cache object to include the following required and optional properties: 
-
-+ The `storageConnectionString` is required, and it must be set to an Azure storage connection string. 
-+ The `enableReprocessing` boolean property is optional (`true` by default), and it indicates that incremental enrichment is enabled. When needed, you can set it to `false` to suspend incremental processing while other resource-intensive operations, such as indexing new documents, are underway and then flip it back to `true` later.
-
-```json
-{
-    "name": "<YOUR-INDEXER-NAME>",
-    "targetIndexName": "<YOUR-INDEX-NAME>",
-    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
-    "skillsetName": "<YOUR-SKILLSET-NAME>",
-    "cache" : {
-        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
-        "enableReprocessing": true
-    },
-    "fieldMappings" : [],
-    "outputFieldMappings": [],
-    "parameters": []
-}
+```http
+POST https://[service name].search.windows.net/indexers?api-version=2021-04-30-Preview
+    {
+        "name": "<YOUR-INDEXER-NAME>",
+        "targetIndexName": "<YOUR-INDEX-NAME>",
+        "dataSourceName": "<YOUR-DATASOURCE-NAME>",
+        "skillsetName": "<YOUR-SKILLSET-NAME>",
+        "cache" : {
+            "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+            "enableReprocessing": true
+        },
+        "fieldMappings" : [],
+        "outputFieldMappings": [],
+        "parameters": []
+    }
 ```
-
-> [!NOTE]
-> The indexer cache requires a general purpose v2 storage account. For more information, review the [different types of storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 
 ### Step 3: Reset the indexer
 
-A reset of the indexer is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client and the [Reset Indexer REST API](/rest/api/searchservice/reset-indexer) for this task.
+[Reset Indexer](/rest/api/searchservice/reset-indexer) is required when setting up incremental enrichment for existing indexers to ensure all documents are in a consistent state. You can use the portal or an API client for this task.
 
-```http
-POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [YOUR-ADMIN-KEY]
+```https
+POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/reset?api-version=2021-04-30-Preview
+    Content-Type: application/json
+    api-key: [YOUR-ADMIN-KEY]
 ```
 
-### Step 4: Save the updated definition
+### Step 4: Save the indexer
 
-[Update the indexer](/rest/api/searchservice/preview-api/update-indexer) with a PUT request, the body of the request should contain the updated indexer definition that has the cache property. If you get a 400, check the indexer definition to make sure all requirements are met (data source, skillset, index).
+[Update Indexer (2021-04-30-Preview)](/rest/api/searchservice/preview-api/create-or-update-indexer) with a PUT request, where the body of the request includes "cache".
 
 ```http
-PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2020-06-30-Preview
-Content-Type: application/json
-api-key: [YOUR-ADMIN-KEY]
-{
-    "name" : "<YOUR-INDEXER-NAME>",
-    ...
-    "cache": {
-        "storageConnectionString": "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
-        "enableReprocessing": true
+PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2021-04-30-Preview
+    Content-Type: application/json
+    api-key: [YOUR-ADMIN-KEY]
+    {
+        "name" : "<YOUR-INDEXER-NAME>",
+        ...
+        "cache": {
+            "storageConnectionString": "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
+            "enableReprocessing": true
+        }
     }
-}
 ```
 
 If you now issue another GET request on the indexer, the response from the service will include an `ID` property in the cache object. The alphanumeric string is appended to the name of the container containing all the cached results and intermediate state of each document processed by this indexer. The ID will be used to uniquely name the cache in Blob storage.
@@ -120,67 +137,35 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-After the indexer runs, you can find the cache in Azure Blob Storage. The container name is in the following format: `ms-az-search-indexercache-<YOUR-CACHE-ID>`
-
 > [!NOTE]
-> A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents.
+> A reset and rerun of the indexer results in a full rebuild so that content can be cached. All cognitive enrichments will be rerun on all documents. Reusing enriched content from the cache begins after the cache is loaded.
 >
 
-### Step 6: Modify a skillset and confirm incremental enrichment
+## Check for cached output
 
-To modify a skillset, you can use the portal or the API. For example, if you are using text translation, a simple inline change from `en` to `es` or another language is sufficient for proof-of-concept testing of incremental enrichment.
+Find the cache in Azure Storage, under Blob container. The container name will be  `ms-az-search-indexercache-<some-alphanumeric-string>`.
 
-Run the indexer again. Only those parts of an enriched document tree are updated. If you used the [portal quickstart](cognitive-search-quickstart-blob.md) as proof-of-concept, modifying the text translation skill to 'es', you'll notice that only 8 documents are updated instead of the original 14. Image files unaffected by the translation process are reused from cache.
+A cache is created and used by an indexer. Its content is not human readable.
 
-## Enable caching on new indexers
+To verify whether the cache is operational, modify a skillset and run the indexer, then compare before-and-after metrics for execution time and document counts. 
 
-To set up incremental enrichment for a new indexer, all you have to do is include the `cache` property in the indexer definition payload when calling [Create Indexer (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer). 
+Skillsets that include image analysis and Optical Character Recognition (OCR) of scanned documents make good test cases. If you modify a downstream text skill or any skill that is not image-related, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing only the text-related changes indicated by your edits.  You can expect to see fewer documents in the indexer execution document count, shorter execution times, and fewer charges on your bill. 
 
+The [file set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/ai-enrichment-mixed-media) used in [cog-search-demo tutorials](cognitive-search-tutorial-blob.md) is a useful test case because it contains 14 files of various formats JPG, PNG, HTML, DOCX, PPTX, and other types. Change `en` to `es` or another language in the text translation skill for proof-of-concept testing of incremental enrichment.
 
-```json
-{
-    "name": "<YOUR-INDEXER-NAME>",
-    "targetIndexName": "<YOUR-INDEX-NAME>",
-    "dataSourceName": "<YOUR-DATASOURCE-NAME>",
-    "skillsetName": "<YOUR-SKILLSET-NAME>",
-    "cache" : {
-        "storageConnectionString" : "<YOUR-STORAGE-ACCOUNT-CONNECTION-STRING>",
-        "enableReprocessing": true
-    },
-    "fieldMappings" : [],
-    "outputFieldMappings": [],
-    "parameters": []
-    }
-}
-```
+## Common errors
 
-## Checking for cached output
+The following error occurs if you forget to specify a preview API version on the request:
 
-The cache is created, used, and managed by the indexer, and its contents are not represented in a format that is human readable. The best way to determine whether the cache is used is by running the indexer and compare before-and-after metrics for execution time and document counts. 
+`"The request is invalid. Details: indexer : A resource without a type name was found, but no expected type was specified. To allow entries without type information, the expected type must also be specified when the model is specified."`
 
-For example, assume a skillset that starts with image analysis and Optical Character Recognition (OCR) of scanned documents, followed by downstream analysis of the resulting text. If you modify a downstream text skill, the indexer can retrieve all of the previously processed image and OCR content from cache, updating and processing just text-related changes indicated by your edits. You can expect to see fewer documents in the document count (for example 8/8 as opposed to 14/14 in the original run), shorter execution times, and fewer charges on your bill.
-
-## Working with the cache
-
-Once the cache is operational, indexers check the cache whenever [Run Indexer](/rest/api/searchservice/run-indexer) is called, to see which parts of the existing output can be used. 
-
-The following table summarizes how various APIs relate to the cache:
-
-| API           | Cache impact     |
-|---------------|------------------|
-| [Create Indexer (2020-06-30-Preview)](/rest/api/searchservice/preview-api/create-indexer) | Creates and runs an indexer on first use, including creating a cache if your indexer definition specifies it. |
-| [Run Indexer](/rest/api/searchservice/run-indexer) | Executes an enrichment pipeline on demand. This API reads from the cache if it exists, or creates a cache if you added caching to an updated indexer definition. When you run an indexer that has caching enabled, the indexer omits steps if cached output can be used. You can use the generally available or preview API version of this API.|
-| [Reset Indexer](/rest/api/searchservice/reset-indexer)| Clears the indexer of any incremental indexing information. The next indexer run (either on-demand or schedule) is full reprocessing from scratch, including re-running all skills and rebuilding the cache. It is functionally equivalent to deleting the indexer and recreating it. You can use the generally available or preview API version of this API.|
-| [Reset Skills](/rest/api/searchservice/preview-api/reset-skills) | Specifies which skills to rerun on the next indexer run, even if you haven't modified any skills. The cache is updated accordingly. Outputs, such as a knowledge store or search index, are refreshed using reusable data from the cache plus new content per the updated skill. |
-
-For more information about controlling what happens to the cache, see [Cache management](cognitive-search-incremental-indexing-conceptual.md#cache-management).
+A 400 Bad Request error will also occur if you are missing an indexer requirement. The error message will specify any missing dependencies.
 
 ## Next steps
 
-Incremental enrichment is applicable on indexers that contain skillsets. As a next step, visit the skillset documentation to understand concepts and composition. 
+Incremental enrichment is applicable on indexers that contain skillsets, providing reusable content for both indexes and knowledge stores. The following links provide more information about caching and skillsets.
 
-Additionally, once you enable the cache, you will want to know about the parameters and APIs that factor into caching, including how to override or force particular behaviors. For more information, see the following links.
-
++ [Incremental enrichment (lifecycle and management)](cognitive-search-incremental-indexing-conceptual.md)
 + [Skillset concepts and composition](cognitive-search-working-with-skillsets.md)
-+ [How to create a skillset](cognitive-search-defining-skillset.md)
-+ [Introduction to incremental enrichment and caching](cognitive-search-incremental-indexing-conceptual.md)
++ [Create a skillset](cognitive-search-defining-skillset.md)
++ [Tutorial: Use REST and AI to generate searchable content from Azure blobs](cognitive-search-tutorial-blob.md)

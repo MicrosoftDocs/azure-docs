@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: erhopf
+ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on macOS 10.13 and above.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on macOS 10.14 and above.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## System requirements
 
-macOS 10.13 and above
+macOS 10.14 and above
 
 ## Install Speech SDK
 
@@ -34,7 +34,7 @@ macOS 10.13 and above
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Download and extract the `.zip` archive containing the Speech SDK framework:
+1. Download and extract the `.zip` archive containing the Speech SDK xcframework:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -47,7 +47,7 @@ macOS 10.13 and above
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
+   The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.xcframework` directory.
 
 ## Next steps
 

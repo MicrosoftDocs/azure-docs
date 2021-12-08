@@ -353,9 +353,11 @@ The following table explains the binding configuration properties that you set i
 |**direction**| n/a | In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | n/a |The name of the variable that contains the queue item payload in the function code.  |
 |**queueName** | **QueueName**| The name of the queue to poll. |
-|**connection** | **Connection** |The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here.<br><br>For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>If you are using [version 5.x or higher of the extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), instead of a connection string, you can provide a reference to a configuration section which defines the connection. See [Connections](./functions-reference.md#connections).|
+|**connection** | **Connection** |The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
 ## Usage
 
@@ -464,7 +466,8 @@ The algorithm uses the following logic:
 
 For local development the maximum polling interval defaults to two seconds.
 
-In regard to billing, time spent polling by the runtime is "free" and not counted against your account.
+> [!NOTE]
+> In regards to billing when hosting function apps in the Consumption plan, you are not charged for time spent polling by the runtime.
 
 ## Concurrency
 

@@ -226,7 +226,7 @@ if __name__ == "__main__":
     )
 
     # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.6-CPU']
+    env = ws.environments['AzureML-PyTorch-1.3-CPU']
     config.run_config.environment = env
 
     run = experiment.submit(config)
@@ -265,6 +265,8 @@ The control script is similar to the one from [part 3 of this series](tutorial-1
 Select **Save and run script in terminal**  to run the *run-pytorch-data.py* script.  This run will train the model on the compute cluster using the data you uploaded.
 
 This code will print a URL to the experiment in the Azure Machine Learning studio. If you go to that link, you'll be able to see your code running.
+
+[!INCLUDE [amlinclude-info](../../includes/machine-learning-py38-ignore.md)]
 
 
 ### <a name="inspect-log"></a> Inspect the log file

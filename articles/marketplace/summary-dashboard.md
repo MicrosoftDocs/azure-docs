@@ -4,9 +4,10 @@ description: Learn how to access graphs, trends, and values of aggregate data th
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/09/2020
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 09/27/2021
 ---
 
 # Summary dashboard in commercial marketplace analytics
@@ -25,17 +26,45 @@ The [Summary dashboard](https://go.microsoft.com/fwlink/?linkid=2165765) present
 - Customers' usage of the offers
 - Customers' page visits in Azure Marketplace and AppSource
 
+## Access the Summary dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Summary**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Summary**.
+
+---
+
 ## Elements of the Summary dashboard
 
 The following sections describe how to use the summary dashboard and how to read the data.
 
-To access the Summary dashboard in Partner Center, under **Commercial Marketplace** select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Summary**.
-
 ### Month range
+
+#### [Workspaces view](#tab/workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past specified number of months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the monthly range options on the summary dashboard.](./media/summary-dashboard/summary-dashboard-filters.png) ](./media/summary-dashboard/summary-dashboard-filters.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Summary** page graphs by selecting a month range based on the past 3, 6, or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/summary-dashboard/summary-dashboard.png" alt-text="Illustrates the monthly range options on the summary dashboard.":::
+
+---
 
 > [!NOTE]
 > All metrics in the visualization widgets and export reports honor the computation period selected by the user.

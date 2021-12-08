@@ -4,7 +4,6 @@ description: Learn how to configure a disaster recovery environment for Azure Pu
 author: sudheerreddykoppula
 ms.author: sukoppul
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 04/23/2021
 ---
@@ -45,7 +44,7 @@ As you plan your manual BCDR plan, keep the following points in mind:
 
 ## Related information
 
-- [Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md)
+- [Business Continuity and Disaster Recovery](../availability-zones/cross-region-replication-azure.md)
 - [Build high availability into your BCDR strategy](/azure/architecture/solution-ideas/articles/build-high-availability-into-your-bcdr-strategy)
 - [Azure status](https://status.azure.com/status)
 

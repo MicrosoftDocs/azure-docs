@@ -1,15 +1,15 @@
 ---
-title: Update your Azure Percept DK over-the-air (OTA)
+title: Update Azure Percept DK over-the-air
 description: Learn how to receive over-the air (OTA) updates to your Azure Percept DK
-author: mimcco
-ms.author: mimcco
+author: EthanChangAED
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/30/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Update your Azure Percept DK over-the-air (OTA)
+# Update Azure Percept DK over-the-air
 
 Follow this guide to learn how to update the OS and firmware of the carrier board of your Azure Percept DK over-the-air (OTA) with Device Update for IoT Hub.
 
@@ -25,7 +25,7 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 > [!NOTE]
 > If you have already imported the update, you can skip directly to **Create a device update group**.
 
-1. Determine which [manifest and update package](./how-to-select-update-package.md) is appropriate for your dev kit.
+1. Determine which [manifest and update package](./software-releases-over-the-air-updates.md) is appropriate for your dev kit.
 
 1. Navigate to the Azure IoT Hub that you are using for your Azure Percept device. On the left-hand menu panel, select **Device Updates** under **Automatic Device Management**.
 
@@ -63,12 +63,10 @@ Group Tag Requirements:
 - A device can only belong to one group.
 
 1. Add a Tag to your device(s):
+    1. From **IoT Edge** on the left navigation pane, find your Azure Percept DK and navigate to its **Device Twin**.
+    1. Add a new **Device Update for IoT Hub** tag value as shown below (```<CustomTagValue>``` refers to your tag value/name, for example, AzurePerceptGroup1). Learn more about device twin [JSON document tags](../iot-hub/iot-hub-devguide-device-twins.md#device-twins).
 
-	1. From **IoT Edge** on the left navigation pane, find your Azure Percept DK and navigate to its **Device Twin**.
-
-	1. Add a new **Device Update for IoT Hub** tag value as shown below (```<CustomTagValue>``` refers to your tag value/name, for example, AzurePerceptGroup1). Learn more about device twin [JSON document tags](../iot-hub/iot-hub-devguide-device-twins.md#device-twins).
-
-        ```
+        ```json
         "tags": {
         "ADUGroup": "<CustomTagValue>"
         },
@@ -78,17 +76,12 @@ Group Tag Requirements:
 
 1. Create a group by selecting an existing Azure IoT Hub tag:
 
-	1. Navigate back to your Azure IoT Hub page.
-
-	1. Select **Device Updates** under **Automatic Device Management** on the left-hand menu panel.
-
-	1. Select the **Groups** tab. This page will display the number of ungrouped devices connected to Device Update.
-
-	1. Select **+ Add** to create a new group.
-
-	1. Select an IoT Hub tag from the list and click **Submit**.
-
-	1. Once the group is created, the update compliance chart and groups list will update. The chart shows the number of devices in various states of compliance: **On latest update**, **New updates available**, **Updates in progress**, and **Not yet grouped**.
+    1. Navigate back to your Azure IoT Hub page.
+    1. Select **Device Updates** under **Automatic Device Management** on the left-hand menu panel.
+    1. Select the **Groups** tab. This page will display the number of ungrouped devices connected to Device Update.
+    1. Select **+ Add** to create a new group.
+    1. Select an IoT Hub tag from the list and click **Submit**.
+    1. Once the group is created, the update compliance chart and groups list will update. The chart shows the number of devices in various states of compliance: **On latest update**, **New updates available**, **Updates in progress**, and **Not yet grouped**.
 
 ## Deploy an update
 

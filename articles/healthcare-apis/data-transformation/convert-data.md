@@ -6,7 +6,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 05/11/2021
+ms.date: 11/16/2021
 ms.author: ranku
 ---
 
@@ -33,9 +33,9 @@ $convert-data takes a [Parameter](http://hl7.org/fhir/parameters.html) resource 
 
 | Parameter Name      | Description | Accepted values |
 | ----------- | ----------- | ----------- |
-| inputData      | Data to be converted. | A valid JSON String|
+| inputData      | Data to be converted. | For `Hl7v2`: string <br> For `Ccda`: XML|
 | inputDataType   | Data type of input. | ```HL7v2```, ``Ccda`` |
-| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It is the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For **HL7v2** default templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br><br>For **C-CDA** default templates: ``microsofthealth/ccdatemplates:default`` <br>\<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
+| templateCollectionReference | Reference to an [OCI image ](https://github.com/opencontainers/image-spec) template collection on [Azure Container Registry (ACR)](https://azure.microsoft.com/services/container-registry/). It is the image containing Liquid templates to use for conversion. It can be a reference either to the default templates or a custom template image that is registered within the FHIR service. See below to learn about customizing the templates, hosting those on ACR, and registering to the FHIR service. | For default templates: <br> For **HL7v2** default templates: <br>```microsofthealth/fhirconverter:default``` <br>``microsofthealth/hl7v2templates:default``<br>For **C-CDA** default templates: ``microsofthealth/ccdatemplates:default`` <br><br>For customized templates: <br> \<RegistryServer\>/\<imageName\>@\<imageDigest\>, \<RegistryServer\>/\<imageName\>:\<imageTag\> |
 | rootTemplate | The root template to use while transforming the data. | For **HL7v2**:<br>```ADT_A01```, ```OML_O21```, ```ORU_R01```, ```VXU_V04```<br><br> For **C-CDA**:<br>```CCD```, `ConsultationNote`, `DischargeSummary`, `HistoryandPhysical`, `OperativeNote`, `ProcedureNote`, `ProgressNote`, `ReferralNote`, `TransferSummary` |
 
 > [!WARNING]
@@ -162,8 +162,7 @@ az healthcareapis acr add --login-servers "fhiracr2021.azurecr.io fhiracr2020.az
 
 Select **Networking** of the Azure storage account from the portal.
 
-   :::image type="content" source="media/convert-data/networking-container-registry.png" alt-text="Container registry.":::
-
+![configure ACR firewall](media/convert-data/networking-container-registry.png)
 
 Select **Selected networks**. 
 
@@ -198,6 +197,13 @@ In the table below, you'll find the IP address for the Azure region where the FH
 
 > [!NOTE]
 > The above steps are similar to the configuration steps described in the document How to export FHIR data. For more information, see [Secure Export to Azure Storage](./export-data.md#secure-export-to-azure-storage)
+
+For a private network access (i.e. private link), you can also disable the public network access of ACR.
+* Select Networking blade of the Azure storage account from the portal.
+* Select `Disabled`.
+* Select Firewall exception : Allow trusted Microsoft services to access this container registry.
+
+![private link for ACR](media/convert-data/configure-private-network-container-registry.png)
 
 ### Verify
 

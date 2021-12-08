@@ -14,6 +14,7 @@ ms.custom: mvc
 
 
 # Tutorial: Enable disaster recovery for Windows VMs
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 This tutorial shows you how to set up disaster recovery for Azure VMs running Windows. In this article, learn how to:
 

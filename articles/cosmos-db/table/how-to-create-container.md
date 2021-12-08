@@ -15,7 +15,7 @@ ms.custom: devx-track-csharp
 
 This article explains the different ways to create a container in Azure Cosmos DB Table API. It shows how to create a container using Azure portal, Azure CLI, PowerShell, or supported SDKs. This article demonstrates how to create a container, specify the partition key, and provision throughput.
 
-This article explains the different ways to create a container in Azure Cosmos DB Table API. If you are using a different API, see [API for MongoDB](../how-to-create-container-mongodb.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [SQL API](../how-to-create-container.md) articles to create the container.
+This article explains the different ways to create a container in Azure Cosmos DB Table API. If you are using a different API, see [API for MongoDB](../mongodb/how-to-create-container-mongodb.md), [Cassandra API](../cassandra/how-to-create-container-cassandra.md), [Gremlin API](../how-to-create-container-gremlin.md), and [SQL API](../how-to-create-container.md) articles to create the container.
 
 > [!NOTE]
 > When creating containers, make sure you don’t create two containers with the same name but different casing. That’s because some parts of the Azure platform are not case-sensitive, and this can result in confusion/collision of telemetry and actions on containers with such names.
@@ -24,7 +24,7 @@ This article explains the different ways to create a container in Azure Cosmos D
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos account](create-table-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos account](create-table-dotnet.md#1---create-an-azure-cosmos-db-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 

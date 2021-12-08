@@ -11,6 +11,9 @@ ms.author: aersoy
 
 # Register Azure Active Directory applications for the DICOM service
 
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 You have several options to choose from when you're setting up the DICOM service or the FHIR Server for Azure (OSS). For open source, you'll need to create your own resource application registration. For Azure API for FHIR, this resource application is created automatically.
 
 ## Application registrations
@@ -23,7 +26,7 @@ Client applications are registrations of the clients that will be requesting tok
 
 ### Confidential clients
 
-Confidential clients are also known as web apps in Azure AD. Confidential clients are applications that use [authorization code flow](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-protocols-oauth-code) to obtain a token on behalf of a signed in user presenting valid credentials. They are called confidential clients because they can hold a secret and will present this secret to Azure AD when exchanging the authentication code for a token. Since confidential clients can authenticate themselves using the client secret, they are trusted more than public clients and can have longer lived tokens and be granted a refresh token. For more information, see [Register a confidential client application in Azure Active Directory](dicom-register-confidential-client-application.md). It’s important to register the reply URL at which the client will be receiving the authorization code.
+Confidential clients are also known as web apps in Azure AD. Confidential clients are applications that use [authorization code flow](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) to obtain a token on behalf of a signed in user presenting valid credentials. They are called confidential clients because they can hold a secret and will present this secret to Azure AD when exchanging the authentication code for a token. Since confidential clients can authenticate themselves using the client secret, they are trusted more than public clients and can have longer lived tokens and be granted a refresh token. For more information, see [Register a confidential client application in Azure Active Directory](dicom-register-confidential-client-application.md). It’s important to register the reply URL at which the client will be receiving the authorization code.
 
 ### Public clients
 
@@ -45,5 +48,3 @@ This overview article guided you through the application registration process fo
 
 >[!div class="nextstepaction"]
 >[Register a service client application in Azure Active Directory](dicom-register-service-client-application.md)
-
-

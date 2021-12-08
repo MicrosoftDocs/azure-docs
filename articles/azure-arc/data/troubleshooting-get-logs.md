@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/30/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -28,13 +28,13 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 Run the following command to dump the logs:
 
    ```azurecli
-   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
    For example:
 
    ```azurecli
-   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 
@@ -181,4 +181,3 @@ The following folder hierarchy is an example. It's organized by pod name, then c
             ├───journal
             └───openvpn
 ```
-

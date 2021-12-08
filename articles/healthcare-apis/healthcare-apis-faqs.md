@@ -6,10 +6,9 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 11/05/2021
 ms.author: ginle
 ---
-
 
 # Frequently asked questions about Azure Healthcare APIs (preview)
 
@@ -40,12 +39,31 @@ During the public preview phase, Azure Healthcare APIs is available for you to u
 ### What regions are Healthcare APIs available?
 Please refer to the [Products by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir) page for the most current information. 
           
-### Can you use IoT Central with IoT Connector for FHIR?
-Health data can be sent to Event Hubs, Azure IoT Hub or Azure IoT Central, and is converted to FHIR resources, which enables care teams to view patient data captured from IoT devices in context with clinical records in FHIR.
+### What are the subscription quota limits for the Azure Healthcare APIs?
+
+#### Workspace (logical container):
+* 200 instances per Subscription (not adjustable)
+
+#### DICOM service:
+* 800 instances per Subscription (not adjustable)
+* 10 DICOM instances per Workspace (not adjustable)
+
+#### FHIR service:
+* 25 instances per Subscription (not adjustable)
+* 10 FHIR instances per Workspace (not adjustable)
+
+#### IoT connector:
+* 25 IoT connectors per Subscription (not adjustable)
+* 10 IoT connectors per Workspace (not adjustable)
+* One FHIR Destination* per IoT connector (not adjustable)
+
+(* - FHIR destination is a child resource of IoT connector)
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
 
 [FAQs about Azure Healthcare APIs DICOM service](./dicom/dicom-services-faqs.yml)
 
+[FAQs about Azure Healthcare APIs IoT connector](./iot/iot-connector-faqs.md)
 
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

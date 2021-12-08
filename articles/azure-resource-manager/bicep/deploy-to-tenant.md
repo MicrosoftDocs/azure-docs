@@ -2,12 +2,16 @@
 title: Use Bicep to deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in a Bicep file.
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 11/22/2021
 ---
 
 # Tenant deployments with Bicep file
 
 As your organization matures, you may need to define and assign [policies](../../governance/policy/overview.md) or [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) across your Azure AD tenant. With tenant level templates, you can declaratively apply policies and assign roles at a global level.
+
+### Microsoft Learn
+
+To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -32,8 +36,10 @@ For creating subscriptions, use:
 For managing costs, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 For configuring the portal, use:
 

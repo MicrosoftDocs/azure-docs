@@ -3,13 +3,13 @@ title: Long Audio API - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
-author: nitinme
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/11/2020
-ms.author: nitinme
+ms.author: eur
 ---
 
 # Long Audio API
@@ -22,7 +22,7 @@ More benefits of the Long Audio API:
 * There's no need to deploy a voice endpoint.
 
 > [!NOTE]
-> The Long Audio API supports both [Public Neural Voices](./language-support.md#neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md).
+> The Long Audio API supports both [Public Neural Voices](./language-support.md#prebuilt-neural-voices) and [Custom Neural Voices](./how-to-custom-voice.md).
 
 ## Workflow
 
@@ -172,7 +172,7 @@ Replace the following values:
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input_file_path>` with the path to the text file you've prepared for text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#prebuilt-neural-voices).
 
 Use one of the voices returned by your previous call to the `/voices` endpoint.
 

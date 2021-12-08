@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 07/05/2021
+ms.date: 12/03/2021
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -52,7 +52,7 @@ After all pages are complete and you have entered applicable testing notes,  sel
 
 For more information about validation in Azure Marketplace, see [Azure Marketplace listing guidelines](marketplace-criteria-content-validation.md).
 
-For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations functional validation](dynamics-365-operations-validation.md).
+For more information about testing instructions and completing a first publish in Microsoft AppSource, see [Dynamics 365 Operations Apps functional validation](dynamics-365-operations-validation.md).
 
 ## Automated validation phase
 
@@ -151,7 +151,7 @@ When the offer is ready for you to review and be signed off, we’ll send you an
 
 The following screenshot shows the **Offer overview** page in the commercial marketplace program in Partner Center. The validation steps you’ll see on this page vary depending on the offer type and the selections you made when you created the offer. The certification phase can happen during submission to preview or submission to live, depending on the offer type.
 
-![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png)
+[ ![Illustrates the Offer overview page for an offer in Partner Center. The Go live button and preview links are shown.](./media/publish-status-publisher-signoff.png) ](./media/publish-status-publisher-signoff.png#lightbox)
 
 ### Previewing and approving your offer
 
@@ -200,13 +200,17 @@ The **History** page in Partner Center shows the publishing events for your comm
 To view the history of your offer:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. In the navigation menu on the left, select **Commercial Marketplace** > **Overview**.
-3. Select your offer.
-4. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
+
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select your offer.
+1. Select the **History** tab in the navigation menu on the left. The page provides details for the following events, as applicable to your offer:
 
 |Event    |Description    |
 |---------|---------------|
-|Created offer    |The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias in **Commercial Marketplace** > **Overview**.    |
+|Created offer | The offer was created in Partner Center. A user selected the offer type, offer ID, and offer alias from the commercial marketplace **Overview** page.    |
 |Created plan: *plan name*    |A user created a new plan by entering the plan ID and plan name in the **Plan overview** tab.</br>*This event applies only to offer types that support plans*.    |
 |Deleted plan    |A user deleted a draft plan that had not been published by selecting **Delete draft** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |
 |Initiated plan Stop distribution: *plan name*    |A user initiated a plan Stop distribution by selecting **Stop distribution** from the **Plan overview** page.</br>*This event applies only to offer types that support plans*.    |

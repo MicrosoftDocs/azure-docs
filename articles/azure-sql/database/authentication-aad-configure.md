@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 07/07/2021
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 08/11/2021
 ---
 
 # Configure and manage Azure AD authentication with Azure SQL
@@ -19,6 +19,9 @@ ms.date: 07/07/2021
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 This article shows you how to create and populate an Azure Active Directory (Azure AD) instance, and then use Azure AD with [Azure SQL Database](sql-database-paas-overview.md), [Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). For an overview, see [Azure Active Directory authentication](authentication-aad-overview.md).
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Azure AD authentication methods
 
@@ -382,7 +385,7 @@ However, using Azure Active Directory authentication with SQL Database and Azure
 > Special characters like  colon `:` or ampersand `&` when included as user names in the T-SQL `CREATE LOGIN` and `CREATE USER` statements are not supported.
 
 > [!IMPORTANT]
-> Azure AD users and service principals (Azure AD applications) that are members of more than 2048 Azure AD security groups are not supported to login into the database via Security Groups in SQL Database, Managed Instance, or Azure Synapse.
+> Azure AD users and service principals (Azure AD applications) that are members of more than 2048 Azure AD security groups are not supported to login into the database in SQL Database, Managed Instance, or Azure Synapse.
 
 
 To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the **ALTER ANY USER** permission. Then use the following Transact-SQL syntax:
@@ -528,9 +531,9 @@ This authentication method allows middle-tier services to obtain [JSON Web Token
 Sample connection string:
 
 ```csharp
-string ConnectionString =@"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;"
+string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;";
 SqlConnection conn = new SqlConnection(ConnectionString);
-conn.AccessToken = "Your JWT token"
+conn.AccessToken = "Your JWT token";
 conn.Open();
 ```
 

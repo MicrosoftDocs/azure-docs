@@ -71,9 +71,15 @@ You can move data from existing Cassandra workloads to Azure Cosmos DB by using 
 
 ### Migrate data by using the cqlsh COPY command
 
-Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) to copy local data to the Cassandra API account in Azure Cosmos DB.
+Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html#cqlshrc) to copy local data to the Cassandra API account in Azure Cosmos DB.
 
-1. Get your Cassandra API account’s connection string information:
+1. To be certain that your csv file contains the correct file structure, use the `COPY TO` command to export data directly from your source Cassandra table to a csv file (ensure that cqlsh is connected to the source table using the appropriate credentials):
+
+   ```bash
+   COPY exampleks.tablename TO 'data.csv' WITH HEADER = TRUE;   
+   ```
+
+1. Now get your Cassandra API account’s connection string information:
 
    * Sign in to the [Azure portal](https://portal.azure.com), and go to your Azure Cosmos DB account.
 
@@ -81,11 +87,15 @@ Use the [CQL COPY command](https://cassandra.apache.org/doc/latest/tools/cqlsh.h
 
 1. Sign in to `cqlsh` by using the connection information from the portal.
 
-1. Use the `CQL` `COPY` command to copy local data to the Cassandra API account.
+1. Use the `CQL` `COPY FROM` command to copy `data.csv` (still located in the user root directory where `cqlsh` is installed):
 
    ```bash
-   COPY exampleks.tablename FROM filefolderx/*.csv 
+   COPY exampleks.tablename FROM 'data.csv' WITH HEADER = TRUE;
    ```
+
+>[!IMPORTANT]
+> Only the open-source Apache Cassandra version of CQLSH COPY is supported. Datastax Enterprise (DSE) versions of CQLSH may encounter errors. 
+
 
 ### Migrate data by using Spark 
 
@@ -97,6 +107,10 @@ Use the following steps to migrate data to the Cassandra API account with Spark:
 
 Migrating data by using Spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. To do this, you must set up Spark as an intermediary for one-time or regular ingestion. You can accelerate this migration by using Azure ExpressRoute connectivity between your on-premises environment and Azure. 
 
+### Live migration
+
+Where a zero-downtime migration from a native Apache Cassandra cluster is required, we recommend configuring dual-writes, and a separate bulk data load to migrate historical data. We've made implementing this pattern more straightforward by providing an open-source [dual-write proxy](https://github.com/Azure-Samples/cassandra-proxy) to allow for minimal application code changes. Take a look at our how-to article on [live migration using dual-write proxy and Apache Spark](migrate-data-dual-write-proxy.md) for more detail on implementing this pattern. 
+
 ## Clean up resources
 
 When they're no longer needed, you can delete the resource group, the Azure Cosmos DB account, and all the related resources. To do so, select the resource group for the virtual machine, select **Delete**, and then confirm the name of the resource group to delete.
@@ -107,7 +121,3 @@ In this tutorial, you've learned how to migrate your data to a Cassandra API acc
 
 > [!div class="nextstepaction"]
 > [Tunable data consistency levels in Azure Cosmos DB](../consistency-levels.md)
-
-
-
-

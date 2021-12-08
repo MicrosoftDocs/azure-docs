@@ -2,13 +2,9 @@
 title: Migrate to Connection Monitor from Network Performance Monitor
 titleSuffix: Azure Network Watcher
 description: Learn how to migrate to Connection Monitor from Network Performance Monitor.
-services: network-watcher
-documentationcenter: na
 author: vinynigam
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
@@ -53,7 +49,7 @@ To migrate the tests from Network Performance Monitor to Connection Monitor, do 
 1. In the drop-down lists, select your subscription and workspace, and then select the NPM feature you want to migrate. 
 1. Select **Import** to migrate the tests.
 * If NPM is not enabled on the workspace, you will see an error stating "No valid NPM config found". 
-* If no tests exist in the feature you chose in step2 , you will see an error stating "Workspace selected does not have <feature> config".
+* If no tests exist in the feature you chose in step2 , you will see an error stating "Workspace selected does not have \<feature\> config".
 * If there are no valid tests, you will see an error stating "Workspace selected does not have valid tests"
 * Your tests may contain agents that are no longer active, but may have been active in the past. You will see an error stating "Few tests contain agents that are no longer active. List of inactive agents - {0}. These agents may be running in the past but are shut down/not running any more. Enable agents and migrate to Connection Monitor. Click continue to migrate the tests that do not contain agents that are not active."
 
