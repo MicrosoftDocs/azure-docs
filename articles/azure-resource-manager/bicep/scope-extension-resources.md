@@ -4,7 +4,7 @@ description: Describes how to use the scope property when deploying extension re
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 11/16/2021
 ---
 
 # Set scope for extension resources in Bicep
@@ -138,11 +138,13 @@ resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
 }
 ```
 
-## Next steps
-
-To learn about deploying to scopes, see:
+The same requirements apply to extension resources as other resource when targeting a scope that is different than the target scope of the deployment. To learn about deploying to more than one scope, see:
 
 * [Resource group deployments](deploy-to-resource-group.md)
 * [Subscription deployments](deploy-to-subscription.md)
 * [Management group deployments](deploy-to-management-group.md)
 * [Tenant deployments](deploy-to-tenant.md)
+
+## Next steps
+
+For a full list of extension resource types, see [Resource types that extend capabilities of other resources](../management/extension-resource-types.md).

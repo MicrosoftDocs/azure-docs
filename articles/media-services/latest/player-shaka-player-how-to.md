@@ -144,6 +144,9 @@ player.configure('drm.advanced.com\\.apple\\.fps\\.1_0.serverCertificate', new U
 
 For more information, see [Shaka player DRM protection documentation](https://shaka-player-demo.appspot.com/docs/api/tutorial-drm-config.html).
 
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
+
 ## Next steps
 
 * [Use the Azure Media Player](../azure-media-player/azure-media-player-overview.md)

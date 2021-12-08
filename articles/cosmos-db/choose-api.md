@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/12/2021
+ms.date: 12/07/2021
 ---
 
 # Choose an API in Azure Cosmos DB
@@ -43,11 +43,11 @@ This API stores data in document format. It offers the best end-to-end experienc
 
 If you are migrating from other databases such as Oracle, DynamoDB, HBase etc. and if you want to use the modernized technologies to build your apps, SQL API is the recommended option. SQL API supports analytics and offers performance isolation between operational and analytical workloads.
 
-### Capacity planning for migration to API for MongoDB
+### Capacity planning for migration to API for SQL(Core)API
 
 Trying to do capacity planning for a migration to Azure Cosmos DB SQL API from an existing database cluster? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing sharded and replicated database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md).
-* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md).
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./sql/estimate-ru-with-capacity-planner.md).
 
 ## API for MongoDB
 
@@ -90,4 +90,4 @@ Applications written for Azure Table storage can migrate to the Table API with l
 * [Get started with Azure Cosmos DB Table API](create-table-dotnet.md)
 * Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
     * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
-    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](./sql/estimate-ru-with-capacity-planner.md)

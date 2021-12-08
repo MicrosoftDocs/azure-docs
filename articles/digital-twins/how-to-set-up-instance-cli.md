@@ -5,9 +5,10 @@ titleSuffix: Azure Digital Twins
 description: See how to set up an instance of the Azure Digital Twins service using the CLI
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/3/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.service: digital-twins
+ms.custom: contperf-fy22q2
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -21,15 +22,11 @@ ms.service: digital-twins
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using the CLI. Setup can also be completed by using the following alternate instructions:
-* [Set up an instance and authentication (portal)](how-to-set-up-instance-portal.md)
-* [Set up an instance and authentication (PowerShell)](how-to-set-up-instance-powershell.md)
-
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Set up Cloud Shell session
+### Set up Cloud Shell session
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 ## Create the Azure Digital Twins instance

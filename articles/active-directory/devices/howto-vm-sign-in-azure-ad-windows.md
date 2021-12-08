@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Login to Windows virtual machine in Azure using Azure Active Directory authentication
 
-Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
+Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
 
 There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
 - Use your corporate AD credentials to login to Windows VMs in Azure.
@@ -38,7 +38,7 @@ There are many security benefits of using Azure AD based authentication to login
 
 The following Windows distributions are currently supported for this feature:
 
-- Windows Server 2019 Datacenter
+- Windows Server 2019 Datacenter and later
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
@@ -219,7 +219,7 @@ require multi-factor authentication as a grant access control.
 ## Log in using Azure AD credentials to a Windows VM
 
 > [!IMPORTANT]
-> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can't be used to log in by using Azure Active Directory authentication with the AADLoginForWindows extension; only direct RDP is supported.
+> Remote connection to VMs joined to Azure AD is only allowed from Windows 10 PCs that are either Azure AD registered (minimum required build is 20H1) or Azure AD joined or hybrid Azure AD joined to the **same** directory as the VM. Additionally, to RDP using Azure AD credentials, the user must belong to one of the two Azure roles, Virtual Machine Administrator Login or Virtual Machine User Login. If using an Azure AD registered Windows 10 PC, you must enter credentials in the `AzureAD\UPN` format (for example, `AzureAD\john@contoso.com`). At this time, Azure Bastion can be used to log in with Azure AD authentication [using Azure CLI and the native RDP client **mstsc**](../../bastion/connect-native-client-windows.md). 
 
 To log in to your Windows Server 2019 virtual machine using Azure AD: 
 
@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
@@ -403,7 +403,7 @@ If you have not deployed Windows Hello for Business and if that is not an option
 > [!NOTE]
 > Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
  
-Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
 

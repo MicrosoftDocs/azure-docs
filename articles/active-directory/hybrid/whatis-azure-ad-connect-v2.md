@@ -73,7 +73,7 @@ This upgrade is especially important since we have had to update our prerequisit
 No – this release does not contain any new functionality. This release only contains updates of some of the foundational components on Azure AD Connect. 
 
 **Can I upgrade from any previous version to V2.0?** </br>
-Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in this article to determine what is the best upgrade strategy for you. 
+Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in [this article](how-to-upgrade-previous-version.md) to determine what is the best upgrade strategy for you. 
 
 **Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 
@@ -98,14 +98,14 @@ We expect TLS 1.0/1.1 to be deprecated in January 2022, and you need to make sur
 In June 2022, ADAL will go out of support. When ADAL goes out of support authentication may stop working unexpectedly and this will block the Azure AD Connect server from working properly. We strongly advise you to upgrade to Azure AD Connect V2.0 before June 2022. You cannot upgrade to a supported authentication library with your current Azure AD Connect version. 
 
 **After upgrading to 2.0 the ADSync PowerShell cmdlets do not work?** </br>
-This is a known issue.  To resolve this, restart your PowerShell session after installing or upgrading to version 2.0 and then re-import the module.  Use the following instructions to import the module.
+This is a known issue. To resolve this, restart your PowerShell session after installing or upgrading to version 2.0 and then re-import the module. Use the following instructions to import the module.
  
- 1.  Open Windows PowerShell with administrative privileges
- 2.  Type or copy and paste the following: 
-    ``` powershell
-              Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
-    ```
+ 1.  Open Windows PowerShell with administrative privileges.
+ 1.  Type or copy and paste the following code: 
  
+     ```powershell
+     Import-module -Name "C:\Program Files\Microsoft Azure AD Sync\Bin\ADSync"
+     ```
 
 ## License requirements for using Azure AD Connect V2.0
 

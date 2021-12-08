@@ -36,7 +36,7 @@ The modern device scenario focuses on two of these methods:
 - [Azure AD registration](concept-azure-ad-register.md) 
    - Bring your own device (BYOD)
    - Mobile device (cell phone and tablet)
-- [Azure AD join](concept-azure-ad-register.md)
+- [Azure AD join](concept-azure-ad-join.md)
    - Windows 10 devices owned by your organization
    - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 
@@ -51,10 +51,6 @@ Devices that are Azure AD joined benefit from [SSO to your organization's on-pre
 ## Provisioning
 
 Getting devices in to Azure AD can be done in a self-service manner or a controlled process managed by administrators.
-
-## License requirements
-
-[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

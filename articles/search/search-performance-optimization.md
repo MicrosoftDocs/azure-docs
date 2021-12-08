@@ -7,7 +7,7 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 10/04/2021
 ms.custom: references_regions
 ---
 
@@ -28,6 +28,10 @@ For each individual search service, Microsoft guarantees at least 99.9% availabi
 + Three or more replicas for high availability of read-write workloads (queries and indexing) 
 
 No SLA is provided for the Free tier. For more information, see [SLA for Azure Cognitive Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+
+## Data Residency
+
+Azure Cognitive Search will not store customer data outside the customer-specified region without your authorization.
 
 <a name="availability-zones"></a>
 
@@ -62,7 +66,7 @@ Availability Zones do not impact the [Azure Cognitive Search Service Level Agree
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md) (Cognitive Search does not provide instant failover in the event of an outage).
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md) (Cognitive Search does not provide instant failover in the event of an outage).
 + Globally deployed applications. If query and indexing requests come from all over the world, users who are closest to the host data center will have faster performance. Creating additional services in regions with close proximity to these users can equalize performance for all users.
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 
@@ -116,12 +120,7 @@ Otherwise, your application code used for creating and populating an index is th
 
 ## Next steps
 
-To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). See [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations.
-
-For a discussion about performance and demonstrations of the techniques discussed in this article, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
+To learn more about the pricing tiers and services limits for each one, see [Service limits](search-limits-quotas-capacity.md). Review [Plan for capacity](search-capacity-planning.md) to learn more about partition and replica combinations, or checkout [Case Study: Use Cognitive Search to Support Complex AI Scenarios](https://techcommunity.microsoft.com/t5/azure-ai/case-study-effectively-using-cognitive-search-to-support-complex/ba-p/2804078) for real-world tips.
 
 <!--Image references-->
 [1]: ./media/search-performance-optimization/geo-redundancy.png

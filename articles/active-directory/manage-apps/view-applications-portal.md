@@ -1,6 +1,7 @@
 ---
 title: 'Quickstart: View enterprise applications'
 description: View the enterprise applications that are registered to use your Azure Active Directory tenant.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -12,9 +13,10 @@ ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
 # Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
+ms.custom: contperf-fy22q2
 ---
 
-# Quickstart: View enterprise applications in Azure Active Directory
+# Quickstart: View enterprise applications
 
 In this quickstart, you learn how to use the Azure Active Directory Admin Center to search for and view the enterprise applications that are already configured in your Azure Active Directory (Azure AD) tenant.
 
@@ -62,7 +64,7 @@ Select options according to what you're looking for:
 
 ## Clean up resources
 
-If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. 
 
 ## Next steps
 

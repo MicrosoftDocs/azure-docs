@@ -25,7 +25,7 @@ Key features of the Calling SDK:
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provides clients visibility into who is connected to a call (the roster).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
-- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony-sms/get-phone-number.md) or programmatically.
+- **PSTN** - The Calling SDK can receive and initiate voice calls with the traditional publically switched telephony system, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically.
 - **Teams Meetings** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane. 
 - **Notifications** - The Calling SDK provides APIs allowing clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform end-users of an incoming call. 
 
@@ -83,8 +83,8 @@ The Communication Services Calling SDK supports the following streaming configur
 
 | Limit                                                         | Web                         | Windows/Android/iOS        |
 | ------------------------------------------------------------- | --------------------------- | -------------------------- |
-| **# of outgoing streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
-| **# of incoming streams that can be rendered simultaneously** | 1 video or 1 screen sharing | 6 video + 1 screen sharing |
+| **Maximum # of outgoing local streams that can be sent simultaneously**     | 1 video or 1 screen sharing | 1 video + 1 screen sharing |
+| **Maximum # of incoming remote streams that can be rendered simultaneously** | 4 videos + 1 screen sharing | 6 videos + 1 screen sharing |
 
 While the Calling SDK won't enforce these limits, your users may experience performance degradation if they're exceeded.
 
@@ -114,7 +114,6 @@ The following table represents the set of supported browsers which are currently
 | Windows      | ✔️      | ❌      | ✔️           |
 | Ubuntu/Linux | ✔️      | ❌      | ❌           |    
 
-* 1:1 calls are not supported on Safari.
 * Outgoing Screen Sharing is not supported on iOS or Android.
 * [An iOS app on Safari can't enumerate/select mic and speaker devices](../known-issues.md#enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados) (for example, Bluetooth); this is a limitation of the OS, and there's always only one device, OS controls default device selection.
 
@@ -160,4 +159,4 @@ For example, this iframe allows both camera and microphone access:
 For more information, see the following articles:
 - Familiarize yourself with general [call flows](../call-flows.md)
 - Learn about [call types](../voice-video-calling/about-call-types.md)
-- [Plan your PSTN solution](../telephony-sms/plan-solution.md)
+- [Plan your PSTN solution](../telephony/plan-solution.md)

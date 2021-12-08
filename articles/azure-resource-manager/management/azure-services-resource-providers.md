@@ -31,7 +31,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.AVS | [Azure VMware Solution](../../azure-vmware/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
-| Microsoft.AzureArcData | Azure Arc enabled data services |
+| Microsoft.AzureArcData | Azure Arc-enabled data services |
 | Microsoft.AzureData | SQL Server registry |
 | Microsoft.AzureStack | core |
 | Microsoft.AzureStackHCI | [Azure Stack HCI](/azure-stack/hci/overview) |
@@ -151,7 +151,7 @@ The resources providers that are marked with **- registered** are registered by 
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.Search | [Azure Cognitive Search](../../search/index.yml) |
 | Microsoft.Security | [Security Center](../../security-center/index.yml) |
-| Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
+| Microsoft.SecurityInsights | [Microsoft Sentinel](../../sentinel/index.yml) |
 | Microsoft.SerialConsole - [registered](#registration) | [Azure Serial Console for Windows](/troubleshoot/azure/virtual-machines/serial-console-windows) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../../service-fabric/index.yml) |

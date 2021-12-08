@@ -21,7 +21,7 @@ To restrict access to only [a private endpoint for an IoT hub in your VNet](virt
 4. Under “Allow public network access to”, select **Disabled**
 5. Select **Save**.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Image showing Azure portal where to turn off public network access" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Screenshot showing Azure portal where to turn off public network access.":::
 
 To turn on public network access, selected **All networks**, then **Save**.
 
@@ -52,7 +52,7 @@ There is a bug with IoT Hub where the [built-in Event Hub compatible endpoint](i
 5. In the **IP Filter** dialog that opens, select **Add your client IP address** and enter a name and an address range.
 6. Select **Save**. If the button is greyed out, make sure your client IP address is already added as an IP filter.
 
-:::image type="content" source="media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Image showing the Azure portal where to turn on public network access":::
+:::image type="content" source="./media/iot-hub-publicnetworkaccess/turn-on-public-network-access.png" alt-text="Screenshot showing the Azure portal where to turn on public network access.":::
 
 ### Turn on all network ranges
 

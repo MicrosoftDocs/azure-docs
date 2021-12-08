@@ -137,8 +137,6 @@ To recover a managed database using the Azure portal, open the SQL Managed Insta
 
   ![Screenshot of restore deleted Azure SQL instance database](./media/point-in-time-restore/restore-deleted-sql-managed-instance-annotated.png)
 
-../../sql-database
-
 ### PowerShell
 
 To restore a database to the same instance, update the parameter values and then run the following PowerShell command: 

@@ -42,6 +42,7 @@ The table in this article provides information on the Peering Service connectivi
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
 | [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
 | [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
+| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia |
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.

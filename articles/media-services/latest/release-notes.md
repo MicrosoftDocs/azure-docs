@@ -1,16 +1,15 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes 
+title: Azure Media Services v3 release notes
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: na
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -29,6 +28,9 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ## September 2021
 
+### New basic pass-through live event SKU
+
+The new basic pass-through live event SKU allows customers to create live events at a [lower price point](https://azure.microsoft.com/pricing/details/media-services/). It is similar to standard pass-through live events, but with lower input bandwidth limits, fewer live output allowed, different DVR window length limits, and no access to live transcription. See [live event types comparison](./live-event-types-comparison-reference.md#types-comparison) for more details.
 
 ### Improved scale management and monitoring for a Streaming Endpoint in the portal
 
@@ -206,7 +208,7 @@ See the official [Azure Updates announcement](https://azure.microsoft.com/update
 
 ### Standard Encoder support for v2 API features
 
-In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 version of the encoding API.
+In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 (or later) version of the encoding API.
 
 - Multiple Input File stitching is now supported using the new **JobInputClip** support.
     - An example is available for .NET showing how to [stitch two assets together](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
@@ -308,7 +310,7 @@ We published a High Availability with Media Services and Video on Demand (VOD) [
 
 ### Live Video Analytics on IoT Edge preview release
 
-The preview of Live Video Analytics on IoT Edge went public. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
+The preview of Live Video Analytics on IoT Edge went public. 
 
 Live Video Analytics on IoT Edge is an expansion to the Media Service family. It enables you to analyze live video with AI models of your choice on your own edge devices, and optionally capture and record that video. You can now build apps with real-time video analytics at the edge without worrying about the complexity of building and operating a live video pipeline.
 
