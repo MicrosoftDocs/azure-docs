@@ -45,8 +45,6 @@ The following parameter types are extension version-specific and require `FileAc
 
 [!INCLUDE [functions-bindings-blob-storage-attribute](functions-bindings-blob-storage-attribute.md)]
 
----
-
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
@@ -54,8 +52,6 @@ Isolated process currently only supports binding to string parameters.
 # [Extension 2.x and higher](#tab/extensionv2/isolated-process)
 
 Isolated process currently only supports binding to string parameters.
-
----
 
 # [Extension 5.x and higher](#tab/extensionv5/csharp-script)
 
@@ -73,7 +69,6 @@ The following parameter types require you to set `inout` for `direction` in the 
 + [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)
 + [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)
 + [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)
-
 
 # [Extension 2.x and higher](#tab/extensionv2/csharp-script)
 
