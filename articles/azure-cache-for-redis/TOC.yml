@@ -156,6 +156,8 @@
       href: cache-administration.md#schedule-updates
     - name: Configure redis-cli.exe access
       href: cache-how-to-redis-cli-tool.md
+    - name: Move between regions
+      href: cache-moving-resources.md
     - name: Publishing Azure Cache for Redis events
       href: cache-event-grid.md
     - name: Remove TLS 1.0 and 1.1
@@ -168,6 +170,8 @@
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
+    - name: Monitor with diagnostic logs
+      href: cache-monitor-diagnostic-settings.md
     - name: Monitoring FAQs
       href: cache-monitor-troubleshoot-faq.yml
   - name: Scale

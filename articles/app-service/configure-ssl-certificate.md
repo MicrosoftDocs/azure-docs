@@ -65,12 +65,13 @@ The free certificate comes with the following limitations:
 - Does not support wildcard certificates.
 - Does not support usage as a client certificate by certificate thumbprint (removal of certificate thumbprint is planned).
 - Is not exportable.
+- Is not supported on App Service not publicly accessible.
 - Is not supported on App Service Environment (ASE).
 - Is not supported with root domains that are integrated with Traffic Manager.
 - If a certificate is for a CNAME-mapped domain, the CNAME must be mapped directly to `<app-name>.azurewebsites.net`.
 
 > [!NOTE]
-> The free certificate is issued by DigiCert. For some top-level domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
+> The free certificate is issued by DigiCert. For some domains, you must explicitly allow DigiCert as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue digicert.com`.
 > 
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
@@ -126,7 +127,7 @@ Use the following table to help you configure the certificate. When finished, cl
 | Legal Terms | Click to confirm that you agree with the legal terms. The certificates are obtained from GoDaddy. |
 
 > [!NOTE]
-> App Service Certificates purchased from Azure are issued by GoDaddy. For some top-level domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
+> App Service Certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value: `0 issue godaddy.com`
 > 
 
 ### Store in Azure Key Vault
@@ -164,13 +165,18 @@ From the same **Certificate Configuration** page you used in the last step, clic
 
 Select **App Service Verification**. Since you already mapped the domain to your web app (see [Prerequisites](#prerequisites)), it's already verified. Just click **Verify** to finish this step. Click the **Refresh** button until the message **Certificate is Domain Verified** appears.
 
+> [!IMPORTANT]
+> For a **Standard** certificate, the certificate provider gives you a certificate for the requested top-level domain *and* its `www` subdomain (for example, `contoso.com` and `www.contoso.com`). However, beginning on December 1, 2021, [a restriction is introduced](https://azure.github.io/AppService/2021/11/22/ASC-1130-Change.html) on the **App Service** and the **Manual** verification methods. Both of them use HTML page verification to verify domain ownership. With this method, the certificate provider is no longer allowed to include the `www` subdomain when issuing, rekeying, or renewing a certificate.
+>
+> The **Domain** and **Mail** verification methods continue to include the `www` subdomain with the requested top-level domain in the certificate.
+
 > [!NOTE]
 > Four types of domain verification methods are supported: 
 > 
-> - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership.
+> - **App Service** - The most convenient option when the domain is already mapped to an App Service app in the same subscription. It takes advantage of the fact that the App Service app has already verified the domain ownership (see previous note).
 > - **Domain** - Verify an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process.
 > - **Mail** - Verify the domain by sending an email to the domain administrator. Instructions are provided when you select the option.
-> - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only) or a DNS TXT record. Instructions are provided when you select the option.
+> - **Manual** - Verify the domain using either an HTML page (**Standard** certificate only, see previous note) or a DNS TXT record. Instructions are provided when you select the option. The HTML page option doesn't work for web apps with "Https Only" enabled.
 
 ### Import certificate into App Service
 
@@ -328,6 +334,11 @@ To replace an expiring certificate, how you update the certificate binding with 
 ### Renew an App Service certificate
 
 > [!NOTE]
+> Beginning on September 23 2021, App Service certificates require domain verification every 395 days.
+> 
+> Unlike App Service Managed Certificate, domain re-verification for App Service certificates is *not* automated. Refer to [verify domain ownership](#verify-domain-ownership) for more information on how to verify your App Service certificate.
+
+> [!NOTE]
 > The renewal process requires that [the well-known service principal for App Service has the required permissions on your key vault](deploy-resource-manager-template.md#deploy-web-app-certificate-from-key-vault). This permission is configured for you when you import an App Service Certificate through the portal, and should not be removed from your key vault.
 
 To toggle the automatic renewal setting of your App Service certificate at any time, select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Auto Renew Settings** in the left navigation. By default, App Service Certificates have a one-year validity period.
@@ -372,6 +383,8 @@ Click **Rekey** to start the process. This process can take 1-10 minutes to comp
 ![Rekey an App Service certificate](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
+
+You may be required to [re-verify domain ownership](#verify-domain-ownership).
 
 Once the rekey operation is complete, click **Sync**. The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 

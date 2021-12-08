@@ -215,7 +215,7 @@ Label-based selectors (`{quantile=0.5,otherLabel=~Re[ge]*|x}`).
   * `=` Match labels exactly equal to the provided string (case sensitive).
   * `!=` Match labels not exactly equal to the provided string.
   * `=~` Match labels to a provided regex. ex: `label=~CPU|Mem|[0-9]*`
-  * `!=` Match labels that don't fit a provided regex.
+  * `!~` Match labels that don't fit a provided regex.
   * Regex is fully anchored (A ^ and $ are automatically added to the start and end of each regex)
   * This component is optional in a metrics selector.
 
@@ -224,15 +224,15 @@ Endpoint selector (`[http://VeryNoisyModule:9001/metrics]`).
 * The URL should exactly match a URL listed in `MetricsEndpointsCSV`.
 * This component is optional in a metrics selector.
 
-A metric must match all parts of a given selector to be selected. It must match the name *and* have all the same tags with matching values *and* come from the given endpoint. For example, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` wouldn't match the selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Multiple selectors should be used to create or-like behavior instead of and-like behavior.
+A metric must match all parts of a given selector to be selected. It must match the name *and* have all the same labels with matching values *and* come from the given endpoint. For example, `mem{quantile=0.5,otherLabel=foobar}[http://VeryNoisyModule:9001/metrics]` wouldn't match the selector `mem{quantile=0.5,otherLabel=~foo|bar}[http://VeryNoisyModule:9001/metrics]`. Multiple selectors should be used to create or-like behavior instead of and-like behavior.
 
-For example, to allow the metric `mem` from a module `module1` whatever tags but only allow the same metric from `module2` with the tag `agg=p99`, the following selector can be added to `AllowedMetrics`:
+For example, to allow the custom metric `mem` with any label from a module `module1` but only allow the same metric from `module2` with the label `agg=p99`, the following selector can be added to `AllowedMetrics`:
 
 ```query
 mem{}[http://module1:9001/metrics] mem{agg="p99"}[http://module2:9001/metrics]
 ```
 
-Or, to allow the metrics `mem` and `cpu` whatever the tags or endpoint, add the following to `AllowedMetrics`:
+Or, to allow the custom metrics `mem` and `cpu` for any labels or endpoint, add the following to `AllowedMetrics`:
 
 ```query
 mem cpu

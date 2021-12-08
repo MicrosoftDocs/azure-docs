@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 
 ---
@@ -27,7 +27,7 @@ To migrate an existing sharded database:
 3. Prepare the individual shards.  
 4. Add mappings to the shard map.
 
-These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL Database - Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db). The examples here use the PowerShell scripts.
+These techniques can be implemented using either the [.NET Framework client library](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), or the PowerShell scripts found at [Azure SQL Database - Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell). The examples here use the PowerShell scripts.
 
 For more information about the ShardMapManager, see [Shard map management](elastic-scale-shard-map-management.md). For an overview of the Elastic Database tools, see [Elastic Database features overview](elastic-scale-introduction.md).
 
@@ -151,9 +151,9 @@ Once you have completed the setup, you can begin to use the Elastic Database cli
 
 ## Next steps
 
-Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Get the PowerShell scripts from [Azure Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell).
 
-The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
+The Elastic database tools client library is available on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Use the split-merge tool to move data to or from a multi-tenant model to a single tenant model. See [Split merge tool](elastic-scale-configure-deploy-split-and-merge.md).
 
@@ -163,7 +163,7 @@ For information on common data architecture patterns of multi-tenant software-as
 
 ## Questions and feature requests
 
-For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

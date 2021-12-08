@@ -4,8 +4,8 @@ description: Set global parameters for each of your Azure Data Factory environme
 ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
-author: minhe-msft
-ms.author: hemin
+author: joshuha-msft
+ms.author: joowen
 ms.date: 05/12/2021 
 ms.custom: devx-track-azurepowershell
 ---
@@ -43,7 +43,7 @@ There are two ways to integrate global parameters in your continuous integration
 * Include global parameters in the ARM template
 * Deploy global parameters via a PowerShell script
 
-For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-deployment.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
+For general use cases, it is recommended to include global parameters in the ARM template. This integrates natively with the solution outlined in [the CI/CD doc](continuous-integration-delivery.md). In case of automatic publishing and  Purview connection, **PowerShell script** method is required. You can find more about PowerShell script method later. Global parameters will be added as an ARM template parameter by default as they often change from environment to environment. You can enable the inclusion of global parameters in the ARM template from the **Manage** hub.
 
 :::image type="content" source="media/author-global-parameters/include-arm-template.png" alt-text="Include in ARM template":::
 
@@ -109,5 +109,5 @@ Set-AzDataFactoryV2 -InputObject $dataFactory -Force
 
 ## Next steps
 
-* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-deployment.md)
+* Learn about Azure Data Factory's [continuous integration and deployment process](continuous-integration-delivery-improvements.md)
 * Learn how to use the [control flow expression language](control-flow-expression-language-functions.md)

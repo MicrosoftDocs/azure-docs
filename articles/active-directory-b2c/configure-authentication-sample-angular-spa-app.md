@@ -2,13 +2,13 @@
 title: Configure authentication in a sample Angular SPA by using Azure Active Directory B2C
 description: Learn how to use Azure Active Directory B2C to sign in and sign up users in an Angular SPA.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -59,7 +59,7 @@ Before you follow the procedures in this article, make sure that your computer i
 
 * [Visual Studio Code](https://code.visualstudio.com/) or another code editor.
 * [Node.js runtime](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm).
-* [Angular LCI](https://angular.io/cli).
+* [Angular CLI](https://angular.io/cli).
 
 ## Step 1: Configure your user flow
 
@@ -145,7 +145,7 @@ export const b2cPolicies = {
 export const msalConfig: Configuration = {
      auth: {
          clientId: '<your-MyApp-application-ID>',
-         authority: b2cPolicies.authorities.signUpSignIn.
+         authority: b2cPolicies.authorities.signUpSignIn,
          knownAuthorities: [b2cPolicies.authorityDomain],
          redirectUri: '/', 
      },

@@ -93,6 +93,12 @@ The following metrics are available for Azure ExpressRoute gateways:
 | --- | --- |
 | **BitsInPerSecond** | Bits ingressing Azure per second.|
 | **BitsOutPerSecond** | Bits egressing Azure per second. |
+| **CPU Utilization** | CPU Utilization of the ExpressRoute Gateway.|
+| **Packets per second** | Packet count of ExpressRoute Gateway.|
+| **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute Gateway. | 
+| **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute Gateway.|
+| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute Gateway.|
+| **Number of VMs in Virtual Network**| Number of VM's that use this ExpressRoute Gateway.|
 
 ### <a name="metrics-steps"></a>View gateway metrics
 
@@ -159,11 +165,11 @@ The following steps help you create, edit, and view diagnostic settings:
 
 ### <a name="sample-query"></a>Log Analytics sample query
 
-If you selected to send diagnostic data to a Log Analytics Workspace, then you can use queries as the example below to examine. 
-These queries use a SQL-like Log Analytics Query Language, you can learn more about this language from [this article](https://docs.microsoft.com/services-hub/health/log_analytics_query_language).
- The following example contains a query to obtain site-to-site route diagnostics.
+If you selected to send diagnostic data to a Log Analytics Workspace, then you can use SQL-like queries such as the example below to examine the data. For more information, see [Log Analytics Query Language](/services-hub/health/log_analytics_query_language).
 
-```AzureDiagnostics | where Category == "RouteDiagnosticLog"```
+The following example contains a query to obtain site-to-site route diagnostics.
+
+`AzureDiagnostics | where Category == "RouteDiagnosticLog"`
 
 Replace the values below, after the **= =**, as needed based on the tables reported in the previous section of this article.
 

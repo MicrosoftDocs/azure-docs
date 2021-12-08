@@ -133,6 +133,7 @@ Zone-redundant storage | No | No
 Cool storage | No | No
 Hot storage| No | No
 Block blobs | No | No
+Encryption at host | No | No
 Encryption at rest (SSE)| Yes | Yes
 Encryption at rest (CMK) <br></br> (Only for failover to managed disks)| Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
 Double Encryption at rest <br></br> (Only for failover to managed disks) <br></br> Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md) | Yes (via PowerShell Az 3.3.0 module onwards) | Yes (via PowerShell Az 3.3.0 module onwards)
@@ -142,7 +143,7 @@ Import/Export service | No | No
 Azure Storage accounts with firewall enabled | Yes. For target storage and cache. | Yes. For target storage and cache.
 Modify storage account | No. The target Azure Storage account can't be modified after enabling replication. To modify, disable and then re-enable disaster recovery. | No
 Secure transfer option | Yes | Yes
-
+UEFI Secure boot | No | No
 
 ## Azure compute features
 

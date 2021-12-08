@@ -27,7 +27,7 @@ The following limitations apply to the frontend API (C++ and C#):
 * **Animation:** Animations are limited to animating individual transforms of [game objects](../concepts/entities.md). Skeletal animations with skinning or vertex animations are not supported. Animation tracks from the source asset file are not preserved. Instead, object transform animations have to be driven by client code.
 * **Custom shaders:** Authoring of custom shaders is not supported. Only built-in [Color materials](../overview/features/color-materials.md) or [PBR materials](../overview/features/pbr-materials.md) can be used.
 * **Maximum number of distinct materials** in an asset: 65,535. For more information about automatic material count reduction, see the [material de-duplication](../how-tos/conversion/configure-model-conversion.md#material-de-duplication) chapter.
-* **Maximum dimension of a single texture**: 16,384 x 16,384. Larger source textures will be reduced in size by the conversion process.
+* **Maximum dimension of a single texture**: 16,384 x 16,384. Larger textures cannot be used by the renderer. The conversion process can sometimes reduce larger textures in size, but in general it will fail to process textures larger than this limit.
 
 ### Overall number of polygons
 
@@ -42,7 +42,7 @@ For detailed information on this limitation, see the [server size](../reference/
 
 ## Platform limitations
 
-**Windows 10 desktop**
+**Windows 10/11 desktop**
 
 * Win32/x64 is the only supported Win32 platform. Win32/x86 is not supported.
 

@@ -119,6 +119,25 @@ conceptualContent:
         url: management/index.yml
         text: See more
     # Card
+    - title: Troubleshooting deployments
+      links:
+        - url: troubleshooting/overview.md
+          itemType: overview
+          text: Overview
+        - url: troubleshooting/common-deployment-errors.md
+          itemType: how-to-guide
+          text: Common deployment errors
+        - url: troubleshooting/quickstart-troubleshoot-arm-deployment.md
+          itemType: quickstart
+          text: Troubleshoot ARM template
+        - url: troubleshooting/quickstart-troubleshoot-bicep-deployment.md
+          itemType: quickstart
+          text: Troubleshoot Bicep file
+      # footerLink (optional)
+      footerLink:
+        url: troubleshooting/index.yml
+        text: See more
+    # Card
     - title: Managed Applications
       links:
         - url: managed-applications/overview.md

@@ -2,11 +2,11 @@
 title: include file
 description: supported connectors for Lookup Activity
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/07/2021
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
 ---
 
@@ -27,6 +27,7 @@ ms.custom: include file
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
 | **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
+| &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
 | &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
 | &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |

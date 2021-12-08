@@ -43,9 +43,12 @@ Follow the instructions below if you intend to use the Azure CLI while following
 ## Create an endpoint for Azure Digital Twins
 
 These are the supported types of endpoints that you can create for your instance:
-* [Event Grid](../event-grid/overview.md) 
-* [Event Hubs](../event-hubs/event-hubs-about.md)
-* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
+* [Event Grid](../event-grid/overview.md) topic
+* [Event Hubs](../event-hubs/event-hubs-about.md) hub
+* [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) topic
+
+>[!NOTE]
+> For Event Grid endpoints, only event grid **topics** are supported. Event grid **domains** are not supported as endpoints.
 
 For more information on the different endpoint types, see [Choose between Azure messaging services](../event-grid/compare-messaging-services.md).
 
@@ -59,7 +62,7 @@ Use the following chart to see what resources should be set up before creating y
 
 | Endpoint type | Required resources (linked to creation instructions) |
 | --- | --- |
-| Event Grid endpoint | [event grid topic](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) |
+| Event Grid endpoint | [event grid topic](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)<br/>*event schema must be Event Grid Schema or Cloud Event Schema v1.0 |
 | Event Hubs endpoint | [Event&nbsp;Hubs&nbsp;namespace](../event-hubs/event-hubs-create.md)<br/><br/>[event hub](../event-hubs/event-hubs-create.md)<br/><br/>(Optional) [authorization rule](../event-hubs/authorize-access-shared-access-signature.md) for key-based authentication | 
 | Service Bus endpoint | [Service Bus namespace](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/>[Service Bus topic](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md)<br/><br/> (Optional) [authorization rule](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) for key-based authentication|
 
@@ -476,7 +479,7 @@ From the portal homepage, search for your Azure Digital Twins instance to pull u
 
 From here, you can view the metrics for your instance and create custom views.
 
-For more on viewing Azure Digital Twins metrics, see [View metrics with Azure Monitor](troubleshoot-metrics.md).
+For more on viewing Azure Digital Twins metrics, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
 
 ## Next steps
 
