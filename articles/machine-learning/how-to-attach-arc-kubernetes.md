@@ -410,12 +410,12 @@ kubectl logs -lcontrol-plane=extension-manager -n azure-arc -c manager
 
     Turn off nvidia device plugin:
     ```azurecli
-    az k8s-extension create  -g <resource group> -c kind --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installNvidiaDevicePlugin=false
+    az k8s-extension create  -g <resource group> -c <your-connected-cluster-name> --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installNvidiaDevicePlugin=false
     ```
 
     Turn off blobfuse flexvol plugin:
     ```azurecli
-    az k8s-extension create  -g <resource group> -c kind --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installBlobfuseFlexvol=false
+    az k8s-extension create  -g <resource group> -c <your-connected-cluster-name> --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n training-operator --release-train stable --config enableTraining=true --config installBlobfuseFlexvol=false
     ```
 
 
