@@ -57,6 +57,12 @@ az account set -s $subscription # ...or use 'az login'
 :::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
 ```
 
+### test
+
+```azurecli-interactive
+:::code language="code-azurecli" source="~/azure_cli/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
+```
+
 ### Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
