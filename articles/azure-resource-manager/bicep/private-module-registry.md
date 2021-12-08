@@ -2,7 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 12/07/2021
 ---
 
 # Create private registry for Bicep modules (Preview)
@@ -15,11 +15,13 @@ To work with module registries, you must have Bicep CLI version **0.4.1008 or la
 
 A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-registry/container-registry-intro.md). Use the following steps to configure your registry for modules.
 
-1. If you already have a container registry, you can use it. If you need to create a container registry, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md). 
+1. If you already have a container registry, you can use it. If you need to create a container registry, see [Quickstart: Create a container registry by using a Bicep file](../../container-registry/container-registry-get-started-bicep.md).
 
    You can use any of the available registry SKUs for the module registry. Registry [geo-replication](../../container-registry/container-registry-geo-replication.md) provides users with a local presence or as a hot-backup.
 
-1. Get the login server name. You need this name when linking to the registry from your Bicep files. 
+1. Get the login server name. You need this name when linking to the registry from your Bicep files.
+
+   # [PowerShell](#tab/azure-powershell)
 
    To get the login server name, use [Get-AzContainerRegistry](/powershell/module/az.containerregistry/get-azcontainerregistry).
 
@@ -27,11 +29,15 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
    Get-AzContainerRegistry -ResourceGroupName "<resource-group-name>" -Name "<registry-name>"  | Select-Object LoginServer
    ```
 
-   Or, use [az acr show](/cli/azure/acr#az_acr_show).
+   # [Azure CLI](#tab/azure-cli)
+
+   To get the login server name, use [az acr show](/cli/azure/acr#az_acr_show).
 
    ```azurecli
    az acr show --resource-group <resource-group-name> --name <registry-name> --query loginServer
    ```
+
+   ---
 
    The format of the login server name is: `<registry-name>.azurecr.io`.
 
@@ -46,9 +52,21 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 
 After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
 
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
 az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
+
+---
 
 ## View files in registry
 

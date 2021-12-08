@@ -46,6 +46,8 @@ Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.mi
 - Windows 10 Enterprise multi-session.  
  
 > [!NOTE]
+> Windows Server 2022 does not support an RSA 2048 bit key. For more details, see [FAQ: What size should I use for my key encryption key?](disk-encryption-faq.yml#what-size-should-i-use-for-my-key-encryption-key--kek--)
+>
 > Windows Server 2008 R2 requires the .NET Framework 4.5 to be installed for encryption; install it from Windows Update with the optional update Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based systems ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
 >  
 > Windows Server 2012 R2 Core and Windows Server 2016 Core requires the bdehdcfg component to be installed on the VM for encryption.

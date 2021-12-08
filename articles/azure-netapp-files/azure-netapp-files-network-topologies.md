@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 12/07/2021
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -31,6 +31,13 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 * ***Basic***  
     Selecting this setting enables selective connectivity patterns and limited IP scale as mentioned in the [Considerations](#considerations) section. All the [constraints](#constraints) apply in this setting. 
+
+## Supported regions 
+
+Azure NetApp Files standard network features are supported for the following regions:
+
+*	North Central US
+*	South Central US
 
 ## Considerations  
 
