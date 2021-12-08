@@ -57,7 +57,7 @@ sections:
       - question: |
           Can I use Synapse Link in Azure Cosmos DB serverless accounts?
         answer: |
-          Yes, for both MongoDB and SQL APIs database accounts. Currently, MongoDB API accouns are only supported through Azure CLI or PowerShell.
+          Yes, for both MongoDB and SQL APIs database accounts. Currently, MongoDB API accounts are only supported through Azure CLI or PowerShell.
 
   - name: Azure Cosmos DB analytical store
     questions:
