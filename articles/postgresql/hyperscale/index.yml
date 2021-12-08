@@ -5,7 +5,7 @@ metadata:
   description: "Azure Database for PostgreSQL is a relational database service in the Microsoft cloud that is built for developers based on the open-source PostgreSQL database engine."
   author: jonels-msft
   ms.author: jonels
-  ms.date: 12/03/2021
+  ms.date: 12/08/2021
   ms.service: postgresql
   ms.subservice: hyperscale-citus
   ms.topic: landing-page
@@ -14,13 +14,13 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Hyperscale (Citus)
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: What is Hyperscale (Citus)?
             url: ../hyperscale-overview.md
-      - linkListType: get-started
+      - linkListType: concept
         links:
           - text: Nodes and distributed tables
             url: ../concepts-hyperscale-nodes.md
