@@ -63,7 +63,7 @@ Publish-AzBicepModule -FilePath ./storage.bicep -Target br:exampleregistry.azure
 To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
 
 ```azurecli
-az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
 ---

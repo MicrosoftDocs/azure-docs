@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Create and manage servers and single databases in Azure SQL Database
