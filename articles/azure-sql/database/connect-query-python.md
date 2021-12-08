@@ -10,7 +10,7 @@ ms.devlang: python
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/19/2020
 ---
 # Quickstart: Use Python to query a database

@@ -99,7 +99,7 @@ Install the latest `k8s-configuration` and `k8s-extension` CLI extension package
 
 ```console
 az extension add -n k8s-configuration
-az extension add –n k8s-extension
+az extension add -n k8s-extension
 ```
 
 To update these packages, use the following commands:

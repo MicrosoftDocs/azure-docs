@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/07/2021
 ms.custom:
 ---
 
@@ -134,15 +134,13 @@ This section describes the steps to create a new policy in Azure Purview.
 1. Select the **Save** button to save the policy
 
 > [!NOTE]
-> Policy statements on ADLS Gen2 folders and files below container level are supported. They follow the POSIX model, which means that the App that will execute the access to the data objects in the Storage account will need either of:
-> - Support providing the Storage account a fully qualified name (i.e., a direct absolute path) to the data object as shown in this [example](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
-> - If the App requires traversing down to the data object, then the identity used by the App (e.g., user or service principal) will also need privileges to list the parent container and parent folders.
-
+> Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
+> - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
+> - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
 
 > [!WARNING]
 > **Known issues** related to Policy creation
 > - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
-> - Do not create policy statements for Blob storage selecting data objects below container level. Blob storage only provides access control at container level, so those policies will not be enforced.
 > - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Update or delete a policy
@@ -184,7 +182,7 @@ The steps to publish a policy are as follows
 > Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 
 ## Limits
-- The limit for Purview policies that can be enforced by Storage accounts is 100MB for a subscription
+- The limit for Purview policies that can be enforced by Storage accounts is 100MB per subscription, which roughly equates to 5000 policies.
 
 ## Policy action mapping
 
