@@ -41,6 +41,8 @@ For more information about the `BlobTrigger` attribute, see [Attributes](#attrib
 
 # [Isolated process](#tab/isolated-process)
 
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
 
 # [C# Script](#tab/csharp-script)
@@ -367,93 +369,7 @@ The usage of the Blob trigger depends on the extension package version, and the 
 * [Isolated process class library](functions-bindings-storage-blob-trigger.md?tabs=isolated-process&pivots=programming-language-csharp#usage): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.     
 * [C# script](functions-bindings-storage-blob-trigger.md?tabs=csharp-script&pivots=programming-language-csharp#usage): used primarily when creating C# functions in the Azure portal.
 
-
-# [Extension 5.x and higher](#tab/extensionv5/in-process)
-
-The following parameter types are supported for all versions:
-
-* `Stream`
-* `TextReader`
-* `string`
-* `Byte[]`
-
-The following parameter types are extension version-specific and require `FileAccess.ReadWrite` in your C# class library:
-
-+ [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)
-+ [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)
-+ [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)
-+ [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)
-+ [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)
-
-For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Blobs#examples). Learn more about these new types are different and how to migrate to them from the [Azure.Storage.Blobs Migration Guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/AzureStorageNetMigrationV12.md).
-
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
-
-# [Extension 2.x and higher](#tab/extensionv2/in-process)
-
-The following parameter types are supported for all versions:
-
-* `Stream`
-* `TextReader`
-* `string`
-* `Byte[]`
-
-The following parameter types are extension version-specific and require `FileAccess.ReadWrite` in your C# class library:
-
-+ [ICloudBlob](/dotnet/api/microsoft.azure.storage.blob.icloudblob)
-+ [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)
-+ [CloudPageBlob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob) 
-+ [CloudAppendBlob](/dotnet/api/microsoft.azure.storage.blob.cloudappendblob) 
-
-[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
-
-# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
-
-Isolated process currently only supports binding to string parameters.
-
-# [Extension 2.x and higher](#tab/extensionv2/isolated-process)
-
-Isolated process currently only supports binding to string parameters.
-
-# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
-
-The following parameter types are supported for all versions:
-
-* `Stream`
-* `TextReader`
-* `string`
-* `Byte[]`
-
-The following parameter types require you to set `inout` for `direction` in the *function.json* file. 
-
-+ [BlobClient](/dotnet/api/azure.storage.blobs.blobclient)
-+ [BlockBlobClient](/dotnet/api/azure.storage.blobs.specialized.blockblobclient)
-+ [PageBlobClient](/dotnet/api/azure.storage.blobs.specialized.pageblobclient)
-+ [AppendBlobClient](/dotnet/api/azure.storage.blobs.specialized.appendblobclient)
-+ [BlobBaseClient](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient)
-
-
-# [Extension 2.x and higher](#tab/extensionv2/csharp-script)
-
-The following parameter types are supported for all versions:
-
-* `Stream`
-* `TextReader`
-* `string`
-* `Byte[]`
-
-The following parameter types are extension version-specific and require you to set `inout` for `direction` in the *function.json* file. 
-
-+ [ICloudBlob](/dotnet/api/microsoft.azure.storage.blob.icloudblob)
-+ [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob)
-+ [CloudPageBlob](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob) 
-+ [CloudAppendBlob](/dotnet/api/microsoft.azure.storage.blob.cloudappendblob) 
-
----
-
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
-
-If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
+[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
 
 ::: zone-end  
 

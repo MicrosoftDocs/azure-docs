@@ -39,6 +39,8 @@ public static void Run(
 
 # [Isolated process](#tab/isolated-process)
 
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
 # [C# Script](#tab/csharp-script)
@@ -389,22 +391,17 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp" 
 
-# [In-process](#tab/in-process)
+The usage of the Blob input binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-[!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
+* [In-process class library](functions-bindings-storage-blob-input.md?tabs=in-process&pivots=programming-language-csharp#usage): compiled C# function that runs in the same process as the Functions runtime. 
+* [Isolated process class library](functions-bindings-storage-blob-input.md?tabs=isolated-process&pivots=programming-language-csharp#usage): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.     
+* [C# script](functions-bindings-storage-blob-input.md?tabs=csharp-script&pivots=programming-language-csharp#usage): used primarily when creating C# functions in the Azure portal.
 
-# [Isolated process](#tab/isolated-process)
-
-Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
-
-# [C# script](#tab/csharp-script)
-
-[!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
+[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
 
 ---
 
 ::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
 The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#example) for details.
 ::: zone-end  

@@ -23,7 +23,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 # [In-process](#tab/in-process)
 
-The following example is a [C# function](functions-dotnet-class-library.md) that uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob.
+The following example is a [C# function](functions-dotnet-class-library.md) that runs in-process and uses a blob trigger and two output blob bindings. The function is triggered by the creation of an image blob in the *sample-images* container. It creates small and medium size copies of the image blob.
 
 ```csharp
 using System.Collections.Generic;
@@ -75,6 +75,8 @@ public class ResizeImages
 ```
 
 # [Isolated process](#tab/isolated-process)
+
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="4-26":::
 
@@ -431,21 +433,14 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The usage of the Blob output binding depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
+* [In-process class library](functions-bindings-storage-blob-output.md?tabs=in-process&pivots=programming-language-csharp#usage): compiled C# function that runs in the same process as the Functions runtime. 
+* [Isolated process class library](functions-bindings-storage-blob-output.md?tabs=isolated-process&pivots=programming-language-csharp#usage): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.     
+* [C# script](functions-bindings-storage-blob-output.md?tabs=csharp-script&pivots=programming-language-csharp#usage): used primarily when creating C# functions in the Azure portal.
 
-[!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
+[!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
 
-# [Isolated process](#tab/isolated-process)
-
-Requires you to define a custom type, or use a string. See the [Example section](#example) for examples of using a custom parameter type.
-
-# [C# script](#tab/csharp-script)
-
-[!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
-
----
 
 ::: zone-end  
 <!--Any of the below pivots can be combined if the usage info is identical.-->
