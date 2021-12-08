@@ -24,7 +24,7 @@ In this article, learn how to set up a load test for high-scale load by using Az
 
 - An existing Azure Load Testing resource. To create an Azure Load Testing resource, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
 
-## Determine requests per second (RPS)
+## Determine requests per second
 
 The maximum number of *requests per second* (RPS) that Azure Load Testing can generate depends on the application's latency and the number of *virtual users* (VUs). 
 
@@ -51,7 +51,7 @@ In this section, you configure the scaling settings of your load test.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using the credentials for your Azure subscription.
 
-1. Go to your Load Testing resource and then, on the left pane, select **Tests** to view the list of load tests.
+1. Go to your Load Testing resource. On the left pane, select **Tests** to view the list of load tests.
 
 1. In the list, select your load test, and then select **Edit**.
 
@@ -61,7 +61,7 @@ In this section, you configure the scaling settings of your load test.
 
     :::image type="content" source="media/how-to-high-scale-load/configure-test.png" alt-text="Screenshot that shows the 'Configure' and 'Test' buttons on the test details page.":::
 
-1. On the **Edit test** page, select the **Load** tab, and then, in the **Engine instances** box, enter the number of test engines required to run your test.
+1. On the **Edit test** page, select the **Load** tab. In the **Engine instances** box, enter the number of test engines required to run your test.
 
     :::image type="content" source="media/how-to-high-scale-load/edit-test-load.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
 
