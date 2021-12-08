@@ -396,6 +396,8 @@
               href: dapr-overview.md
             - name: How to use Dapr (preview)
               href: dapr.md
+        - name: Use GitOps
+          href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
