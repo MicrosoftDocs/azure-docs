@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management Just Enough Privilege (JEP) Controller
 
-The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Management allows system administrators to adjust permissions, allows users to request privileges on-demand (POD), and allows administrators to remediate excessive permissions based on activity data from Usage Analytics. It comprises four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
+The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Management allows system administrators to adjust permissions, allows users to request privileges on-demand (POD), and allows administrators to remediate excessive permissions based on activity data from Usage Analytics. It comprises four tabs: **Roles/Policies**, **Permissions**, **Settings**, and **Requests**.
 
 ## How to use the Roles/Policies tab
 
@@ -30,14 +30,14 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 2. To view the **Policy Summary**, click the icon next to the AWS policy name.
 
-3. To expand details about the role/AWS policy and view tasks and identities assigned to the role/AWS policy, click **Role** . 
+3. To expand details about the role/AWS policy and view tasks and identities assigned to the role/AWS policy, click **Role**. 
 
 4. To view the **Role Summary**, click the icon next to the username under **Identities Assigned to**.
 
 5. To filter the roles/AWS policies select from the following options:
 
     - **Authorization System Type** - Select **AWS**, **Azure**, **GCP**, or **VCENTER**.
-    - **Authorization System** - Select the appropriate authorization system from the  drop down list.
+    - **Authorization System** - Select the appropriate authorization system from the  drop-down list.
     - **Policy Type** or **Role Type** - Select:
 
          - **System** - A cloud service provider managed role/AWS policy. 
@@ -55,9 +55,9 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 1. On the **Roles/Policies** tab, click **Create Policy**.
 
-2. Under **Basic Details**, from the **Authorization System Type**  drop down list, select **AWS**.
+2. Under **Basic Details**, from the **Authorization System Type**  drop-down list, select **AWS**.
 
-3. Select the appropriate option from the **Authorization System**  drop down list.
+3. Select the appropriate option from the **Authorization System**  drop-down list.
 
      Each authorization system will  display either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator will not be able to directly create a new AWS policy in the authorization system.
 
@@ -88,7 +88,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
    By default, the **Selected Tasks** column lists all the tasks performed by the selected identity.
 
-9. To adjust the user's access, click the icon in the **Available Tasks** column and/or the icon in **Selected Tasks** column . 
+9. To adjust the user's access, click the icon in the **Available Tasks** column and/or the icon in **Selected Tasks** column. 
    <!---Add screenshot.--->
 
       - To view available options, click the right caret icon next to the service name.
@@ -132,7 +132,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 18. Click **Split**.
 
-     The split policy displays in the **Splitted Policies** column on the left.
+     The split policy displays in the **Split Policies** column on the left.
 <!---"Splitted" in UI? change to "Split"..--->
 
 19. To edit the policy, click the **Edit** icon.
@@ -156,13 +156,13 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 > Only users with the **Controller** or **Administrator** role can perform this action.
 
 1. On the **Roles/Policies** tab, click **Create Role**.
-2. Under **Basic Details**, select the appropriate option from the **Authorization System Type** drop down menu.
-3. Select the appropriate option from the **Authorization System** drop down menu.
+2. Under **Basic Details**, select the appropriate option from the **Authorization System Type** drop-down menu.
+3. Select the appropriate option from the **Authorization System** drop-down menu.
 
      Each authorization system displays either **Controller Enabled** or **Controller Disabled**. If the controller is disabled, the system administrator will not be able to directly create a new role in the authorization system.
 
 4. Enter a name for the policy in the **Policy Name** box.
-5. Under **How Would You Like to Create the Policy?**, select one of the following options :
+5. Under **How Would You Like to Create the Policy?**, select one of the following options:
     - **Activity of User(s)** - Allows the creation of a policy based on a user's activity.
     - **Activity of Group(s)** - Allows the creation of a policy based on the aggregated activity of all the users belonging to the group(s).
     - **Activity of App(s)** (Azure Only) - Allows the creation of a policy based on the activity of an application.
@@ -176,14 +176,14 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
      System administrators can select **90 Days**, **60 Days**, **30 Days**, **7 Days** or **1 Day**.
 
-7. To select the user to whom the policy should apply, click the icon next to the users name.
+7. To select the user to whom the policy should apply, click the icon next to the user's name.
 
      - To move the identity from the **Available Users** tab to the **Selected Users** tab, click the icon. 
      - Scroll to find an identity or type in the identity name into the **Search** box.
 
 8. Click **Next**.
 9. By default, all the tasks performed by the selected user(s) are put the **Selected Tasks** column.
-10. To adjust the identity's access, click the icon in the **Available Tasks** column and/or the icon in **Selected Tasks** column .
+10. To adjust the identity's access, click the icon in the **Available Tasks** column and/or the icon in **Selected Tasks** column.
 
      - To expand options, click the icon next to the service name. 
 
@@ -223,7 +223,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 19. Click **Split**.
 
-     The split policy displays in the **Splitted Policies** column on the left.
+     The split policy displays in the **Split Policies** column on the left.
 
 <!---"Splitted" in UI? change to "Split"..--->
 
@@ -235,7 +235,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
      If **Controller Disabled** displays under the authorization system icon, the **Submit** button is disabled.
 
-     When you click **Submit**, a number is circled in red next to the ![icon](images/icons/Notification_hourglass.svg) icon at the top right of the page. 
+     When you click **Submit**, a number is circled in red next to the icon at the top right of the page. 
      -  To view the **Active** tab which  displays the policies being created, click the hourglass. 
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
@@ -245,7 +245,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 > [!NOTE]
 > Only users with the Controller or Administrator role can perform this action.
 
-1. To make a copy of the policy, click **Clone** .
+1. To make a copy of the policy, click **Clone**.
 
 2. On the **Clone** screen, select the appropriate authorization systems. To select all the authorization systems, select **Authorization System**.
 
@@ -276,7 +276,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 2. On the **Statements** screen, make edits to the **Tasks**, **Resources**, **Request Conditions**, and **Effect** as required. 
 
-    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-prod-jep-controller.md#how-to-create-a-new-policy-aws_only) or [How to Create a New Role (Azure/GCP/VCENTER)](cloudknox-prod-jep-controller.md#how-to-create-a-new-role-(azure/gcp/vcenter)).
+    For more information on how to make edits to the **Statements** screen, see [How to Create a New Policy (AWS Only)](cloudknox-product-jep-controller.md#how-to-create-a-new-policy-aws_only) or [How to Create a New Role (Azure/GCP/VCENTER)](cloudknox-product-jep-controller.md#how-to-create-a-new-role-(azure/gcp/vcenter)).
 
 3. Click **Next**.
 
@@ -287,9 +287,9 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
 
-1. Next to the applicable role/AWS policy, click **Delete** .
+1. Next to the applicable role/AWS policy, click **Delete**.
 
-     The system administrator can only delete role/AWS policy if that role/policy is not assigned to a identity. System roles or policies cannot be deleted.
+     The system administrator can only delete role/AWS policy if that role/policy is not assigned to an identity. System roles or policies cannot be deleted.
 
 2. On the **Preview** screen, review the role/AWS policy about to be deleted.
 
@@ -302,9 +302,9 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform these actions.
 
-1. Filter from the following options at the of the screen:
+1. Filter from the following options on the screen:
     - **Authorization System Type** - Select  **AWS**, **Azure**, **GCP**, and **VCENTER**.
-    - **Authorization System** - Select the appropriate authorization system from the  drop down list.
+    - **Authorization System** - Select the appropriate authorization system from the  drop-down list.
     - **Search For** - Select **User**, **Group**, **Role** (AWS Only), **App** (Azure Only), or **Service Account** (GCP Only).
     - **User/Group/Role/App/Service Status** - Select  **Any**, **Active**, or **Inactive**.
     - **Privilege Creep Index** - Select **Any**, **High**, **Medium**, or **Low**.
@@ -317,7 +317,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
         - **Task Type** - Select **Any**, **High Risk**, or **Delete**.
         - **Tasks** - To view a list of **Available Tasks** and add new tasks, click in this field, and then click the **Add** icon.
 
-2. When the filters are set appropriately, a list of all identities that match the search criteria are displayed in the **Users/Group/Role/App/Service** column on the left hand side of the screen.
+2. When the filters are set appropriately, a list of all identities that match the search criteria are displayed in the **Users/Group/Role/App/Service** column on the left side of the screen.
 
    Check the specific users that need their permissions changed.
 
@@ -381,9 +381,9 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
     - **Tasks**
         1. Click the **Tasks** tab.
         2. To move the tasks into the **Selected to Grant** block, from the **Available** column, select appropriate tasks that should be given to the user, and click the icon.
-        3. To move the task into the **Selected to Revoke** block, from the **Revokable** column, select appropriate tasks that should be removed from the user, click the icon.
+        3. To move the task into the **Selected to Revoke** block, from the **Revocable** column, select appropriate tasks that should be removed from the user, click the icon.
 
-             When an identity is selected from **Modify Permissions**, the **Revokable** section under the **Tasks** tab is automatically populated with the tasks the identity currently has assigned, allowing system administrators to easily view and remove tasks from the identity.
+             When an identity is selected from **Modify Permissions**, the **Revocable** section under the **Tasks** tab is automatically populated with the tasks the identity currently has assigned, allowing system administrators to easily view and remove tasks from the identity.
 
              If any role is added to the **Selected to Grant** or **Selected to Revoke** blocks by mistake, click the icon to remove the task from the block.
 
@@ -403,7 +403,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 1. Click the **Role/Policy Template** tab from the top of the screen, and view the following table of information: 
 
-     The table view can be filtered by AWS, Azure, GCP, or vCenter by using the **Authorization System Type**  drop down list.
+     The table view can be filtered by AWS, Azure, GCP, or vCenter by using the **Authorization System Type**  drop-down list.
 
      - **Template Name** - Displays the name of the template.
 
@@ -420,9 +420,9 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
          The **View/Edit** option displays the **Create** screen so you can make updates. When you save the template, the following message displays in green across the top of the screen: **Role/Policy template has been successfully updated**.
 
-2. From the upper right hand corner, click **Create Template**.
+2. From the upper right corner, click **Create Template**.
 
-3. On the **Details** page, from the **Authorization System Type**  drop down list, select **AWS**, **Azure**, **GCP**, or **vCenter**.
+3. On the **Details** page, from the **Authorization System Type**  drop-down list, select **AWS**, **Azure**, **GCP**, or **vCenter**.
 
 4. In the **Template Name** box, enter a name for the template.
 
@@ -459,7 +459,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 1. In the **Identity** field, select the username of the user for whom the permission is being requested.
 
-2. From the **Role**  drop down list, select the appropriate role for the user.
+2. From the **Role**  drop-down list, select the appropriate role for the user.
 
 3. Select **Request using a Template**.
 
@@ -493,7 +493,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 11. The **Validate OTP to Create JEP Request** box appears. Enter the OTP from your email and click **Verify**.
 
      This step will not happen if the One Time Passcode (OTP) validation is disabled by the administrator. 
-     For more information, see [Request Settings tab](cloudknox-prod-jep-controller.md#request-settings-tab)
+     For more information, see [Request Settings tab](cloudknox-product-jep-controller.md#request-settings-tab)
 
 12. **Your request has been successfully submitted** displays highlighted in green across the top of the screen once completed.
 
@@ -506,7 +506,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
      The two actions from the settings page are the **Request Role/Policy Filters** and **Request Duration**. The **Settings** tab defaults to the **Request Role/Policy Filters** view.
 
-     The table view can be filtered using the  drop down lists from the top of the page. The **Authorization System Type** can be changed from **AWS**, **Azure**, **GCP**, and **vCenter**. The **Authorization Systems** can be specified and specific **Folders** can be chosen using the **Authorization System** dropdown. 
+     The table view can be filtered using the  drop-down lists from the top of the page. The **Authorization System Type** can be changed from **AWS**, **Azure**, **GCP**, and **vCenter**. The **Authorization Systems** can be specified and specific **Folders** can be chosen using the **Authorization System** drop-down. 
      Click **Apply** once you've made your selections.
 
     - **Role/Policy Filters** - Displays the name of the role/policy filters that have been created.
@@ -528,7 +528,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 ### Request Role/Policy Filters tab
 
-1. On the **Request Role/Policy Filters** tab, click **Create Filter** from the top right hand corner. 
+1. On the **Request Role/Policy Filters** tab, click **Create Filter** from the top right corner. 
 
      The **Edit Policy** window opens.
 
@@ -552,7 +552,7 @@ The Just Enough Privilege (JEP) Controller in Microsoft CloudKnox Permissions Ma
 
 2. Under **Request Duration** the **Request Duration Limit** section is listed in **Hours** and you can request the duration of up to 4 hours, but not greater than 4 hours. 
 
-     Hover over the information icon to the right of the hours dropdown to view information of when the settings will be applied.
+     Hover over the information icon to the right of the hours drop-down to view information of when the settings will be applied.
 
 3. Click **Save**.
 
@@ -602,7 +602,7 @@ The **Requests** tab is only visible to users if they have the *Approver* role a
     - **Request Date** - Lists the date the request was made.
     - **Schedule** - Displays the schedule that was selected by the user.
 
-    - To perform the following actions, from the right hand side of the screen:
+    - To perform the following actions, from the right side of the screen:
         - **Details** - To view the details of the request, click **Details**.
 
             The request can be approved or rejected from the detail view.
@@ -631,7 +631,7 @@ The **Requests** tab is only visible to users if they have the *Approver* role a
 
          The status first displays **Inactive** until the time in the **Next On** column is reached. The request will then change to **Activating**, at that time, or if the **Next On** selected was **ASAP**, then the status will update immediately to **Active**. If the request is recurring, it will stay in the **Approved Requests** section, but if it is a one time request, the request will move to **Processed Requests** once done.
 
-    - To perform the following actions, click the icon from the right hand side of the screen:
+    - To perform the following actions, click the icon from the right side of the screen:
         - **Details** - To view the details of the approval, click **Details**.
         - **Cancel** - To cancel the approval, click **Cancel**.
 
@@ -654,7 +654,7 @@ The **Requests** tab is only visible to users if they have the *Approver* role a
      - **Details** - To view the details of the approval, click **Details**.
      - **Delete** - To delete the approval, click **Delete**.
 
-4. Click the **Filters** button in any of the section and select the appropriate option from the **Authorization System**  drop down list.
+4. Click the **Filters** button in any of the sections, and then select the appropriate option from the **Authorization System**  drop-down list.
 
 5. To  display or hide columns, click **Columns**, and then click the icon next to the column name.
 
@@ -718,7 +718,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
      - **Delete** - To delete the approval, click **Delete**.
 
 
-4. Click the **Filters** button in any of the section and select the appropriate option from the **Authorization System**  drop down list.
+4. Click the **Filters** button in any of the sections, and then select the appropriate option from the **Authorization System**  drop-down list.
 
 5. To display or hide columns, click **Columns**, and then click the icon next to the column name.
 
@@ -729,16 +729,16 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
 1. Click **New Request**.
 
-2. Select the appropriate option from the **Auth System Type** dropdown.
+2. Select the appropriate option from the **Auth System Type** drop-down.
 
-3. Select the appropriate option from the **Auth System** dropdown.
+3. Select the appropriate option from the **Auth System** drop-down.
 
     - **AWS**
         1. In the **Identity** field, select the username of the user for whom the permission is being requested.
 
-             If a SAML user is selected, the **Role** field will open. Select the appropriate role from the  drop down list.
+             If a SAML user is selected, the **Role** field will open. Select the appropriate role from the  drop-down list.
 
-        2. Select the appropriate role for the user from the **Role**  drop down list.
+        2. Select the appropriate role for the user from the **Role**  drop-down list.
 
         3. Select either **Request Policy(s)** or **Request Task(s)**.
 
@@ -746,7 +746,7 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
         4. Select the appropriate policies, tasks, or templates from the **Available Policies** or **Available Tasks** column. To add them to the **Selected Policies** or **Selected Tasks** column, click the icon.
 
-             You can search for a specific policy, task, or template using **Search**, and then filter by clicking the **All**  drop down list and selecting **All**, **System**, **Custom**, or **CloudKnox Only**.
+             You can search for a specific policy, task, or template using **Search**, and then filter by clicking the **All**  drop-down list and selecting **All**, **System**, **Custom**, or **CloudKnox Only**.
 
              To view details about the policy or task, click the icon next to the policy or task name.
 
@@ -765,13 +765,13 @@ The **My Requests** tab  displays details about requests submitted by the curren
         7. Enter details in the **Request Summary** field.
         8. Add notes, if needed, to the **Notes (Optional)** field.
         9. Click in the **Schedule** section to set schedule details:
-            - From the **Frequency**  drop down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
+            - From the **Frequency**  drop-down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
 
                  If you select **ASAP**, the requestor has to wait for the approver to approve the request since the request is not approved immediately.
 
                  If you select **Once**, **Daily**, **Weekly**, or **Monthly**, enter the **Date** and **Time** details
 
-            - Enter a number in the **For** field, and from the  drop down list select between **Hours**, **Days**, **Weeks**, or **Months**.
+            - Enter a number in the **For** field, and from the  drop-down list select between **Hours**, **Days**, **Weeks**, or **Months**.
 
                  The **For** field indicates the duration for which the permission will be given to the user.
 
@@ -788,20 +788,20 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
         4. Select the appropriate policies or tasks from the **Select Roles** or **Available Tasks** column and then click the icon to add it to the **Selected Roles** or **Selected Tasks** column.
 
-             You can search for a specific role or task using **Search**. To filter your results, click the **All**  drop down list and then select **All**, **System**, **Custom**, or **CloudKnox Only**.
+             You can search for a specific role or task using **Search**. To filter your results, click the **All**  drop-down list and then select **All**, **System**, **Custom**, or **CloudKnox Only**.
 
         5. To display a list of roles attached to the select user, click **Existing Roles**.
         6. Click **Next**.
         7. Enter details in the **Request Summary** field.
         8. Add notes, if needed, to the **Notes (Optional)** field.
-        9. To set schedule details, click in the **Schedule** section :
-            - From the **Frequency**  drop down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
+        9. To set schedule details, click in the **Schedule** section:
+            - From the **Frequency**  drop-down list, select **ASAP**, **Once**, **Daily**, **Weekly**, or **Monthly**.
 
                  If **ASAP** is selected, the requestor must wait for the approver to approve the request; the request is not accepted immediately.
 
                  If you select **Once**, **Daily**, **Weekly**, or **Monthly**, enter **Date** and **Time** details.
 
-            - Enter a number in the **For** field, and from the  drop down list select between **Hours**, **Days**, **Weeks**, or **Months**.
+            - Enter a number in the **For** field, and from the  drop-down list select between **Hours**, **Days**, **Weeks**, or **Months**.
 
                 The **For** field indicates duration for which the permission will be give to the user.
 

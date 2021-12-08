@@ -12,7 +12,7 @@ ms.date: 12/07/2021
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product integrations
+# Microsoft CloudKnox Permissions Management product integrations - introduction
 
 The Integrations function in the Microsoft CloudKnox Permissions Management application allows you to view sub-systems in one place, and to ensure all applications are functioning as one. This allows for improved quality and performance as a whole.
 

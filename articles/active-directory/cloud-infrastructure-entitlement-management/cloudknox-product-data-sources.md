@@ -24,7 +24,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 (*Data collector* may also be referred to as *Sentry*.)
 
      - **ID** - Displays the data collector identification number. It is a unique number that identifies a specific data collector.
-     - **IP Address** - Displays the a specific Internet Protocol (IP) address or Domain Name System (DNS) name for the data collector.
+     - **IP Address** - Displays the specific Internet Protocol (IP) address or Domain Name System (DNS) name for the data collector.
      - **Data Types** - There are two data types that are collected:
          - **Entitlements -** The permissions of all identities and resources for all the configured authentication systems.
          - **Benchmarks -** The results of security best practices tests.
@@ -40,7 +40,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
        1. To configure the appliance, click the displayed URL. 
        2. To configure the Sentry Appliance, enter the **REGISTERED EMAIL** and **PIN** .
      - **Delete** - If there are no authorization systems associated with the data collector, perform the following steps:
-         1. To request a one-time passcode (OTP) to the email address on file, click the **Validate OTP to Delete Data Collector** box.
+         1. To ask for a one-time passcode (OTP) to be sent to the email address on file, click the **Validate OTP to Delete Data Collector** box.
          
             If you do not receive the email, click **Resend OTP** and then check your email again.
          2. In the **Enter OTP** box, enter the passcode you received in your email, and then click **Verify**. 
@@ -48,7 +48,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
         3. If there are one or more authorization systems associated with the data collector, delete the authorization system first. 
 
          > [!NOTE]
-         > Deleting a data collector erases all historical data for the authorization systems associated with the collector. To avoid any data loss, coordinate deletion of data collectors with the CloudKnox Customer Success team (customer.success@cloudknox.io).
+         > Deleting a data collector erases all historical data for the authorization systems associated with the collector. To avoid any data loss, coordinate deletion of data collectors with the CloudKnox Customer Success team.
 
 4. To locate the data collector by ID or IP address, click **Search**.
 
@@ -78,7 +78,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 ### How to deploy a data source using an Amazon Web Services (AWS) role
 
 > [!NOTE]
-> Deployment using an AWS role is not generally available. If you want to deploy using an AWS role, contact [CloudKnox support](customer.success@cloudknox.io).
+> Deployment using an AWS role is not generally available. If you want to deploy using an AWS role, contact the CloudKnox Customer Success team.
 
 1. Click **Deploy**.
 
@@ -90,7 +90,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 
 5. Click **Next**.
 
-6. When **Do you have a centralized CloudTrail account?** appears, select **Yes** or **No**. 
+6. When the **Do you have a centralized CloudTrail account?** message appears, select **Yes** or **No**. 
      - If you select **Yes**, enter **CloudTrail Logging Account Id** and **Account Role Name** in the boxes.
      - If you select **No**, follow the instructions to download the CloudFormation template.
 
@@ -120,7 +120,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 
 4. View the following details for each authorization system:
      - **Name** - Displays the name of the authorization system, if available. Otherwise, it will display the ID of the authorization system.
-         - To access Account explorer, click the name or the ID. For more information, see [How to use explorer](cloudknox-prod-usage-analytics.md).
+         - To access Account explorer, click the name or the ID. For more information, see [How to use explorer](cloudknox-product-usage-analytics.md).
      - **ID** - Displays the identification number of the authorization system. It is a unique number that identifies a specific authorization system.
      - **Controller Status** - Displays either **Enabled** or **Disabled**.
 
@@ -133,14 +133,14 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
      - **Collect Data** - By default, the data is collected every hour. If you want to trigger data collection immediately, click this option.
      - **Delete** - Stops collecting and erasing collected data from an authorization system.
 
-       The **Validate OTP to Delete Data Collector** box opens so you can request a one time passcode (OTP) be sent to the email address on file.
+       The **Validate OTP to Delete Data Collector** box opens so you can ask for a one time passcode (OTP) to be sent to the email address on file.
 
        If you do not receive the email, click **Resend OTP** and then check your email again.
 
 6. Enter the passcode from your email in the **Enter OTP** box and click **Verify**.
 
      > [!NOTE]
-     > Deleting an authorization system erases all historical data for the authorization system. To avoid data loss, coordinate the deletion of the authorization system with the [CloudKnox Customer Success team](customer.success@cloudknox.io) at customer.success@cloudknox.io.
+     > Deleting an authorization system erases all historical data for the authorization system. To avoid data loss, coordinate the deletion of the authorization system with the CloudKnox Customer Success team.
 
 7. To display or hide columns, click **Columns**.
 

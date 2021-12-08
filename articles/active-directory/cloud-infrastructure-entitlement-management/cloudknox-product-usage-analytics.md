@@ -27,7 +27,7 @@ The CloudKnox Usage Analytics feature contains details about identities, resourc
 - **Access Keys** - Tracks the privilege usage of access keys for a given user.
 - **Serverless Functions** - Tracks assigned privileges and usage of the serverless functions.
 
-For common definitions used in the CloudKnox application, see the [Definitions page](cloudknox-prod-definitions.md).
+For common definitions used in the CloudKnox application, see the [Definitions page](cloudknox-product-definitions.md).
 
 ## How to view usage analytics about users
 
@@ -35,21 +35,21 @@ For common definitions used in the CloudKnox application, see the [Definitions p
 
 On the **Usage Analytics** tab:
 
-- The **Users** dashboard provides a high level overview of user details. The following components make up the **Users** dashboard:
-    - **Users** - This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [How to apply filters for users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
-    - **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected.  For more information, see  [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
-    - **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [How to apply filters for users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
+- The **Users** dashboard provides a high-level overview of user details. The following components make up the **Users** dashboard:
+    - **Users** - This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [How to apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+    - **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected.  For more information, see  [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+    - **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [How to apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
 - The **Users** table  displays the privileges assigned,  privileges used, and resources accessed by users
     - **Username** - Provides the name of the user.
 
          - To view additional details about the user, click the username. 
 
-           Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. For more information, see [How to use identity explorer for Users](cloudknox-prod-usage-analytics.md#how-to-use-identity-explorer-for-Users).
+           Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. For more information, see [How to use identity explorer for Users](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-Users).
 
     - **Domain/Account** - This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI) - Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
         - **Index** - Calculates a risk score for the user based on the high-risk privileges they have access to and whether or not that privilege has been accessed, and the number of resources they can access.
-        - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, for example, **! High - 130 days**.
+        - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, for example, **! High - 130 days**.
 
              As a system administrator, you can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index (PCI). For example, if you hover over **! High - 130 days**, the following message displays:
 
@@ -68,7 +68,7 @@ On the **Usage Analytics** tab:
 
     - **Tags** - Displays the number of tags applied to a user.
 
-    -  To expand details about the user, click the **Tags** icon. For more information, see [How to read Information Panel for users](cloudknox-prod-usage-analytics.md#how-to-read-information-panel-for-users).
+    -  To expand details about the user, click the **Tags** icon. For more information, see [How to read Information Panel for users](cloudknox-product-usage-analytics.md#how-to-read-information-panel-for-users).
 
 ### How to apply filters for users
 
@@ -102,14 +102,14 @@ There are many filter options on the **Users** screen, including filters by **Au
         - **Role/App/Service a/c** - The default for the sub-categories under this option is **All**. You can select **Active** or **Inactive**.
              **Role** applies to AWS, Application (**App**) applies to Azure, and **Service account** (a/c) applies to GCP. 
 
-             If you filter by this option. the role, application, or service account name will display under the **Username** column.
+             If you filter by this option, the role, application, or service account name displays under the **Username** column.
         - **Resource** (specific to AWS) -  Displays virtual machines in AWS.
         - **Cross Account** (specific to AWS) -  Displays identities coming from another AWS account.
     3. To display the identities which have a PCI of greater than 0, select the box next to **Risky** at the top of the **Users** filter box. 
 
          To filter across any category listed in step 1, select **Risky**.
 
-    4. To view only identities included in the account level PCI calculation, select **Incl. In PCI Calculation Only** .
+    4. To view only identities included in the account level PCI calculation, select **Incl. In PCI Calculation Only**.
     5. To filter by the selection, click **Apply**. 
 
          Both Security Assertion Markup Language (SAML) and local users are listed if the selection spans multiple authorization systems. 
@@ -125,7 +125,7 @@ There are many filter options on the **Users** screen, including filters by **Au
         - **All** - Filters by all existing tasks a user can perform.
         - **High Risk Tasks** - Filters tasks by high risk, which includes modifying and deleting content.
     3. To filter users who have delete task privileges, select the box next to **Delete** under the **High Risk Tasks**  button.
-    4. To filter by the selection, click **Apply** .
+    4. To filter by the selection, click **Apply**.
 
          Both SAML and local users will be listed if the selection spans multiple authorization systems. 
     
@@ -148,7 +148,7 @@ There are many filter options on the **Users** screen, including filters by **Au
     You can be perform the following actions in the **Tasks** section:
 
       - **Search** - In the **Search** box, type a specific task name and find how many of those tasks have been unused or used.
-      - **All Tasks** - Use the **Tasks** drop down list to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+      - **All Tasks** - Use the **Tasks** drop-down list to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
           A **High-Risk task** can cause data leakage, service disruption, or service degradation. 
 
@@ -171,7 +171,7 @@ There are many filter options on the **Users** screen, including filters by **Au
 
             -  To expand and read the details of the policy, click the icon in the **Policy Name** column.
 
-        4. To view details on who can assume the role being viewed, click the **Trusted Entities** tab .
+        4. To view details on who can assume the role being viewed, click the **Trusted Entities** tab.
         
              - **Roles Accessed** (SAML Users Only) (AWS Only) - Lists all the roles the user has assumed within the authorization system, including **Type**, **Name** and **Domain**.
              - **Roles** (Azure) - Lists all the roles the user can assume within the authorization system, including **Name**, **Resource**, **Type**, and **Status**.
@@ -231,16 +231,16 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. Click **Add Tag**. 
     1. Select the **Authorization System Type**. 
 
-          If the current user is only part of one authorization system, the **Authorization System Type**  drop down list will not have multiple options.
+          If the current user is only part of one authorization system, the **Authorization System Type**  drop-down list will not have multiple options.
     1. Click in the **Tag** box. 
 
-          A  drop down list of existing tags appears. Select from the current options or can type in a brand new tag and then click **Create**. 
+          A  drop-down list of existing tags appears. Select from the current options or can type in a brand new tag and then click **Create**. 
     1. Input a value in the **Value (Optional)** box, such as the date and time the tag is being created.
     1. Click in the **Authorization Systems** box. 
     
           If the current user is only part of one authorization system,  this box will be pre-populated. If they are part of multiple authorization systems, the system administrator can select the appropriate authorization system the tag being created.
     1. To save the tag, click **Save**.
-    1. To close the **Tag** window, click the **X** .
+    1. To close the **Tag** window, click the **X**.
 
 ### Using Predefined Tags
 
@@ -256,13 +256,13 @@ CloudKnox has the following set of predefined tags that can be applied:
 
 ### How to read the Groups dashboard
 
-The **Groups** dashboard provides a high level overview of group details.
+The **Groups** dashboard provides a high-level overview of group details.
 
-1. On the **Usage Analytics** page, select **Groups** from the  drop down list across the top of the screen. The following components make up the **Groups** dashboard:
+1. On the **Usage Analytics** page, select **Groups** from the  drop-down list across the top of the screen. The following components make up the **Groups** dashboard:
 
-- **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-groups).
-- **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
-- **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-groups).
+- **Groups** - This section  displays the total number of groups, inactive, and active groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
+- **Tasks** - This section  displays the number of tasks granted to groups, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
+- **Resources** - This section  displays how many resources have been accessed by groups based on the authorization system selected. For more information, see [How to apply filters for groups](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-groups).
 
 The **Groups** table  displays the privileges assigned,  privileges used, and resources accessed by users.
 
@@ -273,7 +273,7 @@ The **Groups** table  displays the privileges assigned,  privileges used, and re
 - **Domain/Account** - This column displays a domain name for SAML or Enterprise Directory (ED) groups and displays an account name for local groups.
 - **Privilege Creep Index** - Captures the incurred risk of groups with access to high-risk privileges and is displayed in the following columns:
     - **Index** - Calculates a risk score for the group based on the high-risk privileges they have access to and whether or not that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, i.e. **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, i.e. **! High - 130 days**.
 
          You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -315,7 +315,7 @@ There are many filter options within the **Groups** screen, including filters by
 
     3. To filter by the selection, click **Apply**. 
 
-         Both SAML and local groups will be listed if the selection spans multiple authorization systems and accounts. The top of the screen will display the which authorization system is being viewed (i.e., **Azure - Azure PIM**), or if multiple authorization systems were selected, **Multiple Authorization Systems** will display. 
+         Both SAML and local groups will be listed if the selection spans multiple authorization systems and accounts. The top of the screen will display the authorization system that is being viewed (for example, **Azure - Azure PIM**), or if multiple authorization systems were selected, **Multiple Authorization Systems** will display. 
  
     4. To remove all filters, click **X**.
 
@@ -332,7 +332,7 @@ There are many filter options within the **Groups** screen, including filters by
 2. You can perform the following actions in the **Tasks** section:
 
     - **Search** - In the **Search** box, enter a specific task name and find how many of those tasks have been unused or used.
-        - **All Tasks** - Use the **Tasks** dropdown to filter data by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+        - **All Tasks** - Use the **Tasks** drop-down to filter data by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
     - **Users** (All authorization systems) -  Displays the individual users that belong to the group and how many tasks that user has executed.
     - **Roles Available** (AWS Only) - Lists all the roles the user can assume within the group, including **Type**, **Name** and **Domain**.
@@ -351,11 +351,11 @@ There are many filter options within the **Groups** screen, including filters by
     3. Click **Add Tag**.
     4. Select the **Authorization System Type**.
 
-         If the current group is only part of one authorization system, the **Authorization System Type**  drop down list will not have multiple options.
+         If the current group is only part of one authorization system, the **Authorization System Type**  drop-down list will not have multiple options.
 
     5. Click in the **Tag** box.
 
-         A  drop down list of existing tags appears. Select a tag from the current options.
+         A  drop-down list of existing tags appears. Select a tag from the current options.
 
          To create a new tag, enter a new tag name and then click **Create**.
 
@@ -382,20 +382,20 @@ You can apply the following set of predefined tags in CloudKnox:
 
 ### How to read the Active Resources dashboard
 
-The **Active Resources** dashboard provides a high-level overview of resource details. On the main Usage Analytics page, select **Active Resources** from the  drop down list across the top of the screen. The following components make up the **Active Resources** dashboard:
+The **Active Resources** dashboard provides a high-level overview of resource details. On the main Usage Analytics page, select **Active Resources** from the  drop-down list across the top of the screen. The following components make up the **Active Resources** dashboard:
 
 - **Users** - This section  displays the total number of users, inactive and active users based on the authorization system selected. 
-     For more information, see [How to apply filters for users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [How to apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
 - **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. 
-     For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
 - **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. 
-     For more information, see [How to apply filters for users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-users).
+     For more information, see [How to apply filters for users](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-users).
 
     The **Active Resources** table for each resource  displays the following information about its tasks, activity, and user privileges.
 
 - **Resource Name** - Provides the name of the resource.
 
-     - To view additional details about the resource, click the resource name. For more information, see [How to use identity explorer for Active Resources](cloudknox-prod-usage-analytics.md#how-to-use-identity-explorer-for-active-resources).
+     - To view additional details about the resource, click the resource name. For more information, see [How to use identity explorer for Active Resources](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-active-resources).
 
      Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
@@ -405,7 +405,7 @@ The **Active Resources** dashboard provides a high-level overview of resource de
 - **Tasks** - Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Granted** - Captures the number of tasks that have been granted to the user directly, granted to the user if part of a group, or granted based on the role type the user can assume.
     - **Executed** - Displays how many of the granted tasks the user has executed.
-- **No. of Users** - Displays how many user can access the resource, and is broken into the following columns:
+- **No. of Users** - Displays how many users can access the resource, and is broken into the following columns:
     - **Access with** - Captures the number of users that have access to the resource.
     - **Accessed** - Displays how many users have accessed the resource.
 
@@ -422,7 +422,7 @@ There are many filter options within the **Active Resources** screen, including 
 
     2. To filter by the selection, click **Apply**. 
 
-    3. To remove all filters, click **X** .
+    3. To remove all filters, click **X**.
 
 - **Filtering by Tasks**
 
@@ -441,11 +441,11 @@ There are many filter options within the **Active Resources** screen, including 
     1. In the **Search** box, click **Resource Type** and **Service**. Then select the appropriate boxes under the **Resource Type** column.
     1. When a resource is selected, a symbol appears next to the icon. 
 
-        To expand the menu, click the down caret ico.
+        To expand the menu, click the down caret icon.
     1. Additional options under **Access Type** and **Encryptions Settings** appear:
         - **Access Type** - Select **All**, **Public**, **Private**, **Restricted**, or **Other Accounts**.
 
-             To view information about each option, hover over the information **(i)** icon .
+             To view information about each option, hover over the information **(i)** icon.
 
         - **Encryption Settings** - Select **All**, **Not Encrypted**, **SSE-S3**, or **KMS**.
 
@@ -472,8 +472,8 @@ You can apply the following predefined tags in CloudKnox:
 
     You can perform the following actions in the **Tasks** section:
 
-    - **Search** - Enter a specific action name to find if this action have been used or not.
-    - **All Tasks** - Use the **Tasks** dropdown to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+    - **Search** - Enter a specific action name to find if this action has been used or not.
+    - **All Tasks** - Use the **Tasks** drop-down to filter by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 - **Users with Access** - Displays the names of users that have access to the resource, and is sorted into the following columns:
     - **Not Accessed** - Displays the users who have access to the resource but have not yet performed an action on the resource.
     - **Accessed by Current Users** - Displays the users who have performed actions on the resource in the last 90 days.
@@ -483,22 +483,22 @@ You can apply the following predefined tags in CloudKnox:
 
 #### Dashboard View
 
-The **Active Tasks** dashboard provides a high level overview of privileges used by various identities. 
+The **Active Tasks** dashboard provides a high-level overview of privileges used by various identities. 
 
-- On the main Usage Analytics page, select **Active Tasks** from the  drop down list across the top of the screen. 
+- On the main Usage Analytics page, select **Active Tasks** from the  drop-down list across the top of the screen. 
 
 The only tasks listed in this dashboard are those that have been used in the last 90 days. The following components make up the **Active Tasks** dashboard:
 
-- **Users** - This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-active-tasks).
-- **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-active-tasks).
-- **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-prod-usage-analytics.md#how-to-apply-filters-for-active-tasks).
+- **Users** - This section  displays the total number of users, inactive and active users based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
+- **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
+- **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
 
 ### Table View
 
 The following components make up the **Active Tasks** table:
 
 - **Task Name** - Provides the name of the task. 
-    - To view additional details about the task, click the task name. For more information, see [How to use identity explorer for Active Tasks](cloudknox-prod-usage-analytics.md#how-to-use-identity-explorer-for-active-tasks).
+    - To view additional details about the task, click the task name. For more information, see [How to use identity explorer for Active Tasks](cloudknox-product-usage-analytics.md#how-to-use-identity-explorer-for-active-tasks).
 
       -  A **Deleted** icon next to the task name means the task is a delete task. 
 
@@ -506,7 +506,7 @@ The following components make up the **Active Tasks** table:
       - A **Task** icon next to the task name means the task is a normal task.
 
 - **No. of Times Task is Performed** - Captures the number of times the task has been performed by all users, groups, etc.
-- **Performed On (Resources)** - The number of resources the task was used on. For more information, see [How to view usage analytics about active resources](cloudknox-prod-usage-analytics.md#how-to-view-usage-analytics-about-active-resources).
+- **Performed On (Resources)** - The number of resources the task was used on. For more information, see [How to view usage analytics about active resources](cloudknox-product-usage-analytics.md#how-to-view-usage-analytics-about-active-resources).
 - **Number of Users** - Displays how many tasks are assigned to a particular user, and is broken into the following columns:
     - **Unexecuted** - Captures the number of users that have access to the task but have not accessed it.
     - **Executed** - Displays how many of the granted tasks the user has accessed.
@@ -558,9 +558,9 @@ There are many filter options within the **Active Tasks** screen, including filt
 
 ### How to read the Access Keys dashboard
 
-The **Access Keys** table provides a high level overview of access key details. On the main Usage Analytics page, select **Access Keys** from the  drop down list across the top of the screen. 
+The **Access Keys** table provides a high-level overview of access key details. On the main Usage Analytics page, select **Access Keys** from the  drop-down list across the top of the screen. 
 
-- To activate the **Access Keys** option from the  drop down list, select **AWS** from the filter options.
+- To activate the **Access Keys** option from the  drop-down list, select **AWS** from the filter options.
 
 The following components make up the **Access Keys** table:
 
@@ -569,7 +569,7 @@ The following components make up the **Access Keys** table:
 - **Account** - Displays the account name that the owner and access key reside in.
 - **Privilege Creep Index** - Captures the incurred risk of owners with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the owner of the access key based on the high-risk privileges they have access to and whether or not that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, i.e. **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, i.e. **! High - 130 days**.
 
          Hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index. 
 
@@ -637,22 +637,22 @@ Once filters are set and Authorization System is selected, click the icon at the
     The following actions can be performed in the **Tasks** section:
 
     - **Search** - In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
-    - **All Tasks** - The Tasks dropdown can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+    - **All Tasks** - The Tasks drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 - **Access Key Info** - Lists **Last Used Service**, **Last Used Region**, **Created On**, and a graph of **Access Key Usage (Over 3 Months in PDT)** which details what times and days in which the access key was used.
 
 ## How to view usage analytics about serverless functions (AWS Only)
 
 ### How to read the Serverless Functions dashboard
 
-The **Serverless Functions**, or lambda table, provides a high level overview of serverless function details. On the main Usage Analytics page, select **Serverless Functions** from the  drop down list across the top of the screen. **
+The **Serverless Functions**, or lambda table, provides a high-level overview of serverless function details. On the main Usage Analytics page, select **Serverless Functions** from the  drop-down list across the top of the screen. **
 
-You must first select **AWS** from the filter options to activate the **Access Keys** option from the  drop down list. The following components make up the **Serverless Functions** table:
+You must first select **AWS** from the filter options to activate the **Access Keys** option from the  drop-down list. The following components make up the **Serverless Functions** table:
 
 - **Function Name** - Displays the name of the function.
 - **Domain/Account** - Displays the authorization system that lambda resides in
 - **Privilege Creep Index** - Captures the incurred risk of lambda function with access to high-risk privileges and is broken into the following columns:
     - **Index** - Calculates a risk score for the lambda function based on the high-risk privileges they have access to and whether or not that privilege has been accessed.
-    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high level, i.e. **! High - 130 days**.
+    - **Since** - Indicates if the user's PCI is high, medium, or low based on the past 30 days. A user with a high PCI exceeding 30 days is denoted with an exclamation point (**!**), and provides the number of days the user has been marked at a high-level, i.e. **! High - 130 days**.
 
         You can hover over the information in this column for specific details on how long the user has had a high, medium, or low privilege creep index.
 
@@ -700,7 +700,7 @@ You can apply the following set of predefined tags:
     You can perform the following actions in the **Tasks** section:
 
     - **Search** - In the **Search** box, enter a specific task name and find how many of those tasks have been unused or used.
-    - **All Tasks** - The Tasks dropdown can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+    - **All Tasks** - The Tasks drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
     **Version** - The right side of the panel displays serverless function **Version** (several versions can be listed, but the latest are listed first), **Execution Role** (the role assigned to the serverless function) and **Alias**.
 
@@ -732,12 +732,12 @@ The CloudKnox explorers provide additional information about an identity, includ
 
 2. Enter a user, role, resource or task name and select the appropriate option.
 
-3. From the **Search**  drop down list, you can switch from **All** to **Resources**, **Tasks**, **Users**, or **AWS Roles**.
+3. From the **Search**  drop-down list, you can switch from **All** to **Resources**, **Tasks**, **Users**, or **AWS Roles**.
 
 ### How to use the User Explorer
 
-1. To access the **User Explorer**, select an authorization system from the left hand side panel, select **Groups**, and then select **User**. 
-For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-to-users). 
+1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
+For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
 
 2. Under the **Username** column, click the username to expand details within the last 90 days. The default view is the **User Info** tab.
 3. The **User Info** tab displays the high risk activities performed in the last 90 days with the following details:
@@ -761,7 +761,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
         You can perform the following actions in the **Tasks** section:
 
         - **Search** - In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
-        - **All Tasks** - The Tasks dropdown can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+        - **All Tasks** - The Tasks drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
 
     - **AWS**
         - **Policies/Roles** -  Displays the policies that apply to a user.
@@ -791,7 +791,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **Roles Available** - Lists all the roles available to the user to assume.
     - **Roles Accessed** - Lists the roles the user has assumed.
 
-      - To search for a specific role available to the user or the user has accessed, click **Search** .
+      - To search for a specific role available to the user or the user has accessed, click **Search**.
 
 5. To view the activity performed by the user with the following details, click the **Activity** tab:
     - **High Risk Activity** - Displays the high risk activities performed in the last 90 days.
@@ -808,9 +808,9 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **Status** - Whether the login was successful or not.
     - **Authorization System** - The authorization system from which the user performed the activity.
 
-     In the  drop down list next to **Login**, the default view is **Activity – Tasks**. 
+     In the  drop-down list next to **Login**, the default view is **Activity – Tasks**. 
 
-    - Select the  drop down list to select from the following options:
+    - Select the  drop-down list to select from the following options:
         - **Graph View - Login** - Displays a graph view of how many times the user logged in, how many different clients were used, and how many different IP addresses were used.
         - **Table View - IP Addresses**
             - **IP Address** - Displays the IP address.
@@ -827,9 +827,9 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
 
      The right side of the screen lists the names of the tasks and high risk tasks used on the specific resource listed.
 
-    The default view in the  drop down list next to **Resources** is **Accessed – Table**. 
+    The default view in the  drop-down list next to **Resources** is **Accessed – Table**. 
 
-    - Select the  drop down list to select from the following options:
+    - Select the  drop-down list to select from the following options:
         - **Graph View**
             - Displays a graph view of how many resources have access, and how many resources were accessed in the last 90 days.
 
@@ -841,9 +841,9 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
 
      The right side of the screen lists the names of the resources that were accessed  on the specific task listed.
 
-     The default view in the  drop down list next to **Tasks** is **Tasks – Table**. Select the  drop down list to change the view.
+     The default view in the  drop-down list next to **Tasks** is **Tasks – Table**. Select the  drop-down list to change the view.
 
-    - Select the  drop down list to select from the following options:
+    - Select the  drop-down list to select from the following options:
         - **Graph View**
             - Displays a graph view of how many tasks have been granted, how many tasks have been executed, how many tasks are scheduled, and how many tasks are alarm tasks.
         - **Table View - Scheduled Tasks**
@@ -866,7 +866,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
         - **Account** (VCENTER only) - Displays the name of the account.
         - **Name** - Displays the name of the subscription.
         - **Resource** - Displays the name of the resource.
-        - **Type** - Displays the type of of subscription applied to the identity.
+        - **Type** - Displays the type of subscription applied to the identity.
         - **Source Name** - Displays the name of the source.
         - **Source Type** - Displays the type of source applied to the identity.
 
@@ -874,7 +874,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
 
 1. To access the **Role Explorer**, choose an authorization system. 
 
-2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-to-users).
+2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users).
 
 3. To expand details within the last 90 days, under the **Username** column, click the username. The default view is the **Role Info** tab.
      
@@ -886,7 +886,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
         The following actions can be performed in the **Tasks** section:
 
         - **Search** - In the **Search** box, system administrators can type a specific task name and find how many of those tasks have been unused or used.
-        - **All** - The **Tasks** dropdown can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
+        - **All** - The **Tasks** drop-down can be filtered by **All Tasks**, **High-Risk Tasks**, or **Delete Tasks**.
     - **Policies** -  Displays the policies attached to the role.
     - **Permission Boundary** - This is a constraint that an admin can place on a role to restrict certain accesses to policies.
 
@@ -927,7 +927,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
 8. To view the tasks the role has executed with the following details, click the **Tasks** tab:
     - **Task Name** – Displays the name of the task.
        - To expand details on the task and view resources associated with the task, click the icon. 
-        - To expand details about the resource, click the icon next to **Resources** .
+        - To expand details about the resource, click the icon next to **Resources**.
 
     - **Last Executed On** – Displays the date the task was last executed by the user.
     - **No. of Resources used** – Displays the number of resources that were affected when this task was executed.
@@ -935,7 +935,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
 
 ### How to use the Resource Explorer
 
-1. To access the **Resource Explorer**, select **Active Resources** from the  drop down list, then select an authorization system. **Resource**. For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-to-users). 
+1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
 2. To expand details within the last 90 days, under the **Resource Name** column, click the resource. 
 
 3. The default view is the **Access Graph** tab. It displays the following details:
@@ -952,7 +952,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
         - **Group** –  Displays that the identity is part of a group to which the policy is attached.
     - **Scope** (Azure/GCP/VCENTER) - Displays the name of the project with access to the resource.
 
-        Each column in the **Access Graph** view has a **Search** bar as well as a **Filter** button with various options available from the  drop down list.
+        Each column in the **Access Graph** view has a **Search** bar as well as a **Filter** button with various options available from the  drop-down list.
 
          For each column listed in the **Access Graph** tab, additional details can be viewed by clicking the name in the **Name** column. This view  displays a detailed diagram on how the user acquired access to the resource.
 
@@ -970,10 +970,10 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **No.** **of Resources Executed** – Displays how many resources were affected by the task.
     - **Last Executed On** – Displays the last date in which the user accessed the resource.
 
-      - To change the view, select the  drop down list next to **Users**. The default is view is **Tasks  – Table**.
+      - To change the view, select the  drop-down list next to **Users**. The default is view is **Tasks  – Table**.
 
-    - To select from the following options, select the  drop down list:
-        - **Graph View** - Displays a graph view of how many users have access to the resource, how many resource have not been accessed, and how many have been accessed.
+    - To select from the following options, select the  drop-down list:
+        - **Graph View** - Displays a graph view of how many users have access to the resource, how many resources have not been accessed, and how many have been accessed.
 
 7. (Azure/GCP/VCENTER only) To display details about tasks, including the following details, click the **Tasks** tab:
     - **Task Name** - Displays the name of the task
@@ -981,9 +981,9 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **No. of Users** - Displays the number of users with access to the task.
     - **Last Executed On** - Displays the last date in which the task was accessed.
 
-      - To change the view, click the drop down list next to **Users**. The default is view is **Tasks  – Table**.
+      - To change the view, click the drop-down list next to **Users**. The default is view is **Tasks  – Table**.
 
-    -  To select from the following options, click the  drop down list:
+    -  To select from the following options, click the  drop-down list:
         - **Graph View**
             - Displays a graph view of how many tasks have been executed and how many tasks are scheduled
         - **Table View - Scheduled Tasks**
@@ -997,12 +997,12 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **Access Control List** – Lists all identities that can access to the bucket.
     - **Bucket Policy** – Displays which users can access the bucket via a policy.
 
-9. To view a different authorization system accounts, click the dropdown from the right hand side of the screen .
+9. To view a different authorization system account, click the drop-down from the right side of the screen.
 10. To export the results in comma-separated values (CSV) file format, click **Export**.
 
 ### How to use the Task Explorer
 
-1. To access the **Task Explorer**, select **Active Tasks** from the  drop down list, and select an authorization system. For more information, see [How to apply filters to users](cloudknox-prod-usage-analytics.md#how-to-apply-filters-to-users). 
+1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see [How to apply filters to users](cloudknox-product-usage-analytics.md#how-to-apply-filters-to-users). 
 
     - To expand details within the last 90 days, in the **Task Name** column, click the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:
@@ -1017,7 +1017,7 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **No.** **of Resources Accessed** – Displays how many resources were acted upon by the task.
     - **Last Executed On** – Displays the last date in which the user executed the task.
 
-      - In the  drop down list next to **Users**, the default view is **Tasks – Table**.  
+      - In the  drop-down list next to **Users**, the default view is **Tasks – Table**.  
       - To see a graphical view of the number of times a user executed a task, select **Executed – Graph**.
 4. To display details about the resources, including the following details, click the **Resources** tab:
     - **Resource Name** – Displays the name of the resource affected by the task.
@@ -1026,14 +1026,14 @@ For more information, see [How to apply filters to users](cloudknox-prod-usage-a
     - **No**. **of Users** – Displays the number of users that performed the task.
     - **Last Executed On** – Displays the last date on which the user executed the task.
 5. On the down menu next to **Resources**, the default view is **Tasks – Table**. To see a graph view of how many resources have been accessed, select **Accessed – Graph** .
-6. To change to another authorization system account, click the dropdown on the right side of the screen .
+6. To change to another authorization system account, click the drop-down on the right side of the screen.
 
 ### How to use the Account Explorer
 
 The **Account Explorer** displays all the identities - users, roles, EC2 instances and Lambda Functions - that can access the selected account from an external account.
 
 1. To access the **Account Explorer**:
-    - To choose an authorization system from the left-hand side panel, click the **Lock** icon. Select an AWS account. For more information see, [How to apply filters to users](). 
+    - To choose an authorization system from the left-side panel, click the **Lock** icon. Select an AWS account. For more information see, [How to apply filters to users](). 
       - Under the **Domain/Account** column, click the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
        - Or, click the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and click the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
@@ -1042,7 +1042,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
       - To export the data in comma-separated values (CSV) file format, click the **Export** button.
 
-      - To view **Account Explorer** for other account click the authorization system drop-down on the right-hand side and choose one of the available accounts.
+      - To view **Account Explorer** for other account click the authorization system drop-down on the right side and choose one of the available accounts.
 
     - **Roles that Provide Access** - Lists the roles that provide access to other accounts through the Trusted Entities policy statement.
       - To view the**Role Summary** which provides the following details, to the right of the role name, click **View**:
@@ -1068,7 +1068,7 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
 
     - **Identities with Access** - Lists the identities that come from external accounts.
         - To view all the identities from that account can access the specified account, click the icon to the left of the account name.
-        - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, click **View** to the right of the identity name .
+        - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, click **View** to the right of the identity name.
         - To view a diagram of the ways in which the identity is able to access the specified account and through which role(s), click the identity name.
         
         
