@@ -167,7 +167,7 @@ To check your permissions on your session:
 
 3. Open the storage account you created in [Set up a storage account](#set-up-a-storage-account).
 
-4. Select **File shares** in the section **Data storage** of the storage account.
+4. Go to **Data storage** in your storage account, then select **File shares**.
 
 5. Expand your file share and make sure a folder containing the user profile now exists in your file share.
 
