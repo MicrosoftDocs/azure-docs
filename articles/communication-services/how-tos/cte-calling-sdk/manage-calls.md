@@ -11,7 +11,7 @@ ms.date: 12/01/2021
 ms.custom: template-how-to
 ---
 
-# Manage calls for customized Teams application
+# Manage calls for Teams users with Communication Services calling SDK
 
 Learn how to manage calls with the Azure Communication Services SDKS. We'll learn how to place calls, manage their participants and properties.
 
