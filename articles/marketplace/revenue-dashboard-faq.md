@@ -20,7 +20,12 @@ Estimated revenue is the amount billed to the customer who purchased an offer or
 
 ## What does Total revenue and Others revenue mean?
 
-_Total revenue_ represents the billed sales of purchases or consumption that have entries in the transaction history report. This represents the total billed sales for the “Sent”, “Unprocessed” and “Upcoming” statuses only. You can find corresponding detailed earnings entries in the transaction history report.
+_Total revenue_ represents the billed sales of purchases or consumption that have entries in the transaction history report. This represents the total billed sales for the following statuses only:
+- Sent
+- Unprocessed
+- Upcoming
+- 
+You can find corresponding detailed earnings entries in the transaction history report.
 
 There can be some revenue portion that is not yet processed by Microsoft and sent to partners. These revenue amounts are also not captured in the existing transaction history report. The Other revenue section brings visibility to this revenue portion.
 
