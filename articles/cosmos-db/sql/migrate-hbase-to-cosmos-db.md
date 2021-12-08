@@ -139,7 +139,7 @@ As with HBase RowKey, partition key design is important for Azure Cosmos DB. HBa
 HBase consists of Master; Region Server; and ZooKeeper. High availability in a single cluster can be achieved by making each component redundant. When configuring geo-redundancy, one can deploy HBase clusters across different physical data centers and use replication to keep multiple clusters in-sync.
 
 **Azure Cosmos DB**
-Azure Cosmos DB does not require any configuration such as cluster component redundancy. It provides a comprehensive SLA for high availability, consistency, and latency. Please see [SLA for Azure Cosmos DB](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_3/) for more detail.
+Azure Cosmos DB does not require any configuration such as cluster component redundancy. It provides a comprehensive SLA for high availability, consistency, and latency. Please see [SLA for Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/) for more detail.
 
 ### Data reliability
 
