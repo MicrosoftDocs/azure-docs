@@ -169,7 +169,7 @@ To check your permissions on your session:
 
 4. Go to **Data storage** in your storage account, then select **File shares**.
 
-5. Expand your file share and make sure a folder containing the user profile now exists in your file share.
+5. Open your file share and make sure the user profile folder you've created is in there.
 
 For additional testing, follow the instructions in [Make sure your profile works](create-profile-container-adds.md#make-sure-your-profile-works).
 
