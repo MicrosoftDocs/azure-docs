@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, mathoma, danil
+ms.reviewer: kendralittle, bonova, mathoma, danil
 ms.date: 09/21/2021
 ---
 

@@ -22,6 +22,14 @@ This article provides information about limitations and known issues related to 
 
 The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
+### iOS with Safari crashes and refreshes the page if a user tries to switch from front camera to back camera.
+
+ACS Calling SDK version 1.2.3-beta.1 introduced a bug that affects all of the calls made from iOS Safari. The problem occurs when a user tries to switch the camera video stream from front to back. Switching camera results in Safari browser to crash and reload the page.
+
+This issue is fixed in ACS Calling SDK version 1.3.1-beta.1.
+
+* iOS Safari version: 15.1
+
 ### iOS with Safari crashes and refreshes the page if a user tries to send video in a call
 
 iOS 15.1 introduced a bug that affects the majority of Communication Services calls with video that are placed in iOS with Safari. Specifically, the problem occurs when a user joins a Communication Services call or a meeting in Microsoft Teams by using Communication Services on iOS 15.1 on any browser with video turned on. This set of circumstances causes the Safari browser to crash.
@@ -64,9 +72,11 @@ This is a known limitation. For more information, see [Calling SDK overview](./v
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
-Applications can't enumerate or select microphone or speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
+Applications can't enumerate or select speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
 
 If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
+
+* iOS Safari version: 15.1
 
 ### Device mutes and incoming video stops rendering when certain interruptions occur
 
@@ -169,4 +179,9 @@ The following are known issues in the Communication Services Call Automation API
 - Calls between tenant users of Microsoft Teams and Communication Services users or server application entities aren't allowed.
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
+
+## Group call limiations for JS web Calling SDK users		
+
+Up to 100 users can join a group call using the JS web calling SDK. 
+
 

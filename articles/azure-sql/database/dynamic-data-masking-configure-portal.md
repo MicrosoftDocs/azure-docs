@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 04/28/2020
 ---
 # Get started with SQL Database dynamic data masking with the Azure portal

@@ -4,7 +4,6 @@ titleSuffix: Microsoft Azure Maps
 description:  A tutorial on how to migrate from Bing Maps to Microsoft Azure Maps. Guidance walks you through how to switch to Azure Maps APIs and SDKs.
 author: stevemunk
 ms.author: v-munksteve
-manager: jokebeck
 ms.date: 12/1/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -73,13 +72,13 @@ When migrating to Azure Maps from Bing Maps, the following information should be
 
 * Azure Maps charges for the usage of interactive maps based on the number of map tiles loaded, whereas Bing Maps charges for the loading of the map control (sessions). To reduce  costs for developers, Azure Maps automatically caches map tiles. One Azure Maps transaction is generated for every 15 map tiles that are loaded. The interactive Azure Maps SDKs use 512-pixel tiles, and on average generates one or less transactions per page view.
 
-* Azure Maps allows data from its platform to be stored in Azure. It can also be cached elsewhere for up to six months as per the [terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* Azure Maps allows data from its platform to be stored in Azure. Caching and storing results locally is only permitted when the purpose of caching is to reduce latency times of Customer’s application, see [Microsoft Azure terms of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) for more information.
 
 Here are some licensing-related resources for Azure Maps:
 
 * [Azure Maps pricing page](https://azure.microsoft.com/pricing/details/azure-maps/)
 * [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
-* [Azure Maps term of use](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (included in the Microsoft Online Services Terms)
+* [Azure Maps term of use](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/MCA) (Scroll down to the Azure Maps section)
 * [Choose the right pricing tier in Azure Maps](./choose-pricing-tier.md)
 
 ## Suggested migration plan

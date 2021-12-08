@@ -9,7 +9,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/16/2019
 ---
 # Use the Azure CLI to add a database to a failover group
