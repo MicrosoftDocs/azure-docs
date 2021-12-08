@@ -31,8 +31,8 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ## Prerequisites
 
-* [Azure CLI](/cli/azure/install-azure-cli)
-* Powershell: Install Azure Az Powershell module
+* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?branch=pr-en-us-181951)
+* An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Before you begin
 
@@ -94,6 +94,11 @@ az login
 
 ```powershell
 Connect-AzAccount
+```
+# [PowerShell](#tab/powershell)
+
+```powershell
+Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
 ```
 
 ---
@@ -190,7 +195,6 @@ az monitor log-analytics workspace create \
 New-AzOperationalInsightsWorkspace `
 -Location $LOCATION `
 -Name $LOG_ANALYTICS_WORKSPACE `
--Sku Standard `
 -ResourceGroupName $RESOURCE_GROUP
 ```
 
@@ -421,19 +425,33 @@ Save the following file as *serviceapp.bicep*:
 ```bicep
 param location string = 'canadacentral'
 param environment_name string
+param storage_account_name string
+param storage_account_key string
+param storage_container_name string
 
-resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
-  name: 'pythonapp'
+resource nodeapp 'Microsoft.Web/containerapps@2021-03-01' = {
+  name: 'nodeapp'
   kind: 'containerapp'
   location: location
   properties: {
     kubeEnvironmentId: resourceId('Microsoft.Web/kubeEnvironments', environment_name)
-    configuration: {}
+    configuration: {
+      ingress: {
+        external: true
+        targetPort: 3000
+      }
+      secrets: [
+        {
+          name: 'storage-key'
+          value: storage_account_key
+        }
+      ]
+    }
     template: {
       containers: [
         {
-          image: 'dapriosamples/hello-k8s-python:latest'
-          name: 'hello-k8s-python'
+          image: 'dapriosamples/hello-k8s-node:latest'
+          name: 'hello-k8s-node'
           resources: {
             cpu: '0.5'
             memory: '1Gi'
@@ -446,11 +464,34 @@ resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
       }
       dapr: {
         enabled: true
-        appId: 'pythonapp'
+        appPort: 3000
+        appId: 'nodeapp'
+        components: [
+          {
+            name: 'statestore'
+            type: 'state.azure.blobstorage'
+            version: 'v1'
+            metadata: [
+              {
+                name: 'accountName'
+                value: storage_account_name
+              }
+              {
+                name: 'accountKey'
+                secretRef: 'storage-key'
+              }
+              {
+                name: 'containerName'
+                value: storage_container_name
+              }
+            ]
+          }
+        ]
       }
     }
   }
 }
+
 ```
 
 ::: zone-end
@@ -628,7 +669,7 @@ $params = @{
 New-AzResourceGroupDeployment `
 -ResourceGroupName $RESOURCE_GROUP `
 -TemplateParameterObject $params `
--TemplateFile ./serviceapp.json `
+-TemplateFile ./serviceapp.bicep `
 -SkipTemplateParameterPrompt 
 ```
 
