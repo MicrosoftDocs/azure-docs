@@ -66,8 +66,6 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 | [Create a SQL Managed Instance](../managed-instance/scripts/create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
 | **Configure Transparent Data Encryption (TDE)**||
 | [Manage Transparent Data Encryption in a SQL Managed Instance by using Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
-|**Configure a failover group**||
-| [Configure a failover group for SQL Managed Instance](../managed-instance/scripts/add-managed-instance-to-failover-group-cli.md) | Creates two instances of SQL Managed Instance, adds them to a failover group, and then tests failover from the primary SQL Managed Instance to the secondary SQL Managed Instance. |
 |**Geo-restore a database**|
 | [Geo-restore a database for SQL Managed Instance](../managed-instance/scripts/restore-geo-backup-cli.md) | Performs a geo-restore between two instanced of SQL Managed Instance to a specific point in time. |
 |||

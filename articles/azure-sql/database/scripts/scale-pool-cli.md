@@ -28,7 +28,7 @@ If you choose to install and use the Azure CLI locally, this topic requires that
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
-$subscription = "<subscriptionId>" # add subscription here
+subscription="<subscriptionId>" # add subscription here
 
 az account set -s $subscription # ...or use 'az login'
 ```

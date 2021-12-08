@@ -1196,8 +1196,6 @@
         href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE) using Azure Key Vault
         href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
-      - name: Configure a failover group
-        href: managed-instance/scripts/add-managed-instance-to-failover-group-cli.md
       - name: Restore a database to another geo-region
         href: managed-instance/scripts/restore-geo-backup-cli.md
     - name: Azure PowerShell

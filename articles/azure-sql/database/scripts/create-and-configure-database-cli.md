@@ -28,14 +28,14 @@ If you choose to install and use the CLI locally, this topic requires that you a
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
-$subscription = "<subscriptionId>" # add subscription here
+subscription="<subscriptionId>" # add subscription here
 
 az account set -s $subscription # ...or use 'az login'
 ```
 
 ### Run the script 1
 
-```zurecli-interactive
+```azurecli-interactive
 :::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-150":::
 ```
 

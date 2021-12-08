@@ -29,12 +29,18 @@ An existing pair of managed instances, see [Use Azure CLI to create an Azure SQL
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
-$subscription = "<subscriptionId>" # add subscription here
+subscription="<subscriptionId>" # add subscription here
 
 az account set -s $subscription # ...or use 'az login'
 ```
 
 ### Run the script
+
+add-managed-instance-to-failover-group-cli.md
+
+```azurecli-interactive
+:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/sql-managed-instance-restore-geo-backup-cli.sh" range="3-150":::
+```
 
 ```azurepowershell-interactive
 [!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/sql-managed-instance-restore-geo-backup-cli.sh "Managed Instance Geo-Restore Database")]

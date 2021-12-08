@@ -29,7 +29,7 @@ An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
-$subscription = "<subscriptionId>" # add subscription here
+subscription="<subscriptionId>" # add subscription here
 
 az account set -s $subscription # ...or use 'az login'
 ```
