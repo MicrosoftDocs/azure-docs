@@ -505,9 +505,13 @@ sections:
           
           Use the **Accumulated costs** option and then filter by the **Resource type** as `microsoft.sql/managedinstances`.
           
-          ### How much automated backups cost?
+          ### Can I use Microsoft or 3rd party tools (developer and otherwise) to access Managed Instance without additional cost?
           
-          You get the equal amount of free backup storage space as the reserved data storage space purchased, regardless of the backup retention period set. If your backup storage consumption is within the allocated free backup storage space, automated backups on managed instance will have no additional cost for you, therefore will be free of charge. Exceeding the use of backup storage above the free space will result in costs of about $0.20 - $0.24 per GB/month in US regions, or see the pricing page for details for your region. For more details, see [Backup storage consumption explained](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
+          You can use compatible Microsoft or 3rd party client tools to access Managed Instance, and you will not be charged any additional costs on your Azure invoice. However, if some of the tools require a license, you are required to have a legally licensed software. This is governed by separate agreements you have with each individual tool manufacturer.
+          
+          ### How much do automated backups cost?
+          
+          You get the equal amount of free backup storage space as the reserved data storage space purchased, regardless of the backup retention period set. If your backup storage consumption is within the allocated free backup storage space, automated backups on managed instance will have no additional cost for you, therefore will be free of charge. Exceeding the use of backup storage above the free space will result in additional cost. See the Backup storage section of the [pricing page](https://azure.microsoft.com/en-us/pricing/details/azure-sql-managed-instance) for details. More technical information on Managed Instance automated backups  is available at [Backup storage consumption explained](https://techcommunity.microsoft.com/t5/azure-sql-database/backup-storage-consumption-on-managed-instance-explained/ba-p/1390923).
           
           ### How can I monitor billing cost for my backup storage consumption?
           
