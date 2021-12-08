@@ -78,7 +78,7 @@ Your logic app template uses this file name format:
 A logic app template has multiple `parameters` objects that exist at different levels and perform different functions. For example, at the top level, you can declare [template parameters](../azure-resource-manager/templates/syntax.md#parameters) for the values to accept and use at deployment when creating and deploying resources in Azure, for example:
 
 * Your logic app
-* Connections that your logic uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
+* Connections that your logic app uses to access other services and systems through [managed connectors](../connectors/apis-list.md)
 * Other resources that your logic app needs for deployment
 
   For example, if your logic app uses an [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) for business-to-business (B2B) scenarios, the template's top level `parameters` object declares the parameter that accepts the resource ID for that integration account.
