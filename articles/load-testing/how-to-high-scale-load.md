@@ -16,8 +16,7 @@ ms.topic: how-to
 In this article, learn how to set up a load test for high-scale load by using Azure Load Testing Preview. To simulate a large number of virtual users, you'll configure the test engine instances.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -31,7 +30,7 @@ The maximum number of *requests per second* (RPS) that Azure Load Testing can ge
 
 You can apply the following formula: RPS = (# of VUs) * (1/latency).
 
-For example, if application latency is 20 milliseconds (ms), and you're generating a 2,000 VUs load, you can achieve around 100,000 RPS.
+For example, if application latency is 20 milliseconds (ms), and you're generating a load of 2,000 VUs, you can achieve around 100,000 RPS.
 
 ## Test engine instances
 
