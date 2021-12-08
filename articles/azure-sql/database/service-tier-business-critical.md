@@ -36,10 +36,6 @@ Both the SQL Server database engine process and underlying .mdf/.ldf files are p
 
 In addition, the business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
-> [!NOTE]
-> The DTU-based purchasing model offers a premium service tier that is similar to the vCore-based purchasing model's business critical service tier. The DTU-based purchasing model is only available for Azure SQL Database. [Compare models](purchasing-models.md) to learn more. 
-
-
 ## When to choose this service tier
 
 The business critical service tier is designed for applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.

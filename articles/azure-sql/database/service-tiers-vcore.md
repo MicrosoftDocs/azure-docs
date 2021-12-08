@@ -9,8 +9,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 05/18/2021
-ROBOTS: NOINDEX 
+ms.date: 12/18/2021
 ms.custom: devx-track-azurepowershell
 ---
 # vCore model overview - Azure SQL Database and Azure SQL Managed Instance 
