@@ -804,7 +804,7 @@
       - name: Configure failover group
         items: 
         - name: Failover group
-          href: database/scripts/etup-geodr-and-failover-group-cli.md
+          href: database/scripts/setup-geodr-and-failover-group-cli.md
         - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
         - name: Pooled database
