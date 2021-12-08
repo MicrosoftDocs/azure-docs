@@ -18,10 +18,6 @@ ms.author: bagol
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
-Start by installing the **IoT OT Threat Monitoring with Defender for IoT** solution to your Microsoft Sentinel workspace, and then using the **Defender for IoT** data connector to stream all your Defender for IoT events into Microsoft Sentinel.
-
-Microsoft Sentinel [solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Microsoft Sentinel security content for a specific data connector using a single process. For example, the **IoT OT Threat Monitoring with Defender for IoT** the integration with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks with automated response and prevention capabilities.
-
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -45,9 +41,14 @@ Before you start, make sure you have the following requirements on your workspac
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
-Install the **IoT OT Threat Monitoring with Defender for IoT** solution in your workspace to make the Defender for IOT data connector and other related security content available to you.
+
+Start by installing the **IoT OT Threat Monitoring with Defender for IoT** solution to your Microsoft Sentinel workspace, and then using the **Defender for IoT** data connector to stream all your Defender for IoT events into Microsoft Sentinel.
 
 After the solution is installed, enable the **Microsoft Defender for IoT** data connector to start ingesting logs from Microsoft Defender for IoT.
+
+> [!NOTE]
+> Microsoft Sentinel [solutions](sentinel-solutions.md) include bundled security content, such as threat detections, workbooks, and watchlists. Solutions enable you to onboard Microsoft Sentinel security content for a specific data connector using a single process. For example, the **IoT OT Threat Monitoring with Defender for IoT** the integration with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks with automated response and prevention capabilities.
+>
 
 **Install the solution**
 
