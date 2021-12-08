@@ -7,7 +7,7 @@ ms.subservice: deployment-configuration
 ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/23/2021
 ---
 # Configure maintenance window (Preview)
