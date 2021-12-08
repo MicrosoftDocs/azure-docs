@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 >
-> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](aka.ms/csgate), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
@@ -45,7 +45,7 @@ You'll also need the following to use Form Recognizer containers:
 
 ## Request approval to run the container
 
-Complete and submit the [Application for Gated Services form](aka.ms/csgate)  to request approval to run the container.
+Complete and submit the [Application for Gated Services form](https://aka.ms/csgate)  to request approval to run the container.
 
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you submit the form, the Azure Cognitive Services team will review it and email you with a decision.
 
