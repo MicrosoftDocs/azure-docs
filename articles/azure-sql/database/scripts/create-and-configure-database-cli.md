@@ -35,50 +35,6 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-```azurecli-interactive
-
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
-
-```
-
-### Run the script 1
-
-```azurecli-interactive
-
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-150":::
-
-```
-
-### Run the script 2
-
-```azurecli-interactive
-
-:::code language="code-azurecli" source="~/cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-6" highlight="8,12":::
-
-```
-
-### test
-
-```bash
-
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
-
-```
-
-### json
-
-```azurecli-interactive
-
-:::code language="code-azurecli" source="~/azure_cli/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
-
-```
-
-### Run the script-orig
-
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
-
-### block only
-
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
 
 ### Clean up deployment

@@ -33,7 +33,7 @@ az account set -s $subscription # ...or use 'az login'
 ### Run the script
 
 ```azurecli-interactive
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="4-62":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="4-62":::
 ```
 
 ### Clean up deployment

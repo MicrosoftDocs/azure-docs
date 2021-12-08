@@ -398,7 +398,7 @@ This script uses the following commands. Each command in the table links to comm
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
 ```
 
 This script uses the following commands. Each command in the table links to command specific documentation.
