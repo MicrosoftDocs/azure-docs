@@ -97,7 +97,7 @@ az k8s-extension create  -g <resource group> -c <cluster> --cluster-type connect
 
 ## OOM Error (Out of Memory)
 
-Please try adjusting the batch size of the training job or using an instance-type with higher memory limit. 
+Please try adjusting the batch size of the training job or using an instance-type with higher memory limit. For tensorflow jobs, unlike other distributed jobs set the memory limits of ps pod hard coded with 2048Mi, the memory limit of ps pods are the same as the worker nodes'.
 
 ## Permission Denied under '/workspaceblobstore/azureml'
 
