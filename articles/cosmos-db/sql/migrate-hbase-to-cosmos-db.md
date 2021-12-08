@@ -91,7 +91,7 @@ The key differences between the data structure of Azure Cosmos DB and HBase are 
   ```
 
 > [!TIP]
-HBase stores data in byte array, so if you want to migrate data that contains double-byte characters to Azure Cosmos DB, the data must be UTF-8 encoded.
+> HBase stores data in byte array, so if you want to migrate data that contains double-byte characters to Azure Cosmos DB, the data must be UTF-8 encoded.
 
 ### Consistency model
 
@@ -806,7 +806,8 @@ Server-side programming mappings
 | Coprocessor  (Observer) | Trigger  | Observer is a trigger that executes before and after a particular event. Just as Observer supports pre- and post-calls, Cosmos DB's Trigger also supports pre- and post-triggers. |
 | Coprocessor  (Endpoint) | Stored Procedure | Endpoint is a server-side data processing mechanism that is executed for each region. This is similar to an RDBMS stored procedure. Cosmos DB stored procedures are written using JavaScript. It provides access to all the operations you can perform on Cosmos DB through stored procedures. |
 
-*Please note that different mappings and implementations may be required in Cosmos DB depending on the processing implemented on HBase.
+> [!NOTE]
+> Different mappings and implementations may be required in Cosmos DB depending on the processing implemented on HBase.
 
 ## Security
 
