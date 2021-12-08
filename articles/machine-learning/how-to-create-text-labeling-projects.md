@@ -189,7 +189,7 @@ On the **Data** tab, you can see your dataset and review labeled data. Scroll th
 View and change details of your project.  In this tab you can:
 
 * View project details and input datasets
-* Enable incremental refresh or request an immediate refresh
+* Enable or disable **incremental refresh at regular intervals** or request an immediate refresh
 * View details of the storage container used to store labeled outputs in your project
 * Add labels to your project
 * Edit instructions you give to your labels
