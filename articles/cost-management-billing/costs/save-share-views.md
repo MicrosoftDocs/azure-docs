@@ -22,7 +22,7 @@ When you save a view, all settings in cost analysis are saved, including filters
 
 After you save a view, you can share the URL to it with others using the **Share** command. The URL is specific to your current scope. Sharing only shares the view configuration and doesn't grant others access to the underlying data. If you don't have access to the scope, you'll see an `access denied` message.
 
-You can also pin the current view to an Azure portal dashboard. The pinned view only includes a snapshot of the main chart or table and doesn't update when the view is updated. A pinned dashboard isn't the same thing as a saved view.
+You can also pin the current view to an Azure portal dashboard. The pinned view is a condensed view of the main chart or table and doesn't update when the view is updated. A pinned dashboard isn't the same thing as a saved view.
 
 ### To save a view
 
