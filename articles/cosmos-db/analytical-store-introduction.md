@@ -184,7 +184,7 @@ df = spark.read\
      .load()  
 ```
 
-* Azure Synapse Spark now supports properties with whitespaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+* Azure Synapse Spark now supports properties with white spaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
 
 ```Python
 df = spark.read\
@@ -209,6 +209,7 @@ df = spark.read\
 
 * SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
 
+* If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
 
 ### Schema representation
 

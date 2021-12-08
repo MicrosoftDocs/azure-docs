@@ -95,7 +95,7 @@ The number of failed dependency calls.
 
 |Unit of measure|Supported aggregations | Supported dimensions |
 |---|---|---|---|
-|Count|Count| `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Rarget of dependency call`.
+|Count|Count| `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Target of dependency call`.
 
 
 ### Exceptions (exceptions/count)
