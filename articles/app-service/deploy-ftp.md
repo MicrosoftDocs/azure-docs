@@ -79,7 +79,7 @@ $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@publishUrl").value
 
 ## Enforce FTPS
 
-For enhanced security, you should allow FTP over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment.
+For enhanced security, you should allow FTP over TLS/SSL only. You can also disable both FTP and FTPS if you don't use FTP deployment. Windows Explorer doesn't support FTPS connection by design.
 
 # [Azure portal](#tab/portal)
 
