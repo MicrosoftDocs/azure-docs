@@ -62,7 +62,7 @@ sections:
         answer: |
           Customer name represents the bill to account details. For individuals, the customer name will be the end-customer’s name. For a cloud service provider (CSP), the customer name will be the name of the CSP.
 
-      - question: Is it possible use an API to download data from the revenue dashboard?
+      - question: Is it possible to use an API to download data from the revenue dashboard?
         answer: |
           Yes. To learn about the analytics APIs, see [Get started with programmatic access to analytics data](analytics-get-started.md).
 
