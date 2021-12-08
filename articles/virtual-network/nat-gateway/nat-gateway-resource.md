@@ -148,7 +148,7 @@ The destination will now see the source of the flows as 65.52.1.1 (source tuple 
 
 #### Source (SNAT) port reuse
 
-Virtual machines can use any available port provided by the public IP(s) configured to NAT gateway for outbound connectivity. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gatewy will also opportunistically reuse source (SNAT) ports. 
+Virtual machines can use any available port provided by the public IP(s) configured to NAT gateway for outbound connectivity. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gateway will also opportunistically reuse source (SNAT) ports. 
 
 The following flow illustrates this concept with a VM flowing to destination IP 65.52.0.2 after flows 1 - 3 from the above tables have already taken place.
 
@@ -218,7 +218,7 @@ The following timers indicate how long a connection is maintained before closing
 | Timer | Description | Value |
 |---|---|---|
 | TCP FIN | Occurs when the private side of NAT initiates termination of a TCP connection. A timer is set after the FIN packet is sent by the public endpoint. This timer allows the private endpoint time to resend an ACK (acknowledgment) packet should it be lost. Once the timer ends, the connection is closed. | 60 seconds |
-| TCP RST | Occurs when the private side of NAT sends a RST (reset) packet in an attempt to communicate on the TCP connection. If the RST packet is not received by the public side of NAT, or the RST packet is returned to the private endpoint, the connection will timeout and close. The public side of NAT doesn't generate TCP RST packets or any other traffic. | 10 seconds |
+| TCP RST | Occurs when the private side of NAT sends a RST (reset) packet in an attempt to communicate on the TCP connection. If the RST packet is not received by the public side of NAT, or the RST packet is returned to the private endpoint, the connection will time out and close. The public side of NAT doesn't generate TCP RST packets or any other traffic. | 10 seconds |
 | TCP half open | Occurs when the public endpoint is waiting for acknowledgment from the private endpoint that the connection between the two is fully bidirectional. | 30 seconds |
 | TCP idle timeout | TCP connections can go idle when no data is transmitted between either endpoint for a prolonged period of time. A timer can be configured from 4 minutes (default) to 120 minutes (2 hours) to time out a connection that has gone idle. Traffic on the flow will reset the idle timeout timer. | Configurable; 4 minutes (default) - 120 minutes |
 
