@@ -7,7 +7,7 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/25/2021
 ---
 
