@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: guide
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/30/2021
 ---
 

@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: mathoma, urmilano
+ms.reviewer: kendralittle, mathoma, urmilano
 ms.date: 12/15/2021
 ---
 # Business critical tier - Azure SQL Database and Azure SQL Managed Instance 
@@ -37,7 +37,7 @@ Both the SQL Server database engine process and underlying .mdf/.ldf files are p
 In addition, the business critical cluster has built-in [Read Scale-Out](read-scale-out.md) capability that provides free-of charge built-in read-only node that can be used to run read-only queries (for example reports) that should not affect performance of your primary workload.
 
 > [!NOTE]
-> Azure SQL Database also offers the DTU-based purchasing model, which is not available for Azure SQL Managed Instance. The business critical tier is called Premium in the DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model for Azure SQL Database, see [Azure SQL Database purchasing models and resources](purchasing-models.md).
+> The DTU-based purchasing model offers a premium service tier that is similar to the vCore-based purchasing model's business critical service tier. The DTU-based purchasing model is only available for Azure SQL Database. [Compare models](purchasing-models.md) to learn more. 
 
 
 ## When to choose this service tier

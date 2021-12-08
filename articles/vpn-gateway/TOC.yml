@@ -53,7 +53,7 @@
     href: vpn-gateway-bgp-overview.md
   - name: About highly available connections
     href: vpn-gateway-highlyavailable.md
-  - name: About Point-to-Site connections
+  - name: About Point-to-Site VPN
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md

@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 05/18/2021
+ms.date: 12/15/2021
 ms.custom: ignite-fall-2021
 ---
 # Azure SQL Managed Instance - Compute Hardware in the vCore Service Tier

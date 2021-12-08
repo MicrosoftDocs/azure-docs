@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 12/15/2021
 ---
 # Compare vCore and DTU purchasing models (Azure SQL Database)
