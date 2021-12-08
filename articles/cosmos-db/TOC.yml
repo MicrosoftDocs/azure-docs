@@ -877,6 +877,8 @@
               href: sql/couchbase-cosmos-migration.md
             - name: Migrate - DynamoDB to SQL API
               href: sql/dynamo-to-cosmos.md
+            - name: Migrate - HBase to SQL API
+              href: sql/migrate-hbase-to-cosmos-db.md
         - name: Security
           items:
             - name: Configure Cross Origin Resource Sharing(CORS)
