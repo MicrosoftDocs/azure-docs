@@ -170,7 +170,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Description|The purpose of the test is to validate the device can receive and update its firmware and software.|
 |Target Availability|2022|
 |Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
+|Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---

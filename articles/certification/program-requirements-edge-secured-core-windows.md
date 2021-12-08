@@ -122,17 +122,6 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Resources||
 
 ---
-</br>
-
-|Name|SecuredCore.Hardware.SecureEnclave / NEED TO CHECK TO SEE IF THIS IS HW|
-|:---|:---|
-|Status|Optional|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
-|Target Availability|2022|
-|Requirements dependency|??|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset REVIEW to ensure the Azure Security Agent can communicate with the secure enclave|
-|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
 
 ## Windows IoT Software/Service Requirements
 ---
@@ -157,7 +146,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Target Availability|2022|
 |Requirements dependency||
 |Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Microsoft update, Azure Device update, or other approved services.|
+|Validation|Partner confirmation that they were able to send an update to the device through Windows update and other approved services.|
 |Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
 
 ---
@@ -178,7 +167,7 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
-|Status|FUTURE REVIEW|
+|Status|Coming Soon June 2022|
 |Description|The purpose of the test is to validate that the system conforms to a baseline security configuration.|
 |Target Availability|2022|
 |Requirements dependency|Azure Defender for IoT|
