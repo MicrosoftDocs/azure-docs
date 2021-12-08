@@ -483,7 +483,7 @@ Learn more about Azure Government:
 
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
 - [Azure Government overview](./documentation-government-welcome.md)
-- [Azure support for export controls](./documentation/government-overview-itar.md)
+- [Azure support for export controls](./documentation-government-overview-itar.md)
 - [Azure Government security](./documentation-government-plan-security.md)
 - [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 
