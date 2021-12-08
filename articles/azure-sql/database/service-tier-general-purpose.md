@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma, urmilano
-ms.date: 02/07/2019
+ms.date: 12/15/2021
 ---
 # General purpose service tier - Azure SQL Database and Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,7 +37,7 @@ In the architectural model for the general purpose service tier, there are two l
 Whenever the database engine or operating system is upgraded, some part of underlying infrastructure fails, or if some critical issue is detected in the `sqlservr.exe` process, Azure Service Fabric will move the stateless process to another stateless compute node. There is a set of spare nodes that is waiting to run new compute service if a failover of the primary node happens in order to minimize failover time. Data in Azure storage layer is not affected, and data/log files are attached to newly initialized process. This process guarantees 99.99% availability, but it might have some performance impacts on heavy workloads that are running due to transition time and the fact the new node starts with cold cache.
 
 > [!NOTE]
-> Azure SQL Database also offers the DTU-based purchasing model, which is not available for Azure SQL Managed Instance. The general purpose service tier in the vCore-based purchasing model is called the standard service tier in the DTU-based purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model for Azure SQL Database, see [purchasing models and resources](purchasing-models.md).
+The DTU-based purchasing model offers a standard service tier that is similar to the vCore-based purchasing model's general purpose service tier.
 
 ## When to choose this service tier
 
@@ -53,7 +53,7 @@ The following table shows resource limits for both Azure SQL Database and Azure 
 | **Storage type** | Remote storage | Remote storage| 
 | **Database size** | 1 GB - 4 TB | 32 GB – 16 TB |
 | **Storage size** | 1 GB - 4 TB | 32 GB - 16 TB| 
-| **TempDB size** | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) |
+| **Tempdb size** | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [24 GB per vCore](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Log write throughput** | Single databases: [4.5 MB/s per vCore (max 50 MB/s)](resource-limits-vcore-single-databases.md) <br> Elastic pools: [6 MB/s per vCore (max 62.5 MB/s)](resource-limits-vcore-elastic-pools.md) | [3 MB/s per vCore (max 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics)|
 | **Availability** | 99.99% | 99.99% |
 | **Backups** | RA-GRS, 1-35 days (7 days by default) | RA-GRS, 1-35 days (7 days by default)| 
