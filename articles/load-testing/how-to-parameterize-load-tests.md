@@ -280,9 +280,9 @@ The following YAML snippet shows an Azure Pipelines example:
 
 ## FAQ  
 
-### Are my secret values stored by the Azure Load Testing service?  
+### Does the Azure Load Testing service store my secret values?  
 
-No. The values of secrets aren't stored by the Azure Load Testing service. When you use a key vault secret URI, the service stores only the secret URI, and it fetches the value of the secret for each test run. If you provide the value of secrets in a CI/CD workflow, the secret values aren't available after the test run. You'll provide these values for each test run.
+No. The Azure Load Testing service doesn't store the values of secrets. When you use a key vault secret URI, the service stores only the secret URI, and it fetches the value of the secret for each test run. If you provide the value of secrets in a CI/CD workflow, the secret values aren't available after the test run. You'll provide these values for each test run.
 
 ### What happens if I have parameters in both my YAML configuration file and the CI/CD workflow?  
 
@@ -290,4 +290,4 @@ If a parameter exists in both the YAML configuration file and the Azure Pipeline
 
 ### I created and ran a test from my CI/CD workflow by passing parameters using the Azure Load Testing task or action. Can I run this test from the Azure portal with the same parameters?
 
-The values of the parameters aren't stored when they're passed from the CI/CD workflow. You'll have to provide the parameter values again when you run the test from the Azure portal. You'll get a prompt to enter the missing values. For secret values, you'll enter the key vault secret URI. The values that you enter at the test run or rerun page are valid only for that test run. For making changes at the test level, go to *Configure Test* and enter your parameter values.
+The values of the parameters aren't stored when they're passed from the CI/CD workflow. You'll have to provide the parameter values again when you run the test from the Azure portal. You'll get a prompt to enter the missing values. For secret values, you'll enter the key vault secret URI. The values that you enter at the test run or rerun page are valid only for that test run. For making changes at the test level, go to **Configure Test** and enter your parameter values.
