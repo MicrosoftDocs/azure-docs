@@ -34,6 +34,11 @@ To migrate your existing custom projects to the Studio, jump ahead to the [**Cus
 
 ## Sign into the Form Recognizer Studio preview
 
+> [!NOTE]
+> **Virtual networks (VNETs)** 
+> 
+> If you are using the Studio with service endpoints and blob storage configured within a virtual network (VNET), ensure that your computer is in the same VNET as the endpoint and the storage container.
+
 After you have completed the prerequisites, navigate to the [Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com).
 
 1. Select a Form Recognizer service feature from the Studio home page.
