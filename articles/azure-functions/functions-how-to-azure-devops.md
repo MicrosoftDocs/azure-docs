@@ -276,9 +276,10 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 ---
 
 
-## <a id="container">Deploy a Function App Container</a>
 
-You can automatically deploy an Azure Functions function app using a custom container after every successful build.
+## <a id="container">Deploy a container</a>
+
+You can automatically deploy your code to Azure Functions as a custom container after every successful build.
 
 ### Configure registry credentials
 
@@ -292,7 +293,7 @@ App Service needs information about your registry and image to pull the private 
 
 The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md).
 
-To deploy to an Azure Functions container, add the following snippet at the end of your YAML file:
+To deploy, add the following snippet at the end of your YAML file:
 
 ```yaml
 trigger:
@@ -316,7 +317,7 @@ variables:
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
-The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task will pull the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploy the image to the Azure Function App Container.
+The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task will pull the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploy the image.
 
 # [Classic](#tab/classic/)
 
