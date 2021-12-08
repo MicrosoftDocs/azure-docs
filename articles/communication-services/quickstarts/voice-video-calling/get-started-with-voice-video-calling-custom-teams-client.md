@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Add voice & video calling to custom Teams client
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add voice & video calling capabilities to your custom Teams app using Azure Communication Services.
+description: In this quickstart, you'll learn how to add voice & video-calling capabilities to your custom Teams app using Azure Communication Services.
 author: xixian73
 ms.author: xixian
 ms.date: 12/1/2021
