@@ -131,7 +131,7 @@ To get the Storage Account access key:
 
 ## Create a profile container with FSLogix
 
-In order to use profile containers, you'll need to configure FSLogix on your session host VMs. In case you are using a custom image that doesn't has the FSLogix Agent already installed, please follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host, as long as you don't use group policies to apply these settings at scale to multiple session hosts.
+In order to use profile containers, you'll need to configure FSLogix on your session host VMs. If you're using a custom image that doesn't has the FSLogix Agent already installed, follow the instructions in [Download and install FSLogix](/fslogix/install-ht). You can set options for setting registry keys on session hosts in images or on a group policy. You'll need to follow these instructions every time you configure a session host, as long as you don't use group policies to apply these settings at scale to multiple session hosts.
 
 To configure FSLogix on your session host VM:
 
