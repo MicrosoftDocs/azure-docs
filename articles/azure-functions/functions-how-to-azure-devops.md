@@ -27,7 +27,7 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 ## Create your Function app
 
 This is a step-by-step guide to using Azure Pipelines with Azure Functions.
-#### [.NET Core](#tab/dotnet-core/)
+# [.NET Core](#tab/dotnet-core)
 
 If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
 
@@ -37,7 +37,7 @@ To use sample code instead, fork this GitHub repo:
     https://github.com/microsoft/devops-project-samples/tree/master/dotnet/aspnetcore/functionApp
 ```
 
-#### [Java](#tab/java)
+# [Java](#tab/java)
 
 If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
 
@@ -46,7 +46,7 @@ To use sample code instead, fork this GitHub repo:
     https://github.com/MicrosoftDocs/pipelines-java-function
 ```
 
-#### [Nodejs](#tab/nodejs)
+# [Nodejs](#tab/nodejs)
 
 If you already have an app at GitHub that you want to deploy, you can try creating a pipeline for that code.
 
@@ -58,7 +58,7 @@ To use sample code instead, fork this GitHub repo:
 
 ## Build your app
 
-#### [YAML](#tab/yaml)
+# [YAML](#tab/yaml)
 
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then choose the action to create a new pipeline.
@@ -70,7 +70,7 @@ To use sample code instead, fork this GitHub repo:
 
 ---
 
-#### [Classic](#tab/classic)
+# [Classic](#tab/classic)
 
 To get started: 
 
@@ -238,7 +238,7 @@ steps:
 ## Deploy your app
 
 You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. The Azure Function App Deploy task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
-#### [YAML](#tab/yaml)
+# [YAML](#tab/yaml)
 
 To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
 
@@ -268,7 +268,7 @@ variables:
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 
-#### [Classic](#tab/classic)
+# [Classic](#tab/classic)
 
 You'll need to create a separate release pipeline to deploy to Azure Functions. When you create a new release pipeline, search for the Azure Functions release template.
 
@@ -278,7 +278,7 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ## Deploy to a slot
 
-#### [YAML](#tab/yaml/)
+# [YAML](#tab/yaml)
 
 You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
@@ -303,7 +303,7 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
     SourceSlot: staging
     SwapWithProduction: true
 ```
-#### [Classic](#tab/classic/)
+# [Classic](#tab/classic)
 
 You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
