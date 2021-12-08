@@ -39,7 +39,7 @@ When Microsoft receives and scans the disk, job status is updated to **Received*
 
 The data automatically gets copied once the disks are connected to a server in the Azure datacenter. Depending upon the data size, the copy operation may take a few hours to days to complete. You can monitor the copy job progress in the portal.
 
-Once the copy is complete, order status updates to **Completed**.
+Once the copy is complete, order status updates to **Completed**. The **DATA COPY DETAILS** show the path to the copy log, which reports any errors during the data copy.
 
 ![Data copy completed](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
