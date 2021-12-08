@@ -49,7 +49,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
     ```azurecli
     CLUSTER_NAME="<clusterName>"
     TENANT_ID="<tenant>"
-    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/AnyUniqueSuffix" --query appId -o tsv)
+    SERVER_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Server" --identifier-uris "api://${TENANT_ID}/ClientAnyUniqueSuffix" --query appId -o tsv)
     echo $SERVER_APP_ID
     ```
 
@@ -83,7 +83,7 @@ A conceptual overview of this feature is available in the [Azure RBAC on Azure A
 1. Create a new Azure AD application and get its `appId` value. This value is used in later steps as `clientApplicationId`.
 
     ```azurecli
-    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/AnyUniqueSuffix" --query appId -o tsv)
+    CLIENT_APP_ID=$(az ad app create --display-name "${CLUSTER_NAME}Client" --native-app --reply-urls "api://${TENANT_ID}/ServerAnyUniqueSuffix" --query appId -o tsv)
     echo $CLIENT_APP_ID
     ```
 
