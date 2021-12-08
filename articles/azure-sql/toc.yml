@@ -795,16 +795,18 @@
           href: database/scripts/monitor-and-scale-database-cli.md
         - name: Scale pooled database
           href: database/scripts/scale-pool-cli.md
-      - name: Configure geo-replication and failover
+      - name: Configure geo-replication
         items:
-        - name: Single database
-          href: database/scripts/add-database-to-failover-group-cli.md
-        - name: Pooled database
-          href: ../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
         - name: Single database
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
         - name: Pooled database
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
+      - name: Configure failover
+        items: 
+        - name: Single database
+          href: database/scripts/add-database-to-failover-group-cli.md
+        - name: Pooled database
+          href: ../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
       - name: Auditing and threat detection
         items:
         - name: Configure auditing and threat-detection
@@ -1194,8 +1196,6 @@
         href: ../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE)
         href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
-      - name: Configure a failover group
-        href: ../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md
     - name: Azure PowerShell
       href: database/powershell-script-content-guide.md?tabs=managed-instance
     - name: Azure Resource Manager
