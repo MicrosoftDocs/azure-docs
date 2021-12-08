@@ -17,8 +17,7 @@ In this article, you'll learn how to configure your load test to monitor server-
 Azure Load Testing integrates with Azure Monitor to capture server-side resource metrics for Azure-hosted applications. You can specify which Azure components and resource metrics to monitor for your load test run.
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
