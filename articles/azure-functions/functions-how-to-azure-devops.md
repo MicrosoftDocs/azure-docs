@@ -88,7 +88,7 @@ In some cases, build artifacts have a specific folder structure. You might need 
 
 ![The option to prepend the root folder name](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
-----
+---
 
 ### Example YAML build pipelines
 
@@ -238,6 +238,7 @@ steps:
 ## Deploy your app
 
 You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. The Azure Function App Deploy task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
+
 # [YAML](#tab/yaml)
 
 To deploy to Azure Functions, add the following snippet at the end of your `azure-pipelines.yml` file. The default `appType` is Windows. You can specify Linux by setting the `appType` to `functionAppLinux`.
@@ -309,7 +310,7 @@ You can configure the Azure Function App to have multiple slots. Slots allow you
 
 Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
 
-----
+---
 ## Create a pipeline with Azure CLI
 
 To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
