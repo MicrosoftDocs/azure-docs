@@ -571,10 +571,10 @@ Create a dummy file system cluster resource, which will monitor and report failu
 
 `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
 
-on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
+`on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.  
 
 > [!IMPORTANT]
-> Timeouts in the above configuration may need to be adapted to the specific HANA set up to avoid unnecessary fence actions.  Don’t set the timeout values too low.  Be aware that the filesystem monitor is not related to the HANA system replication. For details see [Suse documentation](https://www.suse.com/support/kb/doc/?id=000019904).
+> Timeouts in the above configuration may need to be adapted to the specific HANA set up to avoid unnecessary fence actions.  Don’t set the timeout values too low.  Be aware that the filesystem monitor is not related to the HANA system replication. For details see [SUSE documentation](https://www.suse.com/support/kb/doc/?id=000019904).
 
 
 
