@@ -99,7 +99,7 @@ The dedicated gateway has the following limitations during the public preview:
 - You can't provision a dedicated gateway in Azure Cosmos DB accounts with [availability zones](high-availability.md#availability-zone-support).
 - You can't use [role-based access control (RBAC)](how-to-setup-rbac.md) to authenticate data plane requests routed through the dedicated gateway
 
-The dedicated gateway blade will be hidden on Azure Cosmos DB accounts with IP firewalls, Vnet, Private Link, or availability zones.
+The dedicated gateway blade is hidden on Azure Cosmos DB accounts with IP firewalls, Vnet, Private Link, or availability zones.
 
 ## Supported regions
 
