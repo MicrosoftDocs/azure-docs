@@ -95,11 +95,36 @@ az k8s-extension create  -g <resource group> -c <cluster> --cluster-type connect
 
 # Job is in failed status
 
-## OOM Error
+## OOM Error (Out of Memory)
 
-## ORET Error
+Please try adjusting the batch size of the training job or using an instance-type with higher memory limit. 
 
-## 
+## Permission Denied under '/workspaceblobstore/azureml'
+
+![image](./media/how-to-debug-arc-kubernetes/blobfuse-permission.png)
+
+Please upgrade the blobfuse on the kubernetes nodes to 1.3.6 or above.
+
+``` azure cli
+az k8s-extension create  -g <resource group> -c <cluster> --cluster-type connectedClusters  --extension-type Microsoft.AzureML.Kubernetes -n trainingcompute --release-train stable --config enableTraining=true  blobfuseSysctlInstall.enabled=true
+```
+
+## stderr: nvidia-container-cli: initialization error: nvml error: driver/library version mismatch
+
+![image](./media/how-to-debug-arc-kubernetes/error-message-nvml.png)
+
+1. Try restarting the problematic node.
+
+2. Check whether [nvml driver library version mismatch](https://stackoverflow.com/questions/43022843/nvidia-nvml-driver-library-version-mismatch)
+
+
+
+## Job failed with blobfuse using SasToken
+
+It may be due to an outdated CRD of the aml-operator, please update the CRD in the cluster. 
+
+
+
 
 
 
