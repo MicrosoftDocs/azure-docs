@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you'll learn how to download the test results from Azure Load Testing Preview in the Azure portal. You might use these results for reporting in third-party tools.
 
-The test results contain a comma-separated (CSV) file with details of each application request. In addition, all files for running the Apache JMeter dashboard locally are included.
+The test results contain a comma-separated values (CSV) file with details of each application request. In addition, all files for running the Apache JMeter dashboard locally are included.
 
 :::image type="content" source="media/how-to-export-test-results/apache-jmeter-dashboard.png" alt-text="Screenshot that shows the downloaded test results on the Apache JMeter dashboard.":::
 
