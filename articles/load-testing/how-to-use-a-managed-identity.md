@@ -82,9 +82,9 @@ The `tenantId` property identifies which Azure AD tenant the identity belongs to
 
 ## Grant access to your Azure key vault
 
-Managed Identity allows the Azure Load testing resource to access other Azure resources. In this section, you grant the Azure Load Testing service access to read secret values from your key vault.
+A managed identity allows the Azure Load testing resource to access other Azure resources. In this section, you grant the Azure Load Testing service access to read secret values from your key vault.
 
-If you don't already have a key vault, follow the instructions in [Azure Key Vault quick-start](/azure/key-vault/secrets/quick-create-cli) to create it.
+If you don't already have a key vault, follow the instructions in [Azure Key Vault quickstart](/azure/key-vault/secrets/quick-create-cli) to create it.
 
 1. In the Azure portal, go to your Azure Key Vault resource.
 
@@ -94,7 +94,7 @@ If you don't already have a key vault, follow the instructions in [Azure Key Vau
 
     :::image type="content" source="media/how-to-use-a-managed-identity/key-vault-add-policy.png" alt-text="Screenshot that shows how to add an access policy to your Azure key vault.":::
 
-1. Select **Select principal**, and then select your Azure Load Testing resource system-assigned principal.
+1. Select **Select principal**, and then select the system-assigned principal for your Azure Load Testing resource.
 
     The name of the system-assigned principal is the same name as the Azure Load Testing resource.
 
