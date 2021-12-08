@@ -6,7 +6,7 @@ ms.date: 12/01/2021
 ms.author: xixian
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling SDK to add 1 on 1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for JavaScript.
+Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for JavaScript.
 
 ## Sample Code
 
@@ -21,7 +21,7 @@ If you'd like to skip ahead to the end, you can download this quickstart as a sa
 
 ## Setting up
 ### Create a new Node.js application
-Open your terminal or command window create a new directory for your app, and navigate to it.
+Open your terminal or command window create a new directory for your app, and navigate to the directory.
 ```console
 mkdir calling-quickstart && cd calling-quickstart
 ```
@@ -86,7 +86,7 @@ Here's the code:
 
 ## ACS Calling Web SDK Object model
 
-The following classes and interfaces handle some of the major features of the Azure Communication Services Calling SDK:
+The following classes and interfaces handle some of the main features of the Azure Communication Services Calling SDK:
 
 | Name                                | Description                                                                                                                              |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -131,7 +131,7 @@ let connectedLabel = document.getElementById('connectedLabel');
 let remoteVideoContainer = document.getElementById('remoteVideoContainer');
 let localVideoContainer = document.getElementById('localVideoContainer');
 /**
- * Using the CallClient, initialize a CallAgent instance with a CommunicationUserCredential which will enable us to make outgoing calls and receive incoming calls. 
+ * Create an instance of CallClient. Initialize a CallAgent instance with a CommunicationUserCredential via created CallClient. CallAgent enables us to make outgoing calls and receive incoming calls. 
  * You can then use the CallClient.getDeviceManager() API instance to get the DeviceManager.
  */
 initializeCallAgentButton.onclick = async () => {
@@ -161,11 +161,11 @@ initializeCallAgentButton.onclick = async () => {
 }
 /**
  * Place a 1:1 outgoing video call to a user
- * Add an event listener to initiate a call when the `startCallButton` is clicked:
- * First you have to enumerate local cameras using the deviceManager `getCameraList` API.
- * In this quickstart we're using the first camera in the collection. Once the desired camera is selected, a
+ * Add an event listener to initiate a call when the `startCallButton` is selected.
+ * Enumerate local cameras using the deviceManager `getCameraList` API.
+ * In this quickstart, we're using the first camera in the collection. Once the desired camera is selected, a
  * LocalVideoStream instance will be constructed and passed within `videoOptions` as an item within the
- * localVideoStream array to the call method. Once your call connects it will automatically start sending a video stream to the other participant. 
+ * localVideoStream array to the call method. When the call connects, your application will be sending a video stream to the other participant. 
  */
 startCallButton.onclick = async () => {
     try {
@@ -179,10 +179,10 @@ startCallButton.onclick = async () => {
     }
 }
 /**
- * Accepting an incoming call with video
- * Add an event listener to accept a call when the `acceptCallButton` is clicked:
- * After subscrigin to the `CallAgent.on('incomingCall')` event, you can accept the incoming call.
- * You can pass the local video stream which you want to use to accept the call with.
+ * Accepting an incoming call with a video
+ * Add an event listener to accept a call when the `acceptCallButton` is selected.
+ * You can accept incoming calls after subscribing to the `CallAgent.on('incomingCall')` event.
+ * You can pass the local video stream to accept the call with the following code.
  */
 acceptCallButton.onclick = async () => {
     try {
@@ -277,11 +277,11 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
         // Subscribe to the remoteParticipant's 'videoStreamsUpdated' event to be
         // notified when the remoteParticiapant adds new videoStreams and removes video streams.
         remoteParticipant.on('videoStreamsUpdated', e => {
-            // Subscribe to new remote participant's video streams that were added.
+            // Subscribe to newly added remote participant's video streams.
             e.added.forEach(remoteVideoStream => {
                 subscribeToRemoteVideoStream(remoteVideoStream)
             });
-            // Unsubscribe from remote participant's video streams that were removed.
+            // Unsubscribe from newly removed remote participants' video streams.
             e.removed.forEach(remoteVideoStream => {
                 console.log('Remote participant video stream was removed.');
             })
@@ -293,8 +293,8 @@ subscribeToRemoteParticipant = (remoteParticipant) => {
 /**
  * Subscribe to a remote participant's remote video stream obj.
  * You have to subscribe to the 'isAvailableChanged' event to render the remoteVideoStream. If the 'isAvailable' property
- * changes to 'true', a remote participant is sending a stream. Whenever availability of a remote stream changes
- * you can choose to destroy the whole 'Renderer', a specific 'RendererView' or keep them, but this will result in displaying blank video frame.
+ * changes to 'true' a remote participant is sending a stream. Whenever the availability of a remote stream changes
+ * you can choose to destroy the whole 'Renderer' a specific 'RendererView' or keep them. Displaying RendererView without a video stream will result in a blank video frame. 
  */
 subscribeToRemoteVideoStream = async (remoteVideoStream) => {
     // Create a video stream renderer for the remote video stream.
@@ -398,14 +398,14 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 Open your browser and on two tabs navigate to http://localhost:8080/. You should see the following:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-a.png" alt-text="1 on 1 video calling page - a":::
 
-On the first tab, enter a valid user access token, and on the other tab enter another different valid user access token (Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have tokens available to use).
+On the first tab, enter a valid user access token. On the second tab, enter another different valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 On both tabs, click on the "Initialize Call Agent" buttons. You should see the following: 
-:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1 on 1 video calling page - b":::
+:::image type="content" source="../../media/javascript/1-on-1-video-calling-b.png" alt-text="1:1 video calling page - b":::
 
-On the first tab, enter the ACS user identity of the second tab, and click the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
+On the first tab, enter the ACS user identity of the second tab, and select the "Start Call" button. The first tab will start the outgoing call to the second tab, and the second tab's "Accept Call" button becomes enabled:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-c.png" alt-text="1 on 1 video calling page - c":::
 
-From the second tab, click on the "Accept Call" button and the call will be answered and connected. You should see the following:
+From the second tab, select the "Accept Call" button. The call will be answered and connected. You should see the following:
 :::image type="content" source="../../media/javascript/1-on-1-video-calling-d.png" alt-text="1 on 1 video calling page - d":::
 
-Both tabs are now successfully in a 1 to 1 video call. Both tabs can hear each other's audio and see each other video stream.
+Both tabs are now successfully in a 1:1 video call. Both users can hear each other's audio and see each other video stream.
