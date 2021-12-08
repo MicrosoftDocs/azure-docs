@@ -68,8 +68,6 @@ To use sample code instead, fork this GitHub repo:
 1. Azure Pipelines will analyze your repository and recommend a template. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
----
-
 # [Classic](#tab/classic)
 
 To get started: 
