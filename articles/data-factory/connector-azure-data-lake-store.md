@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/11/2021
+ms.date: 12/10/2021
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
@@ -490,6 +490,10 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
 
+**Enable change data capture (Preview):** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture (preview)](#change-data-capture-preview).
+
+:::image type="content" source="media/data-flow/enable-change-data-capture-preview.png" alt-text="Screenshot showing Enable change data capture (Preview).":::
+
 ### Sink properties
 
 In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen1. the **Settings** tab lets you manage how the files get written.
@@ -648,6 +652,15 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     }
 ]
 ```
+## Change data capture (preview) 
+
+Azure Data Factory can get new or changed files only from Azure Data Lake Storage Gen1 by enabling it in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+ 
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
+
+When you debug the pipeline, the **Enable change data capture (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run.   
 
 ## Next steps
 
