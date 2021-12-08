@@ -33,7 +33,7 @@ const locator = { meetingLink: '<MEETING_LINK>'}
 const call = callAgent.join(locator);
 ```
 
-Join by using meeting coordinates:
+Join by using meeting coordinates (this is currently in limited preview):
 
 ```js
 const locator = {
