@@ -276,6 +276,7 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 ---
 
 <a href="container"></a>
+
 ## Deploy a Function App Container
 
 You can automatically deploy an Azure Functions function app using a custom container after every successful build.
