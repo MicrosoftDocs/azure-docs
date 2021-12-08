@@ -89,6 +89,6 @@ The following parameter types are extension version-specific and require you to 
 
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](functions-bindings-blob-storage-usage-csharp.md#concurrency-and-memory-usage).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](../azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage).
 
-If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
+If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](../azure-functions/functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
