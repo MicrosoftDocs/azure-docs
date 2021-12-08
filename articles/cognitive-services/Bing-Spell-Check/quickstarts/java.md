@@ -5,12 +5,11 @@ description: Get started using the Bing Spell Check REST API and Java to check s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-other
 ms.author: aahi
 ---
 

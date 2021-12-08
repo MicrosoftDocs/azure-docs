@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/09/2021
+ms.date: 12/08/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common 
@@ -118,7 +118,7 @@ You can manage default network access rules for storage accounts through the Azu
 
 You can configure storage accounts to allow access only from specific subnets. The allowed subnets may belong to a VNet in the same subscription, or those in a different subscription, including subscriptions belonging to a different Azure Active Directory tenant.
 
-Enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
+You can enable a [Service endpoint](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage within the VNet. The service endpoint routes traffic from the VNet through an optimal path to the Azure Storage service. The identities of the subnet and the virtual network are also transmitted with each request. Administrators can then configure network rules for the storage account that allow requests to be received from specific subnets in a VNet. Clients granted access via these network rules must continue to meet the authorization requirements of the storage account to access the data.
 
 Each storage account supports up to 200 virtual network rules, which may be combined with [IP network rules](#grant-access-from-an-internet-ip-range).
 
@@ -223,7 +223,7 @@ During the preview you must use either PowerShell or the Azure CLI to enable thi
 You can manage virtual network rules for storage accounts through the Azure portal, PowerShell, or CLIv2. 
 
 > [!NOTE]
-> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
+> If you registered the `AllowGlobalTagsForStorageOnly` feature, and you want to enable access to your storage account from a virtual network/subnet in another Azure AD tenant, or in a region other than the region of the storage account or its paired region, then you must use PowerShell or the Azure CLI. The Azure portal does not show subnets in other Azure AD tenants or in regions other than the region of the storage account or its paired region, and hence cannot be used to configure access rules for virtual networks in other regions.
 
 #### [Portal](#tab/azure-portal)
 
@@ -344,7 +344,7 @@ IP network rules can't be used in the following cases:
 
   IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
-- To restrict access to clients in a [paired region](../../best-practices-availability-paired-regions.md) which are in a VNet that has a service endpoint.
+- To restrict access to clients in a [paired region](../../availability-zones/cross-region-replication-azure.md) which are in a VNet that has a service endpoint.
 
 - To restrict access to Azure services deployed in the same region as the storage account.
 
@@ -670,12 +670,16 @@ You can use the same technique for an account that has the hierarchical namespac
 | Service                        | Resource Provider Name                 | Purpose            |
 | :----------------------------- | :------------------------------------- | :----------------- |
 | Azure API Management           | Microsoft.ApiManagement/service        | Enables Api Management service access to storage accounts behind firewall using policies. [Learn more](../../api-management/api-management-authentication-policies.md#use-managed-identity-in-send-request-policy). |
+| Azure Cache for Redis | Microsoft.Cache/Redis | Allows access to storage accounts through Azure Cache for Redis. | 
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Enables Cognitive Search services to access storage accounts for indexing, processing and querying. |
 | Azure Cognitive Services       | Microsoft.CognitiveService/accounts    | Enables Cognitive Services to access storage accounts. [Learn more](../..//cognitive-services/cognitive-services-virtual-networks.md).|
 | Azure Container Registry Tasks | Microsoft.ContainerRegistry/registries | ACR Tasks can access storage accounts when building container images. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Allows access to storage accounts through the ADF runtime. |
 | Azure Data Share               | Microsoft.DataShare/accounts           | Allows access to storage accounts through Data Share. |
 | Azure DevTest Labs             | Microsoft.DevTestLab/labs              | Allows access to storage accounts through DevTest Labs. |
+| Azure Event Grid  | Microsoft.EventGrid/topics | Allows access to storage accounts through the Azure Event Grid. |
+| Azure Healthcare APIs | Microsoft.HealthcareApis/services | Allows access to storage accounts through Azure Healthcare APIs. |
+| Azure IoT Central Applications | Microsoft.IoTCentral/IoTApps | Allows access to storage accounts through Azure IoT Central Applications. |
 | Azure IoT Hub                  | Microsoft.Devices/IotHubs              | Allows data from an IoT hub to be written to Blob storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources) |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Machine Learning Service | Microsoft.MachineLearningServices      | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |

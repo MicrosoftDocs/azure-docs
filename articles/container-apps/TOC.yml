@@ -8,9 +8,14 @@
       href: compare-options.md
 - name: Quickstarts
   expanded: true
-  items:
+  items: 
     - name: Deploy your first container app
-      href: get-started.md
+      expanded: true
+      items:
+        - name: Azure portal
+          href: quickstart-portal.md
+        - name: Azure CLI
+          href: get-started.md  
 - name: Concepts
   items:
     - name: Environment
@@ -57,3 +62,5 @@
       href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: https://github.com/microsoft/azure-container-apps/wiki/FAQs

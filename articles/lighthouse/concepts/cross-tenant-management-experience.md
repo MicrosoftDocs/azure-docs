@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure Lighthouse enables and enhances cross-tenant experiences in many Azure services.
-ms.date: 11/11/2021
+ms.date: 12/01/2021
 ms.topic: conceptual
 ---
 
@@ -50,7 +50,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
   - Use Microsoft Defender for Cloud to monitor compliance across customers' hybrid environments
-- Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md):
+- Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md):
   - [Manage Kubernetes clusters that are connected](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups in Azure
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) for connected clusters
   - Enforce policies across connected clusters

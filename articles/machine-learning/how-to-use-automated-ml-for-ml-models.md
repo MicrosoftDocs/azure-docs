@@ -150,12 +150,12 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
-
-        1. Test data is considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
-        1. You can either provide your own test dataset or opt to use a percentage of your training dataset.          
-        1. The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
-        1. The test dataset should not be the same as training dataset or the validation dataset.
-        1. Forecasting runs do not support train/test split.
+        
+        * Test data is considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
+        * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset).         
+        * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
+        * The test dataset should not be the same as the training dataset or the validation dataset.
+        * Forecasting runs do not support train/test split.
         
         ![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
         
@@ -212,6 +212,13 @@ If you specified a test dataset or opted for a train/test split during your expe
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
+> [!WARNING]
+> This feature is not available for the following automated ML scenarios
+>  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
+
 To view the test run metrics of the recommended model,
  
 1. Navigate to the **Models** page, select the best model. 
@@ -227,7 +234,19 @@ To view the test predictions used to calculate the test metrics,
 
 Alternatively, the predictions file can also be viewed/downloaded from the Outputs + logs tab, expand Predictions folder to locate your predictions.csv file.
 
+The model test run generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test runs are not recommended for scenarios if any of the information used for or created by the test run needs to remain private.
+
 ## Test an existing automated ML model (preview)
+
+>[!IMPORTANT]
+> Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
+
+> [!WARNING]
+> This feature is not available for the following automated ML scenarios
+>  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
+>  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
+>  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
+>  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
 After your experiment completes, you can test the model(s) that automated ML generates for you. If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
 

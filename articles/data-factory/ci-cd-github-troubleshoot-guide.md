@@ -326,8 +326,19 @@ ARM template deployment fails with an error such as DataFactoryPropertyUpdateNot
 The ARM template deployment is attempting to change the type of an existing integration runtime. This is not allowed and will cause a deployment failure because data factory requires the same name and type of integration runtime across all stages of CI/CD.
 
 ##### Resolution
-If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](https://docs.microsoft.com/azure/data-factory/continuous-integration-delivery#best-practices-for-cicd)
+If you want to share integration runtimes across all stages, consider using a ternary factory just to contain the shared integration runtimes. You can use this shared factory in all of your environments as a linked integration runtime type. For more information, refer to [Continuous integration and delivery - Azure Data Factory](./continuous-integration-delivery.md#best-practices-for-cicd)
 
+### GIT publish may fail because of PartialTempTemplates files
+
+#### Issue
+When you have 1000s of old temporary ARM json files in PartialTemplates folder, publish may fail.
+
+#### Cause
+On publish, ADF fetches every file inside each folder in the collaboration branch. In the past, publishing generated two folders in the publish branch: PartialArmTemplates and LinkedTemplates. PartialArmTemplates files are no longer generated. However, because there can be many old files (thousands) in the PartialArmTemplates folder, this may result in many requests being made to GitHub on publish and the rate limit being hit. 
+
+#### Resolution
+Delete the PartialTemplates folder and republish. You can delete the temporary files in that folder as well.
+ 
 ## Next steps
 
 For more help with troubleshooting, try the following resources:
