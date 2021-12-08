@@ -781,29 +781,29 @@
     items:
     - name: Azure CLI
       items:
-      - name: Overview of Azure SQL Database samples
+      - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=single-database
-      - name: Create databases in Azure SQL Database
+      - name: Create databases
         items:
-        - name: Create a single database and configure a firewall rule
+        - name: Create single database
           href: database/scripts/create-and-configure-database-cli.md
-        - name: Create elastic pools and move pooled databases
+        - name: Create pooled database
           href: database/scripts/move-database-between-elastic-pools-cli.md
-      - name: Scale databases in Azure SQL Database
+      - name: Scale databases
         items:
-        - name: Scale a single database
+        - name: Scale single database
           href: database/scripts/monitor-and-scale-database-cli.md
-        - name: Scale an elastic pool
+        - name: Scale pooled database
           href: database/scripts/scale-pool-cli.md
       - name: Configure geo-replication and failover
         items:
-        - name: Add a single database to a failover group
+        - name: Single database
           href: database/scripts/add-database-to-failover-group-cli.md
-        - name: Configure a failover group for an elastic pool
+        - name: Pooled database
           href: ../sql-database/scripts/sql-database-add-elastic-pool-to-failover-group-cli.md
-        - name: Configure and fail over a single database by using active geo-replication
+        - name: Single database
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-database-cli.md
-        - name: Configure and fail over a pooled database by using active geo-replication
+        - name: Pooled database
           href: ../sql-database/scripts/sql-database-setup-geodr-and-failover-pool-cli.md
       - name: Auditing and threat detection
         items:
@@ -1188,11 +1188,11 @@
     items:
     - name: Azure CLI
       items:
-      - name: Overview of Azure SQL Managed Instance samples
+      - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
       - name: Create a SQL Managed Instance
         href: ../sql-database/scripts/sql-database-create-configure-managed-instance-cli.md
-      - name: Configure Transparent Data Encryption (TDE) using Azure Key Vault
+      - name: Configure Transparent Data Encryption (TDE)
         href: ../sql-database/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
       - name: Configure a failover group
         href: ../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md
