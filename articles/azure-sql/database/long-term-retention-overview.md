@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/13/2021
 ---
 # Long-term retention - Azure SQL Database and Azure SQL Managed Instance

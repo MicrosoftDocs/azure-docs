@@ -10,7 +10,7 @@ ms.devlang: azurecli
 ms.topic: sample
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 09/17/2021
 keywords: sql database, managed instance, azure cli samples, azure cli examples, azure cli code samples, azure cli script examples
 ---
