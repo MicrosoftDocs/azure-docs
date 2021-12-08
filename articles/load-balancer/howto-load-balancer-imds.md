@@ -24,7 +24,7 @@ ms.author: allensu
 
 | Data | Description | Version introduced |
 |------|-------------|--------------------|
-| `PublicIpAddresses` | The instance level Public or Private IP of the specific Virtual Machine instance | 2020-10-01
+| `publicIpAddresses` | The instance level Public or Private IP of the specific Virtual Machine instance | 2020-10-01
 | `inboundRules` | List of load balancing rules or inbound NAT rules using which the Load Balancer directs traffic to the specific Virtual Machine instance | 2020-10-01
 | `outboundRules` | List of outbound rules by which the Virtual Machine behind Load Balancer sends outbound traffic  | 2020-10-01
 
