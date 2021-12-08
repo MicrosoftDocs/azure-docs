@@ -22,7 +22,9 @@ ms.reviewer: nichola, arielsc, marsma
 
 You can no longer assume a secure network perimeter around the applications you build. Nearly every app you build will, by design, be accessed from outside the network perimeter. You also can’t guarantee every app you build is secure or will remain so after it’s deployed.
 
-Knowing this as the app developer, you’re therefore responsible not only for maximizing your app’s security, but also minimizing the damage your app can cause if it’s compromised.
+Knowing this as the app developer, it's your responsibility to not only maximize your app’s security, but also minimize the damage your app can cause if it’s compromised.
+
+Additionally, you are responsible for supporting the evolving needs of your customers and users, who will expect that your application meets their Zero Trust security requirements.
 
 By learning the principles of the [Zero Trust model](https://www.microsoft.com/en-us/security/business/zero-trust?rtc=1) and adopting their practices, you can:
 - Build more secure apps
@@ -30,14 +32,14 @@ By learning the principles of the [Zero Trust model](https://www.microsoft.com/e
 
 ## Zero Trust principles
 
-The Zero Trust model prescribes a culture of explicit verification rather than implicit trust. The model is anchored on three key [guiding principles](https://docs.microsoft.com/security/zero-trust/#guiding-principles-of-zero-trust):
+The Zero Trust model prescribes a culture of explicit verification rather than implicit trust. The model is anchored on three key [guiding principles](/security/zero-trust/#guiding-principles-of-zero-trust):
 - Verify explicitly
 - Use least privileged access
 - Assume breach
 
 ## When is an application said to be Zero Trust-ready?
 
-When you build an application that adheres to the Zero Trust framework, your app is considered to be "Zero Trust-ready". Such an application is more secure and has a minimal blast radius (when a breach occurs).
+When you build an application that adheres to the Zero Trust framework, your app is considered to be "Zero Trust-ready". Such an application is more secure and has a minimal blast radius (when a breach occurs). The application also works well and is manageable in customer environments that implement Zero Trust principles.
 
 ## Best practices for building Zero Trust-ready apps with the Microsoft identity platform
 
