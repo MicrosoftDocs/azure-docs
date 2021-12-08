@@ -1,7 +1,7 @@
 ---
 title: "Increase app security by following Zero Trust principles"
 titleSuffix: Microsoft identity platform
-description: Learn how following the Zero Trust principles can help increase the security of your application, its data, and which features of the Microsoft identity platform you can leverage to build Zero Trust-ready apps.
+description: Learn how following the Zero Trust principles can help increase the security of your application, its data, and which features of the Microsoft identity platform you can use to build Zero Trust-ready apps.
 services: active-directory
 author: chrischiedo
 manager: CelesteDG
@@ -22,22 +22,22 @@ ms.reviewer: nichola, arielsc, marsma
 
 You can no longer assume a secure network perimeter around the applications you build. Nearly every app you build will, by design, be accessed from outside the network perimeter. You also can’t guarantee every app you build is secure or will remain so after it’s deployed.
 
-Knowing this as the app developer, you’re thus responsible not only for maximizing your app’s security, but also minimizing the damage your app can cause if it’s compromised.
+Knowing this as the app developer, you’re therefore responsible not only for maximizing your app’s security, but also minimizing the damage your app can cause if it’s compromised.
 
 By learning the principles of the [Zero Trust model](https://www.microsoft.com/en-us/security/business/zero-trust?rtc=1) and adopting their practices, you can:
 - Build more secure apps
-- Minimize the damage your apps could cause in the event of a breach
+- Minimize the damage your apps could cause if there is a breach
 
 ## Zero Trust principles
 
 The Zero Trust model prescribes a culture of explicit verification rather than implicit trust. The model is anchored on three key [guiding principles](https://docs.microsoft.com/security/zero-trust/#guiding-principles-of-zero-trust):
-- verity explicitly
-- use least privileged access
-- assume breach
+- Verify explicitly
+- Use least privileged access
+- Assume breach
 
 ## When is an application said to be Zero Trust-ready?
 
-When you build an application that adheres to the Zero Trust framework, your app is considered to be "Zero Trust-ready". Such an application is more secure and has a minimal blast radius (in the event of a breach).
+When you build an application that adheres to the Zero Trust framework, your app is considered to be "Zero Trust-ready". Such an application is more secure and has a minimal blast radius (when a breach occurs).
 
 ## Best practices for building Zero Trust-ready apps with the Microsoft identity platform
 
@@ -49,19 +49,19 @@ The Microsoft identity platform offers authentication mechanisms for verifying t
 
 |Best practice   |Benefits to app security   |
 |----------------|---------------------------|
-|Use the [Microsoft Authentication Libraries](./reference-v2-libraries.md) (MSAL).|MSAL is a set of Microsoft’s authentication libraries for developers. With MSAL, you can authenticate users and applications, as well as acquire tokens to access corporate resources using just a few lines of code. MSAL uses modern protocols ([OpenID Connect and OAuth 2.0](./active-directory-v2-protocols.md)) that remove the need for apps to ever handle a user's credentials directly. This vastly improves the security for both users and applications as the identity provider becomes the security perimeter. Also, these protocols continuously evolve to address new paradigms, opportunities, and challenges in identity security.|
-|Adopt enhanced security extensions like CAE and Conditional Access authentication context when appropriate.|In Azure AD, some of the most used extensions include [Conditional Access](../conditional-access/overview.md) (CA), [Conditional Access authentication context](./developer-guide-conditional-access-authentication-context.md) and [Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE). Applications that use enhanced security features like CAE and Conditional Access authentication context must be coded to handle claims challenges. Open protocols enable you to use the claims challenges and claims requests to invoke additional client capabilities. This might be to indicate to apps that they need to re-interact with Azure AD, like in case of an anomaly or if the user no longer satisfies the conditions under which they authenticated earlier. As a developer can code for these extensions without disturbing their primary code flows for authentication.|
+|Use the [Microsoft Authentication Libraries](./reference-v2-libraries.md) (MSAL).|MSAL is a set of Microsoft’s authentication libraries for developers. With MSAL, you can authenticate users and applications, and acquire tokens to access corporate resources using just a few lines of code. MSAL uses modern protocols ([OpenID Connect and OAuth 2.0](./active-directory-v2-protocols.md)) that remove the need for apps to ever handle a user's credentials directly. This vastly improves the security for both users and applications as the identity provider becomes the security perimeter. Also, these protocols continuously evolve to address new paradigms, opportunities, and challenges in identity security.|
+|Adopt enhanced security extensions like [Continuous Access Evaluation](../conditional-access/concept-continuous-access-evaluation.md) (CAE) and Conditional Access authentication context when appropriate.|In Azure AD, some of the most used extensions include [Conditional Access](../conditional-access/overview.md) (CA), [Conditional Access authentication context](./developer-guide-conditional-access-authentication-context.md) and CAE. Applications that use enhanced security features like CAE and Conditional Access authentication context must be coded to handle claims challenges. Open protocols enable you to use the claims challenges and claims requests to invoke extra client capabilities. This might be to indicate to apps that they need to re-interact with Azure AD, like if there was an anomaly or if the user no longer satisfies the conditions under which they authenticated earlier. As a developer can code for these extensions without disturbing their primary code flows for authentication.|
 |Use the correct **authentication flow** by [app type](./v2-app-types.md) for authentication. For web applications, you should always aim to use confidential client flows. For mobile applications, you should use brokers or the system browser for authentication. |The flows for web applications that can hold a secret (confidential clients) are considered more secure than public clients (for example: Desktop and Console apps). When you use the system web browser to authenticate your mobile apps, you get a secure [single sign-on](../manage-apps/what-is-single-sign-on.md) (SSO) experience that supports app protection policies.|
 
 ### Use least privileged access
 
-Using the Microsoft identity platform, you can grant permissions (scopes) and verify that a caller has been granted proper permission before allowing access. You can enforce least privileged access in your apps by enabling fine-grained permissions that allow you to grant the smallest amount of access necessary. Follow the do's and don't's described below to ensure that you adhere to the [principle of least privilege](/secure-least-privileged-access.md).
+Using the Microsoft identity platform, you can grant permissions (scopes) and verify that a caller has been granted proper permission before allowing access. You can enforce least privileged access in your apps by enabling fine-grained permissions that allow you to grant the smallest amount of access necessary. Follow the practices described below to ensure you adhere to the [principle of least privilege](/secure-least-privileged-access.md).
 
 | Do                                    | Don't          |
 | ------------------------------------- | -------------- |
 | Evaluate the permissions you request to ensure that you seek the absolute least privileged set to get the job done. | Create "catch-all" permissions with access to the entire API surface. |
 | When designing APIs, provide granular permissions to allow least-privileged access. Start with dividing the functionality and data access into sections that can be controlled via [scopes](./v2-permissions-and-consent.md#scopes-and-permissions) and [App roles](./howto-add-app-roles-in-azure-ad-apps.md). | Add your APIs to existing permissions in a way that changes the semantics fo the permission. |
-| Offer **read-only** permissions. "*Write* access", includes privileges for create, update, and delete operations. A client should never require write access to simply read data |   -----        |
+| Offer **read-only** permissions. "*Write* access", includes privileges for create, update, and delete operations. A client should never require write access to only read data |   -----        |
 | Offer both [delegated and application](/graph/auth/auth-concepts#delegated-and-application-permissions) permissions. Skipping application permissions can create hard requirement for your clients to achieve common scenarios like automation, microservices and more. |   -----        |
 | Create individual permissions for each core scenario. |   -----        |
 | Consider "standard" and "full" access permissions if working with sensitive data. |   -----        |
@@ -69,7 +69,7 @@ Using the Microsoft identity platform, you can grant permissions (scopes) and ve
 
 ### Assume breach
 
-The Microsoft identity platform app registration portal is the primary entry point for applications intending to use the platform for their authentication and associated needs. When registering and configuring your apps, follow the do's and don't's described below to minimize the damage your apps could cause in the event of a security breach.
+The Microsoft identity platform app registration portal is the primary entry point for applications intending to use the platform for their authentication and associated needs. When registering and configuring your apps, follow the practices described below to minimize the damage your apps could cause if there is a security breach.
 
 :::image type="content" source="./media/zero-trust-for-developers/app-registration-portal.png" alt-text="Azure portal screenshot showing an app registration pane":::
 
