@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 11/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -113,54 +113,7 @@ Perform the following steps to prepare the drives.
 
 # [Portal (Classic)](#tab/azure-portal)
 
-Perform the following steps to create an import job in the Azure portal.
-
-1. Log on to https://portal.azure.com/.
-2. Search for **import/export jobs**.
-
-    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
-
-3. Select **+ Create**.
-
-    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
-
-4. In **Basics**:
-
-   1. Select a subscription.
-   1. Select a resource group, or select **Create new** and create a new one.
-   1. Enter a descriptive name for the job. Use the name to track the progress of your jobs.
-      * The name must have from 3 to 24 characters.
-      * The name must include only letters, numbers, and hyphens.
-      * The name must start and end with a letter or number
-
-   1. Select **Import into Azure**.
-
-    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Import To Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
-
-    Select **Next: Job details >** to proceed.
-
-5. In **Job details**:
-
-   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). If `waimportexport.exe version1` was used, upload one file for each drive that you prepared. If the journal file size exceeds 2 MB, then you can use the `<Journal file name>_DriveInfo_<Drive serial ID>.xml` also created with the journal file.
-   1. Select the destination Azure region for the order.
-   1. Select the storage account for the import.
-      
-      The dropoff location is automatically populated based on the region of the storage account selected.
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
-
-   ![Screenshot of the Job Details tab for an import job in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
-
-   Select **Next: Shipping >** to proceed.
-
-6. [!INCLUDE [storage-import-export-shipping-step.md](../../includes/storage-import-export-shipping-step.md)]
-
-7. In the order summary:
-
-   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-   1. Select **Create**.
-
-     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export job. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+[!INCLUDE [storage-import-export-classic-import-steps.md](../../includes/storage-import-export-classic-import-steps.md)]
 
 
 # [Azure CLI](#tab/azure-cli)

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 11/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -43,12 +43,12 @@ You must:
 
 # [Portal (Preview)](#tab/azure-portal-preview)
 
-Perform the following steps to order an import job in Azure Import/Export via the Preview portal.
+Perform the following steps to order an import job in Azure Import/Export via the Preview portal. The Azure Import/Export service in preview will create a job of the type "Data Box."
 
 1. Use your Microsoft Azure credentials to sign in at this URL: [https://portal.azure.com](https://portal.azure.com).
 1. Select **+ Create a resource** and search for *Azure Data Box*. Select **Azure Data Box**.
 
-   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)<!--Border fixed manually. Check for issues.-->
+   ![Illustration showing the Plus Create A Resource button, and the text box for selecting the service to create the resource in. Azure Data Box is highlighted.](../../includes/media/storage-import-export-preview-import-steps/import-export-order-preview-01.png)
 
 1. Select **Create**.  
 
@@ -112,7 +112,7 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
       To see how to add an XML file to a container, go to [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-a-export-job.png)
+      ![Screenshot of Job Details for Azure Import Export job that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/import-export-order-preview-06-c-export-job.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -159,16 +159,16 @@ Perform the following steps to order an import job in Azure Import/Export via th
 
 # [Portal (Classic)](#tab/azure-portal-classic)
 
-Perform the following steps to create an export job in the Azure portal.
+Perform the following steps to create an export job in the Azure portal using the classic Azure Import/Export service.
 
 1. Log on to <https://portal.azure.com/>.
 2. Search for **import/export jobs**.
 
-    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-1.png)
 
 3. Select **+ Create**.
 
-    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](../../includes/media/storage-import-export-classic-import-steps/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -179,10 +179,13 @@ Perform the following steps to create an export job in the Azure portal.
        * The name must start with a letter, and may not contain spaces.
 
    1. Select **Export from Azure**.
+   1. Select a **Source Azure region**.
+   
+      If the new import/export experience is available in the selected region, you'll see a note inviting you to try the new experience. Select **Try now**, and follow the steps on the **Portal (Preview)** tab of this section to try the new experience with this order.
 
-    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Export From Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+   ![Screenshot of the Basics tab for an Azure Import Export job. Export From Azure is selected. The Try Now link for the new import/export experience is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
-    Select **Next: Job Details >** to proceed.
+   Select **Next: Job Details >** to proceed.
 
 5. In **Job details**:
 
@@ -241,7 +244,7 @@ Perform the following steps to create an export job in the Azure portal.
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the following steps to create an export job in the Azure portal.
+Use the following steps to create an export job in the Azure portal. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job."
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
@@ -316,7 +319,7 @@ Use the following steps to create an export job in the Azure portal.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-Use the following steps to create an export job in Azure PowerShell.
+Use the following steps to create an export job in Azure PowerShell. Azure CLI and Azure PowerShell create jobs in the classic Azure Import/Export service and hence create an Azure resource of the type "Import/Export job." 
 
 [!INCLUDE [azure-powershell-requirements-h3.md](../../includes/azure-powershell-requirements-h3.md)]
 

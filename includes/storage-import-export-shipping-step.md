@@ -6,7 +6,7 @@ services: storage
 
 ms.service: storage
 ms.topic: include
-ms.date: 11/11/2021
+ms.date: 11/24/2021
 ms.author: alkohli
 ms.custom: include file
 
