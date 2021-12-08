@@ -10,7 +10,7 @@ ms.custom: "devx-track-csharp, devx-track-python"
 
 # Continuous delivery with Azure Pipelines
 
-You can automatically deploy your function to an Azure Functions app by using [Azure Pipelines](/azure/devops/pipelines/). Azure Pipelines lets you automate your software development and continuously test, build, and deploy your code. 
+Automatically deploy to Azure Functions with [Azure Pipelines](/azure/devops/pipelines/). Azure Pipelines lets you automate your software development and continuously test, build, and deploy your code. 
 
 YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
@@ -275,6 +275,57 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ---
 
+<a href="#container" />
+## Deploy a Function App Container
+
+You can automatically deploy an Azure Functions function app using a custom container after every successful build.
+
+### Configure registry credentials
+
+App Service needs information about your registry and image to pull the private image. In the [Azure portal](https://portal.azure.com), go to your **Function App** > **Platform features** > **All settings**. Select **Container settings** from App Service. Update the **Image source** and **Registry** and save.
+
+![Screenshot showing Update image source and Registry in container settings.](media/functionapp-container/container-settings.png)
+
+### Deploy with the Azure Function App for Container task
+
+# [YAML](#tab/yaml/)
+
+The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md).
+
+To deploy to an Azure Functions container, add the following snippet at the end of your YAML file:
+
+```yaml
+trigger:
+- main
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: <Docker registry service connection>
+  imageRepository: <Name of your image repository>
+  containerRegistry: <Name of the Azure container registry>
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+  
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+
+- task: AzureFunctionAppContainer@1 # Add this at the end of your file
+  inputs:
+    azureSubscription: '<Azure service connection>'
+    appName: '<Name of the function app>'
+    imageName: $(containerRegistry)/$(imageRepository):$(tag)
+```
+
+The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task will pull the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploy the image to the Azure Function App Container.
+
+# [Classic](#tab/classic/)
+
+The best way to deploy to an Azure Function App Container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md) in your release pipeline.
+
+
+How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
+
+---
 ## Deploy to a slot
 
 # [YAML](#tab/yaml)
