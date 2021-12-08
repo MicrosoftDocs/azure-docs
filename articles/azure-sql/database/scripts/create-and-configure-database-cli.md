@@ -35,7 +35,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script 1
 
-:::code language="code-azurecli" source="~/azure_cli_samples/sql-database/create-and-configure-database/create-and-configure-database.sh" range="1-6" highlight="8,12":::
+:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-150":::
 
 ### Run the script 2
 
