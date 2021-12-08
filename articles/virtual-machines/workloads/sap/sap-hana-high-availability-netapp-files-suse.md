@@ -738,7 +738,7 @@ This section describes how you can test your setup.
    	  # Started: [ hanadb1 hanadb2 ]
    ```
 
-We recommend testing the SAP HANA cluster configuration thoroughly, by also doing the tests described in [SAP HANA System Replication](./sap-hana-high-availability.md#test-the-cluster-setup)
+We recommend testing the SAP HANA cluster configuration thoroughly, by also doing the tests described in [SAP HANA System Replication](./sap-hana-high-availability.md#test-the-cluster-setup).
 
 ## Next steps
 
