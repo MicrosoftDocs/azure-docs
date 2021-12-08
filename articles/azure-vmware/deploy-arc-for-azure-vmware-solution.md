@@ -32,7 +32,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 
 At this point, you should already have deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
-For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](https://docs.microsoft.com/azure/azure-vmware/tutorial-network-checklist)
+For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/tutorial-network-checklist)
 
 ### Manual registration to Arc for Azure VMware Solution feature set
 
