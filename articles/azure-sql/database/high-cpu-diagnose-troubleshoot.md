@@ -70,11 +70,11 @@ Follow these steps to find CPU percentage metrics.
 1. Navigate to the database in the Azure portal.
 1. Under **Intelligent Performance** in the left menu, select **Query Performance Insight**.
 
-The default view of Query Performance Insight shows 24 hours of data. CPU usage is shown as a percentage of total available CPU used for the database. The top five queries running in that period are displayed in vertical bars above the CPU usage graph.
+The default view of Query Performance Insight shows 24 hours of data. CPU usage is shown as a percentage of total available CPU used for the database. 
 
-Select a band of time on the chart or use the **Customize** menu to explore specific time periods. You may also increase the number of queries shown.
+The top five queries running in that period are displayed in vertical bars above the CPU usage graph. Select a band of time on the chart or use the **Customize** menu to explore specific time periods. You may also increase the number of queries shown.
 
-:::image type="content" source="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight.png" alt-text="Screenshot shows Query Performance Insight in the Azure portal.":::
+:::image type="content" source="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight-cpu-queries.png" lightbox="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight.png" alt-text="Screenshot shows Query Performance Insight in the Azure portal.":::
 
 Select each query ID exhibiting high CPU to open details for the query. Details include query text along with performance history for the query. Examine if CPU has increased for the query recently. Take note of the query ID to further investigate the query plan.
 
