@@ -42,6 +42,32 @@ landingContent:
             url: https://www.youtube.com/watch?v=JwjjUT8K7po
 
   # Card
+  - title: Administer
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Backup and restore
+            url: ../concepts-hyperscale-backup.md
+          - text: Monitor and tune
+            url: ../concepts-hyperscale-monitoring.md
+          - text: High availability
+            url: ../concepts-hyperscale-high-availability.md
+          - text: Reserved capacity
+            url: ../concepts-hyperscale-reserved-pricing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Create database users
+            url: ../howto-hyperscale-create-users.md
+          - text: Configure high availability
+            url: ../howto-hyperscale-high-availability.md
+          - text: Access database logs
+            url: ../howto-hyperscale-logging.md
+          - text: Useful diagnostic queries
+            url: ../howto-hyperscale-useful-diagnostic-queries.md
+          - text: Troubleshoot read-only access
+            url: ../howto-hyperscale-troubleshoot-read-only.md
+
+  # Card
   - title: Connect and query
     linkLists:
       - linkListType: concept
@@ -78,32 +104,6 @@ landingContent:
             url: ../howto-hyperscale-modify-distributed-tables.md
           - text: Create alerts on metrics
             url: ../howto-hyperscale-alert-on-metric.md
-
-  # Card
-  - title: Administer
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Backup and restore
-            url: ../concepts-hyperscale-backup.md
-          - text: Monitor and tune
-            url: ../concepts-hyperscale-monitoring.md
-          - text: High availability
-            url: ../concepts-hyperscale-high-availability.md
-          - text: Reserved capacity
-            url: ../concepts-hyperscale-reserved-pricing.md
-      - linkListType: how-to-guide
-        links:
-          - text: Create database users
-            url: ../howto-hyperscale-create-users.md
-          - text: Configure high availability
-            url: ../howto-hyperscale-high-availability.md
-          - text: Access database logs
-            url: ../howto-hyperscale-logging.md
-          - text: Useful diagnostic queries
-            url: ../howto-hyperscale-useful-diagnostic-queries.md
-          - text: Troubleshoot read-only access
-            url: ../howto-hyperscale-troubleshoot-read-only.md
 
   # Card
   - title: Reference
