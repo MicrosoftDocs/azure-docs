@@ -62,7 +62,7 @@ To enable a zone resilient Azure Service Fabric managed cluster, you must includ
 }
 ```
 
-# Migrate an existing non-zone resilient cluster to Zone Resilient (Preview) 
+## Migrate an existing non-zone resilient cluster to Zone Resilient (Preview) 
 Existing Service Fabric managed clusters which are not spanned across availability zones can now be migrated in-place to span availability zones. Supported scenarios include clusters created in regions that have three availability zones as well as clusters in regions where three availability zones are made available post-deployment.
 
 >[!NOTE]
@@ -71,7 +71,7 @@ Existing Service Fabric managed clusters which are not spanned across availabili
 >[!NOTE]
 >Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
 
-## Steps to Migrate 
+### Steps to Migrate 
 * Use apiVersion 2021-11-01-preview or higher
 * Add a new primary node type to the cluster with zones parameter in the nodetype set to ["1", "2", "3"].
   * A brief period of unreachability to the cluster can occur during this step.
