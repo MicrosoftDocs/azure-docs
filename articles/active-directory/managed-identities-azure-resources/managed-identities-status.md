@@ -4,7 +4,7 @@ description: List of services supporting managed identities
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 12/03/2021
+ms.date: 12/08/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -12,7 +12,7 @@ manager: karenh444
 ms.collection: M365-identity-device-management
 ---
 
-# Azure services that can use Managed identities to access other services
+# Azure services that can use managed identities to access other services
 
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any [service that supports Azure AD authentication](services-azure-active-directory-support.md) without managing credentials. We are integrating managed identities for Azure resources and Azure AD authentication across Azure. This page provides links to services' content that can use managed identities to access other Azure resources. Each entry in the table includes a link to service documentation discussing managed identities.
 
@@ -71,3 +71,7 @@ The following Azure services support managed identities for Azure resources:
 | Azure VM image builder          | [Configure Azure Image Builder Service permissions using Azure CLI](../../virtual-machines/linux/image-builder-permissions-cli.md#using-managed-identity-for-azure-storage-access)|
 | Azure Virtual Machine Scale Sets      | [Configure managed identities on virtual machine scale set - Azure CLI](qs-configure-cli-windows-vmss.md)                                                                  |
 | Azure Virtual Machines                | [Secure and use policies on virtual machines in Azure](../../virtual-machines/windows/security-policy.md#managed-identities-for-azure-resources)                                                                  |
+
+## Next steps
+
+- [Managed identities overview](Overview.md)
