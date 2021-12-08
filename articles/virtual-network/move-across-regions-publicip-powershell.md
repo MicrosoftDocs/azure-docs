@@ -50,7 +50,6 @@ The following steps show how to prepare the public IP for the configuration move
 
     ```azurepowershell-interactive
     $sourcePubIPID = (Get-AzPublicIPaddress -Name <source-public-ip-name> -ResourceGroupName <source-resource-group-name>).Id
-
     ```
 3. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](/powershell/module/az.resources/export-azresourcegroup):
    
@@ -76,7 +75,6 @@ The following steps show how to prepare the public IP for the configuration move
         "type": "String"
         }
     }
-
     ```
 
 6. To edit the target region where the public IP will be moved, change the **location** property under resources:
