@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 11/23/2021
+ms.date: 12/08/2021
 ---
 
 # Configure SaaS offer listing details
