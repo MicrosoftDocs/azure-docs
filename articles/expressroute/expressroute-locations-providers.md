@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 12/07/2021
 ms.author: duau
 ---
 # ExpressRoute partners and peering locations
@@ -44,6 +44,7 @@ The following table shows connectivity locations and the service providers for e
 ### Global commercial Azure
 | **Location** | **Address** | **Zone** | **Local Azure regions** | **ER Direct** | **Service providers** |
 | --- | --- | --- | --- | --- | --- |
+| **Abu Dhabi** | Etisalat KDC | 3 | n/a | 10G | |
 | **Amsterdam** | [Equinix AM5](https://www.equinix.com/locations/europe-colocation/netherlands-colocation/amsterdam-data-centers/am5/) | 1 | West Europe | 10G, 100G | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | West Europe | 10G, 100G | BICS, British Telecom, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, euNetworks, GÉANT, Interxion, NOS, NTT Global DataCenters EMEA, Orange, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | 10G, 100G | Equinix, Megaport |

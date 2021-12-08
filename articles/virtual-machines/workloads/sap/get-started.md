@@ -78,6 +78,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- December 07, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to clarify that the instructions are applicable for both RHEL 7 and RHEL 8
 - December 07, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to adjust the instructions for configuring SWAP file.  
 - December 02, 2021: Introduction of new STONITH fencing method in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) using Azure shared disk SBD device.
 - December 01, 2021: Change in [SAP ASCS/SCS instance with WSFC and file share](./sap-high-availability-guide-wsfc-file-share.md), [HA for SAP NetWeaver on Azure VMs on Windows with Azure NetApp Files(SMB)](./high-availability-guide-windows-netapp-files-smb.md) and [HA for SAP NetWeaver on Azure VMs on Windows with Azure Files(SMB)](./high-availability-guide-windows-azure-files-smb.md) to update the SAP kernel version, required to support clustering SAP on Windows with file share.  
