@@ -105,6 +105,9 @@ You can get the value of these service-defined variables to make adjustments tha
 > [!IMPORTANT]
 > Job release tasks are not currently included in variables that provide task counts, such as $ActiveTasks and $PendingTasks. Depending on your autoscale formula, this can result in nodes being removed with no nodes available to run job release tasks.
 
+> [!TIP]
+> These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+
 | Variable | Description |
 | --- | --- |
 | $CPUPercent |The average percentage of CPU usage. |
@@ -128,8 +131,8 @@ You can get the value of these service-defined variables to make adjustments tha
 | $CurrentLowPriorityNodes |The current number of low-priority compute nodes, including any nodes that have been preempted. |
 | $PreemptedNodeCount | The number of nodes in the pool that are in a preempted state. |
 
-> [!TIP]
-> These read-only service-defined variables are *objects* that provide various methods to access data associated with each. For more information, see [Obtain sample data](#obtain-sample-data) later in this article.
+> [!WARNING]
+> `$PreemptedNodeCount` is currently not available and will return `0` valued data.
 
 > [!NOTE]
 > Use `$RunningTasks` when scaling based on the number of tasks running at a point in time, and `$ActiveTasks` when scaling based on the number of tasks that are queued up to run.

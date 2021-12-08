@@ -55,6 +55,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Add Teams video calling to your client app
+      href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Use the call automation APIs
@@ -226,6 +228,8 @@ items:
         href: how-tos/calling-sdk/manage-calls.md
       - name: Manage video
         href: how-tos/calling-sdk/manage-video.md
+      - name: Manage Teams calling
+        href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Enable push notifications
@@ -308,6 +312,10 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
     - name: Common (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+  - name: UI Library
+    items:
+    - name: UI Library (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
 - name: Resources
   items:
   - name: Release notes
