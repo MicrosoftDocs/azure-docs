@@ -52,7 +52,6 @@ If your script is on a local server, then you may still need additional firewall
 * When the script is running, you will only see a 'transitioning' extension status from the Azure portal or CLI. If you want more frequent status updates of a running script, you will need to create your own solution.
 * Custom Script extension does not natively support proxy servers, however you can use a file transfer tool that supports proxy servers within your script, such as *Curl*. 
 * Be aware of non default directory locations that your scripts or commands may rely on, have logic to handle this.
-*  When deploying custom script to production VMSS instances it is suggested to deploy via json template and store your script storage account where you have control over the SAS token. 
 
 
 ## Extension schema
@@ -372,6 +371,12 @@ az vm extension set \
   --settings ./script-config.json \
   --protected-settings ./protected-config.json
 ```
+
+## Virtual Machine Scale Sets
+>[!NOTE]
+>When deploying the Custom Script Extension from the Azure Portal you don't have control over the expiration of the SAS token for accessing the script in your storage account. So this means that the initial deployment will work, but then after the storage account SAS token expires any subsequent scaling operation will fail as the CSE can no longer access the storage account.
+>
+>For this reason it is highly recommended to use PowerShell, CLI, or an ARM template when deploying the Custom Script Extension on a VMSS. This way you can choose to use a managed identity or have direct control of the expiration of the SAS token for accessing the script in your storage account for as long as you need.
 
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory that's similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` files.
