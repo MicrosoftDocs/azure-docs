@@ -1,5 +1,5 @@
 ---
-title: Designing virtual networks with NAT gateway
+title: Design virtual networks with NAT gateway
 titleSuffix: Azure Virtual Network NAT
 description: Learn how to design virtual networks that use Network Address Translation (NAT) gateway resources.
 services: virtual-network
@@ -17,7 +17,7 @@ ms.date: 11/11/2021
 ms.author: allensu
 ---
 
-# Designing virtual networks with NAT gateway
+# Design virtual networks with NAT gateway
 
 NAT gateway provides outbound internet connectivity for one or more subnets of a virtual network. Once NAT gateway is associated to a subnet, NAT provides source network address translation (SNAT) for that subnet. NAT gateway specifies which static IP addresses virtual machines use when creating outbound flows. Static IP addresses come from public IP addresses, public IP prefixes, or both. If a public IP prefix is used, all IP addresses of the entire public IP prefix are consumed by a NAT gateway. A NAT gateway can use a total of up to 16 static IP addresses from either.
 
@@ -47,13 +47,13 @@ User-defined routes aren't necessary.
 
 Review this section to familiarize yourself with considerations for designing virtual networks with NAT.
 
-### Connecting to Azure services
+### Connect to Azure services
 
 When connecting to Azure services from your private network, the recommended approach is to use [Private Link](../../private-link/private-link-overview.md). 
 
 Private Link lets you access services in Azure from your private network without the use of a public IP address. Connecting to these services over the internet are not necessary and are handled over the Azure backbone network. For example, when you access Azure Storage, you can use a private endpoint to ensure your connection is fully private.
 
-### Connecting to the internet
+### Connect to the internet
 
 NAT is recommended for outbound scenarios for all production workloads where you need to connect to a public endpoint. The following scenarios are examples of how to ensure coexistence of inbound with NAT gateway for outbound.
 
@@ -102,7 +102,7 @@ Any outbound configuration from a load-balancing rule or outbound rules is super
 
 Any outbound configuration from a load-balancing rule or outbound rules is superseded by NAT gateway. The VM will also use NAT gateway for outbound. Inbound originated isn't affected.
 
-### Monitoring outbound network traffic
+### Monitor outbound network traffic
 
 A network security group allows you to filter inbound and outbound traffic to and from a virtual machine. To monitor outbound traffic flowing from NAT, you can enable NSG flow logs.
 
@@ -148,7 +148,7 @@ The destination will now see the source of the flows as 65.52.1.1 (source tuple 
 
 #### Source (SNAT) port reuse
 
-Virtual machines can use any available port provided by the public IP(s) configured to NAT gateway for outbound connectivity. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gateway will also opportunistically reuse source (SNAT) ports. 
+An inventory of ports are available to any virtual machine within a subnet that is attached to NAT gateway. NAT gateway selects a port at random out of the available inventory of ports for the virtual machine to use. NAT gateway will also opportunistically reuse source (SNAT) ports. 
 
 The following flow illustrates this concept with a VM flowing to destination IP 65.52.0.2 after flows 1 - 3 from the above tables have already taken place.
 
@@ -156,7 +156,7 @@ The following flow illustrates this concept with a VM flowing to destination IP 
 |:---:|:---:|:---:|
 | 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
-A NAT gateway will translate flow 4 to a port that may have been recently used for other destinations as well. See [Scaling](#scaling) for more discussion on correctly sizing your IP address provisioning.
+A NAT gateway will translate flow 4 to a port that may have been recently used for other destinations as well. See [Scale NAT](#scale-nat) for more discussion on correctly sizing your IP address provisioning.
 
 | Flow | Source tuple | Source tuple after SNAT | Destination tuple |
 |:---:|:---:|:---:|:---:|
@@ -190,7 +190,7 @@ Any IP configuration of a virtual machine can create outbound flows on-demand as
 
 After a SNAT port is released, it's available for use by any VM on subnets configured with NAT. On-demand allocation allows dynamic and divergent workloads on subnets to use SNAT ports as needed. As long as SNAT ports are available, SNAT flows will succeed. SNAT port hotspots benefit from a larger inventory. SNAT ports aren't left unused for VMs not actively needing them.
 
-### Scaling
+### Scale NAT
 
 Scaling NAT is primarily a function of managing the shared, available SNAT port inventory. NAT needs sufficient SNAT port inventory for expected peak outbound flows for all subnets that are attached to a NAT gateway. You can use public IP addresses, public IP prefixes, or both to create SNAT port inventory. 
 
