@@ -42,7 +42,7 @@ Monitor.
 > [!IMPORTANT]
 > Resource configuration changes is in Public Preview.
 
-## Find detected change events and view change resource details
+## Find detected change events and view change details
 
 When a resource is created, updated, or deleted, a new change resource (Microsoft.Resources/changes) is created to extend the modified resource and represent the changed properties.
 
