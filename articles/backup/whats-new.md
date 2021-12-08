@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 11/25/2021
+ms.date: 12/02/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -17,6 +17,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - October 2021
+  - [Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal](#archive-tier-support-for-sql-server-sap-hana-in-azure-vm-from-azure-portal)
   - [Multi-user authorization using Resource Guard (in preview)](#multi-user-authorization-using-resource-guard-in-preview)
   - [Multiple backups per day for Azure Files (in preview)](#multiple-backups-per-day-for-azure-files-in-preview)
   - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
@@ -49,11 +50,19 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
+## Archive Tier support for SQL Server/ SAP HANA in Azure VM from Azure portal
+
+Azure Backup now supports the movement of recovery points to the Vault-archive tier for SQL Server and SAP HANA in Azure Virtual Machines from the Azure portal. This allows you to move the archivable recovery points corresponding to a particular database to the Vault-archive tier at one go.
+
+Also, the support is extended via Azure CLI for the above workloads, along with Azure Virtual Machines (in preview).
+
+For more information, see [Archive Tier support in Azure Backup](archive-tier-support.md).
+
 ## Multi-user authorization using Resource Guard (in preview)
 
 Azure Backup now supports multi-user authorization (MUA) that allows you to add an additional layer of protection to critical operations on your Recovery Services vaults. For MUA, Azure Backup uses the Azure resource, Resource Guard, to ensure critical operations are performed only with applicable authorization.
 
-For more details, see [how to protect Recovery Services vault and manage critical operations with MUA](/azure/backup/multi-user-authorization).
+For more information, see [how to protect Recovery Services vault and manage critical operations with MUA](/azure/backup/multi-user-authorization).
 
 ## Multiple backups per day for Azure Files (in preview)
 
@@ -61,7 +70,7 @@ Low RPO (Recovery Point Objective) is a key requirement for Azure Files that con
 
 Using Azure Backup you can now  create a backup policy or modify an existing backup policy to take multiple snapshots in a  day. With this capability, you can also define the duration in which your backup jobs would trigger. This capability empowers you to align your backup schedule with the working hours when there are frequent updates to Azure Files content.
 
-For more details, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
+For more information, see [how to configure multiple backups per day via backup policy](./manage-afs-backup.md#create-a-new-policy).
 
 ## Azure Backup metrics and metrics alerts (in preview)
 
@@ -80,7 +89,7 @@ Currently, Azure Backup supports built-in metrics for the following workload typ
 - SAP HANA databases in Azure VM
 - Azure Files.
 
-For more details, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
+For more information, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
 
 ## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
 
@@ -228,7 +237,7 @@ Azure Backup now provides enhanced capabilities (in preview) to manage encryptio
 >[!NOTE]
 >- The above capabilities are supported through the Azure portal only, PowerShell is currently not supported.<br>If you are using PowerShell for managing encryption keys for Backup, we do not recommend to update the keys from the portal.<br>If you update the key from the portal, you can’t use PowerShell to update the encryption key further, till a PowerShell update to support the new model is available. However, you can continue updating the key from the Azure portal.
 >- You can use the audit policy for auditing vaults with encryption using customer-managed keys that are enabled after 04/01/2021.  
->- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#using-azure-policies-for-auditing-and-enforcing-encryption-utilizing-customer-managed-keys-in-preview).
+>- For vaults with the CMK encryption enabled before this date, the policy might fail to apply, or might show false negative results (that is, these vaults may be reported as non-compliant, despite having CMK encryption enabled). [Learn more](encryption-at-rest-with-cmk.md#use-azure-policies-to-audit-and-enforce-encryption-with-customer-managed-keys-in-preview).
 
 For more information, see [Encryption for Azure Backup using customer-managed keys](encryption-at-rest-with-cmk.md). 
 

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 09/02/2020
+ms.date: 04/27/2021
 ---
 
 # Co-sell state and province codes in Azure Marketplace
