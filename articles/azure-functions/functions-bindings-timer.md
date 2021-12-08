@@ -16,7 +16,7 @@ This article explains how to work with timer triggers in Azure Functions. A time
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-For information on how to manually run a timer-triggered function, see [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md).
+For information on how to manually run a timer-triggered function, see [Manually run a non HTTP-triggered function](./functions-manually-run-non-http.md)
 
 ## Packages - Functions 2.x and higher
 
