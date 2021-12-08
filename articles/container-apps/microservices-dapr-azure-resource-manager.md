@@ -31,7 +31,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ## Prerequisites
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+* [Azure CLI](/cli/azure/install-azure-cli)
 * An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Before you begin
