@@ -28,7 +28,7 @@ The network normalization schema can represent any type of an IP network session
 
 ## Parsers
 
-This section discusses different parsers, how to add parsers, and how to filter parser parameters.
+This section discusses parsers, how to add parsers, and how to filter parser parameters.
 
 ### Source-agnostic parsers
 
@@ -53,7 +53,7 @@ Microsoft Sentinel provides the following built-in, product-specific Network Ses
 | **Microsoft 365 Defender for Endpoint** | - Parametrized: vimNetworkSessionMicrosoft365Defender <br> - Regular: ASimNetworkSessionMicrosoft365Defender | 
 | **Microsoft Defender for IoT - Endpoint (MD4IoT)** | - Parametrized: vimNetworkSessionMD4IoT <br> - Regular: ASimNetworkSessionMD4IoT  |
 | **Microsoft Sysmon for Linux** | - Parametrized: vimNetworkSessionSysmonLinux<br> - Regular: ASimNetworkSessionSysmonLinux  |
-| **Windows Events Firewall** | Windows firewall activity as collected by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the Event or the WindowsEvent table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
+| **Windows Events Firewall** | Windows firewall activity as represented by using Windows Events 515x, collected by using either the Log Analytics Agent or the Azure Monitor Agent into either the `Event` table or the `WindowsEvent` table.<br><br> - Parametrized: vimNetworkSessionMicrosoftWindowsEventFirewall <br> -  Regular: ASimNetworkSessionMicrosoftWindowsEventFirewall
 | | |
 
 ### Add your own normalized parsers
@@ -65,7 +65,7 @@ When you implement custom parsers for the Network Session information model, nam
 
 Then, add the new parser to `imNetworkSession` or `ASimNetworkSession`, respectively.
 
-### Filter parser parameters
+### Filtering parser parameters
 
 The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
 
@@ -73,13 +73,13 @@ The following filtering parameters are available:
 
 | Name     | Type      | Description |
 |----------|-----------|-------------|
-| **starttime** | Datetime | Filter only network sessions that *started* at or after this time. |
-| **endtime** | Datetime | Filter only network sessions that *started* running at or before this time. |
-| **srcipaddr_has_any_prefix** | Dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
-| **dstipaddr_has_any_prefix** | Dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. |
+| **starttime** | datetime | Filter only network sessions that *started* at or after this time. |
+| **endtime** | datetime | Filter only network sessions that *started* running at or before this time. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [source IP address field](#srcipaddr) prefix is in one of the listed values. |
+| **dstipaddr_has_any_prefix** | dynamic | Filter only network sessions for which the [destination IP address field](#dstipaddr) prefix is in one of the listed values. |
 | **dstportnum** | Int | Filter only network sessions with the specified destination port number. |
-| **hostname_has_any** | Dynamic | Filter only network sessions for which the [destination host name field](#dsthostname) has any of the values listed. |
-| **dvcaction** | Dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
+| **hostname_has_any** | dynamic | Filter only network sessions for which the [destination hostname field](#dsthostname) has any of the values listed. |
+| **dvcaction** | dynamic | Filter only network sessions for which the [Device Action field](#dvcaction) is any of the values listed. | 
 | **eventresult** | String | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
@@ -92,11 +92,11 @@ imNetworkSession (hostname_has_any = torProxies)
 
 ## Schema details
 
-The Network Session information model is aligned as the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
+The Network Session information model is aligned with the [OSSEM Network entity schema](https://github.com/OTRF/OSSEM/blob/master/docs/cdm/entities/network.md).
 
-To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the Network Session source and destination devices, without including the token **Dvc** in the field name.
+To conform with industry best practices, the Network Session schema uses the descriptors **Src** and **Dst** to identify the network session source and destination devices, without including the token **Dvc** in the field name.
 
-So, for example, the source device host name and IP address are named **SrcHostname** and **SrcIpAddr**, respectively, and not **Src*Dvc*Hostname** and **Src*Dvc*IpAddr**. The prefix **Dvc** is only used for the reporting or intermediary device, as applicable.
+So, for example, the source device hostname and IP address are named **SrcHostname** and **SrcIpAddr**, respectively, and not **Src*Dvc*Hostname** and **Src*Dvc*IpAddr**. The prefix **Dvc** is only used for the reporting or intermediary device, as applicable.
 
 Fields that describe the user and application associated with the source and destination devices also use the **Src** and **Dst** descriptors.
 
@@ -104,7 +104,7 @@ Other ASIM schemas typically use **Target** instead of **Dst**.
 
 ### Common fields
 
-Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for process events:
+Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Network Schema events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
@@ -126,11 +126,11 @@ The following fields are common to all network session activity logging:
 | <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the server receiving the DNS request. <br><br>This field might alias the [DstDvcId](#dstdvcid), [DstHostname](#dsthostname), or [DstIpAddr](#dstipaddr) fields. <br><br>Example: `192.168.12.1`       |
 |<a name="dstipaddr"></a> **DstIpAddr** | Recommended | IP address | The IP address of the connection or session destination. <br><br>Example: `2001:db8::ff00:42:8329`<br><br>**Note**: This value is mandatory if [DstHostname](#dsthostname) is specified. |
 | <a name="dstportnumber"></a>**DstPortNumber** | Optional | Integer | The destination IP port.<br><br>Example: `443` |
-| <a name="dsthostname"></a>**DstHostname** | Recommended | String | The destination device host name, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
+| <a name="dsthostname"></a>**DstHostname** | Recommended | String | The destination device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field.<br><br>Example: `DESKTOP-1282V4D`<br><br>**Note**: This value is mandatory if [DstIpAddr](#dstipaddr) is specified. |
 | <a name="hostname"></a>**Hostname** | Alias | | Alias to [DstHostname](#dsthostname). |
 | <a name="dstdomain"></a>**DstDomain** | Recommended | String | The domain of the destination device.<br><br>Example: `Contoso` |
 | <a name="dstdomaintype"></a>**DstDomainType** | Recommended | Enumerated | The type of [DstDomain](#dstdomain), if known. Possible values include:<br>- `Windows (contoso\mypc)`<br>- `FQDN (docs.microsoft.com)`<br><br>Required if [DstDomain](#dstdomain) is used. |
-| **DstFQDN** | Optional | String | The destination device host name, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\host name format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
+| **DstFQDN** | Optional | String | The destination device hostname, including domain information when available. <br><br>Example: `Contoso\DESKTOP-1282V4D` <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [DstDomainType](#dstdomaintype) reflects the format used.   |
 | <a name="dstdvcid"></a>**DstDvcId** | Optional | String | The ID of the destination device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **DstDvcIdType** | Optional | Enumerated | The type of [DstDvcId](#dstdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEidIf`<br><br>If multiple IDs are available, use the first one from the preceding list, and store the others in the **DstDvcAzureResourceId** or **DstDvcMDEid** fields, respectively.<br><br>Required if **DstDeviceId** is used.|
 | **DstDeviceType** | Optional | Enumerated | The type of the destination device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
@@ -160,10 +160,10 @@ The following fields are common to all network session activity logging:
 | <a name="srcipaddr"></a>**SrcIpAddr** | Recommended | IP address | The IP address from which the connection or session originated. This value is mandatory if **SrcHostname** is specified.<br><br>Example: `77.138.103.108` |
 | <a name="ipaddr"></a>**IpAddr** | Alias | | Alias to [SrcIpAddr](#srcipaddr). |
 | **SrcPortNumber** | Optional | Integer | The IP port from which the connection originated. Might not be relevant for a session comprising multiple connections.<br><br>Example: `2335` |
-| <a name="srchostname"></a> **SrcHostname** | Recommended | String | The source device host name, excluding domain information. If no device name is available, store the relevant IP address in this field. This value is mandatory if [SrcIpAddr](#srcipaddr) is specified.<br><br>Example: `DESKTOP-1282V4D` |
+| <a name="srchostname"></a> **SrcHostname** | Recommended | String | The source device hostname, excluding domain information. If no device name is available, store the relevant IP address in this field. This value is mandatory if [SrcIpAddr](#srcipaddr) is specified.<br><br>Example: `DESKTOP-1282V4D` |
 |<a name="srcdomain"></a> **SrcDomain** | Recommended | String | The domain of the source device.<br><br>Example: `Contoso` |
 | <a name="srcdomaintype"></a>**SrcDomainType** | Recommended | Enumerated | The type of [SrcDomain](#srcdomain), if known. Possible values include:<br>- `Windows` (such as `contoso`)<br>- `FQDN` (such as `microsoft.com`)<br><br>Required if [SrcDomain](#srcdomain) is used. |
-| **SrcFQDN** | Optional | String | The source device host name, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\host name format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
+| **SrcFQDN** | Optional | String | The source device hostname, including domain information when available. <br><br>**Note**: This field supports both traditional FQDN format and Windows domain\hostname format. The [SrcDomainType](#srcdomaintype) field reflects the format used. <br><br>Example: `Contoso\DESKTOP-1282V4D` |
 | <a name="srcdvcid"></a>**SrcDvcId** | Optional | String | The ID of the source device as reported in the record.<br><br>Example: `ac7e9755-8eae-4ffc-8a02-50ed7a2216c3` |
 | **SrcDvcIdType** | Optional | Enumerated | The type of [SrcDvcId](#srcdvcid), if known. Possible values include:<br> - `AzureResourceId`<br>- `MDEid`<br><br>If multiple IDs are available, use the first one from the preceding list, and store the others in **SrcDvcAzureResourceId** and **SrcDvcMDEid**, respectively.<br><br>**Note**: This field is required if [SrcDvcId](#srcdvcid) is used. |
 | **SrcDeviceType** | Optional | Enumerated | The type of the source device. Possible values include:<br>- `Computer`<br>- `Mobile Device`<br>- `IOT Device`<br>- `Other` |
@@ -202,7 +202,7 @@ The following fields are common to all network session activity logging:
 | **DstPackets** | Optional | Integer | The number of packets sent from the destination to the source for the connection or session. The meaning of a packet is defined by the reporting device. If the event is aggregated, **DstPackets** should be the sum over all aggregated sessions.<br><br>Example: `446` |
 | **SrcPackets** | Optional | Integer | The number of packets sent from the source to the destination for the connection or session. The meaning of a packet is defined by the reporting device. If the event is aggregated, **SrcPackets** should be the sum over all aggregated sessions.<br><br>Example: `6478` |
 | **NetworkPackets** | Optional | Integer | The number of packets sent in both directions. If both **PacketsReceived** and **PacketsSent** exist, **BytesTotal** should equal their sum. The meaning of a packet is defined by the reporting device. If the event is aggregated, **NetworkPackets** should be the sum over all aggregated sessions.<br><br>Example: `6924` |
-|<a name="networksessionid"></a>**NetworkSessionId** | Optional | String | The session identifier as reported by the reporting device. <br><br>Example: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
+|<a name="networksessionid"></a>**NetworkSessionId** | Optional | string | The session identifier as reported by the reporting device. <br><br>Example: `172\_12\_53\_32\_4322\_\_123\_64\_207\_1\_80` |
 | **SessionId** | Alias | String | Alias to [NetworkSessionId](#networksessionid). |
 | | | | |
 
