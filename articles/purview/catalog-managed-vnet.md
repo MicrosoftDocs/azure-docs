@@ -188,9 +188,9 @@ To scan a data source using a managed vnet runtime and Purview managed identity 
 
     :::image type="content" source="media/catalog-managed-vnet\purview-managed-scan-run.png" alt-text="review scan":::
 
-## Support matrix for Scanning data sources through managed private endpoint
+## Supported data sources
 
-Currently, the following data sources are supported to have a managed private endpoint and be scanned using managed vnet runtime in Azure Purview:
+Currently, the following data sources are supported to have a managed private endpoint and can be scanned using managed vnet runtime in Azure Purview:
 
 - Azure Blob Storage 
 - Azure Data Lake Storage Gen 2 
