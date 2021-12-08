@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single Sign-on | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with AWS Single Sign-on'
 description: Learn how to configure single sign-on between Azure Active Directory and AWS Single Sign-on.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2021
+ms.date: 10/26/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with AWS Single Sign-on
+# Tutorial: Azure AD SSO integration with AWS Single Sign-on
 
 In this tutorial, you'll learn how to integrate AWS Single Sign-on with Azure Active Directory (Azure AD). When you integrate AWS Single Sign-on with Azure AD, you can:
 
@@ -76,7 +76,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. Click **Upload metadata file**.
 
-	b. Click on **folder logo** to select the metadata file which you have downloaded from the **Configure AWS Single Sign-on SSO** section (point 8) and click **Add**.
+	b. Click on **folder logo**  to select metadata file which is explained to download in **[Configure AWS Single Sign-on SSO](#configure-aws-single-sign-on-sso)** section and click **Add**.
 
 	![image2](common/browse-upload-metadata.png)
 
@@ -85,7 +85,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![image3](common/idp-intiated.png)
 
 	> [!Note]
-	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
+	> If the **Identifier** and **Reply URL** values are not getting auto populated, then fill in the values manually according to your requirement.
 
 1. If you don't have **Service Provider metadata file**, perform the following steps on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
@@ -246,9 +246,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the AWS Single Sign-on tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AWS Single Sign-on for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 
 ## Next steps
 
-Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure AWS Single Sign-on you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

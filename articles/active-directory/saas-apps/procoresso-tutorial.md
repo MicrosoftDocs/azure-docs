@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 06/21/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Procore SSO
@@ -26,6 +26,9 @@ To configure Azure AD integration with Procore SSO, you need the following items
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * Procore SSO single sign-on enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -109,7 +112,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot shows the Procore company site with Directory selected.](./media/procoresso-tutorial/admin.png)
 
-3. Paste the values in the boxes as described below-
+3. Paste the values in the boxes as described below.
 
 	![Screenshot shows the Add a Person dialog box.](./media/procoresso-tutorial/setting.png)	
 
@@ -133,7 +136,7 @@ Please follow the below steps to create a Procore test user on Procore SSO side.
 
 	![Screenshot shows the Procore company site with Directory selected from the toolbox.](./media/procoresso-tutorial/directory.png)
 
-3. Click on **Add a Person** option to open the form and enter perform following options -
+3. Click on **Add a Person** option to open the form and enter perform following options.
 
 	![Screenshot shows the Add a person to Boylan Construction where you can enter user information.](./media/procoresso-tutorial/user.png)
 
@@ -161,8 +164,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Procore SSO for which you set up the SSO.
 
-* You can use Microsoft My Apps. When you click the Procore SSO tile in the My Apps, you should be automatically signed in to the Procore SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Procore SSO tile in the My Apps, you should be automatically signed in to the Procore SSO for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Procore SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Procore SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

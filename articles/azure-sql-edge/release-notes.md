@@ -17,7 +17,7 @@ This article describes what's new and what has changed with every new build of A
 
 ## Azure SQL Edge 1.0.4
 
-SQL engine build 15.0.2000.1558
+SQL engine build 15.0.2000.1559
 
 ### What's new?
 
@@ -26,7 +26,7 @@ SQL engine build 15.0.2000.1558
 
 ## Azure SQL Edge 1.0.3
 
-SQL engine build 15.0.2000.1554
+SQL engine build 15.0.2000.1557
 
 ### Fixes
 
@@ -36,7 +36,7 @@ SQL engine build 15.0.2000.1554
    
 ## Azure SQL Edge 1.0.2
 
-SQL engine build 15.0.2000.1554
+SQL engine build 15.0.2000.1557
 
 ### Fixes
 

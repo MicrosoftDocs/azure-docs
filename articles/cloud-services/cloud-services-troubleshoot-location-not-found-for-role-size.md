@@ -2,8 +2,8 @@
 title: Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure | Microsoft Docs
 description: This article shows how to resolve a LocationNotFoundForRoleSize exception when deploying a Cloud service (classic) to Azure.
 services: cloud-services
-author: mamccrea
-ms.author: mamccrea
+author: hirenshah1
+ms.author: hirshah
 ms.service: cloud-services
 ms.topic: troubleshooting
 ms.date: 02/22/2021 
@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot LocationNotFoundForRoleSize when deploying a Cloud service (classic) to Azure
+
+[!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
 In this article, you'll troubleshoot allocation failures where a Virtual Machine (VM) size isn't available when you deploy an Azure Cloud service (classic).
 

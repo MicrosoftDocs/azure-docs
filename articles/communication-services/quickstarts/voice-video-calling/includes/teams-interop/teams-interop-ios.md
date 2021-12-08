@@ -2,10 +2,11 @@
 title: Quickstart - Join a Teams meeting from an iOS app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for iOS.
@@ -115,7 +116,6 @@ struct ContentView: View {
         }
     }
 
-
     func leaveMeeting() {
         if let call = call {
             call.hangUp(options: nil, completionHandler: { (error) in
@@ -157,7 +157,6 @@ class CallObserver : NSObject, CallDelegate {
             owner.recordingStatus = ""
         }
     }
-
 
     private static func callStateToString(state: CallState) -> String {
         switch state {

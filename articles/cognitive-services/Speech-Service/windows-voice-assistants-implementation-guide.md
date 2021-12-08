@@ -149,4 +149,4 @@ To properly close the application programmatically while above or below lock, us
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample)
+> [Visit the UWP Voice Assistant Sample app for examples and code walk-throughs](windows-voice-assistants-faq.yml#the-uwp-voice-assistant-sample)

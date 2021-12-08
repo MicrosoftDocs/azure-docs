@@ -4,11 +4,9 @@ titleSuffix: Azure Machine Learning
 description: Try a local model deployment as a first step in troubleshooting model deployment errors.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-author: gvashishtha
-ms.author:  gopalv
+ms.subservice: mlops
 ms.reviewer: luquinta
-ms.date: 11/25/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, deploy, contperf-fy21q2
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
@@ -20,7 +18,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
 
 ## Prerequisites
 
-* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * Option A (**Recommended**) - Debug locally on Azure Machine Learning Compute Instance
    * An Azure Machine Learning Workspace with [compute instance](how-to-deploy-local-container-notebook-vm.md) running
 * Option B - Debug locally on your compute

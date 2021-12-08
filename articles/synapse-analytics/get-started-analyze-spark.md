@@ -27,9 +27,12 @@ In this tutorial, you'll learn the basic steps to load and analyze data with Apa
 
 ## Understanding serverless Apache Spark pools
 
-A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
+A serverless Spark pool is a way of indicating how a user wants to work with Spark. When you start using a pool, a Spark session is created if needed. The pool controls how many Spark resources will be used by that session and how long the session will last before it automatically pauses. You pay for spark resources used during that session not for the pool itself. In this way a Spark pool lets you work with Spark, without having to worry managing clusters. This is similar to how a serverless SQL pool works.
 
 ## Analyze NYC Taxi data with a Spark pool
+
+> [!NOTE]
+> Make sure you have [placed the sample data into the primary storage account](get-started-create-workspace.md#place-sample-data-into-the-primary-storage-account)
 
 1. In Synapse Studio, go to the **Develop** hub
 2. Create a new Notebook
@@ -70,7 +73,7 @@ Data is available via the dataframe named **df**. Load it into a Spark database 
    ```
 
 1. Run the cell to show the NYC Taxi data we loaded into the **nyctaxi** Spark database.
-1. Create a new code cell and enter the following code. We will analysis this data and save the results into a table called **nyctaxi.passengercountstats**.
+1. Create a new code cell and enter the following code. We will analyze this data and save the results into a table called **nyctaxi.passengercountstats**.
 
    ```py
    %%pyspark

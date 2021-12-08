@@ -1,25 +1,24 @@
 ---
 title: Labeling images and text documents
 title.suffix: Azure Machine Learning
-description: Learn how to use the data labeling tools to rapidly prepare text or image data for a Machine Learning in a data labeling project.
+description: Use data labeling tools to rapidly label text or label images for a Machine Learning in a data labeling project.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
-ms.date: 04/29/2021
-ms.custom: data4ml
+ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Labeling images and text documents
 
-After your project administrator [creates a data labeling project](./how-to-create-labeling-projects.md#create-a-data-labeling-project) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
+After your project administrator creates an [image data labeling project](./how-to-create-image-labeling-projects.md) or [text data labeling project](./how-to-create-text-labeling-projects.md) in Azure Machine Learning, you can use the labeling tool to rapidly prepare data for a Machine Learning project. This article describes:
 
 > [!div class="checklist"]
 > * How to access your labeling projects
 > * The labeling tools
 > * How to use the tools for specific labeling tasks
-
 
 ## Prerequisites
 
@@ -48,17 +47,25 @@ In all data labeling tasks, you choose an appropriate tag or tags from a set tha
 
 Machine learning algorithms may be triggered during your labeling. If these algorithms are enabled in your project, you may see the following:
 
-* For images, after some amount of data have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+* Images
 
-* At a later point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
+    * After some amount of data have been labeled, you may see **Tasks clustered** at the top of your screen next to the project name.  This means that images are grouped together to present similar images on the same page.  If so, switch to one of the multiple image views to take advantage of the grouping.  
+    
+    * At a later point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.  
+    
+    * For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
+    
+    * For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
 
-* For object identification models, you may see bounding boxes and labels already present.  Correct any that are incorrect before submitting the page.
-
-* For segmentation models, you may see polygons and labels already present.  Correct any that are incorrect before submitting the page. 
+* Text
+    
+    * At some point, you may see **Tasks prelabeled** next to the project name.  Items will then appear with a suggested label that comes from a machine learning classification model. No machine learning model has 100% accuracy. While we only use data for which the model is confident, these data might still be incorrectly prelabeled.  When you see labels, correct any wrong labels before submitting the page.
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 
-## Image tasks
+When there are no more prelabled tasks, you'll stop confirming or correcting labels and go back to manually tagging the items.
+
+## <a name="image-tasks"></a> Image tasks
 
 For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
 
@@ -74,6 +81,19 @@ Here we've chosen a two-by-two layout and are about to apply the tag "Mammal" to
 Azure enables the **Submit** button when you've tagged all the images on the page. Select **Submit** to save your work.
 
 After you submit tags for the data at hand, Azure refreshes the page with a new set of images from the work queue.
+
+## Medical image tasks
+
+> [!IMPORTANT]
+> The capability to label DICOM or similar image types is not intended or made available for use as a medical device, clinical support, diagnostic tool, or other technology intended to be used in the diagnosis, cure, mitigation, treatment, or prevention of disease or other conditions, and no license or right is granted by Microsoft to use this capability for such purposes. This capability is not designed or intended to be implemented or deployed as a substitute for professional medical advice or healthcare opinion, diagnosis, treatment, or the clinical judgment of a healthcare professional, and should not be used as such. The customer is solely responsible for any use of Data Labeling for DICOM or similar image types.
+
+Image projects support DICOM image format for X-ray file images.
+
+:::image type="content" source="media/how-to-label-data/x-ray-image.png" alt-text="X-ray DICOM image to be labeled.":::
+
+While you label the medical images with the same tools as any other images, there is an additional tool for DICOM images.  Select the **Window and level** tool to change the intensity of the image. This tool is available only for DICOM images.
+
+:::image type="content" source="media/how-to-label-data/window-level-tool.png" alt-text="Window and level tool for DICOM images.":::
 
 ## Tag images for multi-class classification
 
@@ -145,14 +165,14 @@ To delete *all* polygons in the current image, select the **Delete all regions**
 
 After you create the polygons for an image, select **Submit** to save your work, or your work in progress won't be saved.
 
-## Annotate text (preview)
+## <a name="label-text"></a>Label text (preview)
 
 > [!IMPORTANT]
 > Text labeling is in public preview.
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When annotating text, use the toolbar to:
+When tagging text, use the toolbar to:
 
 * Increase or decrease the text size
 * Change the font
@@ -179,5 +199,3 @@ When you're done labeling, select your name in the upper-right corner of the lab
 ## Next steps
 
 * Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
-
-

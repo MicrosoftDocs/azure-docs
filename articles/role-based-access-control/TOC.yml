@@ -46,6 +46,8 @@
       href: conditions-prerequisites.md
     - name: Conditions FAQ
       href: conditions-faq.md
+    - name: Custom security attributes example
+      href: conditions-custom-security-attributes-example.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
@@ -100,8 +102,12 @@
       href: conditions-role-assignments-cli.md
     - name: REST API
       href: conditions-role-assignments-rest.md
+    - name: ARM template
+      href: conditions-role-assignments-template.md
     - name: Troubleshoot conditions
       href: conditions-troubleshoot.md
+    - name: Conditions and custom security attributes
+      href: conditions-custom-security-attributes.md
   - name: Remove role assignments
     href: role-assignments-remove.md
   - name: List deny assignments

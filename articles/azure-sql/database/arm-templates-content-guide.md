@@ -10,7 +10,7 @@ ms.topic: guide
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma
-ms.date: 05/24/2021
+ms.date: 06/30/2021
 ---
 
 # Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance
@@ -36,6 +36,7 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Import data from Blob storage using ADF V2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.datafactory/data-factory-v2-blob-to-sql-copy) | This Azure Resource Manager template creates an instance of Azure Data Factory V2 that copies data from Azure Blob storage to SQL Database.|
 | [HDInsight cluster with a database](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.hdinsight/hdinsight-linux-with-sql-database) | This template allows you to create an HDInsight cluster, a logical SQL server, a database, and two tables. This template is used by the [Use Sqoop with Hadoop in HDInsight article](../../hdinsight/hadoop/hdinsight-use-sqoop.md). |
 | [Azure Logic App that runs a SQL Stored Procedure on a schedule](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-sql-proc) | This template allows you to create a logic app that will run a SQL stored procedure on schedule. Any arguments for the procedure can be put into the body section of the template.|
+| [Provision server with Azure AD-only authentication enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-logical-server-aad-only-auth) | This template creates a SQL logical server with an Azure AD admin set for the server and Azure AD-only authentication enabled. |
 
 ## [Azure SQL Managed Instance](#tab/managed-instance)
 
@@ -47,5 +48,6 @@ The following table includes links to Azure Resource Manager templates for Azure
 | [Network environment for SQL Managed Instance](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sql-managed-instance-azure-environment) | This deployment will create a configured Azure virtual network with two subnets, one that will be dedicated to your managed instances and another where you can place other resources (for example VMs, App Service environments, etc.). This template will create a properly configured networking environment where you can deploy managed instances. |
 | [SQL Managed Instance with P2S connection](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sqlmi-new-vnet-w-point-to-site-vpn) | This deployment will create an Azure virtual network with two subnets, `ManagedInstance` and `GatewaySubnet`. SQL Managed Instance will be deployed in the ManagedInstance subnet. A virtual network gateway will be created in the `GatewaySubnet` subnet and configured for Point-to-Site VPN connection. |
 | [SQL Managed Instance with a virtual machine](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sqlmi-new-vnet-w-jumpbox) | This deployment will create an Azure virtual network with two subnets, `ManagedInstance` and `Management`. SQL Managed Instance will be deployed in the `ManagedInstance` subnet. A virtual machine with the latest version of SQL Server Management Studio (SSMS) will be deployed in the `Management` subnet. |
+| [SQL Managed Instance with diagnostic logs enabled](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.sql/sqlmi-new-vnet-w-diagnostic-settings) | This deployment creates an Azure Virtual Network with `ManagedInstance` subnet and deploys a Managed Instance inside with enabled diagnostic logs. It will also deploy event hub, diagnostic workspace and storage account for the purpose of sending and storing instance diagnostic logs. |
 
 ---

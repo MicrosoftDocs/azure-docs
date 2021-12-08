@@ -1,0 +1,64 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/purview/scan-sqlresource-firewall.md",
+        "redirect_url": "/azure/purview/register-scan-azure-sql-database",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/powershell-register-scan-power-bi.md",
+        "redirect_url": "/azure/purview/register-scan-power-bi-tenant",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-scan-data.md",
+        "redirect_url": "/azure/purview/concept-scans-and-ingestion",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-asset-search.md",
+        "redirect_url": "/azure/purview/concept-search",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-browse-and-view-lineage.md",
+        "redirect_url": "/azure/purview/how-to-browse-catalog",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-schemas-and-classifications.md",
+        "redirect_url": "/azure/purview/concept-resource-sets",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/tutorial-import-create-glossary-terms.md",
+        "redirect_url": "/azure/purview/how-to-create-import-export-glossary",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/catalog-private-link-ingestion.md",
+        "redirect_url": "/azure/purview/catalog-private-link-end-to-end",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/file-extension-insights.md",
+        "redirect_url": "/azure/purview/asset-insights",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-data-policies.md",
+        "redirect_url": "/azure/purview/how-to-access-policies-storage",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-self-service.md",
+        "redirect_url": "/azure/purview/overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
+        "redirect_url": "/azure/purview/catalog-permissions",
+        "redirect_document_id": true
+      }
+]
+}

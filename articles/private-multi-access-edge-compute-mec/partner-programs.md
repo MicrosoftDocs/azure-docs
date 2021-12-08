@@ -1,7 +1,7 @@
 ---
 title: 'Azure private multi-access edge compute partner solutions'
 description: Learn about Azure multi-access edge compute partner programs.
-services: vnf-manager
+services: private-multi-access-edge-compute-mec
 author: KumudD
 ms.service: vnf-manager
 ms.topic: article

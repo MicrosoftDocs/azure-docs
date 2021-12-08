@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 04/29/2021
+ms.date: 09/03/2021
 ms.topic: conceptual
 ---
 
@@ -44,6 +44,8 @@ Pool lifetime can vary depending upon the method of allocation and options appli
 
 - **Pool efficiency and billing:** Batch itself incurs no extra charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the node to run, such as storage and networking costs. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
+- **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
+
 ### Pool allocation failures
 
 Pool allocation failures can happen at any point during first allocation or subsequent resizes. This can be due to temporary capacity exhaustion in a region or failures in other Azure services that Batch relies on. Your core quota is not a guarantee but rather a limit.
@@ -54,7 +56,7 @@ It's possible for Batch pools to experience downtime events in Azure. Keep this 
 
 ### Custom image pools
 
-When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create the pool with a supported Azure Marketplace image, or you can [create a custom image with a Shared Image Gallery image](batch-sig-images.md). While you can also use a [managed image](batch-custom-images.md) to create a custom image pool, we recommend creating custom images using the Shared Image Gallery whenever possible. Using the Shared Image Gallery helps you provision pools faster, scale larger quantities of VMs, and improve reliability when provisioning VMs.
+When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create the pool with a supported Azure Marketplace image, or you can [create a custom image with an Azure Compute Gallery image](batch-sig-images.md). While you can also use a [managed image](batch-custom-images.md) to create a custom image pool, we recommend creating custom images using the Azure Compute Gallery whenever possible. Using the Azure Compute Gallery helps you provision pools faster, scale larger quantities of VMs, and improve reliability when provisioning VMs.
 
 ### Third-party images
 
@@ -192,7 +194,7 @@ Typically, virtual machines in a Batch pool are accessed through public IP add
 
 ### Testing connectivity with Cloud Services configuration
 
-You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.md#can-i-ping-a-cloud-service).
+You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol is not permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## Batch node underlying dependencies
 

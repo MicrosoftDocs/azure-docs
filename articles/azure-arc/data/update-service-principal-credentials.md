@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 12/09/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
@@ -17,7 +17,6 @@ When the service principal credentials change, you need to update the secrets in
 
 For example, if you deployed the data controller using a specific set of values for service principal tenant ID, client ID, and client secret, and then change one or more of these values, you need to update the secrets in the data controller.  Following are the instructions to update Tenant ID, Client ID or the Client secret. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Background
 

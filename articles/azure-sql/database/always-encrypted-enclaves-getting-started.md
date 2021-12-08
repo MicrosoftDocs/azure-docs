@@ -9,14 +9,11 @@ ms.topic: tutorial
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 05/01/2021
+ms.date: 07/14/2021
 ---
 # Tutorial: Getting started with Always Encrypted with secure enclaves in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
-
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
 
 This tutorial teaches you how to get started with [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database. It will show you:
 
@@ -37,19 +34,11 @@ This tutorial teaches you how to get started with [Always Encrypted with secure 
 
 Make sure the following PowerShell modules are installed on your machine.
 
-1. Az version 5.6 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
+1. Az version 6.5.0 or later. For details on how to install the Az PowerShell module, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps). To determine the version the Az module installed on your machine, run the following command from a PowerShell session.
 
     ```powershell
     Get-InstalledModule -Name Az
     ```
-
-1. Az.Attestation 0.1.8 or later. For details on how to install the Az.Attestation PowerShell module, see [Install Az.Attestation PowerShell module](../../attestation/quickstart-powershell.md#install-azattestation-powershell-module). To determine the version the Az.Attestation module installed on your machine, run the following command from a PowerShell session.
-
-    ```powershell
-    Get-InstalledModule -Name Az.Attestation
-    ```
-
-If the versions aren't matching with the minimum requirements, run the `Update-Module` command.
 
 The PowerShell Gallery has deprecated Transport Layer Security (TLS) versions 1.0 and 1.1. TLS 1.2 or a later version is recommended. You may receive the following errors if you are using a TLS version lower than 1.2:
 
@@ -122,7 +111,7 @@ In this step, you will create a new Azure SQL Database logical server and a new 
    ```PowerShell
    Connect-AzAccount
    $subscriptionId = "<your subscription ID>"
-   Set-AzContext -Subscription $subscriptionId
+   $context = Set-AzContext -Subscription $subscriptionId
    ```
 
 1. Create a new resource group.
@@ -250,8 +239,17 @@ In this step, you'll create and configure an attestation provider in Microsoft A
    $attestationProviderName = "<your attestation provider name>" 
    New-AzAttestation -Name $attestationProviderName -ResourceGroupName $resourceGroupName -Location $location
    ```
+1. Assign yourself to the Attestation Contributor role for the attestaton provider, to ensure you have permissions to configure an attestation policy.
 
-1. Configure your attestation policy.
+   ```powershell
+   New-AzRoleAssignment -SignInName $context.Account.Id `
+    -RoleDefinitionName "Attestation Contributor" `
+    -ResourceName $attestationProviderName `
+    -ResourceType "Microsoft.Attestation/attestationProviders" `
+    -ResourceGroupName $resourceGroupName
+   ```
+   
+3. Configure your attestation policy.
   
    ```powershell
    $policyFile = "<the pathname of the file from step 1 in this section>"

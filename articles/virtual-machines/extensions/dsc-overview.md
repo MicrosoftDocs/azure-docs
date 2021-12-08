@@ -23,6 +23,9 @@ ms.custom: devx-track-azurepowershell
 
 The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/policy/concepts/guest-configuration.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
 The service provides [benefits](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)
@@ -154,7 +157,7 @@ For a virtual machine running Windows:
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
+  --name DSC \
   --publisher Microsoft.Powershell \
   --version 2.77 --protected-settings '{}' \
   --settings '{}'

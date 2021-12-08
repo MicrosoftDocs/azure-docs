@@ -228,8 +228,8 @@ In this tutorial, you configured a new IoT hub in the Azure portal, and then cre
 
 Use the following resources to learn how to:
 
-* send telemetry from devices with the [Get started with IoT Hub](quickstart-send-telemetry-node.md) tutorial,
+* send telemetry from devices with the [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-nodejs) tutorial,
 
 * configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial,
 
-* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](quickstart-control-device-node.md) tutorial.
+* control devices interactively (such as turning on a fan from a user-controlled app), with the [Use direct methods](./quickstart-control-device.md?pivots=programming-language-nodejs) quickstart.

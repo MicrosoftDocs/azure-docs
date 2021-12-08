@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/03/2021
+ms.date: 07/01/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ---
@@ -266,6 +266,9 @@ If the source is transformation, the **TransformationID** element must be includ
 
 The ID element identifies which property on the source provides the value for the claim. The following table lists the values of ID valid for each value of Source.
 
+> [!WARNING]
+> Currently, the only available multi-valued claim sources on a user object are multi-valued extension attributes which have been synced from AADConnect.  Other properties, such as OtherMails and tags, are multi-valued but only one value is emitted when selected as a source.
+
 #### Table 3: Valid ID values per source
 
 | Source | ID | Description |
@@ -399,11 +402,6 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 | ----- | ----- |
 | ExtractMailPrefix | None |
 | Join | The suffix being joined must be a verified domain of the resource tenant. |
-
-### Cross-tenant scenarios
-
-Claims mapping policies do not apply to guest users. If a guest user tries to access an application with a claims mapping policy assigned to its service principal, the default token is issued (the policy has no effect).
-
 
 ## Next steps
 

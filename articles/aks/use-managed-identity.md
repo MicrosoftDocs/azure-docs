@@ -1,7 +1,6 @@
 ---
 title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS)
-services: container-service
 ms.topic: article
 ms.date: 05/12/2021
 ---
@@ -39,8 +38,8 @@ AKS uses several managed identities for built-in services and add-ons.
 
 | Identity                       | Name    | Use case | Default permissions | Bring your own identity
 |----------------------------|-----------|----------|
-| Control plane | not visible | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, and Cluster Autoscaler operations | Contributor role for Node resource group | Supported
-| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported (Preview)
+| Control plane | AKS Cluster Name | Used by AKS control plane components to manage cluster resources including ingress load balancers and AKS managed public IPs, Cluster Autoscaler, Azure Disk & File CSI drivers | Contributor role for Node resource group | Supported
+| Kubelet | AKS Cluster Name-agentpool | Authentication with Azure Container Registry (ACR) | NA (for kubernetes v1.15+) | Supported
 | Add-on | AzureNPM | No identity required | NA | No
 | Add-on | AzureCNI network monitoring | No identity required | NA | No
 | Add-on | azure-policy (gatekeeper) | No identity required | NA | No
@@ -86,7 +85,11 @@ You can now update an AKS cluster currently working with service principals to w
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
-> Once the system-assigned or user-assigned identities have been updated to managed identity, perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity.
+> After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
+>
+> If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
+>
+> The Azure CLI will ensure your addon's permission is correctly set after migrating, if you're not using the Azure CLI to perform the migrating operation, you will need to handle the addon identity's permission by yourself. Here is one example using [ARM](../role-based-access-control/role-assignments-template.md). 
 
 ## Obtain and use the system-assigned managed identity for your AKS cluster
 
@@ -131,8 +134,7 @@ A custom control plane identity enables access to be granted to the existing ide
 You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
-* Azure Government isn't currently supported.
-* Azure China 21Vianet isn't currently supported.
+* USDOD Central, USDOD East, USGov Iowa in Azure Government aren't currently supported.
 
 If you don't have a managed identity yet, you should go ahead and create one for example by using [az identity CLI][az-identity-create].
 
@@ -151,7 +153,7 @@ The result should look like:
   "principalId": "<principalId>",
   "resourceGroup": "myResourceGroup",                       
   "tags": {},
-  "tenantId": "<tenant-id>>",
+  "tenantId": "<tenant-id>",
   "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
 }
 ```
@@ -174,7 +176,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
-    --assign-identity <identity-id> \
+    --assign-identity <identity-id>
 ```
 
 A successful cluster creation using your own managed identities contains this userAssignedIdentities profile information:
@@ -193,39 +195,18 @@ A successful cluster creation using your own managed identities contains this us
  },
 ```
 
-## Bring your own kubelet MI (Preview)
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+## Bring your own kubelet MI
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
 ### Prerequisites
 
-- You must have the Azure CLI, version 2.21.1 or later installed.
-- You must have the aks-preview, version 0.5.10 or later installed.
+- You must have the Azure CLI, version 2.26.0 or later installed.
 
 ### Limitations
 
 - Only works with a User-Assigned Managed cluster.
-- Azure China 21Vianet isn't currently supported.
-
-First, register the feature flag for Kubelet identity:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.ContainerService -n CustomKubeletIdentityPreview
-```
-
-It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/CustomKubeletIdentityPreview')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+- China East, China North in Azure China 21Vianet aren't currently supported.
 
 ### Create or obtain managed identities
 
@@ -296,7 +277,7 @@ az aks create \
     --service-cidr 10.2.0.0/24 \
     --enable-managed-identity \
     --assign-identity <identity-id> \
-    --assign-kubelet-identity <kubelet-identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
 ```
 
 A successful cluster creation using your own kubelet managed identity contains the following output:

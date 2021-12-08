@@ -2,7 +2,7 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 09/01/2021
 ---
 
 # Azure Backup architecture and components
@@ -76,7 +76,18 @@ The following table explains the different types of backups used for SQL Server 
 **Differential backup** | A differential backup is based on the most recent, previous full-data backup.<br/><br/> It captures only the data that's changed since the full backup. |  At most, you can trigger one differential backup per day.<br/><br/> You can't configure a full backup and a differential backup on the same day.
 **Transaction log backup** | A log backup enables point-in-time restoration up to a specific second. | At most, you can configure transactional log backups every 15 minutes.
 
-### Comparison of backup types
+## SAP HANA backup types
+
+The following table explains the different types of backups used for SAP HANA databases and how often they're used:
+
+| Backup type | Details | Usage |
+| --- | --- | --- |
+| **Full backup** | A full database backup backs up the entire database. This type of backup can be independently used to restore to a specific point. | At most, you can schedule one full backup per day. <br><br> You can choose to schedule a full backup on a daily or weekly interval. |
+| **Differential backup** | A differential backup is based on the most recent, previous full-data backup. <br><br> It captures only the data that's changed since the previous full backup. | At most, you can schedule one differential backup per day.  <br><br> You can't configure a full backup and a differential backup on the same day. |
+| **Incremental backup** | An incremental backup is based on the most recent, previous full/ differential/ incremental-data backup. <br><br> It captures only the data that's changed since this previous data backup. | At most, you can schedule one incremental backup per day. <br><br> You can't schedule both differential and incremental backups on a database, only one delta backup type can be scheduled. <br><br> You can't configure a full backup and a differential backup on the same day. |
+| **Transaction log backup** | A log backup enables point-in-time restoration up to a specific second. | At most, you can configure transactional log backups every 15 minutes. |
+
+## Comparison of backup types
 
 Storage consumption, recovery time objective (RTO), and network consumption varies for each type of backup. The following image shows a comparison of the backup types:
 
@@ -85,7 +96,7 @@ Storage consumption, recovery time objective (RTO), and network consumption vari
 - For differential backups, in the second month changed blocks A2, A3, A4, and A9 are backed up. In the third month, these same blocks are backed up again, along with changed block A5. The changed blocks continue to be backed up until the next full backup happens.
 - For incremental backups, in the second month blocks A2, A3, A4, and A9 are marked as changed and transferred. In the third month, only changed block A5 is marked and transferred.
 
-![Image showing comparisons of backup methods](./media/backup-architecture/backup-method-comparison.png)
+![Diagram showing that storage consumption, recovery time objective (RTO), and network consumption varies for each backup type.](./media/backup-architecture/backup-method-comparison.png)
 
 ## Backup features
 

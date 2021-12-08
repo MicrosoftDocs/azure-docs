@@ -80,7 +80,10 @@ For four of the simulated sensor devices, use the **Manage device** view to set 
 
 1. Select **+ New**.
 
-1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template. Choose the **Sensor Controller** device template to use for this group.
+1. Name your device group *Contoso devices*. You can also add a description. A device group can only contain devices from a single device template and organization. Choose the **Sensor Controller** device template to use for this group.
+
+    > [!TIP]
+    > If your application [uses organizations](howto-create-organizations.md), select the organization that your devices belong to. Only devices from the selected organization are visible. Also, only users associated with the organization or an organization higher in the hierarchy can see the device group.
 
 1. To customize the device group to include only the devices belonging to **Contoso**, select **+ Filter**. Select the **Customer Name** property, the **Equals** comparison operator, and **Contoso** as the value. You can add multiple filters and devices that meet **all** the filter criteria are placed in the device group. The device group you create is accessible to anyone who has access to the application, so anyone can view, modify, or delete the device group.
 
@@ -106,13 +109,17 @@ To analyze the telemetry for a device group:
 
     :::image type="content" source="media/tutorial-use-device-groups/create-analysis.png" alt-text="Screenshot that shows the telemetry types selected for analysis":::
 
-    Use the gear-wheel icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
+    Use the ellipsis icons next to the telemetry types to select an aggregation type. The default is **Average**. Use **Group by** to change how the aggregate data is shown. For example, if you split by device ID you see a plot for each device when you select **Analyze**.
 
 1. Select **Analyze** to view the average telemetry values:
 
     :::image type="content" source="media/tutorial-use-device-groups/view-analysis.png" alt-text="Screenshot that shows average values for all the Contoso devices":::
 
-    You can customize the view, change the time period shown, and export the data.
+    You can customize the view, change the time period shown, and export the data as CSV or view data as table.
+
+    :::image type="content" source="media/tutorial-use-device-groups/export-data.png" alt-text="Screenshot that shows how to export data for the Contoso devices":::
+
+To learn more about analytics, see [How to use analytics to analyze device data](howto-create-analytics.md).
 
 ## Clean up resources
 

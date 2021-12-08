@@ -2,7 +2,7 @@
 title: Azure Service Bus as Event Grid source
 description: Describes the properties that are provided for Service Bus events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/15/2021
 ---
 
 # Azure Service Bus as an Event Grid source

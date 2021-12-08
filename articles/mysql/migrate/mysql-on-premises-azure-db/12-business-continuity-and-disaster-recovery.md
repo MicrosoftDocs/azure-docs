@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Business Continuity and Disaster Recovery (BCDR)"
 description: "As with any mission critical system, having a backup and restore and a disaster recovery (BCDR) strategy is an important part of your overall system design."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Business Continuity and Disaster Recovery (BCDR)
+# Migrate MySQL on-premises to Azure Database for MySQL: Business Continuity and Disaster Recovery (BCDR)
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -25,7 +27,7 @@ As with any mission critical system, having a backup and restore and a disaster 
 
 Azure Database for MySQL supports automatic backups for 7 days by default. It may be appropriate to modify this to the current maximum of 35 days. It's important to be aware that if the value is changed to 35 days, there are charges for any extra backup storage over 1x of the storage allocated.
 
-There are several current limitations to the database backup feature as described in the [Backup and restore in Azure Database for MySQL](/azure/mysql/concepts-backup) docs article. It's important to understand them when deciding what additional strategies that should be implemented.
+There are several current limitations to the database backup feature as described in the [Backup and restore in Azure Database for MySQL](../../concepts-backup.md) docs article. It's important to understand them when deciding what additional strategies that should be implemented.
 
 Some items to be aware of include:
 
@@ -36,22 +38,22 @@ Some items to be aware of include:
 - Tiers that allow up to 16 TB have backups that are snapshot-based
 
     > [!NOTE]
-    > [Some regions](/azure/mysql/concepts-pricing-tiers#storage) do not yet support storage up to 16TB.
+    > [Some regions](../../concepts-pricing-tiers.md#storage) do not yet support storage up to 16TB.
 
 ### Restore
 
 Redundancy (local or geo) must be configured during server creation. However, a geo-restore can be performed and allows the modification of these options during the restore process. Performing a restore operation can temporarily stop connectivity and any applications is down during the restore process.
 
 During a database restore, any supporting items outside of the database need to be restored. 
-Review the migration process. See [Perform post-restore tasks](/azure/mysql/concepts-backup#perform-post-restore-tasks) for more information.
+Review the migration process. See [Perform post-restore tasks](../../concepts-backup.md#perform-post-restore-tasks) for more information.
 
 ## Read replicas
 
-[Read replicas](/azure/mysql/concepts-read-replicas) can be used to increase the MySQL read throughput, improve performance for regional users and to implement disaster recovery. When creating one or more read replicas, be aware that additional charges are applied for the same compute and storage as the primary server.
+[Read replicas](../../concepts-read-replicas.md) can be used to increase the MySQL read throughput, improve performance for regional users and to implement disaster recovery. When creating one or more read replicas, be aware that additional charges are applied for the same compute and storage as the primary server.
 
 ## Deleted servers
 
-If an administrator or bad actor deletes the server in the Azure portal or via automated methods, all backups and read replicas are deleted. it's important that [resource locks](/azure/azure-resource-manager/management/lock-resources) are created on the Azure Database for MySQL resource group to add an extra layer of deletion prevention to the instances.
+If an administrator or bad actor deletes the server in the Azure portal or via automated methods, all backups and read replicas are deleted. it's important that [resource locks](../../../azure-resource-manager/management/lock-resources.md) are created on the Azure Database for MySQL resource group to add an extra layer of deletion prevention to the instances.
 
 ## Regional failure
 
@@ -62,7 +64,7 @@ Although rare, if a regional failure occurs geo-redundant backups or a read repl
 
 ### Load balancers
 
-If the application is made up of many different instances around the world, it may not be feasible to update all of the clients. Utilize an [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) or [Application Gateway](/azure/application-gateway/overview) to implement a seamless failover functionality. Although helpful and time-saving, these tools aren't required for regional failover capability.
+If the application is made up of many different instances around the world, it may not be feasible to update all of the clients. Utilize an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) or [Application Gateway](../../../application-gateway/overview.md) to implement a seamless failover functionality. Although helpful and time-saving, these tools aren't required for regional failover capability.
 
 ## WWI scenario
 
@@ -115,6 +117,8 @@ Failover Steps:
 
 - Implement a load-balancing strategy for applications for quick failover.  
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Security](./13-security.md)

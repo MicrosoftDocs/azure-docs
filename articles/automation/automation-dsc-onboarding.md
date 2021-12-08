@@ -4,16 +4,17 @@ description: This article tells how to set up machines for management with Azure
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: mgoedtel
-ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019 
 ms.custom: devx-track-azurepowershell
-manager: carmonm
 ---
+
 # Enable Azure Automation State Configuration
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
+
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../governance/policy/concepts/guest-configuration.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
 
 ## Enable Azure VMs
 
@@ -43,7 +44,7 @@ required for your use case. Optionally, you can enter a node configuration to as
 
 ### Enable a VM using Azure Resource Manager templates
 
-You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+You can install and enable a VM for State Configuration using Azure Resource Manager templates. See [Server managed by Desired State Configuration service](https://azure.microsoft.com/resources/templates/automation-configuration/) for an example template that enables an existing VM for State Configuration. If you are managing a virtual machine scale set, see the example template in [Virtual machine scale set configuration managed by Azure Automation](https://azure.microsoft.com/resources/templates/vmss-automation-dsc/).
 
 ### Enable machines using PowerShell
 

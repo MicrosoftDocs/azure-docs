@@ -4,7 +4,6 @@ description: This article provides best practices for deploying Azure Purview. A
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
 ---
@@ -20,12 +19,12 @@ A well-planned deployment of a data governance platform (such as Azure Purview),
 
 ## Prerequisites
 
-* Access to Microsoft Azure with a development or production subscription
-* Ability to create Azure resources including Purview
-* Access to data sources such as Azure Data Lake Storage or Azure SQL in test, development, or production environments
-  * For Data Lake Storage, the required role to scan is Reader Role
-  * For SQL, the identity must be able to query tables for sampling of classifications
-* Access to Azure Security Center or ability to collaborate with Security Center Admin for data labeling
+- Access to Microsoft Azure with a development or production subscription
+- Ability to create Azure resources including Purview
+- Access to data sources such as Azure Data Lake Storage or Azure SQL in test, development, or production environments
+  - For Data Lake Storage, the required role to scan is Reader Role
+  - For SQL, the identity must be able to query tables for sampling of classifications
+- Access to Microsoft Defender for Cloud or ability to collaborate with Defender for Cloud Admin for data labeling
 
 ## Identify objectives and goals
 
@@ -106,7 +105,7 @@ The scenarios must be specific, actionable, and executable with measurable resul
 
 |Scenario|Detail|Persona|
 |---------|---------|---------|
-|Catalog business-critical assets|I need to have information about each data sets to have a good understanding of what it is. This scenario includes both business and technical metadata data about the data set in the catalog. The data sources include Azure Data Lake Storage Gen2, Azure Synapse DW, and/or Power BI. This scenario also includes on-premise resource such as SQL Server.|Business Analyst, Data Scientist, Data Engineer|
+|Catalog business-critical assets|I need to have information about each data sets to have a good understanding of what it is. This scenario includes both business and technical metadata data about the data set in the catalog. The data sources include Azure Data Lake Storage Gen2, Azure Synapse DW, and/or Power BI. This scenario also includes on-premises resources such as SQL Server.|Business Analyst, Data Scientist, Data Engineer|
 |Discover business-critical assets|I need to have a search engine that can search through all metadata in the catalog. I should be able to search using technical term, business term with either simple or complex search using wildcard.|Business Analyst, Data Scientist, Data Engineer, Data Admin|
 |Track data to understand its origin and troubleshoot data issues|I need to have data lineage to track data in reports, predictions, or models back to its original source and understand the changes and where the data has resided through the data life cycle. This scenario needs to support prioritized data pipelines Azure Data Factory and Databricks.|Data Engineer, Data Scientist|
 |Enrich metadata on critical data assets|I need to enrich the data set in the catalog with technical metadata that is generated automatically. Classification and labeling are some examples.|Data Engineer, Domain/Business Owner|
@@ -162,7 +161,6 @@ In this phase, Purview must be created and configured for a very small set of us
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
-|Set up the starter kit|Go through [Purview Quick Start](create-catalog-portal.md) and set up the [Purview Starter Kit](tutorial-scan-data.md) to demo Purview to all stakeholders.|1 Day|
 |Navigating Purview|Understand how to use Purview from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
 |Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
@@ -193,9 +191,9 @@ Once you have the agreed requirements and participated business units to onboard
 |[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts which have requirements to include lineage from the storage layer.|1-2 Weeks|
 |[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Purview via .csv file.|1 Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
-|Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from M365.|1-2 Weeks|
+|Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |Get classification and sensitive insights|For reporting and insight in Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
-|Onboard addition users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
+|Onboard additional users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
 
 ### Acceptance criteria
 
@@ -207,7 +205,7 @@ Once you have the agreed requirements and participated business units to onboard
 
 ## Phase 3: Pre-production
 
-Once the MVP phase has passed, it’s time to plan for pre-production milestone. Your organization may decide to have a separate instance of Purview for pre-production and production, or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premise data sources such as SQL Server. If there is any gap in data sources not supported by Purview, it is time to explore the Atlas API to understand additional options.
+Once the MVP phase has passed, it’s time to plan for pre-production milestone. Your organization may decide to have a separate instance of Purview for pre-production and production, or keep the same instance but restrict access. Also in this phase, you may want to include scanning on on-premises data sources such as SQL Server. If there is any gap in data sources not supported by Purview, it is time to explore the Atlas API to understand additional options.
 
 ### Tasks to complete
 
@@ -217,14 +215,14 @@ Once the MVP phase has passed, it’s time to plan for pre-production milestone.
 |Assess region availability for scan|Depending on the region of the data sources and organizational requirements on compliance and security, you may want to consider what regions must be available for scanning.|1 Day|
 |Understand firewall concept when scanning|This step requires some exploration of how the organization configures its firewall and how Purview can authenticate itself to access the data sources for scanning.|1 Day|
 |Understand Private Link concept when scanning|If your organization uses Private Link, you must lay out the foundation of network security to include Private Link as a part of the requirements.|1 Day|
-|[Scan on-premise SQL Server](register-scan-on-premises-sql-server.md)|This is optional if you have on-premise SQL Server. The scan will require setting up [Self-hosted Integration Runtime](manage-integration-runtimes.md) and adding SQL Server as a data source.|1-2 Weeks|
+|[Scan on-premises SQL Server](register-scan-on-premises-sql-server.md)|This is optional if you have on-premises SQL Server. The scan will require setting up [Self-hosted Integration Runtime](manage-integration-runtimes.md) and adding SQL Server as a data source.|1-2 Weeks|
 |Use Purview REST API for integration scenarios|If you have requirements to integrate Purview with other 3rd party technologies such as orchestration or ticketing system, you may want to explore REST API area.|1-4 Weeks|
 |Understand Purview pricing|This step will provide the organization important financial information to make decision.|1-5 Days|
 
 ### Acceptance criteria
 
 * Successfully onboard at least one business unit with all of users
-* Scan on-premise data source such as SQL Server
+* Scan on-premises data source such as SQL Server
 * POC at least one integration scenario using REST API
 * Complete a plan to go to production which should include key areas on infrastructure and security
 
@@ -250,7 +248,7 @@ The above phases should be followed to create an effective information governanc
 * Successfully meet infrastructure and security requirements for production
 * Successfully meet all use cases required by the users
 
-## Platform Hardening
+## Platform hardening
 
 Additional hardening steps can be taken:
 
@@ -261,5 +259,5 @@ Additional hardening steps can be taken:
 
 ## Next steps
 
-- [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
-- [Tutorial: Navigate the home page and search for an asset](tutorial-asset-search.md)
+- [Collections best practices](concept-best-practices-collections.md)
+- [Navigate the home page and search for an asset](tutorial-asset-search.md)

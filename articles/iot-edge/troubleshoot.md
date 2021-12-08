@@ -2,7 +2,7 @@
 title: Troubleshoot - Azure IoT Edge | Microsoft Docs 
 description: Use this article to learn standard diagnostic skills for Azure IoT Edge, like retrieving component status and logs
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 05/04/2021
 ms.topic: conceptual
@@ -120,6 +120,12 @@ You can also use the built-in direct method call [UploadSupportBundle](how-to-re
 
 > [!WARNING]
 > Output from the `support-bundle` command can contain host, device and module names, information logged by your modules etc. Please be aware of this if sharing the output in a public forum.
+
+## Review metrics collected from the runtime
+
+The IoT Edge runtime modules produce metrics to help you monitor and understand the health of your IoT Edge devices. Add the **metrics-collector** module to your deployments to handle collecting these metrics and sending them to the cloud for easier monitoring.
+
+For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
 ## Check your IoT Edge version
 

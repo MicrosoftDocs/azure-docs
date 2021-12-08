@@ -1,12 +1,12 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/11/2020
-ms.author: trbye
+ms.author: eur
 ---
 
-In this quickstart, you learn common design patterns for doing text-to-speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
+In this quickstart, you learn common design patterns for doing Text-to-Speech synthesis using the Speech SDK. You start by doing basic configuration and synthesis, and move on to more advanced examples for custom application development including:
 
 * Getting responses as in-memory streams
 * Customizing output sample rate and bit rate

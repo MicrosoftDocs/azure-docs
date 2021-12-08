@@ -22,15 +22,15 @@ In this Azure Cognitive Search skillset example, you'll learn how to create a Fo
 
 ## Create a Form Recognizer resource
 
-[!INCLUDE [create resource](../cognitive-services/form-recognizer/includes/create-resource.md)]
+[!INCLUDE [create resource](../applied-ai-services/form-recognizer/includes/create-resource.md)]
 
 ## Train your model
 
-You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../cognitive-services/form-recognizer/quickstarts/client-library.md?pivots=programming-language-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
+You'll need to train a Form Recognizer model with your input forms before you use this skill. Follow the [cURL quickstart](../applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api) to learn how to train a model. You can use the sample forms provided in that quickstart, or you can use your own data. Once the model is trained, copy its ID value to a secure location.
 
 ## Set up the custom skill
 
-This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
+This tutorial uses the [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Vision/AnalyzeForm) project in the [Azure Search Power Skills](https://github.com/Azure-Samples/azure-search-power-skills) GitHub repository. Clone this repository to your local machine and navigate to **Vision/AnalyzeForm/** to access the project. Then open _AnalyzeForm.csproj_ in Visual Studio. This project creates an Azure Function resource that fulfills the [custom skill interface](cognitive-search-custom-skill-interface.md) and can be used for Azure Cognitive Search enrichment. It takes form documents as inputs, and it outputs (as text) the key/value pairs that you specify.
 
 First, add project-level environment variables. Locate the **AnalyzeForm** project on the left pane, right-click it and select **Properties**. In the **Properties** window, click the **Debug** tab and then find the **Environment variables** field. Click **Add** to add the following variables:
 * `FORMS_RECOGNIZER_ENDPOINT_URL` with the value set to your endpoint URL.
