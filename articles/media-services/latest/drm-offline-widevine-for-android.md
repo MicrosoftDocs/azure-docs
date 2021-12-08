@@ -98,16 +98,16 @@ ExoPlayer version 2.6 and higher includes many classes that support offline Wide
 
 The following list of classes facilitates offline mode in the ExoPlayer SDK for Android:
 
-- library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java  
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java
-- library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java
-- library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java 
-- library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java
-- library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java 
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/OfflineLicenseHelper.java`  
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DefaultDrmSessionManager.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/DrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ErrorStateDrmSession.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/drm/ExoMediaDrm.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/SegmentDownloader.java`
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/DownloaderConstructorHelper.java` 
+- `library/core/src/main/java/com/google/android/exoplayer2/offline/Downloader.java`
+- `library/dash/src/main/java/com/google/android/exoplayer2/source/dash/offline/DashDownloader.java` 
 
 Developers should reference the [ExoPlayer Developer Guide](https://google.github.io/ExoPlayer/guide.html) and the corresponding [Developer Blog](https://medium.com/google-exoplayer) during development of an application. Google has not released a fully documented reference implementation or sample code for the ExoPlayer app supporting Widevine offline at this time, so the information is limited to the developers' guide and blog. 
 

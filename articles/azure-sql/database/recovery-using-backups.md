@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma, danil
+ms.reviewer: kendralittle, mathoma, danil
 ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
