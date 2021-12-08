@@ -30,7 +30,7 @@ The document will show you How to use mount/unmount API in your workspace, mainl
 
 Here we will illustrate how to mount gen2 storage account step by step as an example, mounting blob storage works similarly. 
 
-Assuming you have one gen2 storage account named **storegen2** and the account has one container name **mycontainer**, and you want to mount the **mycontainer/test** to your Spark pool. 
+Assuming you have one gen2 storage account named **storegen2** and the account has one container name **mycontainer**, and you want to mount the **mycontainer** to **/test** of your Spark pool. 
 
 ![Screenshot of gen2 storage account](./media/synapse-file-mount-api/gen2-storage-account.png)
 
@@ -102,10 +102,10 @@ mssparkutils.fs.mount(
 
 ## How to mount Azure File Shares
 
-Assuming you have a gen2 storage account named **storegen2** and the account has one file share named **myfileshare**, and you want to mount the **myfileshare/test** to your working nodes.
+Assuming you have a gen2 storage account named **storegen2** and the account has one file share named **myfileshare**, and you want to mount the **myfileshare** to **/test** of your spark pool.
 ![Screenshot of file share](./media/synapse-file-mount-api/file-share.png)
  
-Mount azure file share only supports the account key authentication method, below is the code sample to mount **myfileshare/test** and we reuse the Azure Key Value settings of `MountKV` here: 
+Mount azure file share only supports the account key authentication method, below is the code sample to mount **myfileshare** to **/test** and we reuse the Azure Key Value settings of `MountKV` here: 
 
 ```python 
 from notebookutils import mssparkutils  
@@ -209,7 +209,6 @@ Notice that if you mounted a blob storage account then want to access it using *
 
     ```python 
     %%spark 
-
     mssparkutils.fs.mount( 
         "wasbs://mycontainer@<blobStorageAccountName>.blob.core.windows.net", 
         "/test", 
@@ -217,7 +216,14 @@ Notice that if you mounted a blob storage account then want to access it using *
     ) 
     ``` 
 
-3. Read data from mounted blob storage through Spark read API. 
+3. Read data from mounted blob storage through local file API. 
+    ```python
+    # mount blob storage container and then read file using mount path
+    with open("/synfs/64/test/myFile.txt") as f:
+        print(f.read())
+    ```
+
+4. Read data from mounted blob storage through Spark read API. 
     ```python
     %%spark
     // mount blob storage container and then read file using mount path
