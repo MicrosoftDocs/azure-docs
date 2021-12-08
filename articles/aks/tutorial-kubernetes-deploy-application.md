@@ -24,7 +24,7 @@ In later tutorials, this application is scaled out and updated.
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
 > [!TIP]
-> AKS clusters can use GitOps for configuration management. This allows changes to your cluster's state, which are pushed to source control, to be reflected in the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
+> AKS clusters can use GitOps for configuration management. This enables declarations of your cluster's state, which are pushed to source control, to be applied to the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
 
 ## Before you begin
 

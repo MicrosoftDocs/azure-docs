@@ -398,6 +398,7 @@
               href: dapr.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
+          maintainContext: true
     - name: Deploy the Open Service Mesh AKS add-on
       items:
         - name: About Open Service Mesh
