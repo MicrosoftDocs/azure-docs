@@ -30,7 +30,7 @@ Today we use our digital identity at work, at home, and across every app, servic
 
 Generally, users grant consent to several apps and devices. This approach requires a high degree of vigilance on the user's part to track who has access to what information. On the enterprise front, collaboration with consumers and partners requires high-touch orchestration to securely exchange data in a way that maintains privacy and security for all involved.
 
-We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations to have greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers.
+We believe a standards-based Decentralized Identity system can unlock a new set of experiences that give users and organizations greater control over their data—and deliver a higher degree of trust and security for apps, devices, and service providers.
 
 ## Lead with open standards
 
