@@ -32,7 +32,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh" range="4-37":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh" range="4-37":::
 
 ### Clean up deployment
 

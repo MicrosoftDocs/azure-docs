@@ -36,7 +36,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.sh" range="4-42":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/transparent-data-encryption/setup-tde-byok-sqlmi.sh" range="4-41":::
 
 ### Clean up deployment
 

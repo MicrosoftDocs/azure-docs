@@ -35,7 +35,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/managed-instance/create-managed-instance.sh" range="3-50":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/managed-instance/create-managed-instance.sh" range="4-51":::
 
 ### Clean up deployment
 
