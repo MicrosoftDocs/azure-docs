@@ -243,8 +243,7 @@ The following example shows how to create a memory scaling rule.
 }
 ```
 
-- In this example, the container app scales when at least one job is waiting in the pool queue.
-- On how to set up a full example with Azure Container apps and Azure Pipelines is [explained in this blog post](https://www.razorspoint.com/2021/11/19/scalable-container-based-azure-pipelines-pools-with-azure-container-apps/).
+In this example, the container app scales when at least one job is waiting in the pool queue.
 
 ## Considerations
 
