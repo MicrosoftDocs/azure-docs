@@ -24,7 +24,7 @@ _Total revenue_ represents the billed sales of purchases or consumption that hav
 - Sent
 - Unprocessed
 - Upcoming
-- 
+
 You can find corresponding detailed earnings entries in the transaction history report.
 
 There can be some revenue portion that is not yet processed by Microsoft and sent to partners. These revenue amounts are also not captured in the existing transaction history report. The Other revenue section brings visibility to this revenue portion.
@@ -42,21 +42,21 @@ This list defines the different transaction statuses under Total:
 This list defines the different transaction statuses under Others:
 
 - **Uncollected**: Represents the billed sales of an offer purchase or consumption for which a customer has not made full payment or has defaulted. This status represents a revenue portion yet to be collected from customers.
-- **Unreconciled**: Offer purchase or consumption with entries that cannot be reconciled between the revenue dashboard and the transaction history report are marked with the unreconciled status. It means that these entries have purchase record id and line-item id entries in the revenue dashboard but not in the transaction history report. This can occur for multiple reasons:
+- **Unreconciled**: Offer purchase or consumption with entries that cannot be reconciled between the revenue dashboard and the transaction history report are marked with the unreconciled status. It means that these entries have purchase record id and line-item id entries in the revenue dashboard but not in the transaction history report.  status can occur for multiple reasons:
     - Estimated revenue is generated but earnings are not yet posted
     - Some issues with software systems
 
 - **Rejected**: The revenue for which payments or safe approval were rejected.
-- **Reprocessed**: The revenue under-reprocessing due to various reasons. For example, invoice cancellation or safe approval cancelation, and so on.
+- **Reprocessed**: The revenue was under-reprocessed due to various reasons. For example, invoice cancellation or safe approval cancellation, and so on.
 - **Not eligible**: The overall revenue for which a partner isn't eligible to receive pay outs. To learn more about eligibility, see [Payout statements](/partner-center/payout-statement).
 
 ## Is Purchase record id same as Order id in transaction history report?
 
 Yes, the Purchase record id refers to the same “order id” data field.
 
-## Why is customer information such as email and customer name blank in many rows of the revenue report?
+## Why is customer information blank in many rows of the revenue report?
 
-This could be due to a customer not providing consent to share their personally identifiable information. In some cases, this could be due to a known technical limitation that is being addressed.
+Customer information such as email or customer name could be blank due to a customer not providing consent to share their personally identifiable information. In some cases, this could be due to a known technical limitation that is being addressed.
 
 ## Does customer name represent bill to account, the end-customer, or the reseller information?
 
@@ -66,13 +66,13 @@ Customer name represents the bill to account details. For individuals, the custo
 
 Yes. To learn about the analytics APIs, see [Get started with programmatic access to analytics data](analytics-get-started.md).
 
-## How does the first free month appear in the report?
+## How does the first-free month appear in the report?
 
-If a partner selects offer listing as “Free” as the dashboard filter, all offer purchases or consumption with free trial will be displayed in the dashboard. The revenue figures for the first month shows $0.
+If a partner selects offer listing as “Free” as the dashboard filter, all offer purchases or consumption with free trial will be displayed in the dashboard. The revenue for the first month shows $0.
 
 ## Is there a suggested specific date for us to download the reports every month?
 
-Yes. You can download the reports on the 4th day of each month to view accurate revenue figures for the offer purchases and consumption from the previous month.
+Yes. You can download the reports on the fourth day of each month to view accurate revenue figures for the offer purchases and consumption from the previous month.
 
 > [!NOTE]
 > Revenue figures for subscription-based products are available in the same month of purchase.
@@ -99,11 +99,11 @@ Yes, you sort a column in the widget in ascending or descending order.
 
 ## How should I read growth percentage change for “Total” and “Others” estimated revenue?
 
-The growth percentage change in the revenue dashboard is defined in a similar way to other reports. It is the percentage change between the value at the end of the selected month range and the value at the beginning of the selected month range.
+The growth percentage change in the revenue dashboard is defined in a similar way to other reports. It's the percentage of change between the value at the end of the selected month range and the value at the beginning of the selected month range.
 
 ## Why does the estimated revenue timeline not change for different month range selections?
 
-This is expected because all figures for future months are shown for the unprocessed and upcoming revenues till date.
+This is expected because all figures for future months are shown for the unprocessed and upcoming revenues until date.
 
 ## Where can I find my downloaded reports?
 
