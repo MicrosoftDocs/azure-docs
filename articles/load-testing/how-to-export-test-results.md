@@ -19,8 +19,7 @@ The test results contain a comma-separated (CSV) file with details of each appli
 :::image type="content" source="media/how-to-export-test-results/apache-jmeter-dashboard.png" alt-text="Screenshot that shows the downloaded test results on the Apache JMeter dashboard.":::
 
 > [!IMPORTANT]
-> Azure Load Testing is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta or preview release or are otherwise not yet released into general availability.
+> Azure Load Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
