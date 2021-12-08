@@ -2,7 +2,7 @@
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
@@ -26,7 +26,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 | Limitation                                              | Details                                                                               |
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
-| Cluster networking requirement                          | Must support `LoadBalancer` service type and provide a publicly addressable static IP |
+| Cluster networking requirement                          | Must support `LoadBalancer` service type |
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
@@ -130,8 +130,6 @@ ARM64 based clusters are not supported at this time.
 
 ### Application services extension v 0.10.0 (November 2021)
 
-If your extension was in the stable version and auto-upgrade-minor-version is set to enabled the extension will upgrade automatically.  To manually upgrade the extension to the latest version of the extension you can run the command below
-
 - Removed requirement for pre-assigned Static IP Address required for assignment to the Envoy endpoint
 - Upgrade Keda to v2.4.0
 - Upgrade Envoy to v1.19.0
@@ -144,6 +142,19 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.10.0
 ```
 
+### Application services extension v 0.11.0 (December 2021)
+
+- Added Application Insights support for Java and .NET Web Applications
+- Added support for .NET 6.0 Web Applications
+- Removed .NET Core 2.0
+- Resolved issues with slot swap operations failing
+- Resolved issues during Ruby app creation
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension will upgrade automatically.  To manually upgrade the extension to the latest version, you can run the command below:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.11.0
+```
 
 ## Next steps
 

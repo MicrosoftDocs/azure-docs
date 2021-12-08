@@ -25,7 +25,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
-You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config.md).
+You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
 ## Use in Visual Studio Code
 
@@ -55,5 +55,5 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Next steps
 
-* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config.md).
+* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 * For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

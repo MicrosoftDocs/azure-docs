@@ -4,10 +4,10 @@ description: This article provides information on ledger database tables and ass
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ---
 
 # What is the database ledger?

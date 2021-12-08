@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma, danil
+ms.reviewer: kendralittle, mathoma, danil
 ms.date: 11/13/2020
 ---
 # Recover using automated database backups - Azure SQL Database & SQL Managed Instance
@@ -206,6 +206,9 @@ You can also use Azure PowerShell or the REST API for recovery. The following ta
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by SQL Database and SQL Managed Instance, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in Azure Resource Manager modules are to a great extent identical.
+
+> [!NOTE]
+> Restore points represent a period between the earliest restore point and the latest log backup point. Information on latest restore point is currently unavailable on Azure PowerShell.
 
 #### SQL Database
 

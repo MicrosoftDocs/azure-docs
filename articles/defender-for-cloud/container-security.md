@@ -1,12 +1,8 @@
 ---
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Cloud's container security features
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: overview
 ms.date: 11/09/2021
-ms.author: memildin
 ---
 # Container security in Microsoft Defender for Cloud
 
