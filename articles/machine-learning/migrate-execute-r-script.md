@@ -84,7 +84,7 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=data.set)) 
 } 
 ```
-For more information, see the designer [Execute R Script module reference](/algorithm-module-reference/execute-r-script.md).
+For more information, see the designer [Execute R Script module reference](./algorithm-module-reference/execute-r-script.md).
 
 ### Install R packages from the internet
 

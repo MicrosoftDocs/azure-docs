@@ -3,16 +3,16 @@ title: "Record custom voice samples - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Make a production-quality custom voice by preparing a robust script, hiring good voice talent, and recording professionally.
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.author: lajanuar
+ms.author: eur
 ---
 
-# Record voice samples to create a custom voice
+# Record voice samples to create a custom neural voice
 
 Creating a high-quality production custom neural voice from scratch isn't a casual undertaking. The central component of a custom neural voice is a large collection of audio samples of human speech. It's vital that these audio recordings be of high quality. Choose a voice talent who has experience making these kinds of recordings, and have them recorded by a recording engineer using professional equipment.
 
@@ -21,11 +21,10 @@ Before you can make these recordings, though, you need a script: the words that 
 Many small but important details go into creating a professional voice recording. This guide is a roadmap for a process that will help you get good, consistent results.
 
 > [!NOTE]
-> To train a neural voice, you must specify a voice talent profile with the audio consent file provided of the voice talent acknowledging to use his/her speech data to train a custom neural voice model. When preparing your recording script, make sure you include the below sentence. 
-
-> "I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice."
-This sentence will be used to verify if the training data is done by the same person that makes the consent. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
-
+> To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here.
+>
+  :::image type="content" source="media/custom-voice/upload-verbal-statement.png" alt-text="Upload voice talent statement":::
+>
 > Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access here](https://aka.ms/customneural). 
 
 ## Voice recording roles
@@ -66,11 +65,11 @@ We recommend the recording scripts include both general sentences and your domai
 
 We provide [sample scripts in the 'General', 'Chat' and 'Customer Service' domains for each language](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice/script) to help you prepare your recording scripts. You can use these Microsoft shared scripts for your recordings directly or use them as a reference to create your own. Building a custom neural voice requires at least 300 recorded sentences as training data.
 
-You can select your domain-specific scripts from the sentences that your custom voice will be used to read.
+You can select your domain-specific scripts from the sentences that your custom neural voice will be used to read.
 
 ### Script selection criteria
 
-Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for Custom Neural Voice training.
+Below are some general guidelines that you can follow to create a good corpus (recorded audio samples) for custom neural voice training.
 
 -  Balance your script to cover different sentence types in your domain including statements, questions, exclamations, long sentences, and short sentences.
 
@@ -89,11 +88,11 @@ Below are some general guidelines that you can follow to create a good corpus (r
 
    Best practices include:
     - Balanced coverage for Part of Speech, like verb, noun, adjective, and so on.  
-    - Balanced coverage for pronunciations. Include all letters from A to Z so the TTS engine learns how to pronounce each letter in your defined style.
+    - Balanced coverage for pronunciations. Include all letters from A to Z so the Text-to-Speech engine learns how to pronounce each letter in your defined style.
     - Readable, understandable, common-sense for speaker to read out.
     - Avoid too much similar pattern for word/phrase, like "easy" and "easier".
     - Include different format of numbers: address, unit, phone, quantity, date, and so on, in all sentence types.  
-    - Include spelling sentences if it's something your TTS voice will be used to read. For example, "Spell of Apple is A P P L E".
+    - Include spelling sentences if it's something your custom neural voice will be used to read. For example, "Spell of Apple is A P P L E".
 
 - Don't put multiple sentences into one line/one utterance. Separate each line per utterances.
 
@@ -102,8 +101,9 @@ Below are some general guidelines that you can follow to create a good corpus (r
    Below are some best practices for example:
     - For lines with abbreviations, instead of "BTW", you have "by the way".
     - For lines with digits, instead of "911", you have "nine one one".
-    - For lines with acronyms, instead of "ABC",  you have "A B C"
-      With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
+    - For lines with acronyms, instead of "ABC",  you have "A B C".
+   
+   With that, make sure your voice talent pronounces these words in the expected way. Keep your script and recordings match consistently during the training process.  
 
    > [!NOTE]
    > The scripts prepared for your voice talent need to follow the native reading conventions, such as 50% and $45, while the scripts used for training need to be normalized to make sure that the scripts match the audio content, such as *fifty percent* and *forty-five dollars*. Check the scripts used for training against the recordings of your voice talent, to make sure they match.
@@ -197,7 +197,7 @@ You can refer to below specification to prepare for the audio samples as best pr
 | Environment noise, echo |   - The level of noise at start of the wave before speaking < -70 dB |
 
 > [!Note]
-> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
+> You can record at higher sampling rate and bit depth, for example in the format of 48 KHz 24 bit PCM. During the custom neural voice training, we'll down sample it to 24 KHz 16 bit PCM automatically.
 
 ### Typical audio errors
 

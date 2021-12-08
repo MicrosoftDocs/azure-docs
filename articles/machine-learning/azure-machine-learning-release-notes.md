@@ -1,22 +1,112 @@
 ---
-title: What's new in the release?
+title: Python SDK release notes
 titleSuffix: Azure Machine Learning
-description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
+description: Learn about the latest updates to Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 08/18/2021
+ms.date: 11/01/2021
 ---
 
-# Azure Machine Learning release notes
+# Azure Machine Learning Python SDK release notes
 
-In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
+In this article, learn about Azure Machine Learning Python SDK releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## 2021-11-08
+
+### Azure Machine Learning SDK for Python v1.36.0
+  + **azureml-automl-dnn-vision**
+    + Cleaned up minor typos on some error messages.
+  + **azureml-contrib-reinforcementlearning**
+    + Submitting Reinforcement Learning runs that use simulators is no longer supported.
+  + **azureml-core**
+    + Added support for partitioned premium blob.
+    + Specifying non-public clouds for Managed Identity authentication is no longer supported.
+    + User can migrate AKS web service to online endpoint and deployment which is managed by CLI (v2).
+    + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type.
+  + **azureml-defaults**
+    + Removed redundant dependencies like gunicorn and werkzeug
+  + **azureml-interpret**
+    + azureml-interpret package updated to 0.21.* version of interpret-community
+  + **azureml-pipeline-steps**
+    + Deprecate MpiStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+  + **azureml-train-automl-rutime**
+    + Update the AutoML model test predictions output format docs.
+    + Added docstring descriptions for Naive, SeasonalNaive, Average, and SeasonalAverage forecasting model.
+    + Featurization summary is now stored as an artifact on the run (check for a file named 'featurization_summary.json' under the outputs folder)
+    + Enable categorical indicators support for Tabnet Learner.
+    + Add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
+    
+
+## 2021-10-11
+
+### Azure Machine Learning SDK for Python v1.35.0
+  + **azureml-automl-core**
+    + Enable binary metrics calculation
+  + **azureml-contrib-fairness**
+    + Improve error message on failed dashboard download
+  + **azureml-core**
+    + Bug in specifying non-public clouds for Managed Identity authentication has been resolved.
+    + Dataset.File.upload_directory() and Dataset.Tabular.register_pandas_dataframe() experimental flags are now removed.
+    + Experimental flags are now removed in partition_by() method of TabularDataset class.
+  + **azureml-pipeline-steps**
+    + Experimental flags are now removed for the `partition_keys` parameter of the ParallelRunConfig class.
+  + **azureml-interpret**
+    + azureml-interpret package updated to intepret-community 0.20.*
+  + **azureml-mlflow**
+    + Made it possible to log artifacts and images with MLflow using subdirectories
+  + **azureml-responsibleai**
+    + Improve error message on failed dashboard download
+  + **azureml-train-automl-client**
+    + Added support for computer vision tasks such as Image Classification, Object Detection and Instance Segmentation. Detailed documentation can be found at: [How to automatically train image models](how-to-auto-train-image-models.md)
+    + Enable binary metrics calculation
+  + **azureml-train-automl-runtime**
+    + Add TCNForecaster support to model test runs.
+    + Update the model test predictions.csv output format. The output columns now include the original target values and the features which were passed in to the test run. This can be turned off by setting `test_include_predictions_only=True` in `AutoMLConfig` or by setting `include_predictions_only=True` in `ModelProxy.test()`. If the user has requested to only include predictions then the output format looks like (forecasting is the same as regression): Classification => [predicted values] [probabilities] Regression => [predicted values] else (default): Classification => [original test data labels] [predicted values] [probabilities] [features] Regression => [original test data labels] [predicted values] [features] The `[predicted values]` column name = `[label column name] + "_predicted"`. The `[probabilities]` column names = `[class name] + "_predicted_proba"`. If no target column was passed in as input to the test run, then `[original test data labels]` will not be in the output.
+
+## 2021-09-07
+
+### Azure Machine Learning SDK for Python v1.34.0
+  + **azureml-automl-core**
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
+  + **azureml-automl-runtime**
+    + Add support to return predicted probabilities from a deployed endpoint of an AutoML classifier model.
+    + Added a forecasting option for users to specify that all predictions should be integers.
+    + Removed the target column name from being part of model explanation feature names for local experiments with training_data_label_column_name
+    + as dataset inputs.
+    + Added support for re-fitting a previously trained forecasting pipeline.
+    + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
+  + **azureml-core**
+    + Added support to set stream column type, mount and download stream columns in tabular dataset.
+    + New optional fields added to Kubernetes.attach_configuration(identity_type=None, identity_ids=None) which allow attaching KubernetesCompute with either SystemAssigned or UserAssigned identity. New identity fields will be included when calling print(compute_target) or compute_target.serialize(): identity_type, identity_id, principal_id, and tenant_id/client_id.
+  + **azureml-dataprep**
+    + Added support to set stream column type for tabular dataset. added support to mount and download stream columns in tabular dataset.
+  + **azureml-defaults**
+    + The dependency `azureml-inference-server-http==0.3.1` has been added to `azureml-defaults`.
+  + **azureml-mlflow**
+    + Allow pagination of list_experiments API by adding `max_results` and `page_token` optional params. For documentation, see MLflow official docs.
+  + **azureml-sdk**
+    + Replaced dependency on deprecated package(azureml-train) inside azureml-sdk.
+    + Add azureml-responsibleai to azureml-sdk extras
+  + **azureml-train-automl-client**
+    + Expose the `test_data` and `test_size` parameters in `AutoMLConfig`. These parameters can be used to automatically start a test run after the model 
+    + training phase has been 	completed. The test run will compute predictions using the best model and will generate metrics given these predictions.
+
+## 2021-08-24
+
+### Azure Machine Learning Experimentation User Interface
+  + **Run Delete**
+    + Run Delete is a new functionality that allows users to delete one or multiple runs from their workspace.
+    + This functionality can help users reduce storage costs and manage storage capacity by regularly deleting runs and experiments from the UI directly.
+  + **Batch Cancel Run**
+    + Batch Cancel Run is new functionality that allows users to select one or multiple runs to cancel from their run list. 
+    + This functionality can help users cancel multiple queued runs and free up space on their cluster.
 
 ## 2021-08-18
 
@@ -259,7 +349,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Updated portal URIs to include tenant for authentication
     + Removed experiment name from run URIs to avoid redirects
     + Updated experiment URO to use experiment ID.
-    + Bug fixes for attaching remote compute using az cli
+    + Bug fixes for attaching remote compute using az CLI
     + Updated portal URIs to include tenant for authentication.
     + Added support to understand File Dataset partitions based on glob structure.
   + **azureml-interpret**
@@ -997,8 +1087,6 @@ Learn more about [image instance segmentation labeling](how-to-label-data.md).
     + Added a new type of user exception  that is raised if the cache store contents have been tampered with
   + **azureml-automl-runtime**
     + Class Balancing Sweeping will no longer be enabled if user disables featurization.  
-  + **azureml-contrib-itp**
-    + CmAks compute type is supported. You can attach your own AKS cluster to the workspace for training job.
   + **azureml-contrib-notebook**
     + Doc improvements to azureml-contrib-notebook package.
   + **azureml-contrib-pipeline-steps**
@@ -1322,7 +1410,7 @@ Get started [here](./how-to-run-jupyter-notebooks.md)
 + Accessibility and Localization improvements
 + Command Palette
 + Additional Keyboard Shortcuts
-+ Autosave
++ Auto save
 + Improved performance and reliability
 
 Access the following web-based authoring tools from the studio:
@@ -1849,7 +1937,7 @@ Access the following web-based authoring tools from the studio:
 ### Azure Machine Learning designer enhancements
 
 + Formerly known as the visual interface 
-+    11 new [modules](algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
++    11 new [modules](component-reference/component-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 
 ### R SDK 
  

@@ -181,9 +181,9 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 1. If `assignableScopes` is a management group, replace the *{groupId}* instance with your management group identifier. Adding a management group to `assignableScopes` is currently in preview.
 
-1. In the `actions` property, add the operations that the role allows to be performed.
+1. In the `actions` property, add the actions that the role allows to be performed.
 
-1. In the `notActions` property, add the operations that are excluded from the allowed `actions`.
+1. In the `notActions` property, add the actions that are excluded from the allowed `actions`.
 
 1. In the `roleName` and `description` properties, specify a unique role name and a description. For more information about the properties, see [Azure custom roles](custom-roles.md).
 

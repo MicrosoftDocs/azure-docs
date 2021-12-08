@@ -5,11 +5,14 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Updating ML Studio (classic) models using Update Resource Activity
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive Activity](data-factory-hive-activity.md) 
@@ -42,7 +45,7 @@ The following table describes the web services used in this example.  See [Retra
 
 The following picture depicts the relationship between training and scoring endpoints in ML Studio (classic).
 
-![Web services](./media/data-factory-azure-ml-batch-execution-activity/web-services.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/web-services.png" alt-text="Web services":::
 
 You can invoke the **training web service** by using the **ML Studio (classic) Batch Execution Activity**. Invoking a training web service is same as invoking an ML Studio (classic) web service (scoring web service) for scoring data. The preceding sections cover how to invoke an ML Studio (classic) web service from an Azure Data Factory pipeline in detail. 
 
@@ -54,7 +57,7 @@ If the scoring web service is a **classic web service**, create the second **non
 * Click **BATCH EXECUTION** to get the URI value for the **mlEndpoint** JSON property.
 * Click **UPDATE RESOURCE** link to get the URI value for the **updateResourceEndpoint** JSON property. The API key is on the endpoint page itself (in the bottom-right corner).
 
-![updatable endpoint](./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/updatable-endpoint.png" alt-text="updatable endpoint":::
 
 The following example provides a sample JSON definition for the AzureML linked service. The linked service uses the apiKey for authentication.  
 
@@ -106,7 +109,7 @@ This section provides a sample pipeline that uses the **ML Studio (classic) Batc
 
 Here is the diagram view of the sample pipeline. As you can see, the Studio (classic) Batch Execution Activity takes the training input and produces a training output (iLearner file). The Studio (classic) Update Resource Activity takes this training output and updates the model in the scoring web service endpoint. The Update Resource Activity does not produce any output. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
-![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="pipeline diagram":::
 
 ### Azure Blob storage linked service:
 The Azure Storage holds the following data:
@@ -253,7 +256,7 @@ The Studio (classic) Update Resource activity does not generate any output. Howe
 ### Pipeline
 The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateResource**. The ML Studio (classic) Batch Execution activity takes the training data as input and produces an iLearner file as an output. The activity invokes the training web service (training experiment exposed as a web service) with the input training data and receives the ilearner file from the webservice. The placeholderBlob is just a dummy output dataset that is required by the Azure Data Factory service to run the pipeline.
 
-![pipeline diagram](./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png)
+:::image type="content" source="./media/data-factory-azure-ml-batch-execution-activity/update-activity-pipeline-diagram.png" alt-text="pipeline diagram":::
 
 ```JSON
 {

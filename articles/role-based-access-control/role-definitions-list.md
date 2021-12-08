@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/30/2021
+ms.date: 10/15/2021
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell
 ---
@@ -33,9 +33,6 @@ Follow these steps to list all roles in the Azure portal.
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
    ![Screenshot showing Roles list using new experience.](./media/shared/roles-list.png)
-
-    > [!TIP]
-    > To see the previous roles list experience, click **Use classic experience**.
   
 1. To see the permissions for a particular role, in the **Details** column, click the **View** link.
 

@@ -4,12 +4,12 @@ description: How to take over a DNS domain name in an unmanaged Azure AD organiz
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/18/2021
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: "it-pro;seo-update-azuread-jan"

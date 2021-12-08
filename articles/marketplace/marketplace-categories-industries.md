@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 08/20/2021
+ms.date: 12/03/2021
 ---
 
 # Marketplace categories and industries
@@ -28,9 +28,9 @@ Following are the categories and industries applicable to each online stores, by
 | Managed service | &#x2714; |  |  |
 | SaaS | &#x2714; | &#x2714; | &#x2714; |
 | Consulting Service    | &#x2714; |   | &#x2714; |
-| Dynamics 365 Customer Engagement & Power Apps | | &#x2714; | &#x2714; |
-| Dynamics 365 for Operations | | &#x2714; | &#x2714; |
-| Dynamics 365 business central | | &#x2714; | &#x2714; |
+| Dynamics 365 apps on Dataverse and Power Apps | | &#x2714; | &#x2714; |
+| Dynamics 365 Operations Apps | | &#x2714; | &#x2714; |
+| Dynamics 365 Business Central | | &#x2714; | &#x2714; |
 | Power BI app | | &#x2714; | &#x2714; |
 |
 
@@ -98,6 +98,5 @@ Select the applicable products your app works with for the offer to show up unde
 
 ## Next steps
 
-- To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](/azure/marketplace/create-account).
-- For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](/azure/marketplace/publisher-guide-by-offer-type).
-
+- To create an offer, sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290) to create and configure your offer. If you haven't yet enrolled in Partner Center, [create an account](./create-account.md).
+- For step-by-step instructions on publishing an offer, see the commercial marketplace [publishing guide by offer type](./publisher-guide-by-offer-type.md).

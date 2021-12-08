@@ -1,7 +1,7 @@
 ---
 title: Determine causes of non-compliance
 description: When a resource is non-compliant, there are many possible reasons. Learn to find out what caused the non-compliance.
-ms.date: 08/17/2021
+ms.date: 09/01/2021
 ms.topic: how-to
 ---
 # Determine causes of non-compliance
@@ -93,10 +93,17 @@ history (Preview)](#change-history) below.
 
 ### Compliance reasons
 
-The following matrix maps each possible _reason_ to the responsible
-[condition](../concepts/definition-structure.md#conditions) in the policy definition:
+[Resource Manager modes](../concepts/definition-structure.md#resource-manager-modes) and
+[Resource Provider modes](../concepts/definition-structure.md#resource-provider-modes) each have
+different _reasons_ for non-compliance.
 
-|Reason | Condition |
+#### General Resource Manager mode compliance reasons
+
+The following table maps each
+[Resource Manager mode](../concepts/definition-structure.md#resource-manager-modes) _reason_ to the
+responsible [condition](../concepts/definition-structure.md#conditions) in the policy definition:
+
+|Reason |Condition |
 |-|-|
 |Current value must contain the target value as a key. |containsKey or **not** notContainsKey |
 |Current value must contain the target value. |contains or **not** notContains |
@@ -120,10 +127,35 @@ The following matrix maps each possible _reason_ to the responsible
 |Current value must not case-insensitive match the target value. |notMatchInsensitively or **not** matchInsensitively |
 |No related resources match the effect details in the policy definition. |A resource of the type defined in **then.details.type** and related to the resource defined in the **if** portion of the policy rule doesn't exist. |
 
+#### AKS Resource Provider mode compliance reasons
+
+The following table maps each `Microsoft.Kubernetes.Data`
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes) _reason_ to
+the responsible state of the
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates)
+in the policy definition:
+
+|Reason |Constraint template reason description |
+|-|-|
+|Constraint/TemplateCreateFailed |The resource failed to create for a policy definition with a Constraint/Template that doesn't match an existing Constraint/Template on cluster by resource metadata name. |
+|Constraint/TemplateUpdateFailed |The Constraint/Template failed to update for a policy definition with a Constraint/Template that matches an existing Constraint/Template on cluster by resource metadata name. |
+|Constraint/TemplateInstallFailed |The Constraint/Template failed to build and was unable to be installed on cluster for either create or update operation. |
+|ConstraintTemplateConflicts |The Template has a conflict with one or more policy definitions using the same Template name with different source. |
+|ConstraintStatusStale |There is an existing 'Audit' status, but Gatekeeper has not performed an audit within the last hour. |
+|ConstraintNotProcessed |There is no status and Gatekeeper has not performed an audit within the last hour. |
+|InvalidConstraint/Template |API Server has rejected the resource due to a bad YAML. This reason can also be caused by a parameter type mismatch (example: string provided for an integer)
+
+> [!NOTE]
+> For existing policy assignments and constraint templates already on the cluster, if that
+> Constraint/Template fails, the cluster is protected by maintaining the existing
+> Constraint/Template. The cluster reports as non-compliant until the failure is resolved on the
+> policy assignment or the add-on self-heals. For more information about handling conflict, see
+> [Constraint template conflicts](../concepts/policy-for-kubernetes.md#constraint-template-conflicts).
+
 ## Component details for Resource Provider modes
 
 For assignments with a
-[Resource Provider mode](../concepts/definition-structure.md#resource-manager-modes), select the
+[Resource Provider mode](../concepts/definition-structure.md#resource-provider-modes), select the
 _Non-compliant_ resource to open a deeper view. Under the **Component Compliance** tab is additional
 information specific to the Resource Provider mode on the assigned policy showing the
 _Non-compliant_ **Component** and **Component ID**.
@@ -132,10 +164,10 @@ _Non-compliant_ **Component** and **Component ID**.
 
 ## Compliance details for guest configuration
 
-For _auditIfNotExists_ policies in the _Guest Configuration_ category, there could be multiple
+For policy definitions in the _Guest Configuration_ category, there could be multiple
 settings evaluated inside the virtual machine and you'll need to view per-setting details. For
-example, if you're auditing for a list of password policies and only one of them has status
-_Non-compliant_, you'll need to know which specific password policies are out of compliance and why.
+example, if you're auditing for a list of security settings and only one of them has status
+_Non-compliant_, you'll need to know which specific settings are out of compliance and why.
 
 You also might not have access to sign in to the virtual machine directly but you need to report on
 why the virtual machine is _Non-compliant_.
@@ -155,6 +187,20 @@ password policies, the **Reason** column would display text including the curren
 setting.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot of the Guest Assignment compliance details." border="false":::
+
+### View configuration assignment details at scale
+
+The guest configuration feature can be used outside of Azure Policy assignments.
+For example,
+[Azure AutoManage](../../../automanage/automanage-virtual-machines.md)
+creates guest configuration assignments, or you might
+[assign configurations when you deploy machines](guest-configuration-create-assignment.md).
+
+To view all guest configuration assignments across your tenant, from the Azure
+portal open the **Guest Assignments** page. To view detailed compliance
+information, select each assignment using the link in the column "Name".
+
+:::image type="content" source="../media/determine-non-compliance/guest-config-assignment-view.png" alt-text="Screenshot of the Guest Assignment page." border="true":::
 
 ## <a name="change-history"></a>Change history (Preview)
 

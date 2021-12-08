@@ -10,7 +10,7 @@ ms.date: 09/14/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 # Customer intent: As an administrator, I want to provide staff with secured workstations to reduce the risk of breach due to misconfiguration or compromise.
@@ -93,7 +93,7 @@ When deploying non-persistent VDI, Microsoft recommends that IT administrators i
    - Implement **dsregcmd /join** as part of VM boot sequence/order and before user signs in.
    - **DO NOT** execute dsregcmd /leave as part of VM shutdown/restart process.
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
-   - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (e.g. using computer display name prefix), you should be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.
+   - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices (such as using computer display name prefix), you should be more aggressive on the cleanup of these devices to ensure your directory does not get consumed with lots of stale devices.
    - For non-persistent VDI deployments on Windows current and down-level, you should delete devices that have **ApproximateLastLogonTimestamp** of older than 15 days.
 
 > [!NOTE]

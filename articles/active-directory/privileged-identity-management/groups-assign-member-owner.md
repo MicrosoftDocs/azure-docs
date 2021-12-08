@@ -4,15 +4,16 @@ description: Learn how to assign eligible owners or members of a role-assignable
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/18/2020
+ms.date: 11/09/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +29,8 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can help 
 
 Follow these steps to make a user eligible to be a member or owner of a privileged access group.
 
-1. [Sign in to Azure AD](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/) with a user in the [Global Administrator](../roles/permissions-reference.md#global-administrator) role, the Privileged Role Administrator role, or the group Owner role.
+
 1. Select **Groups** and then select the role-assignable group you want to manage. You can search or filter the list.
 
     ![find a role-assignable group to manage in PIM](./media/groups-assign-member-owner/groups-list-in-azure-ad.png)

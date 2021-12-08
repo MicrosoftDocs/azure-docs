@@ -345,10 +345,10 @@ In an integration service environment (ISE), these managed connectors also have 
         [**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
-        [![Azure File Storage ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
+        [![Azure Files ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
         \
         \
-        [**Azure File Storage** ISE][azure-file-storage-doc]
+        [**Azure Files** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
@@ -554,14 +554,14 @@ For more information, see these topics:
 <!--Managed connector doc links-->
 [azure-automation-doc]: /connectors/azureautomation/ "Create and manage automation jobs for your cloud and on-premises infrastructure"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure blob storage connector"
-[azure-cosmos-db-doc]: /connectors/documentdb/ "Connect to Azure Cosmos DB so that you can access documents and stored procedures"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
 [azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Monitor events published by an Event Grid, for example, when Azure resources or third-party resources change"
 [azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
 [azure-file-storage-doc]: /connectors/azurefile/ "Connect to your Azure Storage account so that you can create, update, get, and delete files"
 [azure-key-vault-doc]: /connectors/keyvault/ "Connect to your Azure Key Vault so that you can manage your secrets and keys"
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Run queries against Azure Monitor Logs across Log Analytics workspaces and Application Insights components"
 [azure-queues-doc]: /connectors/azurequeues/ "Connect to your Azure Storage account so that you can create and manage queues and messages"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Send messages from Service Bus Queues and Topics and receive messages from Service Bus Queues and Subscriptions"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Manage messages from Service Bus queues, topics, and topic subscriptions"
 [azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connect to Azure Synapse Analytics so that you can view your data"
 [azure-table-storage-doc]: /connectors/azuretables/ "Connect to your Azure Storage account so that you can create, update, and query tables and more"
 [biztalk-server-doc]: /connectors/biztalk/ "Connect to your BizTalk Server so that you can run BizTalk-based applications side by side with Azure Logic Apps"
@@ -606,8 +606,8 @@ For more information, see these topics:
 <!-- Integration account connector docs -->
 [as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Encode and decode messages that use the AS2 protocol"
 [edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode and decode messages that use the EDIFACT protocol"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Decode messages that use the EDIFACT protocol"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Encode messages that use the EDIFACT protocol"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Decode messages that use the EDIFACT protocol"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Encode messages that use the EDIFACT protocol"
 [x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Encode and decode messages that use the X12 protocol"
 [x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Decode messages that use the X12 protocol"
 [x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Encode messages that use the X12 protocol"

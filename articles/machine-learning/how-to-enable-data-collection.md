@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to collect data from an Azure Machine Learning model deployed on an Azure Kubernetes Service (AKS) cluster.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 07/14/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: data4ml
 

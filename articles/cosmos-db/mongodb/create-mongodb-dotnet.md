@@ -5,11 +5,10 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 8/26/2021
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 
 # Quickstart: Build a .NET web API using Azure Cosmos DB's API for MongoDB
@@ -17,6 +16,7 @@ ms.custom: devx-track-csharp
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -203,7 +203,7 @@ If you prefer the CLI, run the following command in a command window to start th
 dotnet run
 ```
 
-After the application is running, navigate to [https://localhost:5001/swagger/index.html](https://localhost:5001/swagger/index.html) to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
+After the application is running, navigate to `https://localhost:5001/swagger/index.html` to see the [swagger documentation](https://swagger.io/) for the web api and to submit sample requests.
 
 Select the API you would like to test and select "Try it out".
 

@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: conceptual
 author: Rupp29
 ms.author: arupp
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---
@@ -153,7 +153,7 @@ To configure writing audit logs to an event hub, select **Event Hub**. Select th
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
-If you chose to write audit logs to Azure Monitor logs:
+If you chose to write audit logs to Log Analytics:
 
 - Use the [Azure portal](https://portal.azure.com). Open the relevant database. At the top of the database's **Auditing** page, select **View audit logs**.
 

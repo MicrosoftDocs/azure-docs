@@ -87,7 +87,7 @@ GRANT REFERENCES ON DATABASE SCOPED CREDENTIAL::MyCosmosDbAccountCredential TO <
 GO
 ```
 
-Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](https://docs.microsoft.com/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
+Find more details in [grant DATABASE SCOPED CREDENTIAL permissions](/sql/t-sql/statements/grant-database-scoped-credential-transact-sql) page.
 
 ### Define external file formats
 

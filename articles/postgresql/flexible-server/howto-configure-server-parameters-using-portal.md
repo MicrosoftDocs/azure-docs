@@ -5,7 +5,7 @@ author: gennadNY
 ms.author: gennadyk
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/04/2021
+ms.date: 11/30/2021
 ---
 
 # Configure server parameters in Azure Database for PostgreSQL - Flexible Server via the Azure portal 

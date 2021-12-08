@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
 description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 08/27/2021
+ms.date: 10/11/2021
 ms.topic: sample
 ms.custom: generated
 ---
@@ -134,6 +134,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## HDInsight
 
 [!INCLUDE [azure-policy-reference-policies-hdinsight](../../../../includes/policy/reference/bycat/policies-hdinsight.md)]
+
+## Healthcare APIs
+
+[!INCLUDE [azure-policy-reference-policies-healthcare-apis](../../../../includes/policy/reference/bycat/policies-healthcare-apis.md)]
 
 ## Internet of Things
 

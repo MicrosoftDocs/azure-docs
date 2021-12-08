@@ -32,14 +32,14 @@ After the language end-of-life date, function apps that use retired language ver
 
 There are few exceptions to the retirement policy outlined above. Here is a list of languages that are approaching or have reached their end-of-life dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they are no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
 
-|Language Versions                        |EOL Date         |Expected Retirement Date|
+|Language Versions                        |EOL Date         |Retirement Date|
 |-----------------------------------------|-----------------|----------------|
 |.NET 5|February 2022|TBA|
-|Node 6|30 April 2019|TBA| 
-|Node 8|31 December 2019|TBA| 
-|Node 10|30 April 2021|TBA| 
-|PowerShell Core 6| 4 September 2020|TBA|
-|Python 3.6 |23 December 2021|TBA| 
+|Node 6|30 April 2019|28 February 2022| 
+|Node 8|31 December 2019|28 February 2022| 
+|Node 10|30 April 2021|30 September 2022| 
+|PowerShell Core 6| 4 September 2020|30 September 2022|
+|Python 3.6 |23 December 2021|30 September 2022| 
  
 
 ## Language version support timeline

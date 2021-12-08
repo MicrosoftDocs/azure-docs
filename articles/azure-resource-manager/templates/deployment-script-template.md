@@ -36,6 +36,10 @@ The deployment script resource is only available in the regions where Azure Cont
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
 
+### Microsoft Learn
+
+To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+
 ## Configure the minimum permissions
 
 For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
@@ -99,7 +103,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
+    "azPowerShellVersion": "6.4",  // or "azCliVersion": "2.28.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {

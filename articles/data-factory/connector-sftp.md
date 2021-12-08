@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 12/01/2021
 ---
 
 # Copy data from and to the SFTP server using Azure Data Factory or Azure Synapse Analytics
@@ -50,21 +50,19 @@ Use the following steps to create an SFTP linked service in the Azure portal UI.
 
     # [Azure Data Factory](#tab/data-factory)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
 
-    # [Synapse Analytics](#tab/synapse-analytics)
+    # [Azure Synapse](#tab/synapse-analytics)
 
-    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
-
----
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
 
 2. Search for SFTP and select the SFTP connector.
 
-    :::image type="content" source="media/connector-sftp/sftp-connector.png" alt-text="Select the SFTP connector.":::    
+    :::image type="content" source="media/connector-sftp/sftp-connector.png" alt-text="Screenshot of the SFTP connector.":::    
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-    :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Configure an SFTP linked service.":::
+    :::image type="content" source="media/connector-sftp/configure-sftp-linked-service.png" alt-text="Screenshot of configuration for an SFTP linked service.":::
 
 ## Connector configuration details
 
@@ -295,6 +293,7 @@ The following properties are supported for SFTP under the `storeSettings` settin
 | enablePartitionDiscovery | For files that are partitioned, specify whether to parse the partitions from the file path and add them as additional source columns.<br/>Allowed values are **false** (default) and **true**. | No                                            |
 | partitionRootPath | When partition discovery is enabled, specify the absolute root path in order to read partitioned folders as data columns.<br/><br/>If it is not specified, by default,<br/>- When you use file path in dataset or list of files on source, partition root path is the path configured in dataset.<br/>- When you use wildcard folder filter, partition root path is the sub-path before the first wildcard.<br/><br/>For example, assuming you configure the path in dataset as "root/folder/year=2020/month=08/day=27":<br/>- If you specify partition root path as "root/folder/year=2020", copy activity will generate two more columns `month` and `day` with value "08" and "27" respectively, in addition to the columns inside the files.<br/>- If partition root path is not specified, no extra column will be generated. | No                                            |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No                                            |
+| disableChunking | When copying data from SFTP, the service tries to get the file length first, then divide the file into multiple parts and read them in parallel. Specify whether your SFTP server supports getting file length or seeking to read from a certain offset. <br/>Allowed values are **false** (default), **true**. | No |
 
 **Example:**
 
@@ -326,7 +325,8 @@ The following properties are supported for SFTP under the `storeSettings` settin
                     "type": "SftpReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
-                    "wildcardFileName": "*.csv"
+                    "wildcardFileName": "*.csv",
+                    "disableChunking": false
                 }
             },
             "sink": {

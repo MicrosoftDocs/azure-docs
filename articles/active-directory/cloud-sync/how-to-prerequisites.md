@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 10/19/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,16 +21,17 @@ You need the following to use Azure AD Connect cloud sync:
 
 - Domain Administrator or Enterprise Administrator credentials to create the Azure AD Connect Cloud Sync gMSA (group Managed Service Account) to run the agent service.	
 - A hybrid identity administrator account for your Azure AD tenant that is not a guest user.
-- An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- An on-premises server for the provisioning agent with Windows 2016 or later.  This server should be a tier 0 server based on the [Active Directory administrative tier model](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).  Installing the agent on a domain controller is supported.
+- High availability refers to the Azure AD Connect cloud sync's ability to operate continuously without failure for a long time.  By having multiple active agents installed and running, Azure AD Connect cloud sync can continue to function even if one agent should fail.  Microsoft recommends having 3 active agents installed for high availability.
 - On-premises firewall configurations.
 
 ## Group Managed Service Accounts
 A group Managed Service Account is a managed domain account that provides automatic password management, simplified service principal name (SPN) management,the ability to delegate the management to other administrators, and also extends this functionality over multiple servers.  Azure AD Connect Cloud Sync supports and uses a gMSA for running the agent.  You will be prompted for administrative credentials during setup, in order to create this account.  The account will appear as (domain\provAgentgMSA$).  For more information on a gMSA, see [Group Managed Service Accounts](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### Prerequisites for gMSA:
-1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2016.
+1.	The Active Directory schema in the gMSA domain's forest needs to be updated to Windows Server 2012 or later.
 2.	[PowerShell RSAT modules](/windows-server/remote/remote-server-administration-tools) on a domain controller
-3.	At least one domain controller in the domain must be running Windows Server 2016.
+3.	At least one domain controller in the domain must be running Windows Server 2012 or later.
 4.	A domain joined server where the agent is being installed needs to be either Windows Server 2016 or later.
 
 ### Custom gMSA account
@@ -48,6 +49,45 @@ If you are creating a custom gMSA account, you need to ensure that the account h
 |Allow |gMSA Account |Create/delete User objects|This object and all descendant objects| 
 
 For steps on how to upgrade an existing agent to use a gMSA account see [Group Managed Service Accounts](how-to-install.md#group-managed-service-accounts).
+
+#### Create gMSA account with PowerShell
+You can use the following PowerShell script to create a custom gMSA account.  Then you can use the [cloud sync gMSA cmdlets](how-to-gmsa-cmdlets.md) to apply more granular permissions.
+
+```powershell
+# Filename:    1_SetupgMSA.ps1
+# Description: Creates and installs a custom gMSA account for use with Azure AD Connect cloud sync.
+#
+# DISCLAIMER:
+# Copyright (c) Microsoft Corporation. All rights reserved. This 
+# script is made available to you without any express, implied or 
+# statutory warranty, not even the implied warranty of 
+# merchantability or fitness for a particular purpose, or the 
+# warranty of title or non-infringement. The entire risk of the 
+# use or the results from the use of this script remains with you.
+#
+#
+#
+#
+# Declare variables
+$Name = 'provAPP1gMSA'
+$Description = "Azure AD Cloud Sync service account for APP1 server"
+$Server = "APP1.contoso.com"
+$Principal = Get-ADGroup 'Domain Computers'
+
+# Create service account in Active Directory
+New-ADServiceAccount -Name $Name `
+-Description $Description `
+-DNSHostName $Server `
+-ManagedPasswordIntervalInDays 30 `
+-PrincipalsAllowedToRetrieveManagedPassword $Principal `
+-Enabled $True `
+-PassThru
+
+# Install the new service account on Azure AD Cloud Sync server
+Install-ADServiceAccount -Identity $Name
+```
+
+For additional information on the cmdlets above, see [Getting Started with Group Managed Service Accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN).
 
 ### In the Azure Active Directory admin center
 
@@ -83,7 +123,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 ### Additional requirements
 
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) 
 
 #### TLS requirements
 
@@ -128,6 +168,9 @@ The following are known limitations:
 When using OU scoping filter
 - You can only sync up to 59 separate OUs for a given configuration. 
 - Nested OUs are supported (that is, you **can** sync an OU that has 130 nested OUs, but you **cannot** sync 60 separate OUs in the same configuration). 
+
+### Password Hash Sync
+- Using password hash sync with InetOrgPerson is not supported.
 
 
 ## Next steps 

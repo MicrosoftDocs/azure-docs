@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 10/05/2021
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 

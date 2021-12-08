@@ -94,4 +94,5 @@ Now that you've covered integrating Azure NetApp Files with your Azure VMware So
 - [Resource limitations for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-resource-limits.md#resource-limits)
 - [Guidelines for Azure NetApp Files network planning](../azure-netapp-files/azure-netapp-files-network-topologies.md)
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md) 
-- [FAQs about Azure NetApp Files](../azure-netapp-files/azure-netapp-files-faqs.md)
+- [Azure NetApp Files NFS FAQs](../azure-netapp-files/faq-nfs.md)
+- [Azure NetApp Files SMB FAQs](../azure-netapp-files/faq-smb.md)

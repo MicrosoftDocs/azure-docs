@@ -7,7 +7,7 @@ manager: jennmar
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 
@@ -56,6 +56,7 @@ Parameters are case-sensitive.
 ```json
 {
     "@odata.type": "#Microsoft.Skills.Text.V3.SentimentSkill",
+    "context": "/document",
     "includeOpinionMining": true,
     "inputs": [
         {

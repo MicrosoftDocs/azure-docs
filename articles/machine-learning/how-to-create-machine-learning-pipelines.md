@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Create and run machine learning pipelines to create and manage the workflows that stitch together machine learning (ML) phases. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1
 
@@ -159,7 +159,7 @@ aml_run_config.target = compute_target
 
 USE_CURATED_ENV = True
 if USE_CURATED_ENV :
-    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
+    curated_environment = Environment.get(workspace=ws, name="AzureML-sklearn-0.24-ubuntu18.04-py37-cpu")
     aml_run_config.environment = curated_environment
 else:
     aml_run_config.environment.python.user_managed_dependencies = False

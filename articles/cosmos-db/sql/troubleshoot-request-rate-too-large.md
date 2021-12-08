@@ -4,7 +4,7 @@ description: Learn how to diagnose and fix request rate too large exceptions.
 author: j82w
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 07/13/2020
+ms.date: 08/25/2021
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -51,16 +51,16 @@ In general, for a production workload, if you see between 1-5% of requests with 
 A hot partition arises when one or a few logical partition keys consume a disproportionate amount of the total RU/s due to higher request volume. This can be caused by a partition key design that doesn't evenly distribute requests. It results in many requests being directed to a small subset of logical (which implies physical) partitions that become "hot." Because all data for a logical partition resides on one physical partition and total RU/s is evenly distributed among the physical partitions, a hot partition can lead to 429s and inefficient use of throughput. 
 
 Here are some examples of partitioning strategies that lead to hot partitions:
-- You have a container storing IoT device data for a write-heavy workload that is partitioned by date. All data for a single date will reside on the same logical and physical partition. Because all the data written each day has the same date, this would result in a hot partition every day. 
-    - Instead, for this scenario, a partition key like id (either a GUID or device id), or a [synthetic partition key](./synthetic-partition-keys.md) combining id and date would yield a higher cardinality of values and better distribution of request volume.
-- You have a multi-tenant scenario with a container partitioned by tenantId. If one tenant is significantly more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by the tenantID. 
-    - For this previous scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property such as UserId. 
+- You have a container storing IoT device data for a write-heavy workload that is partitioned by `date`. All data for a single date will reside on the same logical and physical partition. Because all the data written each day has the same date, this would result in a hot partition every day. 
+    - Instead, for this scenario, a partition key like `id` (either a GUID or device id), or a [synthetic partition key](./synthetic-partition-keys.md) combining `id` and `date` would yield a higher cardinality of values and better distribution of request volume.
+- You have a multi-tenant scenario with a container partitioned by `tenantId`. If one tenant is significantly more active than the others, it results in a hot partition. For example, if the largest tenant has 100,000 users, but most tenants have fewer than 10 users, you will have a hot partition when partitioned by `tenantID`. 
+    - For this previous scenario, consider having a dedicated container for the largest tenant, partitioned by a more granular property such as `UserId`. 
     
 #### How to identify the hot partition
 
 To verify if there is a hot partition, navigate to **Insights** > **Throughput** > **Normalized RU Consumption (%) By PartitionKeyRangeID**. Filter to a specific database and container. 
 
-Each PartitionKeyRangeId maps to a one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
+Each PartitionKeyRangeId maps to one physical partition. If there is one PartitionKeyRangeId that has significantly higher Normalized RU consumption than others (for example, one is consistently at 100%, but others are at 30% or less), this can be a sign of a hot partition. Learn more about the [Normalized RU Consumption metric](../monitor-normalized-request-units.md).
 
 :::image type="content" source="media/troubleshoot-request-rate-too-large/split-norm-utilization-by-pkrange-hot-partition.png" alt-text="Normalized RU Consumption by PartitionKeyRangeId chart with a hot partition.":::
 
@@ -68,7 +68,7 @@ To see which logical partition keys are consuming the most RU/s,
 use [Azure Diagnostic Logs](../cosmosdb-monitor-resource-logs.md). This sample query sums up the total request units consumed per second on each logical partition key. 
 
 > [!IMPORTANT]
-> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
+> Enabling diagnostic logs incurs a separate charge for the Log Analytics service, which is billed based on the volume of data ingested. It is recommended you turn on diagnostic logs for a limited amount of time for debugging, and turn off when no longer required. See [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details.
 
 ```kusto
 AzureDiagnostics
@@ -91,7 +91,7 @@ This sample output shows that in a particular minute, the logical partition key 
 Review the guidance on [how to chose a good partition key](../partitioning-overview.md#choose-partitionkey).
 
 If there is high percent of rate limited requests and no hot partition:
-- You can [increase the RU/s](../set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template.  
+- You can [increase the RU/s](../set-throughput.md) on the database or container using the client SDKs, Azure portal, PowerShell, CLI or ARM template. Follow [best practices for scaling provisioned throughput (RU/s)](../scaling-provisioned-throughput-best-practices.md) to determine the right RU/s to set.
 
 If there is high percent of rate limited requests and there is an underlying hot partition:
 -  Long-term, for best cost and performance, consider **changing the partition key**. The partition key cannot be updated in place, so this requires migrating the data to a new container with a different partition key. Azure Cosmos DB supports a [live data migration tool](https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/) for this purpose.
@@ -148,7 +148,7 @@ Navigate to **Insights** > **System** > **Metadata Requests By Status Code**. Fi
 #### Recommended solution
 - If your application needs to perform metadata operations, consider implementing a backoff policy to send these requests at a lower rate. 
 
-- Use static Cosmos DB client instances. When the DocumentClient or CosmosClient is initialized, the Cosmos DB SDK fetches metadata on about the account, including information about the consistency level, databases, containers, partitions, and offers. This initialization may consume a high number of RUs, and should be performed infrequently. Use a single DocumentClient instance and use it for the lifetime of your application.
+- Use static Cosmos DB client instances. When the DocumentClient or CosmosClient is initialized, the Cosmos DB SDK fetches metadata about the account, including information about the consistency level, databases, containers, partitions, and offers. This initialization may consume a high number of RUs, and should be performed infrequently. Use a single DocumentClient instance and use it for the lifetime of your application.
 
 - Cache the names of databases and containers. Retrieve the names of your databases and containers from configuration or cache them on start. Calls like ReadDatabaseAsync/ReadDocumentCollectionAsync or CreateDatabaseQuery/CreateDocumentCollectionQuery will result in metadata calls to the service, which consume from the system-reserved RU limit. These operations should be performed infrequently.
 

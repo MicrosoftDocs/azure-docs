@@ -85,7 +85,7 @@ To ensure a successful migration, before you start, complete the assessment and 
 
 ### Validate the compatibility
 
-It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn’t supported.
+It is recommended that you validate your current deployment model and version before planning for migration. You may have to make significant changes to your application if your current version isn't supported.
 
 The MTA supports migrations from third-party enterprise application servers, such as Oracle WebLogic Server, to JBoss EAP and upgrades to the latest release of JBoss EAP.
 
@@ -155,7 +155,7 @@ If your application uses any databases, you need to capture the following inform
 * What is the connection pool configuration?
 * Where can I find the Java Database Connectivity (JDBC) driver JAR file?
 
-For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.3html/configuration_guide/datasource_management) in the JBoss EAP documentation.
+For more information, see [About JBoss EAP DataSources](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management) in the JBoss EAP documentation.
 
 ### Determine whether and how the file system is used
 
@@ -233,7 +233,7 @@ When the migration is complete, review the migrated server configuration files i
 
 You can expose the application using the following methods which is suitable for your environment.
 
-* [Create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
+* [Create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
 * [Create a Jump VM in the Same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. This Jump VM can be used to expose the application.
 * [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)
@@ -244,7 +244,7 @@ You can expose the application using the following methods which is suitable for
 After you've reached the migration goals you defined in the pre-migration step, perform some end-to-end acceptance testing to verify that everything works as expected. Some topics for post-migration enhancements include, but are certainly not limited to the following:
 
 * Using Azure Storage to serve static content mounted to the VMs. For more information, visit [Attach or detach a data disk to a VM](../../../devtest-labs/devtest-lab-attach-detach-data-disk.md)
-* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started/?view=azure-devops).
+* Deploy your applications to your migrated JBoss cluster with Azure DevOps. For more information, visit [Azure DevOps getting started documentation](/azure/devops/get-started).
 * Consider using [Application Gateway](../../../application-gateway/index.yml).
 * Enhance your network topology with advanced load balancing services. For more information, visit [Using load-balancing services in Azure](../../../traffic-manager/traffic-manager-load-balancing-azure.md).
 * Leverage Azure Managed Identities to managed secrets and assign Role Based Access Control (RBAC) to Azure resources. For more information, visit [What are managed identities for Azure resources](../../../active-directory/managed-identities-azure-resources/overview.md)?

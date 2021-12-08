@@ -4,8 +4,8 @@ description: Create an Azure Arc-enabled PostgreSQL Hyperscale server group from
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
@@ -118,5 +118,3 @@ While indicating 1 worker works, we do not recommend you use it. This deployment
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Expanding Persistent volume claims](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#expanding-persistent-volumes-claims)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
-
-

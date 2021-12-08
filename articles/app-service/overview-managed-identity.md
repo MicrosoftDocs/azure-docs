@@ -522,8 +522,9 @@ Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupNam
 
 ## Next steps
 
-- [Access SQL Database securely using a managed identity](app-service-web-tutorial-connect-msi.md)
+- [Access SQL Database securely using a managed identity](tutorial-connect-msi-sql-database.md)
 - [Access Azure Storage securely using a managed identity](scenario-secure-app-access-storage.md)
 - [Call Microsoft Graph securely using a managed identity](scenario-secure-app-access-microsoft-graph-as-app.md)
+- [Connect securely to services with Key Vault secrets](tutorial-connect-msi-key-vault.md)
 
 [Microsoft.Azure.Services.AppAuthentication reference]: /dotnet/api/overview/azure/service-to-service-authentication

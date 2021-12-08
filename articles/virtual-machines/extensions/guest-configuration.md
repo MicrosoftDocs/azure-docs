@@ -59,6 +59,13 @@ of property _autoUpgradeMinorVersion_ defaults to "true" unless it is otherwise
 specified. You do not need to worry about updating your code when
 new versions of the extension are released.
 
+## Automatic upgrade
+
+The guest configuration extension supports property `enableAutomaticUpgrade`. When this
+property is set to `true`, Azure will automatically upgrade to the latest version
+of the extension as future releases become available. For more information, see the page
+[Automatic Extension Upgrade for VMs and Scale Sets in Azure](../automatic-extension-upgrade.md)
+
 ### Azure Policy
 
 To deploy the latest version of the extension at scale including identity requirements,
@@ -72,13 +79,13 @@ To deploy the extension for Linux:
 
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforLinux --extension-instance-name AzurePolicyforLinux --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 To deploy the extension for Windows:
 
 ```azurecli
-az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM
+az vm extension set  --publisher Microsoft.GuestConfiguration --name ConfigurationforWindows --extension-instance-name AzurePolicyforWindows --resource-group myResourceGroup --vm-name myVM --enable-auto-upgrade true
 ```
 
 ### PowerShell
@@ -86,13 +93,13 @@ az vm extension set  --publisher Microsoft.GuestConfiguration --name Configurati
 To deploy the extension for Linux:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 To deploy the extension for Windows:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 ### Resource Manager template
@@ -103,7 +110,7 @@ To deploy the extension for Linux:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforLinux')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -113,6 +120,7 @@ To deploy the extension for Linux:
     "type": "ConfigurationforLinux",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -125,7 +133,7 @@ To deploy the extension for Windows:
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('VMName'), '/AzurePolicyforWindows')]",
-  "apiVersion": "2019-07-01",
+  "apiVersion": "2020-12-01",
   "location": "[parameters('location')]",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
@@ -135,8 +143,55 @@ To deploy the extension for Windows:
     "type": "ConfigurationforWindows",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
+  }
+}
+```
+
+### Bicep
+
+To deploy the extension for Linux:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforLinux'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforLinux'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
+    settings: {}
+    protectedSettings: {}
+  }
+}
+```
+
+To deploy the extension for Windows:
+
+```bicep
+resource virtualMachine 'Microsoft.Compute/virtualMachines@2021-03-01' existing = {
+  name: 'VMName'
+}
+resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extensions@2020-12-01' = {
+  parent: virtualMachine
+  name: 'AzurePolicyforWindows'
+  location: resourceGroup().location
+  properties: {
+    publisher: 'Microsoft.GuestConfiguration'
+    type: 'ConfigurationforWindows'
+    typeHandlerVersion: '1.0'
+    autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
+    settings: {}
+    protectedSettings: {}
   }
 }
 ```

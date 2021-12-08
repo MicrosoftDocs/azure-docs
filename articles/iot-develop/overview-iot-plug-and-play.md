@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: iot-develop
 services: iot-develop
 manager: eliotgra
-ms.custom: references_regions
+ms.custom: [references_regions, contperf-fy22q1]
 
 #Customer intent: As a device builder, I need to know what is IoT Plug and Play, so I can understand how it can help me build and market my IoT devices.
 ---

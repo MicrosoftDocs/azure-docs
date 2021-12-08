@@ -1,9 +1,9 @@
 ---
-title: Retrieve large cost datasets recurringly with exports
-description: This article helps you regularly export large amounts of data with exports from Azure Cost Management.
+title: Retrieve large cost datasets recurringly with exports from Azure Cost Management
+description: This article helps you regularly export large amounts of data with exports from Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/08/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -11,7 +11,7 @@ ms.reviewer: adwise
 ---
 # Retrieve large cost datasets recurringly with exports
 
-This article helps you regularly export large amounts of data with exports from Azure Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the Usage Details API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
+This article helps you regularly export large amounts of data with exports from Cost Management. Exporting is the recommended way to retrieve unaggregated cost data. Especially when usage files are too large to reliably call and download using the Usage Details API. Exported data is placed in the Azure Storage account that you choose. From there, you can load it into your own systems and analyze it as needed. To configure exports in the Azure portal, see [Export data](tutorial-export-acm-data.md).
 
 If you want to automate exports at various scopes, the sample API request in the next section is a good starting point. You can use the Exports API to create automatic exports as a part of your general environment configuration. Automatic exports help ensure that you have the data that you need. You can use in your own organization's systems as you expand your Azure use.
 
@@ -73,7 +73,7 @@ Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostM
 
 ## Copy large Azure storage blobs
 
-You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could be over gigabytes in size. The Azure Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
+You can use Cost Management to schedule exports of your Azure usage details into your Azure Storage accounts as blobs. The resulting blob sizes could be over gigabytes in size. The Cost Management team worked with the Azure Storage team to test copying large Azure storage blobs. The results are documented in the following sections. You can expect to have similar results as you copy storage blobs from one Azure region to another.
 
 To test its performance, the team transferred blobs from storage accounts in the US West region to the same and other regions. The team measured speeds that ranged from 2 GB per second in the same region to 150 MB per second to storage accounts in the South East Asia region.
 
