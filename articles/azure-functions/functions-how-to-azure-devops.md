@@ -275,9 +275,7 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ---
 
-
-
-## <a id="container">Deploy a container</a>
+## Deploy a container
 
 You can automatically deploy your code to Azure Functions as a custom container after every successful build.
 
