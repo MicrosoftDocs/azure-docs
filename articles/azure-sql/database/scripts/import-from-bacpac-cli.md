@@ -33,13 +33,13 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/import-from-bacpac/import-from-bacpac.sh "Create SQL Database")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/import-from-bacpac/import-from-bacpac.sh" range="4-48":::
 
 ### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $resourceGroup
 ```
 

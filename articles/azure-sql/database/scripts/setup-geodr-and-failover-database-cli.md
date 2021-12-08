@@ -32,13 +32,13 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.sh "Set up active geo-replication for single database")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.sh" range="4-46":::
 
 ### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $resourceGroup
 ```
 

@@ -32,13 +32,14 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh "Set up a failover group")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-database-failover-group.sh" range="4-45":::
 
 ### Clean up deployment
 
 Use the following command to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
+az group delete --name $failoverResourceGroup -y
 az group delete --name $resourceGroup
 ```
 

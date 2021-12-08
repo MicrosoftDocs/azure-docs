@@ -32,13 +32,13 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh "Move database between pools")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/move-database-between-pools/move-database-between-pools.sh" range="4-39":::
 
 ### Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $resourceGroup
 ```
 

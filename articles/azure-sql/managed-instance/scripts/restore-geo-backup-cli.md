@@ -36,7 +36,15 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/restore-geo-backup-cli.sh" range="3-150":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/restore-geo-backup-cli.sh" range="4-27":::
+
+### Clean up deployment
+
+Use the following command to remove the resource group and all resources associated with it.
+
+```azurecli
+az group delete --name $resourceGroup
+```
 
 ## Sample reference
 

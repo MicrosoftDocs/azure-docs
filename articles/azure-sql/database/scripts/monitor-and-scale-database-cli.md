@@ -35,7 +35,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-[!code-azurecli-interactive[main](../../../../cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh "Monitor and scale a database in Azure SQL Database")]
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.sh" range="4-32":::
 
 > [!TIP]
 > Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) to get a list of operations performed on the database, and use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) to cancel an update operation on the database.
@@ -44,7 +44,7 @@ az account set -s $subscription # ...or use 'az login'
 
 Use the following command to remove the resource group and all resources associated with it.
 
-```azurecli-interactive
+```azurecli
 az group delete --name $resourceGroup
 ```
 
