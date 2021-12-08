@@ -274,6 +274,41 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 ![Search for the Azure Functions release template](media/functions-how-to-azure-devops/release-template.png)
 
 ---
+
+## Deploy to a slot
+
+#### [YAML](#tab/yaml/)
+
+You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
+
+The following YAML snippet shows how to deploy to a staging slot, and then swap to a production slot:
+
+```yaml
+- task: AzureFunctionApp@1
+  inputs:
+    azureSubscription: <Azure service connection>
+    appType: functionAppLinux
+    appName: <Name of the Function app>
+    package: $(System.ArtifactsDirectory)/**/*.zip
+    deployToSlotOrASE: true
+    resourceGroupName: <Name of the resource group>
+    slotName: staging
+
+- task: AzureAppServiceManage@0
+  inputs:
+    azureSubscription: <Azure service connection>
+    WebAppName: <name of the Function app>
+    ResourceGroupName: <name of resource group>
+    SourceSlot: staging
+    SwapWithProduction: true
+```
+#### [Classic](#tab/classic/)
+
+You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
+
+Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
+
+----
 ## Create a pipeline with Azure CLI
 
 To create a build pipeline in Azure, use the `az functionapp devops-pipeline create` [command](/cli/azure/functionapp/devops-pipeline#az_functionapp_devops_pipeline_create). The build pipeline is created to build and release any code changes that are made in your repo. The command generates a new YAML file that defines the build and release pipeline and then commits it to your repo. The prerequisites for this command depend on the location of your code.
