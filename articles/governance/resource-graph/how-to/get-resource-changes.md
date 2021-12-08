@@ -90,7 +90,7 @@ Each change resource has the following properties:
     Values are: _Insert_, _Update_, _Remove_.
   - **previousValue** - The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_.
   - **newValue** - The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_.
-  - **changeCategory** - Describes what made the change. Values are: _System_ and _User_.
+  - **changeCategory** - Describes the property and the category of changes it accepts. Values are: _System_ and _User_.
 
 - **changeAttributes** - Array of metadata related to the change:
   - **changesCount** - The number of properties changed as part of this change record.
