@@ -13,7 +13,7 @@ ms.date: 12/06/2021
 # Use Managed VNet for your Azure Purview account
 
 > [!IMPORTANT]
-> Currently, managed virtual network and managed private endpoints are available for Azure Purview accounts deployed in the following regions:
+> Currently, managed virtual network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
 > - Canada Central
 > - East US 2
 > - West Europe 
@@ -82,10 +82,8 @@ Interactive authoring capabilities is used for functionalities like test connect
 Before deploying a Managed VNet and Managed VNet runtime for an Azure Purview account, ensure you meet the following prerequisites:
 
 1. An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-<br>
-1. An Azure Purview account deployed in one of the [supported regions](#use-private-endpoints-for-your-azure-purview-account). 
-<br>
-1. You must be a data curator at root collection level in your Azure Purview account.
+2. An Azure Purview account deployed in one of the [supported regions](#supported-regions).
+3. You must be a data curator at root collection level in your Azure Purview account.
 
 ### Deploy and managed VNet runtimes
 
@@ -204,6 +202,13 @@ Currently, the following data sources are supported to have a managed private en
 - Azure Database for PostgreSQL
 
 Additionally, you can deploy managed private endpoints for your Azure Key Vault resources if you need to run scans using any authentication options rather than Managed Identities, such as SQL Authentication or Account Key.  
+
+## Supported regions
+
+Currently, managed virtual network and managed private endpoints are available for Azure Purview accounts that are deployed in the following regions:
+- Canada Central
+- East US 2
+- West Europe 
 
 ## Known limitations
 To view list of current limitations related to Azure Purview private endpoints, see [Azure Purview private endpoints known limitations](./catalog-private-link-troubleshoot.md#known-limitations).
