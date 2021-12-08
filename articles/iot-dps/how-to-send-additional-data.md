@@ -28,7 +28,7 @@ When your device is sending a [register device call](/rest/api/iot-dps/device/ru
         "endorsementKey": "stuff", 
         "storageRootKey": "things" 
     }, 
-    "payload": "A JSON object that contains your additional data." 
+    "payload": { A JSON object that contains your additional data } 
 } 
 ```
 
@@ -49,7 +49,7 @@ If the custom allocation policy webhook wishes to return some data to the device
             } 
         } 
     }, 
-    "payload": "A JSON object that contains the data returned by the webhook." 
+    "payload": { A JSON object that contains the data returned by the webhook } 
 } 
 ```
 
