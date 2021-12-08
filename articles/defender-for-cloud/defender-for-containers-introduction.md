@@ -47,9 +47,12 @@ Defender for Containers protects your clusters whether they're running in:
 
 - **Azure Kubernetes Service (AKS)** - Microsoft's managed service for developing, deploying, and managing containerized applications.
 
-- **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** (preview) - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
+- **Amazon Elastic Kubernetes Service (EKS) in a connected Amazon Web Services (AWS) account** - Amazon's managed service for running Kubernetes on AWS without needing to install, operate, and maintain your own Kubernetes control plane or nodes.
 
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
+
+> [!NOTE]
+> Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
 
 For high-level diagrams of each scenario, see the relevant tabs below. 
 
@@ -73,6 +76,9 @@ When Defender for Cloud protects a cluster hosted in Azure Kubernetes Service, t
 
 ### Architecture diagram of Defender for Cloud and Arc-enabled Kubernetes clusters
 
+> [!NOTE]
+> Defender for Containers' support for Arc-enabled Kubernetes clusters is a preview feature. 
+
 For all clusters hosted outside of Azure, [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) is required to connect the clusters to Azure and provide Azure services such as Defender for Containers. 
 
 With the cluster connected to Azure, an [Arc extension](../azure-arc/kubernetes/extensions.md) collects Kubernetes audit logs data from all control plane nodes in the cluster and send them to the Microsoft Defender for Cloud backend in the cloud for further analysis. The extension is registered with a Log Analytics workspace used as a data pipeline, but the audit log data isn't stored in the Log Analytics workspace.
@@ -86,6 +92,9 @@ Workload configuration information is collected by an Azure Policy add-on. As ex
 ### [**AWS EKS**](#tab/defender-for-container-arch-eks)
 
 ### Architecture diagram of Defender for Cloud and EKS clusters
+
+> [!NOTE]
+> Defender for Containers' support for AWS EKS clusters is a preview feature. 
 
 For all clusters hosted outside of Azure, [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) is required to connect the clusters to Azure and provide Azure services such as Defender for Containers. 
 
@@ -146,13 +155,14 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 ### Scanning images at runtime
 
-Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing run-time visibility of vulnerabilities.
+Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities.
+
 
 ### Run-time protection for Kubernetes nodes and clusters
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Defender for Cloud provides threat protection at the cluster level by analyzing the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a list of the cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
+Threat protection at the cluster level is achieved by analyzing the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a list of the cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
