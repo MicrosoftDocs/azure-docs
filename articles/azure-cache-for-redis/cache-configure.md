@@ -461,6 +461,8 @@ For more information about databases, see [What are Redis databases?](cache-deve
 > * SAVE
 > * SHUTDOWN
 > * SLAVEOF
+> * REPLICAOF
+> * ACL
 > * CLUSTER - Cluster write commands are disabled, but read-only Cluster commands are permitted.
 >
 >
