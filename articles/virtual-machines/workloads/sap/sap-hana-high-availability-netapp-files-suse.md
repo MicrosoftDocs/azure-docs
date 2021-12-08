@@ -742,7 +742,7 @@ We recommend testing the SAP HANA cluster configuration thoroughly, by also doin
 
 ## Next steps
 
-* [Azure Virtual Machines planning and implementation for SAP][planning-guide]
-* [Azure Virtual Machines deployment for SAP][deployment-guide]
-* [Azure Virtual Machines DBMS deployment for SAP][dbms-guide]
+* [Azure Virtual Machines planning and implementation for SAP](./planning-guide.md)
+* [Azure Virtual Machines deployment for SAP](./deployment-guide.md)
+* [Azure Virtual Machines DBMS deployment for SAP](./dbms_guide_general.md)
 * [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
