@@ -1,5 +1,5 @@
 ---
-title: Continuously update function app code using Azure DevOps Pipelines
+title: Continuously update function app code using Azure Pipelines
 description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
 author: juliakm
 ms.topic: conceptual
@@ -8,7 +8,7 @@ ms.author: jukullam
 ms.custom: "devx-track-csharp, devx-track-python"
 ---
 
-# Continuous delivery with Azure DevOps Pipelines
+# Continuous delivery with Azure Pipelines
 
 You can automatically deploy your function to an Azure Functions app by using [Azure Pipelines](/azure/devops/pipelines/). Azure Pipelines lets you automate your software development and continuously test, build, and deploy your code. 
 
@@ -22,7 +22,7 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
   If your team already has one, then make sure you're an administrator of the Azure DevOps project that you want to use.
 
-* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/licensing/concurrent-jobs.md) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/licensing/concurrent-jobs.md). Please note that it may take us 2-3 business days to grant the free tier.
+* An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/licensing/concurrent-jobs.md) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/licensing/concurrent-jobs.md). Note that it may take us 2-3 business days to grant the free tier.
 
 ## Create your Function app
 
@@ -154,7 +154,7 @@ steps:
 
 # [Python](#tab/python)
 
-You can use one of the following samples to create a YAML file to build an app for a specific Python version. Python is supported only for function apps running on Linux.
+Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
 **Version 3.7**
 
