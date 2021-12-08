@@ -36,7 +36,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup-cli/restore-geo-backup-cli.sh" range="4-27":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/sql-managed-instance-restore-geo-backup/restore-geo-backup-cli.sh" range="4-27":::
 
 ### Clean up deployment
 
