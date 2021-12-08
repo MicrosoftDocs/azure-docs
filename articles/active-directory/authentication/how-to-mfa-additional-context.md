@@ -1,16 +1,12 @@
 ---
 title: Use additional context in multifactor authentication (MFA) notifications (Preview) - Azure Active Directory
 description: Learn how to use additional context in MFA notifications
-services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/16/2021
-
 ms.author: justinha
 author: mjsantani
-manager: daveba
-
 ms.collection: M365-identity-device-management
 
 # Customer intent: As an identity administrator, I want to encourage users to use the Microsoft Authenticator app in Azure AD to improve and secure user sign-in events.
@@ -56,7 +52,7 @@ https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMetho
 
 | Relationship | Type | Description |
 |--------------|------|-------------|
-| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget?view=graph-rest-beta) |
+| includeTargets | [microsoftAuthenticatorAuthenticationMethodTarget](/graph/api/resources/passwordlessmicrosoftauthenticatorauthenticationmethodtarget) |
 | collection | A collection of users or groups who are enabled to use the authentication method. |
  
 #### MicrosoftAuthenticator includeTarget properties
@@ -130,7 +126,7 @@ You need to PATCH the entire includeTarget to prevent overwriting any previous c
     "includeTargets": [
         {
             "targetType": "group",
-            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a”,
+            "id": "1ca44590-e896-4dbe-98ed-b140b1e7a53a",
             "authenticationMode": "any",
             "displayAppInformationRequiredState": "enabled",
             "numberMatchingRequiredState": "enabled"

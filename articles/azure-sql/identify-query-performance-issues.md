@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: troubleshooting
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: mathoma, wiassaf, kendralittle
 ms.date: 11/04/2021
 ---
 

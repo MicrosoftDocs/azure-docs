@@ -52,6 +52,10 @@ The following configurations aren't restored after the point-in-time recovery:
 
 You can add these configurations to the restored account after the restore is completed.
 
+## Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
+
 ## Restore scenarios
 
 The following are some of the key scenarios that are addressed by the point-in-time-restore feature. Scenarios [a] through [c] demonstrate how to trigger a restore if the restore timestamp is known beforehand.
