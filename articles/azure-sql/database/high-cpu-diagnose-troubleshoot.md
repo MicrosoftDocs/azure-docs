@@ -19,7 +19,7 @@ ms.date: 12/15/2021
 
 [Azure SQL Database](sql-database-paas-overview.md) provides built-in tools to identify the causes of high CPU usage and to optimize CPU performance. You can use these tools to troubleshoot high CPU usage while it's occurring, or reactively after the incident has completed. You can also enable [automatic tuning](automatic-tuning-overview.md) to proactively reduce CPU usage over time for your database. This article teaches you to diagnose and troubleshoot high CPU with built-in tools in Azure SQL Database.
 
-## Understand your virtual core count
+## Understand virtual core count
 
 It's helpful to understand the number of virtual cores available to your database when diagnosing a high CPU incident. If you have recently made a configuration change to your database, such as changing to a [DTU-based service tier](service-tiers-dtu.md), the change may have reduced the number of virtual cores available.
 
@@ -29,7 +29,7 @@ You can quickly identify the virtual core count for a database in the Azure port
 
 ### Identify virtual core count with Transact-SQL
 
-If your database uses a DTU-based Service Tier or if it uses the [Serverless](serverless-tier-overview.md) compute tier, you can identify your virtual core count by querying the database with Transact-SQL.
+If your database uses a DTU-based service tier or if it uses the [Serverless](serverless-tier-overview.md) compute tier, you can identify your virtual core count by querying the database with Transact-SQL.
 
 Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), connect to your database, and run the following query:
 
@@ -256,7 +256,7 @@ In the default view, the **Top Resource Consuming Queries** pane shows queries b
 
 Each bar in the top-left quadrant represents a query. Select a bar to see details for that query. The top-right quadrant of the screen shows how many execution plans are in Query Store for that query, and maps them according to when they were executed and how much of your selected metric was used. Select each plan ID to control which query execution plan is displayed in the bottom half of the screen.
 
-## Reduce CPU usage with manual and automatic tuning
+## Reduce CPU usage
 
 Part of your troubleshooting should include learning more about the queries identified in the previous section. You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database. Consider the following strategies in this section.
 
@@ -313,7 +313,7 @@ GO
 
 Consider experimenting with small changes in the MAXDOP configuration at the database level, or, modifying individual problematic queries to use a non-default MAXDOP using a query hint. For more information, see the examples in [configure max degree of parallelism](configure-max-degree-of-parallelism.md).
 
-## When to add more CPU resources to your database
+## When to add CPU resources
 
 In some cases you may find that your workload's queries and indexes are properly tuned, or that performance tuning requires changes that you cannot make in the short term due to internal processes or other reasons. Adding more CPU resources may be beneficial for these databases. You can [scale database resources with minimal downtime](scale-resources.md).
 
