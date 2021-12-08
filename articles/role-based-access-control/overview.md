@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: overview
 ms.workload: identity
-ms.date: 12/01/2021
+ms.date: 12/08/2021
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
 
@@ -133,13 +133,13 @@ The following diagram is a summary of the evaluation logic.
 
 ## Where is Azure RBAC data stored?
 
-Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information and it's stored as a global unique identifier (GUID) format.
+Role definitions, role assignments, and deny assignments are stored globally to ensure that you have access to your resources regardless of the region you created the resource. The data stored doesn't contain any personal identifiable information.
 
 When a role assignment or any other Azure RBAC data is deleted, the data is globally deleted. Principals that had access to a resource via Azure RBAC data will lose their access. 
 
 ## Why is Azure RBAC data global?
 
-Azure RBAC data is global to ensure you can timely access the resources regardless from where you're accessing. For example, Arina creates a virtual machine in East Asia. Bob, who is a member of Arina's team, works in California. Bob needs to access the virtual machine that was created in East Asia. To grant Bob timely access to the virtual machine, Azure needs to globally replicate the role assignment that grants Bob access to the virtual machine from anywhere Bob is. 
+Azure RBAC data is global to ensure that customers can timely access resources regardless from where you're accessing. Azure RBAC is enforced by Azure Resource Manager, which has a global endpoint and requests are routed to the nearest region for speed and resilience. Therefore, Azure RBAC must be enforced in all regions and the data is replicated to all regions. For example, Arina creates a virtual machine in East Asia. Bob, who is a member of Arina's team, works in California. Bob needs to access the virtual machine that was created in East Asia. To grant Bob timely access to the virtual machine, Azure needs to globally replicate the role assignment that grants Bob access to the virtual machine from anywhere Bob is.
 
 ![Diagram showing Azure RBAC data in multiple regions.](./media/overview/rbac-data-stored.png)
 
