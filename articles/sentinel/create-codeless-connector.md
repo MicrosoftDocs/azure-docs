@@ -22,7 +22,7 @@ Connectors created using CCP are fully SaaS, without any requirements for servic
 
 This article describes the syntax used in the JSON configuration file that defines how your connector works, and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
 
-## Connector configuration overview
+## Define your connector JSON configuration
 
 A codeless connector JSON configuration file defines both the user interface displayed for the connector in Microsoft Sentinel, and the back-end polling connection between Microsoft Sentinel and your data source.
 
@@ -30,7 +30,7 @@ The following sample shows the basic syntax of the JSON configuration file:
 
 ```json
 {
-    "kind": "APIPolling",
+    "kind": "<name>",
     "properties": {
         "connectorUiConfig": {...
         },
@@ -40,38 +40,32 @@ The following sample shows the basic syntax of the JSON configuration file:
 }
 ```
 
-Your connector uses the `connectorUiConfig` section to define the visual elements and text displayed on the data connector page in Microsoft Sentinel, and the `pollingConfig` section to define how Microsoft Sentinel collects data from your data source.
-
-For more information, see:
-
-- [User interface configuration](#user-interface-configuration)
-- [Polling configuration](#polling-configuration)
+Your connector uses the `connectorUiConfig` section to define the [visual elements and text](#configure-your-connectors-user-interface) displayed on the data connector page in Microsoft Sentinel, and the `pollingConfig` section to define [how Microsoft Sentinel collects data](#configure-your-connectors-polling-settings) from your data source.
 
 > [!TIP]
 > Before building a connector, we recommend that you learn and understand how the source behaves and exactly what it expects to be connected to. For example, the types of authentication, pagination, and API endpoints are required for successful connections.
 >
 
-## User interface configuration
+## Configure your connector's user interface
 
 This section describes the configuration for how the user interface on the data connector page appears in Microsoft Sentinel.
 
 Each data connector page in Microsoft Sentinel has the following areas, configured using the `connectorUiConfig` section of the [data connector configuration file](#connector-configuration).
 
-- **Title**: The title displayed for your data connector
+|UI area  |Description  |
+|---------|---------|
+|**Title**     |   The title displayed for your data connector      |
+|**Icon**     |   The icon displayed for your data connector      |
+|**Status**     |  Displays whether or not your data connector is connected to Microsoft Sentinel       |
+|**Data charts**     |    Displays relevant queries and the amount of ingested data in the last two weeks.     |
+|**Instructions tab**     | Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and an **Instructions**, with a list of instructions to guide the user in enabling the connector. This section can include text, buttons, forms, tables, and other common widgets to simplify the process.        |
+|**Next steps tab**     |   Includes useful information for understanding how to find data in the event logs, such as sample queries.     |
+|     |         |
 
-- **Icon**: The icon displayed for your data connector
-
-- **Status**: Displays whether or not your data connector is connected to Microsoft Sentinel
-
-- **Data charts**: Displays relevant queries and the amount of ingested data in the last two weeks.
-
-- **Instructions tab**: Includes the following sections:
-    - Prerequisites: A list of minimal validations before the user can enable the connector.
-    - Instructions: A list of instructions to guide the user in enabling the connector. This section can include text, buttons, forms, tables, and other common widgets to simplify the process.
-
-- **Next steps tab**: Includes useful information for understanding how to find data in the event logs, such as sample queries.
+For example, see: TBD
 
 The `connectorUiConfig` section of the configuration file includes the following properties:
+
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -80,6 +74,7 @@ The `connectorUiConfig` section of the configuration file includes the following
 |**publisher**     |    String     |  Your company name       |
 |**descriptionMarkdown**     |  String, in markdown       |   A description for the connector      |
 |**additionalRequirementBanner**     |   String, in markdown      |    Text for the **Prerequisites** section of the **Instructions** tab     |
+| **graphQueriesTableName** | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`
 |**graphQueries**     |   [GraphQuery[]](#graphquery)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
 |**sampleQueries**     | [SampleQuery[]](#samplequery)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
 |**dataTypes**     | [DataTypes[]](#datatypes)        | A list of all data types for your connector, and a query to fetch the time of the last event for each data type.        |
@@ -92,11 +87,15 @@ The `connectorUiConfig` section of the configuration file includes the following
 
 ### GraphQuery
 
+Defines a query that presents data ingestion over the last two weeks in the **Data charts** pane.
+
+Provide either one query for all of the data connector's data types, or a different query for each data type.   
+
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**metricName**     |   String      |  A meaningful name for your graph       |
-|**legend**     |     String    |   The string that appears in the legend to the right of the chart      |
-|**baseQuery**     | String        |    The query that filters for relevant events. For example: `TableName | where ProviderName == “myprovider”`     |
+|**metricName**     |   String      |  A meaningful name for your graph. <br><br>Example: `Total data received`       |
+|**legend**     |     String    |   The string that appears in the legend to the right of the chart, including a variable reference.<br><br>Example: `{{graphQueriesTableName}}`      |
+|**baseQuery**     | String        |    The query that filters for relevant events, including a variable reference. <br><br>Example: `TableName | where ProviderName == “myprovider”` or `{{graphQueriesTableName}}`     |
 |     |         |         |
 
 
@@ -104,51 +103,43 @@ The `connectorUiConfig` section of the configuration file includes the following
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **Description** | String | A meaningful description for the sample query |
-| **Query** | String | Sample query used to fetch the data type's data |
+| **Description** | String | A meaningful description for the sample query <br><br>Example: `Top 10 vulnerabilities detected` |
+| **Query** | String | Sample query used to fetch the data type's data <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
 | | | |
 
 ### DataTypes
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **dataTypeName** | String | A meaningful description for the`lastDataReceivedQuery` query |
-| **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data.
+| **dataTypeName** | String | A meaningful description for the`lastDataReceivedQuery` query, including support for a variable. <br><br>Example: `{{graphQueriesTableName}}` |
+| **lastDataReceivedQuery** | String | A query that returns one row, and indicates the last time data was received, or no data if there is no relevant data. <br><br>Example: {{graphQueriesTableName}}\n | summarize Time = max(TimeGenerated)\n | where isnotempty(Time)
 | | | |
 
-For example:
-
-```kql
-TableName
-| summarize Time = max(TimeGenerated)
-| where isnotempty(Time)`
-```
 
 ### ConnectivityCriteria
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 | **type** | ENUM | Always use `SentinelKindsV2` |
-| **value** | deprecated |<!--unclear about this one, seems identical to above?--> |
+| **value** | deprecated ||
 | | | |
 
-For example:
+### Availability
 
-```kql
-TableName
-| summarize Time = max(TimeGenerated)
-| where isnotempty(Time)
-```
- 
+|Name  |Type  |Description  |
+|---------|---------|---------|
+| **status** | Boolean | Determines whether or not the data connector is available in your workspace. <br><br>Example: `1`|
+| **isPreview** | Boolean |Determines whether the data connector is supported as Preview or not. <br><br>Example: `false` |
+| | | |
 
 ### RequiredConnectorPermissions
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>For example, the **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
-| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>For example, the **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
-| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>For example, the **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
-| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>For example, the **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>Example: The **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
+| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
+| **customs** | `{`<br>`  name:string,`<br>` description:string`<br>`}` | Description of any custom permissions required for your data connection. <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
+| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | | |
 
 #### ResourceProviderPermissions
@@ -174,16 +165,20 @@ TableName
 
 ### Metadata
 
+This section provides metadata used when you're [deploying your data connector as an ARM template](#tab/arm-template).
+
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **id** | 	String | <!--description--> |
-| **kind** 	| String | 	`dataConnector`<!--description--> |
-| **source** | 	`{`<br>`  kind:string`<br>`  name:string`<br>`}`|<!--description-->|
-| **author** | `{`<br>`  name:string`<br>`}`| <!--description-->|
-| **support** |	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| <!--description-->|
+| **id** | 	String | Define a GUID for your ARM tempalte.  |
+| **kind** 	| String | Define as	`dataConnector` |
+| **source** | 	String |Describe your data source using the following syntax: <br><br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
+| **author** |	String | Describe the data connector author using the following syntax: `{`<br>`  name:string`<br>`}`| 
+| **support** |	String | Describe the support provided for the data connector using the following syntax: 	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| 
 | | | |
 
-### InstructionStep
+### Instructions
+
+This section provides parameters that define the set of instructions that appear on your data connector page in Microsoft Sentinel.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -314,7 +309,7 @@ To define a link as an ARM template, use the following example as a guide:
 The code sample listed above shows a link button that looks like the following image:
 
  :::image type="content" source="media/create-codeless-connector/sample-markdown-link-button.png" alt-text="Screenshot of the link button created by the earlier sample markdown.":::
-#### Instruction steps group
+#### InstructionStep
 
 Displays a group of instructions, expandable (accordion) or non-expandable, separate from the main instructions section.
 
@@ -326,7 +321,7 @@ For example:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**title**     |    String     |         |
+|**title**     |    String     |  Defines the title for the instruction step.       |
 |**instructionSteps**     |  [InstructionStep[]](#instructionstep)       | An array of inner instruction steps (Optional)        |
 |**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
 |**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
@@ -336,7 +331,7 @@ For example:
 
 
 
-## Polling configuration
+## Configure your connector's polling settings
 
 This section describes the configuration for how data is polled from your data source for a codeless data connector.
 
@@ -523,11 +518,11 @@ The following code shows an example of the `pollingConfig` section of the CCP co
 }
 ```
 
-## Connector configuration with placeholders
+## Create a connector configuration template with placeholders
 
 You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
 
-To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the `instructions` section of your JSON file, using the following syntax:
+To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your JSON file, using the following syntax:
 
 ```json
 "instructions": [
@@ -558,51 +553,68 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 | | |
 
 
-## Deploy your connector in your Microsoft Sentinel workspace
+## Deploy your connector in Microsoft Sentinel and start ingesting data
 
-After creating your [JSON configuration file](#connector-configuration), you can deploy your connector in your Microsoft Sentinel workspace via REST API.
+After creating your [JSON configuration file](#connector-configuration), including both the [user interface](#configure-your-connectors-user-interface) and [polling](#configure-your-connectors-polling-settings) configuration, deploy your connector in your Microsoft Sentinel workspace.
 
-> [!TIP]
-> You can also create an ARM template or a Microsoft Sentinel solution to make it simpler for users to deploy your connector. For more information, see the [ARM template GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/ARM-Templates/DataConnectors) for sample templates and the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
->
+1. Use one of the following options to deploy your data connector:
 
-**To deploy your connector via API**:
+    # [ARM template](#tab/arm-template)
 
-1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to deploy your new connector.
+    Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
 
-1. Connect your data source to Microsoft Sentinel by passing credentials and the relevant parameters provided by your data source. Use one the following methods:
+    The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
-    - **Connect via the user interface**: In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
+    TBD on procedure
 
-        The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+    > [!TIP]
+    > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
+    >
+    # [API](#tab/api)
 
-        When you use the Azure portal to connect, user data is sent automatically.
+    1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
 
-    - **Connect via API**: Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+    1. Invoke an [UPSERT](#upsert) API call to Microsoft Sentinel to deploy your new connector. Your data connector is deployed to your Microsoft Sentinel workspace, and is available on the **Data connectors** page.
 
-        Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
+    ---
 
-        |authType  |Attributes  |
-        |---------|---------|
-        |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
-        |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
-        |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
-        |     |         |
+1. Configure your data connector to connect your data source and start ingesting data into Microsoft Sentinel. You can connect to your data source either via the portal, as with out-of-the-box data connectors, or via API.
 
-        If you're using a [template configuration file with placeholder data](#connector-configuration-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+    When you use the Azure portal to connect, user data is sent automatically. When you connect via API, you'll need to send the relevant authentication parameters in the API call.
 
-        ```rest
-        "requestConfigUserInputValues": [
-            {
-               "displayText": "<A display name>",
-               "placeHolderName": "<A placeholder name>",
-               "placeHolderValue": "<A value for the placeholder>",
-               "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
-             }
-        ]
-        ```
+    # [Azure portal](#tab/azure-portal)
 
-    Microsoft Sentinel will attempt to access your data source using the provided credentials and fetch log files. If Microsoft Sentinel succeeds, the API response is `200`, which confirms that Microsoft Sentinel can fetch the log files.
+    In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
+
+    The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP JSON configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+
+    # [API](#tab/api)
+
+    Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
+
+    Use the following API attributes, depending on the [authType](#authtype) defined. For each `authType` parameter, all listed attributes are mandatory and are string values.
+
+    |authType  |Attributes  |
+    |---------|---------|
+    |**Basic**     |  Define: <br>- `kind` as `Basic` <br>- `userName` as your username, in quotes <br>- `password` as your password, in quotes     |
+    |**APIKey**     |Define: <br>- `kind` as `APIKey` <br>- `APIKey` as your full API key string, in quotes|
+    |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
+    |     |         |
+
+    If you're using a [template configuration file with placeholder data](#connector-configuration-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+
+    ```rest
+    "requestConfigUserInputValues": [
+        {
+           "displayText": "<A display name>",
+           "placeHolderName": "<A placeholder name>",
+           "placeHolderValue": "<A value for the placeholder>",
+           "pollingKeyPaths": "<Array of items to use in place of the placeHolderName>"
+         }
+    ]
+    ```
+
+    ---
 
 1. In Microsoft Sentinel, go to the **Logs** page and verify that you see the logs from your data source flowing in to your workspace.
 
@@ -614,13 +626,19 @@ If you no longer need your connector's data, disconnect the connector to stop th
 
 Use one of the following methods:
 
-- **Disconnect via the user interface**: In your Microsoft Sentinel data connector page, select **Disconnect**.
+# [Azure portal](#tab/arm-template)
 
-- **Disconnect via API** Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
+In your Microsoft Sentinel data connector page, select **Disconnect**.
+# [API](#tab/api)
 
-    ```rest
-    https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
-    ```
+Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
+
+```rest
+https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
+```
+
+---
+
 
 ## Supported REST API actions
 
