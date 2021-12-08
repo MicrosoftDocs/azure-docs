@@ -49,7 +49,7 @@ For quick steps for configuring VM insights and enabling monitoring for a virtua
 For general information about enabling insights and a variety of methods for onboarding virtual machines, see [Enable VM insights overview](../azure-monitor/vm/vminsights-enable-overview.md).
 
 ## Collect guest metrics and logs
-Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. To collect metrics from the guest operating system of the virtual machine, though, you must install an agent. When you enable [VM insights](#vm-insights), the Log Analytics agent is installed and starts sending performance data to Azure Monitor logs, which then enables the **Performance** and **Map** views. For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring for Azure virtual machines](../azure-monitor/vm/tutorial-monitor-vm-enable.md).
+Azure Monitor starts automatically collecting metric data for your virtual machine host when you create the VM. To collect metrics from the guest operating system of the virtual machine, though, you must install an agent. When you enable [VM insights](#vm-insights), the Log Analytics agent is installed and starts sending performance data to Azure Monitor Logs, which then enables the **Performance** and **Map** views. For a tutorial on enabling VM insights for a virtual machine, see [Enable monitoring for Azure virtual machines](../azure-monitor/vm/tutorial-monitor-vm-enable.md).
 
 After you've enabled VM insights, install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) so that you can collect guest logs from your virtual machine and send guest metrics to the Azure Monitor **Metrics** pane. By doing so, you can also [analyze metrics on the Metrics pane](#analyze-metrics). To learn how to install the Azure Monitor agent and create a data collection rule that defines the data to collect, see [Tutorial: Collect guest logs and metrics from an Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-guest.md).
 
@@ -63,7 +63,7 @@ The **Overview** pane includes the most common host metrics, and you can access 
 For a list of the available metrics, see [Reference: Monitoring Azure virtual machine data](monitor-vm-reference.md#metrics) . 
 
 ## Analyze logs
-Data in Azure Monitor logs is stored in a Log Analytics workspace, where it's separated into tables, each with its own set of unique properties. 
+Data in Azure Monitor Logs is stored in a Log Analytics workspace, where it's separated into tables, each with its own set of unique properties. 
 
 VM insights store the collected data in logs, and the insights provide performance and map views that you can use to interactively analyze the data. You can work directly with this data to drill down further or perform custom analyses. For more information and to get sample queries for this data, see [How to query logs from VM insights](../azure-monitor/vm/vminsights-log-search.md).
 
