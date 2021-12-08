@@ -11,7 +11,7 @@ services: iot-dps
 
 # How to transfer payloads between devices and DPS
 
-Sometimes DPS needs more data from devices to properly provision them to the right IoT Hub, and that data needs to be provided by the device. Vice versa, DPS can return data to the device to facilitate client side logics. 
+Sometimes DPS needs more data from devices to properly provision them to the right IoT Hub, and that data needs to be provided by the device. Vice versa, DPS can return data to the device to facilitate client side logics.
 
 ## When to use it
 
@@ -55,8 +55,10 @@ If the custom allocation policy webhook wishes to return some data to the device
 
 ## SDK support
 
-This feature is available in C, C#, JAVA and Node.js [client SDKs](./index.yml).  
+This feature is available in C, C#, JAVA and Node.js client SDKs. To learn more about the Azure IoT SDKs available for IoT Hub and the IoT Hub Device Provisioning service, see [Microsoft Azure IoT SDKs]( https://github.com/Azure/azure-iot-sdks).
+
+IoT Plug and Play (PnP) devices use the payload to send their model ID when registering with DPS. You can find examples of this usage in the PnP samples in the SDK or sample repositories. For example [C# PnP thermostat](https://github.com/Azure-Samples/azure-iot-samples-csharp/blob/main/iot-hub/Samples/device/PnpDeviceSamples/Thermostat/Program.cs) or [Node.js PnP temperature controller](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/pnp_temperature_controller.js).
 
 ## Next steps
 
-* Develop using the [Azure IoT SDK]( https://github.com/Azure/azure-iot-sdks) for Azure IoT Hub and Azure IoT Hub Device Provisioning Service
+* To learn how to provision devices using a custom allocation policy, see [How to use custom allocation policies](./how-to-use-custom-allocation-policies.md)
