@@ -28,7 +28,7 @@ By default, when you delete a VM it only deletes the VM resource, not the networ
 1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
 1. Under **Disk options**, select **Delete with VM** to delete the OS disk when you delete the VM.
 
-        :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
+    :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
 1. Under **Data disks**, you can choose which data disks, if any, to delete when you delete the VM.
 1. When you are done adding your disk information, select **Next : Networking >**. The **Networking** tab will open.
