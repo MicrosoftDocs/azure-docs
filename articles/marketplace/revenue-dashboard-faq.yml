@@ -15,7 +15,7 @@ summary: |
   This article addresses commonly asked questions about the revenue dashboard in Partner Center.
 
 sections:
-  - Single section - Ignored
+  - name: Ignored
     questions:
       - question: Is estimated revenue the billed sales or amount invoiced to customers?
         answer: | 
