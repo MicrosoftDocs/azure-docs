@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 12/08/2021
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -666,7 +666,7 @@ Here is an example resource definition for an Office 365 Outlook connection and 
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -760,7 +760,7 @@ This example shows the interactions between your logic app's resource definition
       },
       // Office 365 Outlook API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          // Template parameter reference for connection name
          "name": "[parameters('office365_1_Connection_Name')]",
@@ -923,7 +923,7 @@ Here is an example that provides the account name and access key for an Azure Bl
       },
       // Azure Blob Storage API connection resource definition
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -957,7 +957,7 @@ Some connections support using an Azure Active Directory (Azure AD) [service pri
 ```json
 {
    <other-template-objects>
-   "type": "MICROSOFT.WEB/CONNECTIONS",
+   "type": "Microsoft.Web/connections",
    "apiVersion": "2016-06-01",
    "name": "[parameters('azuredatalake_1_Connection_Name')]",
    "location": "[parameters('LogicAppLocation')]",
@@ -1251,7 +1251,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          ]
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('office365_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
@@ -1263,7 +1263,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          }
       },
       {
-         "type": "MICROSOFT.WEB/CONNECTIONS",
+         "type": "Microsoft.Web/connections",
          "apiVersion": "2016-06-01",
          "name": "[parameters('azureblob_1_Connection_Name')]",
          "location": "[parameters('LogicAppLocation')]",
