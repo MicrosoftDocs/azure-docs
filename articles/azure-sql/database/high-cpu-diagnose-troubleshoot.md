@@ -67,14 +67,12 @@ Use the Azure portal to track various CPU metrics, including the percentage of a
 
 Follow these steps to find CPU percentage metrics.
 
-1. Navigate to the database in the Azure portal. 
-1. Under **Intelligent Performance** in the left menu, select **Performance overview**.
+1. Navigate to the database in the Azure portal.
+1. Under **Intelligent Performance** in the left menu, select **Query Performance Insight**.
 
-:::image type="content" source="./media/high-cpu-troubleshoot/azure-portal-performance-overview.png" alt-text="Screenshot shows Performance overview in the Azure portal.":::
+The default view of Query Performance Insight shows 24 hours of data. CPU usage is shown as a percentage of total available CPU used for the database. The top five queries running in that period are displayed in vertical bars above the CPU usage graph.
 
-The performance overview default view shows 24 hours of data. CPU usage is shown as a percentage of total available CPU used for the database. The top five queries running in that period are displayed in vertical bars above the CPU usage graph.
-
-Select a time period on the chart to open Query Performance Insight in a new window, where you may customize the time period using drop-down menus at the top of the screen. You may also increase the number of queries shown.
+Select a band of time on the chart or use the **Customize** menu to explore specific time periods. You may also increase the number of queries shown.
 
 :::image type="content" source="./media/high-cpu-troubleshoot/azure-portal-query-performance-insight.png" alt-text="Screenshot shows Query Performance Insight in the Azure portal.":::
 
@@ -193,9 +191,7 @@ ORDER BY total_cpu_millisec DESC;
 GO
 ```
 
-This query groups by a hashed value of the query. 
-
-If you find a high value in the `number_of_distinct_query_ids` column, investigate if a frequently run query is not properly parameterized. Non-parameterized queries require CPU for each compilation and [impact the performance of Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store#Parameterize).
+This query groups by a hashed value of the query. If you find a high value in the `number_of_distinct_query_ids` column, investigate if a frequently run query is not properly parameterized. Non-parameterized queries require CPU for each compilation and [impact the performance of Query Store](/sql/relational-databases/performance/best-practice-with-the-query-store#Parameterize).
 
 To learn more about an individual query, note the query hash and use it to [Identify the CPU usage and query plan for a given query hash](#identify-the-cpu-usage-and-query-plan-for-a-given-query-hash).
 
@@ -263,7 +259,14 @@ This query returns one row for each variation of an execution plan for the `quer
 
 ### Use interactive Query Store tools to track CPU time over history
 
-If you prefer to use graphic tools, open SSMS and connect to your database in Object Explorer. Expand the database node in Object Explorer, then expand the **Query Store** folder. Open the **Overall Resource Consumption** pane. Total CPU time for your database over the last month in milliseconds is shown in the bottom-left portion of the pane. In the default view, CPU time is aggregated by day.
+If you prefer to use graphic tools, follow these steps to use the interactive Query Store tools in SSMS.
+
+1. Open SSMS and connect to your database in Object Explorer.
+1. Expand the database node in Object Explorer
+1. Expand the **Query Store** folder.
+1. Open the **Overall Resource Consumption** pane.
+ 
+Total CPU time for your database over the last month in milliseconds is shown in the bottom-left portion of the pane. In the default view, CPU time is aggregated by day.
 
 ![Screenshot shows the Overall Resource Consumption view of Query Store in SSMS.](./media/high-cpu-troubleshoot/ssms-query-store-resources-consumption.png)
 
@@ -282,7 +285,7 @@ Each bar in the top-left quadrant represents a query. Select a bar to see detail
 ## Reduce CPU usage
 Part of your troubleshooting should include learning more about the queries identified in the previous section. You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database.
 
-1. If you found new queries using significant CPU appearing in the workload, validate that indexes have been optimized for those queries. You can [tune indexes manually](#tune-indexes-manually) or [reduce CPU usage with automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning).
+1. If you found new queries using significant CPU appearing in the workload, validate that indexes have been optimized for those queries. You can [tune indexes manually](#tune-indexes-manually) or [reduce CPU usage with automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
 1. If you found queries in the workload with [query plan regression](intelligent-insights-troubleshoot-performance.md#plan-regression), consider [automatic plan correction (force plan)](#reduce-cpu-usage-with-automatic-plan-correction-force-plan). You can also [manually force a plan in Query Store](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) or tune the Transact-SQL for the query to result in a consistently high-performing query plan.
 1. If you found that the overall execution count of queries is higher than it used to be, [tune indexes for your highest CPU consuming queries](#tune-indexes-manually) and consider [automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
 1. If you found evidence that a large amount of compilation or recompilation is occurring, [tune the queries so that they are properly parameterized or do not require recompile hints](#tune-your-application-queries-and-database-settings).
