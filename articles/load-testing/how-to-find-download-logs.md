@@ -22,7 +22,7 @@ When you run a load test, the Azure Load Testing test engines execute your Apach
 ## Prerequisites  
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-- You need an Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
+- An Azure Load Testing resource that has a completed test run. If you need to create an Azure Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md).  
 
 ## Access and download logs for your load test  
 
@@ -37,7 +37,7 @@ In this section, you retrieve and download the Azure Load Testing logs from the 
    >[!TIP]
    > To limit the number of tests, use the search box and the **Time range** filter.
 
-1. In the list of tests, select the test run you're working with to view the test run details page.
+1. In the list of tests, select the test run you're working with to view its details.
 
     :::image type="content" source="media/how-to-find-download-logs/test-run.png" alt-text="Screenshot that shows a list of test runs for the selected load test.":::  
 
