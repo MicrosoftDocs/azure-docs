@@ -33,6 +33,9 @@ To create any of the Azure Cosmos DB resources below, copy the following example
 
 This template creates an Azure Cosmos account in two regions with options for consistency and failover, with database and container configured for autoscale throughput that has most policy options enabled. This template is also available for one-click deploy from Azure Quickstart Templates Gallery.
 
+> [!NOTE]
+> You can use Azure Resource Manager templates to create new autoscale databases/containers and change the autoscale max RU/s setting on an existing database/container that is already configured with autoscale. By design, migrating between manual and autoscale throughput is not supported with Azure Resource Manager templates. To do this programatically, you can use [Azure CLI](how-to-provision-autoscale-throughput.md#azure-cli) or [PowerShell](how-to-provision-autoscale-throughput.md#azure-powershell).
+
 [:::image type="content" source="../../media/template-deployments/deploy-to-azure.svg" alt-text="Deploy to Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.documentdb%2Fcosmosdb-sql-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.documentdb/cosmosdb-sql-autoscale/azuredeploy.json":::

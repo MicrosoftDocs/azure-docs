@@ -61,7 +61,7 @@ sections:
       - question: |
           Does autoscale work with free tier?
         answer: |
-          Yes. In free tier, you can use autoscale throughput on a container. Support for autoscale shared throughput databases with custom max RU/s is not yet available. See how [free tier billing works with autoscale](understand-your-bill.md#azure-free-tier).
+          Yes. In free tier, you can use autoscale throughput on a database or container. See how [free tier billing works with autoscale](understand-your-bill.md#azure-free-tier).
           
       - question: |
           Is autoscale supported for all APIs?
