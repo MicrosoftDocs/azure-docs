@@ -70,6 +70,7 @@ This operation creates an instance type with the following properties:
 > - CPU and memory resources are string values.
 > - CPU can be specified in millicores (`100m`) or in full numbers (`"1"` which is equivalent to `1000m`).
 > - Memory can be specified as a full number + suffix (`1024Mi` for `1024 MiB`).
+> - For Tensorflow training jobs, the parameter server pods are assigned the same CPU and and memory limits as worker pods', but no GPU limits.
 
 ### Create multiple instance types
 
