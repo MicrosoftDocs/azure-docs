@@ -60,7 +60,7 @@ The **Overview** pane includes the most common host metrics, and you can access 
 
 :::image type="content" source="media/monitor-vm/metrics-explorer.png" lightbox="media/monitor-vm/metrics-explorer.png" alt-text="Screenshot of the 'Metrics' pane in Azure Monitor.":::
 
-For a list of the available metrics, see [Reference: Monitoring Azure virtual machine data](monitor-vm-reference.md#metrics) . 
+For a list of the available metrics, see [Reference: Monitoring Azure virtual machine data](monitor-vm-reference.md#metrics). 
 
 ## Analyze logs
 Data in Azure Monitor Logs is stored in a Log Analytics workspace, where it's separated into tables, each with its own set of unique properties. 
@@ -80,7 +80,7 @@ For more information about the various alerts for Azure virtual machines, see th
 - See [Monitor virtual machines with Azure Monitor: Alerts](../azure-monitor/vm/monitor-virtual-machine-alerts.md) for common alert rules for virtual machines. 
 - See [Monitor virtual machines with Azure Monitor: Workloads](../azure-monitor/vm/monitor-virtual-machine-workloads.md) for data you can collect from VM workloads that you can use to create alerts.
 - See [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md) for a tutorial on creating a log query alert rule.
-- For common log alert rules, go to the **Queries** pane in Log Analytics. For **Resource type**, enter *Virtual machines*, and for **Type**, enter *Alerts*.
+- For common log alert rules, go to the **Queries** pane in Log Analytics. For **Resource type**, enter **Virtual machines**, and for **Type**, enter **Alerts**.
 
 
 ## Next steps
