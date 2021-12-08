@@ -118,7 +118,7 @@ In external VNET mode, Azure manages the DNS by default. You can optionally conf
 * For reference, see the [required ports](#required-ports) and network requirements.
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2021-08-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS server(s) for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
 
 ### Required ports  
 
@@ -341,7 +341,7 @@ The following IP addresses are divided by **Azure Environment**. When allowing i
   To address connectivity issues, review [network configuration settings](#network-configuration-issues) and fix required network settings.
 
 * **Incremental updates**  
-  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/2021-08-01/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
+  When making changes to your network, refer to [NetworkStatus API](/rest/api/apimanagement/current-ga/network-status) to verify that the API Management service has not lost access to critical resources. The connectivity status should be updated every 15 minutes.
 
 * **Resource navigation links**  
   An APIM instance hosted on the [`stv1` compute platform](compute-infrastructure.md), when deployed into a Resource Manager VNET subnet, reserves the subnet by creating a resource navigation link. If the subnet already contains a resource from a different provider, deployment will **fail**. Similarly, when you delete an API Management service, or move it to a different subnet, the resource navigation link will be removed.
