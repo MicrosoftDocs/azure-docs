@@ -91,24 +91,13 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
 There are a few different types of DNS configurations available for an application.
 
-| Scenario                                                                                 | Example                                |  DNS record type | Description |
-| ---------------------------------------------------------------------------------------- | -------------------------------------- |  --------------- | ----------- |
-| Map a root domain | `contoso.com`, `example.co.uk`        | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) | To map the root domain, use an A record. Don't use CNAME for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)). |
-| Map a subdomain | `www.mydomain.com`, `foo.mydomain.com` | CNAME                    | To map a subdomain, use a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can also map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. |
-| Map a wildcard domain | `*.contoso.com` | CNAME           | To map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record), use a CNAME record.
-
-# [CNAME](#tab/cname)
-
-For a subdomain like `www` in `www.contoso.com`, create two records according to the following table:
-
-| Record type | Host | Value | Comments |
-| - | - | - |
-| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
-| TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
-
-![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
-    
 # [A](#tab/a)
+
+`contoso.com`, `example.co.uk`  
+
+To map the root domain, use an A record. Don't use CNAME for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)).
+
+[A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A)
 
 - For a root domain like `contoso.com`, create two records according to the following table:
 
@@ -125,8 +114,26 @@ For a subdomain like `www` in `www.contoso.com`, create two records according to
     |--- |--- |--- |
     |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
     |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
-    
+# [CNAME](#tab/cname)
+
+`www.mydomain.com`, `foo.mydomain.com`
+
+ To map a subdomain, use a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can also map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change.
+
+For a subdomain like `www` in `www.contoso.com`, create two records according to the following table:
+
+| Record type | Host | Value | Comments |
+| - | - | - |
+| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
+
+![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+        
 # [Wildcard (CNAME)](#tab/wildcard)
+
+`*.contoso.com`
+
+To map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record), use a CNAME record.
 
 For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
 
@@ -236,7 +243,7 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 
 ## Migrate an active domain
 
-To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure App Service](manage-custom-dns-migrate-domain.md).
+
 
 <a name="virtualdir" aria-hidden="true"></a>
 
