@@ -79,7 +79,7 @@ az account set -s $subscription # ...or use 'az login'
 
 ### block only
 
-:::code language="code-azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="15-20":::
 
 ### Clean up deployment
 
