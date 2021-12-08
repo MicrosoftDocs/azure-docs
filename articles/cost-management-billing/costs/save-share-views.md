@@ -26,7 +26,7 @@ You can also pin the current view to an Azure portal dashboard. The pinned view 
 
 ### To save a view
 
-1. In Cost analysis, make sure that the settings for your current view are those that you want saved.
+1. In Cost analysis, make sure that the settings for your current view are the ones that you want saved.
 2. Under your billing scope or subscription name, select **Save** to update your current view or **Save as** to save a new view.  
     :::image type="content" source="./media/save-share-views/save-options.png" alt-text="Screen shot showing the view save options." lightbox="./media/save-share-views/save-options.png" :::
 1. Enter a name for the view and then select **Save**.  
@@ -38,7 +38,7 @@ You can also pin the current view to an Azure portal dashboard. The pinned view 
 
 1. In Cost analysis, ensure that the currently selected view is the one that you want to share.
 2. Under your billing scope or subscription name, select **Share**.
-3. In the **Share** box, select **Copy to clipbard** to copy the URL and then select **OK**.  
+3. In the **Share** box, select **Copy to clipboard** to copy the URL and then select **OK**.  
         :::image type="content" source="./media/save-share-views/share.png" alt-text="Screen shot showing the Share box." lightbox="./media/save-share-views/share.png" :::
 1. Paste the URL using any application that you like to send to others.
 
@@ -65,4 +65,4 @@ When you want to share information with others that don't have access to Cost an
 ## Next steps
 
 - For more information about creating dashboards, see [Create a dashboard in the Azure portal](../..azure-portal/azure-portal-dashboards.md).
-- To learn more about Cost Managment, see [Cost Manangement + Billing documentation](../index.yml)
+- To learn more about Cost Management, see [Cost Management + Billing documentation](../index.yml)
