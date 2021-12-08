@@ -76,7 +76,7 @@ Migrate data, workloads, and applications by using the pattern that you prefer. 
 
    For HDInsight clusters, you can add storage account configuration settings to the %HADOOP_HOME%/conf/core-site.xml file. If you plan to migrate external Hive tables from Gen1 to Gen2, then make sure to add storage account settings to the %HIVE_CONF_DIR%/hive-site.xml file as well.
 
-   You can modify the settings each file by using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md). To find storage account settings, see [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). This example uses the `fs.azure.account.key` setting to enable Shared Key authorization:
+   You can modify the settings each file by using [Apache Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md). To find storage account settings, see [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html). This example uses the `fs.azure.account.key` setting to enable Shared Key authorization:
 
    ```xml
    <property>

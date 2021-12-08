@@ -44,7 +44,7 @@ Consider the following principles when using an Azure Storage account with HDIns
 
 - **Private containers in storage accounts that aren't connected to a cluster:** You can't access the blobs in the containers unless you define the storage account when you submit the WebHCat jobs.
 
-The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. By default, HDInsight uses the storage accounts defined in the core-site.xml file. You can modify this setting by using [Apache Ambari](../../hdinsight-hadoop-manage-ambari.md). For more information about the storage account settings that can be modified or placed in the core-site.xml file, see these articles:
+The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. By default, HDInsight uses the storage accounts defined in the core-site.xml file. You can modify this setting by using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md). For more information about the storage account settings that can be modified or placed in the core-site.xml file, see these articles:
 
 - [Hadoop Azure Support: Azure Blob Storage](https://hadoop.apache.org/docs/stable/hadoop-azure/index.html)
 - [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
