@@ -646,7 +646,6 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `channelLatencyMs` | string | The time in milliseconds (ms) the ingested video spends in the live event pipeline before it is published to the HLS/DASH manifest for players to download.|
-
 | `latencyResultCode` | string | The result code for the channelLatencyMs calculation. `S_OK` indicates that the live event ingest was received without any problems. Other result codes indicate situations that would cause the channelLatencyMs to have an empty value.  `MPE_KEY_FRAME_INTERVAL_TOO_LARGE` error code indicates that the ingested video source has a very large GOP (key frame distance) that would negatively impact the channel latency.  `MPE_INGEST_DISCONTINUITY` error code indicates that discontinuities were detected on the source stream which can add long-latencies to the channel. |
 
 ### LiveEventTrackDiscontinuityDetected
@@ -694,7 +693,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | The EventGrid topic. This property has the resource ID for the Media Services account. |
+| `topic` | string | The event grid topic. This property has the resource ID for the Media Services account. |
 | `subject` | string | The resource path for the Media Services channel under the Media Services account. Concatenating the topic and subject give you the resource ID for the job. |
 | `eventType` | string | One of the registered event types for this event source. For example, "Microsoft.Media.JobStateChange". |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
@@ -709,6 +708,6 @@ An event has the following top-level data:
 
 ## See also
 
-- [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
-- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [event grid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.event grid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/event grid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 - [Live Event error codes](../live-event-error-codes-reference.md)

@@ -57,7 +57,7 @@ When streaming via RTMPS, check firewall and/or proxy settings to confirm that o
 - Haivision Makito X HEVC
 - [Restream.io](https://restream.io/)
 - OBS Studio
-- [Osprey Talon hardware encoders](https://www.ospreyvideo.com/talon-encoders), [Talon 4K-SC](https://www.amazon.com/dp/B09M7NXQW9?ref=myi_title_dp), [Talon UHD-SC](https://www.amazon.com/dp/B09M7RDC3F?ref=myi_title_dp)
+- [Osprey Talon hardware encoders](https://www.ospreyvideo.com/talon-encoders), Talon 4K-SC, Talon UHD-SC
 - [Streamlabs OBS](https://streamlabs.com/)
 - [Switcher Studio (iOS)](https://www.switcherstudio.com/)
 - Telestream Wirecast (version 13.0.2 or higher due to the TLS 1.2 requirement)
