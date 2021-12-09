@@ -94,7 +94,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ## View CI/CD scan results
 
-1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**.
+1. To view the findings, open the **Recommendations** page. If issues were found, you'll see the recommendation [Container registry images should have vulnerability findings resolved (powered by Qualys)](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/dbd0cb49-b563-45e7-9724-889e799fa648).
 
     ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 

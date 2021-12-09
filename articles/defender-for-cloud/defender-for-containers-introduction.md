@@ -157,6 +157,9 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities.
 
+The new recommendation, **Vulnerabilities in running images should be remediated (powered by Qualys)** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
+
+:::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="test":::
 
 ### Run-time protection for Kubernetes nodes and clusters
 
