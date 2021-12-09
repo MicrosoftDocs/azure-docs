@@ -70,7 +70,7 @@ The [serverless compute tier](serverless-tier-overview.md) is currently availabl
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-<sup>1</sup> Service objectives with smaller max vcore configurations may have insufficient memory for creating and using columnstore indexes.  If encountering performance problems with columnstore, increase the max vcore configuration to increase the max memory available.  
+<sup>1</sup> Service objectives with smaller max vCore configurations may have insufficient memory for creating and using columnstore indexes.  If encountering performance problems with columnstore, increase the max vCore configuration to increase the max memory available.  
 
 <sup>2</sup> For documented max data size values. Reducing max data size reduces max log size proportionally.
 
