@@ -672,12 +672,12 @@
         "articles/marketplace/**/*.md": "mingshen",
         "articles/media-services/**/*.md": "juliako",
         "articles/media-services/*.md": "juliako",
-        "articles/migrate/*.md": "raynew",
+        "articles/migrate/*.md": "v-ssudhir",
         "articles/notebooks/*.md": "joshuapa",
         "articles/service-bus-messaging/*.md": "spelluru",
         "articles/service-fabric/*.md": "sukanyas",
         "articles/service-health/*.md": "robb",
-        "articles/site-recovery/*.md": "v-jysur",
+        "articles/site-recovery/*.md": "v-ssenthilna",
         "articles/stream-analytics/*.md": "jasonh",
         "articles/terraform/**/*.md": "tarcher",
         "articles/virtual-machines/*.md": "cynthn",
@@ -1091,10 +1091,12 @@
           "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-red-hat.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-rhel.md",
           "articles/virtual-machines/workloads/sap/sap-hana-high-availability.md",
           "articles/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-rhel.md"
+          
         ]
       },
       "sensitive-language-sl": {
@@ -1115,6 +1117,7 @@
           "articles/site-recovery/**/*.md",
           "articles/virtual-machines/workloads/sap/dbms-guide-ha-ibm.md",
           "articles/virtual-machines/workloads/sap/hana-vm-troubleshoot-scale-out-ha-on-sles.md",
+          "articles/virtual-machines/workloads/sap/sap-hana-high-availability-netapp-files-suse.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-rhel-ibm-db2-luw.md",
           "articles/virtual-machines/workloads/sap/high-availability-guide-suse-nfs.md",
           "articles/virtual-machines/workloads/sap/large-instance-high-availability-rhel.md",
