@@ -16,7 +16,7 @@ ms.date: 12/09/2021
 In this quickstart, you create a [single database](single-database-overview.md) in Azure SQL Database using either the Azure portal, a PowerShell script, or an Azure CLI script. You then query the database using **Query editor** in the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
+> [Survey to improve Azure SQ## Create a single databaseL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## Prerequisites
 
@@ -116,7 +116,7 @@ Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="25-27":::
 
-## Create a single database
+## Create a single database using Azure CLI
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](serverless-tier-overview.md).
 
