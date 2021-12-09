@@ -12,13 +12,13 @@ ms.custom: mode-other
 
 # Quickstart: Using Chat SDK with React Native
 
-In this quickstart, we'll set up the Chat JavaScript SDK with React Native. See the [Quickstart: Add Chat to your App](./get-started.md) to learn more about using the Communication Services Chat SDK to add real-time chat to your application.
+In this quickstart, we'll set up the Chat JavaScript SDK with React Native. This is supported for Azure Communication JavaScript Chat SDK v1.1.1 and later. 
 
 ## Setting up with React Native
 
 The following steps will be required to run Azure Communication JavaScript Chat SDK with React Native after [initializing your React Native project](https://reactnative.dev/docs/environment-setup#installing-dependencies). 
 
-ACS chat packages currently available are Node packages. Since not all Node modules are compatible with React Native, they require a React Native port in order to work. To make @azure/communication-chat work with React Native, we will install the below mentioned packages that contain React Native ports of the Node core required in @azure/communication-chat.
+ACS chat packages currently available are Node packages. Since not all Node modules are compatible with React Native, they require a React Native port in order to work. To make @azure/communication-chat work with React Native, you will need to install the below mentioned packages that contain React Native ports of the Node core required in @azure/communication-chat.
 
 1. Install `node-libs-react-native` 
    ``` console
@@ -55,7 +55,7 @@ ACS chat packages currently available are Node packages. Since not all Node modu
    import 'react-native-get-random-values';
    import 'react-native-url-polyfill/auto';
    ```
-7. Install Azure Communication Service packages
+7. Install Communication Service packages
    ```console
    npm install @azure/communication-common@1.1.0 --save
 
@@ -63,3 +63,12 @@ ACS chat packages currently available are Node packages. Since not all Node modu
 
    npm install @azure/communication-chat@1.1.1 --save
    ```
+
+## Next steps
+In this quickstart you learned:
+> [!div class="checklist"]
+> * Communication Services packages required to add chat to your app
+> * How to set up Chat SDK for use in React Native environment
+
+For a step by step guide on how to use Chat SDK to start a chat, refer to the [quickstart](./get-started.md?pivots=programming-language-javascript).
+
