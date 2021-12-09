@@ -29,6 +29,8 @@ items:
     href: device-update-compliance.md
   - name: Device update groups
     href: device-update-groups.md
+  - name: Device update deployments
+    href: device-update-deployments.md
   - name: How device update uses Plug and Play
     href: device-update-plug-and-play.md
   - name: Device update networking requirements
