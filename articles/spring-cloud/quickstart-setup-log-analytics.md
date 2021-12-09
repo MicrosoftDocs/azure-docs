@@ -29,7 +29,7 @@ Use the following steps to set up your Log Analytics workspace.
 
 ## Create a Log Analytics Workspace
 
-* To create a workspace, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace).
+* To create a workspace, follow the steps in [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
 
 ## Set up Log Analytics for a new service
 
@@ -47,7 +47,7 @@ Use the following steps to set up your Log Analytics workspace.
 
 1. Fill out the form on the **Diagnostics setting** page.
     * **Diagnostic setting name**: Set a unique name for the given configuration.
-    * **Logs/Categories**: Choose **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings).
+    * **Logs/Categories**: Choose **ApplicationConsole** and **SystemLogs**. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
     * **Destination details**: Choose **Send to Log Analytics workspace** and specify the Log Analytics workspace you created previously.
 
     [![Setup example of diagnostic settings](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png)](media/spring-cloud-quickstart-setup-log-analytics/diagnostic-settings-edit-form.png#lightbox)
@@ -88,7 +88,7 @@ Use the following steps to set up your Log Analytics workspace.
        --query id --output tsv
     ```
 
-1. Set up the diagnostic settings. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings).
+1. Set up the diagnostic settings. For more information on log categories and contents, see [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
 
    ```azurecli
    az monitor diagnositc-settings create \
