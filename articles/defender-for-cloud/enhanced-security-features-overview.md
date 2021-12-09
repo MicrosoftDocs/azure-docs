@@ -80,7 +80,7 @@ No. When you enable [Microsoft Defender for servers](defender-for-servers-introd
 An alternative is to enable Microsoft Defender for servers at the Log Analytics workspace level. If you do this, only servers reporting to that workspace will be protected and billed. However, several capabilities will be unavailable. These include just-in-time VM access, network detections, regulatory compliance, adaptive network hardening, adaptive application control, and more. 
 
 ### If I already have a license for Microsoft Defender for Endpoint can I get a discount for Defender for servers?
-If you've already got a license for Microsoft Defender for Endpoint for Servers (purchased through an Office E5 explicit "Defender for Endpoint **Servers**" license), you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements?view=o365-worldwide#licensing-requirements).
+If you've already got a license for Microsoft Defender for Endpoint for Servers (purchased through an Office E5 explicit "Defender for Endpoint **Servers**" license), you won't have to pay for that part of your Microsoft Defender for servers license. Learn more about [this license](/microsoft-365/security/defender-endpoint/minimum-requirements#licensing-requirements).
 
 To request your discount, [contact Defender for Cloud's support team](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
 
@@ -109,9 +109,9 @@ Yes. If you've configured your Log Analytics agent to send data to two or more d
 Yes. If you've configured your Log Analytics agent to send data to two or more different Log Analytics workspaces (multi-homing), you'll get 500-MB free data ingestion. It's calculated per node, per reported workspace, per day, and available for every workspace that has a 'Security' or 'AntiMalware' solution installed. You'll be charged for any data ingested over the 500-MB limit.
 
 ### Is the 500-MB free data ingestion calculated for an entire workspace or strictly per machine?
-You’ll get 500-MB free data ingestion per day, for every Windows machine connected to the workspace. Specifically for security data types directly collected by Defender for Cloud. 
+You'll get 500-MB free data ingestion per day, for every Windows machine connected to the workspace. Specifically for security data types directly collected by Defender for Cloud. 
 
-This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn’t exceed the **[number of machines] x 500-MB** free limit, you won’t be charged extra.
+This data is a daily rate averaged across all nodes. So even if some machines send 100-MB and others send 800-MB, if the total doesn't exceed the **[number of machines] x 500-MB** free limit, you won't be charged extra.
 
 ### What data types are included in the 500-MB data daily allowance?
 Defender for Cloud's billing is closely tied to the billing for Log Analytics. [Microsoft Defender for servers](defender-for-servers-introduction.md) provides a 500 MB/node/day allocation for Windows machines against the following subset of [security data types](/azure/azure-monitor/reference/tables/tables-category#security):
