@@ -8,7 +8,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ms.author: danlep
 ---
 
@@ -33,7 +33,7 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 
 - DNS records hosted on a DNS server to map the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host the DNS records. 
 
-    For more information about required records, see [DNS configuration ](#dns-configuration), later in this article. 
+    For more information about required records, see [DNS configuration](#dns-configuration), later in this article. 
  
 ## Endpoints for custom domains
 
@@ -55,7 +55,7 @@ There are several API Management service endpoints to which you can assign a cus
 
 ## Domain certificate options
 
-The following table lists the options you have for adding domain certificates in API Management:
+The following table lists the options to add domain certificates in API Management:
 
 |Option|Description|
 |-|-|
@@ -76,17 +76,19 @@ If you choose to upload or import a private certificate to API Management, your 
 
 ### Key vault certificate
 
-When using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md), set them to `autorenew`.
+We recommend using [Azure Key Vault for managing certificates](../key-vault/certificates/about-certificates.md) and setting them to `autorenew`.
 
 If you use Azure Key Vault to manage a custom domain TLS/SSL certificate, make sure the certificate is inserted into Key Vault [as a _certificate_](/rest/api/keyvault/createcertificate/createcertificate), not a _secret_.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
 * When using the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
-* When using command line tools or management API, these permissions must be granted manually, in two steps:
+* When using command-line tools or management API, these permissions must be granted manually, in two steps:
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal Id on that page. 
     1. Give the list and get secrets permissions to this principal Id on the Azure Key Vault containing the certificate.
 
 If the certificate is set to `autorenew` and your API Management tier has an SLA (i.e., in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service.
+
+For more information, see [Use managed identities in Azure API Management](api-management-howto-use-managed-service-identity.md).    
 
 ### Managed TLS certificate
 
@@ -120,18 +122,18 @@ Choose the steps according to the type of domain certificate you want to use.
 1. Select **Add**, or select **Update** for an existing endpoint.
 1. Select **Save**.
 
-# [Key vault](#tab/key-vault)
+# [Key Vault](#tab/key-vault)
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
 1. In the left navigation, select **Custom domains**.
 1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
 1. In the window on the right, select the **Type** of endpoint for the custom domain.
 1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
-1. Under **Certificate**, select **Key Vault** > **Select**.
+1. Under **Certificate**, select **Key Vault** and then **Select**.
     1. Select the **Subscription** from the dropdown list.
     1. Select the **Key vault** from the dropdown list.
-    1. Once the certificates have loaded, select the **Certificate** from the dropdown list.
-    1. Click **Select**.
+    1. Once the certificates have loaded, select the **Certificate** from the dropdown list. Click **Select**.
+    1. In **Client identity**, select a system-assigned identity or auser-assigned [managed identity](api-management-howto-use-managed-service-identity.md) enabled in the instance to access the key vault.
 1. When configuring a Gateway endpoint, select or deselect [other options as necessary](#clients-calling-with-server-name-indication-sni-header), including **Negotiate client certificate** or **Default SSL binding**.
     :::image type="content" source="media/configure-custom-domain/gateway-domain-key-vault-certificate.png" alt-text="Configure gateway domain with Key Vault certificate":::
 1. Select **Add**, or select **Update** for an existing endpoint.
@@ -144,12 +146,10 @@ Choose the steps according to the type of domain certificate you want to use.
 1. Select **+Add**, or select an existing [endpoint](#endpoints-for-custom-domains) that you want to update.
 1. In the window on the right, select the **Type** of endpoint for the custom domain.
 1. In the **Hostname** field, specify the name you want to use. For example, `api.contoso.com`.
-1. Under **Certificate**, select **Managed** if you want to use a free certificate managed by API Management. THe managed certificate is available in preview for the Gateway endpoint only. 
-
-    The **DNS TXT record value** you must  [configure in DNS](#dns-configuration) is displayed. Copy this value.
+1. Under **Certificate**, select **Managed** to enable a free certificate managed by API Management. Te managed certificate is available in preview for the Gateway endpoint only.
+1. Copy the **DNS TXT record value**, and use it to [configure DNS](#dns-configuration).
 1. When configuring a Gateway endpoint, select or deselect [other options as necessary](#clients-calling-with-server-name-indication-sni-header), including **Negotiate client certificate** or **Default SSL binding**.
-:::image type="content" source="media/configure-custom-domain/gateway-domain-free-certifcate.png" alt-text="Configure gateway domain with free certificate":::
-
+    :::image type="content" source="media/configure-custom-domain/gateway-domain-free-certifcate.png" alt-text="Configure gateway domain with free certificate":::
 1. Select **Add**, or select **Update** for an existing endpoint.
 1. Select **Save**.
 ---
