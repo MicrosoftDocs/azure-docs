@@ -14,6 +14,7 @@ ms.custom: contperf-fy21q3
 
 This article provides information on how to view the drive and job status for Azure Import/Export jobs. Azure Import/Export service is used to securely transfer large amounts of data to Azure Blobs and Azure Files. The service is also used to export data from Azure Blob storage.  
 
+
 ## View job and drive status
 
 You can view the status of your import and export jobs in the Azure portal. The procedures differ slightly depending on whether you created the job in the Preview portal or using the Classic experience.
@@ -46,6 +47,7 @@ If you created your import or export job in the Preview portal, you'll track its
 
    [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)
 
+
 ### [Portal (Classic)](#tab/azure-portal-classic)
 
 If you created your import or export job in the Classic Import/Export experience, you'll track the status of the job in the **Import/Export** area of the Azure portal.
@@ -63,6 +65,8 @@ If you created your import or export job in the Classic Import/Export experience
 3. Select and click a job to view job details.
 
    ![Screenshot of the Overview for an Azure Import Export job in the Azure portal. The selected job and the job details are highlighted.](./media/storage-import-export-view-drive-status/job-detail.png)
+
+---
   
 ## View job status
 
