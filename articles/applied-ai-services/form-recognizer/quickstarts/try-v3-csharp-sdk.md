@@ -26,11 +26,11 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart, you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-modeltabgeneral-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-modeltablayout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model (invoice)**](#prebuilt-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt model (invoice)**](#prebuilt-modeltabprebuilt-invoice-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -157,11 +157,11 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
-* [**General document**](#general-document-model)
+* [**General document**](#general-document-modeltabgeneral-document-model)
 
-* [**Layout**](#layout-model)
+* [**Layout**](#layout-modeltablayout-model)
 
-* [**Prebuilt Model**](#prebuilt-model)
+* [**Prebuilt Model**](#prebuilt-modeltabprebuilt-invoice-model)
 
 > [!IMPORTANT]
 >
