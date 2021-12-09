@@ -1194,7 +1194,7 @@
       items:
       - name: Samples overview
         href: database/az-cli-script-samples-content-guide.md?tabs=managed-instance
-      - name: Create a SQL Managed Instance
+      - name: Create SQL Managed Instance
         href: managed-instance/scripts/create-configure-managed-instance-cli.md
       - name: Configure Transparent Data Encryption (TDE)
         href: managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md
