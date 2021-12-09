@@ -3,32 +3,149 @@ title: Azure AD B2C service limits and restrictions
 titleSuffix: Azure AD B2C
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
-author: kengaderdus
-manager: CelesteDG
+author: msmimart
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/02/2021
-ms.author: kengaderdus
+ms.date: 12/09/2021
+ms.author: mimart
 ms.subservice: B2C
-ms.custom: "b2c-support"
+zone_pivot_groups: b2c-policy-type
 ---
 
 # Azure Active Directory B2C service limits and restrictions
 
-This article contains the usage constraints and other service limits for the Azure Active Directory B2C (Azure AD B2C) service.
+[!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
+
+This article outlines the usage constraints and other service limits for the Azure Active Directory B2C (Azure AD B2C) service. These limits are in place to protect by effectively managing threats and ensuring a high level of service quality.
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication and authorization protocols supported by Azure AD B2C, including SAML, Open ID Connect, OAuth2, and ROPC.
+The number and frequency of users authenticating through an Azure AD B2C tenant is gated by the token issuance limits as illustrated in the table below. The below table illustrates the maximum request limits for your Azure AD B2C tenant.
 
 |Category |Limit    |
 |---------|---------|
-|Number of requests per IP address per Azure AD B2C tenant       |6,000/5min          |
-|Total number of requests per Azure AD B2C tenant     |12,000/min          |
+|Maximum requests per IP per Azure AD B2C tenant       |6,000/5min          |
+|Maximum requests per Azure AD B2C tenant     |200/sec          |
 
-The number of requests can vary depending on the number of directory reads and writes that occur during the Azure AD B2C user journey. For example, a simple sign-in journey that reads from the directory consists of 1 request. If the sign-in journey must also update the directory, this operation is counted as an additional request.
+## Endpoint request usage
+
+The number and frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application type.
+
+|Endpoint                 |Endpoint type     |Requests consumed |
+|-----------------------------|---------|------------------|
+|/oauth2/v2.0/token           |Static   |1                 |
+|/openid/v2.0/userinfo        |Static   |1                 |
+|/.well-known/openid-config   |Static   |1                 |
+|/discovery/v2.0/keys         |Static   |1                 |
+|/oauth2/v2.0/logout          |Static   |1                 |
+|/samlp/sso/logout            |Static   |1                 |
+|/oauth2/v2.0/authorize       |Dynamic  |Varies<sup>1</sup>|
+|/samlp/sso/login             |Dynamic  |Varies<sup>1</sup>|
+
+::: zone pivot="b2c-user-flow"
+<sup>1</sup> The type of User Flow determines the total number of requests consumed when using these endpoints.
+
+::: zone-end
+::: zone pivot="b2c-custom-policy"
+<sup>1</sup> The configuration of your Custom Policy determines the total number of requests consumed when using these endpoints.
+::: zone-end
+
+## Token issuance capability
+
+::: zone pivot="b2c-user-flow"
+
+Each type of user flow provides a unique user experience and will consume a different number of requests.
+The token issuance capability of a user flow is dependent on the number of requests consumed by both the static and dynamic endpoints that your application uses. The below table shows the number of requests consumed at a dynamic endpoint for each User Flow.
+
+|User Flow |Requests consumed    |
+|---------|---------|
+|Sign up        |6  |
+|Sign in        |4   |
+|Password reset |4   |
+|Profile edit   |4   |
+|Phone Sign Up and Sign In   |6   |
+
+When you add more features to a User Flow, such as multi-factor authentication, more requests are consumed. The below table shows how many additional requests are consumed when a user interacts with one of these features.
+
+|Feature |Additional requests consumed    |
+|---------|---------|
+|Azure multi-factor authentication          |2   |
+|Email one-time password      |2   |
+|Age gating     |2   |
+|Federated identity provider  |2   |
+
+To obtain the token issuance rate per second for your user flow:
+
+1. Use the tables above to add the total number of requests consumed at the dynamic endpoint.
+2. Add the number of requests expected at the static endpoints based on your application type.
+3. Use the formula below to calculate the token issuance rate per second.
+
+```m
+Tokens/sec = 200/requests-consumed
+```
+
+::: zone-end
+::: zone pivot="b2c-custom-policy"
+
+The token issuance capability of a Custom Policy is dependent on the number of requests consumed by the static and dynamic endpoints that your application uses. The below table shows the number of requests consumed at a dynamic endpoint for the [Azure AD B2C starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+
+|Starter Pack |Scenario |User journey ID |Requests consumed|
+|---------|---------|---------|---------|
+|LocalAccounts| Sign-in| SignUpOrSignIn |2|
+|LocalAccounts|Profile edit| ProfileEdit |2|
+|LocalAccounts SocialAndLocalAccounts| PasswordReset| Password reset| 6|
+|SocialAndLocalAccounts| Federated account sign-in|SignUpOrSignIn| 4|
+|SocialAndLocalAccounts| Federated account sign-up|SignUpOrSignIn| 6|
+|SocialAndLocalAccountsWithMfa| Local account sign-in with MFA|SignUpOrSignIn |6|
+|SocialAndLocalAccountsWithMfa| Federated account sign-in with MFA|SignUpOrSignIn| 8|
+|SocialAndLocalAccountsWithMfa| Federated account sign-up with MFA|SignUpOrSignIn |10|
+
+To obtain the token issuance rate per second for a particular user journey:
+
+1. Use the table above to find the number of requests consumed for your user journey.
+2. Add the number of requests expected at the static endpoints based on your application type.
+3. Use the formula below to calculate the token issuance rate per second.
+
+```m
+Tokens/sec = 200/requests-consumed
+```
+
+## Calculate the token issuance capability of your Custom Policy
+
+When you create your own Custom Policy, each feature which a user traverses through, contributes to the number of requests consumed at the dynamic endpoint. The below table shows how many requests are consumed for each feature in your Custom Policy.
+
+|Feature                                          |Requests consumed|
+|-------------------------------------------------|-----------------|
+|Self-asserted technical profile                  |2                |
+|Phone factor technical profile                   |4                |
+|Email verification (Verified.Email)              |2                |
+|Display Control                                  |2                |
+|Federated identity provider                      |2                |
+
+To obtain the token issuance rate per second for your Custom Policy:
+
+1. Use the table above to calculate the total number of requests consumed at the dynamic endpoint.
+2. Add the number of requests expected at the static endpoints based on your application type.
+3. Use the formula below to calculate the token issuance rate per second.
+
+```m
+Tokens/sec = 200/requests-consumed
+```
+
+::: zone-end
+
+## Best practices
+
+Once Azure AD B2C is fully integrated and deployed within your application, you can optimise the token issuance rate by considering the following configuration options:
+
+1. Increasing access and refresh [token lifetimes](./configure-tokens).
+1. Increasing the Azure AD B2C [web session lifetime](./session-behavior).
+1. Enabling [Keep Me Signed In](./session-behavior#enable-keep-me-signed-in-kmsi).
+1. Caching the [OpenId Connect metadata](./openid-connect#validate-the-id-token) documents at your API's.
+1. Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview).
 
 ## Azure AD B2C configuration limits
 
@@ -43,7 +160,7 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
-|Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
+|Number of policies per Azure AD B2C tenant      |200          |
 |Maximum policy file size      |1024 KB          |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
