@@ -59,9 +59,9 @@ To get detailed estimates for backing up Azure file shares, you can download the
 
 ## How lease snapshot works?
 
-When Azure Backup takes a snapshot, ad-hoc or scheduled, it puts a lock on the snapshot using the lease snapshot capability of the Files platform. The lock protects the snapshots from accidental deletion, lock’s duration is infinite. If a file share has leased snapshots, the deletion is no more a one-click operation. Hence, you also get protection against accidental deletion of the backed-up file share.
+When Azure Backup takes a snapshot, scheduled or on-demand, it adds a lock on the snapshot using the lease snapshot capability of the _Files_ platform. The lock protects the snapshots from accidental deletion, and the lock’s duration is infinite. If a file share has leased snapshots, the deletion is no more a one-click operation. Therefore, you also get protection against accidental deletion of the backed-up file share.
 
-To protect a snapshot from deletion while  restore operation is in progress, Azure Backup checks the lease status on the snapshot. If it's non-leased, it adds a lock by taking a lease on the snapshot.
+To protect a snapshot from deletion while restore operation is in progress, Azure Backup checks the lease status on the snapshot. If it's non-leased, it adds a lock by taking a lease on the snapshot.
 
 The following diagram explains the lifecycle of the lease acquired by Azure Backup:
 
