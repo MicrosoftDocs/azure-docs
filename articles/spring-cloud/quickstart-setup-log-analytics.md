@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: felixsong
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 12/07/2021
+ms.date: 12/09/2021
 ms.custom: devx-track-java, fasttrack-edit, mode-other
 ---
 
