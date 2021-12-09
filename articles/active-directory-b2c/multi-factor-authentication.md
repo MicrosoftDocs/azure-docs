@@ -135,6 +135,6 @@ Learn how to [delete a user's Software OATH token authentication method](/graph/
 
 ## Next steps
 
-- Learn about the [TOTP display control](display-control-totp.md) and [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md)
+- Learn about the [TOTP display control](display-control-time-based-one-time-password.md) and [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md)
 
 ::: zone-end

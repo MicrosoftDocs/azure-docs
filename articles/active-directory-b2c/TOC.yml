@@ -541,7 +541,7 @@
         - name: Verification
           href: display-control-verification.md
         - name: Time-based one-time password (TOTP)
-          href: display-control-totp.md
+          href: display-control-time-based-one-time-password.md
     - name: ClaimsProviders
       href: claimsproviders.md
       items:

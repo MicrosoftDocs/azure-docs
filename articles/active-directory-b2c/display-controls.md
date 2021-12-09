@@ -39,7 +39,7 @@ The **DisplayControl** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Id` | Yes | An identifier that's used for the display control. It can be [referenced](#referencing-display-controls). |
-| `UserInterfaceControlType` | Yes | The type of the display control. Currently supported is [VerificationControl](display-control-verification.md), and [TOTP controls](display-control-totp.md). |
+| `UserInterfaceControlType` | Yes | The type of the display control. Currently supported is [VerificationControl](display-control-verification.md), and [TOTP controls](display-control-time-based-one-time-password.md). |
 
 ### Verification control
 
@@ -49,7 +49,7 @@ The [verification display control](display-control-verification.md) verifies cla
 
 ### TOTP controls
 
-The [TOTP display controls](display-control-totp.md) are a set of display controls that provide TOTP multifactor authentication with the Microsoft Authenticator app. The following image illustrates a TOTP enrollment page with the three display controls.
+The [TOTP display controls](display-control-time-based-one-time-password.md) are a set of display controls that provide TOTP multifactor authentication with the Microsoft Authenticator app. The following image illustrates a TOTP enrollment page with the three display controls.
 
 ![Screenshot showing TOTP display controls](media/display-controls/display-control-totp.png)
 

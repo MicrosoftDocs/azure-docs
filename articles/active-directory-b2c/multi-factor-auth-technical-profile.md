@@ -174,7 +174,7 @@ For subsequent sign-ins, use the [Get available devices](#get-available-devices)
 
 The technical profile:
 
-- Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, with the [TOTP display controls](display-control-totp.md).
+- Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, with the [TOTP display controls](display-control-time-based-one-time-password.md).
 - Uses the Azure AD MFA service to validate the TOTP code.  
 - Checks if a user has already enrolled their device.
 
