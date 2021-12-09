@@ -2,7 +2,7 @@
 title: Archive of what's new in Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ---
 # Archive for what's new in Defender for Cloud?
 
@@ -511,7 +511,7 @@ Security Center includes a built-in vulnerability scanner to help you discover, 
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview).
+Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings).
 
 
 
