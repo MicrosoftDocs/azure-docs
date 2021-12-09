@@ -3,7 +3,7 @@ title: Pay your Microsoft Customer Agreement Azure bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
-ms.reviewer: judupont
+ms.reviewer: lishepar
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
@@ -12,7 +12,7 @@ ms.date: 12/06/2021
 ms.author: banders
 ---
 
-# Pay your Microsoft Customer Agreement Azure bill
+# Pay your Microsoft Customer Agreement Azure and Microsoft  bill
 
 This article applies to customers with a Microsoft Customer Agreement (MCA).
 
@@ -23,6 +23,18 @@ There are two ways to pay for your bill for Azure. You can pay with the default 
 If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *check or wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
+
+## Reserve Bank of India 
+
+**The Reserve Bank of India has issued two new regulations.**
+
+On 1 October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this you may need to make payments manually in the Azure portal. These regulations won't affect the total amount you will be charged for your Azure usage. 
+
+[Learn more about the Reserve Bank of India regulation for recurring payments](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
+
+On 1 January 2022, Microsoft and other online merchants will no longer be storing credit card information. To comply with this regulation Microsoft will be removing all stored card details from Microsoft Azure. To avoid service interruption, you will need to add a payment method and make a one-time payment for all invoices.  
+
+[Learn about the Reserve Bank of India regulation for card storage](https://rbi.org.in/scripts/NotificationUser.aspx?Mode=0&Id=12159)
 
 ## Pay by default payment method
 
