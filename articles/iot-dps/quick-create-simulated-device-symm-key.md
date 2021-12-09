@@ -469,11 +469,11 @@ To update and run the provisioning sample with your device information:
 
 5. In your command prompt, run the following commands to set environment variables used by the sample:
 
+    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
-    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
-
+ 
     ```console
     set PROVISIONING_HOST=<provisioning-global-endpoint>
     ```
