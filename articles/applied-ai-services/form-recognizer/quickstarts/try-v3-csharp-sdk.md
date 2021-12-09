@@ -24,9 +24,9 @@ Get started with Azure Form Recognizer using the C# programming language. Azure 
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
 
-In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
+In this quickstart, you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
@@ -161,13 +161,13 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 * [**Layout**](#layout-model)
 
-* [**Prebuilt Invoice**](#prebuilt-model)
+* [**Prebuilt Model**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
 
-### [General document model](#tab/general-document)
+### [General document model](#tab/general-document-model)
 
 > [!div class="checklist"]
 >
@@ -280,7 +280,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Layout model](#tab/layout)
+### [Layout model](#tab/layout-model)
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 
@@ -365,7 +365,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Prebuilt model](#tab/prebuilt-invoice)
+### [Prebuilt model](#tab/prebuilt-invoice-model)
 
 This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
 
