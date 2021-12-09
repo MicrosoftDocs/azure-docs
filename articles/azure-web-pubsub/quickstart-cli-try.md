@@ -11,7 +11,7 @@ ms.custom: mode-other
 
 # Quickstart: Connect to the Azure Web PubSub instance from CLI
 
-This quickstart shows you how to connect to the Azure Web PubSub instance and publish messages to the connected clients using the [Azure command-line interface (Azure CLI)](/cli/azure).
+This quickstart shows you how to connect to the Azure Web PubSub instance and publish messages to the connected clients using the [Azure CLI](/cli/azure).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
