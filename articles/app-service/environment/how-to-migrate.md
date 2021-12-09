@@ -42,7 +42,7 @@ az network vnet subnet update -g $ASE_RG -n <subnet-name> --vnet-name <vnet-name
 
 ![subnet-delegation](./media/migration/subnet_delegation.jpg)
 
-## 3. Validate migration is possible
+## 3. Validate migration is supported
 
 The following command will check whether your ASE is supported for migration. If you receive an error, you can't migrate at this time. For an estimate of when you can migrate, see the [timeline](migrate.md#preview-limitations). If your environment [won't be supported for migration](migrate.md#migration-tool-limitations) or you want to migrate to ASEv3 manually, see [migration alternatives](migration-alternatives.md).
 
@@ -54,11 +54,10 @@ If there are no errors, your migration is supported and you can continue to the 
 
 ## 4. Generate IP addresses for your new App Service Environment v3
 
-Run the following command to create the new IPs. This step will take about 15 minutes to complete. Don't scale or make changes to your existing ASE during this time.
+Run the following command to create the new IPs. This step will take about 5 minutes to complete. Don't scale or make changes to your existing ASE during this time. The `--debug` flag is included because the response will include the `Location` where you will be able to find the new IPs once they are generated.
 
-<!-- might have to add --verbose to get location, pending testing -->
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration"
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=premigration" --verbose
 ```
 
 Run the following command to check the status of this step.
@@ -67,12 +66,7 @@ Run the following command to check the status of this step.
 az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
 ```
 
-You can also check this status in the portal by heading over to your ASE overview page.
-
-<!-- replace this image -->
-![pre-migration-status](./media/migration/pre-migration-status-sample.png)
-
-Once you get a status of "Succeeded", run the following command to get your new IPs.
+If it's in progress, you will get a status of "Migrating". Once you get a status of "Ready", run the following command to get your new IPs.
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2018-11-01"
@@ -87,16 +81,16 @@ Don't move on to full migration immediately after completing the previous step. 
 Only start this step once you've completed all pre-migration actions listed above and understand the [implications of full migration](migrate.md#full-migration) including what will happen during this time. There will be about one hour of downtime. Don't scale or make changes to your existing ASE during this step.
 
 ```azurecli
-az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration"
+az rest --method post --uri "${ASE_ID}/migrate?api-version=2021-02-01&phase=fullmigration" --verbose
 ```
 
-Run the following command to check the status of your migration.
+Run the following command to check the status of your migration. The status will show as "Migrating" while in progress.
 
 ```azurecli
 az rest --method get --uri "${ASE_ID}?api-version=2018-11-01" --query properties.status
 ```
 
-Once you get a status of "Succeeded", migration is done and you now have an ASEv3.
+Once you get a status of "Ready", migration is done and you have an ASEv3.
 
 Get the details of your new environment by running the following command or by navigating to the [Azure portal](https://portal.azure.com).
 

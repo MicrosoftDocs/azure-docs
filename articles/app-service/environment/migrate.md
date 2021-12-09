@@ -23,6 +23,8 @@ At this time, ASE migrations to v3 are supported for both [Internal Load Balance
 - Canada Central
 - Canada East
 - UK South
+- Germany West Central
+- East Asia
 
 You can find the version of your ASE by navigating to your ASE in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your ASE.
 
@@ -64,7 +66,7 @@ ASEv3 requires the subnet it's in to have a single delegation of `Microsoft.Web/
 
 ### Generate IP addresses for your new App Service Environment v3
 
-The platform will create the [new inbound IP (if you're migrating an internet facing ASE) and the new outbound IP](networking.md#addresses). While these IPs are getting created, activity with your existing ASE won't be interrupted, however, you won't be able to scale or make changes to your existing environment. This process will take about 15 minutes to complete.
+The platform will create the [new inbound IP (if you're migrating an internet facing ASE) and the new outbound IP](networking.md#addresses). While these IPs are getting created, activity with your existing ASE won't be interrupted, however, you won't be able to scale or make changes to your existing environment. This process will take about 5 minutes to complete.
 
 When completed, you'll be given the new IPs that will be used by your future ASEv3. These new IPs have no effect on your existing environment. The IPs used by your existing environment will continue to be used up until your existing environment is shut down during the full migration step.
 
