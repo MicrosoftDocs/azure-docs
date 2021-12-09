@@ -573,12 +573,16 @@ items:
     items: 
     - name: REST API
       items:
-      - name: Answers API 
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
-      - name: Prebuilt API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
-      - name: Authoring API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+      - name: Prebuilt
+        items:
+        - name: Runtime API
+          href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Custom
+        items:
+          - name: Authoring API
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+          - name: Runtime API 
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
