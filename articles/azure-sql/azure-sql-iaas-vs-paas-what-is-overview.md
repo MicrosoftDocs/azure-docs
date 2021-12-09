@@ -10,7 +10,7 @@ ms.topic: overview
 keywords: SQL Server cloud, SQL Server in the cloud, PaaS database, cloud SQL Server, DBaaS, IaaS
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: 
+ms.reviewer: kendralittle
 ms.date: 07/27/2020
 ---
 # What is Azure SQL? 

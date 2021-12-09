@@ -63,7 +63,7 @@ To create a collection, you must have an Azure AD Premium P1 or P2 license.
 > 1. Select the collection you'd like to manage, then select the **Applications** tab.
 > 2. Remove all Office apps from the collection but do not save the changes.
 > 3. Select **+ Add application**.
-> 4. In the **Add applications** page, select all the Office apps you want to add to the collection (including the ones that you removed in step 1).
+> 4. In the **Add applications** page, select all the Office apps you want to add to the collection (including the ones that you removed in step 2).
 > 5. When you're finished adding applications, select **Add**. The list of selected applications appears. You can use the arrows to change the order of applications in the list.
 > 5. Select **Save** to apply the changes.
 

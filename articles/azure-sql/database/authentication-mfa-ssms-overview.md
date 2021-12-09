@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 09/28/2020
 tags: azure-synapse
 ---
