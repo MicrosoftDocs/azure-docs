@@ -39,7 +39,7 @@ The benefits of using role assignment conditions are:
 - **Reduce the number of role assignments you have to create and manage** - You can do this by using a generalized role assignment for a security group, and then restricting the access for individual members of the group using a condition that matches attributes of a principal with attributes of a specific resource being accessed (such as, a blob or a container).
 - **Express access control rules in terms of attributes with business meaning** - For example, you can express your conditions using attributes that represent a project name, business application, organization function, or classification level.
 
-The tradeoff of using conditions is that you need a structured and consistent taxonomy when using attributes across your organization. Attributes must be protected to prevent access from being compromised. Also, conditions must also be carefully designed and reviewed for their effect.
+The tradeoff of using conditions is that you need a structured and consistent taxonomy when using attributes across your organization. Attributes must be protected to prevent access from being compromised. Also, conditions must be carefully designed and reviewed for their effect.
 
 Role-assignment conditions in Azure Storage are supported for blobs. You can use conditions with accounts that have the [hierarchical namespace](../blobs/data-lake-storage-namespace.md) (HNS) feature enabled on them. Conditions are currently not supported for queue, table, or file resources in Azure Storage.
 
