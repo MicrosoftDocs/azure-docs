@@ -53,8 +53,8 @@ With your Azure Cosmos DB account now onboarded, you can create your experiment.
 6. Verify that your experiment looks correct, then click **Review + create**, then **Create.**
 ![Review and create experiment](images/tutorial-service-direct-add-review.png)
 
-## Give experiment permission to your Azure Cosmos DB account
-When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully.
+## Give experiment permission to your target resource
+When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully. These steps can be used for any resource and target type by modifying the role assignment in step #3 to match the [appropriate role for that resource and target type](chaos-studio-fault-providers.md).
 
 1. Navigate to your Azure Cosmos DB account and click on **Access control (IAM)**.
 ![Azure Cosmos DB overview page](images/tutorial-service-direct-access-resource.png)
