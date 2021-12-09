@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 12/09/2021
 ---
 
-# PII Detection cognitive skill
+# Personally Identifiable Information (PII) Detection cognitive skill
 
 The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [Personally Identifiable Information (PII) detection](../cognitive-services/language-service/personally-identifiable-information/overview.md) machine learning models provided by [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
@@ -39,7 +39,7 @@ Parameters are case-sensitive and all are optional.
 | `maskingCharacter` | The character used to mask the text if the `maskingMode` parameter is set to `replace`. The following option is supported: `*` (default). This parameter can only be `null` if `maskingMode` is not set to `replace`. <br/><br/> During the PIIDetectionSkill preview, there was support for additional `maskingCharacter` options `X` and `#`. The `X` and `#` options have since been deprecated and will no longer be supported in the skill going forward. |
 | `domain`   | (Optional) A string value, if specified, will set the PII domain to include only a subset of the entity categories. Possible values include: `phi` (detect confidential health information only), `none`. |
 | `piiCategories`   | (Optional) If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter (defined as a list of strings) with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. See [Supported Personally Identifiable Information (PII) entity categories](../cognitive-services/language-service/personally-identifiable-information/concepts/entity-categories.md) for the full list.  |
-| `modelVersion`   | (Optional) Specifies the [version of the model](..cognitive-services/language-service/personally-identifiable-information/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling personally identifiable information detection. It will default to the most recent version when not specified. We recommend you do not specify this value unless absolutely necessary. |
+| `modelVersion`   | (Optional) Specifies the [version of the model](../cognitive-services/language-service/personally-identifiable-information/how-to-call.md#determine-how-to-process-the-data-optional) to use when calling personally identifiable information detection. It will default to the most recent version when not specified. We recommend you do not specify this value unless it's necessary. |
 
 ## Skill inputs
 

@@ -33,7 +33,7 @@ Parameters are case-sensitive.
 |---------------------|-------------|
 | `defaultLanguageCode` | (Optional) The language code to apply to documents that don't specify language explicitly.  If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 | `maxKeyPhraseCount`   | (Optional) The maximum number of key phrases to produce. |
-| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
+| `modelVersion`   | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless it's necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details. |
 
 ## Skill inputs
 
