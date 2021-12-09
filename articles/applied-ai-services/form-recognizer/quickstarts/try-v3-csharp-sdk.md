@@ -26,11 +26,11 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart, you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document-modeltabgeneral-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#layout-modeltablayout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model (invoice)**](#prebuilt-modeltabprebuilt-invoice-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt model (invoice)**](#prebuilt-model-invoice) Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -157,17 +157,21 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
-* [**General document**](#general-document-modeltabgeneral-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#layout-modeltablayout-model)
+* [**Layout model**](#layout-model)
 
-* [**Prebuilt Model**](#prebuilt-modeltabprebuilt-invoice-model)
+* [**Prebuilt model (invoice)**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
 
-### [General document model](#tab/general-document-model)
+### [General document](#tab/general-document-model)
+
+#### General document model
+
+Extract text, tables, structure, key-value pairs and named entities from documents
 
 > [!div class="checklist"]
 >
@@ -280,7 +284,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Layout model](#tab/layout-model)
+### [Layout](#tab/layout-model)
+
+#### Layout model
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 
@@ -367,7 +373,9 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ### [Prebuilt model](#tab/prebuilt-invoice-model)
 
-This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
+#### Prebuilt model (invoice)
+
+Extract and analyze data from common document types using a pre-trained model.
 
 > [!div class="checklist"]
 >
