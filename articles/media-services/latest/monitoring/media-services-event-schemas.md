@@ -645,7 +645,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `channelLatencyMs` | string | The time in milliseconds (ms) the ingested video spends in the live event pipeline before it is published to  HLS/DASH manifest for players to download.|
+| `channelLatencyMs` | string | The time in milliseconds (ms) the ingested video spends in the live event pipeline before it is published to the HLS/DASH manifest for players to download.|
 
 | `latencyResultCode` | string | The result code for the channelLatencyMs calculation. `S_OK` indicates that the live event ingest was received without any problems. Other result codes indicate situations that would cause the channelLatencyMs to have an empty value.  `MPE_KEY_FRAME_INTERVAL_TOO_LARGE` error code indicates that the ingested video source has a very large GOP (key frame distance) that would negatively impact the channel latency.  `MPE_INGEST_DISCONTINUITY` error code indicates that discontinuities were detected on the source stream which can add long-latencies to the channel. |
 
