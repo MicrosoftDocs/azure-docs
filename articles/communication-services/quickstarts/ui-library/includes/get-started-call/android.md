@@ -8,6 +8,8 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/)
+
 
 ## Prerequisites
 
@@ -16,10 +18,6 @@ ms.service: azure-communication-services
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
-
-### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
-
-### Azure Communication UI open source library for Android can be found [here](https://github.com/Azure/communication-ui-library-android).
 
 ## Setting up
 
