@@ -23,7 +23,7 @@ sections:
       - question: |
           How much time does it takes to restore?
         answer: |
-          Restore time is a function of the data size, amount of log-backup that needs to be replayed and the number of partitions that needs to be restored. Typically for restoring 1TB of data it takes anywhere from 30 min to 90 min.
+          Restore time is a function of the data size, amount of log-backup that needs to be replayed and the number of partitions that needs to be restored. Typically for restoring 1 TB of data it takes anywhere from 30 min to 90 min.
 
       - question: |
           Can I submit the restore time in local time?
@@ -62,7 +62,7 @@ sections:
       - question: |
           How can I find out whether a continuous backup mode account was restored from another account?
         answer: |
-          You can identify if an account is restored and get the restore details using [Azure Portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli)
+          You can identify if an account is restored and get the restore details. For more details, see how to get the restore details using [Azure portal](restore-account-continuous-backup.md#get-the-restore-details-portal), [Azure PowerShell](restore-account-continuous-backup.md#get-the-restore-details-powershell), and [Azure CLI](restore-account-continuous-backup.md#get-the-restore-details-cli) sections.
           
       - question: |
           What is the use of InstanceID in the account definition?
