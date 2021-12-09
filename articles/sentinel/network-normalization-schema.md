@@ -104,7 +104,7 @@ Other ASIM schemas typically use **Target** instead of **Dst**.
 
 ### Common fields
 
-Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Network Schema events:
+Fields common to all schemas are described in the [ASIM schema overview](normalization-about-schemas.md#common). The following fields have specific guidelines for Network Session events:
 
 | Field               | Class       | Type       |  Description        |
 |---------------------|-------------|------------|--------------------|
