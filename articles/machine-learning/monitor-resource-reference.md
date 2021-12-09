@@ -130,7 +130,7 @@ Resource Provider and Type: [Microsoft.MachineLearningServices/workspace](../azu
 | Category | Display Name |
 | ----- | ----- |
 | AmlComputeClusterEvent | AmlComputeClusterEvent |
-| AmlComputeClusterNodeEvent | AmlComputeClusterNodeEvent |
+| AmlComputeClusterNodeEvent (deprecated) | AmlComputeClusterNodeEvent |
 | AmlComputeCpuGpuUtilization | AmlComputeCpuGpuUtilization |
 | AmlComputeJobEvent | AmlComputeJobEvent |
 | AmlRunStatusChangedEvent | AmlRunStatusChangedEvent |
@@ -167,7 +167,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:---|
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | JobId | ID of the Job submitted |
 | ExperimentId | ID of the Experiment |
 | ExperimentName | Name of the Experiment |
@@ -196,7 +196,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:--- |
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | ProvisioningState | Provisioning state of the cluster |
 | ClusterName | Name of the cluster |
 | ClusterType | Type of the cluster |
@@ -239,7 +239,7 @@ The following schemas are in use by Azure Machine Learning
 |:--- |:--- |
 | TimeGenerated | Time when the log entry was generated |
 | OperationName | Name of the operation associated with the log event |
-| Category | Name of the log event, AmlComputeClusterNodeEvent |
+| Category | Name of the log event |
 | ClusterName | Name of the cluster |
 | NodeId | ID of the cluster node created |
 | VmSize | Vm size of the node |
@@ -257,6 +257,9 @@ The following schemas are in use by Azure Machine Learning
 | StartTaskStartTime | Time when task was assigned to a node and started |
 | StartTaskEndTime | Time when task assigned to a node ended |
 | TotalE2ETimeInSeconds | Total time node was active |
+
+> [!NOTE]
+> Effective February 2022, the AmlComputeClusterNodeEvent table will be deprecated. We recommend that you instead use the AmlComputeClusterEvent table.
 
 ### AmlComputeInstanceEvent table
 
