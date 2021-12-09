@@ -141,11 +141,11 @@ Tokens/sec = 200/requests-consumed
 
 You can optimize the token issuance rate by considering the following configuration options:
 
-1. Increasing access and refresh [token lifetimes](./configure-tokens).
-1. Increasing the Azure AD B2C [web session lifetime](./session-behavior).
-1. Enabling [Keep Me Signed In](./session-behavior#enable-keep-me-signed-in-kmsi).
-1. Caching the [OpenId Connect metadata](./openid-connect#validate-the-id-token) documents at your API's.
-1. Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview).
+1. Increasing access and refresh [token lifetimes](./configure-tokens.md).
+1. Increasing the Azure AD B2C [web session lifetime](./session-behavior.md).
+1. Enabling [Keep Me Signed In](./session-behavior#enable-keep-me-signed-in-kmsi.md).
+1. Caching the [OpenId Connect metadata](./openid-connect#validate-the-id-token.md) documents at your API's.
+1. Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview.md).
 
 ## Azure AD B2C configuration limits
 
