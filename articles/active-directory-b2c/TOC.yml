@@ -311,6 +311,7 @@
       items:
       - name: Multi-factor authentication
         href: multi-factor-authentication.md
+        displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
         - name: BlokSec

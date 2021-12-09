@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
+ms.date: 12/09/2021
 ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -65,6 +65,14 @@ An email address that can be used by a [username sign-in account](sign-in-option
 - [Get](/graph/api/emailauthenticationmethod-get)
 - [Update](/graph/api/emailauthenticationmethod-update)
 - [Delete](/graph/api/emailauthenticationmethod-delete)
+
+## Software OATH token authentication method (beta)
+
+ A software OATH token is a software-based number generator that uses the OATH time-based one-time password (TOTP) standard for multifactor authentication via an authenticator app. Use the Microsoft Graph API to manage a software OATH token registered to a user:
+
+- [List](/graph/api/authentication-list-softwareoathmethods)
+- [Get](/graph/api/softwareoathauthenticationmethod-get)
+- [Delete](/graph/api/softwareoathauthenticationmethod-delete)
 
 ## Identity providers
 

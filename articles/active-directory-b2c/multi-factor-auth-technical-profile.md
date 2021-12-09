@@ -1,7 +1,7 @@
 ---
 title: Azure AD MFA technical profiles in custom policies
 titleSuffix: Azure AD B2C
-description: Custom policy reference for Azure AD Multi-Factor Authentication (MFA) technical profiles in Azure AD B2C.
+description: Custom policy reference for Azure AD Multifactor Authentication (MFA) technical profiles in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/9/2021
+ms.date: 12/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -317,3 +317,7 @@ The following example shows an Azure AD MFA technical profile used to verify a T
   </InputClaims>
 </TechnicalProfile>
 ```
+
+## Next steps
+
+- [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
